@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "slug": "navigating-global-supply-chain-disruptions-epc-projects",
+    "title": "Navigating Global Supply Chain Volatility in Mega EPC & Offshore Projects",
+    "excerpt": "How proactive expediting, dual-sourcing strategies, and automated logistics tracking prevent costly schedule slippages in multi-million dollar capital assignments.",
+    "content": "Supply chain volatility remains the single largest risk factor for offshore and industrial EPC contractors today. From raw material price swings in specialty nickel alloys to freight capacity crunches and geopolitical choke points, project managers must evolve from reactive purchasing to predictive strategic sourcing.\n\n### The Core Risk Drivers in Modern EPC Sourcing\nIn mega infrastructure and refinery turnaround projects, the delivery delay of a single bespoke high-pressure valve or titanium heat exchanger can bring field progress to a standstill. Our field analysis indicates that 68% of project delays originate in tier-2 component manufacturing bottlenecks rather than primary fabricators.\n\n### Strategic Mitigations Implemented by OFS Group\n1. **Embedded Resident Expediting:** Deploying qualified inspection engineers directly into vendor manufacturing workshops to verify raw material heat charts, welding progress, and hydrostatic tests in real-time.\n2. **Dynamic Multi-Modal Logistics:** Securing pre-cleared bonded quayside staging yards near JNPT and Mundra ports to assemble modular shipments before charter vessel mobilization.\n3. **Digitized Material Traceability:** Integrating automated milestones tracking so all stakeholders have 100% transparency from raw ingot pour to final job-site staging.",
+    "category": "Procurement & Supply Chain",
+    "author": {
+      "name": "Arun K. Sharma",
+      "role": "Head of Global Procurement",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+    },
+    "date": "August 12, 2026",
+    "readTime": "6 min read",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Procurement", "EPC", "Logistics", "Supply Chain", "Offshore"]
+  },
+  {
+    "id": "2",
+    "slug": "advances-in-ndt-ultrasonic-phased-array-subsea-pipelines",
+    "title": "Advanced Ultrasonic Phased Array (PAUT) for Offshore & Subsea Pipeline Integrity",
+    "excerpt": "A deep dive into why Phased Array Ultrasonic Testing and TOFD are replacing traditional radiography for high-criticality marine weld verifications.",
+    "content": "Ensuring the structural integrity of offshore riser pipes, subsea tiebacks, and high-pressure manifold welds requires inspection methodologies that provide absolute precision without environmental radiation hazards.\n\n### Why PAUT is Outperforming Radiography\nPhased Array Ultrasonic Testing (PAUT) utilizes multi-element transducers to steer, focus, and sweep acoustic beams through welded joints at microsecond intervals. When paired with Time-Of-Flight Diffraction (TOFD), inspectors achieve complete volumetric coverage of weld bevels.\n\nKey advantages include:\n- **Zero Radiation Hazard:** Inspections can occur simultaneously with adjacent hot work and painting operations, eliminating costly plant evacuations.\n- **Instant Sizing and Flaw Characterization:** Flaw height, depth, and orientation are recorded in permanent digital datasets.\n- **ISO & ASME Code Compliance:** Fully meets ASME Section V Article 4 and API 1104 Annex criteria for automated ultrasonic testing.",
+    "category": "Quality Control & QA",
+    "author": {
+      "name": "Rajesh N. Varma",
+      "role": "Lead Quality Assurance & NDT Level III",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+    },
+    "date": "July 28, 2026",
+    "readTime": "5 min read",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["QA/QC", "NDT", "Offshore", "ASME", "Pipelines"]
+  },
+  {
+    "id": "3",
+    "slug": "decarbonizing-industrial-facilities-rooftop-solar-bess-integration",
+    "title": "Decarbonizing Heavy Industrial Facilities with Rooftop Solar & Containerized BESS",
+    "excerpt": "How manufacturing plants and chemical processing units are slashing peak energy tariffs by 35% while meeting national decarbonization targets.",
+    "content": "Heavy manufacturing facilities and continuous-process chemical plants face a twin challenge: rising peak grid power tariffs and stringent ESG mandates to reduce Scope 1 and Scope 2 carbon footprints.\n\n### The Hybrid Rooftop + BESS Synergy\nBy combining high-efficiency N-Type TOPCon bifacial solar arrays on industrial standing-seam roofs with modular Battery Energy Storage Systems (BESS), industrial facilities achieve resilient microgrid independence.\n\n- **Peak Shaving:** Battery systems discharge during 6 PM - 10 PM peak tariff windows, flattening demand charges.\n- **Zero Diesel Dependency:** Clean battery storage provides seamless microsecond power transition during grid blips, protecting sensitive PLC-driven production lines.\n- **Guaranteed ROI:** Typical payback cycles for industrial captive solar projects now average under 3.2 years with accelerated depreciation benefits.",
+    "category": "Renewable Energy",
+    "author": {
+      "name": "Dr. Priya Nair",
+      "role": "Director - Clean Energy Solutions",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+    },
+    "date": "July 14, 2026",
+    "readTime": "7 min read",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Renewables", "Solar", "BESS", "Sustainability", "Industrial"]
+  },
+  {
+    "id": "4",
+    "slug": "preventive-vs-predictive-maintenance-rotating-machinery",
+    "title": "From Preventive to Predictive: Maximizing Uptime on Rotating Machinery",
+    "excerpt": "Leveraging vibration spectral analysis, infrared thermography, and oil ferrography to eliminate catastrophic turbine and compressor downtime.",
+    "content": "Time-based preventive maintenance routines are no longer sufficient for mission-critical rotating machinery such as multi-stage boiler feed pumps, steam turbines, and reciprocating gas compressors.\n\n### The Power of Condition-Based Monitoring (CBM)\nPredictive maintenance uses continuous physical parameter data to detect sub-surface mechanical degradation weeks before audible or thermal symptoms appear.\n\n- **Vibration FFT Spectrum:** Distinguishes between unbalance, shaft misalignment, mechanical looseness, and rolling element bearing race defects.\n- **Oil Condition Analytics:** Measures dielectric constant, moisture contamination, and metallic wear particles (ppm) to schedule oil refreshes purely on necessity.\n- **Cost Impact:** Industrial plants shifting to OFS's structured Predictive AMC report an average 42% reduction in maintenance overhead and zero unplanned catastrophic outages.",
+    "category": "Maintenance & AMC",
+    "author": {
+      "name": "Vikram Desai",
+      "role": "Chief Mechanical Integrity Consultant",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+    },
+    "date": "June 30, 2026",
+    "readTime": "4 min read",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Maintenance", "Predictive AMC", "Turbines", "Vibration", "Machinery"]
+  }
+]

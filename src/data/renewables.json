@@ -1,0 +1,108 @@
+{
+  "title": "OFS Renewables",
+  "division": "Strategic Clean Energy Division",
+  "tagline": "Powering the Global Clean Energy Transition with High-Yield Solar, Storage & EPC Infrastructure.",
+  "heroDescription": "OFS Renewables delivers end-to-end solar EPC support, Tier-1 PV module supply chains, Battery Energy Storage Systems (BESS), and digital O&M platforms designed for enterprise power producers and industrial energy independence.",
+  "metrics": [
+    { "value": "450+ MW", "label": "Solar & Storage Capacity Supported", "numeric": 450, "suffix": " MW" },
+    { "value": "120K+", "label": "Tonnes CO2 Mitigated Annually", "numeric": 120, "suffix": "K+ Tons" },
+    { "value": "99.4%", "label": "Plant Uptime Guaranteed SLA", "numeric": 99.4, "suffix": "%" },
+    { "value": "15+", "label": "Utility & C&I Mega Projects", "numeric": 15, "suffix": "+" }
+  ],
+  "solutions": [
+    {
+      "id": "utility-scale-solar",
+      "slug": "utility-scale-solar",
+      "title": "Utility-Scale Ground Mounted Solar",
+      "shortDesc": "Turnkey procurement, balance-of-system (BOS) supply, and substation integration for 50MW+ solar parks.",
+      "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+      "features": [
+        "Tier-1 N-Type TOPCon & Bifacial Solar Module Sourcing",
+        "Single-Axis Solar Tracker Integration with AI Wind Stowing",
+        "Central & String Inverter Substation Skid Packages (up to 33kV/66kV)",
+        "SCADA Power Plant Controller (PPC) Grid Compliance"
+      ]
+    },
+    {
+      "id": "ci-rooftop-solar",
+      "slug": "ci-rooftop-solar",
+      "title": "Commercial & Industrial (C&I) Rooftop Solar",
+      "shortDesc": "Custom engineered CAPEX and OPEX solar installations for factories, warehouses, and corporate campuses.",
+      "image": "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80",
+      "features": [
+        "Zero-Penetration Standing Seam Roof Clamp Mounting",
+        "Smart Net-Metering & Bi-Directional Energy Export Setup",
+        "Integrated Rapid Shutdown Systems for Fire Safety (NEC 2020)",
+        "30-40% Reduction in Levelized Cost of Electricity (LCOE)"
+      ]
+    },
+    {
+      "id": "battery-energy-storage",
+      "slug": "battery-energy-storage",
+      "title": "Battery Energy Storage Systems (BESS)",
+      "shortDesc": "Lithium Iron Phosphate (LFP) containerized battery storage for peak shaving, frequency regulation, and backup.",
+      "image": "https://images.unsplash.com/photo-1558441719-8b449c6ff670?auto=format&fit=crop&w=800&q=80",
+      "features": [
+        "Utility Containerized LFP Energy Storage (2MWh to 100MWh)",
+        "Liquid Cooling Thermal Management & UL9540A Fire Safety",
+        "Sub-Second Response for Grid Frequency Stabilization",
+        "Peak Arbitrage & Seamless Diesel Generator Hybridization"
+      ]
+    },
+    {
+      "id": "floating-solar-systems",
+      "slug": "floating-solar-systems",
+      "title": "Floating Solar (FPV) Systems",
+      "shortDesc": "Innovative water-surface solar arrays for reservoirs, dams, and industrial effluent retention ponds.",
+      "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80",
+      "features": [
+        "UV-Stabilized HDPE Floats with 25-Year Marine Durability",
+        "Tension-Engineered Mooring & Anchoring Systems for Variable Water Levels",
+        "10-15% Higher Energy Yield Due to Natural Water Evaporative Cooling",
+        "Reduces Water Reservoir Evaporation by up to 70%"
+      ]
+    },
+    {
+      "id": "solar-om-digital-monitoring",
+      "slug": "solar-om-digital-monitoring",
+      "title": "Digital O&M & Robotic Cleaning",
+      "shortDesc": "Autonomous waterless robotic panel cleaning, drone thermography, and predictive maintenance algorithms.",
+      "image": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80",
+      "features": [
+        "Autonomous Waterless Robotic Cleaning Robots (Save 100% Water)",
+        "Aerial Drone Infrared Thermography for Hot-Spot Detection",
+        "String-Level I-V Curve Tracing & Degradation Analytics",
+        "Guaranteed 99.5% PR (Performance Ratio) Compliance"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "rajasthan-solar-park",
+      "title": "150 MW Utility Solar Farm EPC Supply",
+      "location": "Bhadla, Rajasthan",
+      "type": "Utility Scale",
+      "specs": "150 MWp / 33kV Substation",
+      "impact": "180,000 Homes Powered | 210,000 Tons CO2 Saved/Yr",
+      "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "kerala-floating-solar",
+      "title": "25 MW Floating Solar Array",
+      "location": "Reservoir Basin, Kerala",
+      "type": "Floating Solar (FPV)",
+      "specs": "25 MWp / HDPE Floats / Underwater Cabling",
+      "impact": "Conserves 100M+ Liters Reservoir Water Yearly",
+      "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "gujarat-bess-facility",
+      "title": "40 MWh Grid-Scale BESS Installation",
+      "location": "Kutch, Gujarat",
+      "type": "Energy Storage (BESS)",
+      "specs": "40 MWh / LFP Liquid Cooled / SCADA Interfaced",
+      "impact": "Eliminated Peak Power Blackouts for 12 Industrial Plants",
+      "image": "https://images.unsplash.com/photo-1558441719-8b449c6ff670?auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}

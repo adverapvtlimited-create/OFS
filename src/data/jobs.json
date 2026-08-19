@@ -1,0 +1,118 @@
+[
+  {
+    "id": "senior-procurement-manager",
+    "slug": "senior-procurement-manager",
+    "title": "Senior Procurement Manager - Marine & Heavy EPC",
+    "department": "Supply Chain & Procurement",
+    "location": "Mumbai, Maharashtra (Headquarters)",
+    "type": "Full-Time",
+    "experience": "8-12 Years",
+    "postedDate": "August 05, 2026",
+    "description": "We are seeking a seasoned Senior Procurement Manager to lead our strategic global vendor sourcing and contractual negotiations for mega EPC and marine offshore projects.",
+    "responsibilities": [
+      "Develop and execute strategic sourcing plans for API-grade piping, valves, marine equipment, and structural packages.",
+      "Lead commercial and contractual negotiations with international Tier-1 OEMs across Europe, Middle East, and Asia.",
+      "Collaborate with project directors to establish milestone-based procurement schedules and risk registers.",
+      "Manage port logistics, bonded warehouse operations, and customs clearance procedures."
+    ],
+    "requirements": [
+      "Bachelor's degree in Mechanical/Marine Engineering or Supply Chain Management; MBA is a plus.",
+      "8+ years of hands-on experience in EPC, Oil & Gas, or Marine offshore procurement.",
+      "Proven network of global supplier relationships and familiarity with INCOTERMS 2020.",
+      "Strong command of ERP systems (SAP/Oracle) and contract law."
+    ],
+    "benefits": [
+      "Competitive executive salary with performance-linked annual bonus",
+      "Comprehensive medical insurance for family and dependents",
+      "Professional development and international conference sponsorship",
+      "Executive wellness allowance and gratuity coverage"
+    ]
+  },
+  {
+    "id": "qa-qc-lead-ndt-level-iii",
+    "slug": "qa-qc-lead-ndt-level-iii",
+    "title": "Lead QA/QC & Inspection Engineer (NDT Level III)",
+    "department": "Quality & Compliance",
+    "location": "Navi Mumbai / Site Deployments",
+    "type": "Full-Time",
+    "experience": "6-10 Years",
+    "postedDate": "July 25, 2026",
+    "description": "Lead quality surveillance, witness factory acceptance tests (FAT), and oversee non-destructive testing for high-pressure piping and offshore structures.",
+    "responsibilities": [
+      "Formulate project-specific Inspection & Test Plans (ITP) in alignment with ASME, API, and ISO 9001:2015 standards.",
+      "Execute and witness advanced NDT methods (PAUT, TOFD, Radiography) at vendor yards.",
+      "Review and approve Welder Performance Qualifications (WPQ) and PQR/WPS dossiers.",
+      "Conduct internal and supplier quality audits, managing Non-Conformance Reports (NCRs) to closure."
+    ],
+    "requirements": [
+      "B.E. / B.Tech in Metallurgy, Mechanical, or Production Engineering.",
+      "ASNT Level III or CSWIP 3.2 certification in Ultrasonic Testing and Radiography.",
+      "6+ years experience in heavy engineering, refinery turnarounds, or offshore fabrication.",
+      "Working knowledge of ASME Section VIII & B31.3 codes."
+    ],
+    "benefits": [
+      "Competitive compensation package with offshore site allowances",
+      "Full coverage health and accidental insurance",
+      "Certification renewal and advanced testing training support",
+      "Paid annual leave and travel logistics assistance"
+    ]
+  },
+  {
+    "id": "solar-epc-project-engineer",
+    "slug": "solar-epc-project-engineer",
+    "title": "Project Engineer - Utility Scale Solar & BESS",
+    "department": "Renewables Division",
+    "location": "Ahmedabad / Project Sites (Gujarat & Rajasthan)",
+    "type": "Full-Time",
+    "experience": "4-7 Years",
+    "postedDate": "August 01, 2026",
+    "description": "Manage on-site erection, testing, and commissioning of utility-scale solar PV arrays, inverter stations, and battery energy storage skids.",
+    "responsibilities": [
+      "Oversee day-to-day site installation of single-axis tracker systems, string inverters, and HT switchyards (up to 33kV).",
+      "Coordinate with grid authorities and discoms for statutory safety approvals and CEIG clearances.",
+      "Supervise civil piling, module mounting structures, and DC cable trenching contractors.",
+      "Conduct pre-commissioning loop tests, I-V curve tracer checks, and SCADA telemetry sync."
+    ],
+    "requirements": [
+      "B.Tech in Electrical Engineering or Renewable Energy Systems.",
+      "4+ years of on-site experience executing utility-scale (>50MW) solar projects.",
+      "Proficiency in PVsyst, AutoCAD Electrical, and MS Project.",
+      "Strong understanding of Indian grid codes, CEA safety regulations, and BESS interfaces."
+    ],
+    "benefits": [
+      "Industry-leading salary with project milestone bonuses",
+      "Dedicated site accommodation and travel per diem",
+      "Group health and medical insurance",
+      "Fast-track leadership growth path in our expanding Renewables division"
+    ]
+  },
+  {
+    "id": "marine-logistics-coordinator",
+    "slug": "marine-logistics-coordinator",
+    "title": "Marine Operations & Vessel Coordinator",
+    "department": "Marine & Offshore Division",
+    "location": "Mumbai / JNPT Port Office",
+    "type": "Full-Time",
+    "experience": "3-6 Years",
+    "postedDate": "July 18, 2026",
+    "description": "Coordinate offshore support vessel (OSV) charter schedules, quayside loading operations, and offshore supply chain logistics.",
+    "responsibilities": [
+      "Liaise with port authorities, customs, and ship captains for vessel berthing, loading, and departure manifests.",
+      "Coordinate heavy lift crane operations, quayside staging, and bunkering of offshore supply vessels.",
+      "Monitor offshore vessel positions, voyage logs, and fuel consumptions.",
+      "Ensure full compliance with IMCA guidelines and DG Shipping regulations."
+    ],
+    "requirements": [
+      "Degree or Diploma in Marine Transportation, Nautical Science, or Logistics.",
+      "3+ years experience with a shipping agency, offshore operator, or port stevedore.",
+      "Strong familiarity with Mumbai Port Trust (MbPT) and JNPT operational protocols.",
+      "Excellent communication and problem-solving skills under high-pressure turnaround schedules."
+    ],
+    "benefits": [
+      "Competitive compensation with port deployment allowances",
+      "Medical insurance and annual health checkups",
+      "Comprehensive maritime safety training and gear",
+      "Annual leave and performance bonuses"
+    ]
+  }
+]

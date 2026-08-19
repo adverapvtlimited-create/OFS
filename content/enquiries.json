@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ENQ-1787077131353",
+    "timestamp": "2026-08-18T18:18:51.353Z",
+    "name": "Test User",
+    "email": "test@ofsgroupindia.com",
+    "phone": "1234567890",
+    "company": "OFS Testing",
+    "service": "Procurement & Shipping",
+    "urgency": "Standard (1-2 Days)",
+    "message": "Need high-pressure piping inspection and QA setup for offshore platform.",
+    "status": "NEW",
+    "ip": "::1"
+  },
+  {
+    "id": "ENQ-1787076528031",
+    "timestamp": "2026-08-18T18:08:48.031Z",
+    "name": "Test User",
+    "email": "test@example.com",
+    "phone": "+91 99999 99999",
+    "company": "Test Company",
+    "service": "Engineering & EPC Support",
+    "urgency": "Standard",
+    "message": "This is a test project scope for QA testing.",
+    "status": "NEW",
+    "ip": "::1"
+  }
+]

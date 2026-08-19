@@ -1,0 +1,155 @@
+[
+  {
+    "id": "oil-gas",
+    "slug": "oil-and-gas",
+    "name": "Oil & Gas Industry",
+    "shortName": "Oil & Gas",
+    "icon": "Flame",
+    "heroImage": "/images/live/Oil-Gas.png",
+    "tagline": "Specialized Procurement & Technical Support for Upstream, Midstream & Downstream",
+    "summary": "With over a decade of dedicated experience in the oil and gas sector, OFS provides advanced, end-to-end procurement and supply chain management solutions tailored to the dynamic needs of offshore drilling rigs, refinery operations, and pipeline networks across European, North American, and Asian markets.",
+    "keySolutions": [
+      "API 6D Ball, Gate & Check Valves Sourcing",
+      "Downhole Drilling Equipment & OCTG Tubulars",
+      "Centrifugal & Multistage Pump Packages",
+      "Explosion-Proof Electrical & Instrumentation Spares",
+      "Offshore Platform Shutdown & Turnaround Expediting"
+    ]
+  },
+  {
+    "id": "marine",
+    "slug": "marine-maritime",
+    "name": "Marine & Offshore Industry",
+    "shortName": "Marine & Maritime",
+    "icon": "Ship",
+    "heroImage": "/images/live/Marine.png",
+    "tagline": "Ship Spare Parts Supply & Port Logistics for Commercial Vessels & FPSOs",
+    "summary": "OFS specializes in delivering end-to-end procurement and supply chain solutions for a broad spectrum of ship spare parts and marine equipment, catering to the operational demands of commercial vessels, offshore platforms, and port operations worldwide with OEM-approved parts.",
+    "keySolutions": [
+      "Marine Engine Spares, Turbochargers & Filters",
+      "Desalination Plants & Bilge Water Treatment Units",
+      "SOLAS Approved Firefighting & Life Safety Equipment",
+      "Vessel Agency & Bonded Port Logistics Coordination",
+      "Drydock Overhaul Material Staging & Fast-Track Customs"
+    ]
+  },
+  {
+    "id": "renewable-energy",
+    "slug": "renewable-energy",
+    "name": "Renewable Energy & Solar",
+    "shortName": "Renewables",
+    "icon": "Sun",
+    "heroImage": "/images/live/Renewable-Energy.png",
+    "tagline": "Building a Sustainable and Green Future with Solar, Wind & BESS",
+    "summary": "At OFS, we champion innovation and sustainability in the renewable energy sector. We support utility-scale solar farms, wind turbine installations, battery energy storage systems (BESS), and green microgrids with specialized procurement and life-cycle maintenance.",
+    "keySolutions": [
+      "Tier-1 N-Type TOPCon & Bifacial Solar PV Modules",
+      "Utility-Scale Central & String Inverter Packages",
+      "Containerized Battery Energy Storage Systems (BESS)",
+      "High-Voltage Substation Transformers & Switchgear",
+      "SCADA & Predictive Solar Plant Performance Optimization"
+    ]
+  },
+  {
+    "id": "power-energy",
+    "slug": "power-generation",
+    "name": "Power & Energy Sector",
+    "shortName": "Power & Energy",
+    "icon": "Zap",
+    "heroImage": "/images/live/Power-Energy.png",
+    "tagline": "High-Efficiency Spares & Maintenance for Thermal, Gas & Hydro Plants",
+    "summary": "OFS fulfills critical procurement needs to minimize plant downtime and boost generation efficiency. We source spare parts for essential rotary equipment, turbines, generators, high-voltage transformers, and digital power instrumentation.",
+    "keySolutions": [
+      "Gas & Steam Turbine Hot Gas Path Spares",
+      "High-Pressure Boiler Tubes, Valves & Fittings",
+      "Heavy-Duty Generator Excitation & Protection Systems",
+      "Predictive Vibration Monitoring Sensors & Analytics",
+      "Transformer Oil Filtration & High-Voltage Bushings"
+    ]
+  },
+  {
+    "id": "petroleum-refining",
+    "slug": "petrochemicals-refining",
+    "name": "Petroleum Refining & Petrochemicals",
+    "shortName": "Petrochemicals",
+    "icon": "FlaskConical",
+    "heroImage": "/images/live/Petroleum-Refining.png",
+    "tagline": "Turnkey Procurement for High-Pressure Process Units & Refineries",
+    "summary": "Operating within complex frameworks of large-scale refinery units and stringent safety standards, OFS supplies high-performance process equipment, cryogenic valves, gas detection grids, and specialized corrosion-resistant alloys across international project sites.",
+    "keySolutions": [
+      "Specialty Alloy Valves (Inconel, Monel, Duplex SS)",
+      "High-Pressure Heat Exchangers & Reactor Spares",
+      "Distributed Control Systems (DCS) & Field Transmitters",
+      "Toxic Gas Detection & Flame Monitoring Systems",
+      "Catalyst Loading & Turnaround MRO Consumables"
+    ]
+  },
+  {
+    "id": "pharmaceuticals-chemicals",
+    "slug": "pharmaceuticals-chemicals",
+    "name": "Pharmaceuticals & Fine Chemicals",
+    "shortName": "Pharma & Chemical",
+    "icon": "Dna",
+    "heroImage": "/images/live/Chemical-and-Pharmaceutical-Industry-Procurement.png",
+    "tagline": "Sanitary Grade Instrumentation & High-Purity Fluid Systems",
+    "summary": "Delivering ultra-clean, sanitary fluid handling systems, FDA/cGMP compliant process instrumentation, cleanroom HVAC modules, and sterile filtration consumables for global pharmaceutical and fine chemical manufacturing facilities.",
+    "keySolutions": [
+      "316L Sanitary Diaphragm Valves & Tri-Clamp Fittings",
+      "Cleanroom HEPA/ULPA Filtration & HVAC Air Handling",
+      "Ultra-Pure Water (WFI) Generation System Components",
+      "Calibrated Pressure, Temp & Conductivity Transmitters",
+      "Automated Clean-in-Place (CIP) & SIP Skid Spares"
+    ]
+  },
+  {
+    "id": "cement",
+    "slug": "cement-manufacturing",
+    "name": "Cement & Building Materials",
+    "shortName": "Cement",
+    "icon": "Hammer",
+    "heroImage": "/images/live/cement.png",
+    "tagline": "Heavy-Duty Wear Parts, Kiln Spares & Material Handling Systems",
+    "summary": "Providing rugged, abrasion-resistant wear plates, kiln drive components, roller press bearings, baghouse filtration systems, and bulk conveying spares engineered to endure high-dust, high-heat cement manufacturing operations.",
+    "keySolutions": [
+      "Rotary Kiln Tyre, Roller & Drive Girth Gear Spares",
+      "High-Chrome Grinding Media & Wear Liners",
+      "High-Temperature Baghouse Dust Collector Filters",
+      "Bucket Elevator Chains & Heavy Conveyor Belting",
+      "Pneumatic Clinker & Ash Conveying System Valves"
+    ]
+  },
+  {
+    "id": "mining-minerals",
+    "slug": "mining-minerals",
+    "name": "Mining & Mineral Processing",
+    "shortName": "Mining & Minerals",
+    "icon": "Mountain",
+    "heroImage": "/images/live/Mining-Minerals.png",
+    "tagline": "Heavy Extraction Machinery Spares & Slurry Handling Equipment",
+    "summary": "Supporting open-pit and underground mining operations with crushing spares, heavy earthmoving equipment wear components, high-density slurry pumps, and specialized off-highway logistics solutions.",
+    "keySolutions": [
+      "Cone & Jaw Crusher Manganese Wear Liners",
+      "Heavy-Duty Slurry Pumps & Rubber-Lined Spares",
+      "Excavator Ground Engaging Tools (GET) & Track Chains",
+      "Vibrating Screen Mesh & Hydrocyclone Clusters",
+      "Remote Mining Camp Modular Housing & IFM Services"
+    ]
+  },
+  {
+    "id": "heavy-engineering",
+    "slug": "heavy-engineering",
+    "name": "Heavy Engineering & Manufacturing",
+    "shortName": "Heavy Engineering",
+    "icon": "Plane",
+    "heroImage": "/images/live/Heavy-Engineering-2.png",
+    "tagline": "Precision Sourcing for Custom Fabrication & Plant Infrastructure",
+    "summary": "Delivering specialized structural steel, high-tensile fasteners, industrial hydraulic systems, CNC machining tooling, and custom-engineered mechanical components for world-class heavy industrial fabricators.",
+    "keySolutions": [
+      "High-Tensile Structural Fasteners & Stud Bolts",
+      "Industrial Hydraulic Power Packs & Heavy Cylinders",
+      "CNC Machine Tooling, Cutting Inserts & Spindles",
+      "Overhead Crane Components & Hoisting Gearboxes",
+      "Non-Destructive Testing (NDT) Flaw Detection Systems"
+    ]
+  }
+]

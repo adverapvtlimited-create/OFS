@@ -1,0 +1,276 @@
+[
+  {
+    "id": "procurement-shipping",
+    "slug": "procurement-shipping",
+    "title": "Procurement & Shipping",
+    "shortTitle": "Procurement & Shipping",
+    "badge": "CORE SOURCING",
+    "icon": "Package",
+    "heroImage": "/images/live/Procurement-and-shippings.jpg",
+    "tagline": "End-to-End Sourcing and Global Shipping Solutions",
+    "description": "OFS delivers end-to-end sourcing and shipping solutions, ensuring timely and cost-effective delivery of industrial goods. Powered by our cloud-based SCM software and a network of 3,000+ approved brands from the US and Europe.",
+    "features": [
+      "Network of 3,000+ US & European Approved Brands",
+      "Strategic Sourcing & Competitive Tender Bidding",
+      "Cloud-based SCM Tracking on Microsoft Technologies",
+      "Comprehensive Pre-Shipment Quality & Quantity Inspections",
+      "Complete Customs Clearance & Export Documentation"
+    ],
+    "capabilities": [
+      {
+        "title": "Strategic Sourcing & Tender Management",
+        "description": "Structured procurement methodology delivering measurable cost savings, fixed-price supply agreements, and vetted global supplier selection."
+      },
+      {
+        "title": "OEM Brand Assurance",
+        "description": "Direct access to 3,000+ internationally recognized manufacturers for valves, drilling equipment, pumps, rotary equipment, and electrical instrumentation."
+      },
+      {
+        "title": "Global Shipping Logistics",
+        "description": "Comprehensive multimodal freight handling across air, ocean, and road with dedicated export packaging and strict PO compliance."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "RFQ & Technical Review", "desc": "Receipt of specification sheets, engineering review, and manufacturer identification." },
+      { "step": "02", "title": "Competitive Sourcing", "desc": "Bidding across 3,000+ approved US/European brands for optimal price and delivery terms." },
+      { "step": "03", "title": "QA/QC Verification", "desc": "Pre-shipment inspection, MTC certification check, and export compliance validation." },
+      { "step": "04", "title": "Multimodal Logistics", "desc": "Door-to-port/site shipping, customs clearance, and real-time cargo tracking." },
+      { "step": "05", "title": "On-Site Handover", "desc": "Final delivery sign-off, warranty documentation, and ongoing operational support." }
+    ],
+    "faqs": [
+      {
+        "question": "What brand certifications does OFS guarantee for industrial goods?",
+        "answer": "OFS partners directly with over 3,000+ internationally approved manufacturers across the US and Europe, ensuring 100% genuine OEM components with EN 10204 3.1 Mill Test Certificates and ASME/API compliance."
+      },
+      {
+        "question": "How does OFS handle emergency or expedited procurement?",
+        "answer": "Our dedicated 24/7 sourcing desk mobilizes immediate air charters and priority vendor expediting to resolve critical plant shutdowns and vessel breakdown requirements within 24 to 48 hours."
+      }
+    ]
+  },
+  {
+    "id": "engineering-epc",
+    "slug": "engineering-epc-support",
+    "title": "Engineering & EPC Support Services",
+    "shortTitle": "Engineering & EPC",
+    "badge": "TECHNICAL CONSULTING",
+    "icon": "Wrench",
+    "heroImage": "/images/live/Engg-e1751278356951.jpg",
+    "tagline": "End-to-End Engineering Support — Onsite & Offshore",
+    "description": "OFS delivers specialized engineering, integration, and field services that cater to the complex and high-performance needs of critical industrial environments, from concept design to commissioning and ongoing maintenance.",
+    "features": [
+      "Detailed Engineering Design & Constructability Reviews",
+      "EPC Procurement Assistance & Technical Sourcing",
+      "Onsite Technical Supervision & Turnaround Support",
+      "Regulatory Compliance & Safety Engineering",
+      "Plant Commissioning & Decommissioning Oversight"
+    ],
+    "capabilities": [
+      {
+        "title": "Project Lifecycle Integration",
+        "description": "Supporting clients across all development stages—from preliminary front-end engineering to field commissioning and brownfield upgrades."
+      },
+      {
+        "title": "Technical Procurement Assistance",
+        "description": "Bridging engineering specifications with commercial vendor qualification to prevent costly change orders and rework."
+      },
+      {
+        "title": "High-Impact Field Services",
+        "description": "Deployment of experienced multidisciplinary engineers to manage shutdown schedules, safety audits, and mechanical completions."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Scope Definition", "desc": "Engineering review of P&IDs, datasheets, project milestones, and regulatory boundaries." },
+      { "step": "02", "title": "Design & Sourcing Alignment", "desc": "Harmonizing engineering specs with global manufacturer lead times and budgets." },
+      { "step": "03", "title": "Field Integration", "desc": "Onsite mobilization of certified engineers for installation supervision and quality checks." },
+      { "step": "04", "title": "Commissioning Support", "desc": "Hydro-testing, calibration, pre-commissioning walkthroughs, and safety sign-offs." },
+      { "step": "05", "title": "Handover & Documentation", "desc": "Complete as-built records, maintenance manuals, and warranty transition." }
+    ],
+    "faqs": [
+      {
+        "question": "Can OFS provide on-site engineering personnel for offshore assets?",
+        "answer": "Yes. Our team consists of certified engineers with valid offshore survival (BOSIET/FOET) certifications ready for deployment to offshore rigs, platforms, and FPSOs."
+      }
+    ]
+  },
+  {
+    "id": "ifm-business",
+    "slug": "facility-management",
+    "title": "Integrated Facility Management (IFM)",
+    "shortTitle": "IFM Business",
+    "badge": "TOTAL FACILITY SOLUTIONS",
+    "icon": "Building2",
+    "heroImage": "/images/live/IFM-Business.jpg",
+    "tagline": "Smart, Scalable, and Seamless Facility Solutions",
+    "description": "We offer end-to-end Integrated Facility Management (IFM) services that help clients streamline operations, reduce overheads, and maintain high-performing facilities across commercial, industrial, and remote environments.",
+    "features": [
+      "Hard Services: HVAC, Electrical, Plumbing & Utilities",
+      "Soft Services: Industrial Cleaning, Security & Hygiene",
+      "Offshore & Remote Site Facility Support",
+      "Smart Energy Monitoring & Audit-Ready Compliance",
+      "Skilled Technical Manpower Deployment"
+    ],
+    "capabilities": [
+      {
+        "title": "Comprehensive Hard Services",
+        "description": "Managing core building systems and industrial utilities through predictive and responsive maintenance regimes."
+      },
+      {
+        "title": "Professional Soft Services",
+        "description": "Delivering hygienic, organized, and compliant working environments tailored to high-density industrial and corporate facilities."
+      },
+      {
+        "title": "Remote Camp Infrastructure",
+        "description": "Managing self-sufficient living quarters, utilities, and daily operations at isolated exploration blocks and offshore installations."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Facility Audit", "desc": "Comprehensive baseline inspection of mechanical assets, safety protocols, and utility loads." },
+      { "step": "02", "title": "SLA & KPI Blueprint", "desc": "Customized SLA definitions with uptime guarantees and computerized maintenance tracking." },
+      { "step": "03", "title": "Team Deployment", "desc": "Stationing certified facility managers, technicians, and specialized soft-service crews." },
+      { "step": "04", "title": "Continuous Optimization", "desc": "Energy telemetry, preventive maintenance cycles, and monthly compliance audits." },
+      { "step": "05", "title": "24/7 Helpdesk", "desc": "Centralized response desk for immediate corrective maintenance and emergency dispatch." }
+    ],
+    "faqs": [
+      {
+        "question": "What industries does OFS IFM cater to?",
+        "answer": "We manage facilities across corporate commercial parks, petrochemical refineries, pharmaceutical plants, offshore living quarters, and remote construction camps."
+      }
+    ]
+  },
+  {
+    "id": "spare-parts-procurement",
+    "slug": "spare-parts-procurement",
+    "title": "Spare Parts Procurement & MRO",
+    "shortTitle": "Spare Parts Procurement",
+    "badge": "15+ YEARS EXPERTISE",
+    "icon": "Settings",
+    "heroImage": "/images/live/Spare-Parts-Procurement.jpg",
+    "tagline": "Proactive Sourcing to Eliminate Unplanned Plant Downtime",
+    "description": "With over 15 years of global procurement expertise, OFS delivers reliable sourcing of high-quality industrial spare parts, valves, pumps, drilling equipment, and MRO supplies to protect your bottom line.",
+    "features": [
+      "15+ Years Global Sourcing & Supplier Network",
+      "24/7 Technical Inquiry Desk & Expedited Quoting",
+      "Fixed-Price Long-Term Supply Contracts",
+      "Critical Component Interchangeability Studies",
+      "Zero-Downtime Buffer Stock & Warehousing Management"
+    ],
+    "capabilities": [
+      {
+        "title": "Proactive Inventory Planning",
+        "description": "Anticipating equipment wear-out timelines to establish pre-allocated buffer stock and reduce lead times from months to days."
+      },
+      {
+        "title": "Obsolete & Hard-to-Find Spares",
+        "description": "Specialized global locator service for legacy machinery components, obsolete valves, and discontinued instrument modules."
+      },
+      {
+        "title": "End-to-End Quality Traceability",
+        "description": "Every spare part is supplied with original manufacturer warranty, material test reports, and serial number verification."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Inquiry Submission", "desc": "Client submits part number, OEM nameplate data, and required delivery timeframe." },
+      { "step": "02", "title": "Global Supplier Scan", "desc": "Benchmarking prices across authorized distributors in US, Europe, and Asia." },
+      { "step": "03", "title": "Technical Confirmation", "desc": "Issuing formal quote with lead time, specifications, and warranty guarantees." },
+      { "step": "04", "title": "Receipt & Inspection", "desc": "Verification at our staging warehouse against engineering drawing specifications." },
+      { "step": "05", "title": "Fast Dispatch", "desc": "Customs clearance and direct delivery to plant gate or vessel boarding dock." }
+    ],
+    "faqs": [
+      {
+        "question": "How does OFS source obsolete or hard-to-find components?",
+        "answer": "Our procurement specialists utilize global inventory networks and direct OEM engineering archives across the US and Europe to source discontinued models or engineer approved direct-drop replacements."
+      }
+    ]
+  },
+  {
+    "id": "logistics-shipping",
+    "slug": "logistics-shipping",
+    "title": "Industrial Logistics & Shipping",
+    "shortTitle": "Logistics & Shipping",
+    "badge": "MULTIMODAL LOGISTICS",
+    "icon": "Anchor",
+    "heroImage": "/images/live/Logistics-and-shippings.jpg",
+    "tagline": "Seamless Freight, Customs Clearance & Supply Chain Optimization",
+    "description": "Comprehensive logistics and shipping solutions that ensure the efficient movement of industrial cargo across local and international markets with advanced tracking, warehousing, and cost-effective transport.",
+    "features": [
+      "End-to-End Multimodal Air, Ocean & Road Freight",
+      "Port Agency & Bonded Warehousing at Gateway Hubs",
+      "Heavy Lift & Out-of-Gauge (OOG) Project Cargo",
+      "Real-Time Digital Cargo Tracking & Status Reports",
+      "24/7 Logistics Coordination & Customs Brokerage"
+    ],
+    "capabilities": [
+      {
+        "title": "Multimodal Freight Execution",
+        "description": "Tailoring optimal transport routes across containerized ocean shipping, chartered air cargo, and heavy haulage road corridors."
+      },
+      {
+        "title": "Customs & Regulatory Brokerage",
+        "description": "Managing complex export/import tariff classifications, duty exemptions, and port customs clearances with zero clearance delays."
+      },
+      {
+        "title": "Strategic Warehousing",
+        "description": "Location-based staging warehouses near major ports to facilitate consolidation, packaging, and just-in-time delivery."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Route & Freight Planning", "desc": "Evaluating cargo volume, weight, transit urgency, and cost constraints." },
+      { "step": "02", "title": "Documentation Preparation", "desc": "Generating bills of lading, commercial invoices, packing lists, and export permits." },
+      { "step": "03", "title": "Secure Consolidation", "desc": "Industrial packaging, crating, and cargo securing compliant with international standards." },
+      { "step": "04", "title": "Transit Tracking", "desc": "Continuous monitoring with milestone alerts until arrival at destination port." },
+      { "step": "05", "title": "Final Port/Site Handover", "desc": "Customs clearance, port wharfage handling, and direct transport to site." }
+    ],
+    "faqs": [
+      {
+        "question": "Does OFS handle oversized heavy-lift cargo?",
+        "answer": "Yes. We have specialized project cargo teams capable of moving massive transformers, pressure vessels, and offshore structures with tailored route surveys and specialized craneage."
+      }
+    ]
+  },
+  {
+    "id": "hospitality-catering",
+    "slug": "hospitality-catering",
+    "title": "Hospitality & Catering Services",
+    "shortTitle": "Hospitality & Catering",
+    "badge": "OFFSHORE & REMOTE",
+    "icon": "ShieldCheck",
+    "heroImage": "/images/live/Catering-Banner.jpg",
+    "tagline": "Serving Quality. Delivering Comfort at Sea & Remote Sites",
+    "description": "We redefine culinary and hospitality experiences for offshore platforms, drilling rigs, FPSOs, remote industrial camps, and corporate institutions with nutritious, hygienic meals and professional housekeeping.",
+    "features": [
+      "Offshore Marine Catering (Platforms, Rigs, FPSOs, Ships)",
+      "High-Volume Industrial & Remote Camp Catering",
+      "Corporate Dining & Executive Hospitality Services",
+      "Certified Chefs & Stringent Food Safety Protocols (HACCP)",
+      "Full Housekeeping, Laundry & Camp Management"
+    ],
+    "capabilities": [
+      {
+        "title": "Offshore & Maritime Nutrition",
+        "description": "Supplying fresh provisions, balanced multi-cuisine menus, and 24/7 galley operations to support workforce stamina at sea."
+      },
+      {
+        "title": "Remote Camp Catering",
+        "description": "Setting up containerized modular kitchens and cold storage facilities in extreme desert, jungle, or remote terrain."
+      },
+      {
+        "title": "Comprehensive Hospitality Management",
+        "description": "Managing linen services, housekeeping, camp sanitization, and administrative front-desk operations."
+      }
+    ],
+    "process": [
+      { "step": "01", "title": "Dietary & Logistics Survey", "desc": "Assessing crew headcount, cultural menu preferences, shift patterns, and galley specs." },
+      { "step": "02", "title": "Cold-Chain Supply Setup", "desc": "Establishing weekly refrigerated supply runs to remote or offshore locations." },
+      { "step": "03", "title": "Trained Galley Deployment", "desc": "Stationing certified executive chefs, bakers, and steward teams." },
+      { "step": "04", "title": "HACCP Hygiene Oversight", "desc": "Daily temperature logging, food safety testing, and cleanliness audits." },
+      { "step": "05", "title": "Feedback & Menu Rotation", "desc": "Continuous menu innovation to ensure crew morale and peak physical health." }
+    ],
+    "faqs": [
+      {
+        "question": "How does OFS maintain food safety and freshness offshore?",
+        "answer": "We adhere to international HACCP standards, utilizing dedicated refrigerated marine containers (reefers) with temperature loggers for seamless cold-chain logistics from port to offshore galleys."
+      }
+    ]
+  }
+]

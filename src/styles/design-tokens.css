@@ -1,0 +1,177 @@
+:root {
+  /* ==========================================================================
+     OFS BRAND COLOR PALETTE (Strictly Preserved Brand Identity)
+     ========================================================================== */
+  
+  /* Primary Navy Series (OFS Brand Core) */
+  --ofs-navy-950: #060E24;
+  --ofs-navy-900: #0C1E4E; /* Brand Core Primary */
+  --ofs-navy-850: #102766;
+  --ofs-navy-800: #16327E;
+  --ofs-navy-700: #1D419C;
+  --ofs-navy-600: #2954C8;
+  --ofs-navy-500: #3E6EE4;
+  --ofs-navy-400: #6B92ED;
+  --ofs-navy-300: #9CBAF5;
+  --ofs-navy-200: #C9DAFB;
+  --ofs-navy-100: #E6EEFD;
+  --ofs-navy-50:  #F2F6FE;
+
+  /* Accent Red Series (OFS Action Accent) */
+  --ofs-red-950: #5C0B0E;
+  --ofs-red-900: #881216;
+  --ofs-red-800: #B51C21;
+  --ofs-red-700: #C92026;
+  --ofs-red-600: #E02A30; /* Brand Core Accent */
+  --ofs-red-500: #EC4248;
+  --ofs-red-400: #F46C71;
+  --ofs-red-300: #F99FA3;
+  --ofs-red-200: #FDCFD1;
+  --ofs-red-100: #FEE8E9;
+  --ofs-red-50:  #FFF5F5;
+
+  /* Gold / Amber Accents (Trust & Distinction) */
+  --ofs-gold-700: #B45309;
+  --ofs-gold-600: #D97706;
+  --ofs-gold-500: #F59E0B;
+  --ofs-gold-400: #FBBF24;
+  --ofs-gold-300: #FCD34D;
+  --ofs-gold-100: #FEF3C7;
+  --ofs-gold-50:  #FFFBEB;
+
+  /* Renewables Clean Energy Green */
+  --ofs-green-800: #064E3B;
+  --ofs-green-700: #047857;
+  --ofs-green-600: #059669;
+  --ofs-green-500: #10B981;
+  --ofs-green-400: #34D399;
+  --ofs-green-300: #6EE7B7;
+  --ofs-green-100: #D1FAE5;
+  --ofs-green-50:  #ECFDF5;
+
+  /* Neutral Monochrome Tones */
+  --ofs-white:    #FFFFFF;
+  --ofs-gray-25:  #FCFCFD;
+  --ofs-gray-50:  #F8FAFC;
+  --ofs-gray-100: #F1F5F9;
+  --ofs-gray-200: #E2E8F0;
+  --ofs-gray-300: #CBD5E1;
+  --ofs-gray-400: #94A3B8;
+  --ofs-gray-500: #64748B;
+  --ofs-gray-600: #475569;
+  --ofs-gray-700: #334155;
+  --ofs-gray-800: #1E293B;
+  --ofs-gray-900: #0F172A;
+  --ofs-black:    #030712;
+
+  /* Semantic Aliases */
+  --bg-primary: var(--ofs-white);
+  --bg-secondary: var(--ofs-gray-50);
+  --bg-tertiary: var(--ofs-gray-100);
+  --bg-dark: var(--ofs-navy-950);
+  --bg-dark-surface: var(--ofs-navy-900);
+  --bg-dark-card: rgba(255, 255, 255, 0.04);
+  --bg-dark-card-hover: rgba(255, 255, 255, 0.08);
+  
+  --text-main: var(--ofs-gray-900);
+  --text-muted: var(--ofs-gray-500);
+  --text-light: var(--ofs-white);
+  --text-light-muted: rgba(255, 255, 255, 0.78);
+
+  --border-light: var(--ofs-gray-200);
+  --border-subtle: rgba(14, 33, 87, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-dark-hover: rgba(255, 255, 255, 0.22);
+  --border-focus: var(--ofs-navy-600);
+  --border-accent: var(--ofs-red-600);
+
+  /* ==========================================================================
+     TYPOGRAPHY SCALE & TOKENS
+     ========================================================================== */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', var(--font-sans);
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+  --text-6xl: 3.75rem;   /* 60px */
+  --text-7xl: 4.5rem;    /* 72px */
+  --text-hero: clamp(2.6rem, 5.2vw, 4.85rem);
+
+  /* Line Heights */
+  --leading-tight: 1.12;
+  --leading-snug: 1.28;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.72;
+
+  /* ==========================================================================
+     SPACING & LAYOUT
+     ========================================================================== */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  --container-max: 1280px;
+  --container-wide: 1420px;
+  --container-pad: clamp(1.25rem, 4vw, 2.75rem);
+  --section-pad-y: clamp(4.5rem, 8vw, 7.5rem);
+
+  /* ==========================================================================
+     BORDER RADIUS & SHADOWS
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-2xl: 36px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(12, 30, 78, 0.08), 0 2px 6px -2px rgba(12, 30, 78, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(12, 30, 78, 0.09), 0 4px 10px -4px rgba(12, 30, 78, 0.04);
+  --shadow-xl: 0 24px 48px -12px rgba(12, 30, 78, 0.12), 0 8px 16px -6px rgba(12, 30, 78, 0.05);
+  --shadow-2xl: 0 32px 64px -16px rgba(6, 14, 36, 0.28);
+  --shadow-glow-red: 0 0 28px rgba(224, 42, 48, 0.38);
+  --shadow-glow-navy: 0 0 36px rgba(12, 30, 78, 0.45);
+  --shadow-glow-green: 0 0 32px rgba(16, 185, 129, 0.38);
+  --shadow-glow-gold: 0 0 28px rgba(245, 158, 11, 0.35);
+
+  /* ==========================================================================
+     TRANSITIONS & EASINGS
+     ========================================================================== */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-medium: 400ms;
+  --duration-slow: 700ms;
+
+  /* Z-Index Hierarchy */
+  --z-negative: -1;
+  --z-normal: 1;
+  --z-sticky: 100;
+  --z-header: 500;
+  --z-drawer: 800;
+  --z-modal: 1000;
+  --z-toast: 1200;
+}
