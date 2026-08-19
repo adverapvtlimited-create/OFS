@@ -16,7 +16,7 @@ export default function CareersPreview() {
           overflow: 'hidden',
           boxShadow: 'var(--shadow-xl)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))'
         }}>
           {/* Left: Culture & Value Proposition */}
           <div style={{ padding: 'clamp(2.25rem, 4.5vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

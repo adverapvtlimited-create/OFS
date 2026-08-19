@@ -100,7 +100,7 @@ export default function IndustriesSection() {
           border: '1px solid var(--ofs-navy-100)',
           overflow: 'hidden',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
           boxShadow: 'var(--shadow-xl)'
         }}>
           {/* Left: Content */}

@@ -97,7 +97,7 @@ export default function Header() {
           </div>
 
           {/* Right: Quick Phone & Email */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div className="top-bar-right" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
             <a 
               href={`tel:${siteConfig.contact.phoneRaw}`}
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#fff' }}

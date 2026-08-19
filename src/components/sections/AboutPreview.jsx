@@ -11,7 +11,7 @@ export default function AboutPreview() {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
           gap: '4.5rem',
           alignItems: 'center'
         }}>
@@ -90,7 +90,7 @@ export default function AboutPreview() {
             {/* Key Differentiator Pillars */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
               gap: '1.25rem',
               marginBottom: '2rem'
             }}>

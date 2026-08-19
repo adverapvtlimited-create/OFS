@@ -115,7 +115,7 @@ export default function CareersAdminPage() {
                   </span>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--ofs-gray-700)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '1rem', marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--ofs-gray-700)' }}>
                   <div><strong>Experience:</strong> {app.experienceYears}</div>
                   <div><strong>Current Employer:</strong> {app.currentCompany}</div>
                   <div><strong>Resume File:</strong> <span style={{ color: 'var(--ofs-red-600)', fontFamily: 'var(--font-mono)' }}>{app.resumeName}</span></div>

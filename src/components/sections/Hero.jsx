@@ -280,7 +280,7 @@ export default function Hero() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(160px, 45%), 1fr))',
             gap: '2rem',
             position: 'relative',
             zIndex: 2

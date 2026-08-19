@@ -129,7 +129,7 @@ export default function SingleIndustryPage({ params }) {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
             gap: '4.5rem',
             alignItems: 'center',
             marginBottom: '5rem'

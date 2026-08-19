@@ -34,7 +34,7 @@ export default function RenewablesCTA() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
             position: 'relative',
             zIndex: 2
           }}>
@@ -75,7 +75,7 @@ export default function RenewablesCTA() {
                 {/* Key Solutions List */}
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
                   gap: '0.95rem',
                   marginBottom: '2.5rem'
                 }}>

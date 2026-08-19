@@ -119,7 +119,7 @@ export default function RenewablesPortalPage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
             gap: '2rem'
           }}>
             {renewablesData.metrics.map((m, idx) => (
@@ -275,7 +275,7 @@ export default function RenewablesPortalPage() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
             gap: '2.5rem'
           }}>
             {renewablesData.projects.map((proj) => (

@@ -587,20 +587,6 @@ ul, ol {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1080px) {
-  .desktop-nav {
-    display: none !important;
-  }
-  .desktop-btn {
-    display: none !important;
-  }
-  .mobile-toggle {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 /* ==========================================================================
    FORM CONTROLS & INPUTS
    ========================================================================== */
@@ -646,7 +632,24 @@ textarea.form-control {
 }
 
 /* ==========================================================================
-   RESPONSIVE OVERRIDES
+   RESPONSIVE — DESKTOP NAV BREAKPOINT (1080px)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-btn {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — TABLET (1024px)
    ========================================================================== */
 @media (max-width: 1024px) {
   :root {
@@ -654,12 +657,121 @@ textarea.form-control {
   }
 }
 
+/* ==========================================================================
+   RESPONSIVE — TABLET PORTRAIT (768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   :root {
     --section-pad-y: 3.5rem;
   }
-  
+
+  /* Top bar: hide right-side contact info */
+  .top-bar-right {
+    display: none !important;
+  }
+
+  /* Buttons: auto-width on tablet, not forced full-width */
+  .btn {
+    white-space: normal;
+    font-size: 0.8rem;
+    padding: 0.8rem 1.4rem;
+  }
+
+  .btn-lg {
+    padding: 0.9rem 1.6rem;
+    font-size: 0.85rem;
+  }
+
+  /* Section titles responsive tightening */
+  .section-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — MOBILE (640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+  :root {
+    --section-pad-y: 2.75rem;
+    --container-pad: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.45rem, 6vw, 2rem);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Stack buttons vertically on mobile */
   .btn {
     width: 100%;
+  }
+
+  .btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.82rem;
+  }
+
+  /* Tag pills wrap and shrink */
+  .tag-pill {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .tag-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  /* Cards: reduce padding on mobile */
+  .card-modern {
+    padding: var(--space-4);
+  }
+
+  .card-dark {
+    padding: var(--space-4);
+  }
+
+  /* Disable hover transforms on touch devices to avoid stuck states */
+  .card-modern:hover,
+  .card-dark:hover,
+  .pillar-card:hover,
+  .service-card-modern:hover,
+  .job-row-card:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — SMALL MOBILE (480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  :root {
+    --container-pad: 0.85rem;
+    --section-pad-y: 2.25rem;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 6.5vw, 1.75rem);
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.75rem 1.2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-lg {
+    padding: 0.8rem 1.3rem;
+    font-size: 0.78rem;
   }
 }
