@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   ShieldCheck, 
   Globe2, 
@@ -16,6 +17,8 @@ import {
   Sparkles,
   Users
 } from 'lucide-react';
+import TextReveal from '@/components/animations/TextReveal';
+import ScrollReveal from '@/components/animations/ScrollReveal';
 
 const pillars = [
   {
@@ -79,19 +82,32 @@ export default function WhyChooseUs() {
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div style={{ maxWidth: '750px', marginBottom: '3.5rem' }}>
-          <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-            WHY CHOOSE US
-          </div>
+          <ScrollReveal direction="up">
+            <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
+              WHY CHOOSE US
+            </div>
+          </ScrollReveal>
+
           <h2 className="section-title" style={{ color: 'var(--ofs-white)' }}>
-            Empowering Industries to Operate <br />
-            <span className="gradient-text-red">Smarter, Faster & Stronger</span>
+            <TextReveal tag="span" duration={0.65}>
+              Empowering Industries to Operate
+            </TextReveal>
+            <br />
+            <span className="gradient-text-red">
+              <TextReveal tag="span" delay={0.2} duration={0.65}>
+                Smarter, Faster &amp; Stronger
+              </TextReveal>
+            </span>
           </h2>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6 }}>
-            Our core strength lies in combining deep technical expertise with strategic sourcing capabilities, offering end-to-end customized solutions that are both cost-efficient and operationally impactful.
-          </p>
+
+          <ScrollReveal direction="up" delay={0.25}>
+            <p style={{ fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6 }}>
+              Our core strength lies in combining deep technical expertise with strategic sourcing capabilities, offering end-to-end customized solutions that are both cost-efficient and operationally impactful.
+            </p>
+          </ScrollReveal>
         </div>
 
-        {/* 6 Pillars Grid */}
+        {/* 6 Pillars Grid with Staggered Scroll Reveal */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
@@ -101,80 +117,84 @@ export default function WhyChooseUs() {
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div 
-                key={idx}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '2.25rem 2rem',
-                  transition: 'all 0.3s ease'
-                }}
-                className="pillar-card"
-              >
-                <div style={{
-                  width: '50px',
-                  height: '50px',
-                  borderRadius: 'var(--radius-xs)',
-                  background: 'rgba(224, 42, 48, 0.16)',
-                  border: '1px solid rgba(224, 42, 48, 0.35)',
-                  display: 'grid',
-                  placeContent: 'center',
-                  color: 'var(--ofs-red-400)',
-                  marginBottom: '1.5rem'
-                }}>
-                  <Icon size={24} />
+              <ScrollReveal key={idx} direction="up" delay={idx * 0.08}>
+                <div 
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.04)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '2.25rem 2rem',
+                    height: '100%',
+                    transition: 'all 0.3s ease'
+                  }}
+                  className="pillar-card"
+                >
+                  <div style={{
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: 'var(--radius-xs)',
+                    background: 'rgba(224, 42, 48, 0.16)',
+                    border: '1px solid rgba(224, 42, 48, 0.35)',
+                    display: 'grid',
+                    placeContent: 'center',
+                    color: 'var(--ofs-red-400)',
+                    marginBottom: '1.5rem'
+                  }}>
+                    <Icon size={24} />
+                  </div>
+
+                  <h3 style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '1.25rem',
+                    fontWeight: 800,
+                    color: 'var(--ofs-white)',
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.25
+                  }}>
+                    {item.title}
+                  </h3>
+
+                  <p style={{
+                    fontSize: '0.925rem',
+                    color: 'rgba(255, 255, 255, 0.72)',
+                    lineHeight: 1.6,
+                    margin: 0
+                  }}>
+                    {item.desc}
+                  </p>
                 </div>
-
-                <h3 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.25rem',
-                  fontWeight: 800,
-                  color: 'var(--ofs-white)',
-                  marginBottom: '0.75rem',
-                  lineHeight: 1.25
-                }}>
-                  {item.title}
-                </h3>
-
-                <p style={{
-                  fontSize: '0.925rem',
-                  color: 'rgba(255, 255, 255, 0.72)',
-                  lineHeight: 1.6,
-                  margin: 0
-                }}>
-                  {item.desc}
-                </p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
-        {/* Bottom Mobilization Callout Banner */}
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(224, 42, 48, 0.18) 0%, rgba(12, 30, 78, 0.7) 100%)',
-          border: '1px solid rgba(224, 42, 48, 0.35)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '2.25rem 2.75rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1.5rem'
-        }}>
-          <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: '0.35rem' }}>
-              Ready to streamline your procurement or industrial operations?
+        {/* Bottom Mobilization Callout Banner with Spring Lift */}
+        <ScrollReveal direction="up" delay={0.4}>
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(224, 42, 48, 0.18) 0%, rgba(12, 30, 78, 0.7) 100%)',
+            border: '1px solid rgba(224, 42, 48, 0.35)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '2.25rem 2.75rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1.5rem'
+          }}>
+            <div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: '0.35rem' }}>
+                Ready to streamline your procurement or industrial operations?
+              </div>
+              <div style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.85)' }}>
+                Our 24/7 technical desk is standing by to evaluate your spare parts, engineering, or logistics requirements.
+              </div>
             </div>
-            <div style={{ fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.85)' }}>
-              Our 24/7 technical desk is standing by to evaluate your spare parts, engineering, or logistics requirements.
-            </div>
-          </div>
 
-          <Link href="/contact" className="btn btn-primary">
-            Request Consultation <ArrowUpRight size={16} />
-          </Link>
-        </div>
+            <Link href="/contact" className="btn btn-primary">
+              Request Consultation <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

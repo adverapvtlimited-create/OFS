@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import SmoothScroller from '@/components/animations/SmoothScroller';
 import siteConfig from '@/data/site-config.json';
 
 export const metadata = {
@@ -107,9 +108,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScroller>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroller>
       </body>
     </html>
   );

@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { 
   ArrowUpRight, 
   ShieldCheck, 
@@ -9,56 +10,97 @@ import {
   Award, 
   Zap, 
   ChevronRight, 
-  Play, 
   Globe2, 
   Anchor, 
   Activity, 
   Layers,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  Boxes
 } from 'lucide-react';
 import TextRotator from '@/components/animations/TextRotator';
 import Counter from '@/components/animations/Counter';
+import TextReveal from '@/components/animations/TextReveal';
 import siteConfig from '@/data/site-config.json';
 
 export default function Hero() {
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start']
+  });
+
+  // Smooth springs for buttery scroll interpolation
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Multi-layer scroll transforms
+  const headlineY = useTransform(smoothProgress, [0, 0.7], [0, -55]);
+  const headlineOpacity = useTransform(smoothProgress, [0, 0.65], [1, 0.35]);
+  const bgGridY = useTransform(smoothProgress, [0, 1], [0, 80]);
+  const imageScale = useTransform(smoothProgress, [0, 0.8], [1, 1.06]);
+  const imageY = useTransform(smoothProgress, [0, 1], [0, 45]);
+  const cardFloatLeft = useTransform(smoothProgress, [0, 0.7], [0, -35]);
+  const cardFloatRight = useTransform(smoothProgress, [0, 0.7], [0, 35]);
+  const statsStripY = useTransform(smoothProgress, [0, 0.8], [0, -25]);
+
   return (
-    <section style={{
-      position: 'relative',
-      background: 'linear-gradient(180deg, var(--ofs-navy-50) 0%, #FFFFFF 100%)',
-      paddingTop: 'clamp(3rem, 6vw, 4.5rem)',
-      paddingBottom: 'clamp(3.5rem, 7vw, 5rem)',
-      overflow: 'hidden'
-    }}>
-      {/* Background Architectural Grid Accent */}
-      <div className="bg-grid-pattern" style={{
-        position: 'absolute',
-        inset: 0,
-        opacity: 0.7,
-        pointerEvents: 'none'
-      }} />
+    <section 
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        background: 'linear-gradient(180deg, var(--ofs-navy-50) 0%, #FFFFFF 100%)',
+        paddingTop: 'clamp(3rem, 6vw, 4.5rem)',
+        paddingBottom: 'clamp(3.5rem, 7vw, 5rem)',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Background Architectural Grid Accent with Parallax */}
+      <motion.div 
+        className="bg-grid-pattern" 
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.7,
+          pointerEvents: 'none',
+          y: bgGridY
+        }} 
+      />
 
       {/* Subtle Radial Glow */}
-      <div style={{
-        position: 'absolute',
-        top: '-10%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '800px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(14, 33, 87, 0.08) 0%, transparent 70%)',
-        pointerEvents: 'none'
-      }} />
+      <motion.div 
+        style={{
+          position: 'absolute',
+          top: '-10%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '800px',
+          height: '400px',
+          background: 'radial-gradient(circle, rgba(14, 33, 87, 0.1) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          y: bgGridY
+        }} 
+      />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Top Tag Pills & Status Radar */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
+        {/* Top Tag Pills & Status Radar with Entrance Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}
+        >
           <div className="tag-badge badge-red">
             <span className="sonar-wave" style={{ background: '#fff' }} />
             OFS GROUP INDIA
           </div>
           <div className="tag-pill">
             <Sparkles size={14} style={{ color: 'var(--ofs-gold-600)' }} />
-            3,000+ US & European Approved Brands
+            3,000+ US &amp; European Approved Brands
           </div>
           <div className="tag-pill">
             <ShieldCheck size={14} style={{ color: 'var(--ofs-navy-900)' }} />
@@ -66,18 +108,22 @@ export default function Hero() {
           </div>
           <div className="tag-pill pill-green">
             <Zap size={14} />
-            Global Marine, Offshore & Industrial Operations
+            Global Marine, Offshore &amp; Industrial Operations
           </div>
-        </div>
+        </motion.div>
 
-        {/* Main Headline & Subtitle */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: '2.5rem',
-          alignItems: 'center',
-          marginBottom: '3.5rem'
-        }}>
+        {/* Main Headline & Subtitle with Scroll-Linked Upward Motion */}
+        <motion.div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '2.5rem',
+            alignItems: 'center',
+            marginBottom: '3.5rem',
+            y: headlineY,
+            opacity: headlineOpacity
+          }}
+        >
           <div>
             <h1 style={{
               fontSize: 'var(--text-hero)',
@@ -97,23 +143,33 @@ export default function Hero() {
               ]} />
             </h1>
 
-            <p style={{
-              fontSize: 'clamp(1.1rem, 1.55vw, 1.35rem)',
-              color: 'var(--ofs-gray-600)',
-              maxWidth: '860px',
-              lineHeight: 1.6,
-              marginBottom: '2.25rem'
-            }}>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                fontSize: 'clamp(1.1rem, 1.55vw, 1.35rem)',
+                color: 'var(--ofs-gray-600)',
+                maxWidth: '860px',
+                lineHeight: 1.6,
+                marginBottom: '2.25rem'
+              }}
+            >
               {siteConfig.description}
-            </p>
+            </motion.p>
 
-            {/* CTA Action Buttons */}
-            <div style={{
-              display: 'flex',
-              gap: '1rem',
-              alignItems: 'center',
-              flexWrap: 'wrap'
-            }}>
+            {/* CTA Action Buttons with Staggered Entrance */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                display: 'flex',
+                gap: '1rem',
+                alignItems: 'center',
+                flexWrap: 'wrap'
+              }}
+            >
               <Link href="/services" className="btn btn-primary btn-lg">
                 Explore Capabilities <ArrowUpRight size={18} />
               </Link>
@@ -125,24 +181,33 @@ export default function Hero() {
               <Link href="/renewables" className="btn btn-green btn-lg">
                 Renewables Portal <Zap size={18} />
               </Link>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Hero Visual Telemetry Showcase with Live Image */}
-        <div style={{
-          position: 'relative',
-          borderRadius: 'var(--radius-xl)',
-          overflow: 'hidden',
-          boxShadow: 'var(--shadow-2xl)',
-          border: '1px solid rgba(12, 30, 78, 0.12)',
-          marginBottom: '3.5rem'
-        }}>
-          <div style={{
-            height: '460px',
+        {/* Hero Visual Telemetry Showcase with Scroll-Driven Zoom & Parallax */}
+        <motion.div 
+          style={{
             position: 'relative',
-            background: 'url(/images/live/Banner3.jpg) center/cover no-repeat'
-          }}>
+            borderRadius: 'var(--radius-xl)',
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-2xl)',
+            border: '1px solid rgba(12, 30, 78, 0.12)',
+            marginBottom: '3.5rem',
+            y: imageY
+          }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.div 
+            style={{
+              height: '460px',
+              position: 'relative',
+              background: 'url(/images/live/Banner3.jpg) center/cover no-repeat',
+              scale: imageScale
+            }}
+          >
             {/* Cinematic Gradient Overlay */}
             <div style={{
               position: 'absolute',
@@ -150,16 +215,19 @@ export default function Hero() {
               background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.25) 0%, rgba(6, 14, 36, 0.85) 100%)'
             }} />
 
-            {/* Telemetry Floating Chips */}
-            <div style={{
-              position: 'absolute',
-              top: '1.5rem',
-              left: '1.5rem',
-              display: 'flex',
-              gap: '0.75rem',
-              flexWrap: 'wrap',
-              zIndex: 3
-            }}>
+            {/* Telemetry Floating Chips with Diagonal Scroll Parallax */}
+            <motion.div 
+              style={{
+                position: 'absolute',
+                top: '1.5rem',
+                left: '1.5rem',
+                display: 'flex',
+                gap: '0.75rem',
+                flexWrap: 'wrap',
+                zIndex: 3,
+                x: cardFloatLeft
+              }}
+            >
               <div style={{
                 background: 'rgba(6, 14, 36, 0.85)',
                 backdropFilter: 'blur(10px)',
@@ -195,7 +263,7 @@ export default function Hero() {
                 <ShieldCheck size={14} style={{ color: 'var(--ofs-gold-400)' }} />
                 ISO 9001:2015 ASSURED
               </div>
-            </div>
+            </motion.div>
 
             {/* Bottom Overlay Info Banner */}
             <div style={{
@@ -221,7 +289,7 @@ export default function Hero() {
                   letterSpacing: '0.05em',
                   marginBottom: '0.35rem'
                 }}>
-                  Global Procurement & SCM Cloud
+                  Global Procurement &amp; SCM Cloud
                 </div>
                 <h3 style={{
                   fontFamily: 'var(--font-heading)',
@@ -231,15 +299,18 @@ export default function Hero() {
                   margin: 0,
                   lineHeight: 1.25
                 }}>
-                  3,000+ Approved International Brands Across US, Europe & Asia
+                  3,000+ Approved International Brands Across US, Europe &amp; Asia
                 </h3>
               </div>
 
-              <div style={{
-                display: 'flex',
-                gap: '0.75rem',
-                alignItems: 'center'
-              }}>
+              <motion.div 
+                style={{
+                  display: 'flex',
+                  gap: '0.75rem',
+                  alignItems: 'center',
+                  x: cardFloatRight
+                }}
+              >
                 <div style={{
                   padding: '0.75rem 1.25rem',
                   background: 'rgba(255, 255, 255, 0.1)',
@@ -256,21 +327,28 @@ export default function Hero() {
                     99.8% On-Time
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Hero Stats Counter Strip */}
-        <div style={{
-          background: 'var(--ofs-navy-950)',
-          borderRadius: 'var(--radius-xl)',
-          padding: 'clamp(2rem, 3.5vw, 3rem)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: 'var(--shadow-xl)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
+        {/* Hero Stats Counter Strip with Upward Parallax Transition */}
+        <motion.div 
+          style={{
+            background: 'var(--ofs-navy-950)',
+            borderRadius: 'var(--radius-xl)',
+            padding: 'clamp(2rem, 3.5vw, 3rem)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: 'var(--shadow-xl)',
+            position: 'relative',
+            overflow: 'hidden',
+            y: statsStripY
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="bg-grid-pattern-dark" style={{
             position: 'absolute',
             inset: 0,
@@ -317,7 +395,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
