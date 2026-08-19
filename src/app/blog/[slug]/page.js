@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Clock, Calendar, ArrowUpRight, ArrowLeft, Share2, Tag, CheckCircle2 } from 'lucide-react';
 import blogPosts from '@/data/blog-posts.json';
+import TextReveal from '@/components/animations/TextReveal';
+import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
 
 export async function generateStaticParams() {
@@ -42,28 +44,32 @@ export default function SingleBlogPage({ params }) {
       }}>
         <div className="container" style={{ maxWidth: '880px' }}>
           {/* Back link */}
-          <Link 
-            href="/blog"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--ofs-red-400)',
-              marginBottom: '1.5rem',
-              textDecoration: 'none'
-            }}
-          >
-            <ArrowLeft size={14} /> Back to all articles
-          </Link>
+          <ScrollReveal direction="down" duration={0.5}>
+            <Link 
+              href="/blog"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.8rem',
+                color: 'var(--ofs-red-400)',
+                marginBottom: '1.5rem',
+                textDecoration: 'none'
+              }}
+            >
+              <ArrowLeft size={14} /> Back to all articles
+            </Link>
+          </ScrollReveal>
 
-          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
-            <span className="tag-badge badge-red">{post.category}</span>
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', fontFamily: 'var(--font-mono)' }}>
-              {post.date} • {post.readTime}
-            </span>
-          </div>
+          <ScrollReveal direction="up" delay={0.1}>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
+              <span className="tag-badge badge-red">{post.category}</span>
+              <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', fontFamily: 'var(--font-mono)' }}>
+                {post.date} • {post.readTime}
+              </span>
+            </div>
+          </ScrollReveal>
 
           <h1 style={{
             fontFamily: 'var(--font-heading)',
@@ -73,21 +79,25 @@ export default function SingleBlogPage({ params }) {
             color: 'var(--ofs-white)',
             marginBottom: '1.5rem'
           }}>
-            {post.title}
+            <TextReveal tag="span" duration={0.65}>
+              {post.title}
+            </TextReveal>
           </h1>
 
           {/* Author Card */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <img 
-              src={post.author.avatar} 
-              alt={post.author.name}
-              style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--ofs-gold-400)' }}
-            />
-            <div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff' }}>{post.author.name}</div>
-              <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.7)' }}>{post.author.role}</div>
+          <ScrollReveal direction="up" delay={0.25}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <img 
+                src={post.author.avatar} 
+                alt={post.author.name}
+                style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--ofs-gold-400)' }}
+              />
+              <div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff' }}>{post.author.name}</div>
+                <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.7)' }}>{post.author.role}</div>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -95,34 +105,38 @@ export default function SingleBlogPage({ params }) {
       <article className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container" style={{ maxWidth: '880px' }}>
           {/* Main Hero Image */}
-          <div style={{
-            borderRadius: 'var(--radius-lg)',
-            overflow: 'hidden',
-            marginBottom: '3rem',
-            boxShadow: 'var(--shadow-xl)'
-          }}>
-            <img 
-              src={post.image} 
-              alt={post.title}
-              style={{ width: '100%', maxHeight: '480px', objectFit: 'cover' }}
-            />
-          </div>
+          <ScrollReveal direction="up" delay={0.1}>
+            <div style={{
+              borderRadius: 'var(--radius-lg)',
+              overflow: 'hidden',
+              marginBottom: '3rem',
+              boxShadow: 'var(--shadow-xl)'
+            }}>
+              <img 
+                src={post.image} 
+                alt={post.title}
+                style={{ width: '100%', maxHeight: '480px', objectFit: 'cover' }}
+              />
+            </div>
+          </ScrollReveal>
 
           {/* Excerpt Callout */}
-          <div style={{
-            padding: '1.75rem 2rem',
-            background: 'var(--ofs-navy-50)',
-            borderLeft: '4px solid var(--ofs-red-600)',
-            borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
-            fontSize: '1.15rem',
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 600,
-            color: 'var(--ofs-navy-950)',
-            lineHeight: 1.6,
-            marginBottom: '2.5rem'
-          }}>
-            "{post.excerpt}"
-          </div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div style={{
+              padding: '1.75rem 2rem',
+              background: 'var(--ofs-navy-50)',
+              borderLeft: '4px solid var(--ofs-red-600)',
+              borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
+              fontSize: '1.15rem',
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 600,
+              color: 'var(--ofs-navy-950)',
+              lineHeight: 1.6,
+              marginBottom: '3rem'
+            }}>
+              "{post.excerpt}"
+            </div>
+          </ScrollReveal>
 
           {/* Article Text Content */}
           <div style={{

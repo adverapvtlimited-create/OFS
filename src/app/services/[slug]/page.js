@@ -19,6 +19,8 @@ import {
   Sun
 } from 'lucide-react';
 import servicesData from '@/data/services.json';
+import TextReveal from '@/components/animations/TextReveal';
+import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
 
 const iconMap = {
@@ -72,32 +74,35 @@ export default function SingleServicePage({ params }) {
         <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          {/* Breadcrumb */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            fontFamily: 'var(--font-mono)',
-            fontSize: 'var(--text-xs)',
-            color: 'rgba(255, 255, 255, 0.6)',
-            marginBottom: '1.5rem',
-            textTransform: 'uppercase'
-          }}>
-            <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
-            <span>/</span>
-            <Link href="/services" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Services</Link>
-            <span>/</span>
-            <span style={{ color: 'var(--ofs-red-400)' }}>{service.shortTitle}</span>
-          </div>
+          <ScrollReveal direction="down" duration={0.5}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-xs)',
+              color: 'rgba(255, 255, 255, 0.6)',
+              marginBottom: '1.5rem',
+              textTransform: 'uppercase'
+            }}>
+              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
+              <span>/</span>
+              <Link href="/services" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Services</Link>
+              <span>/</span>
+              <span style={{ color: 'var(--ofs-red-400)' }}>{service.shortTitle}</span>
+            </div>
+          </ScrollReveal>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-            <div className="tag-badge badge-red">
-              {service.badge}
+          <ScrollReveal direction="up" delay={0.1}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              <div className="tag-badge badge-red">
+                {service.badge}
+              </div>
+              <div className="tag-pill" style={{ color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
+                ISO 9001:2015 Assured
+              </div>
             </div>
-            <div className="tag-pill" style={{ color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
-              ISO 9001:2015 Assured
-            </div>
-          </div>
+          </ScrollReveal>
 
           <h1 style={{
             fontFamily: 'var(--font-heading)',
@@ -108,22 +113,28 @@ export default function SingleServicePage({ params }) {
             marginBottom: '1.5rem',
             maxWidth: '920px'
           }}>
-            {service.title}
+            <TextReveal tag="span" duration={0.65}>
+              {service.title}
+            </TextReveal>
           </h1>
 
-          <p style={{
-            fontSize: '1.2rem',
-            color: 'rgba(255, 255, 255, 0.88)',
-            maxWidth: '780px',
-            lineHeight: 1.6,
-            marginBottom: '2.25rem'
-          }}>
-            {service.tagline}
-          </p>
+          <ScrollReveal direction="up" delay={0.25}>
+            <p style={{
+              fontSize: '1.2rem',
+              color: 'rgba(255, 255, 255, 0.88)',
+              maxWidth: '780px',
+              lineHeight: 1.6,
+              marginBottom: '2.25rem'
+            }}>
+              {service.tagline}
+            </p>
+          </ScrollReveal>
 
-          <a href="#service-inquiry" className="btn btn-primary btn-lg">
-            Request Quotation / RFQ <ArrowUpRight size={18} />
-          </a>
+          <ScrollReveal direction="up" delay={0.35}>
+            <a href="#service-inquiry" className="btn btn-primary btn-lg">
+              Request Quotation / RFQ <ArrowUpRight size={18} />
+            </a>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -138,69 +149,89 @@ export default function SingleServicePage({ params }) {
             alignItems: 'center'
           }}>
             {/* Overview & Key Highlights */}
-            <div>
-              <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-                OVERVIEW
-              </div>
-              <h2 className="section-title">
-                Strategic Scope & <br />
-                <span className="gradient-text-navy">Operational Capabilities</span>
-              </h2>
-              <p style={{ fontSize: '1.05rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, marginBottom: '2rem' }}>
-                {service.description}
-              </p>
+            <ScrollReveal direction="left" delay={0.1}>
+              <div>
+                <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
+                  OVERVIEW
+                </div>
+                <h2 className="section-title">
+                  <TextReveal tag="span" duration={0.65}>
+                    Strategic Scope &amp;
+                  </TextReveal>
+                  <br />
+                  <span className="gradient-text-navy">
+                    <TextReveal tag="span" delay={0.2} duration={0.65}>
+                      Operational Capabilities
+                    </TextReveal>
+                  </span>
+                </h2>
+                <p style={{ fontSize: '1.05rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, marginBottom: '2rem' }}>
+                  {service.description}
+                </p>
 
-              {/* Core Features Checklist */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                {service.features.map((feat, idx) => (
-                  <div key={idx} style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '0.75rem',
-                    padding: '0.95rem 1.35rem',
-                    background: 'var(--ofs-navy-50)',
-                    borderRadius: 'var(--radius-sm)',
-                    border: '1px solid var(--ofs-navy-100)'
-                  }}>
-                    <CheckCircle2 size={18} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ofs-navy-950)' }}>{feat}</span>
-                  </div>
-                ))}
+                {/* Core Features Checklist */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  {service.features.map((feat, idx) => (
+                    <div key={idx} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.75rem',
+                      padding: '0.95rem 1.35rem',
+                      background: 'var(--ofs-navy-50)',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--ofs-navy-100)'
+                    }}>
+                      <CheckCircle2 size={18} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
+                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ofs-navy-950)' }}>{feat}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Featured Image Banner */}
-            <div style={{
-              borderRadius: 'var(--radius-xl)',
-              overflow: 'hidden',
-              boxShadow: 'var(--shadow-2xl)',
-              border: '2px solid var(--ofs-gray-200)',
-              height: '480px',
-              position: 'relative'
-            }}>
-              <img 
-                src={service.heroImage} 
-                alt={service.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+            <ScrollReveal direction="right" delay={0.2}>
               <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.5) 100%)'
-              }} />
-            </div>
+                borderRadius: 'var(--radius-xl)',
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-2xl)',
+                border: '2px solid var(--ofs-gray-200)',
+                height: '480px',
+                position: 'relative'
+              }}>
+                <img 
+                  src={service.heroImage} 
+                  alt={service.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.5) 100%)'
+                }} />
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Capabilities Grid */}
           {service.capabilities && (
             <div style={{ marginBottom: '5rem' }}>
               <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
-                <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
-                  DETAILED CAPABILITIES
-                </div>
+                <ScrollReveal direction="up">
+                  <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
+                    DETAILED CAPABILITIES
+                  </div>
+                </ScrollReveal>
                 <h2 className="section-title">
-                  What We Deliver Under <br />
-                  <span className="gradient-text-navy">{service.shortTitle}</span>
+                  <TextReveal tag="span" duration={0.65}>
+                    What We Deliver Under
+                  </TextReveal>
+                  <br />
+                  <span className="gradient-text-navy">
+                    <TextReveal tag="span" delay={0.2} duration={0.65}>
+                      {service.shortTitle}
+                    </TextReveal>
+                  </span>
                 </h2>
               </div>
 
@@ -210,29 +241,31 @@ export default function SingleServicePage({ params }) {
                 gap: '2rem'
               }}>
                 {service.capabilities.map((cap, cIdx) => (
-                  <div key={cIdx} className="card-modern" style={{ padding: '2.25rem' }}>
-                    <div style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.8rem',
-                      fontWeight: 700,
-                      color: 'var(--ofs-red-600)',
-                      marginBottom: '0.5rem'
-                    }}>
-                      FEATURE 0{cIdx + 1}
+                  <ScrollReveal key={cIdx} direction="up" delay={cIdx * 0.1}>
+                    <div className="card-modern" style={{ padding: '2.25rem', height: '100%' }}>
+                      <div style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        color: 'var(--ofs-red-600)',
+                        marginBottom: '0.5rem'
+                      }}>
+                        FEATURE 0{cIdx + 1}
+                      </div>
+                      <h3 style={{
+                        fontFamily: 'var(--font-heading)',
+                        fontSize: '1.3rem',
+                        fontWeight: 800,
+                        color: 'var(--ofs-navy-950)',
+                        marginBottom: '0.75rem'
+                      }}>
+                        {cap.title}
+                      </h3>
+                      <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, margin: 0 }}>
+                        {cap.description}
+                      </p>
                     </div>
-                    <h3 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.3rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '0.75rem'
-                    }}>
-                      {cap.title}
-                    </h3>
-                    <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, margin: 0 }}>
-                      {cap.description}
-                    </p>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>

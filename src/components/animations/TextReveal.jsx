@@ -7,17 +7,26 @@ export default function TextReveal({
   children,
   className = '',
   style = {},
-  tag: Tag = 'div',
+  tag: Tag = 'span',
   delay = 0,
-  stagger = 0.04,
-  duration = 0.65,
+  stagger = 0.03,
+  duration = 0.6,
   once = true
 }) {
   const text = typeof children === 'string' ? children : '';
-  const words = text ? text.split(' ') : [];
+
+  if (!text) {
+    return (
+      <Tag className={className} style={style}>
+        {children}
+      </Tag>
+    );
+  }
+
+  const words = text.split(' ');
 
   const containerVariants = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
@@ -30,51 +39,46 @@ export default function TextReveal({
   const wordVariants = {
     hidden: {
       opacity: 0,
-      y: 28,
-      filter: 'blur(4px)',
+      y: 16,
     },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
         duration: duration,
-        ease: [0.16, 1, 0.3, 1], // cubic-bezier smooth spring
+        ease: [0.22, 1, 0.36, 1],
       }
     }
   };
 
-  if (!text) {
-    return (
-      <Tag className={className} style={style}>
-        {children}
-      </Tag>
-    );
-  }
-
   return (
-    <Tag className={className} style={{ ...style, overflow: 'hidden' }}>
-      <motion.span
-        style={{ display: 'inline-block', width: '100%' }}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once, margin: '-40px' }}
-      >
-        {words.map((word, idx) => (
-          <span
-            key={idx}
-            style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top', marginRight: '0.28em' }}
+    <motion.span
+      className={className}
+      style={{
+        display: 'inline',
+        ...style
+      }}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, margin: '0px' }}
+    >
+      {words.map((word, idx) => (
+        <React.Fragment key={idx}>
+          <motion.span
+            style={{
+              display: 'inline-block',
+              background: 'inherit',
+              WebkitBackgroundClip: 'inherit',
+              WebkitTextFillColor: 'inherit'
+            }}
+            variants={wordVariants}
           >
-            <motion.span
-              style={{ display: 'inline-block' }}
-              variants={wordVariants}
-            >
-              {word}
-            </motion.span>
-          </span>
-        ))}
-      </motion.span>
-    </Tag>
+            {word}
+          </motion.span>
+          {idx < words.length - 1 && ' '}
+        </React.Fragment>
+      ))}
+    </motion.span>
   );
 }

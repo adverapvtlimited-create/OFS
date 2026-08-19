@@ -1,5 +1,18 @@
 [
   {
+    "id": "ENQ-1787162754821",
+    "timestamp": "2026-08-19T18:05:54.821Z",
+    "name": "Akash Test",
+    "email": "akash@example.com",
+    "phone": "+91 98200 12345",
+    "company": "Advera Pvt Ltd",
+    "service": "Procurement & Shipping",
+    "urgency": "Urgent Breakdown (< 24 Hours)",
+    "message": "Testing technical quotation submission.",
+    "status": "NEW",
+    "ip": "::1"
+  },
+  {
     "id": "ENQ-1787077131353",
     "timestamp": "2026-08-18T18:18:51.353Z",
     "name": "Test User",
