@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import MagneticButton from '@/components/animations/MagneticButton';
 import industriesData from '@/data/industries.json';
 
 const iconMap = {
@@ -68,7 +69,7 @@ export default function IndustriesSection() {
           </ScrollReveal>
         </div>
 
-        {/* Responsive Industry Tab Selector with Clean Multi-Row Wrap */}
+        {/* Responsive Industry Tab Selector with Clean Multi-Row Wrap & Spring Pill */}
         <ScrollReveal direction="up" delay={0.3}>
           <div style={{
             display: 'flex',
@@ -86,6 +87,7 @@ export default function IndustriesSection() {
                   key={ind.id}
                   onClick={() => setActiveTab(ind.id)}
                   style={{
+                    position: 'relative',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
@@ -96,15 +98,16 @@ export default function IndustriesSection() {
                     fontWeight: 700,
                     whiteSpace: 'nowrap',
                     cursor: 'pointer',
-                    transition: 'all 0.2s ease',
                     background: isActive ? 'var(--ofs-navy-950)' : 'var(--ofs-gray-100)',
                     color: isActive ? 'var(--ofs-white)' : 'var(--ofs-gray-700)',
                     border: isActive ? '1px solid var(--ofs-navy-950)' : '1px solid var(--ofs-gray-200)',
-                    boxShadow: isActive ? '0 4px 14px rgba(12, 30, 78, 0.2)' : 'none'
+                    boxShadow: isActive ? '0 4px 14px rgba(12, 30, 78, 0.2)' : 'none',
+                    transition: 'color 0.2s ease, border-color 0.2s ease'
                   }}
+                  data-cursor-text="SECTOR"
                 >
-                  <TabIcon size={15} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-gray-500)' }} />
-                  {ind.shortName}
+                  <TabIcon size={15} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-gray-500)', position: 'relative', zIndex: 2 }} />
+                  <span style={{ position: 'relative', zIndex: 2 }}>{ind.shortName}</span>
                 </button>
               );
             })}
@@ -184,12 +187,16 @@ export default function IndustriesSection() {
                   </div>
 
                   <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <Link href={`/industries/${currentIndustry.slug}`} className="btn btn-primary">
-                      Explore Sector Scope <ArrowUpRight size={16} />
-                    </Link>
-                    <Link href="/contact" className="btn btn-outline">
-                      Request Consultation
-                    </Link>
+                    <MagneticButton strength={0.3} radius={70}>
+                      <Link href={`/industries/${currentIndustry.slug}`} className="btn btn-primary" data-cursor-text="SECTOR">
+                        Explore Sector Scope <ArrowUpRight size={16} />
+                      </Link>
+                    </MagneticButton>
+                    <MagneticButton strength={0.25} radius={60}>
+                      <Link href="/contact" className="btn btn-outline" data-cursor-text="CONTACT">
+                        Request Consultation
+                      </Link>
+                    </MagneticButton>
                   </div>
                 </div>
 

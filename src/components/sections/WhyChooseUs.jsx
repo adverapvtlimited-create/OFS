@@ -19,6 +19,8 @@ import {
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import GlowCard from '@/components/animations/GlowCard';
+import MagneticButton from '@/components/animations/MagneticButton';
 
 const pillars = [
   {
@@ -107,7 +109,7 @@ export default function WhyChooseUs() {
           </ScrollReveal>
         </div>
 
-        {/* 6 Pillars Grid with Staggered Scroll Reveal */}
+        {/* 6 Pillars Grid with Staggered Scroll Reveal & Glowing Cards */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
@@ -118,16 +120,19 @@ export default function WhyChooseUs() {
             const Icon = item.icon;
             return (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.08}>
-                <div 
+                <GlowCard 
+                  glowColor="rgba(224, 42, 48, 0.22)"
+                  borderColor="rgba(224, 42, 48, 0.45)"
+                  className="pillar-card"
+                  data-cursor-text="PILLAR"
                   style={{
                     background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: 'var(--radius-md)',
                     padding: '2.25rem 2rem',
                     height: '100%',
-                    transition: 'all 0.3s ease'
+                    backdropFilter: 'blur(8px)'
                   }}
-                  className="pillar-card"
                 >
                   <div style={{
                     width: '50px',
@@ -156,13 +161,13 @@ export default function WhyChooseUs() {
 
                   <p style={{
                     fontSize: '0.925rem',
-                    color: 'rgba(255, 255, 255, 0.72)',
+                    color: 'rgba(255, 255, 255, 0.75)',
                     lineHeight: 1.6,
                     margin: 0
                   }}>
                     {item.desc}
                   </p>
-                </div>
+                </GlowCard>
               </ScrollReveal>
             );
           })}
@@ -179,7 +184,8 @@ export default function WhyChooseUs() {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1.5rem'
+            gap: '1.5rem',
+            boxShadow: '0 20px 40px rgba(6, 14, 36, 0.4)'
           }}>
             <div>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: '#fff', marginBottom: '0.35rem' }}>
@@ -190,9 +196,11 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            <Link href="/contact" className="btn btn-primary">
-              Request Consultation <ArrowUpRight size={16} />
-            </Link>
+            <MagneticButton strength={0.3} radius={80}>
+              <Link href="/contact" className="btn btn-primary" data-cursor-text="CONTACT">
+                Request Consultation <ArrowUpRight size={16} />
+              </Link>
+            </MagneticButton>
           </div>
         </ScrollReveal>
       </div>

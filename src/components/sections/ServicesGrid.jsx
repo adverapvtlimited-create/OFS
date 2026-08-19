@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import MagneticButton from '@/components/animations/MagneticButton';
+import GlowCard from '@/components/animations/GlowCard';
 import servicesData from '@/data/services.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -139,9 +141,11 @@ export default function ServicesGrid() {
               </div>
             )}
 
-            <Link href="/services" className="btn btn-navy btn-sm">
-              All Divisions <ArrowUpRight size={14} />
-            </Link>
+            <MagneticButton strength={0.3} radius={70}>
+              <Link href="/services" className="btn btn-navy btn-sm" data-cursor-text="ALL">
+                All Divisions <ArrowUpRight size={14} />
+              </Link>
+            </MagneticButton>
           </div>
         </div>
 
@@ -160,20 +164,17 @@ export default function ServicesGrid() {
               {servicesData.map((service, index) => {
                 const IconComp = iconMap[service.icon] || Package;
                 return (
-                  <div 
+                  <GlowCard 
                     key={service.id}
-                    className="card-modern service-card-modern"
+                    className="service-card-modern"
+                    data-cursor-text="VIEW"
                     style={{
                       width: '380px',
                       flexShrink: 0,
                       padding: '1.4rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      background: 'var(--ofs-white)',
-                      boxShadow: 'var(--shadow-lg)',
-                      border: '1.5px solid var(--ofs-gray-200)',
-                      borderRadius: 'var(--radius-lg)'
+                      justifyContent: 'space-between'
                     }}
                   >
                     <div>
@@ -296,7 +297,7 @@ export default function ServicesGrid() {
                         0{index + 1}
                       </span>
                     </div>
-                  </div>
+                  </GlowCard>
                 );
               })}
             </div>

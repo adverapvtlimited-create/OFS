@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SmoothScroller from '@/components/animations/SmoothScroller';
+import CustomCursor from '@/components/animations/CustomCursor';
 import siteConfig from '@/data/site-config.json';
 
 export const metadata = {
@@ -108,6 +109,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <CustomCursor />
         <SmoothScroller>
           <Header />
           <main>{children}</main>

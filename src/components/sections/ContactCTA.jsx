@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, CheckCircle2, AlertCircle, ShieldCheck, ArrowUpRight, Clock, Building2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import MagneticButton from '@/components/animations/MagneticButton';
+import GlowCard from '@/components/animations/GlowCard';
 import siteConfig from '@/data/site-config.json';
 
 export default function ContactCTA() {
@@ -234,15 +236,18 @@ export default function ContactCTA() {
           </div>
 
           {/* Right Column: Lead Form Card with Spring Entrance */}
-          <ScrollReveal direction="right" delay={0.3}>
-            <div style={{
-              background: 'var(--ofs-white)',
-              borderRadius: 'var(--radius-xl)',
-              padding: 'clamp(2.25rem, 4.5vw, 3.25rem)',
-              color: 'var(--ofs-navy-950)',
-              boxShadow: 'var(--shadow-2xl)',
-              border: '1px solid var(--ofs-gray-200)'
-            }}>
+          <ScrollReveal direction="up" delay={0.2}>
+            <GlowCard 
+              glowColor="rgba(224, 42, 48, 0.14)"
+              borderColor="rgba(224, 42, 48, 0.35)"
+              style={{
+                background: 'var(--ofs-white)',
+                borderRadius: 'var(--radius-xl)',
+                padding: 'clamp(2.25rem, 4.5vw, 3.25rem)',
+                color: 'var(--ofs-navy-950)',
+                boxShadow: 'var(--shadow-2xl)'
+              }}
+            >
               <h3 style={{
                 fontFamily: 'var(--font-heading)',
                 fontSize: '1.45rem',
@@ -359,16 +364,19 @@ export default function ContactCTA() {
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={status.state === 'loading'}
-                  className="btn btn-primary btn-lg"
-                  style={{ width: '100%', cursor: status.state === 'loading' ? 'wait' : 'pointer' }}
-                >
-                  {status.state === 'loading' ? 'Sending Enquiry...' : 'Submit Request for Proposal'} <Send size={16} />
-                </button>
+                <MagneticButton strength={0.25} radius={80} style={{ width: '100%' }}>
+                  <button
+                    type="submit"
+                    disabled={status.state === 'loading'}
+                    className="btn btn-primary btn-lg"
+                    style={{ width: '100%', cursor: status.state === 'loading' ? 'wait' : 'pointer' }}
+                    data-cursor-text="SUBMIT"
+                  >
+                    {status.state === 'loading' ? 'Sending Enquiry...' : 'Submit Request for Proposal'} <Send size={16} />
+                  </button>
+                </MagneticButton>
               </form>
-            </div>
+            </GlowCard>
           </ScrollReveal>
         </div>
       </div>

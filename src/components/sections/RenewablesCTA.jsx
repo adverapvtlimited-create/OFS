@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Sun, BatteryCharging, Leaf, ArrowUpRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import MagneticButton from '@/components/animations/MagneticButton';
 import renewablesData from '@/data/renewables.json';
 
 export default function RenewablesCTA() {
@@ -106,12 +107,16 @@ export default function RenewablesCTA() {
 
                 {/* Action Buttons */}
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                  <Link href="/renewables" className="btn btn-green btn-lg">
-                    Explore Renewables Portal <ArrowUpRight size={18} />
-                  </Link>
-                  <Link href="/renewables#projects" className="btn btn-outline-white btn-lg">
-                    View Clean Energy Projects
-                  </Link>
+                  <MagneticButton strength={0.32} radius={80}>
+                    <Link href="/renewables" className="btn btn-green btn-lg" data-cursor-text="SOLAR">
+                      Explore Renewables Portal <ArrowUpRight size={18} />
+                    </Link>
+                  </MagneticButton>
+                  <MagneticButton strength={0.25} radius={70}>
+                    <Link href="/renewables#projects" className="btn btn-outline-white btn-lg" data-cursor-text="PROJECTS">
+                      View Clean Energy Projects
+                    </Link>
+                  </MagneticButton>
                 </div>
               </div>
 

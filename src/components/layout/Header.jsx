@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
 import servicesData from '@/data/services.json';
+import MagneticButton from '@/components/animations/MagneticButton';
 
 const iconMap = {
   Package: Package,
@@ -415,13 +416,16 @@ export default function Header() {
 
           {/* Right Action Buttons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <Link 
-              href="/contact" 
-              className="btn btn-primary btn-sm desktop-btn"
-              style={{ textDecoration: 'none' }}
-            >
-              Get in Touch <ArrowUpRight size={15} />
-            </Link>
+            <MagneticButton strength={0.3} radius={70}>
+              <Link 
+                href="/contact" 
+                className="btn btn-primary btn-sm desktop-btn"
+                style={{ textDecoration: 'none' }}
+                data-cursor-text="CONTACT"
+              >
+                Get in Touch <ArrowUpRight size={15} />
+              </Link>
+            </MagneticButton>
 
             {/* Mobile Menu Hamburger Toggle */}
             <button

@@ -21,10 +21,13 @@ import {
 import TextRotator from '@/components/animations/TextRotator';
 import Counter from '@/components/animations/Counter';
 import TextReveal from '@/components/animations/TextReveal';
+import MagneticButton from '@/components/animations/MagneticButton';
+import { useMouseParallax } from '@/hooks/useMouseParallax';
 import siteConfig from '@/data/site-config.json';
 
 export default function Hero() {
   const containerRef = useRef(null);
+  const { smoothPos } = useMouseParallax({ damping: 0.06 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -67,22 +70,23 @@ export default function Hero() {
           inset: 0,
           opacity: 0.7,
           pointerEvents: 'none',
-          y: bgGridY
+          y: bgGridY,
+          x: smoothPos.x * 12
         }} 
       />
 
-      {/* Subtle Radial Glow */}
+      {/* Subtle Radial Mouse Reactive Glow */}
       <motion.div 
         style={{
           position: 'absolute',
           top: '-10%',
           left: '50%',
-          transform: 'translateX(-50%)',
           width: '800px',
           height: '400px',
-          background: 'radial-gradient(circle, rgba(14, 33, 87, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(14, 33, 87, 0.12) 0%, transparent 70%)',
           pointerEvents: 'none',
-          y: bgGridY
+          x: `calc(-50% + ${smoothPos.x * 30}px)`,
+          y: smoothPos.y * 20
         }} 
       />
 
@@ -158,7 +162,7 @@ export default function Hero() {
               {siteConfig.description}
             </motion.p>
 
-            {/* CTA Action Buttons with Staggered Entrance */}
+            {/* CTA Action Buttons with Magnetic Springs */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -170,17 +174,23 @@ export default function Hero() {
                 flexWrap: 'wrap'
               }}
             >
-              <Link href="/services" className="btn btn-primary btn-lg">
-                Explore Capabilities <ArrowUpRight size={18} />
-              </Link>
+              <MagneticButton strength={0.32} radius={80}>
+                <Link href="/services" className="btn btn-primary btn-lg" data-cursor-text="EXPLORE">
+                  Explore Capabilities <ArrowUpRight size={18} />
+                </Link>
+              </MagneticButton>
               
-              <Link href="/contact" className="btn btn-outline btn-lg">
-                Request RFQ / Consultation
-              </Link>
+              <MagneticButton strength={0.25} radius={70}>
+                <Link href="/contact" className="btn btn-outline btn-lg" data-cursor-text="RFQ">
+                  Request RFQ / Consultation
+                </Link>
+              </MagneticButton>
 
-              <Link href="/renewables" className="btn btn-green btn-lg">
-                Renewables Portal <Zap size={18} />
-              </Link>
+              <MagneticButton strength={0.25} radius={70}>
+                <Link href="/renewables" className="btn btn-green btn-lg" data-cursor-text="SOLAR">
+                  Renewables Portal <Zap size={18} />
+                </Link>
+              </MagneticButton>
             </motion.div>
           </div>
         </motion.div>
@@ -215,7 +225,7 @@ export default function Hero() {
               background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.25) 0%, rgba(6, 14, 36, 0.85) 100%)'
             }} />
 
-            {/* Telemetry Floating Chips with Diagonal Scroll Parallax */}
+            {/* Telemetry Floating Chips with Diagonal Scroll Parallax & Mouse Depth */}
             <motion.div 
               style={{
                 position: 'absolute',
@@ -227,6 +237,11 @@ export default function Hero() {
                 zIndex: 3,
                 x: cardFloatLeft
               }}
+              animate={{
+                x: smoothPos.x * -18,
+                y: smoothPos.y * -12
+              }}
+              transition={{ type: 'spring', stiffness: 120, damping: 25 }}
             >
               <div style={{
                 background: 'rgba(6, 14, 36, 0.85)',

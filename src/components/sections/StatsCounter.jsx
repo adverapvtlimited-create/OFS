@@ -6,6 +6,8 @@ import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import { Award, ShieldCheck, TrendingUp, Globe2, CheckCircle, Sparkles } from 'lucide-react';
 
+import GlowCard from '@/components/animations/GlowCard';
+
 const statsData = [
   { numeric: 15, suffix: "+", label: "Years of Industry Excellence", desc: "Proven track record in high-stakes operational environments" },
   { numeric: 3000, suffix: "+", label: "US & European Approved Brands", desc: "Direct access to pre-vetted international manufacturers" },
@@ -70,7 +72,7 @@ export default function StatsCounter() {
           </ScrollReveal>
         </div>
 
-        {/* 6 Metric Bento Cards Grid with Staggered Scale-In */}
+        {/* 6 Metric Bento Cards Grid with Staggered Scale-In & Radial Spotlight */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
@@ -78,18 +80,20 @@ export default function StatsCounter() {
         }}>
           {statsData.map((stat, idx) => (
             <ScrollReveal key={idx} direction="up" delay={idx * 0.08} scale={0.94}>
-              <div 
+              <GlowCard 
+                glowColor="rgba(217, 119, 6, 0.22)"
+                borderColor="rgba(217, 119, 6, 0.45)"
+                data-cursor-text="METRIC"
                 style={{
                   background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   borderRadius: 'var(--radius-md)',
                   padding: '2.5rem 2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   height: '100%',
-                  backdropFilter: 'blur(10px)',
-                  transition: 'all 0.3s ease'
+                  backdropFilter: 'blur(10px)'
                 }}
                 className="stat-card"
               >
@@ -119,7 +123,7 @@ export default function StatsCounter() {
 
                 <p style={{
                   fontSize: '0.875rem',
-                  color: 'rgba(255, 255, 255, 0.7)',
+                  color: 'rgba(255, 255, 255, 0.75)',
                   lineHeight: 1.5,
                   margin: 0,
                   paddingTop: '1rem',
@@ -127,7 +131,7 @@ export default function StatsCounter() {
                 }}>
                   {stat.desc}
                 </p>
-              </div>
+              </GlowCard>
             </ScrollReveal>
           ))}
         </div>
