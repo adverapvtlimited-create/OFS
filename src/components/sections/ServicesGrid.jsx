@@ -51,7 +51,8 @@ export default function ServicesGrid() {
     if (!isDesktop || !sectionRef.current || !trackRef.current) return;
 
     const track = trackRef.current;
-    const scrollLength = track.scrollWidth - window.innerWidth + 120;
+    // Calculate total horizontal scroll distance
+    const scrollLength = track.scrollWidth - window.innerWidth + 80;
 
     const ctx = gsap.context(() => {
       gsap.to(track, {
@@ -60,9 +61,9 @@ export default function ServicesGrid() {
         scrollTrigger: {
           trigger: sectionRef.current,
           pin: true,
-          scrub: 1,
-          start: 'top top+=80',
-          end: () => `+=${scrollLength * 1.15}`,
+          scrub: 0.8,
+          start: 'top top',
+          end: () => `+=${scrollLength * 1.1}`,
           invalidateOnRefresh: true,
         }
       });
@@ -74,77 +75,84 @@ export default function ServicesGrid() {
   return (
     <section 
       ref={sectionRef}
-      className="section-pad" 
       style={{ 
         background: 'linear-gradient(180deg, var(--ofs-gray-50) 0%, #FFFFFF 100%)', 
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        minHeight: isDesktop ? '100vh' : 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: isDesktop ? 'center' : 'flex-start',
+        paddingTop: isDesktop ? '4.5rem' : 'var(--section-pad-y)',
+        paddingBottom: isDesktop ? '2rem' : 'var(--section-pad-y)'
       }}
     >
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Section Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '3rem' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
+        {/* Compact, High-Impact Header */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          flexWrap: 'wrap',
+          gap: '1.25rem',
+          marginBottom: isDesktop ? '1.5rem' : '2.5rem'
+        }}>
           <div>
-            <ScrollReveal direction="up">
-              <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
-                OUR 6 CORE DIVISIONS
-              </div>
-            </ScrollReveal>
-
-            <h2 className="section-title">
-              <TextReveal tag="span" duration={0.65}>
-                Engineered for Precision.
-              </TextReveal>
-              <br />
-              <span className="gradient-text-navy">
-                <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  Built for High-Stakes Operations.
-                </TextReveal>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.4rem' }}>
+              <span className="tag-badge badge-red" style={{ fontSize: '0.7rem', padding: '0.3rem 0.75rem' }}>
+                CORE CAPABILITIES
               </span>
-            </h2>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--ofs-navy-900)', fontWeight: 700 }}>
+                6 STRATEGIC DIVISIONS
+              </span>
+            </div>
 
-            <ScrollReveal direction="up" delay={0.25}>
-              <p className="section-desc">
-                Comprehensive operational support tailored for offshore basins, refineries, petrochemical complexes, and renewable energy parks.
-              </p>
-            </ScrollReveal>
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.65rem, 2.75vw, 2.35rem)',
+              fontWeight: 800,
+              color: 'var(--ofs-navy-950)',
+              margin: 0,
+              lineHeight: 1.2
+            }}>
+              Engineered for Precision. <span className="gradient-text-navy">Built for High-Stakes Operations.</span>
+            </h2>
           </div>
 
-          <ScrollReveal direction="up" delay={0.35}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              {isDesktop && (
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.78rem',
-                  color: 'var(--ofs-gray-500)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  padding: '0.4rem 0.85rem',
-                  background: 'var(--ofs-navy-50)',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--ofs-navy-100)'
-                }}>
-                  <span className="sonar-wave" style={{ width: '6px', height: '6px', background: 'var(--ofs-red-600)' }} />
-                  SCROLL HORIZONTALLY <ArrowRight size={13} />
-                </div>
-              )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            {isDesktop && (
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.75rem',
+                color: 'var(--ofs-navy-900)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.35rem 0.85rem',
+                background: 'var(--ofs-navy-50)',
+                borderRadius: 'var(--radius-full)',
+                border: '1px solid var(--ofs-navy-100)',
+                fontWeight: 600
+              }}>
+                <span className="sonar-wave" style={{ width: '6px', height: '6px', background: 'var(--ofs-red-600)' }} />
+                SCROLL TO EXPLORE ALL 6 <ArrowRight size={12} />
+              </div>
+            )}
 
-              <Link href="/services" className="btn btn-navy">
-                View All Divisions <ArrowUpRight size={16} />
-              </Link>
-            </div>
-          </ScrollReveal>
+            <Link href="/services" className="btn btn-navy btn-sm">
+              All Divisions <ArrowUpRight size={14} />
+            </Link>
+          </div>
         </div>
 
-        {/* Desktop Pinned Horizontal Track vs Mobile Vertical Grid */}
+        {/* Desktop Viewport-Fitted Horizontal Track */}
         {isDesktop ? (
-          <div style={{ overflow: 'visible', paddingTop: '1rem', paddingBottom: '2rem' }}>
+          <div style={{ overflow: 'visible', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
             <div 
               ref={trackRef}
               style={{
                 display: 'flex',
-                gap: '2rem',
+                gap: '1.5rem',
                 width: 'max-content',
                 willChange: 'transform'
               }}
@@ -156,9 +164,9 @@ export default function ServicesGrid() {
                     key={service.id}
                     className="card-modern service-card-modern"
                     style={{
-                      width: '420px',
+                      width: '380px',
                       flexShrink: 0,
-                      padding: '2.5rem 2.25rem',
+                      padding: '1.4rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
@@ -169,12 +177,12 @@ export default function ServicesGrid() {
                     }}
                   >
                     <div>
-                      {/* Top Service Image Preview */}
+                      {/* Image Thumbnail with Overlay Badge */}
                       <div style={{
-                        height: '170px',
+                        height: '135px',
                         borderRadius: 'var(--radius-sm)',
                         overflow: 'hidden',
-                        marginBottom: '1.5rem',
+                        marginBottom: '1rem',
                         position: 'relative'
                       }}>
                         <img 
@@ -185,18 +193,18 @@ export default function ServicesGrid() {
                         <div style={{
                           position: 'absolute',
                           inset: 0,
-                          background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.6) 100%)'
+                          background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.65) 100%)'
                         }} />
                         <span style={{
                           position: 'absolute',
-                          bottom: '0.85rem',
-                          left: '0.85rem',
+                          bottom: '0.65rem',
+                          left: '0.65rem',
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.72rem',
+                          fontSize: '0.68rem',
                           fontWeight: 700,
                           color: '#fff',
                           background: 'rgba(6, 14, 36, 0.85)',
-                          padding: '0.3rem 0.75rem',
+                          padding: '0.25rem 0.65rem',
                           borderRadius: 'var(--radius-full)',
                           backdropFilter: 'blur(6px)',
                           border: '1px solid rgba(255, 255, 255, 0.2)'
@@ -205,54 +213,54 @@ export default function ServicesGrid() {
                         </span>
                       </div>
 
-                      {/* Service Icon and Title */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '0.85rem' }}>
+                      {/* Header with Icon and Title */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.5rem' }}>
                         <div 
                           className="service-icon-box"
                           style={{
-                            width: '46px',
-                            height: '46px',
+                            width: '38px',
+                            height: '38px',
                             borderRadius: 'var(--radius-xs)',
                             background: 'var(--ofs-navy-950)',
                             color: 'var(--ofs-red-400)',
                             display: 'grid',
                             placeContent: 'center',
-                            boxShadow: '0 4px 12px rgba(12, 30, 78, 0.2)',
+                            boxShadow: '0 3px 10px rgba(12, 30, 78, 0.2)',
                             flexShrink: 0
                           }}
                         >
-                          <IconComp size={22} />
+                          <IconComp size={18} />
                         </div>
                         <h3 style={{
                           fontFamily: 'var(--font-heading)',
-                          fontSize: '1.25rem',
+                          fontSize: '1.15rem',
                           fontWeight: 800,
                           color: 'var(--ofs-navy-950)',
                           margin: 0,
-                          lineHeight: 1.25
+                          lineHeight: 1.2
                         }}>
                           {service.title}
                         </h3>
                       </div>
 
                       <p style={{
-                        fontSize: '0.9rem',
+                        fontSize: '0.85rem',
                         color: 'var(--ofs-gray-600)',
-                        lineHeight: 1.6,
-                        marginBottom: '1.5rem',
+                        lineHeight: 1.5,
+                        marginBottom: '0.9rem',
                         display: '-webkit-box',
-                        WebkitLineClamp: 3,
+                        WebkitLineClamp: 2,
                         WebkitBoxOrient: 'vertical',
                         overflow: 'hidden'
                       }}>
                         {service.description}
                       </p>
 
-                      {/* Feature Bullets */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', marginBottom: '1.75rem' }}>
-                        {service.features.slice(0, 3).map((feat, fIndex) => (
-                          <div key={fIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.84rem', color: 'var(--ofs-gray-700)' }}>
-                            <CheckCircle2 size={15} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
+                      {/* Feature Bullets (2 highlights to fit any screen height) */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1rem' }}>
+                        {service.features.slice(0, 2).map((feat, fIndex) => (
+                          <div key={fIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.45rem', fontSize: '0.8rem', color: 'var(--ofs-gray-700)', lineHeight: 1.35 }}>
+                            <CheckCircle2 size={14} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -261,7 +269,7 @@ export default function ServicesGrid() {
 
                     {/* Bottom CTA Link */}
                     <div style={{
-                      paddingTop: '1.25rem',
+                      paddingTop: '0.85rem',
                       borderTop: '1px solid var(--ofs-gray-200)',
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -271,20 +279,20 @@ export default function ServicesGrid() {
                         href={`/services/${service.slug}`}
                         style={{
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.82rem',
+                          fontSize: '0.78rem',
                           fontWeight: 700,
                           textTransform: 'uppercase',
                           color: 'var(--ofs-red-600)',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '0.35rem'
+                          gap: '0.3rem'
                         }}
                         className="service-link"
                       >
-                        Explore Service <ArrowUpRight size={15} />
+                        Explore Details <ArrowUpRight size={14} />
                       </Link>
 
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--ofs-gray-400)', fontWeight: 700 }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--ofs-gray-400)', fontWeight: 700 }}>
                         0{index + 1}
                       </span>
                     </div>
@@ -297,32 +305,33 @@ export default function ServicesGrid() {
           /* Mobile / Tablet Vertical Bento Grid */
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
+            gap: '1.5rem'
           }}>
             {servicesData.map((service, index) => {
               const IconComp = iconMap[service.icon] || Package;
               return (
-                <ScrollReveal key={service.id} direction="up" delay={index * 0.1}>
+                <ScrollReveal key={service.id} direction="up" delay={index * 0.08}>
                   <div 
                     className="card-modern service-card-modern"
                     style={{
-                      padding: '2rem 1.75rem',
+                      padding: '1.65rem 1.5rem',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'space-between',
                       background: 'var(--ofs-white)',
-                      height: '100%'
+                      height: '100%',
+                      borderRadius: 'var(--radius-md)'
                     }}
                   >
                     <div>
                       {/* Mobile Top Badge & Icon */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
                         <div 
                           className="service-icon-box"
                           style={{
-                            width: '48px',
-                            height: '48px',
+                            width: '42px',
+                            height: '42px',
                             borderRadius: 'var(--radius-xs)',
                             background: 'var(--ofs-navy-950)',
                             color: 'var(--ofs-red-400)',
@@ -330,16 +339,16 @@ export default function ServicesGrid() {
                             placeContent: 'center'
                           }}
                         >
-                          <IconComp size={22} />
+                          <IconComp size={20} />
                         </div>
 
                         <span style={{
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.72rem',
+                          fontSize: '0.7rem',
                           fontWeight: 700,
                           color: 'var(--ofs-navy-900)',
                           background: 'var(--ofs-navy-50)',
-                          padding: '0.3rem 0.75rem',
+                          padding: '0.25rem 0.65rem',
                           borderRadius: 'var(--radius-full)',
                           border: '1px solid var(--ofs-navy-100)'
                         }}>
@@ -349,28 +358,28 @@ export default function ServicesGrid() {
 
                       <h3 style={{
                         fontFamily: 'var(--font-heading)',
-                        fontSize: '1.25rem',
+                        fontSize: '1.18rem',
                         fontWeight: 800,
                         color: 'var(--ofs-navy-950)',
-                        marginBottom: '0.65rem',
+                        marginBottom: '0.5rem',
                         lineHeight: 1.25
                       }}>
                         {service.title}
                       </h3>
 
                       <p style={{
-                        fontSize: '0.9rem',
+                        fontSize: '0.875rem',
                         color: 'var(--ofs-gray-600)',
-                        lineHeight: 1.6,
-                        marginBottom: '1.25rem'
+                        lineHeight: 1.5,
+                        marginBottom: '1rem'
                       }}>
                         {service.description}
                       </p>
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', marginBottom: '1.25rem' }}>
                         {service.features.slice(0, 3).map((feat, fIndex) => (
-                          <div key={fIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--ofs-gray-700)' }}>
-                            <CheckCircle2 size={15} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
+                          <div key={fIndex} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.45rem', fontSize: '0.8rem', color: 'var(--ofs-gray-700)' }}>
+                            <CheckCircle2 size={14} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -378,7 +387,7 @@ export default function ServicesGrid() {
                     </div>
 
                     <div style={{
-                      paddingTop: '1rem',
+                      paddingTop: '0.85rem',
                       borderTop: '1px solid var(--ofs-gray-200)',
                       display: 'flex',
                       justifyContent: 'space-between',
@@ -388,20 +397,20 @@ export default function ServicesGrid() {
                         href={`/services/${service.slug}`}
                         style={{
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.82rem',
+                          fontSize: '0.8rem',
                           fontWeight: 700,
                           textTransform: 'uppercase',
                           color: 'var(--ofs-red-600)',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '0.35rem'
+                          gap: '0.3rem'
                         }}
                         className="service-link"
                       >
-                        Explore Service <ArrowUpRight size={15} />
+                        Explore Service <ArrowUpRight size={14} />
                       </Link>
 
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--ofs-gray-400)', fontWeight: 700 }}>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--ofs-gray-400)', fontWeight: 700 }}>
                         0{index + 1}
                       </span>
                     </div>

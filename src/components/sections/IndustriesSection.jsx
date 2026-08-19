@@ -68,15 +68,15 @@ export default function IndustriesSection() {
           </ScrollReveal>
         </div>
 
-        {/* Horizontal Industry Tab Selector */}
+        {/* Responsive Industry Tab Selector with Clean Multi-Row Wrap */}
         <ScrollReveal direction="up" delay={0.3}>
           <div style={{
             display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
             gap: '0.65rem',
-            overflowX: 'auto',
-            paddingBottom: '1rem',
-            marginBottom: '2.5rem',
-            scrollbarWidth: 'none'
+            maxWidth: '1050px',
+            margin: '0 auto 2.5rem auto'
           }}>
             {industriesData.map((ind) => {
               const TabIcon = iconMap[ind.icon] || Flame;
@@ -88,10 +88,10 @@ export default function IndustriesSection() {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.55rem',
-                    padding: '0.8rem 1.35rem',
+                    gap: '0.5rem',
+                    padding: '0.65rem 1.15rem',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '0.875rem',
+                    fontSize: '0.825rem',
                     fontFamily: 'var(--font-mono)',
                     fontWeight: 700,
                     whiteSpace: 'nowrap',
@@ -103,7 +103,7 @@ export default function IndustriesSection() {
                     boxShadow: isActive ? '0 4px 14px rgba(12, 30, 78, 0.2)' : 'none'
                   }}
                 >
-                  <TabIcon size={16} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-gray-500)' }} />
+                  <TabIcon size={15} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-gray-500)' }} />
                   {ind.shortName}
                 </button>
               );
