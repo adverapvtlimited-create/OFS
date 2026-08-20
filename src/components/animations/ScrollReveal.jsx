@@ -49,7 +49,7 @@ export default function ScrollReveal({
           ease: [0.16, 1, 0.3, 1]
         }
       }}
-      viewport={{ once, amount: threshold, margin: '-20px' }}
+      viewport={{ once, amount: 0.05, margin: '0px' }}
     >
       {children}
     </motion.div>

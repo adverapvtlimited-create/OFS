@@ -16,9 +16,14 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import industriesData from '@/data/industries.json';
+import servicesData from '@/data/services.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
+import Breadcrumbs from '@/components/SEO/Breadcrumbs';
+import JsonLd from '@/components/SEO/JsonLd';
+import { buildPageMetadata } from '@/lib/seo';
+import { buildWebPageSchema } from '@/lib/schema';
 
 const iconMap = {
   Flame: Flame,
@@ -40,12 +45,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const ind = industriesData.find((i) => i.slug === params.slug);
-  if (!ind) return { title: 'Industry Not Found | OFS Group India' };
+  if (!ind) {
+    return buildPageMetadata({
+      title: 'Industry Not Found | OFS Group India',
+      description: 'The requested OFS industry page could not be found.',
+      path: '/industries',
+      noindex: true,
+    });
+  }
 
-  return {
-    title: `${ind.name} Solutions — OFS Group India`,
-    description: ind.summary
-  };
+  return buildPageMetadata({
+    title: `${ind.name} Solutions | OFS Group India`,
+    description: ind.summary,
+    path: `/industries/${ind.slug}`,
+    keywords: [ind.name, ind.shortName, 'OFS Group India', 'industrial procurement'],
+    ogImage: ind.heroImage,
+  });
 }
 
 export default function SingleIndustryPage({ params }) {
@@ -57,8 +72,21 @@ export default function SingleIndustryPage({ params }) {
 
   const IconComp = iconMap[ind.icon] || Flame;
 
+  const breadcrumbItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Industries', href: '/industries' },
+    { name: ind.shortName, href: `/industries/${ind.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd
+        data={buildWebPageSchema({
+          title: `${ind.name} Solutions | OFS Group India`,
+          description: ind.summary,
+          path: `/industries/${ind.slug}`,
+        })}
+      />
       {/* Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
@@ -72,22 +100,7 @@ export default function SingleIndustryPage({ params }) {
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
-              <span>/</span>
-              <Link href="/industries" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Industries</Link>
-              <span>/</span>
-              <span style={{ color: 'var(--ofs-red-400)' }}>{ind.shortName}</span>
-            </div>
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
@@ -198,7 +211,11 @@ export default function SingleIndustryPage({ params }) {
               }}>
                 <img 
                   src={ind.heroImage} 
-                  alt={ind.name}
+                  alt={`${ind.name} — OFS Group India industrial solutions`}
+                  width={960}
+                  height={460}
+                  loading="eager"
+                  fetchPriority="high"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{
@@ -208,6 +225,46 @@ export default function SingleIndustryPage({ params }) {
                 }} />
               </div>
             </ScrollReveal>
+          </div>
+
+          {/* Related OFS services for internal linking */}
+          <div style={{ marginTop: '4rem' }}>
+            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>
+              OFS Services for {ind.shortName}
+            </h2>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
+                gap: '1rem',
+              }}
+            >
+              {servicesData.slice(0, 3).map((svc) => (
+                <Link
+                  key={svc.id}
+                  href={`/services/${svc.slug}`}
+                  style={{
+                    padding: '1.25rem 1.5rem',
+                    background: 'var(--ofs-navy-50)',
+                    border: '1px solid var(--ofs-navy-100)',
+                    borderRadius: 'var(--radius-sm)',
+                    textDecoration: 'none',
+                    color: 'var(--ofs-navy-950)',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                  }}
+                >
+                  {svc.shortTitle}
+                </Link>
+              ))}
+            </div>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.95rem', color: 'var(--ofs-gray-600)' }}>
+              Need sector-specific procurement or EPC support?{' '}
+              <Link href="/contact" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+                Contact OFS Group India for a consultation
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>

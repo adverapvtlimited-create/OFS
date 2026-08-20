@@ -1,12 +1,15 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
-  const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
+  const [isEnabled, setIsEnabled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [cursorText, setCursorText] = useState('');
+  const isVisibleRef = useRef(true);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -14,6 +17,12 @@ export default function CustomCursor() {
   // Smooth lagging spring for outer ring
   const springX = useSpring(cursorX, { stiffness: 450, damping: 28 });
   const springY = useSpring(cursorY, { stiffness: 450, damping: 28 });
+
+  // Reset hover state on route change
+  useEffect(() => {
+    setIsHovered(false);
+    setCursorText('');
+  }, [pathname]);
 
   useEffect(() => {
     // Only enable on desktop pointer devices
@@ -23,7 +32,7 @@ export default function CustomCursor() {
       return;
     }
 
-    setIsVisible(true);
+    setIsEnabled(true);
 
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX);
@@ -44,11 +53,13 @@ export default function CustomCursor() {
     };
 
     const handleMouseLeave = () => {
-      setIsVisible(false);
+      isVisibleRef.current = false;
+      cursorX.set(-100);
+      cursorY.set(-100);
     };
 
     const handleMouseEnter = () => {
-      setIsVisible(true);
+      isVisibleRef.current = true;
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -62,10 +73,20 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  if (!isVisible) return null;
-
+  // Always render the same DOM tree (empty div when disabled) to avoid hydration mismatch
   return (
-    <div style={{ pointerEvents: 'none', position: 'fixed', inset: 0, zIndex: 99999, overflow: 'hidden' }}>
+    <div
+      style={{
+        pointerEvents: 'none',
+        position: 'fixed',
+        inset: 0,
+        zIndex: 99999,
+        overflow: 'hidden',
+        display: isEnabled ? 'block' : 'none',
+      }}
+      aria-hidden="true"
+      suppressHydrationWarning
+    >
       {/* Outer Smooth Spring Ring */}
       <motion.div
         style={{

@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
 import servicesData from '@/data/services.json';
+import industriesData from '@/data/industries.json';
 
 export default function Footer() {
   return (
@@ -164,8 +165,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Portals & Quick Links */}
+          {/* Column 3: Industries & Portals */}
           <div>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-xs)',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              color: 'var(--ofs-gold-400)',
+              marginBottom: '1.25rem'
+            }}>
+              Industries Served
+            </div>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+              {industriesData.slice(0, 5).map((ind) => (
+                <li key={ind.id}>
+                  <Link href={`/industries/${ind.slug}`} className="footer-link">
+                    <ChevronRight size={13} style={{ color: 'var(--ofs-red-500)' }} />
+                    {ind.shortName}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/industries" className="footer-link" style={{ fontWeight: 700 }}>
+                  <ChevronRight size={13} style={{ color: 'var(--ofs-red-500)' }} />
+                  View All Industries
+                </Link>
+              </li>
+            </ul>
+
             <div style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 'var(--text-xs)',
@@ -319,7 +348,7 @@ export default function Footer() {
             <span>•</span>
             <Link href="/terms" className="hover-white">Terms of Engagement</Link>
             <span>•</span>
-            <Link href="/sitemap.xml" className="hover-white">Sitemap</Link>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover-white">Sitemap</a>
           </div>
         </div>
       </div>

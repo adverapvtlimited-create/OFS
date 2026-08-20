@@ -61,7 +61,7 @@ export default function TextReveal({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, margin: '0px' }}
+      viewport={{ once, amount: 0.05, margin: '0px' }}
     >
       {words.map((word, idx) => (
         <React.Fragment key={idx}>

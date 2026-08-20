@@ -19,9 +19,14 @@ import {
   Sun
 } from 'lucide-react';
 import servicesData from '@/data/services.json';
+import industriesData from '@/data/industries.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
+import Breadcrumbs from '@/components/SEO/Breadcrumbs';
+import JsonLd from '@/components/SEO/JsonLd';
+import { buildPageMetadata } from '@/lib/seo';
+import { buildServiceSchema, buildFAQSchema, buildWebPageSchema } from '@/lib/schema';
 
 const iconMap = {
   Package: Package,
@@ -43,12 +48,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const service = servicesData.find((s) => s.slug === params.slug);
-  if (!service) return { title: 'Service Not Found | OFS Group India' };
+  if (!service) {
+    return buildPageMetadata({
+      title: 'Service Not Found | OFS Group India',
+      description: 'The requested OFS service page could not be found.',
+      path: '/services',
+      noindex: true,
+    });
+  }
 
-  return {
-    title: `${service.title} — OFS Group India`,
-    description: service.description
-  };
+  return buildPageMetadata({
+    title: `${service.title} | OFS Group India`,
+    description: service.description,
+    path: `/services/${service.slug}`,
+    keywords: [service.title, service.shortTitle, 'OFS Group India', service.badge],
+    ogImage: service.heroImage,
+  });
 }
 
 export default function SingleServicePage({ params }) {
@@ -60,8 +75,25 @@ export default function SingleServicePage({ params }) {
 
   const IconComp = iconMap[service.icon] || Package;
 
+  const breadcrumbItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: service.shortTitle, href: `/services/${service.slug}` },
+  ];
+
+  const schemas = [
+    buildWebPageSchema({
+      title: `${service.title} | OFS Group India`,
+      description: service.description,
+      path: `/services/${service.slug}`,
+    }),
+    buildServiceSchema(service),
+    buildFAQSchema(service.faqs),
+  ].filter(Boolean);
+
   return (
     <>
+      <JsonLd data={schemas} />
       {/* Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
@@ -75,22 +107,7 @@ export default function SingleServicePage({ params }) {
 
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
-              <span>/</span>
-              <Link href="/services" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Services</Link>
-              <span>/</span>
-              <span style={{ color: 'var(--ofs-red-400)' }}>{service.shortTitle}</span>
-            </div>
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
@@ -201,7 +218,11 @@ export default function SingleServicePage({ params }) {
               }}>
                 <img 
                   src={service.heroImage} 
-                  alt={service.title}
+                  alt={`${service.title} — OFS Group India`}
+                  width={960}
+                  height={480}
+                  loading="eager"
+                  fetchPriority="high"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 <div style={{
@@ -370,6 +391,44 @@ export default function SingleServicePage({ params }) {
               </div>
             </div>
           )}
+
+          {/* Related industries for internal linking */}
+          <div style={{ maxWidth: '820px', margin: '0 auto 4rem auto' }}>
+            <h2 className="section-title" style={{ marginBottom: '1.25rem' }}>
+              Industries We Support
+            </h2>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
+                gap: '1rem',
+              }}
+            >
+              {industriesData.slice(0, 4).map((ind) => (
+                <Link
+                  key={ind.id}
+                  href={`/industries/${ind.slug}`}
+                  style={{
+                    padding: '1rem 1.25rem',
+                    background: 'var(--ofs-gray-50)',
+                    border: '1px solid var(--ofs-gray-200)',
+                    borderRadius: 'var(--radius-sm)',
+                    textDecoration: 'none',
+                    color: 'var(--ofs-navy-950)',
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                  }}
+                >
+                  {ind.shortName}
+                </Link>
+              ))}
+            </div>
+            <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: 'var(--ofs-gray-600)' }}>
+              <Link href="/industries" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+                View all industries served by OFS
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
 

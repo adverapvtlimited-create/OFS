@@ -29,7 +29,7 @@ export default function MaskImageReveal({
       <motion.div
         initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' }}
         whileInView={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: true, amount: 0.05, margin: '0px' }}
         transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
         style={{ width: '100%', height: '100%', position: 'relative' }}
       >

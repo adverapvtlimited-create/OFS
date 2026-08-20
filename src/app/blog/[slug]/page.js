@@ -6,6 +6,11 @@ import blogPosts from '@/data/blog-posts.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
+import Breadcrumbs from '@/components/SEO/Breadcrumbs';
+import JsonLd from '@/components/SEO/JsonLd';
+import { renderBlogContent } from '@/lib/markdown';
+import { buildPageMetadata, parseDisplayDate } from '@/lib/seo';
+import { buildArticleSchema, buildWebPageSchema } from '@/lib/schema';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -15,12 +20,30 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const post = blogPosts.find((p) => p.slug === params.slug);
-  if (!post) return { title: 'Article Not Found | OFS Group India' };
+  if (!post) {
+    return buildPageMetadata({
+      title: 'Article Not Found | OFS Group India',
+      description: 'The requested OFS insight article could not be found.',
+      path: '/blog',
+      noindex: true,
+    });
+  }
 
-  return {
+  const published = parseDisplayDate(post.date);
+
+  return buildPageMetadata({
     title: `${post.title} | OFS Group Insights`,
-    description: post.excerpt
-  };
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    keywords: [...(post.tags || []), post.category, 'OFS Group India'],
+    ogImage: post.image,
+    ogType: 'article',
+    publishedTime: published,
+    modifiedTime: published,
+    authors: [post.author.name],
+    section: post.category,
+    tags: post.tags,
+  });
 }
 
 export default function SingleBlogPage({ params }) {
@@ -32,8 +55,24 @@ export default function SingleBlogPage({ params }) {
 
   const relatedPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 2);
 
+  const breadcrumbItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Insights', href: '/blog' },
+    { name: post.category, href: `/blog/${post.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd
+        data={[
+          buildArticleSchema(post),
+          buildWebPageSchema({
+            title: `${post.title} | OFS Group Insights`,
+            description: post.excerpt,
+            path: `/blog/${post.slug}`,
+          }),
+        ]}
+      />
       {/* Article Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
@@ -43,6 +82,10 @@ export default function SingleBlogPage({ params }) {
         position: 'relative'
       }}>
         <div className="container" style={{ maxWidth: '880px' }}>
+          <ScrollReveal direction="down" duration={0.5}>
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+          </ScrollReveal>
+
           {/* Back link */}
           <ScrollReveal direction="down" duration={0.5}>
             <Link 
@@ -114,7 +157,11 @@ export default function SingleBlogPage({ params }) {
             }}>
               <img 
                 src={post.image} 
-                alt={post.title}
+                alt={`Featured image for ${post.title}`}
+                width={1200}
+                height={480}
+                loading="eager"
+                fetchPriority="high"
                 style={{ width: '100%', maxHeight: '480px', objectFit: 'cover' }}
               />
             </div>
@@ -148,28 +195,20 @@ export default function SingleBlogPage({ params }) {
             gap: '1.5rem',
             marginBottom: '3.5rem'
           }}>
-            {post.content.split('\n\n').map((paragraph, pIdx) => {
-              if (paragraph.startsWith('### ')) {
-                return (
-                  <h2 key={pIdx} style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.65rem',
-                    fontWeight: 800,
-                    color: 'var(--ofs-navy-950)',
-                    marginTop: '1.5rem',
-                    marginBottom: '0.5rem'
-                  }}>
-                    {paragraph.replace('### ', '')}
-                  </h2>
-                );
-              }
-              return (
-                <p key={pIdx}>
-                  {paragraph}
-                </p>
-              );
-            })}
+            {renderBlogContent(post.content)}
           </div>
+
+          <p style={{ fontSize: '0.9rem', color: 'var(--ofs-gray-600)', marginBottom: '2rem' }}>
+            Explore OFS{' '}
+            <Link href="/services" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+              procurement and EPC support services
+            </Link>{' '}
+            or{' '}
+            <Link href="/contact" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+              contact our team
+            </Link>{' '}
+            for project-specific assistance.
+          </p>
 
           {/* Tags */}
           <div style={{
