@@ -105,7 +105,7 @@ export default function ServicesGrid() {
                 CORE CAPABILITIES
               </span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--ofs-navy-900)', fontWeight: 700 }}>
-                6 STRATEGIC DIVISIONS
+                5 STRATEGIC DIVISIONS
               </span>
             </div>
 

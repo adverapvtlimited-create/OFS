@@ -38,7 +38,7 @@ export const PAGE_SEO = {
   home: {
     title: 'OFS Group India | Marine, Offshore, Energy & EPC Support Services',
     description:
-      'ISO 9001:2015 certified OFS Group India delivers global procurement, EPC engineering support, marine logistics, integrated facility management, and solar energy solutions for industrial sectors.',
+      'ISO 9001:2015 certified OFS Group India delivers global procurement, EPC engineering support, marine logistics, spare parts MRO, and solar energy solutions for industrial sectors.',
     path: '/',
     keywords: [
       'OFS Group India',
@@ -54,12 +54,12 @@ export const PAGE_SEO = {
   about: {
     title: 'About OFS Group India | ISO-Certified Industrial Support Partner',
     description:
-      'Learn about OFS Group India — an ISO 9001:2015 certified multinational delivering procurement, engineering, facility management, and renewable energy support across marine, offshore, and industrial sectors.',
+      'Learn about OFS Group India — an ISO 9001:2015 certified multinational delivering procurement, engineering, spare parts MRO, and renewable energy support across marine, offshore, and industrial sectors.',
     path: '/about',
     keywords: [
       'about OFS Group India',
-      'Oriented Facility Solution',
-      'ISO 9001 certified company Mumbai',
+      'industrial procurement company',
+      'marine services Mumbai',
     ],
     primaryKeyword: 'about OFS Group India',
     searchIntent: 'company credibility research',
@@ -67,15 +67,15 @@ export const PAGE_SEO = {
     geoIntent: 'Mumbai, India; USA liaison office',
   },
   services: {
-    title: 'OFS Services | Procurement, EPC, Facility Management & Logistics',
+    title: 'OFS Services | Sourcing, Engineering EPC, Spare Parts MRO & Logistics',
     description:
-      'Explore OFS Group India services: strategic procurement & shipping, engineering & EPC support, integrated facility management, spare parts MRO, industrial logistics, and hospitality catering.',
+      'Explore OFS Group India services: strategic procurement & shipping, engineering & EPC support, spare parts MRO, industrial logistics, and hospitality catering.',
     path: '/services',
     keywords: [
       'OFS services',
       'industrial procurement services India',
       'EPC support services',
-      'facility management India',
+      'spare parts procurement MRO',
     ],
     primaryKeyword: 'OFS industrial services',
     searchIntent: 'service discovery',
@@ -189,7 +189,7 @@ export const HOME_FAQS = [
   {
     question: 'What services does OFS Group India provide?',
     answer:
-      'OFS provides procurement & shipping, engineering & EPC support, integrated facility management, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
+      'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
   },
   {
     question: 'Which industries does OFS serve?',

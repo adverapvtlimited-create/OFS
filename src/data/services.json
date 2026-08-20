@@ -93,51 +93,7 @@
       }
     ]
   },
-  {
-    "id": "ifm-business",
-    "slug": "facility-management",
-    "title": "Integrated Facility Management (IFM)",
-    "shortTitle": "IFM Business",
-    "badge": "TOTAL FACILITY SOLUTIONS",
-    "icon": "Building2",
-    "heroImage": "/images/live/IFM-Business.jpg",
-    "tagline": "Smart, Scalable, and Seamless Facility Solutions",
-    "description": "We offer end-to-end Integrated Facility Management (IFM) services that help clients streamline operations, reduce overheads, and maintain high-performing facilities across commercial, industrial, and remote environments.",
-    "features": [
-      "Hard Services: HVAC, Electrical, Plumbing & Utilities",
-      "Soft Services: Industrial Cleaning, Security & Hygiene",
-      "Offshore & Remote Site Facility Support",
-      "Smart Energy Monitoring & Audit-Ready Compliance",
-      "Skilled Technical Manpower Deployment"
-    ],
-    "capabilities": [
-      {
-        "title": "Comprehensive Hard Services",
-        "description": "Managing core building systems and industrial utilities through predictive and responsive maintenance regimes."
-      },
-      {
-        "title": "Professional Soft Services",
-        "description": "Delivering hygienic, organized, and compliant working environments tailored to high-density industrial and corporate facilities."
-      },
-      {
-        "title": "Remote Camp Infrastructure",
-        "description": "Managing self-sufficient living quarters, utilities, and daily operations at isolated exploration blocks and offshore installations."
-      }
-    ],
-    "process": [
-      { "step": "01", "title": "Facility Audit", "desc": "Comprehensive baseline inspection of mechanical assets, safety protocols, and utility loads." },
-      { "step": "02", "title": "SLA & KPI Blueprint", "desc": "Customized SLA definitions with uptime guarantees and computerized maintenance tracking." },
-      { "step": "03", "title": "Team Deployment", "desc": "Stationing certified facility managers, technicians, and specialized soft-service crews." },
-      { "step": "04", "title": "Continuous Optimization", "desc": "Energy telemetry, preventive maintenance cycles, and monthly compliance audits." },
-      { "step": "05", "title": "24/7 Helpdesk", "desc": "Centralized response desk for immediate corrective maintenance and emergency dispatch." }
-    ],
-    "faqs": [
-      {
-        "question": "What industries does OFS IFM cater to?",
-        "answer": "We manage facilities across corporate commercial parks, petrochemical refineries, pharmaceutical plants, offshore living quarters, and remote construction camps."
-      }
-    ]
-  },
+
   {
     "id": "spare-parts-procurement",
     "slug": "spare-parts-procurement",

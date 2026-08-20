@@ -1,7 +1,9 @@
 import React from 'react';
 import Hero from '@/components/sections/Hero';
+import BrandMarquee from '@/components/sections/BrandMarquee';
 import AboutPreview from '@/components/sections/AboutPreview';
 import ServicesGrid from '@/components/sections/ServicesGrid';
+import CaseStudies from '@/components/sections/CaseStudies';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import StatsCounter from '@/components/sections/StatsCounter';
@@ -30,8 +32,10 @@ export default function HomePage() {
       />
 
       <Hero />
+      <BrandMarquee />
       <AboutPreview />
       <ServicesGrid />
+      <CaseStudies />
       <WhyChooseUs />
       <IndustriesSection />
       <StatsCounter />
@@ -59,7 +63,7 @@ export default function HomePage() {
               {
                 question: 'What services does OFS Group India provide?',
                 answer:
-                  'OFS provides procurement & shipping, engineering & EPC support, integrated facility management, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
+                  'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
               },
               {
                 question: 'Which industries does OFS serve?',

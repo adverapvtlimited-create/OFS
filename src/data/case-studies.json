@@ -1,0 +1,74 @@
+[
+  {
+    "id": "cs-bombay-high-valves",
+    "title": "Fast-Track Emergency Class 2500 Valve Sourcing for Deepwater Asset",
+    "clientIndustry": "Oil & Gas / Offshore Exploration",
+    "location": "Bombay High Offshore Basin, India",
+    "badge": "CRITICAL EMERGENCY SOURCING",
+    "duration": "72 Hours Mobilization",
+    "heroImage": "/images/live/Oil-Gas.png",
+    "summary": "Rapid mobilization of 14x ASME Class 2500 Duplex Stainless Steel Emergency Shutdown (ESD) valves from European OEM archives, averting catastrophic platform downtime.",
+    "challenge": "A major deepwater operator experienced severe actuator and seat degradation on high-pressure ESD valves during live production. Standard OEM lead times were 14–16 weeks, facing estimated platform downtime losses exceeding $80,000 per day.",
+    "solution": "OFS 24/7 procurement desk scanned authorized European stockists within 4 hours, secured factory-tested valves matching exact face-to-face dimensions, coordinated third-party EN 10204 3.1 inspection in Germany, and arranged priority air-charter freight directly to Mumbai customs hub.",
+    "metrics": [
+      { "label": "Delivery Timeline", "value": "72 Hrs", "subtext": "vs 16 weeks standard lead time" },
+      { "label": "Downtime Averted", "value": "$2.4M+", "subtext": "Direct production revenue saved" },
+      { "label": "Compliance", "value": "100%", "subtext": "EN 10204 3.1 MTC & NACE MR0175" }
+    ],
+    "tags": ["API 6D", "ASME Class 2500", "Duplex Stainless Steel", "Air Charter Logistics", "NACE MR0175"]
+  },
+  {
+    "id": "cs-rajasthan-solar-park",
+    "title": "50 MW Utility-Scale Solar Park Balance-of-Plant Component Staging",
+    "clientIndustry": "Renewable Energy & Utilities",
+    "location": "Bhadla Solar Park, Rajasthan, India",
+    "badge": "UTILITY-SCALE EPC SUPPLY",
+    "duration": "45-Day Phased Execution",
+    "heroImage": "/images/live/Renewable-Energy.png",
+    "summary": "Synchronized procurement and just-in-time logistics for 1,200 string inverters, DC combiner boxes, and structural mounting hardware across remote desert terrain.",
+    "challenge": "An EPC contractor developing a 50 MW solar expansion required synchronized delivery of balance-of-plant electrical components from multiple Tier-1 manufacturers while managing harsh desert storage constraints and strict grid synchronization deadlines.",
+    "solution": "OFS established a dedicated regional consolidation hub in Jodhpur. Components were batch-inspected, barcoded, and dispatched in phased just-in-time convoys aligned with mechanical piling progress, eliminating on-site storage degradation.",
+    "metrics": [
+      { "label": "Logistics Cost Saved", "value": "18.5%", "subtext": "Through consolidated freight staging" },
+      { "label": "FAT Pass Rate", "value": "100%", "subtext": "Zero defective units on arrival" },
+      { "label": "Schedule Adherence", "value": "On Time", "subtext": "Commissioned 5 days ahead of schedule" }
+    ],
+    "tags": ["Utility Solar", "Inverter Staging", "BOP Logistics", "Grid Synchronization", "JIT Delivery"]
+  },
+  {
+    "id": "cs-gujarat-refinery-mro",
+    "title": "Turnaround MRO Supply Chain & High-Pressure Valve Overhaul",
+    "clientIndustry": "Petrochemicals & Refining",
+    "location": "Jamnagar Refining Complex, Gujarat, India",
+    "badge": "MAJOR REFINERY TURNAROUND",
+    "duration": "14-Day Shutdown Window",
+    "heroImage": "/images/live/Petroleum-Refining.png",
+    "summary": "Supplying 4,500+ line items of critical gaskets, mechanical seals, and high-pressure actuation spares during a scheduled 14-day major turnaround.",
+    "challenge": "A Fortune 500 refinery required guaranteed 24/7 delivery of specialized spiral-wound gaskets, high-temperature packing, and control valve spare trims during a compressed 14-day turnaround window where any delay cost $120,000/hour.",
+    "solution": "OFS embedded a dedicated technical procurement squad on-site with a pre-positioned mobile buffer warehouse stocked with high-demand spares, supported by a 2-hour expedited replenishment corridor from our Mumbai logistics hub.",
+    "metrics": [
+      { "label": "Fulfillment SLA", "value": "99.8%", "subtext": "Across 4,500+ line items" },
+      { "label": "Safety Record", "value": "0 Incident", "subtext": "Zero LTI over 12,000 field hours" },
+      { "label": "Turnaround Speed", "value": "-18 Hrs", "subtext": "Brought back online ahead of target" }
+    ],
+    "tags": ["Refinery MRO", "Gaskets & Seals", "Shutdown Management", "Buffer Warehousing", "ASME B16.20"]
+  },
+  {
+    "id": "cs-subsea-marine-logistics",
+    "title": "Subsea Pipeline Emergency Spares & Specialized Vessel Logistics",
+    "clientIndustry": "Marine & Offshore Maritime",
+    "location": "Arabian Sea Offshore Corridor",
+    "badge": "MARINE EMERGENCY MOBILIZATION",
+    "duration": "48 Hours Port Dispatch",
+    "heroImage": "/images/live/Marine.png",
+    "summary": "Urgent mobilization of heavy-lift support vessels and custom forged subsea pipeline spool pieces with DNV class certification for offshore emergency repairs.",
+    "challenge": "An offshore operator detected pipeline vibration fatigue on a subsea tieback riser, requiring custom forged flanges, hyperbaric weld couplings, and immediate DP2 vessel charter before monsoon sea conditions escalated.",
+    "solution": "OFS coordinated with certified forging mills for expedited fabrication, engaged DNV surveyors for witness testing within 18 hours, and simultaneously chartered an offshore support vessel with craneage, clearing all port health and customs formalities seamlessly.",
+    "metrics": [
+      { "label": "Vessel Mobilization", "value": "48 Hrs", "subtext": "Port clearance & crew boarding" },
+      { "label": "Traceability", "value": "100%", "subtext": "DNV / ABS Surveyor Verified" },
+      { "label": "Asset Protection", "value": "$5M+", "subtext": "Averted subsea pipeline rupture" }
+    ],
+    "tags": ["Subsea Spool", "DP2 Vessel Charter", "DNV Witnessed", "Offshore Marine", "Emergency Port Agency"]
+  }
+]

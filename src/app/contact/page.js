@@ -353,9 +353,8 @@ export default function ContactPage() {
                           <option value="Procurement & Shipping">Procurement &amp; Global Shipping</option>
                           <option value="Engineering & EPC Support">Engineering &amp; EPC Support Services</option>
                           <option value="Quality Control & Assurance">Quality Control (QA/QC &amp; NDT)</option>
-                          <option value="Marine & Offshore Services">Marine &amp; Offshore Vessel Logistics</option>
-                          <option value="Facility Management">Plant Facility Management</option>
-                          <option value="Maintenance AMC">Industrial Maintenance &amp; AMC</option>
+                          <option value="Spare Parts Sourcing & MRO">Spare Parts Sourcing &amp; MRO</option>
+                          <option value="Industrial Logistics">Industrial Logistics &amp; Shipping</option>
                           <option value="Renewables & Solar">Renewables &amp; Solar EPC Division</option>
                         </select>
                       </div>

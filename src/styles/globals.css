@@ -830,3 +830,23 @@ textarea.form-control {
   pointer-events: none;
 }
 
+/* ==========================================================================
+   MARQUEE & CREDENTIAL ANIMATIONS
+   ========================================================================== */
+@keyframes marqueeRTL {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marqueeRTL 36s linear infinite;
+  will-change: transform;
+}
+
+.marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+

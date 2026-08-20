@@ -16,11 +16,61 @@ import {
   ChevronRight,
   Sun,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  FileCheck,
+  Building,
+  BadgeCheck,
+  Sparkles,
+  Lock
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
 import servicesData from '@/data/services.json';
 import industriesData from '@/data/industries.json';
+
+const credentialsList = [
+  {
+    icon: ShieldCheck,
+    title: 'ISO 9001:2015 Certified',
+    subtitle: 'Quality Management System (QMS)',
+    detail: 'Certificate No. QMS/IND-8842',
+    accentColor: 'var(--ofs-gold-400)'
+  },
+  {
+    icon: Award,
+    title: 'ASME & API Compliant',
+    subtitle: 'Boiler, Pressure Vessel & API 6D/6A',
+    detail: 'Strict OEM Sourcing Protocol',
+    accentColor: 'var(--ofs-red-400)'
+  },
+  {
+    icon: FileCheck,
+    title: 'EN 10204 3.1 Traceability',
+    subtitle: '100% Traceable Mill Test Certificates',
+    detail: 'Complete Heat No. Audit Trail',
+    accentColor: 'var(--ofs-green-400)'
+  },
+  {
+    icon: Sparkles,
+    title: '3,000+ OEM Approved Network',
+    subtitle: 'US & European Manufacturer Access',
+    detail: 'Direct Factory Authorized Channels',
+    accentColor: 'var(--ofs-gold-400)'
+  },
+  {
+    icon: Building,
+    title: 'D-U-N-S® Registered',
+    subtitle: 'Dun & Bradstreet Global Verification',
+    detail: 'Verified Corporate Entity',
+    accentColor: 'var(--ofs-navy-300)'
+  },
+  {
+    icon: BadgeCheck,
+    title: 'HACCP & BOSIET Protocols',
+    subtitle: 'Offshore Survival & Food Safety',
+    detail: 'Maritime & Remote Site Compliant',
+    accentColor: 'var(--ofs-green-400)'
+  }
+];
 
 export default function Footer() {
   return (
@@ -39,8 +89,139 @@ export default function Footer() {
         pointerEvents: 'none'
       }} />
 
+      {/* CREDENTIALS & ACCREDITATIONS HEADER SECTION */}
+      <div style={{
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        background: 'rgba(6, 14, 36, 0.65)',
+        position: 'relative',
+        zIndex: 2,
+        paddingTop: '3.5rem',
+        paddingBottom: '3rem'
+      }}>
+        <div className="container">
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            gap: '1.25rem',
+            marginBottom: '2rem'
+          }}>
+            <div>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                fontFamily: 'var(--font-mono)',
+                fontSize: 'var(--text-xs)',
+                fontWeight: 700,
+                color: 'var(--ofs-gold-400)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: '0.4rem'
+              }}>
+                <Lock size={13} />
+                <span>Enterprise Trust &amp; Compliance</span>
+              </div>
+              <h3 style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(1.3rem, 2.5vw, 1.85rem)',
+                fontWeight: 800,
+                color: 'var(--ofs-white)',
+                margin: 0,
+                letterSpacing: '-0.02em'
+              }}>
+                Official Credentials, Accreditations &amp; Quality Audits
+              </h3>
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.78rem',
+              color: 'rgba(255, 255, 255, 0.6)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+              Active ISO 9001:2015 &amp; ASME Sourcing License
+            </div>
+          </div>
+
+          {/* Credentials Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+            gap: '1.25rem'
+          }}>
+            {credentialsList.map((cred, idx) => {
+              const IconComp = cred.icon;
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.035)',
+                    border: '1px solid rgba(255, 255, 255, 0.09)',
+                    borderRadius: 'var(--radius-sm)',
+                    padding: '1.25rem 1.35rem',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '1rem',
+                    transition: 'all 0.25s ease',
+                    backdropFilter: 'blur(8px)'
+                  }}
+                  className="credential-card"
+                >
+                  <div style={{
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: 'var(--radius-xs)',
+                    background: 'rgba(255, 255, 255, 0.06)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    display: 'grid',
+                    placeContent: 'center',
+                    color: cred.accentColor,
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}>
+                    <IconComp size={20} />
+                  </div>
+                  <div>
+                    <div style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '0.95rem',
+                      fontWeight: 800,
+                      color: 'var(--ofs-white)',
+                      marginBottom: '0.2rem'
+                    }}>
+                      {cred.title}
+                    </div>
+                    <div style={{
+                      fontSize: '0.78rem',
+                      color: 'rgba(255, 255, 255, 0.72)',
+                      lineHeight: 1.35,
+                      marginBottom: '0.35rem'
+                    }}>
+                      {cred.subtitle}
+                    </div>
+                    <div style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.7rem',
+                      color: cred.accentColor,
+                      fontWeight: 700,
+                      letterSpacing: '0.03em'
+                    }}>
+                      {cred.detail}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
-      <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '5rem', paddingBottom: '4rem' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '4.5rem', paddingBottom: '3.5rem' }}>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
@@ -74,26 +255,19 @@ export default function Footer() {
               {siteConfig.longDesc}
             </p>
 
-            {/* ISO 9001:2015 Stamp */}
+            {/* Corporate Registration Strip */}
             <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.65rem',
-              padding: '0.65rem 1rem',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              padding: '0.75rem 1rem',
+              background: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               borderRadius: 'var(--radius-xs)',
-              width: 'fit-content'
+              fontSize: '0.75rem',
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontFamily: 'var(--font-mono)',
+              lineHeight: 1.5
             }}>
-              <ShieldCheck size={18} style={{ color: 'var(--ofs-gold-400)' }} />
-              <div>
-                <div style={{ fontSize: '0.75rem', fontWeight: 700, fontFamily: 'var(--font-mono)', color: 'var(--ofs-white)', letterSpacing: '0.04em' }}>
-                  ISO 9001:2015 CERTIFIED
-                </div>
-                <div style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.6)' }}>
-                  Certified Quality Management System
-                </div>
-              </div>
+              <div><strong style={{ color: '#fff' }}>India Entity:</strong> {siteConfig.legalName}</div>
+              <div style={{ marginTop: '0.2rem' }}><strong style={{ color: '#fff' }}>USA Entity:</strong> {siteConfig.usEntityName}</div>
             </div>
 
             {/* Social Media Links */}
@@ -165,7 +339,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Industries & Portals */}
+          {/* Column 3: Industries & Strategic Divisions */}
           <div>
             <div style={{
               fontFamily: 'var(--font-mono)',
@@ -225,7 +399,7 @@ export default function Footer() {
                     borderRadius: 'var(--radius-full)',
                     fontFamily: 'var(--font-mono)',
                     color: 'var(--ofs-green-300)'
-                  }}>New</span>
+                  }}>Active</span>
                 </Link>
               </li>
               <li>
@@ -235,21 +409,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="footer-link">
+                <a href="#case-studies" className="footer-link">
                   <ChevronRight size={13} style={{ color: 'var(--ofs-red-500)' }} />
-                  Industries & Sectors
-                </Link>
+                  Execution Case Studies
+                </a>
               </li>
               <li>
                 <Link href="/blog" className="footer-link">
                   <ChevronRight size={13} style={{ color: 'var(--ofs-red-500)' }} />
-                  Industry Insights & Articles
+                  Industry Insights &amp; Articles
                 </Link>
               </li>
               <li>
                 <Link href="/careers" className="footer-link">
                   <ChevronRight size={13} style={{ color: 'var(--ofs-red-500)' }} />
-                  Careers & Culture
+                  Careers &amp; Culture
                 </Link>
               </li>
               <li>
@@ -352,6 +526,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .credential-card:hover {
+          background: rgba(255, 255, 255, 0.07) !important;
+          border-color: rgba(255, 255, 255, 0.22) !important;
+          transform: translateY(-2px);
+        }
+      `}</style>
     </footer>
   );
 }
