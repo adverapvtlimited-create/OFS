@@ -174,7 +174,7 @@ export default function AboutPage() {
 
                 <div style={{ padding: '2.25rem' }}>
                   <p style={{ fontSize: '1.025rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, margin: 0 }}>
-                    To provide world-class, customized solutions in Marine &amp; Offshore Services, Strategic Sourcing &amp; Engineering Procurement, Maintenance, and Industrial Logistics. We aim to empower clients globally by integrating cutting-edge technology, efficient systems, and expert manpower — while ensuring top-tier Catering and Hospitality solutions that elevate workforce well-being and performance.
+                    To provide world-class, customized solutions in Marine &amp; Offshore Services, Strategic Sourcing &amp; Engineering Procurement, Maintenance, and Industrial Logistics. We aim to empower clients globally by integrating cutting-edge technology, efficient systems, and expert manpower — while ensuring top-tier operational reliability and safety that elevate performance.
                   </p>
                 </div>
               </div>

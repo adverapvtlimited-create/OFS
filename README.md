@@ -13,7 +13,6 @@
 - **Integrated Facility Management (IFM)**: Total facility operations covering hard systems, soft services, and remote camps.
 - **Spare Parts Procurement & MRO**: 15+ years global supplier network ensuring zero-downtime maintenance.
 - **Industrial Logistics & Shipping**: Multimodal ocean, air, and road cargo transport with real-time tracking.
-- **Hospitality & Catering Services**: Specialized offshore marine and remote camp catering compliant with HACCP food safety.
 - **Renewables & Clean Energy Portal**: Utility-scale solar EPC procurement and containerized BESS infrastructure.
 
 ---

@@ -93,7 +93,6 @@
 | `/services/facility-management` | Integrated Facility Management (IFM) \| OFS Group India | IFM and O&M support |
 | `/services/spare-parts-procurement` | Spare Parts Procurement & MRO \| OFS Group India | MRO and spare parts sourcing |
 | `/services/logistics-shipping` | Industrial Logistics & Shipping \| OFS Group India | Multimodal industrial logistics |
-| `/services/hospitality-catering` | Hospitality & Catering Services \| OFS Group India | Industrial catering and hospitality |
 | `/industries` | Industries Served \| Oil & Gas, Marine, Power, Renewables & More | All nine industry sectors |
 | `/industries/oil-and-gas` | Oil & Gas Industry Solutions \| OFS Group India | Upstream/midstream/downstream procurement |
 | `/industries/marine-maritime` | Marine & Offshore Industry Solutions \| OFS Group India | Ship spares and port logistics |

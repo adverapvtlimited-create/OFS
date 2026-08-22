@@ -63,7 +63,7 @@ export default function HomePage() {
               {
                 question: 'What services does OFS Group India provide?',
                 answer:
-                  'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
+                  'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, and industrial logistics & shipping for marine, offshore, energy, and industrial sectors.',
               },
               {
                 question: 'Which industries does OFS serve?',

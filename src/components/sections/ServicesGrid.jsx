@@ -105,7 +105,7 @@ export default function ServicesGrid() {
                 CORE CAPABILITIES
               </span>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--ofs-navy-900)', fontWeight: 700 }}>
-                5 STRATEGIC DIVISIONS
+                {servicesData.length} STRATEGIC DIVISIONS
               </span>
             </div>
 
@@ -137,7 +137,7 @@ export default function ServicesGrid() {
                 fontWeight: 600
               }}>
                 <span className="sonar-wave" style={{ width: '6px', height: '6px', background: 'var(--ofs-red-600)' }} />
-                SCROLL TO EXPLORE ALL 6 <ArrowRight size={12} />
+                SCROLL TO EXPLORE ALL {servicesData.length} <ArrowRight size={12} />
               </div>
             )}
 

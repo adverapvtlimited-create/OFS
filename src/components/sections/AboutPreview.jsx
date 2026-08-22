@@ -160,7 +160,7 @@ export default function AboutPreview() {
               {[
                 "Specialized Support: Trading, O&M, Troubleshooting, Procurement & Engineering",
                 "Global Presence: India Headquarters (Mumbai) & USA Office (Florida)",
-                "Turnkey Offshore & Onshore Catering Solutions with HACCP Safety"
+                "End-to-End Multimodal Logistics & Global Supply Chain Execution"
               ].map((bullet, idx) => (
                 <ScrollReveal key={idx} direction="left" delay={0.4 + idx * 0.1}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.95rem', color: 'var(--ofs-gray-800)' }}>

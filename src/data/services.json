@@ -57,7 +57,7 @@
     "icon": "Wrench",
     "heroImage": "/images/live/Engg-e1751278356951.jpg",
     "tagline": "End-to-End Engineering Support — Onsite & Offshore",
-    "description": "OFS delivers specialized engineering, integration, and field services that cater to the complex and high-performance needs of critical industrial environments, from concept design to commissioning and ongoing maintenance.",
+    "description": "OFS delivers specialized engineering, integration, and field services that address the complex and high-performance needs of critical industrial environments, from concept design to commissioning and ongoing maintenance.",
     "features": [
       "Detailed Engineering Design & Constructability Reviews",
       "EPC Procurement Assistance & Technical Sourcing",
@@ -181,51 +181,6 @@
       {
         "question": "Does OFS handle oversized heavy-lift cargo?",
         "answer": "Yes. We have specialized project cargo teams capable of moving massive transformers, pressure vessels, and offshore structures with tailored route surveys and specialized craneage."
-      }
-    ]
-  },
-  {
-    "id": "hospitality-catering",
-    "slug": "hospitality-catering",
-    "title": "Hospitality & Catering Services",
-    "shortTitle": "Hospitality & Catering",
-    "badge": "OFFSHORE & REMOTE",
-    "icon": "ShieldCheck",
-    "heroImage": "/images/live/Catering-Banner.jpg",
-    "tagline": "Serving Quality. Delivering Comfort at Sea & Remote Sites",
-    "description": "We redefine culinary and hospitality experiences for offshore platforms, drilling rigs, FPSOs, remote industrial camps, and corporate institutions with nutritious, hygienic meals and professional housekeeping.",
-    "features": [
-      "Offshore Marine Catering (Platforms, Rigs, FPSOs, Ships)",
-      "High-Volume Industrial & Remote Camp Catering",
-      "Corporate Dining & Executive Hospitality Services",
-      "Certified Chefs & Stringent Food Safety Protocols (HACCP)",
-      "Full Housekeeping, Laundry & Camp Management"
-    ],
-    "capabilities": [
-      {
-        "title": "Offshore & Maritime Nutrition",
-        "description": "Supplying fresh provisions, balanced multi-cuisine menus, and 24/7 galley operations to support workforce stamina at sea."
-      },
-      {
-        "title": "Remote Camp Catering",
-        "description": "Setting up containerized modular kitchens and cold storage facilities in extreme desert, jungle, or remote terrain."
-      },
-      {
-        "title": "Comprehensive Hospitality Management",
-        "description": "Managing linen services, housekeeping, camp sanitization, and administrative front-desk operations."
-      }
-    ],
-    "process": [
-      { "step": "01", "title": "Dietary & Logistics Survey", "desc": "Assessing crew headcount, cultural menu preferences, shift patterns, and galley specs." },
-      { "step": "02", "title": "Cold-Chain Supply Setup", "desc": "Establishing weekly refrigerated supply runs to remote or offshore locations." },
-      { "step": "03", "title": "Trained Galley Deployment", "desc": "Stationing certified executive chefs, bakers, and steward teams." },
-      { "step": "04", "title": "HACCP Hygiene Oversight", "desc": "Daily temperature logging, food safety testing, and cleanliness audits." },
-      { "step": "05", "title": "Feedback & Menu Rotation", "desc": "Continuous menu innovation to ensure crew morale and peak physical health." }
-    ],
-    "faqs": [
-      {
-        "question": "How does OFS maintain food safety and freshness offshore?",
-        "answer": "We adhere to international HACCP standards, utilizing dedicated refrigerated marine containers (reefers) with temperature loggers for seamless cold-chain logistics from port to offshore galleys."
       }
     ]
   }

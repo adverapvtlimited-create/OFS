@@ -65,9 +65,9 @@ const credentialsList = [
   },
   {
     icon: BadgeCheck,
-    title: 'HACCP & BOSIET Protocols',
-    subtitle: 'Offshore Survival & Food Safety',
-    detail: 'Maritime & Remote Site Compliant',
+    title: 'BOSIET & QHSE Protocols',
+    subtitle: 'Offshore Survival & Site Safety',
+    detail: 'Maritime & Offshore Asset Compliant',
     accentColor: 'var(--ofs-green-400)'
   }
 ];

@@ -69,7 +69,7 @@ export const PAGE_SEO = {
   services: {
     title: 'OFS Services | Sourcing, Engineering EPC, Spare Parts MRO & Logistics',
     description:
-      'Explore OFS Group India services: strategic procurement & shipping, engineering & EPC support, spare parts MRO, industrial logistics, and hospitality catering.',
+      'Explore OFS Group India services: strategic procurement & shipping, engineering & EPC support, spare parts MRO, and industrial logistics.',
     path: '/services',
     keywords: [
       'OFS services',
@@ -189,7 +189,7 @@ export const HOME_FAQS = [
   {
     question: 'What services does OFS Group India provide?',
     answer:
-      'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, industrial logistics & shipping, and hospitality & catering services for marine, offshore, energy, and industrial sectors.',
+      'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, and industrial logistics & shipping for marine, offshore, energy, and industrial sectors.',
   },
   {
     question: 'Which industries does OFS serve?',

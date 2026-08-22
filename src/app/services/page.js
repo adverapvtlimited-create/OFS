@@ -220,7 +220,7 @@ export default function ServicesPage() {
                       overflow: 'hidden'
                     }}>
                       <motion.img 
-                        src={service.image} 
+                        src={service.heroImage || service.image || '/images/live/Procurement-and-shippings.jpg'} 
                         alt={service.title}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         whileHover={{ scale: 1.05 }}
