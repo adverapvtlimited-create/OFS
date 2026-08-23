@@ -14,18 +14,15 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Smooth lagging spring for outer ring
   const springX = useSpring(cursorX, { stiffness: 450, damping: 28 });
   const springY = useSpring(cursorY, { stiffness: 450, damping: 28 });
 
-  // Reset hover state on route change
   useEffect(() => {
     setIsHovered(false);
     setCursorText('');
   }, [pathname]);
 
   useEffect(() => {
-    // Only enable on desktop pointer devices
     const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!isFinePointer || prefersReducedMotion || window.innerWidth < 1024) {
@@ -73,7 +70,6 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  // Always render the same DOM tree (empty div when disabled) to avoid hydration mismatch
   return (
     <div
       style={{
@@ -87,7 +83,6 @@ export default function CustomCursor() {
       aria-hidden="true"
       suppressHydrationWarning
     >
-      {/* Outer Smooth Spring Ring */}
       <motion.div
         style={{
           position: 'fixed',
@@ -121,7 +116,6 @@ export default function CustomCursor() {
         )}
       </motion.div>
 
-      {/* Inner Immediate Follower Dot */}
       <motion.div
         style={{
           position: 'fixed',

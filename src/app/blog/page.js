@@ -15,7 +15,6 @@ export default function BlogPage() {
 
   return (
     <>
-      {/* Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
         color: 'var(--ofs-white)',
@@ -83,10 +82,8 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Main Blog Content */}
       <section className="section-pad" style={{ background: 'var(--ofs-gray-50)' }}>
         <div className="container">
-          {/* Featured Article Card */}
           {featuredPost && (
             <ScrollReveal direction="up" duration={0.8}>
               <div style={{
@@ -100,8 +97,8 @@ export default function BlogPage() {
                 marginBottom: '4.5rem'
               }}>
                 <div style={{ height: '380px', position: 'relative', overflow: 'hidden' }}>
-                  <motion.img 
-                    src={featuredPost.image} 
+                  <motion.img
+                    src={featuredPost.image}
                     alt={featuredPost.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     whileHover={{ scale: 1.05 }}
@@ -174,8 +171,8 @@ export default function BlogPage() {
                     borderTop: '1px solid var(--ofs-gray-200)'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <img 
-                        src={featuredPost.author.avatar} 
+                      <img
+                        src={featuredPost.author.avatar}
                         alt={featuredPost.author.name}
                         style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
                       />
@@ -198,7 +195,6 @@ export default function BlogPage() {
             </ScrollReveal>
           )}
 
-          {/* Regular Articles Grid */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
@@ -206,7 +202,7 @@ export default function BlogPage() {
           }}>
             {regularPosts.map((post, idx) => (
               <ScrollReveal key={post.id} direction="up" delay={idx * 0.1}>
-                <article 
+                <article
                   className="card-modern"
                   style={{
                     padding: 0,
@@ -219,8 +215,8 @@ export default function BlogPage() {
                 >
                   <div>
                     <div style={{ height: '220px', position: 'relative', overflow: 'hidden' }}>
-                      <motion.img 
-                        src={post.image} 
+                      <motion.img
+                        src={post.image}
                         alt={post.title}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         whileHover={{ scale: 1.06 }}
@@ -289,7 +285,7 @@ export default function BlogPage() {
                       {post.author.name}
                     </span>
 
-                    <Link 
+                    <Link
                       href={`/blog/${post.slug}`}
                       style={{
                         fontSize: '0.825rem',
@@ -312,7 +308,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <ContactCTA />
     </>
   );

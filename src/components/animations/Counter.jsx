@@ -34,11 +34,10 @@ export default function Counter({ end, duration = 2000, suffix = '', prefix = ''
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      
-      // Easing out cubic
+
       const easeProgress = 1 - Math.pow(1 - progress, 3);
       const current = easeProgress * end;
-      
+
       setCount(current);
 
       if (progress < 1) {

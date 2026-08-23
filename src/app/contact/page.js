@@ -3,16 +3,16 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  Send, 
-  CheckCircle2, 
-  AlertCircle, 
-  Globe2, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Globe2,
   MessageSquare,
   Building
 } from 'lucide-react';
@@ -71,7 +71,6 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero Banner with TextReveal */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
         color: 'var(--ofs-white)',
@@ -139,7 +138,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Main Contact Section */}
       <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container">
           <div style={{
@@ -147,7 +145,6 @@ export default function ContactPage() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
             gap: '4.5rem'
           }}>
-            {/* Left: Office Locations & Hotline Details */}
             <div>
               <ScrollReveal direction="left" delay={0.1}>
                 <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
@@ -159,7 +156,6 @@ export default function ContactPage() {
                   <span className="gradient-text-navy">Direct Contact Channels</span>
                 </h2>
 
-                {/* India HQ Card */}
                 <div style={{
                   background: 'var(--ofs-navy-50)',
                   border: '1px solid var(--ofs-navy-100)',
@@ -187,7 +183,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* USA Liaison Office Card */}
                 <div style={{
                   background: 'var(--ofs-navy-50)',
                   border: '1px solid var(--ofs-navy-100)',
@@ -229,7 +224,6 @@ export default function ContactPage() {
               </ScrollReveal>
             </div>
 
-            {/* Right: Interactive Tabbed RFP Form */}
             <div>
               <ScrollReveal direction="right" delay={0.2}>
                 <div style={{

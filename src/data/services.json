@@ -31,11 +31,31 @@
       }
     ],
     "process": [
-      { "step": "01", "title": "RFQ & Technical Review", "desc": "Receipt of specification sheets, engineering review, and manufacturer identification." },
-      { "step": "02", "title": "Competitive Sourcing", "desc": "Bidding across 3,000+ approved US/European brands for optimal price and delivery terms." },
-      { "step": "03", "title": "QA/QC Verification", "desc": "Pre-shipment inspection, MTC certification check, and export compliance validation." },
-      { "step": "04", "title": "Multimodal Logistics", "desc": "Door-to-port/site shipping, customs clearance, and real-time cargo tracking." },
-      { "step": "05", "title": "On-Site Handover", "desc": "Final delivery sign-off, warranty documentation, and ongoing operational support." }
+      {
+        "step": "01",
+        "title": "RFQ & Technical Review",
+        "desc": "Receipt of specification sheets, engineering review, and manufacturer identification."
+      },
+      {
+        "step": "02",
+        "title": "Competitive Sourcing",
+        "desc": "Bidding across 3,000+ approved US/European brands for optimal price and delivery terms."
+      },
+      {
+        "step": "03",
+        "title": "QA/QC Verification",
+        "desc": "Pre-shipment inspection, MTC certification check, and export compliance validation."
+      },
+      {
+        "step": "04",
+        "title": "Multimodal Logistics",
+        "desc": "Door-to-port/site shipping, customs clearance, and real-time cargo tracking."
+      },
+      {
+        "step": "05",
+        "title": "On-Site Handover",
+        "desc": "Final delivery sign-off, warranty documentation, and ongoing operational support."
+      }
     ],
     "faqs": [
       {
@@ -80,11 +100,31 @@
       }
     ],
     "process": [
-      { "step": "01", "title": "Scope Definition", "desc": "Engineering review of P&IDs, datasheets, project milestones, and regulatory boundaries." },
-      { "step": "02", "title": "Design & Sourcing Alignment", "desc": "Harmonizing engineering specs with global manufacturer lead times and budgets." },
-      { "step": "03", "title": "Field Integration", "desc": "Onsite mobilization of certified engineers for installation supervision and quality checks." },
-      { "step": "04", "title": "Commissioning Support", "desc": "Hydro-testing, calibration, pre-commissioning walkthroughs, and safety sign-offs." },
-      { "step": "05", "title": "Handover & Documentation", "desc": "Complete as-built records, maintenance manuals, and warranty transition." }
+      {
+        "step": "01",
+        "title": "Scope Definition",
+        "desc": "Engineering review of P&IDs, datasheets, project milestones, and regulatory boundaries."
+      },
+      {
+        "step": "02",
+        "title": "Design & Sourcing Alignment",
+        "desc": "Harmonizing engineering specs with global manufacturer lead times and budgets."
+      },
+      {
+        "step": "03",
+        "title": "Field Integration",
+        "desc": "Onsite mobilization of certified engineers for installation supervision and quality checks."
+      },
+      {
+        "step": "04",
+        "title": "Commissioning Support",
+        "desc": "Hydro-testing, calibration, pre-commissioning walkthroughs, and safety sign-offs."
+      },
+      {
+        "step": "05",
+        "title": "Handover & Documentation",
+        "desc": "Complete as-built records, maintenance manuals, and warranty transition."
+      }
     ],
     "faqs": [
       {
@@ -93,19 +133,18 @@
       }
     ]
   },
-
   {
     "id": "spare-parts-procurement",
     "slug": "spare-parts-procurement",
     "title": "Spare Parts Procurement & MRO",
     "shortTitle": "Spare Parts Procurement",
-    "badge": "15+ YEARS EXPERTISE",
+    "badge": "YEARS of EXPERTISE",
     "icon": "Settings",
     "heroImage": "/images/live/Spare-Parts-Procurement.jpg",
     "tagline": "Proactive Sourcing to Eliminate Unplanned Plant Downtime",
-    "description": "With over 15 years of global procurement expertise, OFS delivers reliable sourcing of high-quality industrial spare parts, valves, pumps, drilling equipment, and MRO supplies to protect your bottom line.",
+    "description": "With years of global procurement expertise, OFS delivers reliable sourcing of high-quality industrial spare parts, valves, pumps, drilling equipment, and MRO supplies to protect your bottom line.",
     "features": [
-      "15+ Years Global Sourcing & Supplier Network",
+      "Years of Global Sourcing & Supplier Network",
       "24/7 Technical Inquiry Desk & Expedited Quoting",
       "Fixed-Price Long-Term Supply Contracts",
       "Critical Component Interchangeability Studies",
@@ -126,11 +165,31 @@
       }
     ],
     "process": [
-      { "step": "01", "title": "Inquiry Submission", "desc": "Client submits part number, OEM nameplate data, and required delivery timeframe." },
-      { "step": "02", "title": "Global Supplier Scan", "desc": "Benchmarking prices across authorized distributors in US, Europe, and Asia." },
-      { "step": "03", "title": "Technical Confirmation", "desc": "Issuing formal quote with lead time, specifications, and warranty guarantees." },
-      { "step": "04", "title": "Receipt & Inspection", "desc": "Verification at our staging warehouse against engineering drawing specifications." },
-      { "step": "05", "title": "Fast Dispatch", "desc": "Customs clearance and direct delivery to plant gate or vessel boarding dock." }
+      {
+        "step": "01",
+        "title": "Inquiry Submission",
+        "desc": "Client submits part number, OEM nameplate data, and required delivery timeframe."
+      },
+      {
+        "step": "02",
+        "title": "Global Supplier Scan",
+        "desc": "Benchmarking prices across authorized distributors in US, Europe, and Asia."
+      },
+      {
+        "step": "03",
+        "title": "Technical Confirmation",
+        "desc": "Issuing formal quote with lead time, specifications, and warranty guarantees."
+      },
+      {
+        "step": "04",
+        "title": "Receipt & Inspection",
+        "desc": "Verification at our staging warehouse against engineering drawing specifications."
+      },
+      {
+        "step": "05",
+        "title": "Fast Dispatch",
+        "desc": "Customs clearance and direct delivery to plant gate or vessel boarding dock."
+      }
     ],
     "faqs": [
       {
@@ -171,11 +230,31 @@
       }
     ],
     "process": [
-      { "step": "01", "title": "Route & Freight Planning", "desc": "Evaluating cargo volume, weight, transit urgency, and cost constraints." },
-      { "step": "02", "title": "Documentation Preparation", "desc": "Generating bills of lading, commercial invoices, packing lists, and export permits." },
-      { "step": "03", "title": "Secure Consolidation", "desc": "Industrial packaging, crating, and cargo securing compliant with international standards." },
-      { "step": "04", "title": "Transit Tracking", "desc": "Continuous monitoring with milestone alerts until arrival at destination port." },
-      { "step": "05", "title": "Final Port/Site Handover", "desc": "Customs clearance, port wharfage handling, and direct transport to site." }
+      {
+        "step": "01",
+        "title": "Route & Freight Planning",
+        "desc": "Evaluating cargo volume, weight, transit urgency, and cost constraints."
+      },
+      {
+        "step": "02",
+        "title": "Documentation Preparation",
+        "desc": "Generating bills of lading, commercial invoices, packing lists, and export permits."
+      },
+      {
+        "step": "03",
+        "title": "Secure Consolidation",
+        "desc": "Industrial packaging, crating, and cargo securing compliant with international standards."
+      },
+      {
+        "step": "04",
+        "title": "Transit Tracking",
+        "desc": "Continuous monitoring with milestone alerts until arrival at destination port."
+      },
+      {
+        "step": "05",
+        "title": "Final Port/Site Handover",
+        "desc": "Customs clearance, port wharfage handling, and direct transport to site."
+      }
     ],
     "faqs": [
       {

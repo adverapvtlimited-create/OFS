@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  Phone, 
-  Mail, 
-  ChevronDown, 
-  Menu, 
-  X, 
-  ArrowUpRight, 
-  ShieldCheck, 
+import {
+  Phone,
+  Mail,
+  ChevronDown,
+  Menu,
+  X,
+  ArrowUpRight,
+  ShieldCheck,
   Sparkles,
   Package,
   Wrench,
@@ -58,7 +58,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
@@ -66,7 +65,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Notification & Fast Contact Bar */}
+
       <div style={{
         background: 'var(--ofs-navy-950)',
         color: 'rgba(255, 255, 255, 0.85)',
@@ -84,7 +83,7 @@ export default function Header() {
           flexWrap: 'wrap',
           gap: '0.5rem'
         }}>
-          {/* Left: Certification & Tagline */}
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--ofs-gold-400)', fontWeight: 700 }}>
               <ShieldCheck size={14} />
@@ -97,9 +96,9 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Right: Quick Phone & Email */}
+
           <div className="top-bar-right" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <a 
+            <a
               href={`tel:${siteConfig.contact.phoneRaw}`}
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#fff' }}
               className="hover-opacity"
@@ -108,7 +107,7 @@ export default function Header() {
               <span>{siteConfig.contact.phone}</span>
             </a>
             <span style={{ color: 'rgba(255, 255, 255, 0.25)' }}>|</span>
-            <a 
+            <a
               href={`mailto:${siteConfig.contact.email}`}
               style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#fff' }}
               className="hover-opacity"
@@ -120,7 +119,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Sticky Header */}
+
       <header style={{
         position: 'sticky',
         top: 0,
@@ -138,19 +137,17 @@ export default function Header() {
           paddingTop: '0.85rem',
           paddingBottom: '0.85rem'
         }}>
-          {/* OFS Official Brand Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
-            <img 
-              src="/images/ofs-logo.png" 
+            <img
+              src="/images/ofs-logo.png"
               alt="OFS - Driven by Quality, Defined by Trust"
               style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
             />
           </Link>
 
-          {/* Desktop Navigation Links */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: '1.65rem' }} className="desktop-nav">
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--text-sm)',
@@ -177,7 +174,7 @@ export default function Header() {
             </Link>
 
             {/* Services Dropdown Trigger */}
-            <div 
+            <div
               style={{ position: 'relative' }}
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
@@ -275,7 +272,7 @@ export default function Header() {
                       </Link>
                     );
                   })}
-                  
+
                   {/* Mega Menu Footer Banner */}
                   <div style={{
                     gridColumn: '1 / -1',
@@ -290,7 +287,7 @@ export default function Header() {
                     <span style={{ fontSize: '0.825rem', color: 'var(--ofs-navy-900)', fontWeight: 600 }}>
                       Looking for customized marine logistics or EPC materials?
                     </span>
-                    <Link 
+                    <Link
                       href="/contact"
                       style={{
                         fontSize: '0.8rem',
@@ -309,8 +306,8 @@ export default function Header() {
               )}
             </div>
 
-            <Link 
-              href="/industries" 
+            <Link
+              href="/industries"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--text-sm)',
@@ -337,8 +334,8 @@ export default function Header() {
             </Link>
 
             {/* Strategic Renewables Portal Link */}
-            <Link 
-              href="/renewables" 
+            <Link
+              href="/renewables"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--text-sm)',
@@ -359,8 +356,8 @@ export default function Header() {
               Renewables
             </Link>
 
-            <Link 
-              href="/blog" 
+            <Link
+              href="/blog"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--text-sm)',
@@ -386,8 +383,8 @@ export default function Header() {
               )}
             </Link>
 
-            <Link 
-              href="/careers" 
+            <Link
+              href="/careers"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'var(--text-sm)',
@@ -417,8 +414,8 @@ export default function Header() {
           {/* Right Action Buttons */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <MagneticButton strength={0.3} radius={70}>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="btn btn-primary btn-sm desktop-btn"
                 style={{ textDecoration: 'none' }}
                 data-cursor-text="CONTACT"
@@ -464,7 +461,7 @@ export default function Header() {
           animation: 'slideDown 0.25s ease-out'
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <Link 
+            <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -478,7 +475,7 @@ export default function Header() {
             >
               Home
             </Link>
-            <Link 
+            <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -492,7 +489,7 @@ export default function Header() {
             >
               About OFS Group
             </Link>
-            <Link 
+            <Link
               href="/services"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -506,7 +503,7 @@ export default function Header() {
             >
               All Services
             </Link>
-            <Link 
+            <Link
               href="/renewables"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -524,7 +521,7 @@ export default function Header() {
               <span className="sonar-wave" style={{ background: 'var(--ofs-green-500)' }} />
               Renewables Portal
             </Link>
-            <Link 
+            <Link
               href="/industries"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -538,7 +535,7 @@ export default function Header() {
             >
               Industries Served
             </Link>
-            <Link 
+            <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -552,7 +549,7 @@ export default function Header() {
             >
               Insights & Articles
             </Link>
-            <Link 
+            <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
               style={{
@@ -569,7 +566,7 @@ export default function Header() {
           </div>
 
           <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Link 
+            <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="btn btn-primary btn-lg"

@@ -33,10 +33,28 @@
     }
   },
   "stats": [
-    { "label": "Approved Global Brands", "value": "3,000+", "numeric": 3000, "suffix": "+" },
-    { "label": "Years Industry Experience", "value": "15+", "numeric": 15, "suffix": "+" },
-    { "label": "On-Time Fulfillment SLA", "value": "99.8%", "numeric": 99.8, "suffix": "%" },
-    { "label": "Global Operations Support", "value": "24/7", "numeric": 24, "suffix": "/7" }
+    {
+      "label": "Approved Global Brands",
+      "value": "3,000+",
+      "numeric": 3000,
+      "suffix": "+"
+    },
+    {
+      "label": "Proven Track Record",
+      "value": "Years of Experience"
+    },
+    {
+      "label": "On-Time Fulfillment SLA",
+      "value": "99.8%",
+      "numeric": 99.8,
+      "suffix": "%"
+    },
+    {
+      "label": "Global Operations Support",
+      "value": "24/7",
+      "numeric": 24,
+      "suffix": "/7"
+    }
   ],
   "socials": {
     "facebook": "https://www.facebook.com/share/yAxGCbRKTANSc1JU/?mibextid=qi2Omg",

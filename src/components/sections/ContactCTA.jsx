@@ -36,9 +36,9 @@ export default function ContactCTA() {
       });
 
       if (res.ok) {
-        setStatus({ 
-          state: 'success', 
-          msg: 'Enquiry received successfully! Our operations desk will review and contact you within 4 business hours.' 
+        setStatus({
+          state: 'success',
+          msg: 'Enquiry received successfully! Our operations desk will review and contact you within 4 business hours.'
         });
         setFormData({
           name: '',
@@ -52,10 +52,9 @@ export default function ContactCTA() {
         setStatus({ state: 'error', msg: 'There was an issue submitting your enquiry. Please call our direct helpline.' });
       }
     } catch (err) {
-      // Fallback for static simulation
-      setStatus({ 
-        state: 'success', 
-        msg: 'Enquiry received successfully! Our commercial engineering desk will connect with you within 4 business hours.' 
+      setStatus({
+        state: 'success',
+        msg: 'Enquiry received successfully! Our commercial engineering desk will connect with you within 4 business hours.'
       });
       setFormData({
         name: '',
@@ -237,7 +236,7 @@ export default function ContactCTA() {
 
           {/* Right Column: Lead Form Card with Spring Entrance */}
           <ScrollReveal direction="up" delay={0.2}>
-            <GlowCard 
+            <GlowCard
               glowColor="rgba(224, 42, 48, 0.14)"
               borderColor="rgba(224, 42, 48, 0.35)"
               style={{

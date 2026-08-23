@@ -30,7 +30,6 @@ export async function POST(request) {
   try {
     const data = await request.json();
 
-    // Server-side validation
     if (!data.name || !data.email || !data.phone) {
       return NextResponse.json(
         { error: 'Name, email, and phone are required fields.' },

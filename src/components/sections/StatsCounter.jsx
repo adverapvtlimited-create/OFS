@@ -9,7 +9,7 @@ import { Award, ShieldCheck, TrendingUp, Globe2, CheckCircle, Sparkles } from 'l
 import GlowCard from '@/components/animations/GlowCard';
 
 const statsData = [
-  { numeric: 15, suffix: "+", label: "Years of Industry Excellence", desc: "Proven track record in high-stakes operational environments" },
+  { value: "Years of Experience", label: "Proven Industry Track Record", desc: "Demonstrated technical excellence across high-stakes operational environments" },
   { numeric: 3000, suffix: "+", label: "US & European Approved Brands", desc: "Direct access to pre-vetted international manufacturers" },
   { numeric: 48, suffix: "+", label: "EPC & Turnkey Projects", desc: "Successfully delivered across India, Gulf & global basins" },
   { numeric: 20, suffix: "+", label: "Tier-1 Enterprise Clients", desc: "Trusted by major offshore, refinery & energy leaders" },
@@ -100,13 +100,17 @@ export default function StatsCounter() {
                 <div>
                   <div style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(2.75rem, 4.5vw, 3.75rem)',
+                    fontSize: stat.numeric !== undefined && stat.numeric !== null ? 'clamp(2.75rem, 4.5vw, 3.75rem)' : 'clamp(1.75rem, 2.5vw, 2.35rem)',
                     fontWeight: 900,
                     color: 'var(--ofs-gold-400)',
-                    lineHeight: 1,
+                    lineHeight: 1.15,
                     marginBottom: '0.85rem'
                   }}>
-                    <Counter end={stat.numeric} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                    {stat.numeric !== undefined && stat.numeric !== null ? (
+                      <Counter end={stat.numeric} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                    ) : (
+                      <span>{stat.value}</span>
+                    )}
                   </div>
 
                   <h3 style={{

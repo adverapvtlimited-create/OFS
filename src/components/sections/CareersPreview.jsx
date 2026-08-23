@@ -21,7 +21,6 @@ export default function CareersPreview() {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))'
           }}>
-            {/* Left: Culture & Value Proposition */}
             <div style={{ padding: 'clamp(2.25rem, 4.5vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
@@ -69,7 +68,6 @@ export default function CareersPreview() {
               </Link>
             </div>
 
-            {/* Right: Active Open Roles Preview */}
             <div style={{
               background: 'var(--ofs-navy-950)',
               color: 'var(--ofs-white)',

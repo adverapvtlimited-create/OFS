@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { 
-  MessageSquare, 
-  Briefcase, 
-  FileText, 
-  ShieldCheck, 
-  ArrowUpRight, 
-  Clock, 
+import {
+  MessageSquare,
+  Briefcase,
+  FileText,
+  ShieldCheck,
+  ArrowUpRight,
+  Clock,
   CheckCircle2,
   Users,
   Building
@@ -42,7 +42,6 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      {/* Top Welcome Title */}
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.35rem' }}>
           Operations & Content Dashboard
@@ -52,7 +51,6 @@ export default function AdminDashboard() {
         </p>
       </div>
 
-      {/* Metrics Row */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
@@ -115,12 +113,11 @@ export default function AdminDashboard() {
             {servicesData.length}
           </div>
           <div style={{ fontSize: '0.75rem', color: 'var(--ofs-green-700)', marginTop: '0.35rem' }}>
-            ISO 9001:2015 active
+            Active divisions
           </div>
         </div>
       </div>
 
-      {/* Recent Enquiries Table */}
       <div style={{ background: 'var(--ofs-white)', borderRadius: 'var(--radius-md)', border: '1px solid var(--ofs-gray-200)', padding: '1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--ofs-navy-950)', margin: 0 }}>

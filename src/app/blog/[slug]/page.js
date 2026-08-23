@@ -73,7 +73,6 @@ export default function SingleBlogPage({ params }) {
           }),
         ]}
       />
-      {/* Article Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
         color: 'var(--ofs-white)',
@@ -86,9 +85,8 @@ export default function SingleBlogPage({ params }) {
             <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
 
-          {/* Back link */}
           <ScrollReveal direction="down" duration={0.5}>
-            <Link 
+            <Link
               href="/blog"
               style={{
                 display: 'inline-flex',
@@ -127,11 +125,10 @@ export default function SingleBlogPage({ params }) {
             </TextReveal>
           </h1>
 
-          {/* Author Card */}
           <ScrollReveal direction="up" delay={0.25}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-              <img 
-                src={post.author.avatar} 
+              <img
+                src={post.author.avatar}
                 alt={post.author.name}
                 style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--ofs-gold-400)' }}
               />
@@ -144,10 +141,8 @@ export default function SingleBlogPage({ params }) {
         </div>
       </section>
 
-      {/* Article Body */}
       <article className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container" style={{ maxWidth: '880px' }}>
-          {/* Main Hero Image */}
           <ScrollReveal direction="up" delay={0.1}>
             <div style={{
               borderRadius: 'var(--radius-lg)',
@@ -155,8 +150,8 @@ export default function SingleBlogPage({ params }) {
               marginBottom: '3rem',
               boxShadow: 'var(--shadow-xl)'
             }}>
-              <img 
-                src={post.image} 
+              <img
+                src={post.image}
                 alt={`Featured image for ${post.title}`}
                 width={1200}
                 height={480}
@@ -167,7 +162,6 @@ export default function SingleBlogPage({ params }) {
             </div>
           </ScrollReveal>
 
-          {/* Excerpt Callout */}
           <ScrollReveal direction="up" delay={0.2}>
             <div style={{
               padding: '1.75rem 2rem',
@@ -185,7 +179,6 @@ export default function SingleBlogPage({ params }) {
             </div>
           </ScrollReveal>
 
-          {/* Article Text Content */}
           <div style={{
             fontSize: '1.05rem',
             lineHeight: 1.8,
@@ -210,7 +203,6 @@ export default function SingleBlogPage({ params }) {
             for project-specific assistance.
           </p>
 
-          {/* Tags */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -224,7 +216,7 @@ export default function SingleBlogPage({ params }) {
               Tags:
             </span>
             {post.tags.map((tag, tIdx) => (
-              <span 
+              <span
                 key={tIdx}
                 style={{
                   fontSize: '0.75rem',
@@ -240,7 +232,6 @@ export default function SingleBlogPage({ params }) {
             ))}
           </div>
 
-          {/* Related Articles */}
           <div>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '1.5rem' }}>
               Related Insights & Case Studies
@@ -280,7 +271,6 @@ export default function SingleBlogPage({ params }) {
         </div>
       </article>
 
-      {/* Bottom CTA */}
       <ContactCTA />
     </>
   );

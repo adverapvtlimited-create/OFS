@@ -45,7 +45,6 @@ export default function GlowCard({
       }}
       {...props}
     >
-      {/* Subtle Radial Cursor Spotlight */}
       <div
         style={{
           position: 'absolute',
@@ -58,7 +57,6 @@ export default function GlowCard({
         }}
       />
 
-      {/* Card Content Container */}
       <div style={{ position: 'relative', zIndex: 2, height: '100%' }}>
         {children}
       </div>

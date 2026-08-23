@@ -44,7 +44,6 @@ export default function HomePage() {
       <CareersPreview />
       <ContactCTA />
 
-      {/* Homepage FAQ — crawlable content for common search queries */}
       <section
         className="section-pad"
         style={{ background: 'var(--ofs-gray-50)' }}

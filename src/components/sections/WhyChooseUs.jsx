@@ -35,8 +35,8 @@ const pillars = [
   },
   {
     icon: Clock,
-    title: "15+ Years Proven Experience",
-    desc: "Over a decade and a half of specialized procurement, MRO sourcing, and technical support across high-stakes industrial sectors."
+    title: "Years of Proven Experience",
+    desc: "Decades of specialized procurement, MRO sourcing, and technical support across high-stakes industrial sectors."
   },
   {
     icon: Users,

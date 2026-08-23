@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function ParallaxLayer({
   children,
-  speed = 0.2, // negative moves slower/downward, positive moves upward/faster
+  speed = 0.2,
   className = '',
   style = {},
   rotate = 0,

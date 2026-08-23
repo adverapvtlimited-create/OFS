@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { 
-  MessageSquare, 
-  Phone, 
-  Mail, 
-  Clock, 
-  ShieldCheck, 
-  Search, 
-  Filter, 
-  Trash2, 
-  CheckCircle2, 
+import {
+  MessageSquare,
+  Phone,
+  Mail,
+  Clock,
+  ShieldCheck,
+  Search,
+  Filter,
+  Trash2,
+  CheckCircle2,
   AlertCircle,
   Building,
   RefreshCw,
@@ -75,7 +75,7 @@ export default function EnquiriesAdminPage() {
   };
 
   const filteredEnquiries = enquiries.filter((e) => {
-    const matchesSearch = 
+    const matchesSearch =
       e.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       e.company?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       e.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -88,7 +88,6 @@ export default function EnquiriesAdminPage() {
 
   return (
     <div>
-      {/* Top Header Bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.25rem' }}>
@@ -100,7 +99,7 @@ export default function EnquiriesAdminPage() {
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-          <button 
+          <button
             onClick={fetchEnquiries}
             className="btn btn-outline"
             style={{ padding: '0.5rem 0.85rem', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem', background: '#fff', cursor: 'pointer' }}
@@ -128,7 +127,6 @@ export default function EnquiriesAdminPage() {
         </div>
       )}
 
-      {/* Filter and Search Bar */}
       <div style={{
         background: 'var(--ofs-white)',
         padding: '1.25rem 1.5rem',
@@ -141,7 +139,6 @@ export default function EnquiriesAdminPage() {
         flexWrap: 'wrap',
         gap: '1rem'
       }}>
-        {/* Status Filter Tabs */}
         <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
           {['ALL', 'NEW', 'CONTACTED', 'IN_REVIEW', 'ARCHIVED'].map((st) => (
             <button
@@ -165,7 +162,6 @@ export default function EnquiriesAdminPage() {
           ))}
         </div>
 
-        {/* Search Input */}
         <div style={{ position: 'relative', width: '280px' }}>
           <input
             type="text"
@@ -197,10 +193,10 @@ export default function EnquiriesAdminPage() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {filteredEnquiries.map((enq) => {
-            const statusColor = 
+            const statusColor =
               enq.status === 'NEW' ? 'var(--ofs-red-600)' :
-              enq.status === 'CONTACTED' ? 'var(--ofs-green-700)' :
-              enq.status === 'IN_REVIEW' ? 'var(--ofs-gold-600)' : 'var(--ofs-gray-500)';
+                enq.status === 'CONTACTED' ? 'var(--ofs-green-700)' :
+                  enq.status === 'IN_REVIEW' ? 'var(--ofs-gold-600)' : 'var(--ofs-gray-500)';
 
             return (
               <div
@@ -214,7 +210,6 @@ export default function EnquiriesAdminPage() {
                   position: 'relative'
                 }}
               >
-                {/* Header row */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.75rem' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem' }}>
@@ -248,7 +243,6 @@ export default function EnquiriesAdminPage() {
                     </h3>
                   </div>
 
-                  {/* Actions & Status Dropdown */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <select
                       value={enq.status}
@@ -291,7 +285,6 @@ export default function EnquiriesAdminPage() {
                   </div>
                 </div>
 
-                {/* Scope & Contact Details Grid */}
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
@@ -339,7 +332,6 @@ export default function EnquiriesAdminPage() {
                   </div>
                 </div>
 
-                {/* Message Body */}
                 {enq.message && (
                   <div>
                     <div style={{ color: 'var(--ofs-gray-500)', fontSize: '0.75rem', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', marginBottom: '0.35rem' }}>

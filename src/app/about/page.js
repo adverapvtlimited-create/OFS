@@ -3,15 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, 
-  Target, 
-  Eye, 
-  HeartHandshake, 
-  Award, 
-  CheckCircle2, 
-  ArrowUpRight, 
-  Globe2, 
+import {
+  ShieldCheck,
+  Target,
+  Eye,
+  HeartHandshake,
+  Award,
+  CheckCircle2,
+  ArrowUpRight,
+  Globe2,
   Building,
   Users,
   Sparkles,
@@ -44,7 +44,6 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* Page Hero Banner with Scroll Entrance */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
         color: 'var(--ofs-white)',
@@ -54,9 +53,8 @@ export default function AboutPage() {
         overflow: 'hidden'
       }}>
         <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
-        
+
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          {/* Breadcrumb */}
           <ScrollReveal direction="down" duration={0.5}>
             <div style={{
               display: 'flex',
@@ -113,7 +111,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision Bento */}
       <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container">
           <div style={{
@@ -122,7 +119,6 @@ export default function AboutPage() {
             gap: '2.5rem',
             marginBottom: '5rem'
           }}>
-            {/* Mission Card with Live Image Accent */}
             <ScrollReveal direction="up" delay={0.1}>
               <div style={{
                 background: 'var(--ofs-navy-50)',
@@ -135,9 +131,9 @@ export default function AboutPage() {
                 height: '100%'
               }}>
                 <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
-                  <motion.img 
-                    src="/images/live/Mission-5.jpg" 
-                    alt="Our Mission" 
+                  <motion.img
+                    src="/images/live/Mission-5.jpg"
+                    alt="Our Mission"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
@@ -180,7 +176,6 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            {/* Vision Card with Live Image Accent */}
             <ScrollReveal direction="up" delay={0.2}>
               <div style={{
                 background: 'var(--ofs-navy-50)',
@@ -193,9 +188,9 @@ export default function AboutPage() {
                 height: '100%'
               }}>
                 <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
-                  <motion.img 
-                    src="/images/live/Visioin-2.jpg" 
-                    alt="Our Vision" 
+                  <motion.img
+                    src="/images/live/Visioin-2.jpg"
+                    alt="Our Vision"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
@@ -239,7 +234,6 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
 
-          {/* Core Values Section with Live Images */}
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
             <ScrollReveal direction="up">
               <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
@@ -268,8 +262,8 @@ export default function AboutPage() {
               <ScrollReveal key={i} direction="up" delay={i * 0.12}>
                 <div className="card-modern" style={{ padding: 0, overflow: 'hidden', height: '100%' }}>
                   <div style={{ height: '180px', position: 'relative', overflow: 'hidden' }}>
-                    <motion.img 
-                      src={v.image} 
+                    <motion.img
+                      src={v.image}
                       alt={v.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       whileHover={{ scale: 1.06 }}
@@ -305,7 +299,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Global Brand Network Highlight */}
       <section className="section-pad" style={{ background: 'var(--ofs-navy-950)', color: '#fff', position: 'relative' }}>
         <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '840px' }}>
@@ -343,7 +336,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Global Leadership & Offices Grid */}
       <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
@@ -370,7 +362,6 @@ export default function AboutPage() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
             gap: '2.5rem'
           }}>
-            {/* India HQ */}
             <ScrollReveal direction="left" delay={0.1}>
               <div style={{
                 background: 'var(--ofs-navy-50)',
@@ -396,7 +387,6 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            {/* US Office */}
             <ScrollReveal direction="right" delay={0.2}>
               <div style={{
                 background: 'var(--ofs-navy-50)',
@@ -424,7 +414,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <ContactCTA />
     </>
   );

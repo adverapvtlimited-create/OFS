@@ -4,10 +4,30 @@
   "tagline": "Powering the Global Clean Energy Transition with High-Yield Solar, Storage & EPC Infrastructure.",
   "heroDescription": "OFS Renewables delivers end-to-end solar EPC support, Tier-1 PV module supply chains, Battery Energy Storage Systems (BESS), and digital O&M platforms designed for enterprise power producers and industrial energy independence.",
   "metrics": [
-    { "value": "450+ MW", "label": "Solar & Storage Capacity Supported", "numeric": 450, "suffix": " MW" },
-    { "value": "120K+", "label": "Tonnes CO2 Mitigated Annually", "numeric": 120, "suffix": "K+ Tons" },
-    { "value": "99.4%", "label": "Plant Uptime Guaranteed SLA", "numeric": 99.4, "suffix": "%" },
-    { "value": "15+", "label": "Utility & C&I Mega Projects", "numeric": 15, "suffix": "+" }
+    {
+      "value": "450+ MW",
+      "label": "Solar & Storage Capacity Supported",
+      "numeric": 450,
+      "suffix": " MW"
+    },
+    {
+      "value": "120K+",
+      "label": "Tonnes CO2 Mitigated Annually",
+      "numeric": 120,
+      "suffix": "K+ Tons"
+    },
+    {
+      "value": "99.4%",
+      "label": "Plant Uptime Guaranteed SLA",
+      "numeric": 99.4,
+      "suffix": "%"
+    },
+    {
+      "value": "",
+      "label": "Utility & C&I Mega Projects",
+      "numeric": 15,
+      "suffix": "+"
+    }
   ],
   "solutions": [
     {

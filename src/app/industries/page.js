@@ -217,10 +217,6 @@ export default function IndustriesPage() {
                       >
                         Sector Overview <ArrowUpRight size={15} />
                       </Link>
-
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--ofs-gray-400)', fontWeight: 700 }}>
-                        ISO 9001
-                      </span>
                     </div>
                   </div>
                 </ScrollReveal>

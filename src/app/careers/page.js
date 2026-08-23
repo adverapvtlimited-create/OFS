@@ -3,17 +3,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Briefcase, 
-  Sparkles, 
-  ArrowUpRight, 
-  CheckCircle2, 
-  MapPin, 
-  ShieldCheck, 
-  Heart, 
-  GraduationCap, 
-  Plane 
+import {
+  Users,
+  Briefcase,
+  Sparkles,
+  ArrowUpRight,
+  CheckCircle2,
+  MapPin,
+  ShieldCheck,
+  Heart,
+  GraduationCap,
+  Plane
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -46,7 +46,6 @@ const perks = [
 export default function CareersPage() {
   return (
     <>
-      {/* Hero Banner */}
       <section style={{
         background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
         color: 'var(--ofs-white)',
@@ -114,7 +113,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Perks & Benefits Section */}
       <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
@@ -178,7 +176,6 @@ export default function CareersPage() {
             })}
           </div>
 
-          {/* Open Positions List */}
           <div style={{ maxWidth: '820px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <ScrollReveal direction="up">
@@ -259,7 +256,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <ContactCTA />
     </>
   );

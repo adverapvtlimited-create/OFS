@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Package, 
-  Wrench, 
-  ShieldCheck, 
-  Anchor, 
-  Building2, 
-  Settings, 
-  ArrowUpRight, 
+import {
+  Package,
+  Wrench,
+  ShieldCheck,
+  Anchor,
+  Building2,
+  Settings,
+  ArrowUpRight,
   CheckCircle2,
   ChevronRight,
   Sparkles,
@@ -53,7 +53,6 @@ export default function ServicesGrid() {
     if (!isDesktop || !sectionRef.current || !trackRef.current) return;
 
     const track = trackRef.current;
-    // Calculate total horizontal scroll distance
     const scrollLength = track.scrollWidth - window.innerWidth + 80;
 
     const ctx = gsap.context(() => {
@@ -75,10 +74,10 @@ export default function ServicesGrid() {
   }, [isDesktop]);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      style={{ 
-        background: 'linear-gradient(180deg, var(--ofs-gray-50) 0%, #FFFFFF 100%)', 
+      style={{
+        background: 'linear-gradient(180deg, var(--ofs-gray-50) 0%, #FFFFFF 100%)',
         position: 'relative',
         overflow: 'hidden',
         minHeight: isDesktop ? '100vh' : 'auto',
@@ -152,7 +151,7 @@ export default function ServicesGrid() {
         {/* Desktop Viewport-Fitted Horizontal Track */}
         {isDesktop ? (
           <div style={{ overflow: 'visible', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
-            <div 
+            <div
               ref={trackRef}
               style={{
                 display: 'flex',
@@ -164,7 +163,7 @@ export default function ServicesGrid() {
               {servicesData.map((service, index) => {
                 const IconComp = iconMap[service.icon] || Package;
                 return (
-                  <GlowCard 
+                  <GlowCard
                     key={service.id}
                     className="service-card-modern"
                     data-cursor-text="VIEW"
@@ -186,8 +185,8 @@ export default function ServicesGrid() {
                         marginBottom: '1rem',
                         position: 'relative'
                       }}>
-                        <img 
-                          src={service.image || '/images/live/Procurement-and-shippings.jpg'} 
+                        <img
+                          src={service.image || '/images/live/Procurement-and-shippings.jpg'}
                           alt={service.title}
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
@@ -216,7 +215,7 @@ export default function ServicesGrid() {
 
                       {/* Header with Icon and Title */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.5rem' }}>
-                        <div 
+                        <div
                           className="service-icon-box"
                           style={{
                             width: '38px',
@@ -276,7 +275,7 @@ export default function ServicesGrid() {
                       justifyContent: 'space-between',
                       alignItems: 'center'
                     }}>
-                      <Link 
+                      <Link
                         href={`/services/${service.slug}`}
                         style={{
                           fontFamily: 'var(--font-mono)',
@@ -313,7 +312,7 @@ export default function ServicesGrid() {
               const IconComp = iconMap[service.icon] || Package;
               return (
                 <ScrollReveal key={service.id} direction="up" delay={index * 0.08}>
-                  <div 
+                  <div
                     className="card-modern service-card-modern"
                     style={{
                       padding: '1.65rem 1.5rem',
@@ -328,7 +327,7 @@ export default function ServicesGrid() {
                     <div>
                       {/* Mobile Top Badge & Icon */}
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                        <div 
+                        <div
                           className="service-icon-box"
                           style={{
                             width: '42px',
@@ -394,7 +393,7 @@ export default function ServicesGrid() {
                       justifyContent: 'space-between',
                       alignItems: 'center'
                     }}>
-                      <Link 
+                      <Link
                         href={`/services/${service.slug}`}
                         style={{
                           fontFamily: 'var(--font-mono)',

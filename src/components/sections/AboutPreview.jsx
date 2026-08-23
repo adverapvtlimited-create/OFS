@@ -63,12 +63,12 @@ export default function AboutPreview() {
               >
                 <div style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '2.5rem',
+                  fontSize: '1.65rem',
                   fontWeight: 900,
                   color: 'var(--ofs-gold-400)',
-                  lineHeight: 1
+                  lineHeight: 1.15
                 }}>
-                  15+ Years
+                  Years of Experience
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-mono)',

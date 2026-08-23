@@ -3,16 +3,16 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { 
-  ArrowUpRight, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Award, 
-  Zap, 
-  ChevronRight, 
-  Globe2, 
-  Anchor, 
-  Activity, 
+import {
+  ArrowUpRight,
+  ShieldCheck,
+  CheckCircle2,
+  Award,
+  Zap,
+  ChevronRight,
+  Globe2,
+  Anchor,
+  Activity,
   Layers,
   Sparkles,
   TrendingUp,
@@ -34,14 +34,12 @@ export default function Hero() {
     offset: ['start start', 'end start']
   });
 
-  // Smooth springs for buttery scroll interpolation
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
 
-  // Multi-layer scroll transforms
   const headlineY = useTransform(smoothProgress, [0, 0.7], [0, -55]);
   const headlineOpacity = useTransform(smoothProgress, [0, 0.65], [1, 0.35]);
   const bgGridY = useTransform(smoothProgress, [0, 1], [0, 80]);
@@ -52,7 +50,7 @@ export default function Hero() {
   const statsStripY = useTransform(smoothProgress, [0, 0.8], [0, -25]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       style={{
         position: 'relative',
@@ -63,8 +61,8 @@ export default function Hero() {
       }}
     >
       {/* Background Architectural Grid Accent with Parallax */}
-      <motion.div 
-        className="bg-grid-pattern" 
+      <motion.div
+        className="bg-grid-pattern"
         style={{
           position: 'absolute',
           inset: 0,
@@ -72,11 +70,11 @@ export default function Hero() {
           pointerEvents: 'none',
           y: bgGridY,
           x: smoothPos.x * 12
-        }} 
+        }}
       />
 
       {/* Subtle Radial Mouse Reactive Glow */}
-      <motion.div 
+      <motion.div
         style={{
           position: 'absolute',
           top: '-10%',
@@ -87,12 +85,12 @@ export default function Hero() {
           pointerEvents: 'none',
           x: `calc(-50% + ${smoothPos.x * 30}px)`,
           y: smoothPos.y * 20
-        }} 
+        }}
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Top Tag Pills & Status Radar with Entrance Animation */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -117,7 +115,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Main Headline & Subtitle with Scroll-Linked Upward Motion */}
-        <motion.div 
+        <motion.div
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr',
@@ -139,15 +137,15 @@ export default function Hero() {
             }}>
               Strategic Support for <br />
               <TextRotator words={[
-                "Marine & Offshore", 
-                "Procurement & Shipping", 
-                "Engineering & EPC", 
-                "Integrated Facilities", 
+                "Marine & Offshore",
+                "Procurement & Shipping",
+                "Engineering & EPC",
+                "Integrated Facilities",
                 "Spare Parts & MRO"
               ]} />
             </h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -163,7 +161,7 @@ export default function Hero() {
             </motion.p>
 
             {/* CTA Action Buttons with Magnetic Springs */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -179,7 +177,7 @@ export default function Hero() {
                   Explore Capabilities <ArrowUpRight size={18} />
                 </Link>
               </MagneticButton>
-              
+
               <MagneticButton strength={0.25} radius={70}>
                 <Link href="/contact" className="btn btn-outline btn-lg" data-cursor-text="RFQ">
                   Request RFQ / Consultation
@@ -196,7 +194,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Hero Visual Telemetry Showcase with Scroll-Driven Zoom & Parallax */}
-        <motion.div 
+        <motion.div
           style={{
             position: 'relative',
             borderRadius: 'var(--radius-xl)',
@@ -210,7 +208,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.div 
+          <motion.div
             style={{
               height: '460px',
               position: 'relative',
@@ -226,7 +224,7 @@ export default function Hero() {
             }} />
 
             {/* Telemetry Floating Chips with Diagonal Scroll Parallax & Mouse Depth */}
-            <motion.div 
+            <motion.div
               style={{
                 position: 'absolute',
                 top: '1.5rem',
@@ -318,7 +316,7 @@ export default function Hero() {
                 </h3>
               </div>
 
-              <motion.div 
+              <motion.div
                 style={{
                   display: 'flex',
                   gap: '0.75rem',
@@ -348,7 +346,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Hero Stats Counter Strip with Upward Parallax Transition */}
-        <motion.div 
+        <motion.div
           style={{
             background: 'var(--ofs-navy-950)',
             borderRadius: 'var(--radius-xl)',
@@ -385,17 +383,21 @@ export default function Hero() {
               }}>
                 <div style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(2rem, 3.5vw, 3.25rem)',
+                  fontSize: stat.numeric !== undefined && stat.numeric !== null ? 'clamp(2rem, 3.5vw, 3.25rem)' : 'clamp(1.25rem, 2vw, 1.75rem)',
                   fontWeight: 900,
                   color: 'var(--ofs-gold-400)',
-                  lineHeight: 1,
+                  lineHeight: 1.15,
                   marginBottom: '0.35rem'
                 }}>
-                  <Counter 
-                    end={stat.numeric} 
-                    suffix={stat.suffix} 
-                    decimals={stat.numeric % 1 !== 0 ? 1 : 0} 
-                  />
+                  {stat.numeric !== undefined && stat.numeric !== null ? (
+                    <Counter
+                      end={stat.numeric}
+                      suffix={stat.suffix}
+                      decimals={stat.numeric % 1 !== 0 ? 1 : 0}
+                    />
+                  ) : (
+                    <span>{stat.value}</span>
+                  )}
                 </div>
                 <div style={{
                   fontFamily: 'var(--font-mono)',
