@@ -151,5 +151,39 @@
       "Overhead Crane Components & Hoisting Gearboxes",
       "Non-Destructive Testing (NDT) Flaw Detection Systems"
     ]
+  },
+  {
+    "id": "mooring-systems",
+    "slug": "mooring-systems",
+    "name": "Mooring & Marine Berthing",
+    "shortName": "Mooring Systems",
+    "icon": "Anchor",
+    "heroImage": "/images/live/Mooring-Systems.jpg",
+    "tagline": "High-Integrity Mooring Chains, Synthetic Ropes, Winches & Quayside Berthing Equipment",
+    "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, harbour tug towing lines, heavy-duty studlink anchor chains, and quick-release mooring hooks compliant with OCIMF guidelines.",
+    "keySolutions": [
+      "Studlink & Studless Anchor Chains (Grade R3, R4 & R5)",
+      "High-Modulus Synthetic HMPE & Braided Mooring Lines",
+      "Quick-Release Mooring Hooks (QRMH) & Electric Capstans",
+      "Offshore SPM Buoys, Chafe Chains & Swivel Assemblies",
+      "Pneumatic Yokohama & High-Energy Marine Fendering Packages"
+    ]
+  },
+  {
+    "id": "commercial-diving",
+    "slug": "commercial-diving",
+    "name": "Commercial Diving & Subsea",
+    "shortName": "Commercial Diving",
+    "icon": "Compass",
+    "heroImage": "/images/live/Commercial-Diving.jpg",
+    "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
+    "summary": "Providing certified commercial diving equipment, surface-supplied air and nitrox systems, subsea non-destructive testing (NDT), underwater wet welding, propeller super-polishing, and Class-approved in-water survey (UWILD) gear for offshore rigs, platforms, and commercial vessels worldwide.",
+    "keySolutions": [
+      "IMCA-Compliant Surface-Supplied Diving & Umbilical Spares",
+      "Underwater NDT (Ultrasonic Thickness & MPI Magnetic Testing)",
+      "Class-Approved In-Water Surveys (UWILD) & Biofouling Removal",
+      "Underwater Wet/Hyperbaric Welding & Oxy-Arc Cutting Torches",
+      "Subsea Pipeline Free-Span Correction & Grouting Packages"
+    ]
   }
 ]

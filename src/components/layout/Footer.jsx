@@ -132,7 +132,7 @@ export default function Footer() {
       }} />
 
       {/* CREDENTIALS & ACCREDITATIONS HEADER SECTION */}
-      <div style={{
+      <div id="certifications" style={{
         borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
         background: 'rgba(6, 14, 36, 0.65)',
         position: 'relative',

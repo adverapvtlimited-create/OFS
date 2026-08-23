@@ -22,7 +22,11 @@ import {
   Sun,
   Globe2,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  BadgeCheck,
+  Lock,
+  Award,
+  ExternalLink
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
 import servicesData from '@/data/services.json';
@@ -40,11 +44,79 @@ const iconMap = {
   Sun: Sun
 };
 
+const topBarCertifications = [
+  {
+    id: 'iso9001',
+    code: 'ISO 9001:2015',
+    tag: 'QMS QUALITY',
+    title: 'Quality Management System',
+    detail: 'Cert: 3050260502115Q',
+    color: '#f59e0b',
+    icon: ShieldCheck
+  },
+  {
+    id: 'iso14001',
+    code: 'ISO 14001:2015',
+    tag: 'EMS ENVIRONMENT',
+    title: 'Environmental Management',
+    detail: 'Cert: 3050260502116E',
+    color: '#10b981',
+    icon: CheckCircle2
+  },
+  {
+    id: 'iso45001',
+    code: 'ISO 45001:2018',
+    tag: 'OH&S SAFETY',
+    title: 'Occupational Health & Safety',
+    detail: 'Cert: 3050260502117HS',
+    color: '#38bdf8',
+    icon: BadgeCheck
+  },
+  {
+    id: 'iso37001',
+    code: 'ISO 37001:2016',
+    tag: 'ANTI-BRIBERY',
+    title: 'Anti-Bribery Management',
+    detail: 'Cert: UK-02-VS-03088',
+    color: '#a78bfa',
+    icon: Lock
+  },
+  {
+    id: 'impa',
+    code: 'IMPA Member',
+    tag: 'MARITIME SUPPLY',
+    title: 'Intl Marine Purchasing Association',
+    detail: 'Verified Directory Profile',
+    color: '#60a5fa',
+    icon: Anchor,
+    link: 'https://impa.net/members/oriented-facility-solution-pvt-ltd'
+  },
+  {
+    id: 'dpiit',
+    code: 'DPIIT Recognized',
+    tag: 'GOVT OF INDIA',
+    title: 'Ministry of Commerce & Industry',
+    detail: 'Cert: DIPP253153',
+    color: '#fb923c',
+    icon: Award
+  }
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [certsDropdownOpen, setCertsDropdownOpen] = useState(false);
+  const [activeCertIndex, setActiveCertIndex] = useState(0);
   const pathname = usePathname();
+
+  // Auto-cycle through certificates in top bar
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveCertIndex((prev) => (prev + 1) % topBarCertifications.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,11 +133,15 @@ export default function Header() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
+    setCertsDropdownOpen(false);
   }, [pathname]);
+
+  const activeCert = topBarCertifications[activeCertIndex];
+  const ActiveCertIcon = activeCert.icon;
 
   return (
     <>
-
+      {/* Enterprise Multi-Certification Top Bar */}
       <div style={{
         background: 'var(--ofs-navy-950)',
         color: 'rgba(255, 255, 255, 0.85)',
@@ -81,22 +157,221 @@ export default function Header() {
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '0.5rem'
+          gap: '0.65rem'
         }}>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--ofs-gold-400)', fontWeight: 700 }}>
-              <ShieldCheck size={14} />
-              <span>ISO 9001:2015 CERTIFIED</span>
+          {/* Left: Interactive Multi-Certification Strip */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', position: 'relative' }}>
+            {/* Active Cycling Badge */}
+            <div 
+              style={{ 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '0.45rem', 
+                color: activeCert.color, 
+                fontWeight: 700,
+                background: 'rgba(255, 255, 255, 0.04)',
+                border: `1px solid ${activeCert.color}44`,
+                padding: '0.2rem 0.65rem',
+                borderRadius: 'var(--radius-full)',
+                transition: 'all 0.35s ease',
+                cursor: 'pointer'
+              }}
+              onClick={() => setCertsDropdownOpen(!certsDropdownOpen)}
+              title="Click to view all official certifications"
+            >
+              <ActiveCertIcon size={14} style={{ flexShrink: 0 }} />
+              <span style={{ color: '#fff', fontWeight: 800 }}>{activeCert.code}</span>
+              <span style={{ color: 'rgba(255, 255, 255, 0.6)', display: 'none', md: 'inline' }} className="hidden-mobile">
+                • {activeCert.title}
+              </span>
+              <ChevronDown size={12} style={{ 
+                color: 'rgba(255, 255, 255, 0.7)',
+                transform: certsDropdownOpen ? 'rotate(180deg)' : 'rotate(0)',
+                transition: 'transform 0.2s ease'
+              }} />
             </div>
-            <span style={{ color: 'rgba(255, 255, 255, 0.25)' }}>|</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'rgba(255, 255, 255, 0.8)' }}>
-              <span className="sonar-wave" style={{ width: '6px', height: '6px', background: 'var(--ofs-green-400)' }} />
-              <span>Marine, Offshore & EPC Global Support</span>
+
+            {/* Quick Micro-Pills for all certifications */}
+            <div className="hidden-mobile" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+              {topBarCertifications.map((c, i) => (
+                <button
+                  key={c.id}
+                  onClick={() => {
+                    setActiveCertIndex(i);
+                    setCertsDropdownOpen(true);
+                  }}
+                  style={{
+                    background: i === activeCertIndex ? `${c.color}22` : 'rgba(255, 255, 255, 0.03)',
+                    border: `1px solid ${i === activeCertIndex ? c.color : 'rgba(255, 255, 255, 0.08)'}`,
+                    color: i === activeCertIndex ? c.color : 'rgba(255, 255, 255, 0.6)',
+                    fontSize: '0.65rem',
+                    fontFamily: 'var(--font-mono)',
+                    fontWeight: 700,
+                    padding: '0.15rem 0.45rem',
+                    borderRadius: 'var(--radius-xs)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {c.id.toUpperCase()}
+                </button>
+              ))}
             </div>
+
+            {/* All Certifications Dropdown Popover */}
+            {certsDropdownOpen && (
+              <div 
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 8px)',
+                  left: 0,
+                  width: 'min(420px, 92vw)',
+                  background: 'var(--ofs-navy-950)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: 'var(--radius-md)',
+                  boxShadow: '0 16px 36px rgba(0, 0, 0, 0.5)',
+                  padding: '1.25rem',
+                  zIndex: 700,
+                  animation: 'fadeInMenu 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseLeave={() => setCertsDropdownOpen(false)}
+              >
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  paddingBottom: '0.75rem',
+                  marginBottom: '0.75rem',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 800,
+                    fontSize: '0.9rem',
+                    color: '#fff'
+                  }}>
+                    Official Enterprise Accreditations (6)
+                  </div>
+                  <button
+                    onClick={() => setCertsDropdownOpen(false)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: 'rgba(255, 255, 255, 0.5)',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    <X size={14} />
+                  </button>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  {topBarCertifications.map((cert, idx) => {
+                    const ItemIcon = cert.icon;
+                    return (
+                      <div
+                        key={cert.id}
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.03)',
+                          border: `1px solid ${cert.color}33`,
+                          borderRadius: 'var(--radius-xs)',
+                          padding: '0.65rem 0.85rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          gap: '0.75rem'
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', minWidth: 0 }}>
+                          <div style={{
+                            width: '28px',
+                            height: '28px',
+                            borderRadius: '4px',
+                            background: `${cert.color}18`,
+                            display: 'grid',
+                            placeContent: 'center',
+                            color: cert.color,
+                            flexShrink: 0
+                          }}>
+                            <ItemIcon size={15} />
+                          </div>
+                          <div style={{ minWidth: 0 }}>
+                            <div style={{ color: '#fff', fontWeight: 800, fontSize: '0.8rem', lineHeight: 1.2 }}>
+                              {cert.code}
+                            </div>
+                            <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.7rem' }}>
+                              {cert.detail}
+                            </div>
+                          </div>
+                        </div>
+
+                        {cert.link ? (
+                          <a
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              color: cert.color,
+                              fontSize: '0.7rem',
+                              fontFamily: 'var(--font-mono)',
+                              fontWeight: 700,
+                              textDecoration: 'none',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.2rem',
+                              padding: '0.2rem 0.5rem',
+                              background: 'rgba(96, 165, 250, 0.15)',
+                              borderRadius: 'var(--radius-xs)',
+                              flexShrink: 0
+                            }}
+                          >
+                            Verify ↗
+                          </a>
+                        ) : (
+                          <span style={{
+                            fontSize: '0.65rem',
+                            color: 'rgba(255, 255, 255, 0.4)',
+                            fontFamily: 'var(--font-mono)'
+                          }}>
+                            Active
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div style={{
+                  marginTop: '0.85rem',
+                  paddingTop: '0.75rem',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}>
+                  <a
+                    href="#certifications"
+                    onClick={() => setCertsDropdownOpen(false)}
+                    style={{
+                      fontSize: '0.75rem',
+                      color: 'var(--ofs-gold-400)',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.3rem'
+                    }}
+                  >
+                    View Complete Footer Audit ↘
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
-
+          {/* Right: Contact details */}
           <div className="top-bar-right" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
             <a
               href={`tel:${siteConfig.contact.phoneRaw}`}

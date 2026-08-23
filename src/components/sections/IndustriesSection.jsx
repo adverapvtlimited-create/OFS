@@ -13,6 +13,8 @@ import {
   Dna, 
   Mountain, 
   Plane, 
+  Anchor,
+  Compass,
   ArrowUpRight, 
   CheckCircle2, 
   ShieldCheck 
@@ -31,7 +33,9 @@ const iconMap = {
   FlaskConical: FlaskConical,
   Dna: Dna,
   Mountain: Mountain,
-  Plane: Plane
+  Plane: Plane,
+  Anchor: Anchor,
+  Compass: Compass
 };
 
 export default function IndustriesSection() {
