@@ -11,7 +11,6 @@ import {
   X,
   ArrowUpRight,
   ShieldCheck,
-  Sparkles,
   Package,
   Wrench,
   Anchor,
@@ -20,17 +19,15 @@ import {
   Flame,
   Ship,
   Sun,
-  Globe2,
-  Zap,
   CheckCircle2,
   BadgeCheck,
   Lock,
   Award,
-  ExternalLink
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
 import servicesData from '@/data/services.json';
 import MagneticButton from '@/components/animations/MagneticButton';
+import { cn } from '@/lib/cn';
 
 const iconMap = {
   Package: Package,
@@ -41,65 +38,71 @@ const iconMap = {
   Settings: Settings,
   Flame: Flame,
   Ship: Ship,
-  Sun: Sun
+  Sun: Sun,
 };
 
 const topBarCertifications = [
   {
     id: 'iso9001',
+    label: 'IS09001',
     code: 'ISO 9001:2015',
     tag: 'QMS QUALITY',
     title: 'Quality Management System',
     detail: 'Cert: 3050260502115Q',
     color: '#f59e0b',
-    icon: ShieldCheck
+    icon: ShieldCheck,
   },
   {
     id: 'iso14001',
+    label: 'IS014001',
     code: 'ISO 14001:2015',
     tag: 'EMS ENVIRONMENT',
     title: 'Environmental Management',
     detail: 'Cert: 3050260502116E',
     color: '#10b981',
-    icon: CheckCircle2
+    icon: CheckCircle2,
   },
   {
     id: 'iso45001',
+    label: 'IS045001',
     code: 'ISO 45001:2018',
     tag: 'OH&S SAFETY',
     title: 'Occupational Health & Safety',
     detail: 'Cert: 3050260502117HS',
     color: '#38bdf8',
-    icon: BadgeCheck
+    icon: BadgeCheck,
   },
   {
     id: 'iso37001',
+    label: 'IS037001',
     code: 'ISO 37001:2016',
     tag: 'ANTI-BRIBERY',
     title: 'Anti-Bribery Management',
     detail: 'Cert: UK-02-VS-03088',
     color: '#a78bfa',
-    icon: Lock
+    icon: Lock,
   },
   {
     id: 'impa',
+    label: 'IMPA',
     code: 'IMPA Member',
     tag: 'MARITIME SUPPLY',
-    title: 'Intl Marine Purchasing Association',
+    title: '',
     detail: 'Verified Directory Profile',
     color: '#60a5fa',
     icon: Anchor,
-    link: 'https://impa.net/members/oriented-facility-solution-pvt-ltd'
+    link: 'https://impa.net/members/oriented-facility-solution-pvt-ltd',
   },
   {
     id: 'dpiit',
+    label: 'DPIIT',
     code: 'DPIIT Recognized',
     tag: 'GOVT OF INDIA',
-    title: 'Ministry of Commerce & Industry',
+    title: '',
     detail: 'Cert: DIPP253153',
     color: '#fb923c',
-    icon: Award
-  }
+    icon: Award,
+  },
 ];
 
 export default function Header() {
@@ -142,58 +145,30 @@ export default function Header() {
   return (
     <>
       {/* Enterprise Multi-Certification Top Bar */}
-      <div style={{
-        background: 'var(--ofs-navy-950)',
-        color: 'rgba(255, 255, 255, 0.85)',
-        fontSize: 'var(--text-xs)',
-        fontFamily: 'var(--font-mono)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '0.45rem 0',
-        zIndex: 501,
-        position: 'relative'
-      }}>
-        <div className="container" style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '0.65rem'
-        }}>
-
+      <div className="bg-ofs-navy-950 text-white/85 text-xs font-mono border-b border-white/[0.08] py-1.5 z-[501] relative">
+        <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 flex justify-between items-center flex-wrap gap-2.5">
           {/* Left: Interactive Multi-Certification Strip */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', position: 'relative' }}>
+          <div className="flex items-center gap-3 flex-wrap relative">
             {/* Active Cycling Badge */}
-            <div 
-              style={{ 
-                display: 'inline-flex', 
-                alignItems: 'center', 
-                gap: '0.45rem', 
-                color: activeCert.color, 
-                fontWeight: 700,
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: `1px solid ${activeCert.color}44`,
-                padding: '0.2rem 0.65rem',
-                borderRadius: 'var(--radius-full)',
-                transition: 'all 0.35s ease',
-                cursor: 'pointer'
-              }}
+            <div
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold bg-white/[0.04] py-1 px-3.5 rounded-full transition-all duration-300 cursor-pointer"
+              style={{ borderColor: activeCert.color, borderStyle: 'solid', borderWidth: '1px' }}
               onClick={() => setCertsDropdownOpen(!certsDropdownOpen)}
               title="Click to view all official certifications"
             >
-              <ActiveCertIcon size={14} style={{ flexShrink: 0 }} />
-              <span style={{ color: '#fff', fontWeight: 800 }}>{activeCert.code}</span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.6)', display: 'none', md: 'inline' }} className="hidden-mobile">
-                • {activeCert.title}
-              </span>
-              <ChevronDown size={12} style={{ 
-                color: 'rgba(255, 255, 255, 0.7)',
-                transform: certsDropdownOpen ? 'rotate(180deg)' : 'rotate(0)',
-                transition: 'transform 0.2s ease'
-              }} />
+              <ActiveCertIcon size={14} className="shrink-0" style={{ color: activeCert.color }} />
+              <span className="text-white font-extrabold">{activeCert.code}</span>
+              <ChevronDown
+                size={12}
+                className={cn(
+                  'text-white/70 transition-transform duration-200',
+                  certsDropdownOpen && 'rotate-180'
+                )}
+              />
             </div>
 
             {/* Quick Micro-Pills for all certifications */}
-            <div className="hidden-mobile" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+            <div className="hidden lg:flex items-center gap-1.5 flex-wrap">
               {topBarCertifications.map((c, i) => (
                 <button
                   key={c.id}
@@ -201,106 +176,57 @@ export default function Header() {
                     setActiveCertIndex(i);
                     setCertsDropdownOpen(true);
                   }}
+                  className="text-[0.65rem] font-mono font-bold py-0.5 px-2 rounded-[4px] cursor-pointer transition-all duration-200"
                   style={{
                     background: i === activeCertIndex ? `${c.color}22` : 'rgba(255, 255, 255, 0.03)',
                     border: `1px solid ${i === activeCertIndex ? c.color : 'rgba(255, 255, 255, 0.08)'}`,
                     color: i === activeCertIndex ? c.color : 'rgba(255, 255, 255, 0.6)',
-                    fontSize: '0.65rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 700,
-                    padding: '0.15rem 0.45rem',
-                    borderRadius: 'var(--radius-xs)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
                   }}
                 >
-                  {c.id.toUpperCase()}
+                  {c.label || c.id.toUpperCase()}
                 </button>
               ))}
             </div>
 
             {/* All Certifications Dropdown Popover */}
             {certsDropdownOpen && (
-              <div 
-                style={{
-                  position: 'absolute',
-                  top: 'calc(100% + 8px)',
-                  left: 0,
-                  width: 'min(420px, 92vw)',
-                  background: 'var(--ofs-navy-950)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  borderRadius: 'var(--radius-md)',
-                  boxShadow: '0 16px 36px rgba(0, 0, 0, 0.5)',
-                  padding: '1.25rem',
-                  zIndex: 700,
-                  animation: 'fadeInMenu 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}
+              <div
+                className="absolute top-[calc(100%+8px)] left-0 w-[min(420px,92vw)] bg-ofs-navy-950 border border-white/15 rounded-md shadow-2xl p-5 z-[700] animate-fade-in-menu"
                 onMouseLeave={() => setCertsDropdownOpen(false)}
               >
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingBottom: '0.75rem',
-                  marginBottom: '0.75rem',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
-                }}>
-                  <div style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontWeight: 800,
-                    fontSize: '0.9rem',
-                    color: '#fff'
-                  }}>
+                <div className="flex justify-between items-center pb-3 mb-3 border-b border-white/[0.08]">
+                  <div className="font-heading font-extrabold text-sm text-white">
                     Official Enterprise Accreditations (6)
                   </div>
                   <button
                     onClick={() => setCertsDropdownOpen(false)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      cursor: 'pointer'
-                    }}
+                    className="bg-transparent border-0 text-white/50 hover:text-white cursor-pointer"
                   >
                     <X size={14} />
                   </button>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                  {topBarCertifications.map((cert, idx) => {
+                <div className="flex flex-col gap-2.5">
+                  {topBarCertifications.map((cert) => {
                     const ItemIcon = cert.icon;
                     return (
                       <div
                         key={cert.id}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.03)',
-                          border: `1px solid ${cert.color}33`,
-                          borderRadius: 'var(--radius-xs)',
-                          padding: '0.65rem 0.85rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '0.75rem'
-                        }}
+                        className="bg-white/[0.03] rounded-xs p-2.5 sm:px-3.5 flex items-center justify-between gap-3"
+                        style={{ border: `1px solid ${cert.color}33` }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', minWidth: 0 }}>
-                          <div style={{
-                            width: '28px',
-                            height: '28px',
-                            borderRadius: '4px',
-                            background: `${cert.color}18`,
-                            display: 'grid',
-                            placeContent: 'center',
-                            color: cert.color,
-                            flexShrink: 0
-                          }}>
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div
+                            className="w-7 h-7 rounded-xs grid place-content-center shrink-0"
+                            style={{ background: `${cert.color}18`, color: cert.color }}
+                          >
                             <ItemIcon size={15} />
                           </div>
-                          <div style={{ minWidth: 0 }}>
-                            <div style={{ color: '#fff', fontWeight: 800, fontSize: '0.8rem', lineHeight: 1.2 }}>
+                          <div className="min-w-0">
+                            <div className="text-white font-extrabold text-xs leading-tight">
                               {cert.code}
                             </div>
-                            <div style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.7rem' }}>
+                            <div className="text-white/60 text-[0.7rem] truncate">
                               {cert.detail}
                             </div>
                           </div>
@@ -311,29 +237,12 @@ export default function Header() {
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            style={{
-                              color: cert.color,
-                              fontSize: '0.7rem',
-                              fontFamily: 'var(--font-mono)',
-                              fontWeight: 700,
-                              textDecoration: 'none',
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '0.2rem',
-                              padding: '0.2rem 0.5rem',
-                              background: 'rgba(96, 165, 250, 0.15)',
-                              borderRadius: 'var(--radius-xs)',
-                              flexShrink: 0
-                            }}
+                            className="text-[0.7rem] font-mono font-bold no-underline inline-flex items-center gap-1 py-1 px-2 bg-sky-500/15 text-sky-400 rounded-xs shrink-0 hover:bg-sky-500/25"
                           >
                             Verify ↗
                           </a>
                         ) : (
-                          <span style={{
-                            fontSize: '0.65rem',
-                            color: 'rgba(255, 255, 255, 0.4)',
-                            fontFamily: 'var(--font-mono)'
-                          }}>
+                          <span className="text-[0.65rem] text-white/40 font-mono">
                             Active
                           </span>
                         )}
@@ -342,27 +251,11 @@ export default function Header() {
                   })}
                 </div>
 
-                <div style={{
-                  marginTop: '0.85rem',
-                  paddingTop: '0.75rem',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
+                <div className="mt-3.5 pt-3 border-t border-white/[0.08] flex justify-between items-center">
                   <a
                     href="#certifications"
                     onClick={() => setCertsDropdownOpen(false)}
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'var(--ofs-gold-400)',
-                      fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.3rem'
-                    }}
+                    className="text-xs text-ofs-gold-400 font-mono font-bold no-underline flex items-center gap-1 hover:text-ofs-gold-300"
                   >
                     View Complete Footer Audit ↘
                   </a>
@@ -372,175 +265,98 @@ export default function Header() {
           </div>
 
           {/* Right: Contact details */}
-          <div className="top-bar-right" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div className="hidden md:flex items-center gap-5 text-white">
             <a
               href={`tel:${siteConfig.contact.phoneRaw}`}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#fff' }}
-              className="hover-opacity"
+              className="flex items-center gap-1.5 text-white hover:opacity-85 transition-opacity"
             >
-              <Phone size={12} style={{ color: 'var(--ofs-red-500)' }} />
+              <Phone size={12} className="text-ofs-red-500" />
               <span>{siteConfig.contact.phone}</span>
             </a>
-            <span style={{ color: 'rgba(255, 255, 255, 0.25)' }}>|</span>
+            <span className="text-white/25">|</span>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#fff' }}
-              className="hover-opacity"
+              className="flex items-center gap-1.5 text-white hover:opacity-85 transition-opacity"
             >
-              <Mail size={12} style={{ color: 'var(--ofs-red-500)' }} />
+              <Mail size={12} className="text-ofs-red-500" />
               <span>{siteConfig.contact.email}</span>
             </a>
           </div>
         </div>
       </div>
 
-
-      <header style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 500,
-        background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'var(--ofs-white)',
-        backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        boxShadow: isScrolled ? '0 10px 30px rgba(12, 30, 78, 0.08)' : '0 1px 0 rgba(0, 0, 0, 0.06)',
-        transition: 'all 0.3s ease',
-        borderBottom: isScrolled ? '1px solid rgba(12, 30, 78, 0.08)' : '1px solid rgba(0, 0, 0, 0.06)'
-      }}>
-        <div className="container" style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          paddingTop: '0.85rem',
-          paddingBottom: '0.85rem'
-        }}>
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', textDecoration: 'none' }}>
+      {/* Main Navigation Header */}
+      <header
+        className={cn(
+          'sticky top-0 z-header transition-all duration-300',
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(12,30,78,0.08)] border-b border-ofs-navy-900/10'
+            : 'bg-white border-b border-black/[0.06]'
+        )}
+      >
+        <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 flex items-center justify-between py-3.5">
+          <Link href="/" className="flex items-center gap-3.5 no-underline">
             <img
               src="/images/ofs-logo.png"
               alt="OFS - Driven by Quality, Defined by Trust"
-              style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+              className="h-12 w-auto object-contain"
             />
           </Link>
 
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '1.65rem' }} className="desktop-nav">
+          {/* Desktop Navigation */}
+          <nav className="hidden nav:flex items-center gap-6">
             <Link
               href="/about"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: pathname === '/about' ? 'var(--ofs-red-600)' : 'var(--ofs-navy-950)',
-                padding: '0.5rem 0',
-                position: 'relative'
-              }}
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
+                pathname === '/about' ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+              )}
             >
               Our Story
               {pathname === '/about' && (
-                <span style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  background: 'var(--ofs-red-600)',
-                  borderRadius: 'var(--radius-full)'
-                }} />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
               )}
             </Link>
 
             {/* Services Dropdown Trigger */}
             <div
-              style={{ position: 'relative' }}
+              className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
               <Link
                 href="/services"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'var(--text-sm)',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.04em',
-                  color: pathname.startsWith('/services') ? 'var(--ofs-red-600)' : 'var(--ofs-navy-950)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem',
-                  padding: '0.5rem 0'
-                }}
+                className={cn(
+                  'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 flex items-center gap-1 transition-colors',
+                  pathname.startsWith('/services') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+                )}
               >
                 Services
-                <ChevronDown size={14} style={{
-                  transform: servicesDropdownOpen ? 'rotate(180deg)' : 'rotate(0)',
-                  transition: 'transform 0.2s ease'
-                }} />
+                <ChevronDown
+                  size={14}
+                  className={cn('transition-transform duration-200', servicesDropdownOpen && 'rotate-180')}
+                />
               </Link>
 
               {/* Enhanced Mega Menu */}
               {servicesDropdownOpen && (
-                <div style={{
-                  position: 'absolute',
-                  top: '100%',
-                  left: '50%',
-                  transform: 'translateX(-40%)',
-                  width: '760px',
-                  background: 'var(--ofs-white)',
-                  borderRadius: 'var(--radius-md)',
-                  border: '1px solid var(--ofs-gray-200)',
-                  boxShadow: 'var(--shadow-2xl)',
-                  padding: '1.5rem',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '1rem',
-                  zIndex: 600,
-                  animation: 'fadeInMenu 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
-                }}>
+                <div className="absolute top-full left-1/2 -translate-x-[40%] w-[760px] bg-white rounded-md border border-ofs-gray-200 shadow-2xl p-6 grid grid-cols-2 gap-4 z-[600] animate-fade-in-menu">
                   {servicesData.map((service) => {
                     const IconComp = iconMap[service.icon] || Package;
                     return (
                       <Link
                         key={service.id}
                         href={`/services/${service.slug}`}
-                        style={{
-                          display: 'flex',
-                          gap: '0.85rem',
-                          padding: '0.85rem',
-                          borderRadius: 'var(--radius-sm)',
-                          border: '1px solid transparent',
-                          transition: 'all 0.2s ease',
-                          textDecoration: 'none'
-                        }}
-                        className="mega-menu-item"
+                        className="flex gap-3.5 p-3.5 rounded-sm border border-transparent hover:bg-ofs-navy-50 hover:border-ofs-navy-200 hover:translate-x-1 transition-all duration-200 no-underline"
                       >
-                        <div style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: 'var(--radius-xs)',
-                          background: 'var(--ofs-navy-50)',
-                          border: '1px solid var(--ofs-navy-100)',
-                          display: 'grid',
-                          placeContent: 'center',
-                          color: 'var(--ofs-navy-900)',
-                          flexShrink: 0
-                        }}>
+                        <div className="w-10 h-10 rounded-xs bg-ofs-navy-50 border border-ofs-navy-100 grid place-content-center text-ofs-navy-900 shrink-0">
                           <IconComp size={20} />
                         </div>
                         <div>
-                          <div style={{
-                            fontFamily: 'var(--font-heading)',
-                            fontWeight: 700,
-                            fontSize: '0.95rem',
-                            color: 'var(--ofs-navy-950)',
-                            marginBottom: '0.2rem',
-                            lineHeight: 1.2
-                          }}>
+                          <div className="font-heading font-bold text-sm text-ofs-navy-950 mb-1 leading-tight">
                             {service.shortTitle}
                           </div>
-                          <div style={{
-                            fontSize: '0.8rem',
-                            color: 'var(--ofs-gray-500)',
-                            lineHeight: 1.3
-                          }}>
+                          <div className="text-xs text-ofs-gray-500 leading-snug">
                             {service.tagline.slice(0, 75)}...
                           </div>
                         </div>
@@ -549,30 +365,13 @@ export default function Header() {
                   })}
 
                   {/* Mega Menu Footer Banner */}
-                  <div style={{
-                    gridColumn: '1 / -1',
-                    background: 'var(--ofs-navy-50)',
-                    padding: '0.85rem 1.25rem',
-                    borderRadius: 'var(--radius-xs)',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    border: '1px solid var(--ofs-navy-100)'
-                  }}>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--ofs-navy-900)', fontWeight: 600 }}>
+                  <div className="col-span-2 bg-ofs-navy-50 p-3.5 px-5 rounded-xs flex justify-between items-center border border-ofs-navy-100">
+                    <span className="text-xs font-semibold text-ofs-navy-900">
                       Looking for customized marine logistics or EPC materials?
                     </span>
                     <Link
                       href="/contact"
-                      style={{
-                        fontSize: '0.8rem',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 700,
-                        color: 'var(--ofs-red-600)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.25rem'
-                      }}
+                      className="text-xs font-mono font-bold text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 no-underline"
                     >
                       Request Consultation <ArrowUpRight size={14} />
                     </Link>
@@ -583,133 +382,77 @@ export default function Header() {
 
             <Link
               href="/industries"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: pathname.startsWith('/industries') ? 'var(--ofs-red-600)' : 'var(--ofs-navy-950)',
-                padding: '0.5rem 0',
-                position: 'relative'
-              }}
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
+                pathname.startsWith('/industries') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+              )}
             >
               Industries
               {pathname.startsWith('/industries') && (
-                <span style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  background: 'var(--ofs-red-600)',
-                  borderRadius: 'var(--radius-full)'
-                }} />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
               )}
             </Link>
 
             {/* Strategic Renewables Portal Link */}
             <Link
               href="/renewables"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: pathname.startsWith('/renewables') ? 'var(--ofs-green-600)' : 'var(--ofs-green-700)',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: '0.38rem 0.85rem',
-                background: 'rgba(16, 185, 129, 0.09)',
-                border: '1px solid rgba(16, 185, 129, 0.28)',
-                borderRadius: 'var(--radius-full)'
-              }}
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative inline-flex items-center gap-1.5 transition-colors',
+                pathname.startsWith('/renewables') ? 'text-ofs-green-700' : 'text-ofs-navy-950 hover:text-ofs-green-700'
+              )}
             >
-              <span className="sonar-wave" style={{ background: 'var(--ofs-green-500)' }} />
+              <Sun size={14} className="text-ofs-green-600" />
               Renewables
+              {pathname.startsWith('/renewables') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-green-600 rounded-full" />
+              )}
             </Link>
 
             <Link
               href="/blog"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: pathname.startsWith('/blog') ? 'var(--ofs-red-600)' : 'var(--ofs-navy-950)',
-                padding: '0.5rem 0',
-                position: 'relative'
-              }}
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
+                pathname.startsWith('/blog') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+              )}
             >
               Insights
               {pathname.startsWith('/blog') && (
-                <span style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  background: 'var(--ofs-red-600)',
-                  borderRadius: 'var(--radius-full)'
-                }} />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
               )}
             </Link>
 
             <Link
               href="/careers"
-              style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: pathname.startsWith('/careers') ? 'var(--ofs-red-600)' : 'var(--ofs-navy-950)',
-                padding: '0.5rem 0',
-                position: 'relative'
-              }}
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
+                pathname.startsWith('/careers') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+              )}
             >
               Careers
               {pathname.startsWith('/careers') && (
-                <span style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  background: 'var(--ofs-red-600)',
-                  borderRadius: 'var(--radius-full)'
-                }} />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
               )}
             </Link>
           </nav>
 
           {/* Right Action Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <MagneticButton strength={0.3} radius={70}>
-              <Link
-                href="/contact"
-                className="btn btn-primary btn-sm desktop-btn"
-                style={{ textDecoration: 'none' }}
-                data-cursor-text="CONTACT"
-              >
-                Get in Touch <ArrowUpRight size={15} />
-              </Link>
-            </MagneticButton>
+          <div className="flex items-center gap-3.5">
+            <div className="hidden nav:block">
+              <MagneticButton strength={0.3} radius={70}>
+                <Link
+                  href="/contact"
+                  className="btn btn-primary btn-sm no-underline"
+                  data-cursor-text="CONTACT"
+                >
+                  Get in Touch <ArrowUpRight size={15} />
+                </Link>
+              </MagneticButton>
+            </div>
 
             {/* Mobile Menu Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{
-                background: 'transparent',
-                color: 'var(--ofs-navy-950)',
-                padding: '0.4rem',
-                display: 'none',
-                cursor: 'pointer'
-              }}
-              className="mobile-toggle"
+              className="bg-transparent text-ofs-navy-950 p-1.5 nav:hidden cursor-pointer flex items-center justify-center"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -720,136 +463,69 @@ export default function Header() {
 
       {/* Full-Screen Mobile Drawer */}
       {mobileMenuOpen && (
-        <div style={{
-          position: 'fixed',
-          top: '80px',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'var(--ofs-white)',
-          zIndex: 499,
-          overflowY: 'auto',
-          padding: '1.5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          animation: 'slideDown 0.25s ease-out'
-        }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div className="fixed top-[74px] inset-x-0 bottom-0 bg-white z-[499] overflow-y-auto p-6 flex flex-col justify-between animate-slide-down">
+          <div className="flex flex-col gap-4">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               Home
             </Link>
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               About OFS Group
             </Link>
             <Link
               href="/services"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               All Services
             </Link>
             <Link
               href="/renewables"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-green-700)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-green-700 flex items-center gap-2 border-b border-ofs-gray-200 pb-3 no-underline"
             >
-              <span className="sonar-wave" style={{ background: 'var(--ofs-green-500)' }} />
+              <Sun size={18} className="text-ofs-green-600" />
               Renewables Portal
             </Link>
             <Link
               href="/industries"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               Industries Served
             </Link>
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               Insights & Articles
             </Link>
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: 'var(--ofs-navy-950)',
-                borderBottom: '1px solid var(--ofs-gray-200)',
-                paddingBottom: '0.75rem'
-              }}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               Careers & Opportunities
             </Link>
           </div>
 
-          <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div className="mt-8 flex flex-col gap-4">
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="btn btn-primary btn-lg"
-              style={{ width: '100%', textDecoration: 'none' }}
+              className="btn btn-primary btn-lg w-full no-underline"
             >
               Contact Us & Request Quote
             </Link>
-            <div style={{ textAlign: 'center', fontSize: 'var(--text-xs)', color: 'var(--ofs-gray-500)', fontFamily: 'var(--font-mono)' }}>
+            <div className="text-center text-xs text-ofs-gray-500 font-mono">
               Call: {siteConfig.contact.phone} | {siteConfig.contact.email}
             </div>
           </div>

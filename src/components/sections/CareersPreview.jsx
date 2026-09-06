@@ -2,119 +2,81 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Users, Briefcase, Sparkles, ArrowUpRight, CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, MapPin } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 import jobsData from '@/data/jobs.json';
 
 export default function CareersPreview() {
   return (
-    <section className="section-pad" style={{ background: 'var(--ofs-gray-50)', position: 'relative' }}>
-      <div className="container">
+    <SectionPad className="bg-ofs-gray-50 relative">
+      <Container>
         <ScrollReveal direction="up" duration={0.8}>
-          <div style={{
-            background: 'var(--ofs-white)',
-            borderRadius: 'var(--radius-xl)',
-            border: '1px solid var(--ofs-gray-200)',
-            overflow: 'hidden',
-            boxShadow: 'var(--shadow-xl)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))'
-          }}>
-            <div style={{ padding: 'clamp(2.25rem, 4.5vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div className="bg-white rounded-xl border border-ofs-gray-200 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-2">
+            <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
               <div>
-                <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-                  CAREERS AT OFS GROUP
+                <div className="mb-4">
+                  <Badge variant="red">CAREERS AT OFS GROUP</Badge>
                 </div>
 
-                <h2 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(1.85rem, 3.2vw, 2.5rem)',
-                  fontWeight: 800,
-                  color: 'var(--ofs-navy-950)',
-                  marginBottom: '1rem',
-                  lineHeight: 1.2
-                }}>
+                <h2 className="text-[clamp(1.85rem,3.2vw,2.5rem)] font-heading font-extrabold text-ofs-navy-950 mb-4 leading-tight">
                   <TextReveal tag="span" duration={0.65}>
                     Build High-Impact Infrastructure With Us
                   </TextReveal>
                 </h2>
 
-                <p style={{
-                  fontSize: '1.025rem',
-                  color: 'var(--ofs-gray-600)',
-                  lineHeight: 1.6,
-                  marginBottom: '2rem'
-                }}>
+                <p className="text-base text-ofs-gray-600 leading-relaxed mb-8">
                   Join a dynamic team of marine engineers, procurement strategists, NDT Level III specialists, and clean energy pioneers driving high-stakes industrial projects.
                 </p>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '2.25rem' }}>
+                <div className="flex flex-col gap-3.5 mb-9">
                   {[
-                    "Work on premier offshore rigs, EPC terminals & solar mega-parks",
-                    "Comprehensive health insurance, offshore per diem & safety certification",
-                    "Merit-based fast-track leadership and global mobility opportunities"
+                    'Work on premier offshore rigs, EPC terminals & solar mega-parks',
+                    'Comprehensive health insurance, offshore per diem & safety certification',
+                    'Merit-based fast-track leadership and global mobility opportunities',
                   ].map((benefit, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.925rem', color: 'var(--ofs-gray-800)' }}>
-                      <CheckCircle2 size={16} style={{ color: 'var(--ofs-red-600)' }} />
+                    <div key={idx} className="flex items-center gap-2.5 text-[0.925rem] text-ofs-gray-800">
+                      <CheckCircle2 size={16} className="text-ofs-red-600 shrink-0" />
                       <span>{benefit}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Link href="/careers" className="btn btn-navy btn-lg" style={{ width: 'fit-content' }}>
-                Explore Open Positions ({jobsData.length}) <ArrowUpRight size={16} />
-              </Link>
+              <div>
+                <Button href="/careers" variant="navy" size="lg" className="w-fit">
+                  Explore Open Positions ({jobsData.length}) <ArrowUpRight size={16} />
+                </Button>
+              </div>
             </div>
 
-            <div style={{
-              background: 'var(--ofs-navy-950)',
-              color: 'var(--ofs-white)',
-              padding: 'clamp(2.25rem, 4.5vw, 4rem)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              borderLeft: '1px solid rgba(255, 255, 255, 0.08)'
-            }}>
+            <div className="bg-ofs-navy-950 text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-between lg:border-l border-white/[0.08]">
               <div>
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8rem',
-                  color: 'var(--ofs-gold-400)',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  letterSpacing: '0.06em',
-                  marginBottom: '1.5rem'
-                }}>
+                <div className="font-mono text-xs text-ofs-gold-400 uppercase font-bold tracking-[0.06em] mb-6">
                   Current Featured Openings
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div className="flex flex-col gap-4">
                   {jobsData.slice(0, 3).map((job) => (
                     <Link
                       key={job.id}
                       href={`/careers/${job.slug}`}
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        borderRadius: 'var(--radius-sm)',
-                        padding: '1.25rem 1.35rem',
-                        display: 'block',
-                        textDecoration: 'none'
-                      }}
-                      className="job-preview-item"
+                      className="bg-white/[0.05] border border-white/10 rounded-sm p-5 block no-underline transition-all duration-200 hover:bg-white/10 hover:border-ofs-red-500 hover:translate-x-1"
                     >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.4rem' }}>
-                        <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 800, color: '#fff' }}>
+                      <div className="flex justify-between items-start mb-1.5">
+                        <div className="font-heading text-[1.05rem] font-extrabold text-white">
                           {job.title}
                         </div>
-                        <ArrowUpRight size={16} style={{ color: 'var(--ofs-red-400)', flexShrink: 0 }} />
+                        <ArrowUpRight size={16} className="text-ofs-red-400 shrink-0" />
                       </div>
-                      <div style={{ display: 'flex', gap: '1rem', fontSize: '0.78rem', color: 'rgba(255, 255, 255, 0.7)', fontFamily: 'var(--font-mono)' }}>
+                      <div className="flex gap-4 text-xs text-white/70 font-mono">
                         <span>{job.department}</span>
                         <span>•</span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <span className="flex items-center gap-1">
                           <MapPin size={12} /> {job.location.split('(')[0]}
                         </span>
                       </div>
@@ -123,19 +85,16 @@ export default function CareersPreview() {
                 </div>
               </div>
 
-              <div style={{
-                marginTop: '2rem',
-                paddingTop: '1.25rem',
-                borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-                fontSize: '0.85rem',
-                color: 'rgba(255, 255, 255, 0.65)'
-              }}>
-                Don't see your exact role? Send your CV directly to <a href="mailto:careers@ofsgroupindia.com" style={{ color: 'var(--ofs-gold-400)', fontWeight: 600 }}>careers@ofsgroupindia.com</a>
+              <div className="mt-8 pt-5 border-t border-white/10 text-sm text-white/65">
+                Don&apos;t see your exact role? Send your CV directly to{' '}
+                <a href="mailto:careers@ofsgroupindia.com" className="text-ofs-gold-400 font-semibold hover:underline">
+                  careers@ofsgroupindia.com
+                </a>
               </div>
             </div>
           </div>
         </ScrollReveal>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

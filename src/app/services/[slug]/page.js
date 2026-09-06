@@ -95,60 +95,39 @@ export default function SingleServicePage({ params }) {
     <>
       <JsonLd data={schemas} />
       {/* Hero Banner */}
-      <section style={{
-        background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5.5rem',
-        paddingBottom: '5.5rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
+      <section className="bg-gradient-to-br from-ofs-navy-950 to-ofs-navy-900 text-white py-[5.5rem] relative overflow-hidden">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container relative z-10">
           <ScrollReveal direction="down" duration={0.5}>
             <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
               <div className="tag-badge badge-red">
                 {service.badge}
               </div>
-              <div className="tag-pill" style={{ color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
+              <div className="tag-pill pill-dark">
                 ISO 9001:2015 Assured
               </div>
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem',
-            maxWidth: '920px'
-          }}>
+          <h1 className="font-heading text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {service.title}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{
-              fontSize: '1.2rem',
-              color: 'rgba(255, 255, 255, 0.88)',
-              maxWidth: '780px',
-              lineHeight: 1.6,
-              marginBottom: '2.25rem'
-            }}>
+            <p className="text-[1.2rem] text-white/90 max-w-[780px] leading-relaxed mb-9">
               {service.tagline}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <a href="#service-inquiry" className="btn btn-primary btn-lg">
+            <a href="#service-inquiry" className="btn btn-primary btn-lg inline-flex items-center gap-2">
               Request Quotation / RFQ <ArrowUpRight size={18} />
             </a>
           </ScrollReveal>
@@ -156,19 +135,13 @@ export default function SingleServicePage({ params }) {
       </section>
 
       {/* Main Service Content */}
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
+      <section className="section-pad bg-white">
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '4.5rem',
-            marginBottom: '5rem',
-            alignItems: 'center'
-          }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[4.5rem] mb-20 items-center">
             {/* Overview & Key Highlights */}
             <ScrollReveal direction="left" delay={0.1}>
               <div>
-                <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
+                <div className="tag-badge badge-red mb-4">
                   OVERVIEW
                 </div>
                 <h2 className="section-title">
@@ -182,24 +155,16 @@ export default function SingleServicePage({ params }) {
                     </TextReveal>
                   </span>
                 </h2>
-                <p style={{ fontSize: '1.05rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, marginBottom: '2rem' }}>
+                <p className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-8">
                   {service.description}
                 </p>
 
                 {/* Core Features Checklist */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div className="flex flex-col gap-3.5">
                   {service.features.map((feat, idx) => (
-                    <div key={idx} style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '0.75rem',
-                      padding: '0.95rem 1.35rem',
-                      background: 'var(--ofs-navy-50)',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1px solid var(--ofs-navy-100)'
-                    }}>
-                      <CheckCircle2 size={18} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ofs-navy-950)' }}>{feat}</span>
+                    <div key={idx} className="flex items-start gap-3 p-4 bg-ofs-navy-50/60 rounded-md border border-ofs-navy-100">
+                      <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
+                      <span className="text-[0.95rem] font-bold text-ofs-navy-950">{feat}</span>
                     </div>
                   ))}
                 </div>
@@ -208,14 +173,7 @@ export default function SingleServicePage({ params }) {
 
             {/* Featured Image Banner */}
             <ScrollReveal direction="right" delay={0.2}>
-              <div style={{
-                borderRadius: 'var(--radius-xl)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-2xl)',
-                border: '2px solid var(--ofs-gray-200)',
-                height: '480px',
-                position: 'relative'
-              }}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[480px] relative">
                 <img 
                   src={service.heroImage} 
                   alt={`${service.title} — OFS Group India`}
@@ -223,23 +181,19 @@ export default function SingleServicePage({ params }) {
                   height={480}
                   loading="eager"
                   fetchPriority="high"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="w-full h-full object-cover"
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.5) 100%)'
-                }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/50 via-ofs-navy-950/10 to-transparent" />
               </div>
             </ScrollReveal>
           </div>
 
           {/* Capabilities Grid */}
           {service.capabilities && (
-            <div style={{ marginBottom: '5rem' }}>
-              <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
+            <div className="mb-20">
+              <div className="text-center max-w-[720px] mx-auto mb-14">
                 <ScrollReveal direction="up">
-                  <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
+                  <div className="tag-badge badge-red mb-3.5">
                     DETAILED CAPABILITIES
                   </div>
                 </ScrollReveal>
@@ -256,33 +210,17 @@ export default function SingleServicePage({ params }) {
                 </h2>
               </div>
 
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
-                gap: '2rem'
-              }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 {service.capabilities.map((cap, cIdx) => (
                   <ScrollReveal key={cIdx} direction="up" delay={cIdx * 0.1}>
-                    <div className="card-modern" style={{ padding: '2.25rem', height: '100%' }}>
-                      <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.8rem',
-                        fontWeight: 700,
-                        color: 'var(--ofs-red-600)',
-                        marginBottom: '0.5rem'
-                      }}>
+                    <div className="card-modern p-5 sm:p-6 h-full flex flex-col">
+                      <div className="font-mono text-xs font-bold text-ofs-red-600 mb-1.5">
                         FEATURE 0{cIdx + 1}
                       </div>
-                      <h3 style={{
-                        fontFamily: 'var(--font-heading)',
-                        fontSize: '1.3rem',
-                        fontWeight: 800,
-                        color: 'var(--ofs-navy-950)',
-                        marginBottom: '0.75rem'
-                      }}>
+                      <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2">
                         {cap.title}
                       </h3>
-                      <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, margin: 0 }}>
+                      <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed m-0 flex-1">
                         {cap.description}
                       </p>
                     </div>
@@ -294,55 +232,32 @@ export default function SingleServicePage({ params }) {
 
           {/* Step-by-Step Methodology / Process */}
           {service.process && (
-            <div style={{
-              background: 'var(--ofs-navy-950)',
-              color: 'var(--ofs-white)',
-              borderRadius: 'var(--radius-2xl)',
-              padding: 'clamp(2.5rem, 5vw, 4.5rem)',
-              marginBottom: '5rem',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.4, pointerEvents: 'none' }} />
+            <div className="bg-ofs-navy-950 text-white rounded-3xl p-8 sm:p-12 lg:p-[4.5rem] mb-20 relative overflow-hidden">
+              <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
-              <div style={{ position: 'relative', zIndex: 2 }}>
-                <div style={{ maxWidth: '680px', marginBottom: '3.5rem' }}>
-                  <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
+              <div className="relative z-10">
+                <div className="max-w-[680px] mb-14">
+                  <div className="tag-badge badge-red mb-4">
                     EXECUTION METHODOLOGY
                   </div>
-                  <h2 className="section-title" style={{ color: 'var(--ofs-white)' }}>
+                  <h2 className="section-title text-white">
                     Standard Operating Procedure
                   </h2>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '1.05rem', lineHeight: 1.6 }}>
+                  <p className="text-white/80 text-[1.05rem] leading-relaxed">
                     Our proven 5-stage workflow ensures transparent milestones, risk mitigation, and strict QA/QC sign-offs.
                   </p>
                 </div>
 
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
-                  gap: '1.5rem'
-                }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                   {service.process.map((p, pIdx) => (
-                    <div key={pIdx} style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '1.75rem 1.5rem'
-                    }}>
-                      <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '1.85rem',
-                        fontWeight: 900,
-                        color: 'var(--ofs-red-400)',
-                        marginBottom: '0.85rem'
-                      }}>
+                    <div key={pIdx} className="bg-white/[0.06] border border-white/10 rounded p-6">
+                      <div className="font-mono text-[1.85rem] font-black text-ofs-red-400 mb-3.5 leading-none">
                         {p.step}
                       </div>
-                      <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                      <h4 className="font-heading text-[1.1rem] font-extrabold text-white mb-2">
                         {p.title}
                       </h4>
-                      <p style={{ fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.72)', lineHeight: 1.55, margin: 0 }}>
+                      <p className="text-[0.85rem] text-white/70 leading-relaxed m-0">
                         {p.desc}
                       </p>
                     </div>
@@ -354,36 +269,22 @@ export default function SingleServicePage({ params }) {
 
           {/* Technical FAQs */}
           {service.faqs && (
-            <div style={{ maxWidth: '820px', margin: '0 auto 4rem auto' }}>
-              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
+            <div className="max-w-[820px] mx-auto mb-16">
+              <div className="text-center mb-12">
+                <div className="tag-badge badge-red mb-3.5">
                   FREQUENTLY ASKED QUESTIONS
                 </div>
-                <h2 className="section-title">Technical & Commercial FAQs</h2>
+                <h2 className="section-title">Technical &amp; Commercial FAQs</h2>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <div className="flex flex-col gap-5">
                 {service.faqs.map((faq, fIdx) => (
-                  <div key={fIdx} style={{
-                    background: 'var(--ofs-gray-50)',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid var(--ofs-gray-200)',
-                    padding: '1.85rem'
-                  }}>
-                    <h3 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.15rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.65rem',
-                      marginBottom: '0.85rem'
-                    }}>
-                      <HelpCircle size={20} style={{ color: 'var(--ofs-red-600)', flexShrink: 0 }} />
+                  <div key={fIdx} className="bg-ofs-gray-50 rounded-lg border border-ofs-gray-200 p-7">
+                    <h3 className="font-heading text-lg font-extrabold text-ofs-navy-950 flex items-center gap-2.5 mb-3.5">
+                      <HelpCircle size={20} className="text-ofs-red-600 shrink-0" />
                       {faq.question}
                     </h3>
-                    <p style={{ fontSize: '0.95rem', color: 'var(--ofs-gray-600)', lineHeight: 1.65, margin: 0, paddingLeft: '2rem' }}>
+                    <p className="text-[0.95rem] text-ofs-gray-600 leading-relaxed m-0 pl-7">
                       {faq.answer}
                     </p>
                   </div>
@@ -393,38 +294,23 @@ export default function SingleServicePage({ params }) {
           )}
 
           {/* Related industries for internal linking */}
-          <div style={{ maxWidth: '820px', margin: '0 auto 4rem auto' }}>
-            <h2 className="section-title" style={{ marginBottom: '1.25rem' }}>
+          <div className="max-w-[820px] mx-auto mb-16">
+            <h2 className="section-title mb-5">
               Industries We Support
             </h2>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))',
-                gap: '1rem',
-              }}
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {industriesData.slice(0, 4).map((ind) => (
                 <Link
                   key={ind.id}
                   href={`/industries/${ind.slug}`}
-                  style={{
-                    padding: '1rem 1.25rem',
-                    background: 'var(--ofs-gray-50)',
-                    border: '1px solid var(--ofs-gray-200)',
-                    borderRadius: 'var(--radius-sm)',
-                    textDecoration: 'none',
-                    color: 'var(--ofs-navy-950)',
-                    fontWeight: 700,
-                    fontSize: '0.9rem',
-                  }}
+                  className="p-4 bg-ofs-gray-50 border border-ofs-gray-200 rounded text-ofs-navy-950 font-bold text-[0.9rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors text-center"
                 >
                   {ind.shortName}
                 </Link>
               ))}
             </div>
-            <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: 'var(--ofs-gray-600)' }}>
-              <Link href="/industries" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+            <p className="mt-4 text-[0.95rem] text-ofs-gray-600">
+              <Link href="/industries" className="text-ofs-red-600 font-bold hover:underline">
                 View all industries served by OFS
               </Link>
             </p>

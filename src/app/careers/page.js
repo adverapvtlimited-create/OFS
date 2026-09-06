@@ -46,49 +46,25 @@ const perks = [
 export default function CareersPage() {
   return (
     <>
-      <section style={{
-        background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5.5rem',
-        paddingBottom: '5.5rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
+      <section className="bg-gradient-to-br from-ofs-navy-950 via-[#071330] to-ofs-navy-900 text-white py-14 sm:py-16 lg:py-20 relative overflow-hidden">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container relative z-10">
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
+            <div className="flex items-center gap-2 font-mono text-xs text-white/60 mb-6 uppercase">
+              <Link href="/" className="text-white/70 hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span style={{ color: 'var(--ofs-red-400)' }}>Careers</span>
+              <span className="text-ofs-red-400">Careers</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
+            <div className="tag-badge badge-red mb-5">
               CAREERS AT OFS GROUP INDIA
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem',
-            maxWidth: '920px'
-          }}>
+          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Shape the Future of
             </TextReveal>
@@ -101,23 +77,34 @@ export default function CareersPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{
-              fontSize: '1.18rem',
-              color: 'rgba(255, 255, 255, 0.85)',
-              maxWidth: '780px',
-              lineHeight: 1.6
-            }}>
+            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed mb-8">
               We hire visionary engineers, meticulous procurement strategists, and bold project leaders who thrive in high-precision, mission-critical industrial environments.
             </p>
+          </ScrollReveal>
+
+          {/* Above-the-fold Quick Actions & Telemetry */}
+          <ScrollReveal direction="up" delay={0.35}>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#open-positions"
+                className="btn btn-primary inline-flex items-center gap-2 shadow-[0_4px_18px_rgba(224,42,48,0.4)]"
+              >
+                <Briefcase size={16} /> Explore {jobsData.length} Open Positions ↓
+              </a>
+              <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono text-white/90">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Immediate Hiring • Mumbai HQ &amp; Global Projects</span>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
+      <section className="section-pad bg-white">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
+          <div className="text-center max-w-[720px] mx-auto mb-14">
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
+              <div className="tag-badge badge-red mb-3.5">
                 WHY JOIN US
               </div>
             </ScrollReveal>
@@ -134,40 +121,19 @@ export default function CareersPage() {
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
-            gap: '2rem',
-            marginBottom: '5rem'
-          }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16">
             {perks.map((p, idx) => {
               const Icon = p.icon;
               return (
                 <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-                  <div className="card-modern" style={{ padding: '2.25rem', height: '100%' }}>
-                    <div style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: 'var(--radius-xs)',
-                      background: 'var(--ofs-navy-50)',
-                      color: 'var(--ofs-red-600)',
-                      display: 'grid',
-                      placeContent: 'center',
-                      marginBottom: '1.5rem'
-                    }}>
-                      <Icon size={24} />
+                  <div className="card-modern p-5 sm:p-6 h-full flex flex-col">
+                    <div className="w-10 h-10 rounded bg-ofs-navy-50 text-ofs-red-600 grid place-content-center mb-4">
+                      <Icon size={20} />
                     </div>
-                    <h3 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.25rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '0.65rem',
-                      lineHeight: 1.3
-                    }}>
+                    <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug">
                       {p.title}
                     </h3>
-                    <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, margin: 0 }}>
+                    <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed m-0 flex-1">
                       {p.desc}
                     </p>
                   </div>
@@ -176,10 +142,10 @@ export default function CareersPage() {
             })}
           </div>
 
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div id="open-positions" className="max-w-[820px] mx-auto pt-4 scroll-mt-24">
+            <div className="text-center mb-10">
               <ScrollReveal direction="up">
-                <div className="tag-badge badge-red" style={{ marginBottom: '0.75rem' }}>
+                <div className="tag-badge badge-red mb-3">
                   ACTIVE VACANCIES
                 </div>
               </ScrollReveal>
@@ -190,63 +156,34 @@ export default function CareersPage() {
               </h2>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div className="flex flex-col gap-4">
               {jobsData.map((job, idx) => (
                 <ScrollReveal key={job.id} direction="up" delay={idx * 0.08}>
                   <Link
                     href={`/careers/${job.slug}`}
-                    className="card-modern job-row-card"
-                    style={{
-                      padding: '2rem 2.25rem',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      flexWrap: 'wrap',
-                      gap: '1.5rem',
-                      textDecoration: 'none'
-                    }}
+                    className="card-modern p-5 sm:p-6 flex justify-between items-center flex-wrap gap-4 hover:border-ofs-red-300 transition-all duration-300 group"
                   >
                     <div>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.75rem',
-                        marginBottom: '0.5rem',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.75rem'
-                      }}>
-                        <span style={{
-                          background: 'var(--ofs-navy-50)',
-                          color: 'var(--ofs-navy-900)',
-                          padding: '0.25rem 0.65rem',
-                          borderRadius: 'var(--radius-full)',
-                          fontWeight: 700
-                        }}>
+                      <div className="flex items-center gap-3 mb-1.5 font-mono text-xs">
+                        <span className="bg-ofs-navy-50 text-ofs-navy-900 py-0.5 px-2.5 rounded-full font-bold">
                           {job.department}
                         </span>
-                        <span style={{ color: 'var(--ofs-gray-500)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <span className="text-ofs-gray-500 flex items-center gap-1">
                           <MapPin size={12} /> {job.location}
                         </span>
                       </div>
 
-                      <h3 style={{
-                        fontFamily: 'var(--font-heading)',
-                        fontSize: '1.35rem',
-                        fontWeight: 800,
-                        color: 'var(--ofs-navy-950)',
-                        marginBottom: '0.5rem',
-                        lineHeight: 1.25
-                      }}>
+                      <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-1.5 leading-snug group-hover:text-ofs-red-600 transition-colors">
                         {job.title}
                       </h3>
 
-                      <p style={{ fontSize: '0.9rem', color: 'var(--ofs-gray-600)', margin: 0, lineHeight: 1.5 }}>
-                        {(job.description || '').slice(0, 140)}...
+                      <p className="text-xs sm:text-sm text-ofs-gray-600 m-0 leading-relaxed">
+                        {(job.description || '').slice(0, 130)}...
                       </p>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--ofs-red-600)', fontWeight: 700, fontFamily: 'var(--font-mono)', fontSize: '0.875rem' }}>
-                      Apply Now <ArrowUpRight size={16} />
+                    <div className="flex items-center gap-1.5 text-ofs-red-600 font-bold font-mono text-xs sm:text-sm group-hover:translate-x-1 transition-transform">
+                      Apply Now <ArrowUpRight size={15} />
                     </div>
                   </Link>
                 </ScrollReveal>

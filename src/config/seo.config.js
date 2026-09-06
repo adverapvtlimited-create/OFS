@@ -1,4 +1,5 @@
 import siteConfig from '@/data/site-config.json';
+import HOME_FAQ_DATA from '@/data/faqs.json';
 
 /**
  * Production site URL. Override via NEXT_PUBLIC_SITE_URL for staging/preview.
@@ -85,7 +86,7 @@ export const PAGE_SEO = {
   industries: {
     title: 'Industries Served | Oil & Gas, Marine, Power, Renewables & More',
     description:
-      'OFS Group India supports oil & gas, marine & offshore, renewable energy, power generation, petrochemicals, pharmaceuticals, cement, mining, and heavy engineering with specialized procurement and technical services.',
+      'OFS Group India supports oil & gas, marine & offshore, renewable energy, power generation, petrochemicals, cement, mining, and heavy engineering with specialized procurement and technical services.',
     path: '/industries',
     keywords: [
       'industrial sectors OFS',
@@ -184,26 +185,5 @@ export const PAGE_SEO = {
   },
 };
 
-/** Homepage FAQ content — answers based on actual OFS offerings. */
-export const HOME_FAQS = [
-  {
-    question: 'What services does OFS Group India provide?',
-    answer:
-      'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, and industrial logistics & shipping for marine, offshore, energy, and industrial sectors.',
-  },
-  {
-    question: 'Which industries does OFS serve?',
-    answer:
-      'OFS serves oil & gas, marine & offshore, renewable energy, power generation, petrochemicals & refining, pharmaceuticals & chemicals, cement manufacturing, mining & minerals, and heavy engineering industries.',
-  },
-  {
-    question: 'Where is OFS Group India headquartered?',
-    answer:
-      'OFS Group India is headquartered in Mumbai, Maharashtra at Dynasty Business Park, Andheri-Kurla Road, Andheri (East). OFS also maintains a USA global office in St. Petersburg, Florida.',
-  },
-  {
-    question: 'How can I request a quotation or consultation from OFS?',
-    answer:
-      'Submit an RFQ or consultation request through the Contact page at ofsgroupindia.com/contact, call +91 98200 00000, or email info@ofsgroupindia.com.',
-  },
-];
+/** Homepage FAQ content — sourced from src/data/faqs.json */
+export const HOME_FAQS = HOME_FAQ_DATA;

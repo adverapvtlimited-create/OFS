@@ -11,6 +11,7 @@ import JsonLd from '@/components/SEO/JsonLd';
 import { renderBlogContent } from '@/lib/markdown';
 import { buildPageMetadata, parseDisplayDate } from '@/lib/seo';
 import { buildArticleSchema, buildWebPageSchema } from '@/lib/schema';
+import SafeImage from '@/components/ui/SafeImage';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -73,14 +74,8 @@ export default function SingleBlogPage({ params }) {
           }),
         ]}
       />
-      <section style={{
-        background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5rem',
-        paddingBottom: '4.5rem',
-        position: 'relative'
-      }}>
-        <div className="container" style={{ maxWidth: '880px' }}>
+      <section className="bg-gradient-to-br from-ofs-navy-950 to-ofs-navy-900 text-white pt-20 pb-18 relative">
+        <div className="container max-w-[880px]">
           <ScrollReveal direction="down" duration={0.5}>
             <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
@@ -88,144 +83,87 @@ export default function SingleBlogPage({ params }) {
           <ScrollReveal direction="down" duration={0.5}>
             <Link
               href="/blog"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'var(--ofs-red-400)',
-                marginBottom: '1.5rem',
-                textDecoration: 'none'
-              }}
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-ofs-red-400 mb-6 hover:text-ofs-red-300 transition-colors"
             >
               <ArrowLeft size={14} /> Back to all articles
             </Link>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
-              <span className="tag-badge badge-red">{post.category}</span>
-              <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', fontFamily: 'var(--font-mono)' }}>
+            <div className="flex gap-3 items-center mb-4 flex-wrap">
+              <span className="tag-badge badge-red">
+                {post.category}
+              </span>
+              <span className="text-xs text-white/60 font-mono">
                 {post.date} • {post.readTime}
               </span>
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            fontWeight: 800,
-            lineHeight: 1.2,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem'
-          }}>
+          <h1 className="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white mb-6">
             <TextReveal tag="span" duration={0.65}>
               {post.title}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            <div className="flex items-center gap-3.5">
               <img
                 src={post.author.avatar}
                 alt={post.author.name}
-                style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--ofs-gold-400)' }}
+                className="w-10 h-10 rounded-full object-cover border-2 border-ofs-gold-400"
               />
               <div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff' }}>{post.author.name}</div>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.7)' }}>{post.author.role}</div>
+                <div className="text-[0.95rem] font-bold text-white">{post.author.name}</div>
+                <div className="text-xs text-white/70">{post.author.role}</div>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <article className="section-pad" style={{ background: 'var(--ofs-white)' }}>
-        <div className="container" style={{ maxWidth: '880px' }}>
+      <article className="section-pad bg-white">
+        <div className="container max-w-[880px]">
           <ScrollReveal direction="up" delay={0.1}>
-            <div style={{
-              borderRadius: 'var(--radius-lg)',
-              overflow: 'hidden',
-              marginBottom: '3rem',
-              boxShadow: 'var(--shadow-xl)'
-            }}>
-              <img
+            <div className="rounded-xl overflow-hidden mb-12 shadow-xl">
+              <SafeImage
                 src={post.image}
                 alt={`Featured image for ${post.title}`}
-                width={1200}
-                height={480}
-                loading="eager"
-                fetchPriority="high"
-                style={{ width: '100%', maxHeight: '480px', objectFit: 'cover' }}
+                className="w-full max-h-[480px] object-cover"
               />
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <div style={{
-              padding: '1.75rem 2rem',
-              background: 'var(--ofs-navy-50)',
-              borderLeft: '4px solid var(--ofs-red-600)',
-              borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
-              fontSize: '1.15rem',
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 600,
-              color: 'var(--ofs-navy-950)',
-              lineHeight: 1.6,
-              marginBottom: '3rem'
-            }}>
+            <div className="p-7 sm:p-8 bg-ofs-navy-50/60 border-l-4 border-ofs-red-600 rounded-r-md text-[1.15rem] font-heading font-semibold text-ofs-navy-950 leading-relaxed mb-12">
               "{post.excerpt}"
             </div>
           </ScrollReveal>
 
-          <div style={{
-            fontSize: '1.05rem',
-            lineHeight: 1.8,
-            color: 'var(--ofs-gray-800)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.5rem',
-            marginBottom: '3.5rem'
-          }}>
+          <div className="text-[1.05rem] leading-relaxed text-ofs-gray-800 flex flex-col gap-6 mb-14">
             {renderBlogContent(post.content)}
           </div>
 
-          <p style={{ fontSize: '0.9rem', color: 'var(--ofs-gray-600)', marginBottom: '2rem' }}>
+          <p className="text-[0.9rem] text-ofs-gray-600 mb-8">
             Explore OFS{' '}
-            <Link href="/services" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+            <Link href="/services" className="text-ofs-red-600 font-bold hover:underline">
               procurement and EPC support services
             </Link>{' '}
             or{' '}
-            <Link href="/contact" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+            <Link href="/contact" className="text-ofs-red-600 font-bold hover:underline">
               contact our team
             </Link>{' '}
             for project-specific assistance.
           </p>
 
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            flexWrap: 'wrap',
-            paddingTop: '2rem',
-            borderTop: '1px solid var(--ofs-gray-200)',
-            marginBottom: '4rem'
-          }}>
-            <span style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--ofs-navy-950)' }}>
+          <div className="flex items-center gap-2 flex-wrap pt-8 border-t border-ofs-gray-200 mb-16">
+            <span className="text-[0.85rem] font-mono font-bold text-ofs-navy-950">
               Tags:
             </span>
             {post.tags.map((tag, tIdx) => (
               <span
                 key={tIdx}
-                style={{
-                  fontSize: '0.75rem',
-                  fontFamily: 'var(--font-mono)',
-                  background: 'var(--ofs-gray-100)',
-                  color: 'var(--ofs-gray-700)',
-                  padding: '0.3rem 0.75rem',
-                  borderRadius: 'var(--radius-full)'
-                }}
+                className="text-xs font-mono bg-ofs-gray-100 text-ofs-gray-700 py-1 px-3 rounded-full"
               >
                 #{tag}
               </span>
@@ -233,35 +171,24 @@ export default function SingleBlogPage({ params }) {
           </div>
 
           <div>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '1.5rem' }}>
-              Related Insights & Case Studies
+            <h3 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-6">
+              Related Insights &amp; Case Studies
             </h3>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
-              gap: '1.5rem'
-            }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {relatedPosts.map((rel) => (
                 <Link
                   key={rel.id}
                   href={`/blog/${rel.slug}`}
-                  style={{
-                    background: 'var(--ofs-gray-50)',
-                    border: '1px solid var(--ofs-gray-200)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '1.5rem',
-                    textDecoration: 'none',
-                    display: 'block'
-                  }}
+                  className="bg-ofs-gray-50 border border-ofs-gray-200 rounded-lg p-6 block hover:border-ofs-red-300 hover:bg-white transition-all duration-200 shadow-sm"
                 >
-                  <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--ofs-red-600)', fontWeight: 700, marginBottom: '0.35rem' }}>
+                  <div className="text-xs font-mono text-ofs-red-600 font-bold mb-1.5">
                     {rel.category}
                   </div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 700, color: 'var(--ofs-navy-950)', lineHeight: 1.3, marginBottom: '0.5rem' }}>
+                  <h4 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 leading-snug mb-2">
                     {rel.title}
                   </h4>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--ofs-gray-500)' }}>
+                  <span className="text-xs text-ofs-gray-500">
                     {rel.readTime}
                   </span>
                 </Link>

@@ -2,34 +2,32 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Clock, Calendar, User } from 'lucide-react';
+import { ArrowUpRight, Clock, Calendar } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
+import SafeImage from '@/components/ui/SafeImage';
 import blogPosts from '@/data/blog-posts.json';
 
 export default function BlogPreview() {
   const displayPosts = blogPosts.slice(0, 3);
 
   return (
-    <section className="section-pad" style={{ background: 'var(--ofs-white)', position: 'relative' }}>
-      <div className="container">
+    <SectionPad className="bg-white relative">
+      <Container>
         {/* Section Header */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          flexWrap: 'wrap',
-          gap: '1.5rem',
-          marginBottom: '3.5rem'
-        }}>
+        <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
           <div>
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-                INDUSTRY INSIGHTS
+              <div className="mb-4">
+                <Badge variant="red">INDUSTRY INSIGHTS</Badge>
               </div>
             </ScrollReveal>
 
-            <h2 className="section-title">
+            <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
                 Technical Analysis, Trends &amp;
               </TextReveal>
@@ -42,155 +40,91 @@ export default function BlogPreview() {
             </h2>
 
             <ScrollReveal direction="up" delay={0.25}>
-              <p className="section-desc">
+              <p className="text-[clamp(1.025rem,1.35vw,1.18rem)] text-ofs-gray-600 max-w-[680px] leading-relaxed">
                 Expert articles and field engineering studies on global procurement, NDT advancements, maritime logistics, and industrial decarbonization.
               </p>
             </ScrollReveal>
           </div>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/blog" className="btn btn-outline">
+            <Button href="/blog" variant="outline">
               Browse All Articles <ArrowUpRight size={16} />
-            </Link>
+            </Button>
           </ScrollReveal>
         </div>
 
         {/* Blog Cards Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-          gap: '2rem'
-        }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {displayPosts.map((post, idx) => (
             <ScrollReveal key={post.id} direction="up" delay={idx * 0.12}>
-              <article 
-                className="card-modern"
-                style={{
-                  padding: 0,
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%'
-                }}
-              >
+              <article className="p-0 overflow-hidden flex flex-col justify-between h-full bg-white border border-ofs-gray-200 rounded-md shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1 group">
                 <div>
                   {/* Featured Image */}
-                  <div style={{ height: '230px', position: 'relative', overflow: 'hidden' }}>
-                    <img 
-                      src={post.image} 
+                  <div className="h-[175px] relative overflow-hidden">
+                    <SafeImage
+                      src={post.image}
                       alt={post.title}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
-                      className="blog-thumb"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-spring group-hover:scale-105"
                     />
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      left: '1rem',
-                      background: 'var(--ofs-navy-950)',
-                      color: 'var(--ofs-white)',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      padding: '0.38rem 0.85rem',
-                      borderRadius: 'var(--radius-xs)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.06em',
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
-                    }}>
-                      {post.category}
+                    <div className="absolute top-3 left-3">
+                      <Badge variant="navy" className="shadow-[0_2px_8px_rgba(0,0,0,0.3)] text-[0.68rem]">
+                        {post.category}
+                      </Badge>
                     </div>
                   </div>
 
                   {/* Article Info */}
-                  <div style={{ padding: '1.75rem 1.75rem 1rem 1.75rem' }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '1rem',
-                      fontSize: '0.78rem',
-                      color: 'var(--ofs-gray-500)',
-                      fontFamily: 'var(--font-mono)',
-                      marginBottom: '0.85rem'
-                    }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                        <Calendar size={13} /> {post.date}
+                  <div className="p-5 pb-3.5">
+                    <div className="flex items-center gap-3 text-xs text-ofs-gray-500 font-mono mb-2.5">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar size={12} /> {post.date}
                       </span>
                       <span>•</span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                        <Clock size={13} /> {post.readTime}
+                      <span className="flex items-center gap-1.5">
+                        <Clock size={12} /> {post.readTime}
                       </span>
                     </div>
 
-                    <h3 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.25rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      lineHeight: 1.35,
-                      marginBottom: '0.85rem'
-                    }}>
-                      <Link href={`/blog/${post.slug}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <h3 className="font-heading text-base sm:text-[1.05rem] font-bold text-ofs-navy-950 leading-snug mb-2.5">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="text-inherit hover:text-ofs-red-600 transition-colors no-underline"
+                      >
                         {post.title}
                       </Link>
                     </h3>
 
-                    <p style={{
-                      fontSize: '0.9rem',
-                      color: 'var(--ofs-gray-600)',
-                      lineHeight: 1.55,
-                      margin: 0
-                    }}>
-                      {post.excerpt.slice(0, 135)}...
+                    <p className="text-xs sm:text-[0.85rem] text-ofs-gray-600 leading-relaxed m-0">
+                      {post.excerpt.slice(0, 120)}...
                     </p>
                   </div>
                 </div>
 
                 {/* Author & Read More Footer */}
-                <div style={{
-                  padding: '1.15rem 1.75rem',
-                  borderTop: '1px solid var(--ofs-gray-200)',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  background: 'var(--ofs-gray-50)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-                    <img 
-                      src={post.author.avatar} 
+                <div className="py-3 px-5 border-t border-ofs-gray-200 flex justify-between items-center bg-ofs-gray-50">
+                  <div className="flex items-center gap-2">
+                    <SafeImage
+                      src={post.author.avatar}
                       alt={post.author.name}
-                      style={{ width: '30px', height: '30px', borderRadius: '50%', objectFit: 'cover' }}
+                      className="w-6 h-6 rounded-full object-cover bg-white"
                     />
-                    <span style={{ fontSize: '0.825rem', fontWeight: 700, color: 'var(--ofs-navy-950)' }}>
+                    <span className="text-xs font-bold text-ofs-navy-950">
                       {post.author.name}
                     </span>
                   </div>
 
-                  <Link 
+                  <Link
                     href={`/blog/${post.slug}`}
-                    style={{
-                      fontSize: '0.825rem',
-                      fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
-                      color: 'var(--ofs-red-600)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.3rem',
-                      textDecoration: 'none'
-                    }}
+                    className="text-xs font-mono font-bold text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 hover:translate-x-1 transition-all duration-150 no-underline"
                   >
-                    Read <ArrowUpRight size={14} />
+                    Read <ArrowUpRight size={13} />
                   </Link>
                 </div>
               </article>
             </ScrollReveal>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

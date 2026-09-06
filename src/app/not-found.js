@@ -1,68 +1,34 @@
 import Link from 'next/link';
-import { ArrowLeft, Home, Compass } from 'lucide-react';
-import { PAGE_SEO } from '@/config/seo.config';
-import { buildPageMetadata } from '@/lib/seo';
-
-const seo = PAGE_SEO.notFound;
-
-export const metadata = buildPageMetadata({
-  title: seo.title,
-  description: seo.description,
-  path: '/404',
-  noindex: true,
-});
+import { Home, Compass } from 'lucide-react';
+import Button from '@/components/ui/Button';
 
 export default function NotFound() {
   return (
-    <section
-      style={{
-        minHeight: '70vh',
-        display: 'grid',
-        placeContent: 'center',
-        textAlign: 'center',
-        padding: '4rem 1.5rem',
-        background: 'var(--ofs-navy-50)',
-      }}
-    >
-      <div style={{ maxWidth: '540px', margin: '0 auto' }}>
+    <section className="min-h-[70vh] grid place-content-center text-center py-16 px-6 bg-ofs-navy-50">
+      <div className="max-w-[540px] mx-auto">
         <div
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(4rem, 8vw, 7rem)',
-            fontWeight: 900,
-            color: 'var(--ofs-red-600)',
-            lineHeight: 1,
-            marginBottom: '1rem',
-          }}
+          className="font-heading text-[clamp(4rem,8vw,7rem)] font-black text-ofs-red-600 leading-none mb-4"
           aria-hidden="true"
         >
           404
         </div>
-        <h1
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: '1.75rem',
-            fontWeight: 800,
-            color: 'var(--ofs-navy-950)',
-            marginBottom: '1rem',
-          }}
-        >
+        <h1 className="font-heading text-3xl font-extrabold text-ofs-navy-950 mb-4">
           Page Not Found
         </h1>
-        <p style={{ fontSize: '1rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, marginBottom: '2rem' }}>
+        <p className="text-base text-ofs-gray-600 leading-relaxed mb-8">
           The requested page could not be located. Explore OFS services, industries, or return to the homepage.
         </p>
 
-        <nav style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }} aria-label="Helpful links">
-          <Link href="/" className="btn btn-primary">
+        <nav className="flex gap-4 justify-center flex-wrap" aria-label="Helpful links">
+          <Button href="/" variant="primary">
             <Home size={16} /> Return to Homepage
-          </Link>
-          <Link href="/services" className="btn btn-outline">
+          </Button>
+          <Button href="/services" variant="outline">
             <Compass size={16} /> Explore OFS Services
-          </Link>
-          <Link href="/contact" className="btn btn-outline">
+          </Button>
+          <Button href="/contact" variant="outline">
             Contact OFS Group India
-          </Link>
+          </Button>
         </nav>
       </div>
     </section>

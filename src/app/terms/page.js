@@ -24,22 +24,19 @@ export default function TermsPage() {
         })}
       />
 
-      <section
-        className="section-pad"
-        style={{ background: 'var(--ofs-white)', paddingTop: '7rem' }}
-      >
-        <div className="container" style={{ maxWidth: '820px' }}>
-          <h1 className="section-title" style={{ marginBottom: '1rem' }}>
+      <section className="section-pad bg-white pt-28">
+        <div className="container max-w-[820px]">
+          <h1 className="section-title mb-4">
             Terms of Engagement
           </h1>
-          <p style={{ color: 'var(--ofs-gray-600)', marginBottom: '2.5rem', lineHeight: 1.7 }}>
+          <p className="text-ofs-gray-600 mb-10 leading-relaxed">
             These terms govern use of the OFS Group India website and submission of enquiries, RFQs, and
             job applications to Oriented Facility Solution Pvt Ltd.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', color: 'var(--ofs-gray-700)', lineHeight: 1.75 }}>
+          <div className="flex flex-col gap-8 text-ofs-gray-700 leading-relaxed">
             <section>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+              <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
                 Website Use
               </h2>
               <p>
@@ -50,7 +47,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+              <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
                 Enquiries and RFQs
               </h2>
               <p>
@@ -61,7 +58,7 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+              <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
                 Intellectual Property
               </h2>
               <p>
@@ -72,16 +69,16 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+              <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
                 Governing Contact
               </h2>
               <p>
                 For contractual or legal enquiries, contact OFS Group India through the{' '}
-                <Link href="/contact" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+                <Link href="/contact" className="text-ofs-red-600 font-bold hover:underline">
                   Contact page
                 </Link>{' '}
                 or email{' '}
-                <a href="mailto:info@ofsgroupindia.com" style={{ color: 'var(--ofs-red-600)', fontWeight: 700 }}>
+                <a href="mailto:info@ofsgroupindia.com" className="text-ofs-red-600 font-bold hover:underline">
                   info@ofsgroupindia.com
                 </a>
                 .

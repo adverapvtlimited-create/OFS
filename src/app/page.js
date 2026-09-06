@@ -7,13 +7,13 @@ import CaseStudies from '@/components/sections/CaseStudies';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import StatsCounter from '@/components/sections/StatsCounter';
-import RenewablesCTA from '@/components/sections/RenewablesCTA';
 import BlogPreview from '@/components/sections/BlogPreview';
-import CareersPreview from '@/components/sections/CareersPreview';
 import ContactCTA from '@/components/sections/ContactCTA';
 import JsonLd from '@/components/SEO/JsonLd';
 import { buildHomeFAQSchema, buildWebPageSchema } from '@/lib/schema';
 import { PAGE_SEO } from '@/config/seo.config';
+import faqs from '@/data/faqs.json';
+import { ChevronDown } from 'lucide-react';
 
 const homeSeo = PAGE_SEO.home;
 
@@ -39,75 +39,35 @@ export default function HomePage() {
       <WhyChooseUs />
       <IndustriesSection />
       <StatsCounter />
-      <RenewablesCTA />
       <BlogPreview />
-      <CareersPreview />
       <ContactCTA />
 
       <section
-        className="section-pad"
-        style={{ background: 'var(--ofs-gray-50)' }}
+        className="py-10 sm:py-12 lg:py-16 bg-ofs-gray-50"
         aria-labelledby="home-faq-heading"
       >
-        <div className="container" style={{ maxWidth: '820px' }}>
+        <div className="w-full max-w-[820px] mx-auto px-5 sm:px-8">
           <h2
             id="home-faq-heading"
-            className="section-title"
-            style={{ textAlign: 'center', marginBottom: '2.5rem' }}
+            className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] text-ofs-navy-950 text-center mb-8 leading-[1.15]"
           >
             Frequently Asked Questions
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {[
-              {
-                question: 'What services does OFS Group India provide?',
-                answer:
-                  'OFS provides procurement & shipping, engineering & EPC support, spare parts procurement & MRO, and industrial logistics & shipping for marine, offshore, energy, and industrial sectors.',
-              },
-              {
-                question: 'Which industries does OFS serve?',
-                answer:
-                  'OFS serves oil & gas, marine & offshore, renewable energy, power generation, petrochemicals & refining, pharmaceuticals & chemicals, cement manufacturing, mining & minerals, and heavy engineering industries.',
-              },
-              {
-                question: 'Where is OFS Group India headquartered?',
-                answer:
-                  'OFS Group India is headquartered in Mumbai, Maharashtra at Dynasty Business Park, Andheri-Kurla Road, Andheri (East). OFS also maintains a USA global office in St. Petersburg, Florida.',
-              },
-              {
-                question: 'How can I request a quotation or consultation from OFS?',
-                answer:
-                  'Submit an RFQ or consultation request through our Contact page, call +91 98200 00000, or email info@ofsgroupindia.com.',
-              },
-            ].map((faq) => (
+          <div className="flex flex-col gap-3">
+            {faqs.map((faq) => (
               <details
                 key={faq.question}
-                style={{
-                  background: 'var(--ofs-white)',
-                  border: '1px solid var(--ofs-gray-200)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '1.25rem 1.5rem',
-                }}
+                className="group bg-white border border-ofs-gray-200 rounded-md px-5 py-4 sm:px-6 transition-all duration-200"
               >
-                <summary
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontWeight: 800,
-                    color: 'var(--ofs-navy-950)',
-                    cursor: 'pointer',
-                    listStyle: 'none',
-                  }}
-                >
-                  {faq.question}
+                <summary className="font-heading font-extrabold text-ofs-navy-950 cursor-pointer list-none select-none flex items-center justify-between gap-4">
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    size={18}
+                    className="shrink-0 text-ofs-red-600 transition-transform duration-200 group-open:rotate-180"
+                    aria-hidden="true"
+                  />
                 </summary>
-                <p
-                  style={{
-                    marginTop: '0.85rem',
-                    fontSize: '0.95rem',
-                    color: 'var(--ofs-gray-600)',
-                    lineHeight: 1.65,
-                  }}
-                >
+                <p className="mt-3 text-[0.95rem] text-ofs-gray-600 leading-relaxed pr-8">
                   {faq.answer}
                 </p>
               </details>

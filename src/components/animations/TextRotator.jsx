@@ -1,8 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { cn } from '@/lib/cn';
 
-export default function TextRotator({ words = ["Marine Logistics", "Offshore Operations", "EPC Engineering", "Global Procurement", "Clean Energy"] }) {
+export default function TextRotator({
+  words = [
+    'Marine & Offshore',
+    'Procurement & Shipping',
+    'Engineering & EPC',
+    'Integrated Facilities',
+    'Spare Parts & MRO',
+  ],
+}) {
   const [index, setIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
@@ -19,16 +28,12 @@ export default function TextRotator({ words = ["Marine Logistics", "Offshore Ope
   }, [words.length]);
 
   return (
-    <span style={{
-      display: 'inline-block',
-      position: 'relative',
-      color: 'var(--ofs-red-600)',
-      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-      opacity: isFading ? 0 : 1,
-      transform: isFading ? 'translateY(12px)' : 'translateY(0)',
-      borderBottom: '3px solid var(--ofs-gold-400)',
-      paddingBottom: '2px'
-    }}>
+    <span
+      className={cn(
+        'inline-block relative text-ofs-red-600 border-b-[3px] border-ofs-gold-400 pb-0.5 transition-all duration-300',
+        isFading ? 'opacity-0 translate-y-3' : 'opacity-100 translate-y-0'
+      )}
+    >
       {words[index]}
     </span>
   );

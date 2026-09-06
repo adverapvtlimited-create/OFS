@@ -3,67 +3,42 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Sun, BatteryCharging, Leaf, ArrowUpRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Leaf, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import MagneticButton from '@/components/animations/MagneticButton';
+import Badge from '@/components/ui/Badge';
+import Pill from '@/components/ui/Pill';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 import renewablesData from '@/data/renewables.json';
 
 export default function RenewablesCTA() {
   return (
-    <section className="section-pad" style={{
-      background: 'linear-gradient(180deg, var(--ofs-gray-50) 0%, var(--ofs-white) 100%)',
-      position: 'relative'
-    }}>
-      <div className="container">
+    <SectionPad className="bg-gradient-to-b from-ofs-gray-50 to-white relative">
+      <Container>
         <ScrollReveal direction="up" duration={0.8}>
-          <div style={{
-            background: 'linear-gradient(135deg, #051A14 0%, #06382B 60%, #08241C 100%)',
-            borderRadius: 'var(--radius-2xl)',
-            border: '1px solid rgba(16, 185, 129, 0.35)',
-            overflow: 'hidden',
-            boxShadow: 'var(--shadow-2xl)',
-            color: 'var(--ofs-white)',
-            position: 'relative'
-          }}>
+          <div className="bg-gradient-to-br from-[#051A14] via-[#06382B] to-[#08241C] rounded-2xl border border-emerald-500/35 overflow-hidden shadow-2xl text-white relative">
             {/* Background Ambient Glow */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              width: '450px',
-              height: '450px',
-              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, transparent 70%)',
-              pointerEvents: 'none'
-            }} />
+            <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(16,185,129,0.28)_0%,transparent_70%)] pointer-events-none" />
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-              position: 'relative',
-              zIndex: 2
-            }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 relative z-[2]">
               {/* Left Content */}
-              <div style={{ padding: 'clamp(2.25rem, 5vw, 4.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
-                    <div className="tag-badge badge-green">
-                      STRATEGIC DIVISION
-                    </div>
-                    <div className="tag-pill pill-green" style={{ color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
-                      <Leaf size={14} style={{ color: 'var(--ofs-green-400)' }} />
+                  <div className="flex items-center gap-3 mb-5 flex-wrap">
+                    <Badge variant="green">STRATEGIC DIVISION</Badge>
+                    <Pill
+                      variant="green"
+                      className="text-white border-white/20"
+                      icon={<Leaf size={14} className="text-emerald-400" />}
+                    >
                       Clean Energy &amp; Decarbonization
-                    </div>
+                    </Pill>
                   </div>
 
-                  <h2 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(2rem, 3.4vw, 2.85rem)',
-                    fontWeight: 800,
-                    color: 'var(--ofs-white)',
-                    marginBottom: '1.25rem',
-                    lineHeight: 1.15
-                  }}>
+                  <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-5 leading-tight">
                     <TextReveal tag="span" duration={0.65}>
                       OFS Renewables:
                     </TextReveal>
@@ -75,102 +50,76 @@ export default function RenewablesCTA() {
                     </span>
                   </h2>
 
-                  <p style={{
-                    fontSize: '1.08rem',
-                    color: 'rgba(255, 255, 255, 0.88)',
-                    lineHeight: 1.6,
-                    marginBottom: '2rem'
-                  }}>
+                  <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-8">
                     {renewablesData.heroDescription}
                   </p>
 
                   {/* Key Solutions List */}
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
-                    gap: '0.95rem',
-                    marginBottom: '2.5rem'
-                  }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                     {[
-                      "Utility & C&I Solar EPC",
-                      "Containerized BESS Storage",
-                      "Floating Solar (FPV) Arrays",
-                      "Robotic O&M & SCADA Systems"
+                      'Utility & C&I Solar EPC',
+                      'Containerized BESS Storage',
+                      'Floating Solar (FPV) Arrays',
+                      'Robotic O&M & SCADA Systems',
                     ].map((item, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.925rem' }}>
-                        <CheckCircle2 size={16} style={{ color: 'var(--ofs-green-400)' }} />
-                        {item}
+                      <div key={idx} className="flex items-center gap-2 text-sm text-white">
+                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                        <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                <div className="flex gap-4 items-center flex-wrap">
                   <MagneticButton strength={0.32} radius={80}>
-                    <Link href="/renewables" className="btn btn-green btn-lg" data-cursor-text="SOLAR">
+                    <Button href="/renewables" variant="green" size="lg" data-cursor-text="SOLAR">
                       Explore Renewables Portal <ArrowUpRight size={18} />
-                    </Link>
+                    </Button>
                   </MagneticButton>
                   <MagneticButton strength={0.25} radius={70}>
-                    <Link href="/renewables#projects" className="btn btn-outline-white btn-lg" data-cursor-text="PROJECTS">
+                    <Button
+                      href="/renewables#projects"
+                      variant="outline-white"
+                      size="lg"
+                      data-cursor-text="PROJECTS"
+                    >
                       View Clean Energy Projects
-                    </Link>
+                    </Button>
                   </MagneticButton>
                 </div>
               </div>
 
               {/* Right: Visual Showcase with Live Metrics */}
-              <div style={{
-                position: 'relative',
-                minHeight: '380px',
-                borderLeft: '1px solid rgba(16, 185, 129, 0.25)'
-              }}>
-                <img 
-                  src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80" 
+              <div className="relative min-h-[380px] lg:border-l border-emerald-500/25">
+                <img
+                  src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80"
                   alt="Solar Farm Infrastructure"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="w-full h-full object-cover"
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(5, 26, 20, 0.25) 0%, rgba(5, 26, 20, 0.88) 100%)'
-                }} />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#051a14]/25 to-[#051a14]/90" />
 
                 {/* Float Box with Metrics */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.65, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  style={{
-                    position: 'absolute',
-                    bottom: '2rem',
-                    left: '2rem',
-                    right: '2rem',
-                    background: 'rgba(5, 26, 20, 0.88)',
-                    backdropFilter: 'blur(14px)',
-                    border: '1px solid rgba(16, 185, 129, 0.4)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '1.6rem',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '1.25rem'
-                  }}
+                  className="absolute bottom-6 inset-x-6 sm:inset-x-8 bg-[#051a14]/90 backdrop-blur-md border border-emerald-500/40 rounded-md p-6 grid grid-cols-2 gap-5"
                 >
                   <div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: 'var(--ofs-green-400)', lineHeight: 1, marginBottom: '0.35rem' }}>
+                    <div className="font-heading text-2xl sm:text-3xl font-extrabold text-emerald-400 leading-none mb-1.5">
                       450+ MW
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'rgba(255, 255, 255, 0.8)', textTransform: 'uppercase', fontWeight: 600 }}>
+                    <div className="text-xs font-mono text-white/80 uppercase font-semibold">
                       Solar &amp; Storage Supported
                     </div>
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 800, color: 'var(--ofs-green-400)', lineHeight: 1, marginBottom: '0.35rem' }}>
+                    <div className="font-heading text-2xl sm:text-3xl font-extrabold text-emerald-400 leading-none mb-1.5">
                       120K+ Tons
                     </div>
-                    <div style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: 'rgba(255, 255, 255, 0.8)', textTransform: 'uppercase', fontWeight: 600 }}>
+                    <div className="text-xs font-mono text-white/80 uppercase font-semibold">
                       CO2 Mitigated Annually
                     </div>
                   </div>
@@ -179,7 +128,7 @@ export default function RenewablesCTA() {
             </div>
           </div>
         </ScrollReveal>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

@@ -40,8 +40,11 @@
       "suffix": "+"
     },
     {
-      "label": "Proven Track Record",
-      "value": "Years of Experience"
+      "label": "Years of Field Experience",
+      "value": "8+",
+      "numeric": 8,
+      "suffix": "+",
+      "desc": "Demonstrated technical excellence across high-stakes operational environments"
     },
     {
       "label": "On-Time Fulfillment SLA",

@@ -4,56 +4,70 @@ import React from 'react';
 import Counter from '@/components/animations/Counter';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import { Award, ShieldCheck, TrendingUp, Globe2, CheckCircle, Sparkles } from 'lucide-react';
-
 import GlowCard from '@/components/animations/GlowCard';
+import Badge from '@/components/ui/Badge';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 
 const statsData = [
-  { value: "Years of Experience", label: "Proven Industry Track Record", desc: "Demonstrated technical excellence across high-stakes operational environments" },
-  { numeric: 3000, suffix: "+", label: "US & European Approved Brands", desc: "Direct access to pre-vetted international manufacturers" },
-  { numeric: 48, suffix: "+", label: "EPC & Turnkey Projects", desc: "Successfully delivered across India, Gulf & global basins" },
-  { numeric: 20, suffix: "+", label: "Tier-1 Enterprise Clients", desc: "Trusted by major offshore, refinery & energy leaders" },
-  { numeric: 99.8, suffix: "%", decimals: 1, label: "On-Time Fulfillment SLA", desc: "Zero-delay critical path expediting & supply chain integrity" },
-  { numeric: 100, suffix: "%", label: "ISO 9001:2015 Compliant", desc: "Rigorous quality systems & NDT Level III certified audits" }
+  {
+    numeric: 3000,
+    suffix: '+',
+    label: 'US & European Approved Brands',
+    desc: 'Direct OEM access to pre-vetted international manufacturers with full EN 10204 3.1 MTC certification.',
+    featured: true,
+  },
+  {
+    numeric: 8,
+    suffix: '+',
+    label: 'Years of Field Experience',
+    desc: 'Specialized procurement, MRO sourcing, and technical support across high-stakes offshore and industrial sectors.',
+  },
+  {
+    numeric: 99.8,
+    suffix: '%',
+    decimals: 1,
+    label: 'On-Time Fulfillment SLA',
+    desc: 'Zero-delay critical path expediting, proactive scheduling, and multimodal logistics integrity.',
+  },
+  {
+    numeric: 48,
+    suffix: '+',
+    label: 'EPC & Turnkey Projects',
+    desc: 'Successfully executed across India, Middle East, North America, and major offshore basins.',
+  },
+  {
+    numeric: 20,
+    suffix: '+',
+    label: 'Tier-1 Enterprise Clients',
+    desc: 'Trusted by major offshore operators, refineries, EPC conglomerates, and power utilities.',
+  },
+  {
+    numeric: 100,
+    suffix: '%',
+    label: 'ISO 9001:2015 Compliant',
+    desc: 'Rigorous standardized quality systems, third-party inspection, and certified audit dossiers.',
+  },
 ];
 
 export default function StatsCounter() {
   return (
-    <section className="section-pad" style={{
-      background: 'var(--ofs-navy-950)',
-      color: 'var(--ofs-white)',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <SectionPad className="bg-ofs-navy-950 text-white relative overflow-hidden">
       {/* Radial Ambient Glow Effects */}
-      <div style={{
-        position: 'absolute',
-        top: '-150px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '700px',
-        height: '350px',
-        background: 'radial-gradient(circle, rgba(224, 42, 48, 0.22) 0%, transparent 70%)',
-        pointerEvents: 'none'
-      }} />
+      <div className="absolute -top-[150px] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(circle,rgba(224,42,48,0.22)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="bg-grid-pattern-dark" style={{
-        position: 'absolute',
-        inset: 0,
-        opacity: 0.4,
-        pointerEvents: 'none'
-      }} />
+      <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      <Container className="relative z-[2]">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 4rem auto' }}>
+        <div className="text-center max-w-[750px] mx-auto mb-16">
           <ScrollReveal direction="up">
-            <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-              PROVEN PERFORMANCE METRICS
+            <div className="mb-4">
+              <Badge variant="red">PROVEN PERFORMANCE METRICS</Badge>
             </div>
           </ScrollReveal>
 
-          <h2 className="section-title" style={{ color: 'var(--ofs-white)' }}>
+          <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-white leading-[1.15]">
             <TextReveal tag="span" duration={0.65}>
               Numbers That Define Our
             </TextReveal>
@@ -66,80 +80,50 @@ export default function StatsCounter() {
           </h2>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{ fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.8)', margin: '0 auto', lineHeight: 1.6 }}>
+            <p className="text-lg text-white/80 mx-auto leading-relaxed">
               Every statistic represents real-world mission critical uptime, transparent supply chain execution, and trusted enterprise partnerships.
             </p>
           </ScrollReveal>
         </div>
 
-        {/* 6 Metric Bento Cards Grid with Staggered Scale-In & Radial Spotlight */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
-          gap: '2rem'
-        }}>
+        {/* 6 Metric Bento Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {statsData.map((stat, idx) => (
-            <ScrollReveal key={idx} direction="up" delay={idx * 0.08} scale={0.94}>
-              <GlowCard 
-                glowColor="rgba(217, 119, 6, 0.22)"
-                borderColor="rgba(217, 119, 6, 0.45)"
+            <ScrollReveal key={idx} direction="up" delay={idx * 0.08} scale={0.95}>
+              <GlowCard
+                glowColor={stat.featured ? 'rgba(245, 158, 11, 0.35)' : 'rgba(224, 42, 48, 0.22)'}
+                borderColor={stat.featured ? 'rgba(245, 158, 11, 0.55)' : 'rgba(255, 255, 255, 0.12)'}
                 data-cursor-text="METRIC"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '2.5rem 2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                  backdropFilter: 'blur(10px)'
-                }}
-                className="stat-card"
+                className={`rounded-lg p-6 sm:p-7 flex flex-col justify-between h-full backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${
+                  stat.featured
+                    ? 'bg-gradient-to-br from-amber-500/10 via-white/[0.04] to-white/[0.01] border border-amber-500/40 shadow-[0_12px_32px_rgba(245,158,11,0.12)] hover:border-amber-400 hover:shadow-[0_16px_36px_rgba(245,158,11,0.25)]'
+                    : 'bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.07] hover:border-white/25 hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)]'
+                }`}
               >
                 <div>
-                  <div style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: stat.numeric !== undefined && stat.numeric !== null ? 'clamp(2.75rem, 4.5vw, 3.75rem)' : 'clamp(1.75rem, 2.5vw, 2.35rem)',
-                    fontWeight: 900,
-                    color: 'var(--ofs-gold-400)',
-                    lineHeight: 1.15,
-                    marginBottom: '0.85rem'
-                  }}>
-                    {stat.numeric !== undefined && stat.numeric !== null ? (
-                      <Counter end={stat.numeric} suffix={stat.suffix} decimals={stat.decimals || 0} />
-                    ) : (
-                      <span>{stat.value}</span>
-                    )}
+                  <div className="mb-2">
+                    <div className="font-heading text-[clamp(1.65rem,2.5vw,2.35rem)] font-black text-ofs-gold-400 leading-tight">
+                      {stat.numeric !== undefined && stat.numeric !== null ? (
+                        <Counter end={stat.numeric} suffix={stat.suffix} decimals={stat.decimals || 0} />
+                      ) : (
+                        <span>{stat.value}</span>
+                      )}
+                    </div>
                   </div>
 
-                  <h3 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '1.15rem',
-                    fontWeight: 800,
-                    color: 'var(--ofs-white)',
-                    marginBottom: '0.5rem',
-                    lineHeight: 1.3
-                  }}>
+                  <h3 className="font-heading text-base sm:text-[1.05rem] font-bold text-white mb-2 leading-snug">
                     {stat.label}
                   </h3>
                 </div>
 
-                <p style={{
-                  fontSize: '0.875rem',
-                  color: 'rgba(255, 255, 255, 0.75)',
-                  lineHeight: 1.5,
-                  margin: 0,
-                  paddingTop: '1rem',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.08)'
-                }}>
+                <p className="text-xs sm:text-[0.85rem] text-white/75 leading-relaxed m-0 pt-3 border-t border-white/[0.08]">
                   {stat.desc}
                 </p>
               </GlowCard>
             </ScrollReveal>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

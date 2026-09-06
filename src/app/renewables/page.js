@@ -27,68 +27,36 @@ export default function RenewablesPortalPage() {
   return (
     <>
       {/* Renewables Hero Banner */}
-      <section style={{
-        background: 'linear-gradient(135deg, #031711 0%, #06382B 60%, #06241C 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5.5rem',
-        paddingBottom: '6rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <section className="bg-gradient-to-br from-[#031711] via-[#06382B] to-[#06241C] text-white pt-[5.5rem] pb-24 relative overflow-hidden">
         {/* Background Grid Accent */}
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.45, pointerEvents: 'none' }} />
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-45 pointer-events-none" />
 
         {/* Ambient Emerald Glow */}
-        <div style={{
-          position: 'absolute',
-          top: '-10%',
-          right: '5%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
+        <div className="absolute -top-[10%] right-[5%] w-[600px] height-[600px] bg-[radial-gradient(circle,rgba(16,185,129,0.22)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container relative z-10">
           {/* Breadcrumb */}
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
+            <div className="flex items-center gap-2 font-mono text-xs text-white/60 mb-6 uppercase">
+              <Link href="/" className="text-white/70 hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span style={{ color: 'var(--ofs-green-400)' }}>Renewables Portal</span>
+              <span className="text-ofs-green-400">Renewables Portal</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
               <div className="tag-badge badge-green">
                 STRATEGIC CLEAN ENERGY DIVISION
               </div>
-              <div className="tag-pill pill-green" style={{ color: '#fff', borderColor: 'rgba(255, 255, 255, 0.22)' }}>
-                <Leaf size={14} style={{ color: 'var(--ofs-green-400)' }} />
+              <div className="tag-pill pill-dark">
+                <Leaf size={14} className="text-ofs-green-400" />
                 Decarbonization Infrastructure
               </div>
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem',
-            maxWidth: '920px'
-          }}>
+          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Pioneering High-Yield Solar,
             </TextReveal>
@@ -101,23 +69,17 @@ export default function RenewablesPortalPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{
-              fontSize: '1.2rem',
-              color: 'rgba(255, 255, 255, 0.88)',
-              maxWidth: '800px',
-              lineHeight: 1.6,
-              marginBottom: '2.5rem'
-            }}>
+            <p className="text-[1.2rem] text-white/90 max-w-[800px] leading-relaxed mb-10">
               {renewablesData.heroDescription}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="#solutions" className="btn btn-green btn-lg">
+            <div className="flex gap-4 items-center flex-wrap">
+              <a href="#solutions" className="btn btn-green btn-lg inline-flex items-center gap-2">
                 Explore Clean Energy Solutions <ArrowUpRight size={18} />
               </a>
-              <a href="#projects" className="btn btn-outline-white btn-lg">
+              <a href="#projects" className="btn btn-outline-white btn-lg inline-flex items-center gap-2">
                 View Commissioned Projects
               </a>
             </div>
@@ -126,38 +88,16 @@ export default function RenewablesPortalPage() {
       </section>
 
       {/* Renewables Metrics Bar */}
-      <section style={{
-        background: 'var(--ofs-navy-950)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        padding: '2.75rem 0'
-      }}>
+      <section className="bg-ofs-navy-950 border-b border-white/10 py-11">
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))',
-            gap: '2rem'
-          }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {renewablesData.metrics.map((m, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.08}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(2.25rem, 3.8vw, 3.25rem)',
-                    fontWeight: 900,
-                    color: 'var(--ofs-green-400)',
-                    lineHeight: 1,
-                    marginBottom: '0.45rem'
-                  }}>
+                <div className="text-center">
+                  <div className="font-heading text-[clamp(2.25rem,3.8vw,3.25rem)] font-black text-ofs-green-400 leading-none mb-2">
                     <Counter end={m.numeric} suffix={m.suffix} decimals={m.suffix.includes('%') && m.numeric % 1 !== 0 ? 1 : 0} />
                   </div>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    color: 'rgba(255, 255, 255, 0.75)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    fontWeight: 600
-                  }}>
+                  <div className="font-mono text-[0.8rem] text-white/75 uppercase tracking-wider font-semibold">
                     {m.label}
                   </div>
                 </div>
@@ -168,11 +108,11 @@ export default function RenewablesPortalPage() {
       </section>
 
       {/* Clean Energy Solutions Grid */}
-      <section className="section-pad" id="solutions" style={{ background: 'var(--ofs-white)' }}>
+      <section className="section-pad bg-white" id="solutions">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 4rem auto' }}>
+          <div className="text-center max-w-[750px] mx-auto mb-16">
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-green" style={{ marginBottom: '1rem' }}>
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase px-3 py-1 rounded bg-ofs-green-50 text-ofs-green-700 border border-ofs-green-200 mb-4">
                 CORE SOLAR &amp; STORAGE SOLUTIONS
               </div>
             </ScrollReveal>
@@ -188,72 +128,42 @@ export default function RenewablesPortalPage() {
               </span>
             </h2>
             <ScrollReveal direction="up" delay={0.25}>
-              <p className="section-desc" style={{ margin: '0 auto' }}>
+              <p className="section-desc mx-auto">
                 From multi-hundred-megawatt solar farms to captive C&amp;I microgrids and autonomous waterless robotic cleaning systems.
               </p>
             </ScrollReveal>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '2.5rem'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {renewablesData.solutions.map((sol, idx) => (
               <ScrollReveal key={sol.id} direction="up" delay={idx * 0.1}>
-                <div 
-                  className="card-modern"
-                  style={{
-                    padding: 0,
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: 'var(--shadow-md)',
-                    height: '100%'
-                  }}
-                >
+                <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 h-full">
                   <div>
-                    <div style={{ height: '230px', position: 'relative', overflow: 'hidden' }}>
+                    <div className="h-[175px] relative overflow-hidden">
                       <motion.img 
                         src={sol.image} 
                         alt={sol.title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        className="w-full h-full object-cover"
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: 0.6 }}
                       />
-                      <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(180deg, rgba(3, 23, 17, 0.15) 0%, rgba(3, 23, 17, 0.75) 100%)'
-                      }} />
-                      <div style={{
-                        position: 'absolute',
-                        bottom: '1.25rem',
-                        left: '1.25rem',
-                        right: '1.25rem'
-                      }}>
-                        <h3 style={{
-                          fontFamily: 'var(--font-heading)',
-                          fontSize: '1.3rem',
-                          fontWeight: 800,
-                          color: '#fff',
-                          lineHeight: 1.25
-                        }}>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#031711]/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="font-heading text-base sm:text-lg font-bold text-white leading-snug">
                           {sol.title}
                         </h3>
                       </div>
                     </div>
 
-                    <div style={{ padding: '2rem' }}>
-                      <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <div className="p-5 pb-4">
+                      <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
                         {sol.shortDesc}
                       </p>
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                      <div className="flex flex-col gap-2">
                         {sol.features.map((feat, fIdx) => (
-                          <div key={fIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.55rem', fontSize: '0.875rem', color: 'var(--ofs-gray-800)' }}>
-                            <CheckCircle2 size={16} style={{ color: 'var(--ofs-green-600)', flexShrink: 0, marginTop: '2px' }} />
+                          <div key={fIdx} className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-800">
+                            <CheckCircle2 size={14} className="text-ofs-green-600 shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -261,25 +171,12 @@ export default function RenewablesPortalPage() {
                     </div>
                   </div>
 
-                  <div style={{
-                    padding: '1.25rem 2rem',
-                    borderTop: '1px solid var(--ofs-gray-200)',
-                    background: 'var(--ofs-gray-50)'
-                  }}>
+                  <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50/75">
                     <a 
                       href="#renewables-inquiry"
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.85rem',
-                        fontWeight: 700,
-                        color: 'var(--ofs-green-700)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.35rem',
-                        textDecoration: 'none'
-                      }}
+                      className="font-mono text-xs font-bold text-ofs-green-700 flex items-center gap-1 hover:text-ofs-green-800 transition-colors"
                     >
-                      Request Feasibility Study <ArrowUpRight size={15} />
+                      Request Feasibility Study <ArrowUpRight size={13} />
                     </a>
                   </div>
                 </div>
@@ -290,11 +187,11 @@ export default function RenewablesPortalPage() {
       </section>
 
       {/* Featured Projects Showcase */}
-      <section className="section-pad" id="projects" style={{ background: 'var(--ofs-gray-50)' }}>
+      <section className="section-pad bg-ofs-gray-50" id="projects">
         <div className="container">
-          <div style={{ maxWidth: '720px', marginBottom: '3.5rem' }}>
+          <div className="max-w-[720px] mb-12">
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-green" style={{ marginBottom: '1rem' }}>
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase px-3 py-1 rounded bg-ofs-green-50 text-ofs-green-700 border border-ofs-green-200 mb-4">
                 PROJECT PORTFOLIO
               </div>
             </ScrollReveal>
@@ -305,87 +202,53 @@ export default function RenewablesPortalPage() {
               <br />
               <span className="gradient-text-green">
                 <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  Commercial Deployments
+                  Commercial Installations
                 </TextReveal>
               </span>
             </h2>
-            <ScrollReveal direction="up" delay={0.25}>
-              <p className="section-desc">
-                Real-world engineering execution delivering high performance ratios and certified grid compliance.
-              </p>
-            </ScrollReveal>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '2.5rem'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {renewablesData.projects.map((proj, idx) => (
-              <ScrollReveal key={proj.id} direction="up" delay={idx * 0.12}>
-                <div 
-                  style={{
-                    background: 'var(--ofs-white)',
-                    borderRadius: 'var(--radius-lg)',
-                    border: '1px solid var(--ofs-gray-200)',
-                    overflow: 'hidden',
-                    boxShadow: 'var(--shadow-md)',
-                    height: '100%'
-                  }}
-                >
-                  <div style={{ height: '210px', position: 'relative', overflow: 'hidden' }}>
+              <ScrollReveal key={proj.id} direction="up" delay={idx * 0.1}>
+                <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="h-[175px] relative overflow-hidden">
                     <motion.img 
                       src={proj.image} 
                       alt={proj.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      className="w-full h-full object-cover"
                       whileHover={{ scale: 1.06 }}
                       transition={{ duration: 0.6 }}
                     />
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      right: '1rem',
-                      background: 'rgba(6, 56, 43, 0.92)',
-                      color: 'var(--ofs-green-300)',
-                      padding: '0.35rem 0.85rem',
-                      borderRadius: 'var(--radius-full)',
-                      fontSize: '0.75rem',
-                      fontFamily: 'var(--font-mono)',
-                      fontWeight: 700,
-                      backdropFilter: 'blur(8px)'
-                    }}>
+                    <div className="absolute top-3 right-3 bg-[#06382B]/90 text-ofs-green-300 py-1 px-2.5 rounded-full text-[0.68rem] font-mono font-bold backdrop-blur-sm">
                       {proj.type}
                     </div>
                   </div>
 
-                  <div style={{ padding: '2rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--ofs-gray-500)', fontSize: '0.825rem', fontFamily: 'var(--font-mono)', marginBottom: '0.5rem' }}>
-                      <MapPin size={13} style={{ color: 'var(--ofs-red-600)' }} />
-                      {proj.location}
-                    </div>
-
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.85rem' }}>
-                      {proj.title}
-                    </h3>
-
-                    <div style={{
-                      background: 'var(--ofs-green-50)',
-                      border: '1px solid var(--ofs-green-100)',
-                      borderRadius: 'var(--radius-xs)',
-                      padding: '1rem',
-                      marginBottom: '1.25rem'
-                    }}>
-                      <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--ofs-green-700)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.2rem' }}>
-                        Technical Specifications:
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-1 text-ofs-gray-500 text-xs font-mono mb-1.5">
+                        <MapPin size={12} className="text-ofs-red-600 shrink-0" />
+                        {proj.location}
                       </div>
-                      <div style={{ fontSize: '0.88rem', color: 'var(--ofs-gray-800)', fontWeight: 600 }}>
-                        {proj.specs}
+
+                      <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2.5">
+                        {proj.title}
+                      </h3>
+
+                      <div className="bg-ofs-green-50/70 border border-ofs-green-100 rounded p-3 mb-4">
+                        <div className="text-[0.68rem] font-mono text-ofs-green-700 font-bold uppercase mb-0.5">
+                          Technical Specifications:
+                        </div>
+                        <div className="text-xs text-ofs-gray-800 font-semibold">
+                          {proj.specs}
+                        </div>
                       </div>
                     </div>
 
-                    <div style={{ fontSize: '0.875rem', color: 'var(--ofs-green-700)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                      <Leaf size={16} />
-                      {proj.impact}
+                    <div className="text-xs text-ofs-green-700 font-bold flex items-center gap-1.5">
+                      <Leaf size={14} className="shrink-0" />
+                      <span>{proj.impact}</span>
                     </div>
                   </div>
                 </div>

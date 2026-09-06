@@ -4,89 +4,62 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  ShieldCheck,
   Target,
   Eye,
-  HeartHandshake,
-  Award,
-  CheckCircle2,
   ArrowUpRight,
-  Globe2,
-  Building,
-  Users,
-  Sparkles,
-  Phone,
-  Mail
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 import siteConfig from '@/data/site-config.json';
 
 const values = [
   {
-    image: "/images/live/Integrity.jpg",
-    title: "Integrity",
-    desc: "We uphold the highest ethical standards in every aspect of our business. Integrity means being transparent, and honest, in our interactions, ensuring trust and long-lasting relationships with our clients, partners, and employees."
+    image: '/images/live/Integrity.jpg',
+    title: 'Integrity',
+    desc: 'We uphold the highest ethical standards in every aspect of our business. Integrity means being transparent, and honest, in our interactions, ensuring trust and long-lasting relationships with our clients, partners, and employees.',
   },
   {
-    image: "/images/live/Excellence-1.jpg",
-    title: "Excellence",
-    desc: "We are committed to delivering the highest quality in every project we undertake. Our pursuit of excellence drives us to continuously improve, innovate, and exceed expectations, ensuring superior service and value for our clients."
+    image: '/images/live/Excellence-1.jpg',
+    title: 'Excellence',
+    desc: 'We are committed to delivering the highest quality in every project we undertake. Our pursuit of excellence drives us to continuously improve, innovate, and exceed expectations, ensuring superior service and value for our clients.',
   },
   {
-    image: "/images/live/Collaboration-1.jpg",
-    title: "Collaboration",
-    desc: "We believe in the power of teamwork—both within our company and with our clients and partners. By fostering a collaborative environment, we combine diverse skills, ideas, and perspectives to drive the best possible outcomes for all stakeholders."
-  }
+    image: '/images/live/Collaboration-1.jpg',
+    title: 'Collaboration',
+    desc: 'We believe in the power of teamwork—both within our company and with our clients and partners. By fostering a collaborative environment, we combine diverse skills, ideas, and perspectives to drive the best possible outcomes for all stakeholders.',
+  },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section style={{
-        background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5.5rem',
-        paddingBottom: '5.5rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
+      {/* Hero Header */}
+      <section className="bg-gradient-to-br from-ofs-navy-950 via-[#081330] to-ofs-navy-900 text-white py-14 sm:py-16 lg:py-20 relative overflow-hidden">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <Container className="relative z-[2]">
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
+            <div className="flex items-center gap-2 font-mono text-xs text-white/60 mb-6 uppercase">
+              <Link href="/" className="text-white/70 hover:text-white no-underline">
+                Home
+              </Link>
               <span>/</span>
-              <span style={{ color: 'var(--ofs-red-400)' }}>Company Profile</span>
+              <span className="text-ofs-red-400">Company Profile</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
-              ABOUT OUR COMPANY
+            <div className="mb-5">
+              <Badge variant="red">ABOUT OUR COMPANY</Badge>
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem',
-            maxWidth: '920px'
-          }}>
+          <h1 className="text-[clamp(2.5rem,5vw,4.25rem)] font-heading font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Driven by Quality.
             </TextReveal>
@@ -99,77 +72,55 @@ export default function AboutPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{
-              fontSize: '1.18rem',
-              color: 'rgba(255, 255, 255, 0.85)',
-              maxWidth: '780px',
-              lineHeight: 1.6
-            }}>
+            <p className="text-lg text-white/85 max-w-[780px] leading-relaxed mb-8">
               {siteConfig.longDesc}
             </p>
           </ScrollReveal>
-        </div>
+
+          {/* Executive Pillars Strip */}
+          <ScrollReveal direction="up" delay={0.35}>
+            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono text-white/90">
+              <span className="py-1.5 px-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                🏛️ Founded on ISO 9001 Certified Governance
+              </span>
+              <span className="py-1.5 px-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                ⚓ IMPA Verified Maritime Supplier
+              </span>
+              <span className="py-1.5 px-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                🌐 Mumbai HQ &amp; USA Liaison Presence
+              </span>
+            </div>
+          </ScrollReveal>
+        </Container>
       </section>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '2.5rem',
-            marginBottom: '5rem'
-          }}>
+      {/* Mission & Vision Section */}
+      <SectionPad className="bg-white">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16">
             <ScrollReveal direction="up" delay={0.1}>
-              <div style={{
-                background: 'var(--ofs-navy-50)',
-                border: '1px solid var(--ofs-navy-100)',
-                borderRadius: 'var(--radius-lg)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%'
-              }}>
-                <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg overflow-hidden shadow-md flex flex-col h-full">
+                <div className="h-[160px] relative overflow-hidden">
                   <motion.img
                     src="/images/live/Mission-5.jpg"
                     alt="Our Mission"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
                   />
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.2) 0%, rgba(6, 14, 36, 0.7) 100%)'
-                  }} />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1.25rem',
-                    left: '1.5rem',
-                    color: '#fff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.65rem'
-                  }}>
-                    <div style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: 'var(--radius-xs)',
-                      background: 'var(--ofs-red-600)',
-                      display: 'grid',
-                      placeContent: 'center'
-                    }}>
-                      <Target size={20} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/20 to-[#060E24]/70" />
+                  <div className="absolute bottom-4 left-5 text-white flex items-center gap-2.5">
+                    <div className="w-[34px] h-[34px] rounded-xs bg-ofs-red-600 grid place-content-center">
+                      <Target size={18} />
                     </div>
-                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, margin: 0, color: '#fff' }}>
+                    <h2 className="font-heading text-xl font-extrabold m-0 text-white">
                       Our Mission
                     </h2>
                   </div>
                 </div>
 
-                <div style={{ padding: '2.25rem' }}>
-                  <p style={{ fontSize: '1.025rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, margin: 0 }}>
+                <div className="p-5 sm:p-6">
+                  <p className="text-sm sm:text-[0.925rem] text-ofs-gray-700 leading-relaxed m-0">
                     To provide world-class, customized solutions in Marine &amp; Offshore Services, Strategic Sourcing &amp; Engineering Procurement, Maintenance, and Industrial Logistics. We aim to empower clients globally by integrating cutting-edge technology, efficient systems, and expert manpower — while ensuring top-tier operational reliability and safety that elevate performance.
                   </p>
                 </div>
@@ -177,56 +128,28 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.2}>
-              <div style={{
-                background: 'var(--ofs-navy-50)',
-                border: '1px solid var(--ofs-navy-100)',
-                borderRadius: 'var(--radius-lg)',
-                overflow: 'hidden',
-                boxShadow: 'var(--shadow-md)',
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%'
-              }}>
-                <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg overflow-hidden shadow-md flex flex-col h-full">
+                <div className="h-[160px] relative overflow-hidden">
                   <motion.img
                     src="/images/live/Visioin-2.jpg"
                     alt="Our Vision"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
                   />
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.2) 0%, rgba(6, 14, 36, 0.7) 100%)'
-                  }} />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1.25rem',
-                    left: '1.5rem',
-                    color: '#fff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.65rem'
-                  }}>
-                    <div style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: 'var(--radius-xs)',
-                      background: 'var(--ofs-navy-900)',
-                      display: 'grid',
-                      placeContent: 'center'
-                    }}>
-                      <Eye size={20} style={{ color: 'var(--ofs-gold-400)' }} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/20 to-[#060E24]/70" />
+                  <div className="absolute bottom-4 left-5 text-white flex items-center gap-2.5">
+                    <div className="w-[34px] h-[34px] rounded-xs bg-ofs-navy-900 grid place-content-center">
+                      <Eye size={18} className="text-ofs-gold-400" />
                     </div>
-                    <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 800, margin: 0, color: '#fff' }}>
+                    <h2 className="font-heading text-xl font-extrabold m-0 text-white">
                       Our Vision
                     </h2>
                   </div>
                 </div>
 
-                <div style={{ padding: '2.25rem' }}>
-                  <p style={{ fontSize: '1.025rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7, margin: 0 }}>
+                <div className="p-5 sm:p-6">
+                  <p className="text-sm sm:text-[0.925rem] text-ofs-gray-700 leading-relaxed m-0">
                     To be a globally recognized leader in delivering end-to-end engineering, procurement, facility, and project support solutions — driven by innovation, reliability, and a strong commitment to customer satisfaction and operational excellence across India, the Middle East, North America, and premier international energy hubs.
                   </p>
                 </div>
@@ -234,13 +157,14 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
 
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
+          {/* Core Values Section */}
+          <div className="text-center max-w-[720px] mx-auto mb-12">
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-red" style={{ marginBottom: '0.85rem' }}>
-                OUR FOUNDATION
+              <div className="mb-3.5">
+                <Badge variant="red">OUR FOUNDATION</Badge>
               </div>
             </ScrollReveal>
-            <h2 className="section-title">
+            <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
                 Our Core Values:
               </TextReveal>
@@ -253,42 +177,26 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
-            gap: '2rem'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {values.map((v, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 0.12}>
-                <div className="card-modern" style={{ padding: 0, overflow: 'hidden', height: '100%' }}>
-                  <div style={{ height: '180px', position: 'relative', overflow: 'hidden' }}>
+                <div className="p-0 overflow-hidden h-full bg-white border border-ofs-gray-200 rounded-md shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="h-[150px] relative overflow-hidden">
                     <motion.img
                       src={v.image}
                       alt={v.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      className="w-full h-full object-cover"
                       whileHover={{ scale: 1.06 }}
                       transition={{ duration: 0.6 }}
                     />
-                    <div style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.1) 0%, rgba(6, 14, 36, 0.6) 100%)'
-                    }} />
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '1rem',
-                      left: '1.5rem',
-                      color: '#fff',
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.35rem',
-                      fontWeight: 800
-                    }}>
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/60" />
+                    <div className="absolute bottom-3.5 left-5 text-white font-heading text-lg font-extrabold">
                       {v.title}
                     </div>
                   </div>
 
-                  <div style={{ padding: '1.75rem' }}>
-                    <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-600)', lineHeight: 1.65, margin: 0 }}>
+                  <div className="p-5">
+                    <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed m-0">
                       {v.desc}
                     </p>
                   </div>
@@ -296,18 +204,19 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </SectionPad>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-navy-950)', color: '#fff', position: 'relative' }}>
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
-        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '840px' }}>
+      {/* Global Brand Assurance Banner */}
+      <SectionPad className="bg-ofs-navy-950 text-white relative">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
+        <Container className="relative z-[2] text-center max-w-[840px]">
           <ScrollReveal direction="up">
-            <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
-              GLOBAL BRAND ASSURANCE
+            <div className="mb-5">
+              <Badge variant="red">GLOBAL BRAND ASSURANCE</Badge>
             </div>
           </ScrollReveal>
-          <h2 className="section-title" style={{ color: '#fff' }}>
+          <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] text-white mb-4 leading-[1.15]">
             <TextReveal tag="span" duration={0.65}>
               Over 3,000+ Internationally Approved Brands
             </TextReveal>
@@ -319,32 +228,33 @@ export default function AboutPage() {
             </span>
           </h2>
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{ fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.7, marginBottom: '2.5rem' }}>
+            <p className="text-lg text-white/85 leading-relaxed mb-10">
               With a network of over 3,000+ internationally approved brands from the US and Europe, OFS ensures exceptional quality, reliability, and compliance with global industry standards in every solution we deliver.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.35}>
-            <div style={{ display: 'inline-flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Link href="/services" className="btn btn-primary btn-lg">
+            <div className="inline-flex gap-4 flex-wrap justify-center">
+              <Button href="/services" variant="primary" size="lg">
                 Explore Our Services <ArrowUpRight size={18} />
-              </Link>
-              <Link href="/contact" className="btn btn-outline-white btn-lg">
+              </Button>
+              <Button href="/contact" variant="outline-white" size="lg">
                 Contact Commercial Desk
-              </Link>
+              </Button>
             </div>
           </ScrollReveal>
-        </div>
-      </section>
+        </Container>
+      </SectionPad>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 3.5rem auto' }}>
+      {/* Global Footprint Section */}
+      <SectionPad className="bg-white">
+        <Container>
+          <div className="text-center max-w-[720px] mx-auto mb-14">
             <ScrollReveal direction="up">
-              <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-                GLOBAL FOOTPRINT
+              <div className="mb-4">
+                <Badge variant="red">GLOBAL FOOTPRINT</Badge>
               </div>
             </ScrollReveal>
-            <h2 className="section-title">
+            <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
                 India Headquarters &amp;
               </TextReveal>
@@ -357,62 +267,52 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '2.5rem'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <div style={{
-                background: 'var(--ofs-navy-50)',
-                border: '1px solid var(--ofs-navy-100)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '2.75rem 2.5rem',
-                boxShadow: 'var(--shadow-md)',
-                height: '100%'
-              }}>
-                <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
-                  INDIA HEADQUARTERS
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
+                <div className="mb-4">
+                  <Badge variant="red">INDIA HEADQUARTERS</Badge>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
                   Oriented Facility Solution Pvt Ltd
                 </h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                  {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2}, {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} – {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
+                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
+                  {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
+                  {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
+                  {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
                 </p>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--ofs-navy-900)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <div><strong>Phone:</strong> {siteConfig.contact.phone}</div>
-                  <div><strong>Email:</strong> {siteConfig.contact.email}</div>
+                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 flex flex-col gap-1.5">
+                  <div>
+                    <strong>Phone:</strong> {siteConfig.contact.phone}
+                  </div>
+                  <div>
+                    <strong>Email:</strong> {siteConfig.contact.email}
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
-              <div style={{
-                background: 'var(--ofs-navy-50)',
-                border: '1px solid var(--ofs-navy-100)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '2.75rem 2.5rem',
-                boxShadow: 'var(--shadow-md)',
-                height: '100%'
-              }}>
-                <div className="tag-badge" style={{ marginBottom: '1.25rem', background: 'var(--ofs-navy-900)' }}>
-                  USA ENTITY
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
+                <div className="mb-4">
+                  <Badge variant="navy">USA ENTITY</Badge>
                 </div>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.45rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.75rem' }}>
+                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
                   Oriented Facility Solution LLC
                 </h3>
-                <p style={{ fontSize: '0.95rem', color: 'var(--ofs-gray-600)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                  {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
+                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
+                  {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
+                  {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode},{' '}
+                  {siteConfig.contact.addressUSA.country}
                 </p>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--ofs-navy-900)' }}>
+                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900">
                   Global Sourcing Coordination &amp; International AVL Desk
                 </div>
               </div>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
+        </Container>
+      </SectionPad>
 
       <ContactCTA />
     </>

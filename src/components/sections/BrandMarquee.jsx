@@ -2,8 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
-import ScrollReveal from '@/components/animations/ScrollReveal';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 const row1Brands = [
   { name: 'Emerson', category: 'Control Systems & Instrumentation', country: 'USA' },
@@ -32,98 +31,70 @@ const row2Brands = [
 ];
 
 export default function BrandMarquee() {
+
+function brandInitials(name) {
+  return name
+    .split(/[\s+]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
+}
+
+function BrandChip({ brand, countryTone = 'gold' }) {
   return (
-    <section 
-      style={{
-        background: 'linear-gradient(180deg, var(--ofs-navy-950) 0%, #060e24 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '3.5rem',
-        paddingBottom: '3.5rem',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
+    <div className="inline-flex items-center gap-3.5 py-3 px-4 min-w-[260px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
+      <div className="w-10 h-10 rounded-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 text-white grid place-content-center font-heading font-black text-xs tracking-wider shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:text-ofs-gold-300 transition-colors">
+        {brandInitials(brand.name)}
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center justify-between gap-2 mb-0.5">
+          <span className="font-heading text-[0.95rem] font-bold text-white tracking-tight truncate group-hover:text-white">
+            {brand.name}
+          </span>
+          <span
+            className={
+              countryTone === 'green'
+                ? 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold shrink-0'
+                : 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-amber-500/15 text-ofs-gold-400 border border-amber-500/30 font-bold shrink-0'
+            }
+          >
+            {brand.country}
+          </span>
+        </div>
+        <span className="text-[0.72rem] text-white/55 block truncate">{brand.category}</span>
+      </div>
+    </div>
+  );
+}
+
+  return (
+    <section
+      className="bg-gradient-to-b from-ofs-navy-950 to-[#060e24] text-white py-14 border-y border-white/[0.08] relative overflow-hidden"
       aria-label="Approved Global Manufacturers & Brands"
     >
       {/* Background glow ambiance */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '700px',
-          height: '250px',
-          background: 'radial-gradient(ellipse at center, rgba(224, 42, 48, 0.08) 0%, rgba(12, 30, 78, 0.0) 70%)',
-          filter: 'blur(60px)',
-          pointerEvents: 'none'
-        }}
-      />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] bg-[radial-gradient(ellipse_at_center,rgba(224,42,48,0.08)_0%,transparent_70%)] blur-[60px] pointer-events-none" />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2, marginBottom: '2.25rem' }}>
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          gap: '1.5rem'
-        }}>
+      <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2] mb-9">
+        <div className="flex flex-wrap justify-between items-end gap-6">
           <div>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              fontWeight: 700,
-              color: 'var(--ofs-gold-400)',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              marginBottom: '0.5rem'
-            }}>
+            <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-ofs-gold-400 tracking-[0.08em] uppercase mb-2">
               <Sparkles size={14} />
               <span>Global Sourcing Network</span>
             </div>
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
-              fontWeight: 800,
-              color: 'var(--ofs-white)',
-              margin: 0,
-              letterSpacing: '-0.02em'
-            }}>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white m-0 tracking-tight">
               3,000+ Internationally Approved Brands
             </h2>
-            <p style={{
-              fontSize: '0.925rem',
-              color: 'rgba(255, 255, 255, 0.65)',
-              marginTop: '0.35rem',
-              maxWidth: '620px'
-            }}>
+            <p className="text-sm text-white/65 mt-1.5 max-w-[620px] leading-relaxed">
               Direct authorized sourcing channels across premier US, European, and Japanese original equipment manufacturers with 100% verifiable mill test certificates.
             </p>
           </div>
 
           <Link
             href="/services/procurement-shipping"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              color: 'var(--ofs-red-400)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              padding: '0.5rem 1rem',
-              borderRadius: 'var(--radius-xs)',
-              border: '1px solid rgba(224, 42, 48, 0.3)',
-              background: 'rgba(224, 42, 48, 0.05)',
-              transition: 'all 0.25s ease'
-            }}
-            className="hover-white"
+            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline"
           >
             Explore Sourcing Standards <ArrowRight size={14} />
           </Link>
@@ -131,166 +102,22 @@ export default function BrandMarquee() {
       </div>
 
       {/* Marquee Track 1 (Right to Left) */}
-      <div 
-        style={{
-          position: 'relative',
-          width: '100%',
-          overflow: 'hidden',
-          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-          marginBottom: '1rem'
-        }}
-      >
-        <div className="marquee-content-rtl">
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] mb-4">
+        <div className="flex w-max animate-marquee-rtl hover:[animation-play-state:paused] will-change-transform">
           {[...row1Brands, ...row1Brands].map((b, i) => (
-            <div
-              key={`${b.name}-${i}`}
-              style={{
-                display: 'inline-flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                padding: '0.85rem 1.4rem',
-                minWidth: '220px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: 'var(--radius-sm)',
-                backdropFilter: 'blur(8px)',
-                marginRight: '1rem',
-                flexShrink: 0,
-                transition: 'all 0.3s ease',
-                cursor: 'default'
-              }}
-              className="brand-chip"
-            >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                <span style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: 'var(--ofs-white)',
-                  letterSpacing: '-0.01em'
-                }}>
-                  {b.name}
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.62rem',
-                  padding: '0.15rem 0.4rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'rgba(217, 119, 6, 0.18)',
-                  color: 'var(--ofs-gold-400)',
-                  fontWeight: 700
-                }}>
-                  {b.country}
-                </span>
-              </div>
-              <span style={{
-                fontSize: '0.75rem',
-                color: 'rgba(255, 255, 255, 0.6)',
-                whiteSpace: 'nowrap'
-              }}>
-                {b.category}
-              </span>
-            </div>
+            <BrandChip key={`${b.name}-${i}`} brand={b} />
           ))}
         </div>
       </div>
 
       {/* Marquee Track 2 (Right to Left - Slower/Offset) */}
-      <div 
-        style={{
-          position: 'relative',
-          width: '100%',
-          overflow: 'hidden',
-          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
-        }}
-      >
-        <div className="marquee-content-rtl-slow">
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex w-max animate-marquee-rtl-slow hover:[animation-play-state:paused] will-change-transform">
           {[...row2Brands, ...row2Brands].map((b, i) => (
-            <div
-              key={`${b.name}-${i}`}
-              style={{
-                display: 'inline-flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                padding: '0.85rem 1.4rem',
-                minWidth: '220px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: 'var(--radius-sm)',
-                backdropFilter: 'blur(8px)',
-                marginRight: '1rem',
-                flexShrink: 0,
-                transition: 'all 0.3s ease',
-                cursor: 'default'
-              }}
-              className="brand-chip"
-            >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                <span style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.05rem',
-                  fontWeight: 800,
-                  color: 'var(--ofs-white)',
-                  letterSpacing: '-0.01em'
-                }}>
-                  {b.name}
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.62rem',
-                  padding: '0.15rem 0.4rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'rgba(16, 185, 129, 0.18)',
-                  color: 'var(--ofs-green-400)',
-                  fontWeight: 700
-                }}>
-                  {b.country}
-                </span>
-              </div>
-              <span style={{
-                fontSize: '0.75rem',
-                color: 'rgba(255, 255, 255, 0.6)',
-                whiteSpace: 'nowrap'
-              }}>
-                {b.category}
-              </span>
-            </div>
+            <BrandChip key={`${b.name}-${i}`} brand={b} countryTone="green" />
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .marquee-content-rtl {
-          display: flex;
-          width: max-content;
-          animation: marqueeRTL 38s linear infinite;
-        }
-        .marquee-content-rtl-slow {
-          display: flex;
-          width: max-content;
-          animation: marqueeRTL 45s linear infinite;
-        }
-        .marquee-content-rtl:hover,
-        .marquee-content-rtl-slow:hover {
-          animation-play-state: paused;
-        }
-        .brand-chip:hover {
-          background: rgba(255, 255, 255, 0.09) !important;
-          border-color: var(--ofs-red-500) !important;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        @keyframes marqueeRTL {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -19,9 +19,9 @@ import {
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import siteConfig from '@/data/site-config.json';
+import { cn } from '@/lib/cn';
 
 export default function ContactPage() {
-  const [formType, setFormType] = useState('rfp'); // 'rfp' | 'general'
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,7 +45,7 @@ export default function ContactPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, formType })
+        body: JSON.stringify({ ...formData, formType: 'general' })
       });
 
       setStatus({
@@ -71,154 +71,123 @@ export default function ContactPage() {
 
   return (
     <>
-      <section style={{
-        background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-        color: 'var(--ofs-white)',
-        paddingTop: '5.5rem',
-        paddingBottom: '5.5rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }} />
+      <section className="bg-gradient-to-br from-ofs-navy-950 via-[#071330] to-ofs-navy-900 text-white py-14 sm:py-16 lg:py-20 relative overflow-hidden">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container relative z-10">
           <ScrollReveal direction="down" duration={0.5}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'var(--text-xs)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              marginBottom: '1.5rem',
-              textTransform: 'uppercase'
-            }}>
-              <Link href="/" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Home</Link>
+            <div className="flex items-center gap-2 font-mono text-xs text-white/60 mb-6 uppercase">
+              <Link href="/" className="text-white/70 hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span style={{ color: 'var(--ofs-red-400)' }}>Contact</span>
+              <span className="text-ofs-red-400">Contact</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
+            <div className="tag-badge badge-red mb-5">
               CONNECT WITH OFS GROUP INDIA
             </div>
           </ScrollReveal>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            color: 'var(--ofs-white)',
-            marginBottom: '1.5rem',
-            maxWidth: '920px'
-          }}>
+          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Let's Discuss Your Next
             </TextReveal>
             <br />
             <span className="gradient-text-red">
               <TextReveal tag="span" delay={0.2} duration={0.65}>
-                Project or Procurement RFQ
+                Project or General Enquiry
               </TextReveal>
             </span>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p style={{
-              fontSize: '1.18rem',
-              color: 'rgba(255, 255, 255, 0.85)',
-              maxWidth: '780px',
-              lineHeight: 1.6
-            }}>
+            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed mb-8">
               Connect directly with our corporate headquarters in Mumbai or our global liaison desk in Florida, USA.
             </p>
+          </ScrollReveal>
+
+          {/* Above-the-fold Direct Contact Channels */}
+          <ScrollReveal direction="up" delay={0.35}>
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <a
+                href={`tel:${siteConfig.contact.phoneRaw}`}
+                className="inline-flex items-center gap-2.5 py-2.5 px-5 rounded-md bg-white text-ofs-navy-950 font-heading font-extrabold text-sm shadow-lg hover:bg-ofs-gold-300 transition-colors no-underline"
+              >
+                <Phone size={15} className="text-ofs-red-600" /> {siteConfig.contact.phone}
+              </a>
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="inline-flex items-center gap-2.5 py-2.5 px-5 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs font-semibold backdrop-blur-md transition-colors no-underline"
+              >
+                <Mail size={15} className="text-ofs-red-400" /> {siteConfig.contact.email}
+              </a>
+              <a
+                href="#rfq-form"
+                className="inline-flex items-center gap-2 py-2.5 px-5 rounded-md bg-ofs-red-600 hover:bg-ofs-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(224,42,48,0.4)] transition-all no-underline"
+              >
+                Quick RFQ Form ↓
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
+      <section className="section-pad bg-white">
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-            gap: '4.5rem'
-          }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[4.5rem]">
             <div>
               <ScrollReveal direction="left" delay={0.1}>
-                <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
+                <div className="tag-badge badge-red mb-4">
                   CORPORATE PRESENCE
                 </div>
 
-                <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>
+                <h2 className="section-title mb-6">
                   Our Locations &amp; <br />
                   <span className="gradient-text-navy">Direct Contact Channels</span>
                 </h2>
 
-                <div style={{
-                  background: 'var(--ofs-navy-50)',
-                  border: '1px solid var(--ofs-navy-100)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '2.25rem',
-                  marginBottom: '1.5rem',
-                  boxShadow: 'var(--shadow-sm)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <Building size={22} style={{ color: 'var(--ofs-red-600)' }} />
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--ofs-navy-950)', margin: 0 }}>
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Building size={22} className="text-ofs-red-600 shrink-0" />
+                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
                       Oriented Facility Solution Pvt Ltd
                     </h3>
                   </div>
-                  <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-700)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
                     {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2}, {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} – {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
                   </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--ofs-navy-950)', fontFamily: 'var(--font-mono)' }}>
-                    <a href={`tel:${siteConfig.contact.phoneRaw}`} style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'inherit' }}>
-                      <Phone size={15} style={{ color: 'var(--ofs-red-600)' }} /> {siteConfig.contact.phone}
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono">
+                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
                     </a>
-                    <a href={`mailto:${siteConfig.contact.email}`} style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'inherit' }}>
-                      <Mail size={15} style={{ color: 'var(--ofs-red-600)' }} /> {siteConfig.contact.email}
+                    <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.email}
                     </a>
                   </div>
                 </div>
 
-                <div style={{
-                  background: 'var(--ofs-navy-50)',
-                  border: '1px solid var(--ofs-navy-100)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '2.25rem',
-                  marginBottom: '2rem',
-                  boxShadow: 'var(--shadow-sm)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    <Globe2 size={22} style={{ color: 'var(--ofs-navy-700)' }} />
-                    <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--ofs-navy-950)', margin: 0 }}>
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-8 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe2 size={22} className="text-ofs-navy-700 shrink-0" />
+                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
                       Oriented Facility Solution LLC
                     </h3>
                   </div>
-                  <p style={{ fontSize: '0.925rem', color: 'var(--ofs-gray-700)', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
                     {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
                   </p>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--ofs-navy-950)', fontFamily: 'var(--font-mono)' }}>
+                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono">
                     Global AVL Procurement &amp; International Cargo Coordination Desk
                   </div>
                 </div>
 
                 {/* Response SLA Note */}
-                <div style={{
-                  padding: '1.35rem',
-                  borderRadius: 'var(--radius-xs)',
-                  background: 'var(--ofs-navy-950)',
-                  color: 'var(--ofs-white)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.85rem'
-                }}>
-                  <ShieldCheck size={26} style={{ color: 'var(--ofs-gold-400)', flexShrink: 0 }} />
-                  <div style={{ fontSize: '0.85rem', lineHeight: 1.45 }}>
-                    <strong style={{ color: '#fff', display: 'block' }}>ISO 9001:2015 Service Standard</strong>
-                    Technical enquiries and RFQs are reviewed and assigned within 4 business hours.
+                <div className="p-[1.35rem] rounded bg-ofs-navy-950 text-white flex items-center gap-3.5">
+                  <ShieldCheck size={26} className="text-ofs-gold-400 shrink-0" />
+                  <div className="text-[0.85rem] leading-snug">
+                    <strong className="text-white block">ISO 9001:2015 Service Standard</strong>
+                    Technical and business enquiries are reviewed and assigned within 4 business hours.
                   </div>
                 </div>
               </ScrollReveal>
@@ -226,63 +195,23 @@ export default function ContactPage() {
 
             <div>
               <ScrollReveal direction="right" delay={0.2}>
-                <div style={{
-                  background: 'var(--ofs-white)',
-                  border: '1px solid var(--ofs-gray-200)',
-                  borderRadius: 'var(--radius-xl)',
-                  padding: 'clamp(2.25rem, 4.5vw, 3.25rem)',
-                  boxShadow: 'var(--shadow-xl)'
-                }}>
-                  {/* Form Type Tabs */}
-                  <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', borderBottom: '1px solid var(--ofs-gray-200)', paddingBottom: '1rem' }}>
-                    <button
-                      type="button"
-                      onClick={() => setFormType('rfp')}
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.825rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        padding: '0.55rem 1.15rem',
-                        borderRadius: 'var(--radius-xs)',
-                        cursor: 'pointer',
-                        background: formType === 'rfp' ? 'var(--ofs-red-600)' : 'transparent',
-                        color: formType === 'rfp' ? 'var(--ofs-white)' : 'var(--ofs-gray-600)',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      Submit RFQ / RFP
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setFormType('general')}
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.825rem',
-                        fontWeight: 700,
-                        textTransform: 'uppercase',
-                        padding: '0.55rem 1.15rem',
-                        borderRadius: 'var(--radius-xs)',
-                        cursor: 'pointer',
-                        background: formType === 'general' ? 'var(--ofs-navy-900)' : 'transparent',
-                        color: formType === 'general' ? 'var(--ofs-white)' : 'var(--ofs-gray-600)',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
+                <div id="rfq-form" className="bg-white border border-ofs-gray-200 rounded-2xl p-6 sm:p-9 lg:p-[3.25rem] shadow-xl scroll-mt-24">
+                  {/* Form Type */}
+                  <div className="flex gap-2 mb-8 border-b border-ofs-gray-200 pb-4">
+                    <div className="font-mono text-[0.825rem] font-bold uppercase py-2.5 px-4 rounded bg-ofs-navy-900 text-white shadow-sm">
                       General Enquiry
-                    </button>
+                    </div>
                   </div>
 
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--ofs-navy-950)', marginBottom: '0.5rem' }}>
-                    {formType === 'rfp' ? 'Request a Formal Technical Quotation' : 'Send a General Business Enquiry'}
+                  <h3 className="font-heading text-[1.4rem] font-extrabold text-ofs-navy-950 mb-2">
+                    Send a General Business Enquiry
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--ofs-gray-500)', marginBottom: '1.75rem' }}>
-                    Please fill in your project parameters below for immediate evaluation.
+                  <p className="text-[0.875rem] text-ofs-gray-500 mb-7">
+                    Please fill in your details below and our team will get back to you.
                   </p>
 
-                  <form onSubmit={handleSubmit}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label className="form-label">Contact Name *</label>
                         <input
@@ -309,7 +238,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label className="form-label">Phone / WhatsApp *</label>
                         <input
@@ -335,7 +264,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label className="form-label">Primary Service Division *</label>
                         <select
@@ -382,19 +311,13 @@ export default function ContactPage() {
                     </div>
 
                     {status.msg && (
-                      <div style={{
-                        padding: '0.9rem 1rem',
-                        borderRadius: 'var(--radius-xs)',
-                        marginBottom: '1rem',
-                        fontSize: '0.85rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        background: status.state === 'success' ? 'var(--ofs-green-50)' : 'var(--ofs-red-50)',
-                        color: status.state === 'success' ? 'var(--ofs-green-700)' : 'var(--ofs-red-700)',
-                        border: status.state === 'success' ? '1px solid var(--ofs-green-100)' : '1px solid var(--ofs-red-100)'
-                      }}>
-                        <CheckCircle2 size={18} />
+                      <div className={cn(
+                        'p-3.5 rounded text-[0.85rem] flex items-center gap-2',
+                        status.state === 'success'
+                          ? 'bg-ofs-green-50 text-ofs-green-700 border border-ofs-green-100'
+                          : 'bg-ofs-red-50 text-ofs-red-700 border border-ofs-red-100'
+                      )}>
+                        <CheckCircle2 size={18} className="shrink-0" />
                         <span>{status.msg}</span>
                       </div>
                     )}
@@ -402,10 +325,9 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status.state === 'loading'}
-                      className="btn btn-primary btn-lg"
-                      style={{ width: '100%', cursor: 'pointer' }}
+                      className="btn btn-primary btn-lg w-full cursor-pointer flex items-center justify-center gap-2"
                     >
-                      {status.state === 'loading' ? 'Processing Enquiry...' : 'Submit Official RFP Document'} <Send size={16} />
+                      {status.state === 'loading' ? 'Processing Enquiry...' : 'Submit General Enquiry'} <Send size={16} />
                     </button>
                   </form>
                 </div>

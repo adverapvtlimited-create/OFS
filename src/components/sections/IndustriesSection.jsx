@@ -3,26 +3,29 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Flame, 
-  Ship, 
-  Sun, 
-  Hammer, 
-  Zap, 
-  FlaskConical, 
-  Dna, 
-  Mountain, 
-  Plane, 
+import {
+  Flame,
+  Ship,
+  Sun,
+  Hammer,
+  Zap,
+  FlaskConical,
+  Mountain,
+  Plane,
   Anchor,
   Compass,
-  ArrowUpRight, 
-  CheckCircle2, 
-  ShieldCheck 
+  ArrowUpRight,
+  CheckCircle2,
+  ShieldCheck,
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import MagneticButton from '@/components/animations/MagneticButton';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 import industriesData from '@/data/industries.json';
+import { cn } from '@/lib/cn';
 
 const iconMap = {
   Flame: Flame,
@@ -31,11 +34,10 @@ const iconMap = {
   Hammer: Hammer,
   Zap: Zap,
   FlaskConical: FlaskConical,
-  Dna: Dna,
   Mountain: Mountain,
   Plane: Plane,
   Anchor: Anchor,
-  Compass: Compass
+  Compass: Compass,
 };
 
 export default function IndustriesSection() {
@@ -44,17 +46,17 @@ export default function IndustriesSection() {
   const IconComp = iconMap[currentIndustry.icon] || Flame;
 
   return (
-    <section className="section-pad" style={{ background: 'var(--ofs-white)', position: 'relative' }}>
-      <div className="container">
+    <SectionPad className="bg-white relative">
+      <Container>
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3.5rem auto' }}>
+        <div className="text-center max-w-[750px] mx-auto mb-14">
           <ScrollReveal direction="up">
-            <div className="tag-badge badge-red" style={{ marginBottom: '1rem' }}>
-              SECTOR EXPERTISE
+            <div className="mb-4">
+              <Badge variant="red">SECTOR EXPERTISE</Badge>
             </div>
           </ScrollReveal>
 
-          <h2 className="section-title">
+          <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
             <TextReveal tag="span" duration={0.65}>
               Tailored Solutions Across
             </TextReveal>
@@ -67,22 +69,15 @@ export default function IndustriesSection() {
           </h2>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="section-desc" style={{ margin: '0 auto' }}>
-              From deepwater hydrocarbons and heavy civil EPC complexes to high-purity pharma cleanrooms and utility solar parks.
+            <p className="text-[clamp(1.025rem,1.35vw,1.18rem)] text-ofs-gray-600 max-w-[680px] leading-relaxed mx-auto">
+              From deepwater hydrocarbons and heavy civil EPC complexes to power infrastructure, mining operations, and utility solar parks.
             </p>
           </ScrollReveal>
         </div>
 
         {/* Responsive Industry Tab Selector with Clean Multi-Row Wrap & Spring Pill */}
         <ScrollReveal direction="up" delay={0.3}>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '0.65rem',
-            maxWidth: '1050px',
-            margin: '0 auto 2.5rem auto'
-          }}>
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-[1050px] mx-auto mb-10">
             {industriesData.map((ind) => {
               const TabIcon = iconMap[ind.icon] || Flame;
               const isActive = ind.id === activeTab;
@@ -90,28 +85,19 @@ export default function IndustriesSection() {
                 <button
                   key={ind.id}
                   onClick={() => setActiveTab(ind.id)}
-                  style={{
-                    position: 'relative',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.65rem 1.15rem',
-                    borderRadius: 'var(--radius-full)',
-                    fontSize: '0.825rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 700,
-                    whiteSpace: 'nowrap',
-                    cursor: 'pointer',
-                    background: isActive ? 'var(--ofs-navy-950)' : 'var(--ofs-gray-100)',
-                    color: isActive ? 'var(--ofs-white)' : 'var(--ofs-gray-700)',
-                    border: isActive ? '1px solid var(--ofs-navy-950)' : '1px solid var(--ofs-gray-200)',
-                    boxShadow: isActive ? '0 4px 14px rgba(12, 30, 78, 0.2)' : 'none',
-                    transition: 'color 0.2s ease, border-color 0.2s ease'
-                  }}
+                  className={cn(
+                    'relative inline-flex items-center gap-2 py-2.5 px-4.5 rounded-full text-[0.825rem] font-mono font-bold whitespace-nowrap cursor-pointer transition-all duration-200',
+                    isActive
+                      ? 'bg-ofs-navy-950 text-white border border-ofs-navy-950 shadow-[0_4px_14px_rgba(12,30,78,0.2)]'
+                      : 'bg-ofs-gray-100 text-ofs-gray-700 border border-ofs-gray-200 hover:border-ofs-navy-300'
+                  )}
                   data-cursor-text="SECTOR"
                 >
-                  <TabIcon size={15} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-gray-500)', position: 'relative', zIndex: 2 }} />
-                  <span style={{ position: 'relative', zIndex: 2 }}>{ind.shortName}</span>
+                  <TabIcon
+                    size={15}
+                    className={cn('relative z-[2]', isActive ? 'text-ofs-red-400' : 'text-ofs-gray-500')}
+                  />
+                  <span className="relative z-[2]">{ind.shortName}</span>
                 </button>
               );
             })}
@@ -120,139 +106,87 @@ export default function IndustriesSection() {
 
         {/* Selected Industry Detail Bento Console with Animated Crossfade */}
         <ScrollReveal direction="up" delay={0.4}>
-          <div style={{
-            background: 'var(--ofs-navy-50)',
-            borderRadius: 'var(--radius-xl)',
-            border: '1px solid var(--ofs-navy-100)',
-            overflow: 'hidden',
-            boxShadow: 'var(--shadow-xl)'
-          }}>
+          <div className="bg-ofs-navy-50 rounded-xl border border-ofs-navy-100 overflow-hidden shadow-xl">
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={currentIndustry.id}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))'
-                }}
+                className="grid grid-cols-1 lg:grid-cols-2"
               >
                 {/* Left: Content */}
-                <div style={{ padding: 'clamp(2rem, 4vw, 3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div className="p-8 sm:p-10 lg:p-14 flex flex-col justify-between">
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                      <div style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: 'var(--radius-xs)',
-                        background: 'var(--ofs-navy-950)',
-                        color: 'var(--ofs-red-400)',
-                        display: 'grid',
-                        placeContent: 'center'
-                      }}>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-11 h-11 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center">
                         <IconComp size={22} />
                       </div>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 700, color: 'var(--ofs-navy-900)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      <span className="font-mono text-xs font-bold text-ofs-navy-900 uppercase tracking-[0.05em]">
                         Industry Focus &amp; Compliance
                       </span>
                     </div>
 
-                    <h3 style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: 'clamp(1.6rem, 2.6vw, 2.15rem)',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '1rem',
-                      lineHeight: 1.2
-                    }}>
+                    <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-ofs-navy-950 mb-4 leading-tight">
                       {currentIndustry.name}
                     </h3>
 
-                    <p style={{
-                      fontSize: '1.025rem',
-                      color: 'var(--ofs-gray-600)',
-                      lineHeight: 1.6,
-                      marginBottom: '1.75rem'
-                    }}>
+                    <p className="text-base text-ofs-gray-600 leading-relaxed mb-7">
                       {currentIndustry.summary || currentIndustry.description}
                     </p>
 
                     {/* Key Capabilities List */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2.5rem' }}>
+                    <div className="flex flex-col gap-3 mb-10">
                       {(currentIndustry.keySolutions || currentIndustry.capabilities || []).map((cap, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.925rem', color: 'var(--ofs-gray-800)' }}>
-                          <CheckCircle2 size={18} style={{ color: 'var(--ofs-red-600)', flexShrink: 0 }} />
+                        <div
+                          key={idx}
+                          className="flex items-center gap-2.5 text-[0.925rem] text-ofs-gray-800"
+                        >
+                          <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0" />
                           <span>{cap}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-                    <MagneticButton strength={0.3} radius={70}>
-                      <Link href={`/industries/${currentIndustry.slug}`} className="btn btn-primary" data-cursor-text="SECTOR">
-                        Explore Sector Scope <ArrowUpRight size={16} />
-                      </Link>
-                    </MagneticButton>
-                    <MagneticButton strength={0.25} radius={60}>
-                      <Link href="/contact" className="btn btn-outline" data-cursor-text="CONTACT">
-                        Request Consultation
-                      </Link>
-                    </MagneticButton>
+                  <div className="flex gap-4 items-center flex-wrap">
+                    <Button href={`/industries/${currentIndustry.slug}`} variant="primary" data-cursor-text="SECTOR">
+                      Explore Sector Scope <ArrowUpRight size={16} />
+                    </Button>
+                    {currentIndustry.relatedService && (
+                      <Button
+                        href={`/services/${currentIndustry.relatedService.slug}`}
+                        variant="outline"
+                      >
+                        {currentIndustry.relatedService.label}
+                      </Button>
+                    )}
+                    {currentIndustry.relatedPortal && (
+                      <Button href={currentIndustry.relatedPortal.href} variant="green">
+                        {currentIndustry.relatedPortal.label}
+                      </Button>
+                    )}
                   </div>
                 </div>
 
                 {/* Right: Graphic / Visual with Ambient Badge */}
-                <div style={{
-                  position: 'relative',
-                  minHeight: '380px',
-                  background: 'var(--ofs-navy-950)',
-                  overflow: 'hidden',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '2rem'
-                }}>
-                  <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
+                <div className="relative min-h-[320px] lg:min-h-full bg-ofs-navy-950 overflow-hidden">
+                  <div className="bg-grid-pattern-dark absolute inset-0 opacity-30" />
 
-                  {/* Real Downloaded Live Industry Sector Graphic */}
-                  <motion.img 
-                    src={currentIndustry.heroImage || currentIndustry.image} 
+                  <motion.img
+                    src={currentIndustry.heroImage || currentIndustry.image}
                     alt={currentIndustry.name}
-                    style={{
-                      width: '85%',
-                      maxHeight: '300px',
-                      objectFit: 'contain',
-                      position: 'relative',
-                      zIndex: 2,
-                      filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.6))'
-                    }}
-                    initial={{ scale: 0.92, opacity: 0 }}
+                    className="absolute inset-0 w-full h-full object-cover z-[1]"
+                    initial={{ scale: 1.04, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060E24]/80 via-[#060E24]/20 to-transparent z-[2]" />
 
                   {/* Floating Spec Chip */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1.5rem',
-                    left: '1.5rem',
-                    background: 'rgba(6, 14, 36, 0.9)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    borderRadius: 'var(--radius-xs)',
-                    padding: '0.65rem 1rem',
-                    color: '#fff',
-                    zIndex: 3,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.8rem',
-                    fontFamily: 'var(--font-mono)'
-                  }}>
-                    <ShieldCheck size={16} style={{ color: 'var(--ofs-gold-400)' }} />
+                  <div className="absolute bottom-6 left-6 bg-[#060E24]/90 backdrop-blur-md border border-white/20 rounded-xs py-2.5 px-4 text-white z-[3] flex items-center gap-2 text-xs font-mono">
+                    <ShieldCheck size={16} className="text-ofs-gold-400" />
                     <span>ISO 9001 &amp; OEM Standards Certified</span>
                   </div>
                 </div>
@@ -260,7 +194,7 @@ export default function IndustriesSection() {
             </AnimatePresence>
           </div>
         </ScrollReveal>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

@@ -3,48 +3,43 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Briefcase, 
-  MapPin, 
-  Clock, 
-  TrendingUp, 
-  ShieldCheck, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import {
+  MapPin,
+  Clock,
+  ShieldCheck,
+  CheckCircle2,
   ArrowRight,
-  ChevronRight,
-  FileCheck2
+  FileCheck2,
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import GlowCard from '@/components/animations/GlowCard';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 import caseStudiesData from '@/data/case-studies.json';
+import { cn } from '@/lib/cn';
 
 export default function CaseStudies() {
   const [activeTab, setActiveTab] = useState(0);
   const activeStudy = caseStudiesData[activeTab] || caseStudiesData[0];
 
   return (
-    <section 
-      className="section-pad" 
-      style={{ 
-        background: 'var(--ofs-white)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
+    <SectionPad
+      className="bg-white relative overflow-hidden"
       id="case-studies"
       aria-label="Verified Case Studies & Project Execution Logs"
     >
-      <div className="container">
+      <Container>
         {/* Section Header */}
-        <div style={{ maxWidth: '780px', marginBottom: '3.5rem' }}>
+        <div className="max-w-[780px] mb-10">
           <ScrollReveal direction="up" delay={0.05}>
-            <div className="tag-badge badge-red" style={{ marginBottom: '1.25rem' }}>
-              PROVEN FIELD TRACK RECORD
+            <div className="mb-5">
+              <Badge variant="red">PROVEN FIELD TRACK RECORD</Badge>
             </div>
           </ScrollReveal>
 
-          <h2 className="section-title">
+          <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
             <TextReveal tag="span" duration={0.6}>
               High-Stakes Execution Logs &amp;
             </TextReveal>
@@ -57,73 +52,56 @@ export default function CaseStudies() {
           </h2>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="section-desc">
+            <p className="text-[clamp(1.025rem,1.35vw,1.18rem)] text-ofs-gray-600 max-w-[680px] leading-relaxed">
               Discover how OFS delivers precision sourcing, rapid emergency logistics, and certified engineering execution for offshore platforms, refineries, and renewable power installations across India and international waters.
             </p>
           </ScrollReveal>
         </div>
 
         {/* Desktop Case Study Selector Tabs */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1rem',
-          marginBottom: '2.5rem'
-        }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
           {caseStudiesData.map((cs, idx) => {
             const isActive = activeTab === idx;
             return (
               <button
                 key={cs.id}
                 onClick={() => setActiveTab(idx)}
-                style={{
-                  textAlign: 'left',
-                  padding: '1.25rem 1.4rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: isActive ? '1.5px solid var(--ofs-red-600)' : '1px solid var(--ofs-gray-200)',
-                  background: isActive ? 'var(--ofs-navy-950)' : 'var(--ofs-gray-50)',
-                  color: isActive ? 'var(--ofs-white)' : 'var(--ofs-navy-950)',
-                  cursor: 'pointer',
-                  transition: 'all 0.25s ease',
-                  boxShadow: isActive ? '0 8px 24px rgba(12, 30, 78, 0.2)' : 'none',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  gap: '0.75rem'
-                }}
+                className={cn(
+                  'text-left p-5 rounded-sm cursor-pointer transition-all duration-250 flex flex-col justify-between gap-3',
+                  isActive
+                    ? 'border-[1.5px] border-ofs-red-600 bg-ofs-navy-950 text-white shadow-[0_8px_24px_rgba(12,30,78,0.2)]'
+                    : 'border border-ofs-gray-200 bg-ofs-gray-50 text-ofs-navy-950 hover:border-ofs-navy-300'
+                )}
               >
                 <div>
-                  <div style={{
-                    fontSize: '0.7rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 700,
-                    color: isActive ? 'var(--ofs-gold-400)' : 'var(--ofs-red-600)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '0.35rem'
-                  }}>
+                  <div
+                    className={cn(
+                      'text-[0.7rem] font-mono font-bold uppercase tracking-[0.05em] mb-1.5',
+                      isActive ? 'text-ofs-gold-400' : 'text-ofs-red-600'
+                    )}
+                  >
                     {cs.badge}
                   </div>
-                  <div style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '0.95rem',
-                    fontWeight: 800,
-                    lineHeight: 1.35,
-                    color: isActive ? 'var(--ofs-white)' : 'var(--ofs-navy-950)'
-                  }}>
+                  <div
+                    className={cn(
+                      'font-heading text-[0.95rem] font-extrabold leading-snug',
+                      isActive ? 'text-white' : 'text-ofs-navy-950'
+                    )}
+                  >
                     {cs.title}
                   </div>
                 </div>
 
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                  fontSize: '0.75rem',
-                  color: isActive ? 'rgba(255, 255, 255, 0.7)' : 'var(--ofs-gray-500)',
-                  fontFamily: 'var(--font-mono)'
-                }}>
-                  <MapPin size={12} style={{ color: isActive ? 'var(--ofs-red-400)' : 'var(--ofs-red-600)' }} />
+                <div
+                  className={cn(
+                    'flex items-center gap-1.5 text-xs font-mono',
+                    isActive ? 'text-white/70' : 'text-ofs-gray-500'
+                  )}
+                >
+                  <MapPin
+                    size={12}
+                    className={isActive ? 'text-ofs-red-400' : 'text-ofs-red-600'}
+                  />
                   <span>{cs.location.split(',')[0]}</span>
                 </div>
               </button>
@@ -139,136 +117,60 @@ export default function CaseStudies() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              background: 'var(--ofs-navy-950)',
-              borderRadius: 'var(--radius-md)',
-              color: 'var(--ofs-white)',
-              overflow: 'hidden',
-              boxShadow: 'var(--shadow-xl), 0 20px 40px rgba(6, 14, 36, 0.25)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              position: 'relative'
-            }}
+            className="bg-ofs-navy-950 rounded-md text-white overflow-hidden shadow-xl border border-white/10 relative"
           >
             {/* Grid Pattern */}
-            <div className="bg-grid-pattern-dark" style={{ position: 'absolute', inset: 0, opacity: 0.35, pointerEvents: 'none' }} />
+            <div className="bg-grid-pattern-dark absolute inset-0 opacity-35 pointer-events-none" />
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))',
-              position: 'relative',
-              zIndex: 2
-            }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 relative z-[2]">
               {/* Left Column: Case Narrative & Problem/Solution */}
-              <div style={{ padding: 'clamp(2rem, 4vw, 3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
                 <div>
                   {/* Meta Bar */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '1.25rem' }}>
-                    <span className="tag-badge badge-red" style={{ fontSize: '0.7rem' }}>
+                  <div className="flex flex-wrap gap-3 items-center mb-4">
+                    <Badge variant="red" className="text-[0.7rem]">
                       {activeStudy.clientIndustry}
-                    </span>
-                    <span style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.35rem',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      color: 'var(--ofs-gold-400)',
-                      background: 'rgba(217, 119, 6, 0.12)',
-                      padding: '0.25rem 0.65rem',
-                      borderRadius: 'var(--radius-xs)',
-                      border: '1px solid rgba(217, 119, 6, 0.3)'
-                    }}>
+                    </Badge>
+                    <span className="inline-flex items-center gap-1.5 font-mono text-xs text-ofs-gold-400 bg-amber-600/15 py-1 px-2.5 rounded-xs border border-amber-600/30">
                       <Clock size={13} /> {activeStudy.duration}
                     </span>
                   </div>
 
-                  <h3 style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)',
-                    fontWeight: 800,
-                    lineHeight: 1.25,
-                    color: 'var(--ofs-white)',
-                    marginBottom: '1rem'
-                  }}>
+                  <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold leading-tight text-white mb-4">
                     {activeStudy.title}
                   </h3>
 
-                  <p style={{
-                    fontSize: '1rem',
-                    color: 'rgba(255, 255, 255, 0.85)',
-                    lineHeight: 1.6,
-                    marginBottom: '2rem'
-                  }}>
+                  <p className="text-sm sm:text-base text-white/85 leading-relaxed mb-5">
                     {activeStudy.summary}
                   </p>
 
                   {/* Challenge & Solution Blocks */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
-                    <div style={{
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '1.25rem'
-                    }}>
-                      <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        color: 'var(--ofs-red-400)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                        marginBottom: '0.4rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem'
-                      }}>
+                  <div className="grid grid-cols-1 gap-3 mb-5">
+                    <div className="bg-white/[0.04] border border-white/[0.08] rounded-sm p-4">
+                      <div className="font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.06em] mb-1.5 flex items-center gap-1.5">
                         <span>[!]</span> The Engineering Challenge
                       </div>
-                      <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.72)', lineHeight: 1.55, margin: 0 }}>
+                      <p className="text-[0.88rem] text-white/70 leading-relaxed m-0">
                         {activeStudy.challenge}
                       </p>
                     </div>
 
-                    <div style={{
-                      background: 'rgba(16, 185, 129, 0.06)',
-                      border: '1px solid rgba(16, 185, 129, 0.2)',
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '1.25rem'
-                    }}>
-                      <div style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        color: 'var(--ofs-green-400)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                        marginBottom: '0.4rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.4rem'
-                      }}>
+                    <div className="bg-emerald-500/[0.06] border border-emerald-500/20 rounded-sm p-4">
+                      <div className="font-mono text-xs font-bold text-ofs-green-400 uppercase tracking-[0.06em] mb-1.5 flex items-center gap-1.5">
                         <CheckCircle2 size={14} /> The OFS Technical Solution
                       </div>
-                      <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.82)', lineHeight: 1.55, margin: 0 }}>
+                      <p className="text-[0.88rem] text-white/80 leading-relaxed m-0">
                         {activeStudy.solution}
                       </p>
                     </div>
                   </div>
 
                   {/* Spec Tags */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2rem' }}>
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {activeStudy.tags.map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        style={{
-                          fontSize: '0.72rem',
-                          fontFamily: 'var(--font-mono)',
-                          padding: '0.3rem 0.7rem',
-                          background: 'rgba(255, 255, 255, 0.07)',
-                          color: 'var(--ofs-white)',
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid rgba(255, 255, 255, 0.12)'
-                        }}
+                        className="text-xs font-mono py-1 px-3 bg-white/[0.07] text-white rounded-full border border-white/12"
                       >
                         #{tag}
                       </span>
@@ -277,118 +179,53 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Bottom Action */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingTop: '1.5rem',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-                  flexWrap: 'wrap',
-                  gap: '1rem'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.6)', fontFamily: 'var(--font-mono)' }}>
-                    <MapPin size={14} style={{ color: 'var(--ofs-red-400)' }} />
+                <div className="flex items-center justify-between pt-6 border-t border-white/10 flex-wrap gap-4">
+                  <div className="flex items-center gap-2 text-xs text-white/60 font-mono">
+                    <MapPin size={14} className="text-ofs-red-400" />
                     <span>{activeStudy.location}</span>
                   </div>
 
-                  <Link
-                    href="/contact"
-                    className="btn btn-primary btn-sm"
-                  >
+                  <Button href="/contact" variant="primary" size="sm">
                     Request Similar Execution <ArrowRight size={14} />
-                  </Link>
+                  </Button>
                 </div>
               </div>
 
               {/* Right Column: Hero Visual & Verifiable Metrics */}
-              <div style={{
-                background: 'rgba(0, 0, 0, 0.25)',
-                borderLeft: '1px solid rgba(255, 255, 255, 0.08)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
+              <div className="bg-black/25 lg:border-l border-white/[0.08] flex flex-col justify-between">
                 {/* Hero Photo with Gradient Overlay */}
-                <div style={{ height: '260px', position: 'relative', overflow: 'hidden' }}>
+                <div className="h-[180px] sm:h-[200px] relative overflow-hidden">
                   <img
                     src={activeStudy.heroImage}
                     alt={activeStudy.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="w-full h-full object-cover"
                   />
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(6, 14, 36, 0.2) 0%, rgba(6, 14, 36, 0.8) 100%)'
-                  }} />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    left: '1.5rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    fontSize: '0.75rem',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--ofs-white)',
-                    background: 'rgba(6, 14, 36, 0.85)',
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: 'var(--radius-xs)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    backdropFilter: 'blur(8px)'
-                  }}>
-                    <FileCheck2 size={14} style={{ color: 'var(--ofs-gold-400)' }} />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/20 to-[#060E24]/80" />
+                  <div className="absolute bottom-4 left-6 flex items-center gap-2 text-xs font-mono text-white bg-[#060E24]/85 py-1.5 px-3 rounded-xs border border-white/15 backdrop-blur-md">
+                    <FileCheck2 size={14} className="text-ofs-gold-400" />
                     <span>Field Verified Log Ref: #{activeStudy.id}</span>
                   </div>
                 </div>
 
                 {/* Metrics Stack */}
-                <div style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem)', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                  <div style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    color: 'var(--ofs-gold-400)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em'
-                  }}>
+                <div className="p-5 sm:p-6 lg:p-8 flex flex-col gap-4">
+                  <div className="font-mono text-xs font-bold text-ofs-gold-400 uppercase tracking-[0.08em]">
                     Verifiable Project Outcomes
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem' }}>
+                  <div className="grid grid-cols-2 gap-4">
                     {activeStudy.metrics.map((m, mIdx) => (
                       <div
                         key={mIdx}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid rgba(255, 255, 255, 0.1)',
-                          borderRadius: 'var(--radius-sm)',
-                          padding: '1.25rem 1rem',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '0.35rem'
-                        }}
+                        className="bg-white/[0.05] border border-white/10 rounded-sm p-4 sm:p-5 flex flex-col gap-1.5"
                       >
-                        <div style={{
-                          fontFamily: 'var(--font-heading)',
-                          fontSize: 'clamp(1.5rem, 2.5vw, 1.85rem)',
-                          fontWeight: 800,
-                          color: 'var(--ofs-red-400)',
-                          lineHeight: 1
-                        }}>
+                        <div className="font-heading text-2xl sm:text-3xl font-extrabold text-ofs-red-400 leading-none">
                           {m.value}
                         </div>
-                        <div style={{
-                          fontSize: '0.8rem',
-                          fontWeight: 700,
-                          color: 'var(--ofs-white)'
-                        }}>
+                        <div className="text-xs sm:text-sm font-bold text-white">
                           {m.label}
                         </div>
-                        <div style={{
-                          fontSize: '0.7rem',
-                          color: 'rgba(255, 255, 255, 0.55)',
-                          lineHeight: 1.3
-                        }}>
+                        <div className="text-[0.7rem] text-white/55 leading-tight">
                           {m.subtext}
                         </div>
                       </div>
@@ -396,19 +233,10 @@ export default function CaseStudies() {
                   </div>
 
                   {/* Quality Assurance Stamp */}
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    padding: '0.85rem 1rem',
-                    background: 'rgba(217, 119, 6, 0.08)',
-                    border: '1px solid rgba(217, 119, 6, 0.25)',
-                    borderRadius: 'var(--radius-xs)',
-                    marginTop: '0.5rem'
-                  }}>
-                    <ShieldCheck size={20} style={{ color: 'var(--ofs-gold-400)', flexShrink: 0 }} />
-                    <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.4 }}>
-                      <strong style={{ color: '#fff', display: 'block' }}>ISO 9001:2015 Quality &amp; MTC Audit Trail:</strong>
+                  <div className="flex items-center gap-3 p-3.5 px-4 bg-amber-600/[0.08] border border-amber-600/25 rounded-xs mt-2">
+                    <ShieldCheck size={20} className="text-ofs-gold-400 shrink-0" />
+                    <div className="text-xs text-white/80 leading-normal">
+                      <strong className="text-white block">ISO 9001:2015 Quality &amp; MTC Audit Trail:</strong>
                       Full material test certification and traceability reports supplied with every field delivery.
                     </div>
                   </div>
@@ -417,7 +245,7 @@ export default function CaseStudies() {
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
-    </section>
+      </Container>
+    </SectionPad>
   );
 }

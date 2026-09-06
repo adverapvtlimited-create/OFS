@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Send, Upload } from 'lucide-react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import Button from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
 
 export default function JobApplicationForm({ job }) {
   const [formData, setFormData] = useState({
@@ -60,177 +62,142 @@ export default function JobApplicationForm({ job }) {
 
   return (
     <ScrollReveal direction="right" delay={0.2}>
-      <div>
-        <div
-          style={{
-            background: 'var(--ofs-navy-50)',
-            border: '1px solid var(--ofs-navy-100)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2.5rem',
-            boxShadow: 'var(--shadow-lg)',
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '1.4rem',
-              fontWeight: 800,
-              color: 'var(--ofs-navy-950)',
-              marginBottom: '0.5rem',
-            }}
-          >
-            Apply for this Position
-          </h3>
-          <p style={{ fontSize: '0.875rem', color: 'var(--ofs-gray-600)', marginBottom: '1.75rem' }}>
-            Submit your resume and details directly to our hiring panel.
-          </p>
+      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-8 sm:p-10 shadow-lg">
+        <h3 className="font-heading text-2xl font-extrabold text-ofs-navy-950 mb-2">
+          Apply for this Position
+        </h3>
+        <p className="text-sm text-ofs-gray-600 mb-7">
+          Submit your resume and details directly to our hiring panel.
+        </p>
 
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="fullName">
-                Full Name *
-              </label>
-              <input
-                id="fullName"
-                type="text"
-                name="fullName"
-                required
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="e.g. Vikram Sharma"
-                className="form-control"
-              />
-            </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="fullName">
+              Full Name *
+            </label>
+            <input
+              id="fullName"
+              type="text"
+              name="fullName"
+              required
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="e.g. Vikram Sharma"
+              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15"
+            />
+          </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="email">
-                Email Address *
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="vikram@example.com"
-                className="form-control"
-              />
-            </div>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="email">
+              Email Address *
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="vikram@example.com"
+              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15"
+            />
+          </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="phone">
-                Phone Number *
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+91 98200 00000"
-                className="form-control"
-              />
-            </div>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="phone">
+              Phone Number *
+            </label>
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              required
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+91 98200 00000"
+              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15"
+            />
+          </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="experienceYears">
-                Total Years of Experience *
-              </label>
-              <input
-                id="experienceYears"
-                type="text"
-                name="experienceYears"
-                required
-                value={formData.experienceYears}
-                onChange={handleChange}
-                placeholder="e.g. 7 Years"
-                className="form-control"
-              />
-            </div>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="experienceYears">
+              Total Years of Experience *
+            </label>
+            <input
+              id="experienceYears"
+              type="text"
+              name="experienceYears"
+              required
+              value={formData.experienceYears}
+              onChange={handleChange}
+              placeholder="e.g. 7 Years"
+              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15"
+            />
+          </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="resume">
-                Resume / CV Upload (PDF, DOCX) *
-              </label>
-              <div
-                style={{
-                  position: 'relative',
-                  border: '2px dashed var(--ofs-navy-200)',
-                  borderRadius: 'var(--radius-sm)',
-                  padding: '1.5rem',
-                  textAlign: 'center',
-                  background: 'var(--ofs-white)',
-                  cursor: 'pointer',
-                }}
-              >
-                <Upload size={24} style={{ color: 'var(--ofs-navy-600)', margin: '0 auto 0.35rem auto' }} />
-                <div style={{ fontSize: '0.85rem', color: 'var(--ofs-gray-700)', fontWeight: 600 }}>
-                  {formData.resumeName ? formData.resumeName : 'Click to select or drag and drop your resume file'}
-                </div>
-                <input
-                  id="resume"
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={handleFileChange}
-                  required
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    opacity: 0,
-                    cursor: 'pointer',
-                  }}
-                />
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="resume">
+              Resume / CV Upload (PDF, DOCX) *
+            </label>
+            <div className="relative border-2 border-dashed border-ofs-navy-200 rounded-sm p-6 text-center bg-white cursor-pointer hover:border-ofs-navy-400 transition-colors">
+              <Upload size={24} className="text-ofs-navy-600 mx-auto mb-1.5" />
+              <div className="text-sm text-ofs-gray-700 font-semibold">
+                {formData.resumeName ? formData.resumeName : 'Click to select or drag and drop your resume file'}
               </div>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label" htmlFor="coverNote">
-                Cover Note / Highlights
-              </label>
-              <textarea
-                id="coverNote"
-                name="coverNote"
-                value={formData.coverNote}
-                onChange={handleChange}
-                placeholder="Briefly highlight your key domain experience and current notice period..."
-                className="form-control"
-                rows={3}
+              <input
+                id="resume"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                onChange={handleFileChange}
+                required
+                className="absolute inset-0 opacity-0 cursor-pointer"
               />
             </div>
+          </div>
 
-            {status.msg && (
-              <div
-                style={{
-                  padding: '0.9rem 1rem',
-                  borderRadius: 'var(--radius-xs)',
-                  marginBottom: '1rem',
-                  fontSize: '0.85rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  background: status.state === 'success' ? 'var(--ofs-green-50)' : 'var(--ofs-red-50)',
-                  color: status.state === 'success' ? 'var(--ofs-green-700)' : 'var(--ofs-red-700)',
-                  border:
-                    status.state === 'success' ? '1px solid var(--ofs-green-100)' : '1px solid var(--ofs-red-100)',
-                }}
-              >
-                <CheckCircle2 size={16} />
-                <span>{status.msg}</span>
-              </div>
-            )}
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="coverNote">
+              Cover Note / Highlights
+            </label>
+            <textarea
+              id="coverNote"
+              name="coverNote"
+              value={formData.coverNote}
+              onChange={handleChange}
+              placeholder="Briefly highlight your key domain experience and current notice period..."
+              rows={3}
+              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15 resize-y min-h-[100px]"
+            />
+          </div>
 
+          {status.msg && (
+            <div
+              className={cn(
+                'p-3.5 rounded-xs text-sm flex items-center gap-2',
+                status.state === 'success'
+                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                  : 'bg-red-50 text-red-700 border border-red-200'
+              )}
+            >
+              <CheckCircle2 size={16} className="shrink-0" />
+              <span>{status.msg}</span>
+            </div>
+          )}
+
+          <div className="w-full mt-2">
             <button
               type="submit"
               disabled={status.state === 'loading'}
-              className="btn btn-primary btn-lg"
-              style={{ width: '100%', cursor: 'pointer' }}
+              className={cn(
+                'w-full py-4 px-8 font-mono text-sm font-bold uppercase tracking-[0.06em] rounded-xs text-white bg-ofs-red-600 border border-ofs-red-500 shadow-[0_4px_16px_rgba(224,42,48,0.32)] transition-all duration-200 flex items-center justify-center gap-2 hover:bg-ofs-red-700 hover:shadow-[0_8px_24px_rgba(224,42,48,0.45)] hover:-translate-y-0.5',
+                status.state === 'loading' ? 'cursor-wait opacity-80' : 'cursor-pointer'
+              )}
             >
-              {status.state === 'loading' ? 'Submitting Application...' : 'Submit Application'} <Send size={16} />
+              {status.state === 'loading' ? 'Submitting Application...' : 'Submit Application'}{' '}
+              <Send size={16} />
             </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </ScrollReveal>
   );

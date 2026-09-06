@@ -62,22 +62,10 @@ export default function SingleJobPage({ params }) {
         ]}
       />
 
-      <section
-        style={{
-          background: 'linear-gradient(135deg, var(--ofs-navy-950) 0%, var(--ofs-navy-900) 100%)',
-          color: 'var(--ofs-white)',
-          paddingTop: '5.5rem',
-          paddingBottom: '5rem',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          className="bg-grid-pattern-dark"
-          style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }}
-        />
+      <section className="bg-gradient-to-br from-ofs-navy-950 to-ofs-navy-900 text-white pt-[5.5rem] pb-20 relative overflow-hidden">
+        <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-        <div className="container" style={{ maxWidth: '1000px', position: 'relative', zIndex: 2 }}>
+        <div className="container max-w-[1000px] relative z-10">
           <ScrollReveal direction="down" duration={0.5}>
             <Breadcrumbs items={breadcrumbItems} variant="dark" />
           </ScrollReveal>
@@ -85,134 +73,79 @@ export default function SingleJobPage({ params }) {
           <ScrollReveal direction="down" duration={0.5}>
             <Link
               href="/careers"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'var(--ofs-red-400)',
-                marginBottom: '1.5rem',
-                textDecoration: 'none',
-              }}
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-ofs-red-400 mb-6 hover:text-ofs-red-300 transition-colors"
             >
               <ArrowLeft size={14} /> Back to all open roles
             </Link>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap' }}>
-              <span className="tag-badge badge-red">{job.department}</span>
-              <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.7)', fontFamily: 'var(--font-mono)' }}>
+            <div className="flex gap-3 items-center mb-4 flex-wrap">
+              <span className="tag-badge badge-red">
+                {job.department}
+              </span>
+              <span className="text-xs text-white/70 font-mono">
                 Posted: {job.postedDate}
               </span>
             </div>
           </ScrollReveal>
 
-          <h1
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(2rem, 4vw, 3.25rem)',
-              fontWeight: 800,
-              lineHeight: 1.2,
-              color: 'var(--ofs-white)',
-              marginBottom: '1.5rem',
-            }}
-          >
+          <h1 className="font-heading text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-tight text-white mb-6">
             <TextReveal tag="span" duration={0.65}>
               {job.title}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <div
-              style={{
-                display: 'flex',
-                gap: '1.5rem',
-                flexWrap: 'wrap',
-                fontSize: '0.9rem',
-                color: 'rgba(255, 255, 255, 0.85)',
-                fontFamily: 'var(--font-mono)',
-              }}
-            >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <MapPin size={16} style={{ color: 'var(--ofs-red-400)' }} aria-hidden="true" /> {job.location}
+            <div className="flex gap-6 flex-wrap text-sm text-white/85 font-mono">
+              <span className="flex items-center gap-1.5">
+                <MapPin size={16} className="text-ofs-red-400" aria-hidden="true" /> {job.location}
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Briefcase size={16} style={{ color: 'var(--ofs-red-400)' }} aria-hidden="true" /> {job.type}
+              <span className="flex items-center gap-1.5">
+                <Briefcase size={16} className="text-ofs-red-400" aria-hidden="true" /> {job.type}
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Clock size={16} style={{ color: 'var(--ofs-red-400)' }} aria-hidden="true" /> {job.experience}
+              <span className="flex items-center gap-1.5">
+                <Clock size={16} className="text-ofs-red-400" aria-hidden="true" /> {job.experience}
               </span>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="section-pad" style={{ background: 'var(--ofs-white)' }}>
-        <div className="container" style={{ maxWidth: '1000px' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
-              gap: '4rem',
-            }}
-          >
+      <section className="section-pad bg-white">
+        <div className="container max-w-[1000px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <ScrollReveal direction="left" delay={0.1}>
               <div>
-                <div style={{ marginBottom: '2.5rem' }}>
-                  <h2
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.35rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '0.75rem',
-                    }}
-                  >
+                <div className="mb-10">
+                  <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
                     Role Overview
                   </h2>
-                  <p style={{ fontSize: '0.98rem', color: 'var(--ofs-gray-700)', lineHeight: 1.7 }}>{job.description}</p>
+                  <p className="text-[0.98rem] text-ofs-gray-700 leading-relaxed">{job.description}</p>
                 </div>
 
-                <div style={{ marginBottom: '2.5rem' }}>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.35rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '1rem',
-                    }}
-                  >
+                <div className="mb-10">
+                  <h3 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-4">
                     Key Responsibilities
                   </h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', padding: 0, listStyle: 'none' }}>
+                  <ul className="flex flex-col gap-3 p-0 list-none">
                     {job.responsibilities.map((resp, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.925rem', color: 'var(--ofs-gray-800)' }}>
-                        <CheckCircle2 size={16} style={{ color: 'var(--ofs-red-600)', flexShrink: 0, marginTop: '3px' }} aria-hidden="true" />
+                      <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
+                        <CheckCircle2 size={16} className="text-ofs-red-600 shrink-0 mt-1" aria-hidden="true" />
                         <span>{resp}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div style={{ marginBottom: '2.5rem' }}>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.35rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '1rem',
-                    }}
-                  >
+                <div className="mb-10">
+                  <h3 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-4">
                     Required Qualifications &amp; Experience
                   </h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', padding: 0, listStyle: 'none' }}>
+                  <ul className="flex flex-col gap-3 p-0 list-none">
                     {job.requirements.map((req, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.925rem', color: 'var(--ofs-gray-800)' }}>
-                        <CheckCircle2 size={16} style={{ color: 'var(--ofs-navy-900)', flexShrink: 0, marginTop: '3px' }} aria-hidden="true" />
+                      <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
+                        <CheckCircle2 size={16} className="text-ofs-navy-900 shrink-0 mt-1" aria-hidden="true" />
                         <span>{req}</span>
                       </li>
                     ))}
@@ -220,21 +153,13 @@ export default function SingleJobPage({ params }) {
                 </div>
 
                 <div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.35rem',
-                      fontWeight: 800,
-                      color: 'var(--ofs-navy-950)',
-                      marginBottom: '1rem',
-                    }}
-                  >
+                  <h3 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-4">
                     What We Offer
                   </h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', padding: 0, listStyle: 'none' }}>
+                  <ul className="flex flex-col gap-3 p-0 list-none">
                     {job.benefits.map((ben, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.925rem', color: 'var(--ofs-gray-800)' }}>
-                        <ShieldCheck size={16} style={{ color: 'var(--ofs-green-600)', flexShrink: 0, marginTop: '3px' }} aria-hidden="true" />
+                      <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
+                        <ShieldCheck size={16} className="text-ofs-green-600 shrink-0 mt-1" aria-hidden="true" />
                         <span>{ben}</span>
                       </li>
                     ))}
