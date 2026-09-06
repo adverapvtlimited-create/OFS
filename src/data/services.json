@@ -76,7 +76,7 @@
     "badge": "TECHNICAL CONSULTING",
     "icon": "Wrench",
     "heroImage": "/images/live/Engg-e1751278356951.jpg",
-    "tagline": "End-to-End Engineering Support — Onsite & Offshore",
+    "tagline": "End-to-End Engineering Support \u2014 Onsite & Offshore",
     "description": "OFS delivers specialized engineering, integration, and field services that address the complex and high-performance needs of critical industrial environments, from concept design to commissioning and ongoing maintenance.",
     "features": [
       "Detailed Engineering Design & Constructability Reviews",
@@ -88,7 +88,7 @@
     "capabilities": [
       {
         "title": "Project Lifecycle Integration",
-        "description": "Supporting clients across all development stages—from preliminary front-end engineering to field commissioning and brownfield upgrades."
+        "description": "Supporting clients across all development stages\u2014from preliminary front-end engineering to field commissioning and brownfield upgrades."
       },
       {
         "title": "Technical Procurement Assistance",

@@ -6,7 +6,10 @@
     "shortName": "Oil & Gas",
     "icon": "Flame",
     "heroImage": "/images/live/Oil-Gas.png",
-    "relatedService": { "slug": "procurement-shipping", "label": "Procurement & Shipping" },
+    "relatedService": {
+      "slug": "procurement-shipping",
+      "label": "Procurement & Shipping"
+    },
     "tagline": "Specialized Procurement & Technical Support for Upstream, Midstream & Downstream",
     "summary": "With over a decade of dedicated experience in the oil and gas sector, OFS provides advanced, end-to-end procurement and supply chain management solutions tailored to the dynamic needs of offshore drilling rigs, refinery operations, and pipeline networks across European, North American, and Asian markets.",
     "keySolutions": [
@@ -24,7 +27,10 @@
     "shortName": "Marine & Maritime",
     "icon": "Ship",
     "heroImage": "/images/live/Marine.png",
-    "relatedService": { "slug": "logistics-shipping", "label": "Industrial Logistics" },
+    "relatedService": {
+      "slug": "logistics-shipping",
+      "label": "Industrial Logistics"
+    },
     "tagline": "Ship Spare Parts Supply & Port Logistics for Commercial Vessels & FPSOs",
     "summary": "OFS specializes in delivering end-to-end procurement and supply chain solutions for a broad spectrum of ship spare parts and marine equipment, supporting the operational demands of commercial vessels, offshore platforms, and port operations worldwide with OEM-approved parts.",
     "keySolutions": [
@@ -42,8 +48,14 @@
     "shortName": "Renewables",
     "icon": "Sun",
     "heroImage": "/images/live/Renewable-Energy.png",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
-    "relatedPortal": { "href": "/renewables", "label": "Renewables Portal" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
+    "relatedPortal": {
+      "href": "/renewables",
+      "label": "Renewables Portal"
+    },
     "tagline": "Building a Sustainable and Green Future with Solar, Wind & BESS",
     "summary": "At OFS, we champion innovation and sustainability in the renewable energy sector. We support utility-scale solar farms, wind turbine installations, battery energy storage systems (BESS), and green microgrids with specialized procurement and life-cycle maintenance.",
     "keySolutions": [
@@ -61,7 +73,10 @@
     "shortName": "Power & Energy",
     "icon": "Zap",
     "heroImage": "/images/live/Power-Energy.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "High-Efficiency Spares & Maintenance for Thermal, Gas & Hydro Plants",
     "summary": "OFS fulfills critical procurement needs to minimize plant downtime and boost generation efficiency. We source spare parts for essential rotary equipment, turbines, generators, high-voltage transformers, and digital power instrumentation.",
     "keySolutions": [
@@ -79,7 +94,10 @@
     "shortName": "Petrochemicals",
     "icon": "FlaskConical",
     "heroImage": "/images/live/Petroleum-Refining.png",
-    "relatedService": { "slug": "procurement-shipping", "label": "Procurement & Shipping" },
+    "relatedService": {
+      "slug": "procurement-shipping",
+      "label": "Procurement & Shipping"
+    },
     "tagline": "Turnkey Procurement for High-Pressure Process Units & Refineries",
     "summary": "Operating within complex frameworks of large-scale refinery units and stringent safety standards, OFS supplies high-performance process equipment, cryogenic valves, gas detection grids, and specialized corrosion-resistant alloys across international project sites.",
     "keySolutions": [
@@ -97,7 +115,10 @@
     "shortName": "Cement",
     "icon": "Hammer",
     "heroImage": "/images/live/cement.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "Heavy-Duty Wear Parts, Kiln Spares & Material Handling Systems",
     "summary": "Providing rugged, abrasion-resistant wear plates, kiln drive components, roller press bearings, baghouse filtration systems, and bulk conveying spares engineered to endure high-dust, high-heat cement manufacturing operations.",
     "keySolutions": [
@@ -115,7 +136,10 @@
     "shortName": "Mining & Minerals",
     "icon": "Mountain",
     "heroImage": "/images/live/Mining-Minerals.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "Heavy Extraction Machinery Spares & Slurry Handling Equipment",
     "summary": "Supporting open-pit and underground mining operations with crushing spares, heavy earthmoving equipment wear components, high-density slurry pumps, and specialized off-highway logistics solutions.",
     "keySolutions": [
@@ -133,7 +157,10 @@
     "shortName": "Heavy Engineering",
     "icon": "Plane",
     "heroImage": "/images/live/Heavy-Engineering-2.png",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
     "tagline": "Precision Sourcing for Custom Fabrication & Plant Infrastructure",
     "summary": "Delivering specialized structural steel, high-tensile fasteners, industrial hydraulic systems, CNC machining tooling, and custom-engineered mechanical components for world-class heavy industrial fabricators.",
     "keySolutions": [
@@ -151,7 +178,10 @@
     "shortName": "Mooring Systems",
     "icon": "Anchor",
     "heroImage": "/images/live/Mooring-Systems.jpg",
-    "relatedService": { "slug": "logistics-shipping", "label": "Industrial Logistics" },
+    "relatedService": {
+      "slug": "logistics-shipping",
+      "label": "Industrial Logistics"
+    },
     "tagline": "High-Integrity Mooring Chains, Synthetic Ropes, Winches & Quayside Berthing Equipment",
     "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, harbour tug towing lines, heavy-duty studlink anchor chains, and quick-release mooring hooks compliant with OCIMF guidelines.",
     "keySolutions": [
@@ -169,7 +199,10 @@
     "shortName": "Commercial Diving",
     "icon": "Compass",
     "heroImage": "/images/live/Commercial-Diving.jpg",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
     "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
     "summary": "Providing certified commercial diving equipment, surface-supplied air and nitrox systems, subsea non-destructive testing (NDT), underwater wet welding, propeller super-polishing, and Class-approved in-water survey (UWILD) gear for offshore rigs, platforms, and commercial vessels worldwide.",
     "keySolutions": [
