@@ -254,10 +254,10 @@ export default function Footer() {
             {/* Corporate Registration Strip */}
             <div className="p-3.5 bg-white/[0.04] border border-white/10 rounded-xs text-xs text-white/70 font-mono leading-relaxed">
               <div>
-                <strong className="text-white">India Entity:</strong> {siteConfig.legalName}
+                <strong className="text-white">USA Entity:</strong> {siteConfig.usEntityName}
               </div>
               <div className="mt-1">
-                <strong className="text-white">USA Entity:</strong> {siteConfig.usEntityName}
+                <strong className="text-white">India Entity:</strong> {siteConfig.legalName}
               </div>
             </div>
 
@@ -420,6 +420,16 @@ export default function Footer() {
               Corporate Offices
             </div>
 
+            {/* USA Global Office */}
+            <div className="flex gap-3 items-start">
+              <Globe2 size={18} className="text-ofs-navy-400 shrink-0 mt-0.5" />
+              <div className="text-[0.85rem] text-white/80 leading-relaxed">
+                <strong className="text-white block">USA Global Office:</strong>
+                {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
+                {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, USA
+              </div>
+            </div>
+
             {/* India HQ */}
             <div className="flex gap-3 items-start">
               <MapPin size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
@@ -428,16 +438,6 @@ export default function Footer() {
                 {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
                 {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
                 {siteConfig.contact.addressIndia.pincode}
-              </div>
-            </div>
-
-            {/* USA Liaison Office */}
-            <div className="flex gap-3 items-start">
-              <Globe2 size={18} className="text-ofs-navy-400 shrink-0 mt-0.5" />
-              <div className="text-[0.85rem] text-white/80 leading-relaxed">
-                <strong className="text-white block">USA Global Office:</strong>
-                {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
-                {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, USA
               </div>
             </div>
 
