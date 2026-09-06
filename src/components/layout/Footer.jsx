@@ -430,11 +430,11 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* India HQ */}
+            {/* India Operations Hub */}
             <div className="flex gap-3 items-start">
               <MapPin size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
               <div className="text-[0.85rem] text-white/80 leading-relaxed">
-                <strong className="text-white block">India Headquarters:</strong>
+                <strong className="text-white block">India Operations Hub:</strong>
                 {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
                 {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
                 {siteConfig.contact.addressIndia.pincode}
@@ -454,7 +454,7 @@ export default function Footer() {
                 href={`mailto:${siteConfig.contact.email}`}
                 className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity"
               >
-                <Mail size={14} className="text-ofs-red-500" />
+                <Mail size={14} className=" text-ofs-red-500" />
                 {siteConfig.contact.email}
               </a>
             </div>
