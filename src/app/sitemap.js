@@ -1,5 +1,6 @@
 import servicesData from '@/data/services.json';
 import industriesData from '@/data/industries.json';
+import productsData from '@/data/products.json';
 import blogPosts from '@/data/blog-posts.json';
 import jobsData from '@/data/jobs.json';
 import { SITE_URL } from '@/config/seo.config';
@@ -13,6 +14,7 @@ export default function sitemap() {
     { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
+    { path: '/products', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/renewables', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog', priority: 0.75, changeFrequency: 'weekly' },
     { path: '/careers', priority: 0.75, changeFrequency: 'weekly' },
@@ -40,6 +42,13 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  const productRoutes = productsData.map((p) => ({
+    url: `${SITE_URL}/products/${p.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
+
   const blogRoutes = blogPosts.map((b) => ({
     url: `${SITE_URL}/blog/${b.slug}`,
     lastModified: parseDisplayDate(b.date) || now,
@@ -54,5 +63,5 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...productRoutes, ...blogRoutes, ...careerRoutes];
 }

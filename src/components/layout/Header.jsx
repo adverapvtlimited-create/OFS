@@ -393,19 +393,40 @@ export default function Header() {
               )}
             </Link>
 
+            <Link
+              href="/products"
+              className={cn(
+                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
+                pathname.startsWith('/products') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
+              )}
+            >
+              Products
+              {pathname.startsWith('/products') && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
+              )}
+            </Link>
+
             {/* Strategic Renewables Portal Link */}
             <Link
               href="/renewables"
               className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative inline-flex items-center gap-1.5 transition-colors',
-                pathname.startsWith('/renewables') ? 'text-ofs-green-700' : 'text-ofs-navy-950 hover:text-ofs-green-700'
+                'group font-mono text-xs md:text-sm font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 transition-all duration-300 border no-underline cursor-pointer select-none',
+                pathname.startsWith('/renewables')
+                  ? 'bg-[#d2f3e4] border-emerald-500 text-emerald-950 shadow-[0_2px_12px_rgba(16,185,129,0.25)] scale-[1.02]'
+                  : 'bg-[#e6f7f0] border-[#a7e8ce] text-emerald-900 hover:bg-[#d5f3e5] hover:border-emerald-400 hover:text-emerald-950 hover:scale-[1.05] hover:shadow-[0_2px_12px_rgba(16,185,129,0.2)] active:scale-[0.97]'
               )}
             >
-              <Sun size={14} className="text-ofs-green-600" />
-              Renewables
-              {pathname.startsWith('/renewables') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-green-600 rounded-full" />
-              )}
+              <div className="relative flex items-center justify-center w-5 h-5 shrink-0">
+                {/* Micro-animation ping pulse */}
+                <span className="absolute inset-0 rounded-full bg-emerald-500/30 animate-ping opacity-75" style={{ animationDuration: '2.2s' }} />
+                
+                {/* Target Icon: Red Outer Ring + Green Inner Center Dot */}
+                <svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 transition-transform duration-300 group-hover:scale-110">
+                  <circle cx="10" cy="10" r="7.5" stroke="#E02A30" strokeWidth="2.2" fill="#FFFFFF" />
+                  <circle cx="10" cy="10" r="3.8" fill="#059669" />
+                </svg>
+              </div>
+              <span className="tracking-[0.05em]">Renewables</span>
             </Link>
 
             <Link
@@ -489,10 +510,24 @@ export default function Header() {
             <Link
               href="/renewables"
               onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-green-700 flex items-center gap-2 border-b border-ofs-gray-200 pb-3 no-underline"
+              className={cn(
+                'group font-mono text-sm font-bold uppercase tracking-wider px-4 py-3 rounded-full inline-flex items-center justify-between transition-all border no-underline',
+                pathname.startsWith('/renewables')
+                  ? 'bg-[#d2f3e4] border-emerald-500 text-emerald-950 shadow-xs'
+                  : 'bg-[#e6f7f0] border-[#a7e8ce] text-emerald-900 active:bg-[#d5f3e5]'
+              )}
             >
-              <Sun size={18} className="text-ofs-green-600" />
-              Renewables Portal
+              <div className="flex items-center gap-2.5">
+                <div className="relative flex items-center justify-center w-5 h-5 shrink-0">
+                  <span className="absolute inset-0 rounded-full bg-emerald-500/30 animate-ping opacity-75" style={{ animationDuration: '2.2s' }} />
+                  <svg width="19" height="19" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
+                    <circle cx="10" cy="10" r="7.5" stroke="#E02A30" strokeWidth="2.2" fill="#FFFFFF" />
+                    <circle cx="10" cy="10" r="3.8" fill="#059669" />
+                  </svg>
+                </div>
+                <span>Renewables</span>
+              </div>
+              <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-200/80 text-emerald-900 tracking-wider">PORTAL</span>
             </Link>
             <Link
               href="/industries"
@@ -500,6 +535,13 @@ export default function Header() {
               className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
             >
               Industries Served
+            </Link>
+            <Link
+              href="/products"
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+            >
+              Products &amp; Equipment
             </Link>
             <Link
               href="/blog"

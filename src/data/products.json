@@ -1,0 +1,392 @@
+[
+  {
+    "id": "drilling-equipment",
+    "slug": "drilling-equipment",
+    "name": "Drilling Equipment",
+    "shortName": "Drilling Equipment",
+    "category": "Upstream & Drilling",
+    "icon": "Flame",
+    "heroImage": "/images/live/firsts.png",
+    "summary": "End-to-end supply of API specification drilling equipment, draw works, travelling blocks, coiled tubing, and heavy-wall OCTG casing & tubing.",
+    "keyPoints": [
+      "API 5CT Casing & Premium Connection Tubing",
+      "Draw Works & Mud Pump Replacement Parts",
+      "Coiled Tubing Units & Wellhead Assemblies"
+    ],
+    "description": "Oriented Facility Solution (OFS) supplies complete API Spec drilling machinery and replacement consumables for offshore jack-ups, semi-submersibles, and land drilling rigs. From draw works components, rotary swivels, and top drives to API 5CT OCTG casing and tubing, we ensure seamless well construction and intervention.",
+    "specifications": [
+      "OCTG Tubing & Casing: API 5CT J55, K55, L80, N80, P110, Q125 with BTC & Premium Threads",
+      "Mud Pump Spares: Fluid End Modules, Liners, Pistons, Valves & Seats for 1000-2200 HP Pumps",
+      "Drilling Spares: Crown Blocks, Travelling Hooks, Rotary Swivels, Kelly Valves & Top Drive Kits",
+      "Wellhead Assemblies: API 6A Conventional & Surface Wellhead Christmas Trees (up to 15,000 PSI)",
+      "Coiled Tubing Units: High-Pressure Coiled Tubing Injector Heads & Reel Assemblies"
+    ],
+    "applications": [
+      "Offshore Drilling Operations (Jack-Ups & Semi-Submersibles)",
+      "Deepwater & Exploration Drilling Rigs",
+      "Onshore Land Rig Well Construction",
+      "Well Completion & Workover Operations"
+    ],
+    "certifications": ["API Spec 5CT", "API Spec 6A", "API Spec 7-1", "ISO 13679 CAL IV", "IADC Compliant"]
+  },
+  {
+    "id": "electrical-power-equipments",
+    "slug": "electrical-power-equipments",
+    "name": "Electrical & Power Equipments",
+    "shortName": "Electrical & Power",
+    "category": "Electrical & Controls",
+    "icon": "Zap",
+    "heroImage": "/images/live/5-9.png",
+    "summary": "Hazardous-area electrical panels, precision power transformers, high-voltage switchgear, and ATEX certified explosion-proof enclosures.",
+    "keyPoints": [
+      "Explosion-Proof Control Panels & Enclosures",
+      "High & Medium Voltage Air/Gas Insulated Switchgear",
+      "Power Transformers & Industrial Generators"
+    ],
+    "description": "OFS delivers comprehensive electrical distribution and power generation solutions engineered for classified hazardous zones and heavy industrial environments. Products include ATEX/IECEx explosion-proof junction boxes, ABB/Siemens switchgear, power transformers, and heavy-duty industrial generator sets.",
+    "specifications": [
+      "Hazardous Enclosures: Ex d, Ex e, Ex i ATEX & IECEx Certified Junction Boxes & Panels",
+      "Switchgear: HV & MV Gas/Air Insulated Switchgear Systems up to 33kV",
+      "Transformers: Dry-Type & Oil-Immersed Step-Up/Step-Down Power Transformers",
+      "Generators: Diesel & Dual-Fuel Industrial Generator Sets (50 kVA - 3500 kVA)",
+      "Cables & Glands: Armored Marine Cables, Subsea Power Cables & Ex Cable Glands"
+    ],
+    "applications": [
+      "Offshore Platform Power Generation",
+      "Oil & Gas Refinery Power Sub-Stations",
+      "Thermal & Hydroelectric Power Facilities",
+      "Industrial Plant Power Distribution"
+    ],
+    "certifications": ["ATEX Zone 1 & 2 Certified", "IECEx Approved", "IEEE / NEMA Standards", "CE / UL Listed"]
+  },
+  {
+    "id": "heavy-machinery-equipments",
+    "slug": "heavy-machinery-equipments",
+    "name": "Heavy Machinery Equipments",
+    "shortName": "Heavy Machinery",
+    "category": "Heavy Engineering",
+    "icon": "Hammer",
+    "heroImage": "/images/live/Heavy-Engineering-2.png",
+    "summary": "Heavy construction and material handling machinery, industrial cranes, bulldozers, excavators, draglines, and structural earthmoving spares.",
+    "keyPoints": [
+      "Pedestal & Offshore Crane Mechanical Spares",
+      "Heavy Earthmoving & Hydraulic Excavator Components",
+      "Structural Steel Fabrications & Heavy Gear Drives"
+    ],
+    "description": "OFS specializes in sourcing heavy industrial machinery, crane assemblies, draglines, and structural spares for mining, heavy port infrastructure, and offshore installation projects. We provide OEM replacement parts for CAT, Komatsu, Liebherr, and Terex equipment.",
+    "specifications": [
+      "Cranes: Offshore Pedestal Cranes, Crawler Cranes, Gantry & Overhead Traveling Cranes",
+      "Earthmoving Machinery: Bulldozers, Hydraulic Excavators, Front-End Loaders & Dump Trucks",
+      "Drive Components: Heavy Gearboxes, Hydraulic Motors, Track Linkage & Slewing Bearings",
+      "Structural Fabrications: Custom Boom Sections, Winch Drums & Heavy Sheave Blocks",
+      "Engine Spares: High-Horsepower Diesel Engines & Hydraulic Pump Drives"
+    ],
+    "applications": [
+      "Offshore Platform Construction & Lifting",
+      "Mining & Quarrying Excavation Sites",
+      "Port Terminal Material Handling",
+      "Major EPC Civil & Industrial Infrastructure"
+    ],
+    "certifications": ["ISO 9001:2015", "CE Heavy Machinery Safety", "API Spec 2C Crane Standard", "OSHA Compliant"]
+  },
+  {
+    "id": "hvac-refrigeration",
+    "slug": "hvac-refrigeration",
+    "name": "HVAC & Refrigeration",
+    "shortName": "HVAC & Cooling",
+    "category": "Facility & Cooling",
+    "icon": "Sun",
+    "heroImage": "/images/live/3-12.png",
+    "summary": "Marine and industrial grade HVAC chillers, explosion-proof air handling units (AHUs), cold room refrigeration systems, and ducting.",
+    "keyPoints": [
+      "Explosion-Proof Marine & Offshore Air Conditioners",
+      "Industrial Water-Cooled & Air-Cooled Chillers",
+      "Commercial Walk-In Freezer & Cold Room Units"
+    ],
+    "description": "OFS provides turnkey marine and industrial HVAC and refrigeration systems designed to maintain strict climate control in offshore living quarters, control rooms, and industrial processing units. All units feature explosion-proof ATEX ratings and anti-corrosive marine coatings.",
+    "specifications": [
+      "Chiller Packages: Air-Cooled & Water-Cooled Screw/Centrifugal Industrial Chillers",
+      "Air Handlers: Custom ATEX Zone 1/2 Air Handling Units (AHUs) with HEPA & Chemical Filtration",
+      "Refrigeration: Dual Refrigeration Compressor Skids (-25°C to +10°C) with Eco-Friendly Refrigerants",
+      "Ductwork: Stainless Steel 316L Marine Ventilation Ducts, Fire Dampers & Louvers",
+      "Controls: Integrated Microprocessor Temperature Controllers with SCADA/BMS Interfaces"
+    ],
+    "applications": [
+      "Offshore Living Quarters & Accommodation Barges",
+      "Refinery Hazardous Control Rooms",
+      "Pharmaceutical Cleanrooms & Cold Storage",
+      "Marine Commercial Vessel Engine Rooms"
+    ],
+    "certifications": ["ATEX / IECEx HVAC Rated", "ASHRAE Standard Compliant", "SOLAS Marine Fire Standard", "ISO 14001 Refrigerants"]
+  },
+  {
+    "id": "industrial-oil-chemicals-lubricants",
+    "slug": "industrial-oil-chemicals-lubricants",
+    "name": "Industrial Oil Chemicals & Lubricants",
+    "shortName": "Oils & Lubricants",
+    "category": "Chemicals & MRO",
+    "icon": "FlaskConical",
+    "heroImage": "/images/live/Petroleum-Refining.png",
+    "summary": "Specialty industrial lubricants, synthetic turbine oils, drilling mud additives, corrosion inhibitors, and high-performance grease.",
+    "keyPoints": [
+      "Synthetic Turbine & Compressor Oils",
+      "Drilling Fluid Additives & Corrosion Inhibitors",
+      "Extreme-Pressure Marine & Industrial Greases"
+    ],
+    "description": "OFS supplies premium industrial lubricants, synthetic gear oils, drilling chemical additives, and specialty maintenance fluids designed to reduce mechanical friction, protect against oxidation, and extend the operating life of high-stress industrial machinery.",
+    "specifications": [
+      "Turbine Oils: ISO VG 32, 46, 68 Synthetic Gas & Steam Turbine Oils with High Oxidation Stability",
+      "Hydraulic Fluids: Fire-Resistant & Biodegradable Marine Hydraulic Oils (ISO VG 15 to 100)",
+      "Greases: Lithium Complex, Calcium Sulfonate & Synthetic High-Temperature EP Greases",
+      "Drilling Chemicals: Barite, Bentonite, Viscosifiers, Shale Inhibitors & Biocides",
+      "Corrosion Inhibitors: Vapor Phase Inhibitors (VCI) & Subsea Pipeline Protection Chemicals"
+    ],
+    "applications": [
+      "Upstream Oil & Gas Drilling Fluids",
+      "Gas Turbine & Turbomachinery Lubrication",
+      "Heavy Machinery Gearbox Protection",
+      "Marine Engine & Deck Winch Lubrication"
+    ],
+    "certifications": ["ISO 9001 Quality Assured", "REACH Compliant", "OEM Approved Lubricant Specifications", "OSHA Safety Data Sheet (SDS) Compliant"]
+  },
+  {
+    "id": "industrial-valves",
+    "slug": "industrial-valves",
+    "name": "Industrial Valves",
+    "shortName": "Industrial Valves",
+    "category": "Flow Control",
+    "icon": "Wrench",
+    "heroImage": "/images/live/Oil-Gas.png",
+    "summary": "Certified API 6D gate, globe, check, ball, and butterfly valves engineered for high-pressure oil, gas, steam, and chemical flow control.",
+    "keyPoints": [
+      "API 6D Ball, Gate, Globe & Check Valves",
+      "Pneumatic & Hydraulic Actuator Assemblies",
+      "High-Pressure & Cryogenic Relief Valves"
+    ],
+    "description": "OFS delivers certified API 6D and API 600 valves engineered for upstream drilling rigs, midstream transmission pipelines, and downstream oil refineries. Each valve assembly is tested to rigorous pressure and fire-safe standards (API 607 / ISO 10497) with custom alloy trims including Duplex, Inconel, and Monel.",
+    "specifications": [
+      "Pressure Ratings: ANSI Class 150 to Class 2500, API 2000 to 15000 PSI",
+      "Size Range: 1/2 inch to 56 inches (DN15 to DN1400)",
+      "Material Compliance: NACE MR0175 / ISO 15156 Sour Service Certified",
+      "Actuation Options: Pneumatic Rack & Pinion, Electric, Electro-Hydraulic, Manual Gear",
+      "End Connections: Flanged (RF, RTJ), Butt-Weld, Socket-Weld, Hub Ended"
+    ],
+    "applications": [
+      "Offshore Oil & Gas Production Rigs",
+      "Cross-Country Natural Gas Pipelines",
+      "Petroleum Refining & Petrochemical Plants",
+      "Subsea Manifolds & Flowlines"
+    ],
+    "certifications": ["API 6D Certified", "API 607 Fire Safe", "ISO 9001:2015", "CE / PED Marking", "ATEX Actuator Approved"]
+  },
+  {
+    "id": "instrumentation",
+    "slug": "instrumentation",
+    "name": "Instrumentation",
+    "shortName": "Instrumentation",
+    "category": "Process Measurement",
+    "icon": "Zap",
+    "heroImage": "/images/live/2-12.png",
+    "summary": "Precision flowmeters, differential pressure transmitters, temperature sensors, gas detectors, and hazardous area calibration tools.",
+    "keyPoints": [
+      "Coriolis & Electromagnetic Flowmeters",
+      "Smart Pressure & Differential Transmitters",
+      "Hazardous Area Gas & Flame Detectors"
+    ],
+    "description": "OFS supplies high-accuracy process measurement and calibration instrumentation for oil refineries, chemical plants, and offshore platforms. Our instrumentation catalog includes Rosemount/Endress+Hauser compatible pressure transmitters, HART flowmeters, and ATEX certified gas detection systems.",
+    "specifications": [
+      "Flow Measurement: Coriolis Mass, Electromagnetic, Vortex & Ultrasonic Flowmeters",
+      "Pressure & Temp: Smart Transmitters with HART, Foundation Fieldbus & PROFIBUS Protocols",
+      "Gas Detection: Infrared & Electrochemical Toxic/Combustible Gas & Flame Detectors",
+      "Level Gauges: Guided Wave Radar, Ultrasonic & Magnetic Level Indicators",
+      "Calibration: Portable Intrinsically Safe Process Calibrators & Pressure Test Pumps"
+    ],
+    "applications": [
+      "Refinery Custody Transfer & Flow Metering",
+      "Chemical Reactor Temperature Monitoring",
+      "Offshore Gas Leak Detection & Safety",
+      "Boiler Feedwater Level Control"
+    ],
+    "certifications": ["ATEX / IECEx Intrinsically Safe", "SIL 2 / SIL 3 Capable", "ISO/IEC 17025 Calibrated", "CE Marked"]
+  },
+  {
+    "id": "maintenance-repair-tools",
+    "slug": "maintenance-repair-tools",
+    "name": "Maintenance, Repair Tools",
+    "shortName": "Maintenance Tools",
+    "category": "Plant Maintenance",
+    "icon": "Wrench",
+    "heroImage": "/images/live/Hand-Tools-rdjvqvgnn4knwaupw3fi7n19pvuu5qjj2fo0tokxpc.png",
+    "summary": "High-torque hydraulic bolt tensioners, flange spreaders, pneumatic impact wrenches, and workshop maintenance tooling packages.",
+    "keyPoints": [
+      "Hydraulic Flange Spreaders & Bolt Tensioners",
+      "Pneumatic Impact Tools & Torque Wrenches",
+      "Heavy Workshop Tooling Chests & Sets"
+    ],
+    "description": "OFS provides heavy-duty mechanical maintenance tools, hydraulic bolt tensioning equipment, and flange alignment systems necessary for plant turnarounds, pipeline maintenance, and major machinery overhauls across industrial facilities.",
+    "specifications": [
+      "Hydraulic Bolting: Low-Profile & Square-Drive Torque Wrenches up to 50,000 Nm",
+      "Flange Tools: Hydraulic Flange Spreaders, Alignment Tools & Nut Cutters",
+      "Pneumatic Tools: High-Torque Pneumatic Impact Wrenches, Grinders & Shears",
+      "Pullers & Jacks: Hydraulic Bearing Pullers, Cylinder Jacks & Toe Lifts (5 to 100 Ton)",
+      "Tool Sets: Master Mechanics Tool Sets in Heavy Steel Cabinets with Foam Inlays"
+    ],
+    "applications": [
+      "Refinery & Chemical Plant Shutdown Turnarounds",
+      "Pipeline Flange Bolting & Joint Integrity",
+      "Power Turbine Mechanical Overhauls",
+      "Shipyard Drydock Maintenance"
+    ],
+    "certifications": ["ISO 9001:2015", "ASME B107 Standards", "DIN / EN Tool Standards", "CE Safety Approved"]
+  },
+  {
+    "id": "mro-tools",
+    "slug": "mro-tools",
+    "name": "MRO Tools",
+    "shortName": "MRO Tools",
+    "category": "MRO Supplies",
+    "icon": "Settings",
+    "heroImage": "/images/live/Hand-Tools-rdjvqvglkkmq5ozddxyimb01yep2fr2t2dv8darnng.png",
+    "summary": "Comprehensive Maintenance, Repair, and Operations (MRO) toolkits, precision measuring tools, cutting tools, and workshop supplies.",
+    "keyPoints": [
+      "Precision Vernier Calipers, Micrometers & Gauges",
+      "HSS & Carbide Cutting, Drilling & Tapping Tools",
+      "Industrial Fasteners, Gaskets & Sealing Consumables"
+    ],
+    "description": "OFS offers streamlined MRO supply contracts providing everything from precision measuring gauges and CNC cutting inserts to industrial fasteners, sealing gaskets, and specialized hand tools required for everyday factory operations.",
+    "specifications": [
+      "Measuring Tools: Digital Calipers, Depth Gauges, Dial Indicators & Bore Gauges",
+      "Cutting Tools: HSS & Solid Carbide Drill Bits, End Mills, Taps & Reamers",
+      "Fasteners & Hardware: High-Tensile Grade 8.8 / 10.9 / B7 Stud Bolts & Heavy Hex Nuts",
+      "Abrasives: Grinding Wheels, Cut-Off Discs, Flap Discs & Wire Brushes",
+      "Sealing: Spiral Wound Gaskets, PTFE Tape, O-Ring Kits & Jointing Sheets"
+    ],
+    "applications": [
+      "Manufacturing Plant Daily Operations",
+      "CNC Machining & Workshop Fabrication",
+      "Facility Maintenance & Repair",
+      "Asset Integrity Management"
+    ],
+    "certifications": ["ISO 9001 Assured Sourcing", "DIN / ISO Fastener Standards", "ANSI Metric & Imperial Standards"]
+  },
+  {
+    "id": "process-equipment",
+    "slug": "process-equipment",
+    "name": "Process Equipment",
+    "shortName": "Process Equipment",
+    "category": "Downstream & Processing",
+    "icon": "FlaskConical",
+    "heroImage": "/images/live/6-7.png",
+    "summary": "High-pressure process pressure vessels, heat exchangers, autoclaves, filtration skids, and chemical reaction tanks.",
+    "keyPoints": [
+      "ASME Section VIII Pressure Vessels & Columns",
+      "Shell & Tube / Plate Heat Exchangers",
+      "Industrial Autoclaves & Chemical Reaction Skids"
+    ],
+    "description": "OFS supplies custom-engineered process equipment built to ASME and PED standards for refineries, petrochemical complexes, and chemical processing facilities. Products include heat exchangers, distillation columns, reaction vessels, and multi-stage filtration packages.",
+    "specifications": [
+      "Pressure Vessels: ASME Code Stamped Vessels (Class 150 to 2500, up to 100 bar)",
+      "Heat Exchangers: Shell & Tube, Air-Cooled & Gasketed Plate Heat Exchangers",
+      "Filtration Skids: Automatic Backwash Filters, Coalescer Separators & Cartridge Units",
+      "Reactors & Tanks: Jacketed Agitated Reaction Vessels in Stainless Steel & Inconel Clad",
+      "Distillation Columns: Packed & Tray Columns for Chemical Fractionation"
+    ],
+    "applications": [
+      "Petroleum Refining & Hydrocarbon Processing",
+      "Petrochemical & Polymer Manufacturing",
+      "Pharmaceutical Bulk Drug Synthesis",
+      "Water Desalination & Treatment Plants"
+    ],
+    "certifications": ["ASME U Stamp & S Stamp", "PED 2014/68/EU", "NBBI Registered", "ISO 9001 Quality System"]
+  },
+  {
+    "id": "pumps-spare-parts",
+    "slug": "pumps-spare-parts",
+    "name": "Pumps & Spare Parts",
+    "shortName": "Pumps & Spares",
+    "category": "Fluid Handling",
+    "icon": "Ship",
+    "heroImage": "/images/live/Spare-Parts-Procurement.png",
+    "summary": "API 610 centrifugal pumps, positive displacement pumps, mechanical seals, impellers, and replacement pump cartridge kits.",
+    "keyPoints": [
+      "API 610 Heavy-Duty Centrifugal Process Pumps",
+      "High-Pressure Triplex Plunger & Screw Pumps",
+      "Mechanical Cartridge Seals, Impellers & Wear Rings"
+    ],
+    "description": "OFS provides API 610 and ISO 5199 centrifugal pumps, high-pressure plunger pumps, and genuine replacement spare parts (impellers, shafts, mechanical seals, wear rings) for Sulzer, Flowserve, KSB, and Grundfos pumping systems.",
+    "specifications": [
+      "Pump Types: API 610 OH2, BB1, BB2, BB3, BB5 Multistage & VS4 Vertical Pumps",
+      "Positive Displacement: Triplex Dosing Pumps, Progressive Cavity & Rotary Gear Pumps",
+      "Pump Spares: Precision Machined Impellers, Shaft Sleeves, Casing Rings & Bearings",
+      "Mechanical Seals: Single & Dual Cartridge Seals with API Plan 11, 23, 52, 53 Flush Systems",
+      "Flow Capacity: Flow Rates up to 10,000 m³/h, Heads up to 2,500 meters"
+    ],
+    "applications": [
+      "Refinery Crude Oil & Hydrocarbon Transfer",
+      "Boiler Feedwater High-Pressure Pumping",
+      "Offshore Water Injection & Produced Water",
+      "Chemical Dosing & Fluid Circulation"
+    ],
+    "certifications": ["API 610 11th/12th Edition", "ISO 5199 / ISO 2858", "ATEX Pump Certified", "ISO 9001 Sourcing"]
+  },
+  {
+    "id": "rotary-equipment",
+    "slug": "rotary-equipment",
+    "name": "Rotary Equipment",
+    "shortName": "Rotary Equipment",
+    "category": "Turbomachinery",
+    "icon": "Settings",
+    "heroImage": "/images/live/Engg-e1751278356951.jpg",
+    "summary": "Industrial gas and steam turbines, heavy centrifugal compressors, industrial gearboxes, and high-speed mechanical drive systems.",
+    "keyPoints": [
+      "Industrial Gas & Steam Turbine Components",
+      "Centrifugal & Reciprocating Compressors",
+      "High-Speed Industrial Gearboxes & Couplings"
+    ],
+    "description": "OFS provides critical turbomachinery equipment and replacement spares for power plants, fertilizer units, and gas processing complexes. From turbine rotor blading and mechanical dry gas seals to multistage speed gearboxes, we deliver OEM-equivalent precision parts with fast delivery turnarounds.",
+    "specifications": [
+      "Turbine Support: Spares for GE, Solar, Siemens, Mitsubishi Gas & Steam Turbines",
+      "Compressor Types: Multi-Stage Centrifugal, Screw, Reciprocating Gas Compressors",
+      "Gearboxes: Planetary & Parallel Shaft High-Speed Turbomachinery Speed Reducers",
+      "Couplings: Flexible Disc, Diaphragm & Gear Couplings for Turbomachinery",
+      "Condition Monitoring: Integrated Vibration, Temperature & Acoustic Sensor Packages"
+    ],
+    "applications": [
+      "Natural Gas Processing & Liquefaction (LNG)",
+      "Thermal & Combined Cycle Power Plants",
+      "Fertilizer & Chemical Processing Facilities",
+      "Refinery Fluid Catalytic Cracking Units"
+    ],
+    "certifications": ["API 612 / API 617 Compliant", "ISO 10816 Vibration Standard", "ASME Section VIII Code", "ISO 9001:2015"]
+  },
+  {
+    "id": "safety-tools-equipments",
+    "slug": "safety-tools-equipments",
+    "name": "Safety Tools & Equipments",
+    "shortName": "Safety & PPE",
+    "category": "Safety & Protection",
+    "icon": "ShieldCheck",
+    "heroImage": "/images/live/Commercial-Diving.jpg",
+    "summary": "ATEX non-sparking safety tools, flame-resistant PPE, self-contained breathing apparatus (SCBA), and fall arrest safety harnesses.",
+    "keyPoints": [
+      "Non-Sparking Beryllium Copper Safety Tools",
+      "Self-Contained Breathing Apparatus (SCBA) Units",
+      "ANSI & CE Certified Flame-Resistant Field PPE"
+    ],
+    "description": "OFS offers life safety apparatus, non-sparking safety tools, emergency fire suppression gear, and personal protective equipment (PPE) engineered to safeguard industrial technicians working in hazardous environments and high-risk facilities.",
+    "specifications": [
+      "Non-Sparking Tools: Beryllium Copper (BeCu) & Aluminum Bronze (AlBr) ATEX Tools",
+      "Respiratory Gear: 30/60 Min Positive Pressure SCBA Systems & Emergency Escape Sets (EEBD)",
+      "Protective Clothing: Nomex/Kevlar Flame Resistant Coveralls, Chemical Suits & Arc Flash Gear",
+      "Fall Protection: Full Body Safety Harnesses, Self-Retracting Lanyards & Lifelines",
+      "Gas Detection: Personal 4-Gas Monitors (H2S, CO, O2, LEL) with Visual/Audible Alarms"
+    ],
+    "applications": [
+      "Refinery Hazardous Area Turnarounds",
+      "Offshore Rig Platform Deck Operations",
+      "Confined Space Entry & Chemical Tank Cleaning",
+      "Commercial Diving & Marine Emergency Response"
+    ],
+    "certifications": ["ATEX Non-Sparking Standard", "ANSI Z87.1 / Z89.1 / Z359.1", "CE EN397 / EN361 Certified", "SOLAS Marine Approved"]
+  }
+]
