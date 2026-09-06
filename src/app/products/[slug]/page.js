@@ -250,6 +250,31 @@ export default function SingleProductPage({ params }) {
               </div>
             </ScrollReveal>
           </div>
+
+          {/* Product Media Gallery from Official Site */}
+          {prod.scrapedImages && prod.scrapedImages.length > 0 && (
+            <div className="mb-16">
+              <ScrollReveal direction="up" delay={0.1}>
+                <div className="tag-badge badge-red mb-4">
+                  PRODUCT MEDIA &amp; ASSETS
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-ofs-navy-950 mb-6">
+                  Catalog Images &amp; Technical Diagrams
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {prod.scrapedImages.map((imgUrl, i) => (
+                    <div key={i} className="h-44 rounded-xl overflow-hidden border border-ofs-gray-200 shadow-sm hover:shadow-md transition-shadow bg-ofs-navy-950/5 group relative">
+                      <img 
+                        src={imgUrl} 
+                        alt={`${prod.name} ${i + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </div>
+          )}
         </Container>
       </section>
 
