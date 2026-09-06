@@ -1,7 +1,7 @@
 {
-  "timestamp": "1788726673.0152295",
-  "total_pages_discovered": 20,
-  "excluded_pages_count": 1,
-  "flagged_terms_count": 41,
-  "summary": "Content migration ETL completed. Flagged terms recorded for OFS screening."
+  "timestamp": "1788732841.512962",
+  "total_pages_discovered": 53,
+  "excluded_pages_count": 5,
+  "flagged_terms_count": 454,
+  "summary": "Deep crawl migration completed cleanly. Flagged terms recorded for OFS screening."
 }
