@@ -454,7 +454,7 @@ export default function Footer() {
                 href={`mailto:${siteConfig.contact.email}`}
                 className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity"
               >
-                <Mail size={14} className="text-ofs-red-500" />
+                <Mail size={14} className=" text-ofs-red-500" />
                 {siteConfig.contact.email}
               </a>
             </div>
