@@ -256,12 +256,12 @@ export default function AboutPage() {
             </ScrollReveal>
             <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
-                India Headquarters &amp;
+                USA Global Office &amp;
               </TextReveal>
               <br />
               <span className="gradient-text-navy">
                 <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  USA International Liaison
+                  India Operations Hub
                 </TextReveal>
               </span>
             </h2>
@@ -271,7 +271,26 @@ export default function AboutPage() {
             <ScrollReveal direction="left" delay={0.1}>
               <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
                 <div className="mb-4">
-                  <Badge variant="red">INDIA HEADQUARTERS</Badge>
+                  <Badge variant="navy">USA ENTITY</Badge>
+                </div>
+                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
+                  Oriented Facility Solution LLC
+                </h3>
+                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
+                  {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
+                  {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode},{' '}
+                  {siteConfig.contact.addressUSA.country}
+                </p>
+                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900">
+                  Global Sourcing Coordination &amp; International AVL Desk
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
+                <div className="mb-4">
+                  <Badge variant="red">INDIA OPERATIONS HUB</Badge>
                 </div>
                 <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
                   Oriented Facility Solution Pvt Ltd
@@ -288,25 +307,6 @@ export default function AboutPage() {
                   <div>
                     <strong>Email:</strong> {siteConfig.contact.email}
                   </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right" delay={0.2}>
-              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
-                <div className="mb-4">
-                  <Badge variant="navy">USA ENTITY</Badge>
-                </div>
-                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
-                  Oriented Facility Solution LLC
-                </h3>
-                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
-                  {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
-                  {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode},{' '}
-                  {siteConfig.contact.addressUSA.country}
-                </p>
-                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900">
-                  Global Sourcing Coordination &amp; International AVL Desk
                 </div>
               </div>
             </ScrollReveal>
