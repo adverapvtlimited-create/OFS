@@ -5,9 +5,7 @@ import AboutPreview from '@/components/sections/AboutPreview';
 import ServicesGrid from '@/components/sections/ServicesGrid';
 import CaseStudies from '@/components/sections/CaseStudies';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
-import IndustriesSection from '@/components/sections/IndustriesSection';
 import StatsCounter from '@/components/sections/StatsCounter';
-import BlogPreview from '@/components/sections/BlogPreview';
 import ContactCTA from '@/components/sections/ContactCTA';
 import JsonLd from '@/components/SEO/JsonLd';
 import { buildHomeFAQSchema, buildWebPageSchema } from '@/lib/schema';
@@ -37,9 +35,7 @@ export default function HomePage() {
       <ServicesGrid />
       <CaseStudies />
       <WhyChooseUs />
-      <IndustriesSection />
       <StatsCounter />
-      <BlogPreview />
       <ContactCTA />
 
       <section

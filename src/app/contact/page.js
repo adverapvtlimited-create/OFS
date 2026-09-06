@@ -149,6 +149,21 @@ export default function ContactPage() {
 
                 <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-6 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
+                    <Globe2 size={22} className="text-ofs-navy-700 shrink-0" />
+                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
+                      Oriented Facility Solution LLC
+                    </h3>
+                  </div>
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
+                    {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
+                  </p>
+                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono">
+                    Global AVL Procurement &amp; International Cargo Coordination Desk
+                  </div>
+                </div>
+
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-8 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
                     <Building size={22} className="text-ofs-red-600 shrink-0" />
                     <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
                       Oriented Facility Solution Pvt Ltd
@@ -164,21 +179,6 @@ export default function ContactPage() {
                     <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
                       <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.email}
                     </a>
-                  </div>
-                </div>
-
-                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-8 shadow-sm">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Globe2 size={22} className="text-ofs-navy-700 shrink-0" />
-                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
-                      Oriented Facility Solution LLC
-                    </h3>
-                  </div>
-                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
-                    {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
-                  </p>
-                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono">
-                    Global AVL Procurement &amp; International Cargo Coordination Desk
                   </div>
                 </div>
 
