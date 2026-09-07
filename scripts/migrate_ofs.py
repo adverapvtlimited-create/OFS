@@ -286,11 +286,15 @@ def transform_stage(raw_data=None):
     for page_slug, page_content in raw_data.items():
         url = page_content.get("url", "")
         title = page_content.get("title", page_slug)
+        headings = page_content.get("headings", [])
         paragraphs = page_content.get("paragraphs", [])
         list_items = page_content.get("list_items", [])
         table_specs = page_content.get("table_specs", [])
+        images = page_content.get("images", [])
         
         all_text_lines = []
+        if isinstance(headings, list):
+            all_text_lines.extend(headings)
         if isinstance(paragraphs, list):
             all_text_lines.extend(paragraphs)
         if isinstance(list_items, list):
@@ -325,6 +329,36 @@ def transform_stage(raw_data=None):
                     "snippet": f"...{snippet}...",
                     "action_required": "OFS Client Review Required (Do not delete automatically)"
                 })
+
+        # Inject Data into Normalized Next.js Collections
+        for category_key in ["products", "services", "industries"]:
+            for item in normalized.get(category_key, []):
+                if not isinstance(item, dict): continue
+                item_slug = item.get("slug", "").lower()
+                if item_slug and (item_slug == page_slug.lower() or item_slug in url.lower() or item_slug.replace("-", " ") in title.lower()):
+                    existing_text = item.get("fullContentText", "")
+                    if existing_text:
+                        item["fullContentText"] = existing_text + "\n\n--- MIGRATED RAW TEXT ---\n\n" + full_text
+                    else:
+                        item["fullContentText"] = full_text
+                        
+                    img_list = item.get("scrapedImages", [])
+                    for img in images:
+                        if img.get("src") and img["src"] not in img_list:
+                            img_list.append(img["src"])
+                    item["scrapedImages"] = img_list
+                    
+        # Handle renewables separately since it's a dict containing lists
+        if "renewables" in normalized and isinstance(normalized["renewables"], dict):
+            for item in normalized["renewables"].get("solutions", []):
+                if not isinstance(item, dict): continue
+                item_slug = item.get("slug", "").lower()
+                if item_slug and (item_slug == page_slug.lower() or item_slug in url.lower() or item_slug.replace("-", " ") in title.lower()):
+                    existing_text = item.get("fullContentText", "")
+                    if existing_text:
+                        item["fullContentText"] = existing_text + "\n\n--- MIGRATED RAW TEXT ---\n\n" + full_text
+                    else:
+                        item["fullContentText"] = full_text
 
         # Renewables
         is_renewable = any(rk in page_slug.lower() or rk in title.lower() for rk in RENEWABLE_KEYWORDS)
