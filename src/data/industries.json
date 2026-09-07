@@ -6,7 +6,10 @@
     "shortName": "Oil & Gas",
     "icon": "Flame",
     "heroImage": "/images/live/Oil-Gas.png",
-    "relatedService": { "slug": "procurement-shipping", "label": "Procurement & Shipping" },
+    "relatedService": {
+      "slug": "procurement-shipping",
+      "label": "Procurement & Shipping"
+    },
     "tagline": "Specialized Procurement & Technical Support for Upstream, Midstream & Downstream",
     "summary": "With over a decade of dedicated experience in the oil and gas sector, OFS provides advanced, end-to-end procurement and supply chain management solutions tailored to the dynamic needs of offshore drilling rigs, refinery operations, and pipeline networks across European, North American, and Asian markets.",
     "keySolutions": [
@@ -24,7 +27,10 @@
     "shortName": "Marine & Maritime",
     "icon": "Ship",
     "heroImage": "/images/live/Marine.png",
-    "relatedService": { "slug": "logistics-shipping", "label": "Industrial Logistics" },
+    "relatedService": {
+      "slug": "logistics-shipping",
+      "label": "Industrial Logistics"
+    },
     "tagline": "Ship Spare Parts Supply & Port Logistics for Commercial Vessels & FPSOs",
     "summary": "OFS specializes in delivering end-to-end procurement and supply chain solutions for a broad spectrum of ship spare parts and marine equipment, supporting the operational demands of commercial vessels, offshore platforms, and port operations worldwide with OEM-approved parts.",
     "keySolutions": [
@@ -42,8 +48,14 @@
     "shortName": "Renewables",
     "icon": "Sun",
     "heroImage": "/images/live/Renewable-Energy.png",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
-    "relatedPortal": { "href": "/renewables", "label": "Renewables Portal" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
+    "relatedPortal": {
+      "href": "/renewables",
+      "label": "Renewables Portal"
+    },
     "tagline": "Building a Sustainable and Green Future with Solar, Wind & BESS",
     "summary": "At OFS, we champion innovation and sustainability in the renewable energy sector. We support utility-scale solar farms, wind turbine installations, battery energy storage systems (BESS), and green microgrids with specialized procurement and life-cycle maintenance.",
     "keySolutions": [
@@ -52,6 +64,10 @@
       "Containerized Battery Energy Storage Systems (BESS)",
       "High-Voltage Substation Transformers & Switchgear",
       "SCADA & Predictive Solar Plant Performance Optimization"
+    ],
+    "fullContentText": "Partner with OFS to Build a Sustainable and Green Future How OFS Supports the Renewable Energy Industry 1. Technical Guidance 2. Supply Chain Management 3. Maintenance and Repair Ready to Begin? Any Question? Feel Free to Call Us Home Renewable Energy Industries Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics Partner with OFS to Build a Sustainable and Green Future Join us in shaping a cleaner, more sustainable world for the generations to come. At OFS , we champion innovation and sustainability in the renewable energy sector. As your trusted partner, we support your transition to more efficient and eco-conscious business practices\u2014helping your operations align with the future of green energy. With the growing global demand for energy and the depletion of natural resources, the shift toward sustainable solutions has become essential. OFS is proud to be part of this movement\u2014leveraging deep expertise to empower renewable energy projects across geothermal, hydroelectric, wind, and solar sectors. How OFS Supports the Renewable Energy Industry We offer customised, end-to-end solutions that enable businesses to adopt sustainable energy strategies and build eco-friendly operations. Our experts work closely with renewable energy providers to design, implement, and maintain high-efficiency energy systems. From concept to execution, we help optimise energy output while minimising environmental impact. OFS is highly skilled in sourcing and procuring critical components such as solar panels, wind turbines, and control systems. We ensure on-time delivery and robust logistics support, so your projects stay on track and on schedule. Even the best systems need upkeep. Our technicians conduct regular inspections and provide repair services to reduce downtime, increase system longevity, and ensure continued operational efficiency. With a strong focus on optimising supply chains and sourcing sustainable materials, OFS is your ideal global partner in the renewable energy sector\u2014delivering both local and international support to help you meet your green energy goals. Ready to Begin? Let OFS support your next renewable energy initiative and help build a more sustainable future. Any Question? Feel Free to Call Us Call Free 022 69621112 Call Free 022 69621112 +91 8975585559 WhatsApp us Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics",
+    "scrapedImages": [
+      "https://ofsgroupindia.com/wp-content/uploads/2025/06/Renewable-Energy.png"
     ]
   },
   {
@@ -61,7 +77,10 @@
     "shortName": "Power & Energy",
     "icon": "Zap",
     "heroImage": "/images/live/Power-Energy.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "High-Efficiency Spares & Maintenance for Thermal, Gas & Hydro Plants",
     "summary": "OFS fulfills critical procurement needs to minimize plant downtime and boost generation efficiency. We source spare parts for essential rotary equipment, turbines, generators, high-voltage transformers, and digital power instrumentation.",
     "keySolutions": [
@@ -79,7 +98,10 @@
     "shortName": "Petrochemicals",
     "icon": "FlaskConical",
     "heroImage": "/images/live/Petroleum-Refining.png",
-    "relatedService": { "slug": "procurement-shipping", "label": "Procurement & Shipping" },
+    "relatedService": {
+      "slug": "procurement-shipping",
+      "label": "Procurement & Shipping"
+    },
     "tagline": "Turnkey Procurement for High-Pressure Process Units & Refineries",
     "summary": "Operating within complex frameworks of large-scale refinery units and stringent safety standards, OFS supplies high-performance process equipment, cryogenic valves, gas detection grids, and specialized corrosion-resistant alloys across international project sites.",
     "keySolutions": [
@@ -97,7 +119,10 @@
     "shortName": "Cement",
     "icon": "Hammer",
     "heroImage": "/images/live/cement.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "Heavy-Duty Wear Parts, Kiln Spares & Material Handling Systems",
     "summary": "Providing rugged, abrasion-resistant wear plates, kiln drive components, roller press bearings, baghouse filtration systems, and bulk conveying spares engineered to endure high-dust, high-heat cement manufacturing operations.",
     "keySolutions": [
@@ -115,7 +140,10 @@
     "shortName": "Mining & Minerals",
     "icon": "Mountain",
     "heroImage": "/images/live/Mining-Minerals.png",
-    "relatedService": { "slug": "spare-parts-procurement", "label": "Spare Parts & MRO" },
+    "relatedService": {
+      "slug": "spare-parts-procurement",
+      "label": "Spare Parts & MRO"
+    },
     "tagline": "Heavy Extraction Machinery Spares & Slurry Handling Equipment",
     "summary": "Supporting open-pit and underground mining operations with crushing spares, heavy earthmoving equipment wear components, high-density slurry pumps, and specialized off-highway logistics solutions.",
     "keySolutions": [
@@ -124,6 +152,10 @@
       "Excavator Ground Engaging Tools (GET) & Track Chains",
       "Vibrating Screen Mesh & Hydrocyclone Clusters",
       "Remote Mining Camp Modular Housing & IFM Services"
+    ],
+    "fullContentText": "Reliable Procurement Solutions for the Mining &amp; Mineral Sector Any Question? Feel Free to Call Us Home Mining Minerals Industries Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics Reliable Procurement Solutions for the Mining &amp; Mineral Sector At OFS, we are recognized for our unwavering commitment to integrity, efficiency, and reliability\u2014qualities that have established us as a trusted procurement partner across the mining and mineral extraction industries. Our proven ability to stock and deliver critical equipment on time ensures that our clients experience minimal operational disruption, even in the most demanding environments. We specialize in the strategic sourcing and supply of spare parts and equipment essential to a wide range of mining operations. This includes components for bulk material handling systems, surface and underground drill rigs, cranes, draglines, hydraulic and electric shovels, underground loaders, and other heavy-duty mining machinery. Each item is carefully sourced to meet stringent performance, safety, and durability standards, helping our clients maintain continuous output in harsh and high-risk settings. In the mining sector, where downtime translates directly to financial loss, even minor delays can carry major consequences. That\u2019s why we place utmost importance on timely delivery, coordinated logistics, and accurate order fulfillment. Through a combination of global supplier access and responsive logistics planning, we ensure that the right parts reach the right site\u2014precisely when needed. Any Question? Feel Free to Call Us Call Free 022 69621112 Call Free 022 69621112 +91 8975585559 WhatsApp us Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics",
+    "scrapedImages": [
+      "https://ofsgroupindia.com/wp-content/uploads/2025/06/Mining-Minerals.png"
     ]
   },
   {
@@ -133,7 +165,10 @@
     "shortName": "Heavy Engineering",
     "icon": "Plane",
     "heroImage": "/images/live/Heavy-Engineering-2.png",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
     "tagline": "Precision Sourcing for Custom Fabrication & Plant Infrastructure",
     "summary": "Delivering specialized structural steel, high-tensile fasteners, industrial hydraulic systems, CNC machining tooling, and custom-engineered mechanical components for world-class heavy industrial fabricators.",
     "keySolutions": [
@@ -142,6 +177,10 @@
       "CNC Machine Tooling, Cutting Inserts & Spindles",
       "Overhead Crane Components & Hoisting Gearboxes",
       "Non-Destructive Testing (NDT) Flaw Detection Systems"
+    ],
+    "fullContentText": "Spare Parts &amp; Equipment for Heavy Engineering Projects Any Question? Feel Free to Call Us Home Heavy Engineering Industries Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics Spare Parts &amp; Equipment for Heavy Engineering Projects At OFS, we offer an extensive and dependable range of spare parts and equipment tailored to the needs of heavy engineering industries, including construction, mining, infrastructure development, and related sectors. Our inventory and procurement capabilities are designed to support critical machinery such as bulldozers, compactors, cranes, drilling rigs, excavators, crushers, and more\u2014ensuring that every component delivered contributes to operational efficiency and project continuity. Understanding the high stakes and time-sensitive nature of heavy engineering projects, we prioritize the rapid fulfillment of orders and the delivery of quality-assured components that meet or exceed industry standards. Whether for routine maintenance or urgent replacements, our supply solutions are built to minimize downtime and maximize productivity on-site. Leveraging well-established relationships with a global network of trusted and certified manufacturers, we provide our clients with reliable access to a wide selection of original and compatible parts. These relationships not only enable us to maintain competitive pricing but also allow us to offer flexible lead times and tailored procurement options that suit varying project scales and requirements. Any Question? Feel Free to Call Us Call Free 022 69621112 Call Free 022 69621112 +91 8975585559 WhatsApp us Renewable Energy Industry Oil &amp; Gas Petroleum Refining Mining Minerals Power Energy Marine Heavy Engineering General Manufacturing Pharmaceuticals &amp; Chemicals Transportation Cement Electrical &amp; Electronics",
+    "scrapedImages": [
+      "https://ofsgroupindia.com/wp-content/uploads/2025/06/Heavy-Engineering-2.png"
     ]
   },
   {
@@ -151,7 +190,10 @@
     "shortName": "Mooring Systems",
     "icon": "Anchor",
     "heroImage": "/images/live/Mooring-Systems.jpg",
-    "relatedService": { "slug": "logistics-shipping", "label": "Industrial Logistics" },
+    "relatedService": {
+      "slug": "logistics-shipping",
+      "label": "Industrial Logistics"
+    },
     "tagline": "High-Integrity Mooring Chains, Synthetic Ropes, Winches & Quayside Berthing Equipment",
     "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, harbour tug towing lines, heavy-duty studlink anchor chains, and quick-release mooring hooks compliant with OCIMF guidelines.",
     "keySolutions": [
@@ -169,7 +211,10 @@
     "shortName": "Commercial Diving",
     "icon": "Compass",
     "heroImage": "/images/live/Commercial-Diving.jpg",
-    "relatedService": { "slug": "engineering-epc-support", "label": "Engineering & EPC Support" },
+    "relatedService": {
+      "slug": "engineering-epc-support",
+      "label": "Engineering & EPC Support"
+    },
     "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
     "summary": "Providing certified commercial diving equipment, surface-supplied air and nitrox systems, subsea non-destructive testing (NDT), underwater wet welding, propeller super-polishing, and Class-approved in-water survey (UWILD) gear for offshore rigs, platforms, and commercial vessels worldwide.",
     "keySolutions": [
