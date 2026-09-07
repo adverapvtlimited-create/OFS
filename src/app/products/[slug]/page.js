@@ -193,63 +193,147 @@ export default function SingleProductPage({ params }) {
           </div>
 
           {/* Specifications & Applications Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {/* Technical Specifications */}
-            {prod.specifications && (
+          {(prod.specifications || prod.applications) && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {/* Technical Specifications */}
+              {prod.specifications && (
+                <ScrollReveal direction="up" delay={0.1}>
+                  <div className="bg-ofs-gray-50 p-6 sm:p-8 rounded-2xl border border-ofs-gray-200 h-full">
+                    <h3 className="font-heading text-xl font-bold text-ofs-navy-950 mb-4 flex items-center gap-2">
+                      <Layers className="text-ofs-red-600" size={20} />
+                      Technical Specifications
+                    </h3>
+                    <ul className="space-y-3">
+                      {prod.specifications.map((spec, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-sm text-ofs-gray-700">
+                          <Check size={16} className="text-ofs-red-600 shrink-0 mt-0.5" />
+                          <span className="leading-snug">{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ScrollReveal>
+              )}
+
+              {/* Industry Applications & Standards */}
+              {prod.applications && (
+                <ScrollReveal direction="up" delay={0.2}>
+                  <div className="bg-ofs-navy-950 text-white p-6 sm:p-8 rounded-2xl border border-ofs-navy-800 h-full flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <Award className="text-ofs-red-400" size={20} />
+                        Industry Applications
+                      </h3>
+                      <ul className="space-y-3 mb-8">
+                        {prod.applications?.map((app, idx) => (
+                          <li key={idx} className="flex items-center gap-3 text-sm text-white/85">
+                            <span className="w-2 h-2 rounded-full bg-ofs-red-500 shrink-0" />
+                            <span>{app}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Standards Pills */}
+                    {prod.certifications && (
+                      <div>
+                        <div className="font-mono text-xs font-bold uppercase tracking-wider text-ofs-gold-400 mb-3">
+                          Accreditations &amp; Standards
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {prod.certifications.map((cert, idx) => (
+                            <span key={idx} className="font-mono text-xs px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/15">
+                              {cert}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </ScrollReveal>
+              )}
+            </div>
+          )}
+
+          {/* Detailed Product Catalog Items */}
+          {prod.catalogItems && prod.catalogItems.length > 0 && (
+            <div className="mb-20">
               <ScrollReveal direction="up" delay={0.1}>
-                <div className="bg-ofs-gray-50 p-6 sm:p-8 rounded-2xl border border-ofs-gray-200 h-full">
-                  <h3 className="font-heading text-xl font-bold text-ofs-navy-950 mb-4 flex items-center gap-2">
-                    <Layers className="text-ofs-red-600" size={20} />
-                    Technical Specifications
-                  </h3>
-                  <ul className="space-y-3">
-                    {prod.specifications.map((spec, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-ofs-gray-700">
-                        <Check size={16} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                        <span className="leading-snug">{spec}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="text-center max-w-[800px] mx-auto mb-12">
+                  <div className="tag-badge badge-red mb-3">PRODUCT RANGE &amp; VALVE TYPES</div>
+                  <h2 className="section-title text-3xl sm:text-4xl">
+                    Comprehensive <span className="gradient-text-navy">{prod.name}</span> Catalog
+                  </h2>
+                  <p className="text-ofs-gray-600 mt-3 text-base sm:text-lg">
+                    Explore our engineered selection of certified {prod.name.toLowerCase()} designed for extreme temperatures, high pressure, and heavy industrial service.
+                  </p>
                 </div>
               </ScrollReveal>
-            )}
 
-            {/* Industry Applications & Standards */}
-            <ScrollReveal direction="up" delay={0.2}>
-              <div className="bg-ofs-navy-950 text-white p-6 sm:p-8 rounded-2xl border border-ofs-navy-800 h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <Award className="text-ofs-red-400" size={20} />
-                    Industry Applications
-                  </h3>
-                  <ul className="space-y-3 mb-8">
-                    {prod.applications?.map((app, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-sm text-white/85">
-                        <span className="w-2 h-2 rounded-full bg-ofs-red-500 shrink-0" />
-                        <span>{app}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {prod.catalogItems.map((item, index) => (
+                  <ScrollReveal key={index} direction="up" delay={0.05 * (index % 4)}>
+                    <div className="bg-white rounded-2xl border border-ofs-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full hover:border-ofs-navy-200">
+                      <div>
+                        {/* Image Container */}
+                        <div className="h-56 sm:h-64 w-full rounded-xl overflow-hidden bg-gradient-to-br from-ofs-gray-50 to-ofs-navy-50/50 p-4 border border-ofs-gray-100 flex items-center justify-center relative mb-6 group-hover:scale-[1.01] transition-transform">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute top-3 right-3">
+                            <span className="tag-badge badge-red text-[11px] uppercase tracking-wider py-1 px-2.5 shadow-sm">
+                              OFS Certified
+                            </span>
+                          </div>
+                        </div>
 
-                {/* Standards Pills */}
-                {prod.certifications && (
-                  <div>
-                    <div className="font-mono text-xs font-bold uppercase tracking-wider text-ofs-gold-400 mb-3">
-                      Accreditations &amp; Standards
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {prod.certifications.map((cert, idx) => (
-                        <span key={idx} className="font-mono text-xs px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/15">
-                          {cert}
+                        {/* Title */}
+                        <h3 className="font-heading text-xl font-bold text-ofs-navy-950 mb-3 group-hover:text-ofs-red-600 transition-colors flex items-center justify-between">
+                          <span>{item.title}</span>
+                        </h3>
+
+                        {/* Description */}
+                        <div className="text-ofs-gray-700 text-sm leading-relaxed space-y-2 mb-4 whitespace-pre-line">
+                          {item.description}
+                        </div>
+
+                        {/* Bullets if any */}
+                        {item.bullets && item.bullets.length > 0 && (
+                          <div className="bg-ofs-navy-50/60 p-3.5 rounded-xl border border-ofs-navy-100/80 mb-4">
+                            <div className="font-semibold text-xs text-ofs-navy-900 mb-2 uppercase tracking-wide">
+                              Common Applications &amp; Features:
+                            </div>
+                            <ul className="space-y-1.5">
+                              {item.bullets.map((bullet, bIdx) => (
+                                <li key={bIdx} className="flex items-center gap-2 text-xs text-ofs-gray-700 font-medium">
+                                  <CheckCircle2 size={14} className="text-ofs-red-600 shrink-0" />
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">
+                        <span className="text-xs font-mono font-bold text-ofs-navy-700 uppercase">
+                          API / ISO Compliant
                         </span>
-                      ))}
+                        <a
+                          href="#contact-cta"
+                          className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors"
+                        >
+                          Request Spec Sheet <ArrowUpRight size={14} />
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  </ScrollReveal>
+                ))}
               </div>
-            </ScrollReveal>
-          </div>
+            </div>
+          )}
 
           {/* Product Media Gallery from Official Site */}
           {prod.scrapedImages && prod.scrapedImages.length > 0 && (
