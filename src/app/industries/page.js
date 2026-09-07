@@ -112,7 +112,7 @@ export default function IndustriesPage() {
                         </h2>
 
                         <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
-                          {ind.summary.slice(0, 140)}...
+                          {ind.summary.replace(/\n/g, ' ').slice(0, 140)}...
                         </p>
 
                         {/* Solutions bullets */}

@@ -77,7 +77,7 @@ export async function generateMetadata({ params }) {
 
   return buildPageMetadata({
     title: `${ind.name} Solutions | OFS Group India`,
-    description: ind.summary,
+    description: ind.summary.replace(/\n/g, ' '),
     path: `/industries/${ind.slug}`,
     keywords: [ind.name, ind.shortName, 'OFS Group India', 'industrial procurement'],
     ogImage: ind.heroImage,
@@ -104,7 +104,7 @@ export default function SingleIndustryPage({ params }) {
       <JsonLd
         data={buildWebPageSchema({
           title: `${ind.name} Solutions | OFS Group India`,
-          description: ind.summary,
+          description: ind.summary.replace(/\n/g, ' '),
           path: `/industries/${ind.slug}`,
         })}
       />
@@ -169,9 +169,11 @@ export default function SingleIndustryPage({ params }) {
                     </TextReveal>
                   </span>
                 </h2>
-                <p className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-8">
-                  {ind.summary}
-                </p>
+                {ind.summary.split('\n').map((paragraph, i) => (
+                  <p key={i} className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-4 last:mb-8">
+                    {paragraph}
+                  </p>
+                ))}
 
                 {/* Key Solutions List */}
                 <div className="flex flex-col gap-3.5">
@@ -231,7 +233,7 @@ export default function SingleIndustryPage({ params }) {
                               {sub.name}
                             </h2>
                             <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
-                              {sub.summary.slice(0, 140)}...
+                              {sub.summary.replace(/\n/g, ' ').slice(0, 140)}...
                             </p>
                             <div className="flex flex-col gap-1.5 mb-3">
                               {sub.keySolutions?.slice(0, 3).map((sol, sIndex) => (
