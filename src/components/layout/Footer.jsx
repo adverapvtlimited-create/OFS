@@ -38,6 +38,8 @@ const credentialsList = [
     detail: 'Certificate No: 3050260502115Q',
     authority: 'QRO • IAF • EGAC Accredited',
     accentColor: '#f59e0b',
+    link: '/certificate/ISO%2090012015.pdf',
+    actionText: 'View Certificate PDF ↗',
   },
   {
     id: 'iso-14001',
@@ -48,6 +50,8 @@ const credentialsList = [
     detail: 'Certificate No: 3050260502116E',
     authority: 'QRO • IAF • EGAC Accredited',
     accentColor: '#f59e0b',
+    link: '/certificate/ISO%20140012015.pdf',
+    actionText: 'View Certificate PDF ↗',
   },
   {
     id: 'iso-45001',
@@ -58,6 +62,8 @@ const credentialsList = [
     detail: 'Certificate No: 3050260502117HS',
     authority: 'QRO • IAF • EGAC Accredited',
     accentColor: '#f59e0b',
+    link: '/certificate/ISO%20450012018.pdf',
+    actionText: 'View Certificate PDF ↗',
   },
   {
     id: 'iso-37001',
@@ -68,6 +74,8 @@ const credentialsList = [
     detail: 'Certificate No: UK-02-VS-03088',
     authority: 'UKAF CERT (United Kingdom)',
     accentColor: '#f59e0b',
+    link: '/certificate/ISO%20370012016.pdf',
+    actionText: 'View Certificate PDF ↗',
   },
   {
     id: 'impa-membership',
@@ -90,6 +98,8 @@ const credentialsList = [
     detail: 'Certificate No: DIPP253153',
     authority: 'Non-Renewable Energy & Oil Sector',
     accentColor: '#f59e0b',
+    link: '/certificate/DIPP253153.pdf',
+    actionText: 'View Certificate PDF ↗',
   },
   {
     id: 'mill-test',
@@ -161,7 +171,7 @@ export default function Footer() {
                         className="inline-flex items-center gap-1 font-mono text-[0.68rem] font-bold py-0.5 px-2 rounded-xs bg-sky-400/12 border border-sky-400/30"
                         style={{ color: cred.accentColor }}
                       >
-                        Verify ↗
+                        {cred.actionText || 'Verify ↗'}
                       </span>
                     )}
                   </div>
@@ -434,7 +444,7 @@ export default function Footer() {
             <div className="flex gap-3 items-start">
               <MapPin size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
               <div className="text-[0.85rem] text-white/80 leading-relaxed">
-                <strong className="text-white block">India Operations Hub:</strong>
+                <strong className="text-white block">India Office </strong>
                 {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
                 {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
                 {siteConfig.contact.addressIndia.pincode}
