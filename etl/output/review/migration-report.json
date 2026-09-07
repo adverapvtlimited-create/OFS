@@ -1,7 +1,7 @@
 {
-  "timestamp": "1788732841.512962",
-  "total_pages_discovered": 53,
+  "timestamp": "1788798725.4540756",
+  "total_pages_discovered": 108,
   "excluded_pages_count": 5,
-  "flagged_terms_count": 454,
-  "summary": "Deep crawl migration completed cleanly. Flagged terms recorded for OFS screening."
+  "flagged_terms_count": 49,
+  "summary": "Audited deep crawl completed cleanly. Flagged terms recorded for OFS screening."
 }
