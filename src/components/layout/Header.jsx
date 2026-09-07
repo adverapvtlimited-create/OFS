@@ -51,6 +51,7 @@ const topBarCertifications = [
     detail: 'Cert: 3050260502115Q',
     color: '#f59e0b',
     icon: ShieldCheck,
+    link: '/certificate/ISO%2090012015.pdf',
   },
   {
     id: 'iso14001',
@@ -61,6 +62,7 @@ const topBarCertifications = [
     detail: 'Cert: 3050260502116E',
     color: '#10b981',
     icon: CheckCircle2,
+    link: '/certificate/ISO%20140012015.pdf',
   },
   {
     id: 'iso45001',
@@ -71,6 +73,7 @@ const topBarCertifications = [
     detail: 'Cert: 3050260502117HS',
     color: '#38bdf8',
     icon: BadgeCheck,
+    link: '/certificate/ISO%20450012018.pdf',
   },
   {
     id: 'iso37001',
@@ -81,6 +84,7 @@ const topBarCertifications = [
     detail: 'Cert: UK-02-VS-03088',
     color: '#a78bfa',
     icon: Lock,
+    link: '/certificate/ISO%20370012016.pdf',
   },
   {
     id: 'impa',
@@ -102,6 +106,7 @@ const topBarCertifications = [
     detail: 'Cert: DIPP253153',
     color: '#fb923c',
     icon: Award,
+    link: '/certificate/DIPP253153.pdf',
   },
 ];
 
