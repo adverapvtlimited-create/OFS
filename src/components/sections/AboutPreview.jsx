@@ -110,7 +110,7 @@ export default function AboutPreview() {
             <div className="flex flex-col gap-3.5 mb-9">
               {[
                 'Specialized Support: Trading, O&M, Troubleshooting, Procurement & Engineering',
-                'Global Presence: India Headquarters (Mumbai) & USA Office (Florida)',
+                'Global Presence: USA Global Office (Florida) & India Operations Hub (Mumbai)',
                 'End-to-End Multimodal Logistics & Global Supply Chain Execution',
               ].map((bullet, idx) => (
                 <ScrollReveal key={idx} direction="left" delay={0.4 + idx * 0.1}>

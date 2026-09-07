@@ -218,7 +218,7 @@ export default function WhyChooseUs() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-white/75 leading-relaxed m-0">
-                  Mumbai Headquarters &amp; Florida USA liaison office coordinating international AVL procurement backed by Microsoft-powered tracking software.
+                  USA Global Office &amp; India Operations Hub coordinating international AVL procurement backed by Microsoft-powered tracking software.
                 </p>
               </div>
 
