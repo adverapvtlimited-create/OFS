@@ -2,20 +2,65 @@
   {
     "id": "drilling-equipment",
     "slug": "drilling-equipment",
-    "name": "Drilling Equipment",
+    "name": "Reliable Drilling Equipment & Spare Parts for Global Operations",
     "shortName": "Drilling Equipment",
     "category": "Upstream & Drilling",
     "icon": "Flame",
     "heroImage": "/images/products/draw-works.jpg",
-    "summary": "End-to-end supply of API specification drilling equipment, draw works, travelling blocks, coiled tubing, and heavy-wall OCTG casing & tubing.",
+    "summary": "Drilling equipment is a critical component across both land and offshore markets, especially in mineral exploration, geothermal drilling, construction, and water well drilling.",
     "keyPoints": [
-      "At OFS , we supply top-quality spare parts trusted across the domestic, Middle Eastern, and Southeast Asian markets",
-      "These pulley systems are essential for lifting and lowering heavy loads in the wellbore",
-      "We help you select cost-effective, high-quality tools, backed by dedicated support",
-      "These generators ensure uninterrupted power for heavy equipment, making them vital for smooth and efficient operations",
-      "These systems help operators lower tools and instruments into the wellbore to assess and manage conditions"
+      "Auger, Wet Rotary, Core & Down-the-Hole Hammer Drilling Solutions",
+      "Sourcing & supplying high-performance drilling equipment & OEM spare parts worldwide",
+      "Unmatched MRO support reducing downtime & increasing performance in demanding environments"
     ],
-    "description": "Oriented Facility Solution (OFS) supplies complete API Spec drilling machinery and replacement consumables for offshore jack-ups, semi-submersibles, and land drilling rigs. From draw works components, rotary swivels, and top drives to API 5CT OCTG casing and tubing, we ensure seamless well construction and intervention."
+    "description": "Drilling equipment is a critical component across both land and offshore markets, especially in mineral exploration, geothermal drilling, construction, and water well drilling. These drill rigs operate on every continent and play a vital role in shaping the future of energy and infrastructure development.\n\nAt OFS, we specialise in sourcing and supplying high-performance drilling equipment and spare parts trusted by industry leaders around the world. Our partnerships with OEMs known for rugged reliability and minimal maintenance allow us to provide top-tier equipment tailored for:\n\nAuger Drilling\nWet Rotary Drilling\nCore Drilling\nDown-the-Hole Hammer Drilling\n\nWe support a wide range of drill rig models and applications, ensuring that our clients receive the exact components they need—on time and within budget.\n\nWhat sets OFS apart is not only our product quality but also our unmatched MRO (Maintenance, Repair, and Operations) support. Our experienced team ensures that your rigs remain operational, efficient, and productive, reducing downtime and increasing performance in the most demanding environments.",
+    "catalogItems": [
+      {
+        "title": "Draw Works",
+        "image": "/images/products/draw-works.jpg",
+        "description": "Draw works is the main hoisting system in rotary drilling rigs, made up of the drum, brakes, transmission, and cathead. At OFS, we supply top-quality spare parts trusted across the domestic, Middle Eastern, and Southeast Asian markets. Our durable components ensure smooth drilling operations, and our responsive service ensures a streamlined procurement experience tailored to your needs."
+      },
+      {
+        "title": "Travelling Block",
+        "image": "/images/products/travelling-block.jpg",
+        "description": "OFS supplies high-quality travelling blocks and spare parts from trusted manufacturers. These pulley systems are essential for lifting and lowering heavy loads in the wellbore. We also offer multiple sheave units and custom-engineered designs tailored to meet specific project needs, from standard models to fully bespoke solutions."
+      },
+      {
+        "title": "Coiled Tubing",
+        "image": "/images/products/coiled-tubing.jpg",
+        "description": "OFS supplies stainless steel seamless and welded coiled tubing for petrochemical, oil & gas, natural gas, and geothermal industries. Available in nickel, titanium, duplex, and other special alloys, our tubing meets both standard and custom specifications, backed by extensive industry experience."
+      },
+      {
+        "title": "Drilling Instrumentation",
+        "image": "/images/products/drilling-instrumentation.jpg",
+        "description": "OFS offers a full range of rugged and reliable oilfield instruments—from pressure gauges to complete systems—designed for today’s toughest drilling environments. We help you select cost-effective, high-quality tools, backed by dedicated support."
+      },
+      {
+        "title": "Drilling Generators",
+        "image": "/images/products/drilling-generators.jpg",
+        "description": "Power generators are essential in the oil and gas industry, providing reliable energy to support drilling and excavation. These generators ensure uninterrupted power for heavy equipment, making them vital for smooth and efficient operations."
+      },
+      {
+        "title": "Wireline Equipment",
+        "image": "/images/products/wireline-equipment-compressed.jpg",
+        "description": "Wireline equipment uses braided and electrical cables for well intervention, evaluation, and maintenance in oil and gas operations. These systems help operators lower tools and instruments into the wellbore to assess and manage conditions. OFS supplies advanced wireline equipment designed to withstand extreme environments, including pressures over 30,000 psi and temperatures up to 500°F in geothermal wells."
+      },
+      {
+        "title": "Completion Tools",
+        "image": "/images/products/completion-tools.jpg",
+        "description": "Completion tools are used to bring oil and gas wells into production after drilling. They support safe and efficient hydrocarbon extraction during well completion. OFS offers a full range of completion tools, including open-hole and cemented multi-stage stimulation systems, composite plugs, and critical components like wellheads, tubing hangers, safety valves, ESPs, and more—ensuring reliable performance from test to commercial production."
+      },
+      {
+        "title": "Oil Tools",
+        "image": "/images/products/oil-tools.jpg",
+        "description": "Oil tools are essential equipment used during drilling, completion, and well intervention activities to optimise production and maintain consistent reservoir flow. OFS supplies a range of downhole tools designed to reduce operational costs, extend well life, and improve oil recovery. These tools support operations like fishing, cementing, casing, well measurements, and reservoir fracturing, ensuring smooth and efficient well management."
+      },
+      {
+        "title": "Power Swivels",
+        "image": "/images/products/power-swivels.jpg",
+        "description": "Power Swivels are hydraulic motor-driven machines used to rotate drill pipes during operations such as oil and gas well drilling, water wells, offshore platform piling, and foundation construction. OFS offers a wide range of high-performance power swivel systems, known for their safety, reliability, and adaptability to various drilling needs."
+      }
+    ]
   },
   {
     "id": "electrical-power-equipments",
@@ -119,56 +164,151 @@
   {
     "id": "heavy-machinery-equipments",
     "slug": "heavy-machinery-equipments",
-    "name": "Heavy Machinery Equipments",
+    "name": "Heavy Plant Machinery & Construction Vehicles Equipment",
     "shortName": "Heavy Machinery",
     "category": "Heavy Engineering",
     "icon": "Hammer",
     "heroImage": "/images/products/compact-excavator-1.png",
-    "summary": "Heavy construction and material handling machinery, industrial cranes, bulldozers, excavators, draglines, and structural earthmoving spares.",
+    "summary": "Heavy plant machinery and construction vehicles are essential for large-scale projects, offering high efficiency and reliability to ensure timely and quality completion.",
     "keyPoints": [
-      "While skilled labor remains valuable, machines offer faster output, reduced operational risks , and lower labor costs",
-      "At OFS , we support businesses by sourcing reliable heavy machinery tailored to industrial needs",
-      "This process is crucial for efficient storage, transport, and recycling",
-      "For machinery to operate efficiently, clutches require professional care , regular maintenance , and timely replacement",
-      "Brake Discs Brake discs are a critical component of any braking system, ensuring safe and efficient stopping power"
+      "Earth-moving Equipment, Construction Vehicles, Material Handling & Construction Equipment",
+      "Mass-produce with speed and precision, reducing reliance on manual labor & operational risks",
+      "Built to withstand extreme conditions and perform hazardous tasks in demanding environments"
     ],
-    "description": "OFS specializes in sourcing heavy industrial machinery, crane assemblies, draglines, and structural spares for mining, heavy port infrastructure, and offshore installation projects. We provide OEM replacement parts for CAT, Komatsu, Liebherr, and Terex equipment."
+    "description": "Heavy plant machinery and construction vehicles are essential for large-scale projects, offering high efficiency and reliability to ensure timely and quality completion. These machines fall into four main categories:\n\nEarth-moving Equipment\nConstruction Vehicles\nMaterial Handling Equipment\nConstruction Equipment\n\nDesigned to perform demanding tasks, this machinery enhances productivity and allows companies to mass-produce with speed and precision, reducing reliance on manual labor. While skilled labor remains valuable, machines offer faster output, reduced operational risks, and lower labor costs.\n\nProfessionally operated and regularly maintained, this equipment is built to withstand extreme conditions and perform hazardous tasks, contributing to a safer, more efficient work environment. At OFS, we support businesses by sourcing reliable heavy machinery tailored to industrial needs.",
+    "catalogItems": [
+      {
+        "title": "Compact Excavator",
+        "image": "/images/products/compact-excavator-1.png",
+        "description": "A compact excavator is a highly versatile piece of heavy machinery widely used across industries such as mining & minerals, agriculture, construction, and cement. Its key functions—including blade movement, rotation, travel, and workgroup operations—are powered by hydraulic fluid acting on hydraulic cylinders.\n\nAt OFS, we source and supply high-performance spare parts for compact excavators, ensuring power, precision, and reliability to keep your machinery operating at peak efficiency."
+      },
+      {
+        "title": "Dump Trucks",
+        "image": "/images/products/dump-trucks-1.png",
+        "description": "Like compact excavators, dump trucks are essential in industries such as mining & minerals, agriculture, construction, and cement. Their primary function is to transport loose materials like coal, sand, gravel, and dirt for construction and production tasks.\n\nAt OFS, we source robust and dependable spare parts for dump trucks in a variety of sizes, ensuring optimal performance and reliability tailored to your specific operational needs."
+      },
+      {
+        "title": "Forklift",
+        "image": "/images/products/forklift-1.png",
+        "description": "Forklifts, also known as industrial trucks, are equipped with sharp steel forks designed to lift and transport materials efficiently across warehouses, factories, and construction sites. At OFS, we source and supply the most reliable and efficient spare parts for forklifts, understanding their critical role in material handling and ensuring minimal downtime and maximum performance."
+      },
+      {
+        "title": "Cranes",
+        "image": "/images/products/cranes-1.png",
+        "description": "Cranes are primarily used to lift and lower heavy materials, especially within the construction industry, and are typically temporary structures on project sites. At OFS, we specialize in sourcing a wide range of spare parts for various crane types, including:\n\nTruck-Mounted Cranes\nAll-Terrain Telescopic Cranes\nHydraulic Cranes\n\nOur focus is on providing reliable, high-quality components to ensure smooth and safe crane operations in demanding environments."
+      },
+      {
+        "title": "Backhoe Loader",
+        "image": "/images/products/backhoe-loader-1.png",
+        "description": "A backhoe loader is a compact, versatile excavation machine that combines a tractor, front shovel, and a rear backhoe. Commonly used in small construction projects and agriculture, it serves multiple functions including digging, loading, and material transport.\n\nAt OFS, we source high-quality spare parts for backhoe loaders, ensuring durability, performance, and a perfect match for our customers’ operational needs."
+      },
+      {
+        "title": "Bulldozer",
+        "image": "/images/products/bulldozer-1.png",
+        "description": "A bulldozer is a powerful, tracked machine commonly used in quarries, military bases, industrial sites, engineering projects, and farms. Its primary function is to push large volumes of material like soil, sand, or debris, and it's also effective for demolition tasks.\n\nAt OFS, we supply a wide range of spare parts for bulldozers, tailored to various specifications to ensure optimal performance, strength, and durability in tough working environments."
+      },
+      {
+        "title": "Compactors",
+        "image": "/images/products/compactors-1.png",
+        "description": "Compactors are essential industrial machines used to compress large volumes of scrap metal such as copper, tin, brass, iron, and steel into firm, manageable blocks. This process is crucial for efficient storage, transport, and recycling.\n\nAt OFS, we source high-quality spare parts for compactors, tailored to meet our clients’ specific needs and performance expectations, ensuring durability and efficiency in heavy-duty operations."
+      },
+      {
+        "title": "Clutch",
+        "image": "/images/products/clutch-2.png",
+        "description": "A clutch plays a vital role in regulating speed by connecting two rotating shafts, allowing for smooth engagement and adjustment between shafts of differing speeds. For machinery to operate efficiently, clutches require professional care, regular maintenance, and timely replacement.\n\nAt OFS, we offer high-quality clutches designed to enhance machine performance, ensuring reliability, durability, and optimal functionality across various industrial applications."
+      },
+      {
+        "title": "Brake Discs",
+        "image": "/images/products/brake-discs-1.png",
+        "description": "Brake discs are a critical component of any braking system, ensuring safe and efficient stopping power. Regular maintenance is essential to maintain optimal performance and safety standards.\n\nAt OFS, we provide a wide range of industrial brake discs, including options with thrusters, flexible couplings, and complete brake disc systems, tailored to meet diverse operational requirements across industries."
+      }
+    ]
   },
   {
     "id": "hvac-refrigeration",
     "slug": "hvac-refrigeration",
-    "name": "HVAC & Refrigeration",
+    "name": "HVAC & Refrigeration Tools and Equipment",
     "shortName": "HVAC & Cooling",
     "category": "Facility & Cooling",
     "icon": "Sun",
     "heroImage": "/images/products/air-conditioners-1.png",
-    "summary": "Marine and industrial grade HVAC chillers, explosion-proof air handling units (AHUs), cold room refrigeration systems, and ducting.",
+    "summary": "HVAC & refrigeration is vital for personal comfort, food preservation, medical health, industrial uses, and water supply—regulating and preserving climate control and airflow.",
     "keyPoints": [
-      "They are essential in industries such as textile, printing, manufacturing, pharmaceuticals , and power plants",
-      "They play a crucial role in diagnosing system issues and ensuring optimal performance",
-      "These include devices like mantles, Bunsen burners, hot plates, water baths , and circulators",
-      "At OFS , we source reliable and efficient lab heating equipment tailored to diverse research and industrial needs",
-      "Any Question? Feel Free to Call Us Call Free 022 69621112 Call Free 022 69621112"
+      "Industrial Air Conditioners, Chillers, Fans & Blowers for process & facility cooling",
+      "HVAC testing instruments for accurate measurement of temperature, pressure & airflow",
+      "Laboratory heating equipment & air conditioner diagnostic devices for peak reliability"
     ],
-    "description": "OFS provides turnkey marine and industrial HVAC and refrigeration systems designed to maintain strict climate control in offshore living quarters, control rooms, and industrial processing units. All units feature explosion-proof ATEX ratings and anti-corrosive marine coatings."
+    "description": "HVAC & refrigeration is vital to today’s lifestyle for personal comfort, food preservation, medical health, industrial uses, and water supply—regulating and preserving the climate control and airflow of the systems in play. With constant developments in technology requiring airflow control, the demand for HVAC & refrigeration services has increased, suggesting high growth within this industry is to be expected. At OFS, we understand how a heating and cooling system can have a direct effect on performance, efficiency, and reliability, and we are committed to providing high-quality tools and equipment to support this essential sector.",
+    "catalogItems": [
+      {
+        "title": "Air Conditioners",
+        "image": "/images/products/air-conditioners-1.png",
+        "description": "Air conditioners regulate and control airflow and temperature to create optimal environmental conditions for processes and production. They are essential in industries such as textile, printing, manufacturing, pharmaceuticals, and power plants.\n\nAt OFS, we understand the critical role of cooling systems and procure high-quality spare parts for air conditioners to ensure consistent performance, reliability, and efficiency across industrial applications."
+      },
+      {
+        "title": "Industrial Chillers",
+        "image": "/images/products/industrial-chillers-1.png",
+        "description": "Industrial chillers use refrigeration technology to deliver a continuous stream of coolant for dehumidifying air or cooling process fluids. Common applications include plastic fabrication, printer roller manufacturing, and cooling high-heat instruments like MRI machines and lasers.\n\nAt OFS, we supply compact industrial chillers and spare parts in a variety of sizes, tailored to meet specific customer requirements with a focus on efficiency, reliability, and performance."
+      },
+      {
+        "title": "HVAC Testing Instruments",
+        "image": "/images/products/hvac-testing-instruments-1.png",
+        "description": "HVAC testing instruments are essential for accurate measurement of variables like temperature, pressure, and airflow within air conditioning systems. They play a crucial role in diagnosing system issues and ensuring optimal performance.\n\nAt OFS, we source a wide range of HVAC testing tools including leak detectors, vacuum gauges, temperature measurement devices, air samplers, clamp meters, and multifunctional HVAC meters—ideal for indoor climate and environmental monitoring across commercial and industrial setups."
+      },
+      {
+        "title": "Fans and Blowers",
+        "image": "/images/products/fans-and-blowers-2.png",
+        "description": "Industrial fans and blowers are vital for cooling, ventilation, drying, combustion, and pneumatic conveying across various process industries. They come in different types, including centrifugal, axial, and mixed flow, each suited to specific operational needs.\n\nAt OFS, we procure a wide range of high-performance fans and blowers, along with reliable spare parts, ensuring efficiency, durability, and optimal airflow for industrial applications."
+      },
+      {
+        "title": "Laboratory Heaters for Flasks",
+        "image": "/images/products/laboratory-heaters-for-flaska.png",
+        "description": "Laboratory heaters are essential for precise heating and temperature control in chemical and scientific applications. These include devices like mantles, Bunsen burners, hot plates, water baths, and circulators.\n\nCommon heating tools used in labs also include ovens, oil baths, salt baths, sand baths, air baths, hot-tube furnaces, and hot-air guns—each selected based on the specific requirements of the experiment or process. At OFS, we source reliable and efficient lab heating equipment tailored to diverse research and industrial needs."
+      },
+      {
+        "title": "Devices for Air Conditioner Check",
+        "image": "/images/products/devices-for-air-conditioners-check-1.png",
+        "description": "To ensure optimal performance and proper functioning of air conditioners, we at OFS source reliable and efficient maintenance and repair equipment.\n\nOur range includes compressors, condensation units, blowers, control panels, and chiller trays, all tailored to meet the demands of industrial and commercial HVAC systems with a focus on durability, precision, and efficiency."
+      }
+    ]
   },
   {
     "id": "industrial-oil-chemicals-lubricants",
     "slug": "industrial-oil-chemicals-lubricants",
-    "name": "Industrial Oil Chemicals & Lubricants",
+    "name": "Industrial Oil, Chemicals, and Lubricants Suppliers",
     "shortName": "Oils & Lubricants",
     "category": "Chemicals & MRO",
     "icon": "FlaskConical",
     "heroImage": "/images/products/lubricating-greese.png",
-    "summary": "Specialty industrial lubricants, synthetic turbine oils, drilling mud additives, corrosion inhibitors, and high-performance grease.",
+    "summary": "Industrial oils, chemicals, and lubricants play a critical role in the process industry, minimizing friction between moving surfaces and protecting equipment from corrosion.",
     "keyPoints": [
-      "Industrial oils, chemicals, and lubricants play a critical role in the process industry",
-      "Unlike liquid lubricants, it doesn't flow easily, which allows it to cling effectively to moving parts",
-      "Its consistency makes it easy to apply, provides excellent sealing capabilities, and ensures long-lasting performance",
-      "Grease Gun OFS offers a comprehensive selection of grease guns designed for professional lubrication applications",
-      "Discover the right grease solution for your needs—contact OFS today for reliable, high-quality lubrication products"
+      "Specialty gear, turbine, hydraulic, rock drill & low-toxicity oils",
+      "Semi-solid lubricating grease & professional lever, pistol & hand grip grease guns",
+      "High-performance industrial chemicals & lubricants engineered for extreme operating conditions"
     ],
-    "description": "OFS supplies premium industrial lubricants, synthetic gear oils, drilling chemical additives, and specialty maintenance fluids designed to reduce mechanical friction, protect against oxidation, and extend the operating life of high-stress industrial machinery."
+    "description": "Industrial oils, chemicals, and lubricants play a critical role in the process industry. Industrial oils are used in a wide range of machinery and vehicles, available in various types such as gear oils, air compressor oils, hydraulic oils, rock drill oils, turbine oils, and low-toxicity oils.\n\nChemicals are often blended to enhance fuel efficiency and protect equipment from corrosion, contributing to improved performance and longevity.\n\nLubricants are essential for minimizing friction between moving surfaces—particularly in rotary equipment—ensuring smooth and efficient machinery operation. Commonly used lubricants include motor oils, marine oils, silicone-based lubricants, greases, turbine oils, metalworking fluids, cutting and grinding fluids, farming oils, gas engine oils, brake fluids, and hydraulic oils.",
+    "catalogItems": [
+      {
+        "title": "Lubricating Grease",
+        "image": "/images/products/lubricating-greese.png",
+        "description": "Lubricating grease is a semi-solid lubricant made by blending mineral oil with a soap-based thickener. Unlike liquid lubricants, it doesn't flow easily, which allows it to cling effectively to moving parts. Its consistency makes it easy to apply, provides excellent sealing capabilities, and ensures long-lasting performance. Due to its reliability and versatility, lubricating grease is widely used across industries such as construction, agriculture, oil and gas, and chemical processing."
+      },
+      {
+        "title": "Grease Gun",
+        "image": "/images/products/grease-gun-2.png",
+        "description": "OFS offers a comprehensive selection of grease guns designed for professional lubrication applications. Our range includes:\n\nLever-operated models for heavy-duty use\nPistol grip designs for enhanced control\nHand grip options for precision applications\n\nWe understand that proper lubrication requires the right tools. That's why our grease guns are engineered to deliver precise amounts of lubrication - typically 1-3 grams per stroke - ensuring optimal performance while minimizing waste."
+      },
+      {
+        "title": "Industrial Oils and Chemicals",
+        "image": "/images/products/industrial-oils-and-chemicals.png",
+        "description": "Today, approximately 75% of manufactured chemicals are used to produce essential goods—from detergents and soaps to perfumes and beyond. Industrial oils serve as the backbone of modern industry, powering energy generation, heating homes and businesses, and fueling global transportation networks, including automotive and aviation sectors. At OFS, we specialize in supplying a comprehensive range of high-quality industrial oils and chemicals, meticulously selected to meet our clients' precise operational requirements."
+      },
+      {
+        "title": "Industrial Grease Solutions",
+        "image": "/images/products/industrial-grease-solution.png",
+        "description": "OFS is a trusted supplier of high-performance industrial grease, offering a wide range of products tailored for diverse applications. Our premium industrial grease oils deliver superior lubrication, protecting machinery from friction, wear, and extreme operating conditions. As a leading industrial grease supplier, we provide advanced industrial grease lubricants engineered to enhance equipment efficiency, minimize downtime, and extend service life. Discover the right grease solution for your needs—contact OFS today for reliable, high-quality lubrication products."
+      }
+    ]
   },
   {
     "id": "industrial-valves",
@@ -206,12 +346,7 @@
       {
         "title": "Globe Valve",
         "image": "/images/products/globe-valve-1.png",
-        "description": "The OFS globe valve delivers precise flow control in pipelines, offering superior shut-off and throttling performance. Unlike ball valves, its unique design allows for fine-tuned regulation, making it ideal for applications requiring accurate flow adjustment.\n\nEngineered for reliability and ease of maintenance, OFS globe valves are commonly used in:",
-        "bullets": [
-          "Fuel oil systems",
-          "Cooling water circuits",
-          "Turbine seals and vents"
-        ]
+        "description": "The OFS globe valve delivers precise flow control in pipelines, offering superior shut-off and throttling performance. Unlike ball valves, its unique design allows for fine-tuned regulation, making it ideal for applications requiring accurate flow adjustment.\n\nEngineered for reliability and ease of maintenance, OFS globe valves are commonly used in:\n\n• Fuel oil systems\n• Cooling water circuits\n• Turbine seals and vents"
       },
       {
         "title": "Plug Valve",
