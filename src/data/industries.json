@@ -11,7 +11,7 @@
       "label": "Procurement & Shipping"
     },
     "tagline": "Specialized Procurement Solutions for the Oil & Gas Industry",
-    "summary": "With over a decade of dedicated experience, OFS delivers end-to-end procurement and supply chain solutions tailored to the dynamic demands of upstream, midstream, and downstream operations. We proudly serve clients across European and North American markets, ensuring operational continuity in complex energy environments.\n\nOur core services encompass strategic sourcing, project scheduling, quality assurance, and expediting. By optimizing supplier evaluation and negotiation, we bring clarity, structure, and agility to high-stakes operations\u2014from greenfield developments to ongoing maintenance.\n\nWe support a wide array of vital product categories, including industrial valves, precision drilling tools, centrifugal and positive displacement pumps, and comprehensive safety equipment. Every component is meticulously sourced with a strict focus on quality, compliance, and performance.",
+    "summary": "With over a decade of dedicated experience, OFS delivers end-to-end procurement and supply chain solutions tailored to the dynamic demands of upstream, midstream, and downstream operations. We proudly serve clients across European and North American markets, ensuring operational continuity in complex energy environments.\n\nIn the midstream sector, gas pipeline infrastructure remains one of the most secure methods of transporting natural gas. As energy demands rise, OFS supports the critical modernization of transmission and distribution networks. We supply high-quality valves, actuators, and pipeline components essential for safe, uninterrupted operations across vast natural and populated environments.\n\nOur core services encompass strategic sourcing, project scheduling, quality assurance, and expediting. Every component is meticulously sourced with a strict focus on quality, compliance, and performance\u2014from greenfield developments to the timely replacement of outdated pipeline infrastructure.",
     "keySolutions": [
       "API 6D Ball, Gate & Check Valves Sourcing",
       "Downhole Drilling Equipment & OCTG Tubulars",
@@ -31,8 +31,8 @@
       "slug": "logistics-shipping",
       "label": "Industrial Logistics"
     },
-    "tagline": "Ship Spare Parts Supply & Port Logistics for Commercial Vessels & FPSOs",
-    "summary": "OFS specializes in delivering end-to-end procurement and supply chain solutions for a broad spectrum of ship spare parts and marine equipment, supporting the operational demands of commercial vessels, offshore platforms, and port operations worldwide with OEM-approved parts.",
+    "tagline": "Marine Industry Procurement & Ship Spare Parts Supply",
+    "summary": "OFS specializes in delivering end-to-end procurement and supply chain solutions for a comprehensive range of ship spare parts and marine equipment. We support the rigorous operational demands of commercial vessels, offshore platforms, and port operations worldwide with critical mechanical, electrical, and navigational spares.\n\nUnderstanding the mission-critical nature of maritime operations, we mitigate the significant risks associated with delays or substandard components. We are strictly committed to sourcing high-quality, OEM-approved or equivalent parts\u2014ensuring peak reliability, safety, and regulatory adherence at every stage of the vessel lifecycle.\n\nOur global network of trusted maritime suppliers allows us to maintain competitive pricing and swift turnaround times, seamlessly fulfilling requirements for scheduled dry docks, emergency repairs, and routine maintenance.",
     "keySolutions": [
       "Marine Engine Spares, Turbochargers & Filters",
       "Desalination Plants & Bilge Water Treatment Units",
@@ -47,14 +47,31 @@
         "name": "Offshore Engineering",
         "shortName": "Offshore Engineering",
         "icon": "Ship",
-        "heroImage": "/images/live/Marine.png",
+        "heroImage": "/images/live/Offshore-Engineering.jpg",
         "tagline": "Advanced Engineering Solutions for Offshore Environments",
-        "summary": "Delivering robust offshore engineering solutions including structural design, topside modifications, and specialized equipment sourcing for offshore platforms and rigs.",
+        "summary": "Delivering robust offshore engineering solutions including structural design, topside modifications, specialized equipment sourcing, and technical support for offshore platforms and rigs operating in demanding marine environments.",
         "keySolutions": [
-          "Platform Topside Structural Modifications",
-          "Offshore Rig Equipment Sourcing",
-          "Subsea Tie-back Engineering Support",
-          "Harsh Environment Material Selection"
+          "Platform Topside Structural Modifications: Structural upgrades, reinforcements, modifications, and equipment integration for offshore platforms.",
+          "Offshore Rig Equipment Sourcing: Procurement of specialized rig equipment and components from qualified suppliers for offshore operations.",
+          "Subsea Tie-back Engineering Support: Technical and engineering support for subsea tie-back systems, equipment coordination, and offshore installation requirements.",
+          "Harsh Environment Material Selection: Selection and sourcing of corrosion-resistant materials and components designed for challenging offshore conditions."
+        ],
+        "customServices": [
+          {
+            "title": "Procurement & Shipping",
+            "slug": "procurement-shipping",
+            "description": "Complete sourcing, supplier coordination, logistics, documentation, and delivery of offshore equipment."
+          },
+          {
+            "title": "Engineering & EPC",
+            "slug": "engineering-epc-support",
+            "description": "Engineering, technical coordination, equipment integration, and EPC support for offshore projects."
+          },
+          {
+            "title": "Spare Parts Procurement",
+            "slug": "spare-parts-procurement",
+            "description": "Sourcing of critical spare parts and replacement components to maintain equipment reliability and minimize downtime."
+          }
         ]
       },
       {
@@ -69,7 +86,7 @@
           "label": "Industrial Logistics"
         },
         "tagline": "High-Integrity Mooring Chains, Synthetic Ropes, Winches & Quayside Berthing Equipment",
-        "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, harbour tug towing lines, heavy-duty studlink anchor chains, and quick-release mooring hooks compliant with OCIMF guidelines.",
+        "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, and quayside berthing equipment.\n\nWe strictly adhere to OCIMF guidelines to provide high-integrity mooring chains, synthetic HMPE ropes, quick-release hooks, and pneumatic fendering packages. Our commitment to stringent quality assurance ensures that every mooring component delivers uncompromising safety and resilience in harsh marine environments.",
         "keySolutions": [
           "Studlink & Studless Anchor Chains (Grade R3, R4 & R5)",
           "High-Modulus Synthetic HMPE & Braided Mooring Lines",
@@ -90,7 +107,7 @@
           "label": "Engineering & EPC Support"
         },
         "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
-        "summary": "Providing certified commercial diving equipment, surface-supplied air and nitrox systems, subsea non-destructive testing (NDT), underwater wet welding, propeller super-polishing, and Class-approved in-water survey (UWILD) gear for offshore rigs, platforms, and commercial vessels worldwide.",
+        "summary": "We provide certified commercial diving equipment, subsea non-destructive testing (NDT) gear, and surface-supplied air systems designed for high-risk underwater operations.\n\nSupporting offshore rigs, platforms, and commercial vessels, our procurement network sources IMCA-compliant equipment for underwater wet welding, biofouling removal, and Class-approved in-water surveys (UWILD). OFS ensures dive teams are equipped with the safest, most reliable technology available for deep-water and subsea engineering tasks.",
         "keySolutions": [
           "IMCA-Compliant Surface-Supplied Diving & Umbilical Spares",
           "Underwater NDT (Ultrasonic Thickness & MPI Magnetic Testing)",
@@ -105,14 +122,31 @@
         "name": "Marine Equipment & Services",
         "shortName": "Marine Equipment",
         "icon": "Ship",
-        "heroImage": "/images/live/Marine.png",
-        "tagline": "Comprehensive Marine Equipment and Port Services",
-        "summary": "Providing a wide range of marine equipment, vessel spare parts, and comprehensive port services to ensure seamless maritime operations.",
+        "heroImage": "/images/live/Marine-Equipment.jpg",
+        "tagline": "Marine Equipment & Service Solutions",
+        "summary": "Providing reliable marine equipment, vessel spare parts, navigation systems, and port support services to ensure efficient and dependable maritime operations.",
         "keySolutions": [
-          "Vessel Spare Parts and Consumables",
-          "Marine Navigation and Communication Systems",
-          "Deck Machinery and Cargo Handling Equipment",
-          "Comprehensive Port Agency Services"
+          "Vessel Spare Parts & Consumables: Sourcing essential spare parts, consumables, and components for commercial and offshore vessels.",
+          "Marine Navigation & Communication Systems: Supply and support of navigation, communication, and onboard electronic systems.",
+          "Deck Machinery & Cargo Handling Equipment: Providing reliable deck machinery, lifting systems, winches, and cargo-handling equipment.",
+          "Comprehensive Port Agency Services: Coordinating vessel calls, port documentation, supplies, logistics, and related marine services."
+        ],
+        "customServices": [
+          {
+            "title": "Procurement & Shipping",
+            "slug": "procurement-shipping",
+            "description": "Global sourcing, supplier coordination, logistics, and timely delivery of marine equipment."
+          },
+          {
+            "title": "Engineering & EPC",
+            "slug": "engineering-epc-support",
+            "description": "Technical assistance, equipment integration, engineering coordination, and EPC support."
+          },
+          {
+            "title": "Spare Parts Procurement",
+            "slug": "spare-parts-procurement",
+            "description": "Fast and reliable sourcing of critical vessel spare parts and replacement components."
+          }
         ]
       }
     ]
@@ -132,8 +166,8 @@
       "href": "/renewables",
       "label": "Renewables Portal"
     },
-    "tagline": "Building a Sustainable and Green Future with Solar, Wind & BESS",
-    "summary": "At OFS, we champion innovation and sustainability in the renewable energy sector. We support utility-scale solar farms, wind turbine installations, battery energy storage systems (BESS), and green microgrids with specialized procurement and life-cycle maintenance.",
+    "tagline": "Partner with OFS to Build a Sustainable and Green Future",
+    "summary": "OFS champions innovation and sustainability in the renewable energy sector, actively supporting the global transition to cleaner, more eco-conscious business practices. We serve as a trusted partner in aligning your operations with the future of green energy.\n\nWith rising global energy demands and an essential shift toward sustainable solutions, we leverage our deep procurement expertise to empower large-scale renewable projects. Our supply chain solutions support utility-scale solar farms, wind turbine installations, hydroelectric plants, and battery energy storage systems (BESS).\n\nBy sourcing high-efficiency components and critical infrastructure, OFS is proud to facilitate the development and maintenance of renewable energy assets\u2014building a sustainable foundation for generations to come.",
     "keySolutions": [
       "Tier-1 N-Type TOPCon & Bifacial Solar PV Modules",
       "Utility-Scale Central & String Inverter Packages",
@@ -153,8 +187,8 @@
       "slug": "spare-parts-procurement",
       "label": "Spare Parts & MRO"
     },
-    "tagline": "High-Efficiency Spares & Maintenance for Thermal, Gas & Hydro Plants",
-    "summary": "OFS fulfills critical procurement needs to minimize plant downtime and boost generation efficiency. We source spare parts for essential rotary equipment, turbines, generators, high-voltage transformers, and digital power instrumentation.",
+    "tagline": "Power & Energy Procurement Solutions",
+    "summary": "OFS is dedicated to fulfilling the complex procurement needs of the power and energy sector, ensuring reliable operations and consistent performance. Our strategic supply solutions are designed to minimize downtime, boost plant efficiency, and ultimately maximize megawatt output.\n\nAs global electricity demands rise, we support critical power generation infrastructure by sourcing spare parts for essential rotary equipment, including gas and steam turbines, high-voltage transformers, couplings, and power electronics.\n\nBacked by deep technical expertise, we deliver tailored procurement services combined with value-added MRO (Maintenance, Repair, and Operations) support. OFS acts as a comprehensive, end-to-end solution provider, empowering facilities to meet the evolving energy demands of the future.",
     "keySolutions": [
       "Gas & Steam Turbine Hot Gas Path Spares",
       "High-Pressure Boiler Tubes, Valves & Fittings",
@@ -174,8 +208,8 @@
       "slug": "procurement-shipping",
       "label": "Procurement & Shipping"
     },
-    "tagline": "Turnkey Procurement for High-Pressure Process Units & Refineries",
-    "summary": "Operating within complex frameworks of large-scale refinery units and stringent safety standards, OFS supplies high-performance process equipment, cryogenic valves, gas detection grids, and specialized corrosion-resistant alloys across international project sites.",
+    "tagline": "Procurement Solutions for the Petrochemical Industry",
+    "summary": "The petrochemical industry operates within a highly complex framework of large-scale projects, critical timelines, and stringent safety standards. OFS meets these demands by supplying a diverse range of reliable equipment, from high-performance process units and electrical instrumentation to specialized piping and gas detection systems.\n\nWe provide scalable, cost-effective procurement models tailored to the unique challenges of petrochemical supply chains. Whether sourcing a single niche component or executing a turnkey procurement package, we support every project stage with precision. Our global reach enables seamless management of international logistics, regulatory documentation, and supplier coordination.\n\nCombining industry-specific knowledge with agile execution, our team optimizes procurement processes while strictly adhering to technical specifications and safety mandates. We prioritize cost control and reliability, ensuring success in capital-intensive, high-stakes environments.",
     "keySolutions": [
       "Specialty Alloy Valves (Inconel, Monel, Duplex SS)",
       "High-Pressure Heat Exchangers & Reactor Spares",
@@ -195,8 +229,8 @@
       "slug": "spare-parts-procurement",
       "label": "Spare Parts & MRO"
     },
-    "tagline": "Heavy-Duty Wear Parts, Kiln Spares & Material Handling Systems",
-    "summary": "Providing rugged, abrasion-resistant wear plates, kiln drive components, roller press bearings, baghouse filtration systems, and bulk conveying spares engineered to endure high-dust, high-heat cement manufacturing operations.",
+    "tagline": "End-to-End Support for the Cement Industry",
+    "summary": "OFS provides high-quality spare parts and technical support for critical cement plant equipment, including ball mills, cement kilns, calcining systems, and clinker coolers. Our primary focus is minimizing equipment downtime while enhancing the operational efficiency of your manufacturing processes.\n\nLeveraging deep industry knowledge, we deliver comprehensive supply chain solutions tailored specifically for the cement sector. By combining our procurement capabilities with value-added MRO (Maintenance, Repair, and Overhaul) services, OFS serves as a trusted partner in driving long-term performance and reliability across your high-demand operations.",
     "keySolutions": [
       "Rotary Kiln Tyre, Roller & Drive Girth Gear Spares",
       "High-Chrome Grinding Media & Wear Liners",
@@ -216,8 +250,8 @@
       "slug": "spare-parts-procurement",
       "label": "Spare Parts & MRO"
     },
-    "tagline": "Heavy Extraction Machinery Spares & Slurry Handling Equipment",
-    "summary": "Supporting open-pit and underground mining operations with crushing spares, heavy earthmoving equipment wear components, high-density slurry pumps, and specialized off-highway logistics solutions.",
+    "tagline": "Reliable Procurement Solutions for the Mining & Mineral Sector",
+    "summary": "OFS is recognized globally as a trusted procurement partner across the mining and mineral extraction industries, defined by our unwavering commitment to efficiency and reliability. We ensure minimal operational disruption by strategically sourcing and delivering critical equipment for the most demanding environments.\n\nWe specialize in supplying spare parts for bulk material handling systems, surface and underground drill rigs, draglines, and heavy-duty excavators. Each component is meticulously sourced to meet stringent performance, safety, and durability standards, helping clients maintain continuous output in harsh, high-risk settings.\n\nUnderstanding that downtime in the mining sector translates directly to severe financial loss, we prioritize responsive logistics and accurate order fulfillment. Leveraging global supplier access, we guarantee that the right parts reach your site precisely when needed.",
     "keySolutions": [
       "Cone & Jaw Crusher Manganese Wear Liners",
       "Heavy-Duty Slurry Pumps & Rubber-Lined Spares",
@@ -229,22 +263,39 @@
   {
     "id": "heavy-engineering",
     "slug": "heavy-engineering",
-    "name": "Heavy Engineering & Manufacturing",
-    "shortName": "Heavy Engineering",
+    "name": "General & Heavy Manufacturing",
+    "shortName": "Manufacturing",
     "icon": "Plane",
     "heroImage": "/images/live/Heavy-Engineering-2.png",
     "relatedService": {
       "slug": "engineering-epc-support",
       "label": "Engineering & EPC Support"
     },
-    "tagline": "Precision Sourcing for Custom Fabrication & Plant Infrastructure",
-    "summary": "Delivering specialized structural steel, high-tensile fasteners, industrial hydraulic systems, CNC machining tooling, and custom-engineered mechanical components for world-class heavy industrial fabricators.",
+    "tagline": "Precision Procurement for General & Heavy Manufacturing",
+    "summary": "OFS delivers customized, high-performance procurement solutions tailored to the evolving needs of both general manufacturing and heavy engineering sectors. From steel production and automotive to large-scale infrastructure and construction, we provide rapid access to critical machinery, spare parts, and custom-engineered mechanical components.\n\nLeveraging over a decade of industry experience and a robust global network of certified manufacturers, we ensure seamless access to quality-assured equipment that meets rigorous safety and environmental standards. Our focus on forward-thinking technologies supports cleaner production processes and long-term sustainability.\n\nOur expert team partners closely with clients to craft scalable procurement strategies aligned with strict regulatory requirements and market demands\u2014ultimately minimizing downtime and optimizing resource allocation across capital-intensive projects.",
     "keySolutions": [
       "High-Tensile Structural Fasteners & Stud Bolts",
       "Industrial Hydraulic Power Packs & Heavy Cylinders",
       "CNC Machine Tooling, Cutting Inserts & Spindles",
       "Overhead Crane Components & Hoisting Gearboxes",
       "Non-Destructive Testing (NDT) Flaw Detection Systems"
+    ]
+  },
+  {
+    "id": "electrical-electronics",
+    "slug": "electrical-electronics",
+    "name": "Electrical & Electronics",
+    "shortName": "Electrical",
+    "icon": "Zap",
+    "heroImage": "/images/live/Electrical-Electronics.jpg",
+    "tagline": "Driving Innovation in Industrial Electrical Supply",
+    "summary": "OFS is committed to delivering the highest quality industrial electrical components, supporting innovation and reliability across complex electrical systems. We supply a comprehensive range of critical equipment\u2014including transformers, motors, advanced metering, circuit breakers, and specialized electronics.\n\nOur engineered procurement solutions are strictly designed to prevent unplanned downtime and optimize facility productivity. Backed by exceptional technical expertise and a global supply network, OFS serves as a dependable partner for efficient, compliant, and cost-effective industrial electrical supply.\n\nWe provide a full spectrum of electrical components, including PCBs, LEDs, robust cabling, and panel enclosures, tailored for demanding industrial operations.",
+    "keySolutions": [
+      "Electrical Meters, Transformers & Motors",
+      "Enclosures, Cabinets & Lighting Systems",
+      "Cables, Wiring & Circuit Components",
+      "PCB Boards & Specialized Electronics",
+      "Circuit Breakers & Magnetic Starters"
     ]
   }
 ]

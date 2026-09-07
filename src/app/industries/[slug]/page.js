@@ -267,11 +267,20 @@ export default function SingleIndustryPage({ params }) {
               OFS Services for {ind.shortName}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {servicesData.slice(0, 3).map((svc) => (
+              {ind.customServices ? ind.customServices.map((svc, idx) => (
+                <Link
+                  key={idx}
+                  href={`/services/${svc.slug}`}
+                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex flex-col gap-2"
+                >
+                  <span className="text-ofs-navy-950 font-bold text-[1.05rem]">{svc.title}</span>
+                  <span className="text-ofs-gray-600 text-[0.85rem] font-normal leading-snug">{svc.description}</span>
+                </Link>
+              )) : servicesData.slice(0, 3).map((svc) => (
                 <Link
                   key={svc.id}
                   href={`/services/${svc.slug}`}
-                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors"
+                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
                 >
                   {svc.shortTitle}
                 </Link>
