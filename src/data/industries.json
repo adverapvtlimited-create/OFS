@@ -39,6 +39,116 @@
       "SOLAS Approved Firefighting & Life Safety Equipment",
       "Vessel Agency & Bonded Port Logistics Coordination",
       "Drydock Overhaul Material Staging & Fast-Track Customs"
+    ],
+    "subIndustries": [
+      {
+        "id": "offshore-engineering",
+        "slug": "offshore-engineering",
+        "name": "Offshore Engineering",
+        "shortName": "Offshore Engineering",
+        "icon": "Ship",
+        "heroImage": "/images/live/Offshore-Engineering.jpg",
+        "tagline": "Advanced Engineering Solutions for Offshore Environments",
+        "summary": "Delivering robust offshore engineering solutions including structural design, topside modifications, specialized equipment sourcing, and technical support for offshore platforms and rigs operating in demanding marine environments.",
+        "keySolutions": [
+          "Platform Topside Structural Modifications: Structural upgrades, reinforcements, modifications, and equipment integration for offshore platforms.",
+          "Offshore Rig Equipment Sourcing: Procurement of specialized rig equipment and components from qualified suppliers for offshore operations.",
+          "Subsea Tie-back Engineering Support: Technical and engineering support for subsea tie-back systems, equipment coordination, and offshore installation requirements.",
+          "Harsh Environment Material Selection: Selection and sourcing of corrosion-resistant materials and components designed for challenging offshore conditions."
+        ],
+        "customServices": [
+          {
+            "title": "Procurement & Shipping",
+            "slug": "procurement-shipping",
+            "description": "Complete sourcing, supplier coordination, logistics, documentation, and delivery of offshore equipment."
+          },
+          {
+            "title": "Engineering & EPC",
+            "slug": "engineering-epc-support",
+            "description": "Engineering, technical coordination, equipment integration, and EPC support for offshore projects."
+          },
+          {
+            "title": "Spare Parts Procurement",
+            "slug": "spare-parts-procurement",
+            "description": "Sourcing of critical spare parts and replacement components to maintain equipment reliability and minimize downtime."
+          }
+        ]
+      },
+      {
+        "id": "mooring-systems",
+        "slug": "mooring-systems",
+        "name": "Mooring & Marine Berthing",
+        "shortName": "Mooring Systems",
+        "icon": "Anchor",
+        "heroImage": "/images/live/Mooring-Systems.jpg",
+        "relatedService": {
+          "slug": "logistics-shipping",
+          "label": "Industrial Logistics"
+        },
+        "tagline": "High-Integrity Mooring Chains, Synthetic Ropes, Winches & Quayside Berthing Equipment",
+        "summary": "OFS delivers comprehensive procurement, proof-load testing, and technical support for offshore single-point mooring (SPM) buoys, FPSO turret systems, and quayside berthing equipment.\n\nWe strictly adhere to OCIMF guidelines to provide high-integrity mooring chains, synthetic HMPE ropes, quick-release hooks, and pneumatic fendering packages. Our commitment to stringent quality assurance ensures that every mooring component delivers uncompromising safety and resilience in harsh marine environments.",
+        "keySolutions": [
+          "Studlink & Studless Anchor Chains (Grade R3, R4 & R5)",
+          "High-Modulus Synthetic HMPE & Braided Mooring Lines",
+          "Quick-Release Mooring Hooks (QRMH) & Electric Capstans",
+          "Offshore SPM Buoys, Chafe Chains & Swivel Assemblies",
+          "Pneumatic Yokohama & High-Energy Marine Fendering Packages"
+        ]
+      },
+      {
+        "id": "commercial-diving",
+        "slug": "commercial-diving",
+        "name": "Commercial Diving & Subsea",
+        "shortName": "Commercial Diving",
+        "icon": "Compass",
+        "heroImage": "/images/live/Commercial-Diving.jpg",
+        "relatedService": {
+          "slug": "engineering-epc-support",
+          "label": "Engineering & EPC Support"
+        },
+        "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
+        "summary": "We provide certified commercial diving equipment, subsea non-destructive testing (NDT) gear, and surface-supplied air systems designed for high-risk underwater operations.\n\nSupporting offshore rigs, platforms, and commercial vessels, our procurement network sources IMCA-compliant equipment for underwater wet welding, biofouling removal, and Class-approved in-water surveys (UWILD). OFS ensures dive teams are equipped with the safest, most reliable technology available for deep-water and subsea engineering tasks.",
+        "keySolutions": [
+          "IMCA-Compliant Surface-Supplied Diving & Umbilical Spares",
+          "Underwater NDT (Ultrasonic Thickness & MPI Magnetic Testing)",
+          "Class-Approved In-Water Surveys (UWILD) & Biofouling Removal",
+          "Underwater Wet/Hyperbaric Welding & Oxy-Arc Cutting Torches",
+          "Subsea Pipeline Free-Span Correction & Grouting Packages"
+        ]
+      },
+      {
+        "id": "marine-equipment",
+        "slug": "marine-equipment-services",
+        "name": "Marine Equipment & Services",
+        "shortName": "Marine Equipment",
+        "icon": "Ship",
+        "heroImage": "/images/live/Marine-Equipment.jpg",
+        "tagline": "Marine Equipment & Service Solutions",
+        "summary": "Providing reliable marine equipment, vessel spare parts, navigation systems, and port support services to ensure efficient and dependable maritime operations.",
+        "keySolutions": [
+          "Vessel Spare Parts & Consumables: Sourcing essential spare parts, consumables, and components for commercial and offshore vessels.",
+          "Marine Navigation & Communication Systems: Supply and support of navigation, communication, and onboard electronic systems.",
+          "Deck Machinery & Cargo Handling Equipment: Providing reliable deck machinery, lifting systems, winches, and cargo-handling equipment.",
+          "Comprehensive Port Agency Services: Coordinating vessel calls, port documentation, supplies, logistics, and related marine services."
+        ],
+        "customServices": [
+          {
+            "title": "Procurement & Shipping",
+            "slug": "procurement-shipping",
+            "description": "Global sourcing, supplier coordination, logistics, and timely delivery of marine equipment."
+          },
+          {
+            "title": "Engineering & EPC",
+            "slug": "engineering-epc-support",
+            "description": "Technical assistance, equipment integration, engineering coordination, and EPC support."
+          },
+          {
+            "title": "Spare Parts Procurement",
+            "slug": "spare-parts-procurement",
+            "description": "Fast and reliable sourcing of critical vessel spare parts and replacement components."
+          }
+        ]
+      }
     ]
   },
   {
@@ -161,8 +271,8 @@
   {
     "id": "heavy-engineering",
     "slug": "heavy-engineering",
-    "name": "Heavy Engineering & Manufacturing",
-    "shortName": "Heavy Engineering",
+    "name": "General & Heavy Manufacturing",
+    "shortName": "Manufacturing",
     "icon": "Plane",
     "heroImage": "/images/live/Heavy-Engineering-2.png",
     "relatedService": {
@@ -218,11 +328,11 @@
     "tagline": "IMCA-Compliant Subsea Inspection, Underwater Welding, Hull Cleaning & ROV Support",
     "summary": "Providing certified commercial diving equipment, surface-supplied air and nitrox systems, subsea non-destructive testing (NDT), underwater wet welding, propeller super-polishing, and Class-approved in-water survey (UWILD) gear for offshore rigs, platforms, and commercial vessels worldwide.",
     "keySolutions": [
-      "IMCA-Compliant Surface-Supplied Diving & Umbilical Spares",
-      "Underwater NDT (Ultrasonic Thickness & MPI Magnetic Testing)",
-      "Class-Approved In-Water Surveys (UWILD) & Biofouling Removal",
-      "Underwater Wet/Hyperbaric Welding & Oxy-Arc Cutting Torches",
-      "Subsea Pipeline Free-Span Correction & Grouting Packages"
+      "Electrical Meters, Transformers & Motors",
+      "Enclosures, Cabinets & Lighting Systems",
+      "Cables, Wiring & Circuit Components",
+      "PCB Boards & Specialized Electronics",
+      "Circuit Breakers & Magnetic Starters"
     ]
   }
 ]
