@@ -35,6 +35,6 @@ export default function TextRotator({
       )}
     >
       {words[index]}
-    </span>
+     </span>
   );
 }
