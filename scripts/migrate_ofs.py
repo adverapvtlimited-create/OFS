@@ -413,51 +413,29 @@ def media_stage():
         normalized = json.load(f)
 
     downloaded_count = 0
-
-    products = normalized.get("products", [])
-
-    # products.json can be either a list or a dictionary.
-    # Convert dictionary values into product objects before processing.
-    if isinstance(products, dict):
-        products = list(products.values())
-
-    for p in products:
-        if not isinstance(p, dict):
-            continue
-
+    for p in normalized.get("products", []):
         hero = p.get("heroImage")
-
         if hero and hero.startswith("http"):
-            local_path = download_image(
-                hero,
-                PUBLIC_IMAGES_DIR / "products"
-            )
+            local_path = download_image(hero, PUBLIC_IMAGES_DIR / "products")
             p["heroImage"] = local_path
             downloaded_count += 1
-
+        
         scraped = p.get("scrapedImages", [])
         updated_scraped = []
-
         for img_url in scraped:
             if img_url and img_url.startswith("http"):
-                lp = download_image(
-                    img_url,
-                    PUBLIC_IMAGES_DIR / "products"
-                )
+                lp = download_image(img_url, PUBLIC_IMAGES_DIR / "products")
                 updated_scraped.append(lp)
                 downloaded_count += 1
             else:
                 updated_scraped.append(img_url)
-
         p["scrapedImages"] = updated_scraped
 
     with open(normalized_file, "w", encoding="utf-8") as f:
         json.dump(normalized, f, indent=2)
 
-    print(
-        f"[SUCCESS] Downloaded and deduplicated "
-        f"{downloaded_count} image assets into {PUBLIC_IMAGES_DIR}"
-    )
+    print(f"[SUCCESS] Downloaded and deduplicated {downloaded_count} image assets into {PUBLIC_IMAGES_DIR}")
+
 
 def report_stage(inventory=None, flagged_entries=None, excluded_entries=None):
     print("=" * 60)

@@ -115,10 +115,15 @@ export const industriesNav = industriesData.map((ind) => ({
   href: `/industries/${ind.slug}`,
 }));
 
-export const productsNav = Object.values(productsData).map((p) => ({
-  title: p.title,
-  href: p.href,
-}));
+export const productsNav = Array.isArray(productsData)
+  ? productsData.map((p) => ({
+      title: p.shortName || p.name,
+      href: `/products/${p.slug}`,
+    }))
+  : Object.values(productsData).map((p) => ({
+      title: p.title || p.shortName || p.name,
+      href: p.href || `/products/${p.slug}`,
+    }));
 
 export function getAllOfferHrefs() {
   return whatWeOfferColumns.flatMap((key) => whatWeOffer[key].items.map((item) => item.href));

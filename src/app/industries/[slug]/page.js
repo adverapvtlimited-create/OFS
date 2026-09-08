@@ -14,7 +14,8 @@ import {
   Compass, 
   ArrowUpRight, 
   CheckCircle2, 
-  ShieldCheck 
+  ShieldCheck,
+  Cpu
 } from 'lucide-react';
 import industriesData from '@/data/industries.json';
 import servicesData from '@/data/services.json';
@@ -38,17 +39,36 @@ const iconMap = {
   Mountain: Mountain,
   Plane: Plane,
   Anchor: Anchor,
-  Compass: Compass
+  Compass: Compass,
+  Cpu: Cpu
+};
+
+const findIndustryBySlug = (slug) => {
+  for (const ind of industriesData) {
+    if (ind.slug === slug) return ind;
+    if (ind.subIndustries) {
+      const sub = ind.subIndustries.find((s) => s.slug === slug);
+      if (sub) return sub;
+    }
+  }
+  return null;
 };
 
 export async function generateStaticParams() {
-  return industriesData.map((ind) => ({
-    slug: ind.slug,
-  }));
+  const params = [];
+  industriesData.forEach((ind) => {
+    params.push({ slug: ind.slug });
+    if (ind.subIndustries) {
+      ind.subIndustries.forEach((sub) => {
+        params.push({ slug: sub.slug });
+      });
+    }
+  });
+  return params;
 }
 
 export async function generateMetadata({ params }) {
-  const ind = industriesData.find((i) => i.slug === params.slug);
+  const ind = findIndustryBySlug(params.slug);
   if (!ind) {
     return buildPageMetadata({
       title: 'Industry Not Found | OFS Group India',
@@ -60,7 +80,7 @@ export async function generateMetadata({ params }) {
 
   return buildPageMetadata({
     title: `${ind.name} Solutions | OFS Group India`,
-    description: ind.summary,
+    description: ind.summary.replace(/\n/g, ' '),
     path: `/industries/${ind.slug}`,
     keywords: [ind.name, ind.shortName, 'OFS Group India', 'industrial procurement'],
     ogImage: ind.heroImage,
@@ -68,7 +88,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default function SingleIndustryPage({ params }) {
-  const ind = industriesData.find((i) => i.slug === params.slug);
+  const ind = findIndustryBySlug(params.slug);
 
   if (!ind) {
     notFound();
@@ -87,7 +107,7 @@ export default function SingleIndustryPage({ params }) {
       <JsonLd
         data={buildWebPageSchema({
           title: `${ind.name} Solutions | OFS Group India`,
-          description: ind.summary,
+          description: ind.summary.replace(/\n/g, ' '),
           path: `/industries/${ind.slug}`,
         })}
       />
@@ -152,9 +172,11 @@ export default function SingleIndustryPage({ params }) {
                     </TextReveal>
                   </span>
                 </h2>
-                <p className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-8">
-                  {ind.summary}
-                </p>
+                {ind.summary.split('\n').map((paragraph, i) => (
+                  <p key={i} className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-4 last:mb-8">
+                    {paragraph}
+                  </p>
+                ))}
 
                 {/* Key Solutions List */}
                 <div className="flex flex-col gap-3.5">
@@ -185,17 +207,82 @@ export default function SingleIndustryPage({ params }) {
             </ScrollReveal>
           </div>
 
+          {/* Sub Industries Grid (if any) */}
+          {ind.subIndustries && ind.subIndustries.length > 0 && (
+            <div className="mt-16 mb-20">
+              <h2 className="section-title mb-8">
+                Specialized Areas in {ind.shortName}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                {ind.subIndustries.map((sub, idx) => {
+                  const SubIconComp = iconMap[sub.icon] || Flame;
+                  return (
+                    <ScrollReveal key={sub.id} direction="up" delay={idx * 0.1}>
+                      <Link href={`/industries/${sub.slug}`} className="block h-full group no-underline">
+                        <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
+                          <div>
+                            <div className="h-[175px] relative overflow-hidden">
+                              <img 
+                                src={sub.heroImage} 
+                                alt={sub.name}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none" />
+                              <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">
+                                <SubIconComp size={18} />
+                              </div>
+                            </div>
+                            <div className="p-5 pb-4">
+                              <h2 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug group-hover:text-ofs-red-600 transition-colors">
+                                {sub.name}
+                              </h2>
+                              <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
+                                {sub.summary.replace(/\n/g, ' ').slice(0, 140)}...
+                              </p>
+                              <div className="flex flex-col gap-1.5 mb-3">
+                                {sub.keySolutions?.slice(0, 3).map((sol, sIndex) => (
+                                  <div key={sIndex} className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-700">
+                                    <CheckCircle2 size={13} className="text-ofs-red-600 shrink-0 mt-0.5" />
+                                    <span className="leading-snug">{sol}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center transition-colors group-hover:bg-ofs-navy-50">
+                            <span className="font-mono text-xs font-bold uppercase text-ofs-navy-950 flex items-center gap-1 group-hover:text-ofs-red-600 transition-colors">
+                              Sector Overview <ArrowUpRight size={13} />
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </ScrollReveal>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Related OFS services for internal linking */}
           <div className="mt-16">
             <h2 className="section-title mb-6">
               OFS Services for {ind.shortName}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {servicesData.slice(0, 3).map((svc) => (
+              {ind.customServices ? ind.customServices.map((svc, idx) => (
+                <Link
+                  key={idx}
+                  href={serviceHref(svc.slug)}
+                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex flex-col gap-2"
+                >
+                  <span className="text-ofs-navy-950 font-bold text-[1.05rem]">{svc.title}</span>
+                  <span className="text-ofs-gray-600 text-[0.85rem] font-normal leading-snug">{svc.description}</span>
+                </Link>
+              )) : servicesData.slice(0, 3).map((svc) => (
                 <Link
                   key={svc.id}
                   href={serviceHref(svc.slug)}
-                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors"
+                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
                 >
                   {svc.shortTitle}
                 </Link>
