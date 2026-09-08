@@ -2,18 +2,16 @@
   {
     "id": "drilling-equipment",
     "slug": "drilling-equipment",
-    "name": "Drilling Equipment",
+    "name": "Reliable Drilling Equipment & Spare Parts for Global Operations",
     "shortName": "Drilling Equipment",
     "category": "Upstream & Drilling",
     "icon": "Flame",
     "heroImage": "/images/migrated/products/img_70cd05f72f.jpg",
     "summary": "End-to-end supply of API specification drilling equipment, draw works, travelling blocks, coiled tubing, and heavy-wall OCTG casing & tubing.",
     "keyPoints": [
-      "At OFS , we supply top-quality spare parts trusted across the domestic, Middle Eastern, and Southeast Asian markets",
-      "These pulley systems are essential for lifting and lowering heavy loads in the wellbore",
-      "We help you select cost-effective, high-quality tools, backed by dedicated support",
-      "These generators ensure uninterrupted power for heavy equipment, making them vital for smooth and efficient operations",
-      "These systems help operators lower tools and instruments into the wellbore to assess and manage conditions"
+      "Auger, Wet Rotary, Core & Down-the-Hole Hammer Drilling Solutions",
+      "Sourcing & supplying high-performance drilling equipment & OEM spare parts worldwide",
+      "Unmatched MRO support reducing downtime & increasing performance in demanding environments"
     ],
     "description": "Oriented Facility Solution (OFS) supplies complete API Spec drilling machinery and replacement consumables for offshore jack-ups, semi-submersibles, and land drilling rigs. From draw works components, rotary swivels, and top drives to API 5CT OCTG casing and tubing, we ensure seamless well construction and intervention.",
     "specifications": [
@@ -145,18 +143,16 @@
   {
     "id": "heavy-machinery-equipments",
     "slug": "heavy-machinery-equipments",
-    "name": "Heavy Machinery Equipments",
+    "name": "Heavy Plant Machinery & Construction Vehicles Equipment",
     "shortName": "Heavy Machinery",
     "category": "Heavy Engineering",
     "icon": "Hammer",
     "heroImage": "/images/migrated/products/img_99a16b738b.png",
     "summary": "Heavy construction and material handling machinery, industrial cranes, bulldozers, excavators, draglines, and structural earthmoving spares.",
     "keyPoints": [
-      "While skilled labor remains valuable, machines offer faster output, reduced operational risks , and lower labor costs",
-      "At OFS , we support businesses by sourcing reliable heavy machinery tailored to industrial needs",
-      "This process is crucial for efficient storage, transport, and recycling",
-      "For machinery to operate efficiently, clutches require professional care , regular maintenance , and timely replacement",
-      "Brake Discs Brake discs are a critical component of any braking system, ensuring safe and efficient stopping power"
+      "Earth-moving Equipment, Construction Vehicles, Material Handling & Construction Equipment",
+      "Mass-produce with speed and precision, reducing reliance on manual labor & operational risks",
+      "Built to withstand extreme conditions and perform hazardous tasks in demanding environments"
     ],
     "description": "OFS specializes in sourcing heavy industrial machinery, crane assemblies, draglines, and structural spares for mining, heavy port infrastructure, and offshore installation projects. We provide OEM replacement parts for CAT, Komatsu, Liebherr, and Terex equipment.",
     "specifications": [
@@ -209,18 +205,16 @@
   {
     "id": "hvac-refrigeration",
     "slug": "hvac-refrigeration",
-    "name": "HVAC & Refrigeration",
+    "name": "HVAC & Refrigeration Tools and Equipment",
     "shortName": "HVAC & Cooling",
     "category": "Facility & Cooling",
     "icon": "Sun",
     "heroImage": "/images/migrated/products/img_80eebb50cd.png",
     "summary": "Marine and industrial grade HVAC chillers, explosion-proof air handling units (AHUs), cold room refrigeration systems, and ducting.",
     "keyPoints": [
-      "They are essential in industries such as textile, printing, manufacturing, pharmaceuticals , and power plants",
-      "They play a crucial role in diagnosing system issues and ensuring optimal performance",
-      "These include devices like mantles, Bunsen burners, hot plates, water baths , and circulators",
-      "At OFS , we source reliable and efficient lab heating equipment tailored to diverse research and industrial needs",
-      "Any Question? Feel Free to Call Us Call Free 022 69621112 Call Free 022 69621112"
+      "Industrial Air Conditioners, Chillers, Fans & Blowers for process & facility cooling",
+      "HVAC testing instruments for accurate measurement of temperature, pressure & airflow",
+      "Laboratory heating equipment & air conditioner diagnostic devices for peak reliability"
     ],
     "description": "OFS provides turnkey marine and industrial HVAC and refrigeration systems designed to maintain strict climate control in offshore living quarters, control rooms, and industrial processing units. All units feature explosion-proof ATEX ratings and anti-corrosive marine coatings.",
     "specifications": [
@@ -267,7 +261,7 @@
   {
     "id": "industrial-oil-chemicals-lubricants",
     "slug": "industrial-oil-chemicals-lubricants",
-    "name": "Industrial Oil Chemicals & Lubricants",
+    "name": "Industrial Oil, Chemicals, and Lubricants Suppliers",
     "shortName": "Oils & Lubricants",
     "category": "Chemicals & MRO",
     "icon": "FlaskConical",
