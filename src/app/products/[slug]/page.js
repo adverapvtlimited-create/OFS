@@ -11,11 +11,7 @@ import {
   Anchor, 
   ShieldCheck, 
   ArrowUpRight, 
-  CheckCircle2, 
-  Award, 
-  Layers, 
-  Check, 
-  FileText 
+  CheckCircle2 
 } from 'lucide-react';
 import productsData from '@/data/products.json';
 import TextReveal from '@/components/animations/TextReveal';
@@ -192,68 +188,7 @@ export default function SingleProductPage({ params }) {
             </ScrollReveal>
           </div>
 
-          {/* Specifications & Applications Grid */}
-          {(prod.specifications || prod.applications) && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {/* Technical Specifications */}
-              {prod.specifications && (
-                <ScrollReveal direction="up" delay={0.1}>
-                  <div className="bg-ofs-gray-50 p-6 sm:p-8 rounded-2xl border border-ofs-gray-200 h-full">
-                    <h3 className="font-heading text-xl font-bold text-ofs-navy-950 mb-4 flex items-center gap-2">
-                      <Layers className="text-ofs-red-600" size={20} />
-                      Technical Specifications
-                    </h3>
-                    <ul className="space-y-3">
-                      {prod.specifications.map((spec, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-sm text-ofs-gray-700">
-                          <Check size={16} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                          <span className="leading-snug">{spec}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </ScrollReveal>
-              )}
 
-              {/* Industry Applications & Standards */}
-              {prod.applications && (
-                <ScrollReveal direction="up" delay={0.2}>
-                  <div className="bg-ofs-navy-950 text-white p-6 sm:p-8 rounded-2xl border border-ofs-navy-800 h-full flex flex-col justify-between">
-                    <div>
-                      <h3 className="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <Award className="text-ofs-red-400" size={20} />
-                        Industry Applications
-                      </h3>
-                      <ul className="space-y-3 mb-8">
-                        {prod.applications?.map((app, idx) => (
-                          <li key={idx} className="flex items-center gap-3 text-sm text-white/85">
-                            <span className="w-2 h-2 rounded-full bg-ofs-red-500 shrink-0" />
-                            <span>{app}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Standards Pills */}
-                    {prod.certifications && (
-                      <div>
-                        <div className="font-mono text-xs font-bold uppercase tracking-wider text-ofs-gold-400 mb-3">
-                          Accreditations &amp; Standards
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {prod.certifications.map((cert, idx) => (
-                            <span key={idx} className="font-mono text-xs px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/15">
-                              {cert}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </ScrollReveal>
-              )}
-            </div>
-          )}
 
           {/* Detailed Product Catalog Items */}
           {prod.catalogItems && prod.catalogItems.length > 0 && (
@@ -335,30 +270,7 @@ export default function SingleProductPage({ params }) {
             </div>
           )}
 
-          {/* Product Media Gallery from Official Site */}
-          {prod.scrapedImages && prod.scrapedImages.length > 0 && (
-            <div className="mb-16">
-              <ScrollReveal direction="up" delay={0.1}>
-                <div className="tag-badge badge-red mb-4">
-                  PRODUCT MEDIA &amp; ASSETS
-                </div>
-                <h3 className="font-heading text-2xl font-bold text-ofs-navy-950 mb-6">
-                  Catalog Images &amp; Technical Diagrams
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {prod.scrapedImages.map((imgUrl, i) => (
-                    <div key={i} className="h-44 rounded-xl overflow-hidden border border-ofs-gray-200 shadow-sm hover:shadow-md transition-shadow bg-ofs-navy-950/5 group relative">
-                      <img 
-                        src={imgUrl} 
-                        alt={`${prod.name} ${i + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
-          )}
+
         </Container>
       </section>
 
