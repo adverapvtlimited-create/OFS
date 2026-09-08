@@ -15,7 +15,8 @@ import {
   Anchor, 
   Compass, 
   ArrowUpRight, 
-  CheckCircle2 
+  CheckCircle2,
+  Cpu
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -36,6 +37,7 @@ const iconMap = {
   Plane: Plane,
   Anchor: Anchor,
   Compass: Compass,
+  Cpu: Cpu,
 };
 
 export default function IndustriesPage() {

@@ -25,6 +25,7 @@ import SectionPad from '@/components/ui/SectionPad';
 import Container from '@/components/ui/Container';
 import SonarDot from '@/components/ui/SonarDot';
 import servicesData from '@/data/services.json';
+import { serviceHref } from '@/lib/offers';
 
 const iconMap = {
   Package: Package,
@@ -96,12 +97,12 @@ export default function ServicesGrid() {
                 {/* Visual Image Column */}
                 <div className="sm:col-span-5 relative min-h-[200px] sm:min-h-[280px] overflow-hidden bg-ofs-navy-950">
                   <img
-                    src={flagshipService.heroImage || flagshipService.image || '/images/live/Procurement-and-shippings.jpg'}
+                    src={flagshipService.heroImage || flagshipService.image || '/images/live/Excellence-tools-official.png'}
                     alt={flagshipService.title}
                     className="w-full h-full object-cover transition-transform duration-700 ease-spring group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-ofs-navy-950/85 via-ofs-navy-950/30 to-transparent" />
-                  
+
                   {/* Top Left Flagship Badge */}
                   <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 py-1 px-3 rounded-full bg-ofs-red-600 text-white font-mono text-[0.68rem] font-bold shadow-lg">
                     <Sparkles size={12} />
@@ -131,7 +132,7 @@ export default function ServicesGrid() {
                           DIVISION 01
                         </div>
                         <h3 className="font-heading text-xl sm:text-[1.35rem] font-extrabold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                          <Link href={`/services/${flagshipService.slug}`} className="text-inherit no-underline">
+                          <Link href={serviceHref(flagshipService.slug)} className="text-inherit no-underline">
                             {flagshipService.title}
                           </Link>
                         </h3>
@@ -162,7 +163,7 @@ export default function ServicesGrid() {
                   {/* Card Action Row */}
                   <div className="pt-3.5 border-t border-ofs-gray-200 flex justify-between items-center">
                     <Link
-                      href={`/services/${flagshipService.slug}`}
+                      href={serviceHref(flagshipService.slug)}
                       className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-white bg-ofs-navy-950 hover:bg-ofs-red-600 py-2 px-4 rounded-xs transition-all duration-200 no-underline shadow-sm"
                     >
                       Explore Scope <ArrowUpRight size={14} />
@@ -204,7 +205,7 @@ export default function ServicesGrid() {
                       <Wrench size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={`/services/${otherServices[0].slug}`} className="text-inherit no-underline">
+                      <Link href={serviceHref(otherServices[0].slug)} className="text-inherit no-underline">
                         {otherServices[0].title}
                       </Link>
                     </h3>
@@ -233,7 +234,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={`/services/${otherServices[0].slug}`}
+                  href={serviceHref(otherServices[0].slug)}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
@@ -273,7 +274,7 @@ export default function ServicesGrid() {
                       <Settings size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={`/services/${otherServices[1].slug}`} className="text-inherit no-underline">
+                      <Link href={serviceHref(otherServices[1].slug)} className="text-inherit no-underline">
                         {otherServices[1].title}
                       </Link>
                     </h3>
@@ -302,7 +303,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={`/services/${otherServices[1].slug}`}
+                  href={serviceHref(otherServices[1].slug)}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
@@ -315,7 +316,6 @@ export default function ServicesGrid() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 4. Industrial Logistics & Shipping Card */}
           <ScrollReveal direction="up" delay={0.28}>
             <GlowCard
               glowColor="rgba(12, 30, 78, 0.15)"
@@ -342,7 +342,7 @@ export default function ServicesGrid() {
                       <Anchor size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={`/services/${otherServices[2].slug}`} className="text-inherit no-underline">
+                      <Link href={serviceHref(otherServices[2].slug)} className="text-inherit no-underline">
                         {otherServices[2].title}
                       </Link>
                     </h3>
@@ -371,7 +371,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={`/services/${otherServices[2].slug}`}
+                  href={serviceHref(otherServices[2].slug)}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
@@ -384,11 +384,10 @@ export default function ServicesGrid() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 5. Direct Sourcing Inquiry & Commercial Desk Bento Box */}
           <ScrollReveal direction="up" delay={0.34}>
             <div className="bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-[#0A183E] text-white rounded-lg p-6 border border-ofs-red-500/40 shadow-xl flex flex-col justify-between h-full relative overflow-hidden group">
               <div className="bg-grid-pattern-dark absolute inset-0 opacity-30 pointer-events-none" />
-              
+
               <div className="relative z-[2]">
                 <div className="flex justify-between items-center mb-3">
                   <span className="font-mono text-[0.68rem] font-bold text-ofs-gold-400 bg-amber-500/15 py-1 px-2.5 rounded-full border border-amber-500/30 uppercase tracking-wider flex items-center gap-1.5">

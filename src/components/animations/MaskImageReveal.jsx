@@ -25,7 +25,6 @@ export default function MaskImageReveal({
         ...style
       }}
     >
-      {/* Expanding Mask Container */}
       <motion.div
         initial={{ clipPath: 'polygon(0 0, 0 0, 0 100%, 0 100%)' }}
         whileInView={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
@@ -48,7 +47,6 @@ export default function MaskImageReveal({
             display: 'block'
           }}
         />
-        {/* Subtle Depth Gradient Overlay */}
         <div
           style={{
             position: 'absolute',

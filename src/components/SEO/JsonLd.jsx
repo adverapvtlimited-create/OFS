@@ -1,6 +1,4 @@
-/**
- * Renders JSON-LD structured data. Accepts a single schema object or array of schemas.
- */
+
 export default function JsonLd({ data }) {
   if (!data) return null;
 

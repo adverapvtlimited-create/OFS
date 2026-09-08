@@ -23,7 +23,7 @@ export default function NotFound() {
           <Button href="/" variant="primary">
             <Home size={16} /> Return to Homepage
           </Button>
-          <Button href="/services" variant="outline">
+          <Button href="/engineering-epc-support-services" variant="outline">
             <Compass size={16} /> Explore OFS Services
           </Button>
           <Button href="/contact" variant="outline">

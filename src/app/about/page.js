@@ -95,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <SectionPad className="bg-white">
+      <SectionPad id="mission-vision" className="bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-16">
             <ScrollReveal direction="up" delay={0.1}>
@@ -234,8 +234,8 @@ export default function AboutPage() {
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.35}>
             <div className="inline-flex gap-4 flex-wrap justify-center">
-              <Button href="/services" variant="primary" size="lg">
-                Explore Our Services <ArrowUpRight size={18} />
+              <Button href="/engineering-epc-support-services" variant="primary" size="lg">
+                Explore What We Offer <ArrowUpRight size={18} />
               </Button>
               <Button href="/contact" variant="outline-white" size="lg">
                 Contact Commercial Desk

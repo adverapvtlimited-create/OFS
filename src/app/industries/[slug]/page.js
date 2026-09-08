@@ -14,10 +14,12 @@ import {
   Compass, 
   ArrowUpRight, 
   CheckCircle2, 
-  ShieldCheck 
+  ShieldCheck,
+  Cpu
 } from 'lucide-react';
 import industriesData from '@/data/industries.json';
 import servicesData from '@/data/services.json';
+import { serviceHref } from '@/lib/offers';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
@@ -37,7 +39,8 @@ const iconMap = {
   Mountain: Mountain,
   Plane: Plane,
   Anchor: Anchor,
-  Compass: Compass
+  Compass: Compass,
+  Cpu: Cpu
 };
 
 const findIndustryBySlug = (slug) => {
@@ -269,7 +272,7 @@ export default function SingleIndustryPage({ params }) {
               {ind.customServices ? ind.customServices.map((svc, idx) => (
                 <Link
                   key={idx}
-                  href={`/services/${svc.slug}`}
+                  href={serviceHref(svc.slug)}
                   className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex flex-col gap-2"
                 >
                   <span className="text-ofs-navy-950 font-bold text-[1.05rem]">{svc.title}</span>
@@ -278,7 +281,7 @@ export default function SingleIndustryPage({ params }) {
               )) : servicesData.slice(0, 3).map((svc) => (
                 <Link
                   key={svc.id}
-                  href={`/services/${svc.slug}`}
+                  href={serviceHref(svc.slug)}
                   className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
                 >
                   {svc.shortTitle}

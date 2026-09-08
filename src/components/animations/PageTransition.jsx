@@ -4,10 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-/**
- * Lightweight page transition — fades in on mount only.
- * Does NOT use AnimatePresence mode="wait" which blocks rendering.
- */
+
 export default function PageTransition({ children }) {
   const pathname = usePathname();
 
