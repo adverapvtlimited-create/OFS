@@ -985,8 +985,6 @@ export default function OfferDetail({ page }) {
           </Container>
         </section>
       )}
-
-      <ContactCTA />
     </>
   );
 }
