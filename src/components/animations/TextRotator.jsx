@@ -30,7 +30,7 @@ export default function TextRotator({
   return (
     <span
       className={cn(
-        'inline-block relative text-ofs-red-600 border-b-[3px] border-ofs-gold-400 pb-0.5 transition-all duration-300',
+        'inline-block relative gradient-text-red border-b-[3px] border-ofs-gold-400 pb-0.5 transition-all duration-300',
         isFading ? 'opacity-0 translate-y-3' : 'opacity-100 translate-y-0'
       )}
     >

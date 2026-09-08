@@ -5,7 +5,6 @@ import { Clock, Calendar, ArrowUpRight, ArrowLeft, Share2, Tag, CheckCircle2 } f
 import blogPosts from '@/data/blog-posts.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import ContactCTA from '@/components/sections/ContactCTA';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import JsonLd from '@/components/SEO/JsonLd';
 import { renderBlogContent } from '@/lib/markdown';
@@ -197,8 +196,6 @@ export default function SingleBlogPage({ params }) {
           </div>
         </div>
       </article>
-
-      <ContactCTA />
     </>
   );
 }

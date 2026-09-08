@@ -7,7 +7,6 @@ import { Clock, Calendar, ArrowUpRight, Search, Tag, User } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import blogPosts from '@/data/blog-posts.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 import SafeImage from '@/components/ui/SafeImage';
 
 export default function BlogPage() {
@@ -170,8 +169,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-
-      <ContactCTA />
     </>
   );
 }

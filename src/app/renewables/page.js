@@ -21,7 +21,6 @@ import Counter from '@/components/animations/Counter';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import renewablesData from '@/data/renewables.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 
 export default function RenewablesPortalPage() {
   return (
@@ -172,12 +171,12 @@ export default function RenewablesPortalPage() {
                   </div>
 
                   <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50/75">
-                    <a 
-                      href="#renewables-inquiry"
-                      className="font-mono text-xs font-bold text-ofs-green-700 flex items-center gap-1 hover:text-ofs-green-800 transition-colors"
+                    <Link
+                      href="/contact"
+                      className="font-mono text-xs font-bold text-ofs-green-700 flex items-center gap-1 hover:text-ofs-green-800 transition-colors no-underline"
                     >
                       Request Feasibility Study <ArrowUpRight size={13} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </ScrollReveal>
@@ -257,11 +256,6 @@ export default function RenewablesPortalPage() {
           </div>
         </div>
       </section>
-
-      {/* Renewables Dedicated Contact Form */}
-      <div id="renewables-inquiry">
-        <ContactCTA />
-      </div>
     </>
   );
 }

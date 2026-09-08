@@ -24,7 +24,6 @@ import Badge from '@/components/ui/Badge';
 import Container from '@/components/ui/Container';
 import SectionPad from '@/components/ui/SectionPad';
 import industriesData from '@/data/industries.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 
 const iconMap = {
   Flame: Flame,
@@ -143,9 +142,6 @@ export default function IndustriesPage() {
           </div>
         </Container>
       </section>
-
-      {/* Bottom CTA */}
-      <ContactCTA />
     </>
   );
 }

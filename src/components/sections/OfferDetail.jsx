@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import ContactCTA from '@/components/sections/ContactCTA';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import JsonLd from '@/components/SEO/JsonLd';
 import Button from '@/components/ui/Button';
@@ -910,9 +909,8 @@ export default function OfferDetail({ page }) {
         <section className="section-pad bg-white">
           <Container>
             <div
-              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${
-                page.heroImage ? 'lg:grid-cols-2' : ''
-              }`}
+              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${page.heroImage ? 'lg:grid-cols-2' : ''
+                }`}
             >
               <ScrollReveal direction="left">
                 <div className="tag-badge badge-red mb-4">OVERVIEW</div>
