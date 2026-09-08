@@ -48,6 +48,27 @@ npm start
 
 ---
 
+## 📊 Data Migration & ETL
+
+This project uses a custom Python ETL pipeline to migrate legacy WordPress content into the Next.js static JSON architecture. The script crawls the legacy site, extracts raw text/HTML, deduplicates and downloads media assets, and injects the data into `src/data/*.json`.
+
+**For full documentation, see the [ETL README](./etl/README.md).**
+
+### Quick Run
+
+```bash
+# 1. Install dependencies
+pip install beautifulsoup4
+
+# 2. Dry-Run (Will extract data to etl/output/ without modifying src/data)
+python scripts/migrate_ofs.py
+
+# 3. Production Run (Will inject data into src/data/*.json)
+python scripts/migrate_ofs.py --load
+```
+
+---
+
 ## 🏢 Corporate Presence
 
 - **India Headquarters**: Dynasty Business Park, A Wing, Andheri-Kurla Road, Andheri (East), Mumbai, Maharashtra – 400059, India
