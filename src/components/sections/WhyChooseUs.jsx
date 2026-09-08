@@ -142,7 +142,6 @@ export default function WhyChooseUs() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 3. Years of Experience */}
           <ScrollReveal direction="up" delay={0.22}>
             <GlowCard
               glowColor="rgba(224, 42, 48, 0.2)"
@@ -169,7 +168,6 @@ export default function WhyChooseUs() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 4. Collaborative Partnerships */}
           <ScrollReveal direction="up" delay={0.28}>
             <GlowCard
               glowColor="rgba(224, 42, 48, 0.2)"
@@ -196,7 +194,6 @@ export default function WhyChooseUs() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 5. Cloud SCM Intelligence & Global Footprint */}
           <ScrollReveal direction="up" delay={0.34}>
             <GlowCard
               glowColor="rgba(56, 189, 248, 0.2)"
@@ -229,7 +226,6 @@ export default function WhyChooseUs() {
           </ScrollReveal>
         </div>
 
-        {/* Bottom Mobilization Callout Banner with Spring Lift */}
         <ScrollReveal direction="up" delay={0.4}>
           <div className="bg-gradient-to-r from-ofs-navy-900 via-[#0a183d] to-ofs-navy-950 border border-ofs-red-600/40 rounded-lg p-8 sm:p-11 flex justify-between items-center flex-wrap gap-6 shadow-[0_20px_40px_rgba(6,14,36,0.4)]">
             <div>

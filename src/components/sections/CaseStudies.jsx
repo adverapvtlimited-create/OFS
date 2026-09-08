@@ -31,7 +31,6 @@ export default function CaseStudies() {
       aria-label="Verified Case Studies & Project Execution Logs"
     >
       <Container>
-        {/* Section Header */}
         <div className="max-w-[780px] mb-10">
           <ScrollReveal direction="up" delay={0.05}>
             <div className="mb-5">
@@ -58,7 +57,6 @@ export default function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        {/* Desktop Case Study Selector Tabs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
           {caseStudiesData.map((cs, idx) => {
             const isActive = activeTab === idx;
@@ -109,7 +107,6 @@ export default function CaseStudies() {
           })}
         </div>
 
-        {/* Active Case Study Detail Card */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeStudy.id}
@@ -119,14 +116,11 @@ export default function CaseStudies() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="bg-ofs-navy-950 rounded-md text-white overflow-hidden shadow-xl border border-white/10 relative"
           >
-            {/* Grid Pattern */}
             <div className="bg-grid-pattern-dark absolute inset-0 opacity-35 pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 relative z-[2]">
-              {/* Left Column: Case Narrative & Problem/Solution */}
               <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
                 <div>
-                  {/* Meta Bar */}
                   <div className="flex flex-wrap gap-3 items-center mb-4">
                     <Badge variant="red" className="text-[0.7rem]">
                       {activeStudy.clientIndustry}
@@ -165,7 +159,6 @@ export default function CaseStudies() {
                     </div>
                   </div>
 
-                  {/* Spec Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {activeStudy.tags.map((tag, tIdx) => (
                       <span
@@ -178,7 +171,6 @@ export default function CaseStudies() {
                   </div>
                 </div>
 
-                {/* Bottom Action */}
                 <div className="flex items-center justify-between pt-6 border-t border-white/10 flex-wrap gap-4">
                   <div className="flex items-center gap-2 text-xs text-white/60 font-mono">
                     <MapPin size={14} className="text-ofs-red-400" />
@@ -191,9 +183,7 @@ export default function CaseStudies() {
                 </div>
               </div>
 
-              {/* Right Column: Hero Visual & Verifiable Metrics */}
               <div className="bg-black/25 lg:border-l border-white/[0.08] flex flex-col justify-between">
-                {/* Hero Photo with Gradient Overlay */}
                 <div className="h-[180px] sm:h-[200px] relative overflow-hidden">
                   <img
                     src={activeStudy.heroImage}
@@ -207,7 +197,6 @@ export default function CaseStudies() {
                   </div>
                 </div>
 
-                {/* Metrics Stack */}
                 <div className="p-5 sm:p-6 lg:p-8 flex flex-col gap-4">
                   <div className="font-mono text-xs font-bold text-ofs-gold-400 uppercase tracking-[0.08em]">
                     Verifiable Project Outcomes
@@ -232,7 +221,6 @@ export default function CaseStudies() {
                     ))}
                   </div>
 
-                  {/* Quality Assurance Stamp */}
                   <div className="flex items-center gap-3 p-3.5 px-4 bg-amber-600/[0.08] border border-amber-600/25 rounded-xs mt-2">
                     <ShieldCheck size={20} className="text-ofs-gold-400 shrink-0" />
                     <div className="text-xs text-white/80 leading-normal">

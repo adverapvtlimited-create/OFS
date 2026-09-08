@@ -17,7 +17,6 @@ export default function AboutPreview() {
     <SectionPad className="bg-white relative">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Image Composition with Floating Badge */}
           <ScrollReveal direction="right" duration={0.85}>
             <div className="relative">
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200">
@@ -31,7 +30,6 @@ export default function AboutPreview() {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/45" />
               </div>
 
-              {/* Overlapping Floating Experience Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -49,7 +47,6 @@ export default function AboutPreview() {
             </div>
           </ScrollReveal>
 
-          {/* Right: Company Story & Differentiators */}
           <div>
             <ScrollReveal direction="up" delay={0.1}>
               <div className="mb-4">
@@ -75,7 +72,6 @@ export default function AboutPreview() {
               </p>
             </ScrollReveal>
 
-            {/* Key Differentiator Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
               <ScrollReveal direction="up" delay={0.25}>
                 <div className="p-4.5 bg-ofs-navy-50 rounded-sm border border-ofs-navy-100 h-full">
@@ -106,7 +102,6 @@ export default function AboutPreview() {
               </ScrollReveal>
             </div>
 
-            {/* Bullets List with Staggered Slide In */}
             <div className="flex flex-col gap-3.5 mb-9">
               {[
                 'Specialized Support: Trading, O&M, Troubleshooting, Procurement & Engineering',

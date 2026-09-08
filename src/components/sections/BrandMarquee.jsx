@@ -32,49 +32,48 @@ const row2Brands = [
 
 export default function BrandMarquee() {
 
-function brandInitials(name) {
-  return name
-    .split(/[\s+]+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
-}
+  function brandInitials(name) {
+    return name
+      .split(/[\s+]+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join('')
+      .toUpperCase();
+  }
 
-function BrandChip({ brand, countryTone = 'gold' }) {
-  return (
-    <div className="inline-flex items-center gap-3.5 py-3 px-4 min-w-[260px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
-      <div className="w-10 h-10 rounded-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 text-white grid place-content-center font-heading font-black text-xs tracking-wider shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:text-ofs-gold-300 transition-colors">
-        {brandInitials(brand.name)}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="flex items-center justify-between gap-2 mb-0.5">
-          <span className="font-heading text-[0.95rem] font-bold text-white tracking-tight truncate group-hover:text-white">
-            {brand.name}
-          </span>
-          <span
-            className={
-              countryTone === 'green'
-                ? 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold shrink-0'
-                : 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-amber-500/15 text-ofs-gold-400 border border-amber-500/30 font-bold shrink-0'
-            }
-          >
-            {brand.country}
-          </span>
+  function BrandChip({ brand, countryTone = 'gold' }) {
+    return (
+      <div className="inline-flex items-center gap-3.5 py-3 px-4 min-w-[260px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
+        <div className="w-10 h-10 rounded-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 text-white grid place-content-center font-heading font-black text-xs tracking-wider shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:text-ofs-gold-300 transition-colors">
+          {brandInitials(brand.name)}
         </div>
-        <span className="text-[0.72rem] text-white/55 block truncate">{brand.category}</span>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-2 mb-0.5">
+            <span className="font-heading text-[0.95rem] font-bold text-white tracking-tight truncate group-hover:text-white">
+              {brand.name}
+            </span>
+            <span
+              className={
+                countryTone === 'green'
+                  ? 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold shrink-0'
+                  : 'font-mono text-[0.62rem] py-0.5 px-2 rounded-full bg-amber-500/15 text-ofs-gold-400 border border-amber-500/30 font-bold shrink-0'
+              }
+            >
+              {brand.country}
+            </span>
+          </div>
+          <span className="text-[0.72rem] text-white/55 block truncate">{brand.category}</span>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   return (
     <section
       className="bg-gradient-to-b from-ofs-navy-950 to-[#060e24] text-white py-14 border-y border-white/[0.08] relative overflow-hidden"
       aria-label="Approved Global Manufacturers & Brands"
     >
-      {/* Background glow ambiance */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[250px] bg-[radial-gradient(ellipse_at_center,rgba(224,42,48,0.08)_0%,transparent_70%)] blur-[60px] pointer-events-none" />
 
       <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2] mb-9">
@@ -93,7 +92,7 @@ function BrandChip({ brand, countryTone = 'gold' }) {
           </div>
 
           <Link
-            href="/services/procurement-shipping"
+            href="/procurement-shipping"
             className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline"
           >
             Explore Sourcing Standards <ArrowRight size={14} />
@@ -101,7 +100,6 @@ function BrandChip({ brand, countryTone = 'gold' }) {
         </div>
       </div>
 
-      {/* Marquee Track 1 (Right to Left) */}
       <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] mb-4">
         <div className="flex w-max animate-marquee-rtl hover:[animation-play-state:paused] will-change-transform">
           {[...row1Brands, ...row1Brands].map((b, i) => (
@@ -110,7 +108,6 @@ function BrandChip({ brand, countryTone = 'gold' }) {
         </div>
       </div>
 
-      {/* Marquee Track 2 (Right to Left - Slower/Offset) */}
       <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div className="flex w-max animate-marquee-rtl-slow hover:[animation-play-state:paused] will-change-transform">
           {[...row2Brands, ...row2Brands].map((b, i) => (

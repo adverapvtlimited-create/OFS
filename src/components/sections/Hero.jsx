@@ -46,7 +46,6 @@ export default function Hero() {
       ref={containerRef}
       className="relative bg-gradient-to-b from-ofs-navy-50 to-white pt-12 sm:pt-16 lg:pt-[clamp(3rem,6vw,4.5rem)] pb-14 sm:pb-20 lg:pb-[clamp(3.5rem,7vw,5rem)] overflow-hidden"
     >
-      {/* Background Architectural Grid Accent with Parallax */}
       <motion.div
         className="bg-grid-pattern absolute inset-0 opacity-70 pointer-events-none"
         style={{
@@ -55,7 +54,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Subtle Radial Mouse Reactive Glow */}
       <motion.div
         className="absolute -top-[10%] left-1/2 w-[800px] h-[400px] bg-[radial-gradient(circle,rgba(14,33,87,0.12)_0%,transparent_70%)] pointer-events-none"
         style={{
@@ -65,7 +63,6 @@ export default function Hero() {
       />
 
       <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2]">
-        {/* Top Tag Pills & Status Radar with Entrance Animation */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +83,6 @@ export default function Hero() {
           </Pill>
         </motion.div>
 
-        {/* Main Headline & Subtitle with Scroll-Linked Upward Motion */}
         <motion.div
           className="grid grid-cols-1 gap-10 items-center mb-14"
           style={{
@@ -117,7 +113,6 @@ export default function Hero() {
               {siteConfig.description}
             </motion.p>
 
-            {/* CTA Action Buttons with Magnetic Springs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -137,7 +132,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Hero Visual Telemetry Showcase with Scroll-Driven Zoom & Parallax */}
         <motion.div
           className="relative rounded-xl overflow-hidden shadow-2xl border border-ofs-navy-900/12 mb-14"
           style={{ y: imageY }}
@@ -149,10 +143,8 @@ export default function Hero() {
             className="h-[460px] relative bg-[url('/images/live/Banner3.jpg')] bg-center bg-cover bg-no-repeat"
             style={{ scale: imageScale }}
           >
-            {/* Cinematic Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/25 to-[#060E24]/85" />
 
-            {/* Telemetry Floating Chips with Diagonal Scroll Parallax & Mouse Depth */}
             <motion.div
               className="absolute top-6 left-6 flex gap-3 flex-wrap z-[3]"
               style={{ x: cardFloatLeft }}
@@ -173,7 +165,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Bottom Overlay Info Banner */}
             <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 lg:p-10 flex justify-between items-end flex-wrap gap-6 z-[3]">
               <div className="max-w-[600px]">
                 <div className="text-ofs-gold-400 font-mono text-xs font-bold uppercase tracking-[0.05em] mb-1.5">
@@ -198,7 +189,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Hero Stats Counter Strip with Upward Parallax Transition */}
         <motion.div
           className="bg-ofs-navy-950 rounded-xl p-8 sm:p-10 lg:p-12 border border-white/10 shadow-xl relative overflow-hidden"
           style={{ y: statsStripY }}

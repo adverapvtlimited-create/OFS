@@ -20,11 +20,9 @@ export default function RenewablesCTA() {
       <Container>
         <ScrollReveal direction="up" duration={0.8}>
           <div className="bg-gradient-to-br from-[#051A14] via-[#06382B] to-[#08241C] rounded-2xl border border-emerald-500/35 overflow-hidden shadow-2xl text-white relative">
-            {/* Background Ambient Glow */}
             <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(16,185,129,0.28)_0%,transparent_70%)] pointer-events-none" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 relative z-[2]">
-              {/* Left Content */}
               <div className="p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3 mb-5 flex-wrap">
@@ -54,7 +52,6 @@ export default function RenewablesCTA() {
                     {renewablesData.heroDescription}
                   </p>
 
-                  {/* Key Solutions List */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                     {[
                       'Utility & C&I Solar EPC',
@@ -70,7 +67,6 @@ export default function RenewablesCTA() {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-4 items-center flex-wrap">
                   <MagneticButton strength={0.32} radius={80}>
                     <Button href="/renewables" variant="green" size="lg" data-cursor-text="SOLAR">
@@ -90,7 +86,6 @@ export default function RenewablesCTA() {
                 </div>
               </div>
 
-              {/* Right: Visual Showcase with Live Metrics */}
               <div className="relative min-h-[380px] lg:border-l border-emerald-500/25">
                 <img
                   src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80"
@@ -99,7 +94,6 @@ export default function RenewablesCTA() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#051a14]/25 to-[#051a14]/90" />
 
-                {/* Float Box with Metrics */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
