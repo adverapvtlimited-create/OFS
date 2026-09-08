@@ -25,6 +25,7 @@ import Button from '@/components/ui/Button';
 import SectionPad from '@/components/ui/SectionPad';
 import Container from '@/components/ui/Container';
 import industriesData from '@/data/industries.json';
+import { serviceHref } from '@/lib/offers';
 import { cn } from '@/lib/cn';
 
 const iconMap = {
@@ -48,7 +49,6 @@ export default function IndustriesSection() {
   return (
     <SectionPad className="bg-white relative">
       <Container>
-        {/* Section Header */}
         <div className="text-center max-w-[750px] mx-auto mb-14">
           <ScrollReveal direction="up">
             <div className="mb-4">
@@ -75,7 +75,6 @@ export default function IndustriesSection() {
           </ScrollReveal>
         </div>
 
-        {/* Responsive Industry Tab Selector with Clean Multi-Row Wrap & Spring Pill */}
         <ScrollReveal direction="up" delay={0.3}>
           <div className="flex flex-wrap justify-center gap-2.5 max-w-[1050px] mx-auto mb-10">
             {industriesData.map((ind) => {
@@ -104,7 +103,6 @@ export default function IndustriesSection() {
           </div>
         </ScrollReveal>
 
-        {/* Selected Industry Detail Bento Console with Animated Crossfade */}
         <ScrollReveal direction="up" delay={0.4}>
           <div className="bg-ofs-navy-50 rounded-xl border border-ofs-navy-100 overflow-hidden shadow-xl">
             <AnimatePresence mode="wait">
@@ -116,7 +114,6 @@ export default function IndustriesSection() {
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-2"
               >
-                {/* Left: Content */}
                 <div className="p-8 sm:p-10 lg:p-14 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-5">
@@ -136,7 +133,6 @@ export default function IndustriesSection() {
                       {currentIndustry.summary || currentIndustry.description}
                     </p>
 
-                    {/* Key Capabilities List */}
                     <div className="flex flex-col gap-3 mb-10">
                       {(currentIndustry.keySolutions || currentIndustry.capabilities || []).map((cap, idx) => (
                         <div
@@ -156,7 +152,7 @@ export default function IndustriesSection() {
                     </Button>
                     {currentIndustry.relatedService && (
                       <Button
-                        href={`/services/${currentIndustry.relatedService.slug}`}
+                        href={serviceHref(currentIndustry.relatedService.slug)}
                         variant="outline"
                       >
                         {currentIndustry.relatedService.label}
@@ -170,7 +166,6 @@ export default function IndustriesSection() {
                   </div>
                 </div>
 
-                {/* Right: Graphic / Visual with Ambient Badge */}
                 <div className="relative min-h-[320px] lg:min-h-full bg-ofs-navy-950 overflow-hidden">
                   <div className="bg-grid-pattern-dark absolute inset-0 opacity-30" />
 
@@ -184,7 +179,6 @@ export default function IndustriesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060E24]/80 via-[#060E24]/20 to-transparent z-[2]" />
 
-                  {/* Floating Spec Chip */}
                   <div className="absolute bottom-6 left-6 bg-[#060E24]/90 backdrop-blur-md border border-white/20 rounded-xs py-2.5 px-4 text-white z-[3] flex items-center gap-2 text-xs font-mono">
                     <ShieldCheck size={16} className="text-ofs-gold-400" />
                     <span>ISO 9001 &amp; OEM Standards Certified</span>

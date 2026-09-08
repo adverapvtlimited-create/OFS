@@ -53,13 +53,11 @@ const statsData = [
 export default function StatsCounter() {
   return (
     <SectionPad className="bg-ofs-navy-950 text-white relative overflow-hidden">
-      {/* Radial Ambient Glow Effects */}
       <div className="absolute -top-[150px] left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(circle,rgba(224,42,48,0.22)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
       <Container className="relative z-[2]">
-        {/* Section Header */}
         <div className="text-center max-w-[750px] mx-auto mb-16">
           <ScrollReveal direction="up">
             <div className="mb-4">
@@ -86,7 +84,6 @@ export default function StatsCounter() {
           </ScrollReveal>
         </div>
 
-        {/* 6 Metric Bento Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {statsData.map((stat, idx) => (
             <ScrollReveal key={idx} direction="up" delay={idx * 0.08} scale={0.95}>
@@ -94,11 +91,10 @@ export default function StatsCounter() {
                 glowColor={stat.featured ? 'rgba(245, 158, 11, 0.35)' : 'rgba(224, 42, 48, 0.22)'}
                 borderColor={stat.featured ? 'rgba(245, 158, 11, 0.55)' : 'rgba(255, 255, 255, 0.12)'}
                 data-cursor-text="METRIC"
-                className={`rounded-lg p-6 sm:p-7 flex flex-col justify-between h-full backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${
-                  stat.featured
+                className={`rounded-lg p-6 sm:p-7 flex flex-col justify-between h-full backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${stat.featured
                     ? 'bg-gradient-to-br from-amber-500/10 via-white/[0.04] to-white/[0.01] border border-amber-500/40 shadow-[0_12px_32px_rgba(245,158,11,0.12)] hover:border-amber-400 hover:shadow-[0_16px_36px_rgba(245,158,11,0.25)]'
                     : 'bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.07] hover:border-white/25 hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)]'
-                }`}
+                  }`}
               >
                 <div>
                   <div className="mb-2">

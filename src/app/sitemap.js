@@ -4,6 +4,8 @@ import blogPosts from '@/data/blog-posts.json';
 import jobsData from '@/data/jobs.json';
 import { SITE_URL } from '@/config/seo.config';
 import { parseDisplayDate } from '@/lib/seo';
+import { getAllOfferHrefs } from '@/data/navigation';
+import productsData from '@/data/products.json';
 
 export default function sitemap() {
   const now = new Date().toISOString();
@@ -16,6 +18,7 @@ export default function sitemap() {
     { path: '/renewables', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog', priority: 0.75, changeFrequency: 'weekly' },
     { path: '/careers', priority: 0.75, changeFrequency: 'weekly' },
+    { path: '/products', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
@@ -54,5 +57,19 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
+  const offerRoutes = getAllOfferHrefs().map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }));
+
+  const productRoutes = Object.values(productsData).map((p) => ({
+    url: `${SITE_URL}${p.href}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...offerRoutes, ...productRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
 }

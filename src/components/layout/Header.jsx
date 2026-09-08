@@ -11,35 +11,26 @@ import {
   X,
   ArrowUpRight,
   ShieldCheck,
-  Package,
-  Wrench,
-  Anchor,
-  Building2,
-  Settings,
-  Flame,
-  Ship,
-  Sun,
   CheckCircle2,
   BadgeCheck,
   Lock,
   Award,
+  Anchor,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
-import servicesData from '@/data/services.json';
 import MagneticButton from '@/components/animations/MagneticButton';
+import DesktopNav from '@/components/layout/DesktopNav';
+import SonarDot from '../ui/SonarDot';
 import { cn } from '@/lib/cn';
-
-const iconMap = {
-  Package: Package,
-  Wrench: Wrench,
-  ShieldCheck: ShieldCheck,
-  Anchor: Anchor,
-  Building2: Building2,
-  Settings: Settings,
-  Flame: Flame,
-  Ship: Ship,
-  Sun: Sun,
-};
+import {
+  aboutNav,
+  industriesNav,
+  productsNav,
+  whatWeOffer,
+  whatWeOfferColumns,
+  isWhatWeOfferPath,
+  findOfferMatch,
+} from '@/data/navigation';
 
 const topBarCertifications = [
   {
@@ -48,9 +39,11 @@ const topBarCertifications = [
     code: 'ISO 9001:2015',
     tag: 'QMS QUALITY',
     title: 'Quality Management System',
-    detail: 'Cert: 3050260502115Q',
+    detail: 'Cert: 305026052968Q',
     color: '#f59e0b',
     icon: ShieldCheck,
+    link: '/certificates/iso-9001-2015-quality-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso14001',
@@ -58,9 +51,11 @@ const topBarCertifications = [
     code: 'ISO 14001:2015',
     tag: 'EMS ENVIRONMENT',
     title: 'Environmental Management',
-    detail: 'Cert: 3050260502116E',
+    detail: 'Cert: 305026052969E',
     color: '#10b981',
     icon: CheckCircle2,
+    link: '/certificates/iso-14001-2015-environmental-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso45001',
@@ -68,9 +63,11 @@ const topBarCertifications = [
     code: 'ISO 45001:2018',
     tag: 'OH&S SAFETY',
     title: 'Occupational Health & Safety',
-    detail: 'Cert: 3050260502117HS',
+    detail: 'Cert: 305026052970HS',
     color: '#38bdf8',
     icon: BadgeCheck,
+    link: '/certificates/iso-45001-2018-occupational-health-safety.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso37001',
@@ -78,9 +75,11 @@ const topBarCertifications = [
     code: 'ISO 37001:2016',
     tag: 'ANTI-BRIBERY',
     title: 'Anti-Bribery Management',
-    detail: 'Cert: UK-02-VS-03088',
+    detail: 'Cert: UK-02-VS-03089',
     color: '#a78bfa',
     icon: Lock,
+    link: '/certificates/iso-37001-2016-anti-bribery-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'impa',
@@ -92,6 +91,7 @@ const topBarCertifications = [
     color: '#60a5fa',
     icon: Anchor,
     link: 'https://impa.net/members/oriented-facility-solution-pvt-ltd',
+    actionText: 'Verify ↗',
   },
   {
     id: 'dpiit',
@@ -102,16 +102,21 @@ const topBarCertifications = [
     detail: 'Cert: DIPP253153',
     color: '#fb923c',
     icon: Award,
+    link: 'https://www.startupindia.gov.in/',
+    actionText: 'Verify ↗',
   },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState(null);
+  const [mobileOfferCategory, setMobileOfferCategory] = useState(null);
   const [certsDropdownOpen, setCertsDropdownOpen] = useState(false);
   const [activeCertIndex, setActiveCertIndex] = useState(0);
   const pathname = usePathname();
+  const offerActive = isWhatWeOfferPath(pathname);
+  const offerMatch = findOfferMatch(pathname);
 
   // Auto-cycle through certificates in top bar
   useEffect(() => {
@@ -135,7 +140,8 @@ export default function Header() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
+    setMobileAccordion(null);
+    setMobileOfferCategory(null);
     setCertsDropdownOpen(false);
   }, [pathname]);
 
@@ -237,9 +243,14 @@ export default function Header() {
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[0.7rem] font-mono font-bold no-underline inline-flex items-center gap-1 py-1 px-2 bg-sky-500/15 text-sky-400 rounded-xs shrink-0 hover:bg-sky-500/25"
+                            className="text-[0.7rem] font-mono font-bold no-underline inline-flex items-center gap-1 py-1 px-2.5 rounded-xs shrink-0 transition-all duration-200 hover:brightness-125"
+                            style={{
+                              background: `${cert.color}15`,
+                              color: cert.color,
+                              border: `1px solid ${cert.color}40`,
+                            }}
                           >
-                            Verify ↗
+                            {cert.actionText || 'View Cert ↗'}
                           </a>
                         ) : (
                           <span className="text-[0.65rem] text-white/40 font-mono">
@@ -288,14 +299,14 @@ export default function Header() {
       {/* Main Navigation Header */}
       <header
         className={cn(
-          'sticky top-0 z-header transition-all duration-300',
+          'sticky top-0 z-header relative overflow-visible transition-all duration-300',
           isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(12,30,78,0.08)] border-b border-ofs-navy-900/10'
             : 'bg-white border-b border-black/[0.06]'
         )}
       >
         <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 flex items-center justify-between py-3.5">
-          <Link href="/" className="flex items-center gap-3.5 no-underline">
+          <Link href="/" className="flex items-center gap-3.5 no-underline shrink-0">
             <img
               src="/images/ofs-logo.png"
               alt="OFS - Driven by Quality, Defined by Trust"
@@ -304,139 +315,10 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden nav:flex items-center gap-6">
-            <Link
-              href="/about"
-              className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
-                pathname === '/about' ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
-              )}
-            >
-              Our Story
-              {pathname === '/about' && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
-              )}
-            </Link>
-
-            {/* Services Dropdown Trigger */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
-            >
-              <Link
-                href="/services"
-                className={cn(
-                  'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 flex items-center gap-1 transition-colors',
-                  pathname.startsWith('/services') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
-                )}
-              >
-                Services
-                <ChevronDown
-                  size={14}
-                  className={cn('transition-transform duration-200', servicesDropdownOpen && 'rotate-180')}
-                />
-              </Link>
-
-              {/* Enhanced Mega Menu */}
-              {servicesDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-[40%] w-[760px] bg-white rounded-md border border-ofs-gray-200 shadow-2xl p-6 grid grid-cols-2 gap-4 z-[600] animate-fade-in-menu">
-                  {servicesData.map((service) => {
-                    const IconComp = iconMap[service.icon] || Package;
-                    return (
-                      <Link
-                        key={service.id}
-                        href={`/services/${service.slug}`}
-                        className="flex gap-3.5 p-3.5 rounded-sm border border-transparent hover:bg-ofs-navy-50 hover:border-ofs-navy-200 hover:translate-x-1 transition-all duration-200 no-underline"
-                      >
-                        <div className="w-10 h-10 rounded-xs bg-ofs-navy-50 border border-ofs-navy-100 grid place-content-center text-ofs-navy-900 shrink-0">
-                          <IconComp size={20} />
-                        </div>
-                        <div>
-                          <div className="font-heading font-bold text-sm text-ofs-navy-950 mb-1 leading-tight">
-                            {service.shortTitle}
-                          </div>
-                          <div className="text-xs text-ofs-gray-500 leading-snug">
-                            {service.tagline.slice(0, 75)}...
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-
-                  {/* Mega Menu Footer Banner */}
-                  <div className="col-span-2 bg-ofs-navy-50 p-3.5 px-5 rounded-xs flex justify-between items-center border border-ofs-navy-100">
-                    <span className="text-xs font-semibold text-ofs-navy-900">
-                      Looking for customized marine logistics or EPC materials?
-                    </span>
-                    <Link
-                      href="/contact"
-                      className="text-xs font-mono font-bold text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 no-underline"
-                    >
-                      Request Consultation <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link
-              href="/industries"
-              className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
-                pathname.startsWith('/industries') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
-              )}
-            >
-              Industries
-              {pathname.startsWith('/industries') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
-              )}
-            </Link>
-
-            {/* Strategic Renewables Portal Link */}
-            <Link
-              href="/renewables"
-              className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative inline-flex items-center gap-1.5 transition-colors',
-                pathname.startsWith('/renewables') ? 'text-ofs-green-700' : 'text-ofs-navy-950 hover:text-ofs-green-700'
-              )}
-            >
-              <Sun size={14} className="text-ofs-green-600" />
-              Renewables
-              {pathname.startsWith('/renewables') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-green-600 rounded-full" />
-              )}
-            </Link>
-
-            <Link
-              href="/blog"
-              className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
-                pathname.startsWith('/blog') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
-              )}
-            >
-              Insights
-              {pathname.startsWith('/blog') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
-              )}
-            </Link>
-
-            <Link
-              href="/careers"
-              className={cn(
-                'font-mono text-sm font-semibold uppercase tracking-[0.04em] py-2 relative transition-colors',
-                pathname.startsWith('/careers') ? 'text-ofs-red-600' : 'text-ofs-navy-950 hover:text-ofs-red-600'
-              )}
-            >
-              Careers
-              {pathname.startsWith('/careers') && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-red-600 rounded-full" />
-              )}
-            </Link>
-          </nav>
+          <DesktopNav pathname={pathname} />
 
           {/* Right Action Buttons */}
-          <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-3.5 shrink-0">
             <div className="hidden nav:block">
               <MagneticButton strength={0.3} radius={70}>
                 <Link
@@ -453,6 +335,7 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="bg-transparent text-ofs-navy-950 p-1.5 nav:hidden cursor-pointer flex items-center justify-center"
+              aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -463,57 +346,201 @@ export default function Header() {
 
       {/* Full-Screen Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed top-[74px] inset-x-0 bottom-0 bg-white z-[499] overflow-y-auto p-6 flex flex-col justify-between animate-slide-down">
-          <div className="flex flex-col gap-4">
+        <div className="fixed top-[74px] inset-x-0 bottom-0 bg-white z-[499] overflow-y-auto p-6 flex flex-col justify-between animate-slide-down nav:hidden">
+          <div className="flex flex-col gap-1">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+              className="font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+
+            <button
+              type="button"
+              className="w-full flex items-center justify-between font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 bg-transparent cursor-pointer"
+              aria-expanded={mobileAccordion === 'about'}
+              onClick={() => setMobileAccordion(mobileAccordion === 'about' ? null : 'about')}
             >
-              About OFS Group
-            </Link>
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+              About Us
+              <ChevronDown size={18} className={cn('transition-transform', mobileAccordion === 'about' && 'rotate-180')} />
+            </button>
+            {mobileAccordion === 'about' && (
+              <div className="pl-3 pb-3 flex flex-col gap-2 border-b border-ofs-gray-100">
+                {aboutNav.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-sm text-ofs-gray-700 py-1.5 no-underline"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <button
+              type="button"
+              className="w-full flex items-center justify-between font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 bg-transparent cursor-pointer"
+              aria-expanded={mobileAccordion === 'industries'}
+              onClick={() => setMobileAccordion(mobileAccordion === 'industries' ? null : 'industries')}
             >
-              All Services
+              Industries
+              <ChevronDown size={18} className={cn('transition-transform', mobileAccordion === 'industries' && 'rotate-180')} />
+            </button>
+            {mobileAccordion === 'industries' && (
+              <div className="pl-3 pb-3 flex flex-col gap-2 border-b border-ofs-gray-100">
+                <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-ofs-navy-950 py-1.5 no-underline">
+                  All Industries
+                </Link>
+                {industriesNav.map((item) => (
+                  <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm text-ofs-gray-700 py-1.5 no-underline">
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <button
+              type="button"
+              className="w-full flex items-center justify-between font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 bg-transparent cursor-pointer"
+              aria-expanded={mobileAccordion === 'products'}
+              onClick={() => setMobileAccordion(mobileAccordion === 'products' ? null : 'products')}
+            >
+              Products
+              <ChevronDown size={18} className={cn('transition-transform', mobileAccordion === 'products' && 'rotate-180')} />
+            </button>
+            {mobileAccordion === 'products' && (
+              <div className="pl-3 pb-3 flex flex-col gap-2 border-b border-ofs-gray-100">
+                <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-ofs-navy-950 py-1.5 no-underline">
+                  All Products
+                </Link>
+                {productsNav.map((item) => (
+                  <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm text-ofs-gray-700 py-1.5 no-underline">
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <button
+              type="button"
+              className={cn(
+                "w-full flex items-center justify-between font-heading text-lg font-bold border-b border-ofs-gray-200 py-3 bg-transparent cursor-pointer transition-colors",
+                offerActive ? "text-ofs-navy-900 font-extrabold" : "text-ofs-navy-950"
+              )}
+              aria-expanded={mobileAccordion === 'offer'}
+              onClick={() => {
+                const nextState = mobileAccordion === 'offer' ? null : 'offer';
+                setMobileAccordion(nextState);
+                if (nextState === 'offer' && offerMatch?.column.id) {
+                  setMobileOfferCategory(offerMatch.column.id);
+                }
+              }}
+            >
+              <span className="flex items-center gap-2">
+                What We Offer
+                {offerActive && (
+                  <span className="w-2 h-2 rounded-full bg-ofs-navy-600 inline-block" />
+                )}
+              </span>
+              <ChevronDown size={18} className={cn('transition-transform duration-200', mobileAccordion === 'offer' && 'rotate-180')} />
+            </button>
+            {mobileAccordion === 'offer' && (
+              <div className="pl-2 pb-3 border-b border-ofs-gray-100">
+                {whatWeOfferColumns.map((key) => {
+                  const column = whatWeOffer[key];
+                  const isCategoryActive = offerMatch?.column.id === column.id;
+                  const open = mobileOfferCategory === column.id;
+                  return (
+                    <div key={column.id} className="border-b border-ofs-gray-100/80 last:border-b-0">
+                      <button
+                        type="button"
+                        className={cn(
+                          "w-full flex items-center justify-between text-left font-mono text-xs font-bold tracking-[0.08em] py-2.5 px-1 bg-transparent cursor-pointer min-h-[44px] transition-colors",
+                          isCategoryActive ? "text-ofs-navy-900 font-extrabold" : "text-ofs-gray-600 hover:text-ofs-navy-900"
+                        )}
+                        aria-expanded={open}
+                        onClick={() => setMobileOfferCategory(open ? null : column.id)}
+                      >
+                        <span className="flex items-center gap-2">
+                          {column.title}
+                          {isCategoryActive && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-ofs-navy-700 inline-block" />
+                          )}
+                        </span>
+                        <ChevronDown size={14} className={cn('transition-transform duration-200', open && 'rotate-180')} />
+                      </button>
+                      {open && (
+                        <div className="pl-3 pb-3 flex flex-col gap-1">
+                          {column.items.map((item) => {
+                            const isItemActive = pathname === item.href;
+                            return (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                  className={cn(
+                                  "text-sm py-2 px-2.5 rounded min-h-[40px] flex items-center gap-2.5 leading-snug no-underline transition-colors",
+                                  isItemActive
+                                    ? "text-ofs-navy-900 font-bold bg-ofs-navy-50/90 border-l-2 border-ofs-navy-800 pl-2"
+                                    : "text-ofs-gray-700 hover:text-ofs-navy-950 hover:bg-ofs-navy-50/50"
+                                )}
+                              >
+                                {column.id === 'services' && item.image && (
+                                  <img
+                                    src={item.image}
+                                    alt=""
+                                    aria-hidden="true"
+                                    className="h-9 w-12 shrink-0 rounded object-cover border border-ofs-gray-200"
+                                  />
+                                )}
+                                <span>{item.title}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
+            >
+              Contact Us
             </Link>
             <Link
               href="/renewables"
               onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-green-700 flex items-center gap-2 border-b border-ofs-gray-200 pb-3 no-underline"
+              className="text-sm font-semibold text-ofs-green-700 border-b border-ofs-gray-200 py-3 no-underline flex items-center gap-2"
             >
-              <Sun size={18} className="text-ofs-green-600" />
-              Renewables Portal
-            </Link>
-            <Link
-              href="/industries"
-              onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
-            >
-              Industries Served
+              <span className="relative flex items-center justify-center w-3.5 h-3.5 shrink-0">
+                <span className="w-3.5 h-3.5 rounded-full border border-ofs-red-500 flex items-center justify-center bg-white/90">
+                  <span className="w-1.5 h-1.5 rounded-full bg-ofs-green-600" />
+                </span>
+                <span className="absolute -inset-0.5 rounded-full border border-ofs-red-500 animate-sonar pointer-events-none" />
+              </span>
+              Renewables
             </Link>
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+              className="text-sm font-semibold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
             >
-              Insights & Articles
+              Insights
             </Link>
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
-              className="font-heading text-xl font-bold text-ofs-navy-950 border-b border-ofs-gray-200 pb-3 no-underline"
+              className="text-sm font-semibold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
             >
-              Careers & Opportunities
+              Careers
             </Link>
           </div>
 

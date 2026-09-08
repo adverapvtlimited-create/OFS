@@ -18,6 +18,7 @@ import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import servicesData from '@/data/services.json';
 import ContactCTA from '@/components/sections/ContactCTA';
+import { serviceHref } from '@/lib/offers';
 
 const iconMap = {
   Package: Package,
@@ -130,7 +131,7 @@ export default function ServicesPage() {
                       </div>
 
                       <div className="flex gap-4 items-center flex-wrap">
-                        <Link href={`/services/${service.slug}`} className="btn btn-primary inline-flex items-center gap-2">
+                        <Link href={serviceHref(service.slug)} className="btn btn-primary inline-flex items-center gap-2">
                           Detailed Division Scope <ArrowUpRight size={16} />
                         </Link>
                         <Link href="/contact" className="btn btn-outline">
@@ -142,7 +143,7 @@ export default function ServicesPage() {
                     {/* Image Visual Column */}
                     <div className={`relative min-h-[380px] overflow-hidden ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
                       <motion.img 
-                        src={service.heroImage || service.image || '/images/live/Procurement-and-shippings.jpg'} 
+                        src={service.heroImage || service.image || '/images/live/Excellence-tools-official.png'} 
                         alt={service.title}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.05 }}

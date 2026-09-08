@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import industriesData from '@/data/industries.json';
 import servicesData from '@/data/services.json';
+import { serviceHref } from '@/lib/offers';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import ContactCTA from '@/components/sections/ContactCTA';
@@ -193,7 +194,7 @@ export default function SingleIndustryPage({ params }) {
               {servicesData.slice(0, 3).map((svc) => (
                 <Link
                   key={svc.id}
-                  href={`/services/${svc.slug}`}
+                  href={serviceHref(svc.slug)}
                   className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors"
                 >
                   {svc.shortTitle}

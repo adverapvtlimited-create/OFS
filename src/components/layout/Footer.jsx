@@ -24,7 +24,7 @@ import {
   Anchor,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
-import servicesData from '@/data/services.json';
+import { whatWeOffer } from '@/data/navigation';
 import industriesData from '@/data/industries.json';
 import { cn } from '@/lib/cn';
 
@@ -35,9 +35,11 @@ const credentialsList = [
     tag: 'QUALITY MANAGEMENT',
     title: 'ISO 9001:2015 Certified',
     subtitle: 'Quality Management System (QMS)',
-    detail: 'Certificate No: 3050260502115Q',
+    detail: 'Certificate No: 305026052968Q',
     authority: 'QRO • IAF • EGAC Accredited',
     accentColor: '#f59e0b',
+    link: '/certificates/iso-9001-2015-quality-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso-14001',
@@ -45,9 +47,11 @@ const credentialsList = [
     tag: 'ENVIRONMENTAL',
     title: 'ISO 14001:2015 Certified',
     subtitle: 'Environmental Management System (EMS)',
-    detail: 'Certificate No: 3050260502116E',
+    detail: 'Certificate No: 305026052969E',
     authority: 'QRO • IAF • EGAC Accredited',
-    accentColor: '#f59e0b',
+    accentColor: '#10b981',
+    link: '/certificates/iso-14001-2015-environmental-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso-45001',
@@ -55,9 +59,11 @@ const credentialsList = [
     tag: 'HEALTH & SAFETY',
     title: 'ISO 45001:2018 Certified',
     subtitle: 'Occupational Health & Safety (OH&S)',
-    detail: 'Certificate No: 3050260502117HS',
+    detail: 'Certificate No: 305026052970HS',
     authority: 'QRO • IAF • EGAC Accredited',
-    accentColor: '#f59e0b',
+    accentColor: '#38bdf8',
+    link: '/certificates/iso-45001-2018-occupational-health-safety.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'iso-37001',
@@ -65,9 +71,11 @@ const credentialsList = [
     tag: 'ANTI-BRIBERY',
     title: 'ISO 37001:2016 Certified',
     subtitle: 'Anti-Bribery Management System (ABMS)',
-    detail: 'Certificate No: UK-02-VS-03088',
+    detail: 'Certificate No: UK-02-VS-03089',
     authority: 'UKAF CERT (United Kingdom)',
-    accentColor: '#f59e0b',
+    accentColor: '#a78bfa',
+    link: '/certificates/iso-37001-2016-anti-bribery-management.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'impa-membership',
@@ -77,9 +85,9 @@ const credentialsList = [
     subtitle: 'International Marine Purchasing Association',
     detail: 'Verified Member Directory Profile',
     authority: 'Global Marine & Maritime Supply Chain',
-    accentColor: '#f59e0b',
+    accentColor: '#60a5fa',
     link: 'https://impa.net/members/oriented-facility-solution-pvt-ltd',
-    actionText: 'Verify on IMPA.net ↗',
+    actionText: 'Verify ↗',
   },
   {
     id: 'dpiit-startup',
@@ -89,7 +97,9 @@ const credentialsList = [
     subtitle: 'Ministry of Commerce & Industry (Govt of India)',
     detail: 'Certificate No: DIPP253153',
     authority: 'Non-Renewable Energy & Oil Sector',
-    accentColor: '#f59e0b',
+    accentColor: '#fb923c',
+    link: '/certificates/30032026165908322-0c525690-1762-4a29-9a9a-9710a9b25129.pdf',
+    actionText: 'View Cert ↗',
   },
   {
     id: 'mill-test',
@@ -116,10 +126,8 @@ const credentialsList = [
 export default function Footer() {
   return (
     <footer className="bg-ofs-navy-950 text-white border-t border-white/10 relative overflow-hidden">
-      {/* Subtle Background Pattern */}
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-      {/* CREDENTIALS & ACCREDITATIONS HEADER SECTION */}
       <div
         id="certifications"
         className="border-b border-white/[0.08] bg-[#060E24]/65 relative z-[2] py-14"
@@ -141,7 +149,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Credentials Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {credentialsList.map((cred, idx) => {
               const IconComp = cred.icon;
@@ -158,10 +165,14 @@ export default function Footer() {
                     </span>
                     {isClickable && (
                       <span
-                        className="inline-flex items-center gap-1 font-mono text-[0.68rem] font-bold py-0.5 px-2 rounded-xs bg-sky-400/12 border border-sky-400/30"
-                        style={{ color: cred.accentColor }}
+                        className="inline-flex items-center gap-1 font-mono text-[0.68rem] font-bold py-0.5 px-2 rounded-xs border transition-all duration-200 group-hover:scale-105"
+                        style={{
+                          color: cred.accentColor,
+                          backgroundColor: `${cred.accentColor}18`,
+                          borderColor: `${cred.accentColor}44`,
+                        }}
                       >
-                        Verify ↗
+                        {cred.actionText || 'View Cert ↗'}
                       </span>
                     )}
                   </div>
@@ -181,7 +192,7 @@ export default function Footer() {
                       <div className="font-heading text-[0.98rem] font-extrabold text-white mb-1 flex items-center gap-1.5">
                         <span>{cred.title}</span>
                         {isClickable && (
-                          <ArrowUpRight size={14} className="shrink-0" style={{ color: cred.accentColor }} />
+                          <ArrowUpRight size={14} className="shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: cred.accentColor }} />
                         )}
                       </div>
                       <div className="text-[0.78rem] text-white/75 leading-snug mb-2">
@@ -213,9 +224,24 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className={cn(
                       cardBaseClasses,
-                      'group cursor-pointer hover:bg-sky-400/[0.08] hover:border-sky-400/40 hover:shadow-[0_12px_28px_rgba(96,165,250,0.18)] no-underline'
+                      'group cursor-pointer no-underline hover:bg-white/[0.06]'
                     )}
-                    title={`Click to verify ${cred.title} on official directory`}
+                    style={{
+                      borderColor: `${cred.accentColor}33`,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = `${cred.accentColor}88`;
+                      e.currentTarget.style.boxShadow = `0 12px 28px ${cred.accentColor}25`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = `${cred.accentColor}33`;
+                      e.currentTarget.style.boxShadow = '';
+                    }}
+                    title={
+                      cred.link.endsWith('.pdf')
+                        ? `Click to view official ${cred.title} certificate (PDF)`
+                        : `Click to verify ${cred.title} on official directory`
+                    }
                   >
                     {CardInner}
                   </a>
@@ -232,10 +258,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main Footer Content */}
       <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2] pt-16 pb-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Column 1: Brand & Identity */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="inline-block no-underline">
               <div className="bg-white p-2 px-3.5 rounded-xs inline-flex items-center shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
@@ -251,7 +275,6 @@ export default function Footer() {
               {siteConfig.longDesc}
             </p>
 
-            {/* Corporate Registration Strip */}
             <div className="p-3.5 bg-white/[0.04] border border-white/10 rounded-xs text-xs text-white/70 font-mono leading-relaxed">
               <div>
                 <strong className="text-white">USA Entity:</strong> {siteConfig.usEntityName}
@@ -261,7 +284,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Social Media Links */}
             <div className="flex gap-3 mt-1">
               <a
                 href={siteConfig.socials.linkedin}
@@ -302,27 +324,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Solutions & Services */}
           <div>
             <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-ofs-gold-400 mb-5">
               Core Capabilities
             </div>
             <ul className="flex flex-col gap-3">
-              {servicesData.map((svc) => (
-                <li key={svc.id}>
+              {whatWeOffer.services.items.slice(0, 6).map((svc) => (
+                <li key={svc.href}>
                   <Link
-                    href={`/services/${svc.slug}`}
+                    href={svc.href}
                     className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                   >
                     <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                    {svc.shortTitle}
+                    {svc.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Industries & Strategic Divisions */}
           <div>
             <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-ofs-gold-400 mb-5">
               Industries Served
@@ -414,13 +434,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Locations */}
           <div className="flex flex-col gap-5">
             <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-ofs-gold-400">
               Corporate Offices
             </div>
 
-            {/* USA Global Office */}
             <div className="flex gap-3 items-start">
               <Globe2 size={18} className="text-ofs-navy-400 shrink-0 mt-0.5" />
               <div className="text-[0.85rem] text-white/80 leading-relaxed">
@@ -430,7 +448,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* India Operations Hub */}
             <div className="flex gap-3 items-start">
               <MapPin size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
               <div className="text-[0.85rem] text-white/80 leading-relaxed">
@@ -441,7 +458,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Direct Contact Links */}
             <div className="flex flex-col gap-2 mt-2">
               <a
                 href={`tel:${siteConfig.contact.phoneRaw}`}
@@ -461,7 +477,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Legal & Copyright */}
         <div className="pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 text-xs text-white/50">
           <div>
             © {new Date().getFullYear()} {siteConfig.legalName} All Rights Reserved.

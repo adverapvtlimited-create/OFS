@@ -83,14 +83,12 @@ export default function ContactCTA() {
       className="bg-ofs-navy-950 text-white relative overflow-hidden"
       id="contact-cta"
     >
-      {/* Grid Pattern & Ambient Glow */}
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-45 pointer-events-none" />
 
       <div className="absolute -top-[10%] -left-[10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(224,42,48,0.18)_0%,transparent_70%)] pointer-events-none" />
 
       <Container className="relative z-[2]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column: Direct Consultation Info */}
           <div>
             <ScrollReveal direction="up">
               <div className="mb-5">
@@ -116,7 +114,6 @@ export default function ContactCTA() {
               </p>
             </ScrollReveal>
 
-            {/* SLA Badge */}
             <ScrollReveal direction="up" delay={0.35}>
               <div className="inline-flex items-center gap-3 p-3.5 px-5 bg-white/[0.05] border border-white/15 rounded-xs mb-9">
                 <ShieldCheck size={22} className="text-ofs-gold-400 shrink-0" />
@@ -131,7 +128,6 @@ export default function ContactCTA() {
               </div>
             </ScrollReveal>
 
-            {/* Quick Contact Cards */}
             <div className="flex flex-col gap-4">
               <ScrollReveal direction="left" delay={0.4}>
                 <a
@@ -173,7 +169,6 @@ export default function ContactCTA() {
             </div>
           </div>
 
-          {/* Right Column: Lead Form Card */}
           <ScrollReveal direction="up" delay={0.2}>
             <div className="bg-white rounded-2xl p-7 sm:p-9 lg:p-10 text-ofs-navy-950 shadow-2xl border border-white/20 relative">
               <h3 className="font-heading text-2xl sm:text-[1.75rem] font-extrabold text-ofs-navy-950 mb-2 leading-tight">

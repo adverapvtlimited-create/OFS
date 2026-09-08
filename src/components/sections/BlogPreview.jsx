@@ -18,7 +18,6 @@ export default function BlogPreview() {
   return (
     <SectionPad className="bg-white relative">
       <Container>
-        {/* Section Header */}
         <div className="flex justify-between items-end flex-wrap gap-6 mb-14">
           <div>
             <ScrollReveal direction="up">
@@ -53,7 +52,6 @@ export default function BlogPreview() {
           </ScrollReveal>
         </div>
 
-        {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {displayPosts.map((post, idx) => (
             <ScrollReveal key={post.id} direction="up" delay={idx * 0.12}>
@@ -73,7 +71,6 @@ export default function BlogPreview() {
                     </div>
                   </div>
 
-                  {/* Article Info */}
                   <div className="p-5 pb-3.5">
                     <div className="flex items-center gap-3 text-xs text-ofs-gray-500 font-mono mb-2.5">
                       <span className="flex items-center gap-1.5">
@@ -100,7 +97,6 @@ export default function BlogPreview() {
                   </div>
                 </div>
 
-                {/* Author & Read More Footer */}
                 <div className="py-3 px-5 border-t border-ofs-gray-200 flex justify-between items-center bg-ofs-gray-50">
                   <div className="flex items-center gap-2">
                     <SafeImage
