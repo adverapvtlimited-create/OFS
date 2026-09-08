@@ -215,45 +215,44 @@ export default function SingleIndustryPage({ params }) {
                   const SubIconComp = iconMap[sub.icon] || Flame;
                   return (
                     <ScrollReveal key={sub.id} direction="up" delay={idx * 0.1}>
-                      <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 hover:-translate-y-1 bg-white rounded-xl">
-                        <div>
-                          <div className="h-[175px] relative overflow-hidden group">
-                            <img 
-                              src={sub.heroImage} 
-                              alt={sub.name}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none" />
-                            <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">
-                              <SubIconComp size={18} />
+                      <Link href={`/industries/${sub.slug}`} className="block h-full group no-underline">
+                        <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
+                          <div>
+                            <div className="h-[175px] relative overflow-hidden">
+                              <img 
+                                src={sub.heroImage} 
+                                alt={sub.name}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none" />
+                              <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">
+                                <SubIconComp size={18} />
+                              </div>
+                            </div>
+                            <div className="p-5 pb-4">
+                              <h2 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug group-hover:text-ofs-red-600 transition-colors">
+                                {sub.name}
+                              </h2>
+                              <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
+                                {sub.summary.replace(/\n/g, ' ').slice(0, 140)}...
+                              </p>
+                              <div className="flex flex-col gap-1.5 mb-3">
+                                {sub.keySolutions?.slice(0, 3).map((sol, sIndex) => (
+                                  <div key={sIndex} className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-700">
+                                    <CheckCircle2 size={13} className="text-ofs-red-600 shrink-0 mt-0.5" />
+                                    <span className="leading-snug">{sol}</span>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           </div>
-                          <div className="p-5 pb-4">
-                            <h2 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug">
-                              {sub.name}
-                            </h2>
-                            <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
-                              {sub.summary.replace(/\n/g, ' ').slice(0, 140)}...
-                            </p>
-                            <div className="flex flex-col gap-1.5 mb-3">
-                              {sub.keySolutions?.slice(0, 3).map((sol, sIndex) => (
-                                <div key={sIndex} className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-700">
-                                  <CheckCircle2 size={13} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                                  <span className="leading-snug">{sol}</span>
-                                </div>
-                              ))}
-                            </div>
+                          <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center transition-colors group-hover:bg-ofs-navy-50">
+                            <span className="font-mono text-xs font-bold uppercase text-ofs-navy-950 flex items-center gap-1 group-hover:text-ofs-red-600 transition-colors">
+                              Sector Overview <ArrowUpRight size={13} />
+                            </span>
                           </div>
                         </div>
-                        <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center">
-                          <Link 
-                            href={`/industries/${sub.slug}`}
-                            className="font-mono text-xs font-bold uppercase text-ofs-navy-950 flex items-center gap-1 hover:text-ofs-red-600 transition-colors no-underline"
-                          >
-                            Sector Overview <ArrowUpRight size={13} />
-                          </Link>
-                        </div>
-                      </div>
+                      </Link>
                     </ScrollReveal>
                   );
                 })}
