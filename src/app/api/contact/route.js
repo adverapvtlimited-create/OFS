@@ -4,28 +4,79 @@ import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
 
-const getEnquiriesFilePath = () => {
-  const dir = path.join(process.cwd(), "content");
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+// In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
+let memoryEnquiries = [];
+
+const getWritableFilePath = () => {
+  const localDir = path.join(process.cwd(), "content");
+  try {
+    if (!fs.existsSync(localDir)) {
+      fs.mkdirSync(localDir, { recursive: true });
+    }
+    const testFile = path.join(localDir, ".write-test");
+    fs.writeFileSync(testFile, "");
+    fs.unlinkSync(testFile);
+    return path.join(localDir, "enquiries.json");
+  } catch {
+    const tmpDir = process.env.TMPDIR || process.env.TEMP || "/tmp";
+    return path.join(tmpDir, "enquiries.json");
   }
-  return path.join(dir, "enquiries.json");
 };
 
 const readEnquiries = () => {
-  const filePath = getEnquiriesFilePath();
-  if (!fs.existsSync(filePath)) return [];
+  const list = [];
+  // 1. Try bundled content/enquiries.json
   try {
-    const fileContent = fs.readFileSync(filePath, "utf8");
-    return JSON.parse(fileContent);
-  } catch (e) {
-    return [];
+    const bundledPath = path.join(process.cwd(), "content", "enquiries.json");
+    if (fs.existsSync(bundledPath)) {
+      const fileContent = fs.readFileSync(bundledPath, "utf8");
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) list.push(...parsed);
+    }
+  } catch {
+    // Ignore read error
   }
+
+  // 2. Try /tmp/enquiries.json
+  try {
+    const tmpPath = path.join(process.env.TMPDIR || process.env.TEMP || "/tmp", "enquiries.json");
+    if (fs.existsSync(tmpPath)) {
+      const fileContent = fs.readFileSync(tmpPath, "utf8");
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) {
+        for (const item of parsed) {
+          if (!list.some((e) => e.id === item.id)) {
+            list.unshift(item);
+          }
+        }
+      }
+    }
+  } catch {
+    // Ignore tmp read error
+  }
+
+  // 3. Merge in-memory records
+  for (const item of memoryEnquiries) {
+    if (!list.some((e) => e.id === item.id)) {
+      list.unshift(item);
+    }
+  }
+
+  return list;
 };
 
 const writeEnquiries = (enquiries) => {
-  const filePath = getEnquiriesFilePath();
-  fs.writeFileSync(filePath, JSON.stringify(enquiries, null, 2), "utf8");
+  memoryEnquiries = enquiries;
+  try {
+    const filePath = getWritableFilePath();
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, JSON.stringify(enquiries, null, 2), "utf8");
+  } catch (e) {
+    console.warn("[Storage Note] File persistence bypassed on serverless runtime:", e.message);
+  }
 };
 
 export async function POST(request) {
@@ -57,43 +108,57 @@ export async function POST(request) {
       if (
         uploadedFile &&
         typeof uploadedFile === "object" &&
-        uploadedFile.name
+        uploadedFile.name &&
+        typeof uploadedFile.arrayBuffer === "function"
       ) {
         pdfName = uploadedFile.name;
         pdfSize = uploadedFile.size;
         fileContentType = uploadedFile.type || "application/pdf";
 
-        // 1. Save file directly to disk storage (public/uploads/enquiries)
         try {
-          const uploadsDir = path.join(
-            process.cwd(),
-            "public",
-            "uploads",
-            "enquiries",
-          );
-          if (!fs.existsSync(uploadsDir)) {
-            fs.mkdirSync(uploadsDir, { recursive: true });
+          const arrayBuffer = await uploadedFile.arrayBuffer();
+          const buffer = Buffer.from(arrayBuffer);
+
+          // 1. Upload directly to Cloudinary using in-memory Buffer (no disk write required)
+          try {
+            const cloudinaryResult = await uploadToCloudinary(
+              buffer,
+              uploadedFile.name,
+              "ofs/enquiries",
+            );
+            if (cloudinaryResult?.secure_url || cloudinaryResult?.url) {
+              cloudinaryUrl = cloudinaryResult.secure_url || cloudinaryResult.url;
+              pdfUrl = cloudinaryUrl;
+            }
+          } catch (cloudErr) {
+            console.warn("[Cloudinary Upload Warning]:", cloudErr.message);
           }
 
-          const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-          const diskFilePath = path.join(uploadsDir, safeFileName);
-
-          const arrayBuffer = await uploadedFile.arrayBuffer();
-          fs.writeFileSync(diskFilePath, Buffer.from(arrayBuffer));
-
-          pdfUrl = `/uploads/enquiries/${safeFileName}`;
-
-          // 2. Upload to Cloudinary using the disk filePath
-          const cloudinaryResult = await uploadToCloudinary(
-            diskFilePath,
-            uploadedFile.name,
-            "ofs/enquiries",
-          );
-          if (cloudinaryResult?.url) {
-            cloudinaryUrl = cloudinaryResult.url;
+          // 2. Try saving to local disk only if directory is writable (e.g., local dev)
+          let diskFilePath = null;
+          try {
+            const uploadsDir = path.join(
+              process.cwd(),
+              "public",
+              "uploads",
+              "enquiries",
+            );
+            if (!fs.existsSync(uploadsDir)) {
+              fs.mkdirSync(uploadsDir, { recursive: true });
+            }
+            const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
+            diskFilePath = path.join(uploadsDir, safeFileName);
+            fs.writeFileSync(diskFilePath, buffer);
+            if (!pdfUrl) {
+              pdfUrl = `/uploads/enquiries/${safeFileName}`;
+            }
+          } catch {
+            // Read-only filesystem in production (Vercel) - disk write safely skipped
           }
 
           fileDetails = {
+            buffer,
+            base64: buffer.toString("base64"),
             filePath: diskFilePath,
             fileName: pdfName,
             size: pdfSize,
@@ -101,7 +166,7 @@ export async function POST(request) {
             cloudinaryUrl,
           };
         } catch (fileErr) {
-          console.error("[File Save / Cloudinary Error]:", fileErr);
+          console.error("[File Processing Error]:", fileErr);
         }
       }
     } else {
@@ -134,13 +199,11 @@ export async function POST(request) {
       ip: request.headers.get("x-forwarded-for") || "127.0.0.1",
     };
 
-    // 3. Dispatch Email via Brevo API using disk filePath & Cloudinary URL
+    // 3. Dispatch Email via Brevo API using in-memory Buffer & Cloudinary URL
     const emailResult = await sendRfqEmail({
       enquiry: enquiryRecord,
       file: fileDetails,
     });
-
- 
 
     // 4. Save record in internal JSON database for admin dashboard
     enquiryRecord.emailDispatched = emailResult.success;
@@ -153,6 +216,7 @@ export async function POST(request) {
 
     // If sending the email failed, return an error to the frontend
     if (!emailResult.success) {
+      console.error("[Contact Route] Brevo email dispatch failed:", emailResult.error);
       return NextResponse.json(
         {
           success: false,
@@ -178,7 +242,7 @@ export async function POST(request) {
   } catch (error) {
     console.error("Contact API Error:", error);
     return NextResponse.json(
-      { error: "Internal server error processing enquiry." },
+      { error: error?.message || "Internal server error processing enquiry." },
       { status: 500 },
     );
   }

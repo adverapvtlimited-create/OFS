@@ -5,10 +5,14 @@ import { uploadToCloudinary, uploadFileToCloudinary } from './cloudinary';
 
 export { uploadFileToCloudinary };
 
-// 1. Configure upload folder on disk
+// 1. Configure upload folder on disk safely
 const uploadPath = path.join(process.cwd(), 'public', 'uploads', 'enquiries');
-if (!fs.existsSync(uploadPath)) {
-  fs.mkdirSync(uploadPath, { recursive: true });
+try {
+  if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath, { recursive: true });
+  }
+} catch {
+  // Gracefully ignored on read-only environments (e.g. Vercel)
 }
 
 // 2. Configure Multer with diskStorage

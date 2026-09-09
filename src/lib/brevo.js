@@ -52,29 +52,47 @@ export async function sendRfqEmail({ enquiry, file = null }) {
     formType === 'rfp' || service.toLowerCase().includes('procurement');
   const emailSubject = `New Inquiry from ${clientName}${clientCompany !== 'Not Specified' ? ` (${clientCompany})` : ''} - ${service}`;
 
-  // Build attachments for Brevo
+  // Build attachments for Brevo (supports in-memory Buffer, base64, disk path, or Cloudinary URL)
   const attachments = [];
   if (file) {
-    if (file.filePath && fs.existsSync(file.filePath)) {
+    const attachName = file.fileName || file.name || 'Specification_Document.pdf';
+    if (file.buffer && Buffer.isBuffer(file.buffer)) {
+      attachments.push({
+        content: file.buffer.toString('base64'),
+        name: attachName,
+      });
+    } else if (file.base64 && typeof file.base64 === 'string') {
+      attachments.push({
+        content: file.base64,
+        name: attachName,
+      });
+    } else if (file.filePath && typeof file.filePath === 'string') {
       try {
-        const fileBase64 = fs.readFileSync(file.filePath).toString('base64');
-        attachments.push({
-          content: fileBase64,
-          name: file.fileName || 'Specification_Document.pdf',
-        });
+        if (fs.existsSync(file.filePath)) {
+          const fileBase64 = fs.readFileSync(file.filePath).toString('base64');
+          attachments.push({
+            content: fileBase64,
+            name: attachName,
+          });
+        } else if (file.cloudinaryUrl) {
+          attachments.push({
+            url: file.cloudinaryUrl,
+            name: attachName,
+          });
+        }
       } catch (err) {
         console.warn('[Brevo Attachment Read Warning]:', err.message);
         if (file.cloudinaryUrl) {
           attachments.push({
             url: file.cloudinaryUrl,
-            name: file.fileName || 'Specification_Document.pdf',
+            name: attachName,
           });
         }
       }
     } else if (file.cloudinaryUrl) {
       attachments.push({
         url: file.cloudinaryUrl,
-        name: file.fileName || 'Specification_Document.pdf',
+        name: attachName,
       });
     }
   }
