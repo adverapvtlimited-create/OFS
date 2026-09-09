@@ -14,7 +14,11 @@ import {
   AlertCircle,
   Globe2,
   MessageSquare,
-  Building
+  Building,
+  UploadCloud,
+  FileText,
+  X,
+  Paperclip
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -31,10 +35,29 @@ export default function ContactPage() {
     urgency: 'Standard (1-2 Days)',
     message: ''
   });
+  const [pdfFile, setPdfFile] = useState(null);
+  const [pdfError, setPdfError] = useState('');
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+      setPdfError('Please upload a valid PDF document (.pdf)');
+      setPdfFile(null);
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setPdfError('PDF file size must be less than 10MB');
+      setPdfFile(null);
+      return;
+    }
+    setPdfError('');
+    setPdfFile(file);
   };
 
   const handleSubmit = async (e) => {
@@ -42,30 +65,53 @@ export default function ContactPage() {
     setStatus({ state: 'loading', msg: 'Submitting your formal enquiry...' });
 
     try {
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('company', formData.company);
+      payload.append('service', formData.service);
+      payload.append('urgency', formData.urgency);
+      payload.append('message', formData.message);
+      payload.append('formType', 'general');
+      if (pdfFile) {
+        payload.append('file', pdfFile);
+      }
+
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, formType: 'general' })
+        body: payload
       });
 
-      setStatus({
-        state: 'success',
-        msg: 'Thank you! Your enquiry has been routed to our operations and commercial engineering desk. We will respond within 4 business hours.'
-      });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: 'Procurement & Shipping',
-        urgency: 'Standard (1-2 Days)',
-        message: ''
-      });
+      if (res.ok) {
+        setStatus({
+          state: 'success',
+          msg: 'Thank you! Your enquiry and attached specifications have been routed to our commercial desk. We will respond within 4 business hours.'
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: 'Procurement & Shipping',
+          urgency: 'Standard (1-2 Days)',
+          message: ''
+        });
+        setPdfFile(null);
+        setPdfError('');
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        setStatus({
+          state: 'error',
+          msg: errData.error || 'Failed to submit enquiry. Please try again.'
+        });
+      }
     } catch (err) {
       setStatus({
         state: 'success',
         msg: 'Enquiry received! Our commercial desk will connect with you within 4 business hours.'
       });
+      setPdfFile(null);
     }
   };
 
@@ -308,6 +354,68 @@ export default function ContactPage() {
                         className="form-control"
                         rows={4}
                       />
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label flex items-center justify-between">
+                        <span>Attach RFQ / Specification PDF</span>
+                        <span className="text-[0.7rem] font-normal text-ofs-gray-500 lowercase font-sans">
+                          (Optional, Max 10MB)
+                        </span>
+                      </label>
+
+                      {!pdfFile ? (
+                        <label className="relative border-2 border-dashed border-ofs-gray-300 hover:border-ofs-navy-700 bg-ofs-navy-50/50 hover:bg-ofs-navy-50 rounded-lg p-4 cursor-pointer transition-all flex flex-col items-center justify-center text-center group">
+                          <input
+                            type="file"
+                            accept=".pdf,application/pdf"
+                            onChange={handleFileChange}
+                            className="sr-only"
+                          />
+                          <div className="w-10 h-10 rounded-full bg-white border border-ofs-gray-200 flex items-center justify-center mb-2 text-ofs-navy-900 group-hover:scale-110 transition-transform shadow-xs">
+                            <UploadCloud size={20} className="text-ofs-red-600" />
+                          </div>
+                          <p className="text-xs font-semibold text-ofs-navy-950 m-0">
+                            <span className="text-ofs-red-600 hover:underline font-bold">Click to upload PDF</span> or drag &amp; drop
+                          </p>
+                          <p className="text-[0.725rem] text-ofs-gray-500 m-0 mt-1 font-mono">
+                            BOQ, RFQ or Technical Specification (PDF up to 10MB)
+                          </p>
+                        </label>
+                      ) : (
+                        <div className="flex items-center justify-between p-3.5 bg-ofs-navy-50 border border-ofs-navy-200 rounded-lg shadow-xs">
+                          <div className="flex items-center gap-3 overflow-hidden">
+                            <div className="w-9 h-9 rounded bg-ofs-red-600 text-white flex items-center justify-center shrink-0">
+                              <FileText size={18} />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-bold text-ofs-navy-950 truncate m-0">
+                                {pdfFile.name}
+                              </p>
+                              <p className="text-[0.72rem] text-ofs-gray-500 font-mono m-0">
+                                {(pdfFile.size / (1024 * 1024)).toFixed(2)} MB • Ready to attach
+                              </p>
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setPdfFile(null);
+                              setPdfError('');
+                            }}
+                            className="p-1.5 rounded-full hover:bg-ofs-red-100 text-ofs-gray-500 hover:text-ofs-red-600 transition-colors cursor-pointer"
+                            title="Remove attached PDF"
+                          >
+                            <X size={16} />
+                          </button>
+                        </div>
+                      )}
+
+                      {pdfError && (
+                        <p className="text-xs text-ofs-red-600 font-mono mt-1.5 flex items-center gap-1">
+                          <AlertCircle size={13} /> {pdfError}
+                        </p>
+                      )}
                     </div>
 
                     {status.msg && (
