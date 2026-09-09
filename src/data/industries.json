@@ -5,7 +5,7 @@
     "name": "Oil & Gas Industry",
     "shortName": "Oil & Gas",
     "icon": "Flame",
-    "heroImage": "/images/live/Oil-Gas.png",
+    "heroImage": "/images/live/oil-gas-new.jpg",
     "relatedService": {
       "slug": "procurement-shipping",
       "label": "Procurement & Shipping"
@@ -26,7 +26,7 @@
         "name": "Natural Gas Distribution",
         "shortName": "Natural Gas",
         "icon": "Flame",
-        "heroImage": "/images/live/Oil-Gas.png",
+        "heroImage": "/images/live/natural-gas.jpg",
         "tagline": "High-Quality Valves and Actuators for Natural Gas Pipelines",
         "summary": "Natural Gas Pipeline Solutions by OFS\n_\nGas pipeline infrastructure remains one of the most efficient and secure methods of transporting natural gas from production sites to consumption markets. With rising global energy demands, there is a growing need for the development and modernization of transmission, gathering, and distribution pipelines.\n\nIn India, an extensive pipeline network is responsible for transporting natural gas across the country\u2014often running through populated areas and natural environments. This highlights the critical need for high-quality, reliable valves and actuators to ensure safe and uninterrupted operations. As many existing pipelines become outdated, timely replacement or upgrades of key components are essential to maintaining safety and efficiency.",
         "keySolutions": [],
@@ -34,11 +34,11 @@
       },
       {
         "id": "oil-gas-sub",
-        "slug": "oil-and-gas",
+        "slug": "oil-and-gas-sector",
         "name": "Oil & Gas",
         "shortName": "Oil & Gas",
         "icon": "Flame",
-        "heroImage": "/images/live/Oil-Gas.png",
+        "heroImage": "/images/live/oil-gas-new.jpg",
         "tagline": "Specialized Procurement & Technical Support for Upstream, Midstream & Downstream",
         "summary": "Specialized Procurement Solutions for the Oil & Gas Industry\n_\nWith over a decade of dedicated experience in the oil and gas sector, OFS provides advanced, end-to-end procurement and supply chain management solutions tailored to the dynamic needs of upstream, midstream, and downstream operations. We proudly serve clients across the European and North American markets, offering strategic support to ensure operational continuity and compliance in complex energy environments.\n\nOur core service areas include strategic procurement, project scheduling, cost control, quality assurance, planning and expediting, as well as field and third-party inspections. Each function is executed with precision, ensuring seamless integration with our clients\u2019 project lifecycles and regulatory frameworks.\n\nOur deep industry expertise enhances sourcing efficiency and supplier evaluation\u2014allowing for informed decision-making, stronger negotiations, and long-term value generation. Whether for greenfield developments or ongoing maintenance, our team brings clarity, structure, and agility to procurement processes in high-stakes environments.\n\nWe support a wide array of product categories vital to oil and gas operations, including industrial valves, precision drilling tools, centrifugal and positive displacement pumps, MRO (Maintenance, Repair & Operations) supplies, and comprehensive safety equipment. Every component is sourced with a focus on quality, compliance, and performance.",
         "keySolutions": [
@@ -144,7 +144,7 @@
     "subIndustries": [
       {
         "id": "renewable-energy-sub",
-        "slug": "renewable-energy",
+        "slug": "renewable-energy-sector",
         "name": "Renewable Energy",
         "shortName": "Renewable Energy",
         "icon": "Sun",
@@ -168,7 +168,7 @@
     "name": "Power & Energy Sector",
     "shortName": "Power & Energy",
     "icon": "Zap",
-    "heroImage": "/images/live/Power-Energy.png",
+    "heroImage": "/images/live/power-energy-new.jpg",
     "relatedService": {
       "slug": "spare-parts-procurement",
       "label": "Spare Parts & MRO"
@@ -190,7 +190,7 @@
         "name": "Power Energy",
         "shortName": "Power Energy",
         "icon": "Zap",
-        "heroImage": "/images/live/Power-Energy.png",
+        "heroImage": "/images/live/power-energy-new.jpg",
         "tagline": "High-Efficiency Spares & Maintenance for Thermal, Gas & Hydro Plants",
         "summary": "Power & Energy Procurement Solutions\n_\nWithin the power and energy industry, OFS is committed to understanding and fulfilling your procurement needs to ensure reliable operations and consistent performance. Our goal is to help minimise downtime and boost plant efficiency\u2014ultimately increasing megawatt output.\n\nPower generation is a highly complex and critical sector where the demand for electricity continues to rise. To support this, we source and supply spare parts for essential rotary equipment, including:\n\n- Turbines\n- Shafts\n- Couplings\n- Brakes\n- Power and electronic components\n\nOur team brings deep technical expertise and industry knowledge, enabling us to deliver tailored procurement services. With value-added offerings such as Maintenance, Repair, and Operations (MRO) support, OFS acts as a comprehensive solution provider for the evolving needs of the power and energy sector.",
         "keySolutions": [
@@ -210,7 +210,7 @@
     "name": "Petroleum Refining & Petrochemicals",
     "shortName": "Petrochemicals",
     "icon": "FlaskConical",
-    "heroImage": "/images/live/Petroleum-Refining.png",
+    "heroImage": "/images/live/petroleum-refining-new.jpg",
     "relatedService": {
       "slug": "procurement-shipping",
       "label": "Procurement & Shipping"
@@ -232,7 +232,7 @@
         "name": "Petroleum Refining",
         "shortName": "Petroleum Refining",
         "icon": "FlaskConical",
-        "heroImage": "/images/live/Petroleum-Refining.png",
+        "heroImage": "/images/live/petroleum-refining-new.jpg",
         "tagline": "Turnkey Procurement for High-Pressure Process Units & Refineries",
         "summary": "Procurement Solutions for the Petrochemical Industry\n_\nThe petrochemical industry operates within a complex framework of large-scale projects, critical timelines, and stringent compliance standards\u2014demanding a diverse and reliable supply of equipment and materials to keep operations running smoothly. From high-performance process equipment and electrical instrumentation to gas detectors, HVAC systems, filtration units, valves, and specialized piping components, procurement in this sector is both varied and high-stakes.\n\nAt OFS, we provide flexible, scalable, and cost-effective procurement models that address the unique challenges of petrochemical supply chains. Whether it\u2019s sourcing a single niche component or executing a multi-category, turnkey procurement package, we are equipped to support every stage with precision and professionalism. Our global reach allows us to seamlessly handle international logistics, regulatory documentation, and supplier coordination\u2014ensuring timely delivery across borders and project sites.\n\nOur team combines industry-specific knowledge with agile execution to optimize procurement processes while remaining aligned with technical specifications, safety standards, and budgetary requirements. We understand that cost control and reliability are essential, especially when working within narrow project timelines and capital-intensive environments.",
         "keySolutions": [
@@ -315,7 +315,7 @@
     "subIndustries": [
       {
         "id": "mining-minerals-sub",
-        "slug": "mining-minerals",
+        "slug": "mining-minerals-sector",
         "name": "Mining Minerals",
         "shortName": "Mining Minerals",
         "icon": "Mountain",
@@ -339,7 +339,7 @@
     "name": "General & Heavy Manufacturing",
     "shortName": "Manufacturing",
     "icon": "Plane",
-    "heroImage": "/images/live/Heavy-Engineering-2.png",
+    "heroImage": "/images/live/general-manufacturing.jpg",
     "relatedService": {
       "slug": "engineering-epc-support",
       "label": "Engineering & EPC Support"
@@ -364,7 +364,7 @@
         "name": "General Manufacturing",
         "shortName": "General Mfg",
         "icon": "Factory",
-        "heroImage": "/images/live/Heavy-Engineering-2.png",
+        "heroImage": "/images/live/general-manufacturing.jpg",
         "tagline": "Customized procurement solutions for general manufacturing.",
         "summary": "Procurement Solutions for the Manufacturing Industry\n_\nAt OFS, we specialize in providing customized procurement solutions tailored to the evolving needs of clients across a wide spectrum of general manufacturing sectors. From steel and automotive to food processing, textiles, fertilizers, and beyond, we understand the complexities and challenges unique to each industry and deliver solutions that drive operational efficiency and competitive advantage.\n\nWith over ten years of industry experience, OFS has cultivated a robust global supply network and forged strong, dependable relationships with internationally certified vendors and manufacturers. This enables us to offer seamless access to high-quality components, equipment, and materials that meet rigorous health, safety, and environmental standards. Our approach emphasizes the adoption of forward-thinking technologies that support cleaner production processes and promote long-term sustainability.\n\nOur expert team works in close partnership with every client to assess their operational objectives, regulatory requirements, and market demands. We then craft cost-effective, scalable procurement strategies that align with their long-term business goals\u2014enhancing reliability, reducing downtime, and optimizing resource allocation.",
         "keySolutions": [],
@@ -372,11 +372,11 @@
       },
       {
         "id": "heavy-engineering-sub",
-        "slug": "heavy-engineering",
+        "slug": "heavy-engineering-sector",
         "name": "Heavy Engineering",
         "shortName": "Heavy Eng",
         "icon": "Plane",
-        "heroImage": "/images/live/Heavy-Engineering-2.png",
+        "heroImage": "/images/live/heavy-engineering.jpg",
         "tagline": "Precision Sourcing for Custom Fabrication & Plant Infrastructure",
         "summary": "Spare Parts & Equipment for Heavy Engineering Projects\n_\nAt OFS, we offer an extensive and dependable range of spare parts and equipment tailored to the needs of heavy engineering industries, including construction, mining, infrastructure development, and related sectors. Our inventory and procurement capabilities are designed to support critical machinery such as bulldozers, compactors, cranes, drilling rigs, excavators, crushers, and more\u2014ensuring that every component delivered contributes to operational efficiency and project continuity.\n\nUnderstanding the high stakes and time-sensitive nature of heavy engineering projects, we prioritize the rapid fulfillment of orders and the delivery of quality-assured components that meet or exceed industry standards. Whether for routine maintenance or urgent replacements, our supply solutions are built to minimize downtime and maximize productivity on-site.\n\nLeveraging well-established relationships with a global network of trusted and certified manufacturers, we provide our clients with reliable access to a wide selection of original and compatible parts. These relationships not only enable us to maintain competitive pricing but also allow us to offer flexible lead times and tailored procurement options that suit varying project scales and requirements.",
         "keySolutions": [
@@ -409,7 +409,7 @@
     "subIndustries": [
       {
         "id": "electrical-electronics-sub",
-        "slug": "electrical-electronics",
+        "slug": "electrical-electronics-sector",
         "name": "Electrical & Electronics",
         "shortName": "Electrical & Electronics",
         "icon": "Cpu",
