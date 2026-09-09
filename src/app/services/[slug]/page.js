@@ -22,7 +22,6 @@ import servicesData from '@/data/services.json';
 import industriesData from '@/data/industries.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import ContactCTA from '@/components/sections/ContactCTA';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import JsonLd from '@/components/SEO/JsonLd';
 import { buildPageMetadata } from '@/lib/seo';
@@ -127,9 +126,9 @@ export default function SingleServicePage({ params }) {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <a href="#service-inquiry" className="btn btn-primary btn-lg inline-flex items-center gap-2">
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
               Request Quotation / RFQ <ArrowUpRight size={18} />
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
@@ -317,11 +316,6 @@ export default function SingleServicePage({ params }) {
           </div>
         </div>
       </section>
-
-      {/* Inquiry Form */}
-      <div id="service-inquiry">
-        <ContactCTA />
-      </div>
     </>
   );
 }

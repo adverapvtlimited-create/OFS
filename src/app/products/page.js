@@ -21,7 +21,6 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 import Badge from '@/components/ui/Badge';
 import Container from '@/components/ui/Container';
 import productsData from '@/data/products.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 
 const iconMap = {
   Flame: Flame,
@@ -173,9 +172,6 @@ export default function ProductsPage() {
           </div>
         </Container>
       </section>
-
-      {/* Bottom CTA */}
-      <ContactCTA />
     </>
   );
 }

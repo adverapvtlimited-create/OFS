@@ -14,7 +14,8 @@ import {
   AlertCircle,
   Building,
   RefreshCw,
-  ExternalLink
+  ExternalLink,
+  FileText
 } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
@@ -262,13 +263,40 @@ export default function EnquiriesAdminPage() {
                 </div>
 
                 {enq.message && (
-                  <div>
+                  <div className="mb-4">
                     <div className="text-ofs-gray-500 text-xs font-mono uppercase mb-1.5">
                       Scope &amp; Material Specifications
                     </div>
                     <div className="bg-white border border-ofs-gray-200 rounded p-4 text-[0.925rem] text-ofs-gray-800 leading-relaxed whitespace-pre-wrap">
                       {enq.message}
                     </div>
+                  </div>
+                )}
+
+                {enq.pdfUrl && (
+                  <div className="mt-4 pt-3 border-t border-ofs-gray-100 flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 bg-ofs-red-50 text-ofs-red-600 rounded">
+                        <FileText size={16} />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-ofs-navy-950">
+                        Attached PDF: {enq.pdfName || 'RFQ_Specification.pdf'}
+                      </span>
+                      {enq.pdfSize && (
+                        <span className="text-xs text-ofs-gray-500 font-mono">
+                          ({(enq.pdfSize / (1024 * 1024)).toFixed(2)} MB)
+                        </span>
+                      )}
+                    </div>
+
+                    <a
+                      href={enq.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-ofs-red-600 hover:text-ofs-red-700 bg-ofs-red-50 hover:bg-ofs-red-100 py-1.5 px-3 rounded border border-ofs-red-200 transition-colors no-underline"
+                    >
+                      View / Download PDF <ExternalLink size={13} />
+                    </a>
                   </div>
                 )}
               </div>

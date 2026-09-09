@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import ContactCTA from '@/components/sections/ContactCTA';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import SectionPad from '@/components/ui/SectionPad';
@@ -313,8 +312,6 @@ export default function AboutPage() {
           </div>
         </Container>
       </SectionPad>
-
-      <ContactCTA />
     </>
   );
 }

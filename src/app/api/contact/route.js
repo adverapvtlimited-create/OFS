@@ -28,7 +28,48 @@ const writeEnquiries = (enquiries) => {
 
 export async function POST(request) {
   try {
-    const data = await request.json();
+    let data = {};
+    let pdfUrl = null;
+    let pdfName = null;
+    let pdfSize = null;
+
+    const contentType = request.headers.get('content-type') || '';
+
+    if (contentType.includes('multipart/form-data')) {
+      const formData = await request.formData();
+      data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        company: formData.get('company'),
+        service: formData.get('service'),
+        urgency: formData.get('urgency'),
+        message: formData.get('message'),
+        formType: formData.get('formType') || 'general'
+      };
+
+      const pdfFile = formData.get('file');
+      if (pdfFile && typeof pdfFile === 'object' && pdfFile.name) {
+        if (pdfFile.type === 'application/pdf' || pdfFile.name.toLowerCase().endsWith('.pdf')) {
+          const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'enquiries');
+          if (!fs.existsSync(uploadsDir)) {
+            fs.mkdirSync(uploadsDir, { recursive: true });
+          }
+
+          const safeFileName = `${Date.now()}-${pdfFile.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+          const filePath = path.join(uploadsDir, safeFileName);
+          const arrayBuffer = await pdfFile.arrayBuffer();
+          const buffer = Buffer.from(arrayBuffer);
+          fs.writeFileSync(filePath, buffer);
+
+          pdfUrl = `/uploads/enquiries/${safeFileName}`;
+          pdfName = pdfFile.name;
+          pdfSize = pdfFile.size;
+        }
+      }
+    } else {
+      data = await request.json();
+    }
 
     if (!data.name || !data.email || !data.phone) {
       return NextResponse.json(
@@ -48,6 +89,9 @@ export async function POST(request) {
       service: data.service || 'General',
       urgency: data.urgency || 'Standard (1-2 Days)',
       message: data.message || '',
+      pdfUrl,
+      pdfName,
+      pdfSize,
       status: 'NEW',
       ip: request.headers.get('x-forwarded-for') || '127.0.0.1'
     };

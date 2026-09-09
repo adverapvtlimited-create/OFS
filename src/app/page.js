@@ -6,7 +6,7 @@ import ServicesGrid from '@/components/sections/ServicesGrid';
 import CaseStudies from '@/components/sections/CaseStudies';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import StatsCounter from '@/components/sections/StatsCounter';
-import ContactCTA from '@/components/sections/ContactCTA';
+import Certifications from '@/components/sections/Certifications';
 import JsonLd from '@/components/SEO/JsonLd';
 import { buildHomeFAQSchema, buildWebPageSchema } from '@/lib/schema';
 import { PAGE_SEO } from '@/config/seo.config';
@@ -36,7 +36,7 @@ export default function HomePage() {
       <CaseStudies />
       <WhyChooseUs />
       <StatsCounter />
-      <ContactCTA />
+      <Certifications />
 
       <section
         className="py-10 sm:py-12 lg:py-16 bg-ofs-gray-50"

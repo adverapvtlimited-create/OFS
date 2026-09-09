@@ -18,7 +18,6 @@ import {
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import jobsData from '@/data/jobs.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 
 const perks = [
   {
@@ -192,8 +191,6 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
-
-      <ContactCTA />
     </>
   );
 }

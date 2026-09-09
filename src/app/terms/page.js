@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import ContactCTA from '@/components/sections/ContactCTA';
 import JsonLd from '@/components/SEO/JsonLd';
 import { PAGE_SEO } from '@/config/seo.config';
 import { buildPageMetadata } from '@/lib/seo';
@@ -87,8 +86,6 @@ export default function TermsPage() {
           </div>
         </div>
       </section>
-
-      <ContactCTA />
     </>
   );
 }

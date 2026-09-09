@@ -16,7 +16,6 @@ import {
 import productsData from '@/data/products.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import ContactCTA from '@/components/sections/ContactCTA';
 import Container from '@/components/ui/Container';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import JsonLd from '@/components/SEO/JsonLd';
@@ -118,9 +117,9 @@ export default function SingleProductPage({ params }) {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <a href="#contact-cta" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
               Request Product Inquiry / RFQ <ArrowUpRight size={18} />
-            </a>
+            </Link>
           </ScrollReveal>
         </Container>
       </section>
@@ -256,12 +255,12 @@ export default function SingleProductPage({ params }) {
                         <span className="text-xs font-mono font-bold text-ofs-navy-700 uppercase">
                           API / ISO Compliant
                         </span>
-                        <a
-                          href="#contact-cta"
-                          className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors"
+                        <Link
+                          href="/contact"
+                          className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"
                         >
                           Request Spec Sheet <ArrowUpRight size={14} />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -273,9 +272,6 @@ export default function SingleProductPage({ params }) {
 
         </Container>
       </section>
-
-      {/* Bottom CTA */}
-      <ContactCTA />
     </>
   );
 }

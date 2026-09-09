@@ -17,7 +17,6 @@ import {
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import servicesData from '@/data/services.json';
-import ContactCTA from '@/components/sections/ContactCTA';
 import { serviceHref } from '@/lib/offers';
 
 const iconMap = {
@@ -163,9 +162,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      {/* Bottom CTA */}
-      <ContactCTA />
     </>
   );
 }
