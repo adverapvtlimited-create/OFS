@@ -76,6 +76,8 @@ export default function ContactCTA() {
         body: payload,
       });
 
+   
+
       if (res.ok) {
         setStatus({
           state: 'success',
@@ -98,20 +100,11 @@ export default function ContactCTA() {
           msg: errData.error || 'There was an issue submitting your enquiry. Please call our direct helpline.',
         });
       }
-    } catch {
+    } catch (err) {
       setStatus({
-        state: 'success',
-        msg: 'Enquiry received successfully! Our commercial engineering desk will connect with you within 4 business hours.',
+        state: 'error',
+        msg: err?.message || 'There was an issue submitting your enquiry. Please check your network and try again.',
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: 'Procurement & Shipping',
-        message: '',
-      });
-      setPdfFile(null);
     }
   };
 

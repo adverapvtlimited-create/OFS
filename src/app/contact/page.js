@@ -108,10 +108,9 @@ export default function ContactPage() {
       }
     } catch (err) {
       setStatus({
-        state: 'success',
-        msg: 'Enquiry received! Our commercial desk will connect with you within 4 business hours.'
+        state: 'error',
+        msg: err.message || 'Unable to connect to the server. Please check your connection and try again.'
       });
-      setPdfFile(null);
     }
   };
 
