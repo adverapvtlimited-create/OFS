@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+import sys
+
+print("===========================================================================")
+print("🚨 CRITICAL WARNING: ETL MIGRATION PHASE IS COMPLETED AND LOCKED")
+print("===========================================================================")
+print("Do NOT run this script. The output in src/data/*.json has already been manually")
+print("reviewed, edited, and SEO-optimized by the frontend team.")
+print("Running this script will overwrite their manual edits with raw legacy data.")
+print("If you need to seed Strapi, use the new seed_strapi.py script instead.")
+sys.exit(1)
+
 """
 OFS Group Website Content Migration ETL Script (Audited & Production-Grade)
 ===========================================================================
