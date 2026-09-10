@@ -15,7 +15,18 @@
     "readTime": "6 min read",
     "featured": true,
     "image": "/images/live/Procurement-and-shippings.jpg",
-    "tags": ["Procurement", "EPC", "Logistics", "Supply Chain", "Offshore"]
+    "tags": [
+      "Procurement",
+      "EPC",
+      "Logistics",
+      "Supply Chain",
+      "Offshore"
+    ],
+    "seo": {
+      "metaTitle": "Navigating Global Supply Chain Volatility in Mega EPC &...",
+      "metaDescription": "Supply chain volatility remains the single largest risk factor for offshore and industrial EPC contractors today. From raw material price swings in...",
+      "keywords": "OFS, industrial solutions, manufacturing, procurement & supply chain, navigating, global, supply"
+    }
   },
   {
     "id": "2",
@@ -33,7 +44,18 @@
     "readTime": "5 min read",
     "featured": false,
     "image": "/images/live/Mooring-Systems.jpg",
-    "tags": ["QA/QC", "NDT", "Offshore", "ASME", "Pipelines"]
+    "tags": [
+      "QA/QC",
+      "NDT",
+      "Offshore",
+      "ASME",
+      "Pipelines"
+    ],
+    "seo": {
+      "metaTitle": "Advanced Ultrasonic Phased Array (PAUT) for Offshore &...",
+      "metaDescription": "Ensuring the structural integrity of offshore riser pipes, subsea tiebacks, and high-pressure manifold welds requires inspection methodologies that...",
+      "keywords": "OFS, industrial solutions, manufacturing, quality control & qa, advanced, ultrasonic, phased"
+    }
   },
   {
     "id": "3",
@@ -51,7 +73,18 @@
     "readTime": "7 min read",
     "featured": true,
     "image": "/images/live/Power-Energy.png",
-    "tags": ["Renewables", "Solar", "BESS", "Sustainability", "Industrial"]
+    "tags": [
+      "Renewables",
+      "Solar",
+      "BESS",
+      "Sustainability",
+      "Industrial"
+    ],
+    "seo": {
+      "metaTitle": "Decarbonizing Heavy Industrial Facilities with Rooftop...",
+      "metaDescription": "Heavy manufacturing facilities and continuous-process chemical plants face a twin challenge: rising peak grid power tariffs and stringent ESG mandates...",
+      "keywords": "OFS, industrial solutions, manufacturing, renewable energy, decarbonizing, heavy, industrial"
+    }
   },
   {
     "id": "4",
@@ -69,6 +102,17 @@
     "readTime": "4 min read",
     "featured": false,
     "image": "/images/live/Petroleum-Refining.png",
-    "tags": ["Maintenance", "Predictive AMC", "Turbines", "Vibration", "Machinery"]
+    "tags": [
+      "Maintenance",
+      "Predictive AMC",
+      "Turbines",
+      "Vibration",
+      "Machinery"
+    ],
+    "seo": {
+      "metaTitle": "From Preventive to Predictive: Maximizing Uptime on...",
+      "metaDescription": "Time-based preventive maintenance routines are no longer sufficient for mission-critical rotating machinery such as multi-stage boiler feed pumps,...",
+      "keywords": "OFS, industrial solutions, manufacturing, maintenance & amc, from, preventive, predictive"
+    }
   }
 ]
