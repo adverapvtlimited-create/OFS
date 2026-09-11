@@ -60,7 +60,12 @@
         "image": "/images/products/power-swivels.jpg",
         "description": "Power Swivels are hydraulic motor-driven machines used to rotate drill pipes during operations such as oil and gas well drilling, water wells, offshore platform piling, and foundation construction. OFS offers a wide range of high-performance power swivel systems, known for their safety, reliability, and adaptability to various drilling needs."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Reliable Drilling Equipment & Spare Parts for Global...",
+      "metaDescription": "Drilling equipment is a critical component across both land and offshore markets, especially in mineral exploration, geothermal drilling, construction,...",
+      "keywords": "OFS, industrial solutions, manufacturing, upstream & drilling, reliable, drilling, equipment"
+    }
   },
   {
     "id": "electrical-power-equipments",
@@ -159,7 +164,12 @@
         "image": "/images/products/electrical-conduit-fittings-1.png",
         "description": "Electrical conduit systems provide robust protection for conductors against impact, moisture, and chemical exposure, while supporting various wire types and simplifying installation. Ideal for buildings with frequent wiring changes, they allow easy wire replacement without altering the conduit layout. At OFS, we offer a complete range of conduit fittings designed to ensure flexible, secure, and efficient electrical infrastructure."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Electrical & Power Equipments | OFS",
+      "metaDescription": "Transmitting electricity over long distances remains a critical engineering challenge. At OFS, we address this by focusing on four key pillars:...",
+      "keywords": "OFS, industrial solutions, manufacturing, electrical & controls, electrical, power, equipments"
+    }
   },
   {
     "id": "heavy-machinery-equipments",
@@ -222,7 +232,12 @@
         "image": "/images/products/brake-discs-1.png",
         "description": "Brake discs are a critical component of any braking system, ensuring safe and efficient stopping power. Regular maintenance is essential to maintain optimal performance and safety standards.\n\nAt OFS, we provide a wide range of industrial brake discs, including options with thrusters, flexible couplings, and complete brake disc systems, tailored to meet diverse operational requirements across industries."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Heavy Plant Machinery & Construction Vehicles Equipment",
+      "metaDescription": "Heavy plant machinery and construction vehicles are essential for large-scale projects, offering high efficiency and reliability to ensure timely and...",
+      "keywords": "OFS, industrial solutions, manufacturing, heavy engineering, heavy, plant, machinery"
+    }
   },
   {
     "id": "hvac-refrigeration",
@@ -270,7 +285,12 @@
         "image": "/images/products/devices-for-air-conditioners-check-1.png",
         "description": "To ensure optimal performance and proper functioning of air conditioners, we at OFS source reliable and efficient maintenance and repair equipment.\n\nOur range includes compressors, condensation units, blowers, control panels, and chiller trays, all tailored to meet the demands of industrial and commercial HVAC systems with a focus on durability, precision, and efficiency."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "HVAC & Refrigeration Tools and Equipment | OFS",
+      "metaDescription": "HVAC & refrigeration is vital to today’s lifestyle for personal comfort, food preservation, medical health, industrial uses, and water...",
+      "keywords": "OFS, industrial solutions, manufacturing, facility & cooling, hvac, refrigeration, tools"
+    }
   },
   {
     "id": "industrial-oil-chemicals-lubricants",
@@ -308,7 +328,12 @@
         "image": "/images/products/industrial-grease-solution.png",
         "description": "OFS is a trusted supplier of high-performance industrial grease, offering a wide range of products tailored for diverse applications. Our premium industrial grease oils deliver superior lubrication, protecting machinery from friction, wear, and extreme operating conditions. As a leading industrial grease supplier, we provide advanced industrial grease lubricants engineered to enhance equipment efficiency, minimize downtime, and extend service life. Discover the right grease solution for your needs—contact OFS today for reliable, high-quality lubrication products."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Industrial Oil, Chemicals, and Lubricants Suppliers | OFS",
+      "metaDescription": "Industrial oils, chemicals, and lubricants play a critical role in the process industry. Industrial oils are used in a wide range of machinery and...",
+      "keywords": "OFS, industrial solutions, manufacturing, chemicals & mro, industrial, chemicals, lubricants"
+    }
   },
   {
     "id": "industrial-valves",
@@ -408,7 +433,12 @@
         "image": "/images/products/manifold-1.png",
         "description": "The OFS manifold serves as a critical component in process systems, expertly designed to either combine multiple flows into a single channel or distribute a single flow into multiple branches. Our comprehensive range of manifolds is engineered to meet precise operational requirements, with careful consideration given to pressure ratings, flow characteristics, temperature ranges, and material compatibility. Available in various configurations with optimized port and valve integration options, OFS manifolds provide reliable performance across industrial applications. Whether for complex fluid distribution or streamlined system consolidation, our solutions ensure efficient flow management tailored to your specific process needs."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Industrial Valves | OFS",
+      "metaDescription": "Industrial valves play a crucial role across all sectors of the manufacturing industry, particularly in oil and gas, chemical processing, and water...",
+      "keywords": "OFS, industrial solutions, manufacturing, flow control, industrial, valves"
+    }
   },
   {
     "id": "instrumentation",
@@ -441,7 +471,12 @@
         "image": "/images/products/instrumentationflow-meter.jpg",
         "description": "OFS delivers a comprehensive range of industrial flow meters designed for precise liquid measurement. Our advanced ultrasonic flow meters utilize clamp-on sensor technology to non-invasively measure flow rates by analyzing upstream/downstream wave propagation. Ideal for homogeneous liquids with minimal gas bubbles or solids, these high-performance instruments combine accuracy with easy installation. From process control to resource management, OFS flow meters provide reliable measurement solutions tailored to your specific industrial requirements."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Instrumentation | OFS",
+      "metaDescription": "Instrumentation plays a vital role in detecting and measuring changes—both physical and chemical—across various industrial processes. These systems...",
+      "keywords": "OFS, industrial solutions, manufacturing, process measurement, instrumentation"
+    }
   },
   {
     "id": "maintenance-repair-tools",
@@ -480,7 +515,12 @@
         "image": "/images/products/milling-tools.png",
         "description": "OFS milling tools provide versatile precision cutting solutions for metals, wood, plastics, and brass. Our comprehensive range enables complex operations including indexing, straddle milling, gang milling, slot cutting, planing, and drilling. Engineered for industrial performance, these cutting tools deliver accuracy and efficiency for your most demanding machining applications."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Maintenance, Repair Tools | OFS",
+      "metaDescription": "Effectively addressing equipment issues starts with having the right tools on hand. At OFS, we offer a comprehensive selection of maintenance and...",
+      "keywords": "OFS, industrial solutions, manufacturing, plant maintenance, maintenance, repair, tools"
+    }
   },
   {
     "id": "mro-tools",
@@ -534,7 +574,12 @@
         "image": "/images/products/7-2.png",
         "description": "OFS provides high-quality nuts and bolts - the fundamental components that hold equipment and structures together. These essential fasteners form the backbone of mechanical assemblies and construction projects. Choosing the right OFS nuts and bolts ensures structural integrity, as improper selection can compromise entire systems. Our precision-engineered fasteners meet rigorous standards for strength and reliability in all industrial applications."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "MRO Tools | OFS",
+      "metaDescription": "Maintenance, Repair, and Operations (MRO) are integral to the smooth functioning of the processing and manufacturing industries. MRO programs are...",
+      "keywords": "OFS, industrial solutions, manufacturing, mro supplies, tools"
+    }
   },
   {
     "id": "process-equipment",
@@ -598,7 +643,12 @@
         "image": "/images/products/wind-turbine-spares.png",
         "description": "OFS supplies genuine spare parts for wind turbines, addressing the unique maintenance challenges of both onshore and offshore power generation. Our optimized solutions reduce servicing costs through reliable components and coordinated support strategies, keeping wind farms operating at peak efficiency."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Process Equipment | OFS",
+      "metaDescription": "Industrial process equipment includes a broad range of machinery and spare parts essential for critical operations across various downstream...",
+      "keywords": "OFS, industrial solutions, manufacturing, downstream & processing, process, equipment"
+    }
   },
   {
     "id": "pumps-spare-parts",
@@ -667,7 +717,12 @@
         "image": "/images/products/heating-pumps.png",
         "description": "OFS heating pumps optimize industrial energy efficiency by recovering and repurposing waste heat from processes in food production, refineries, and chemical plants. These versatile systems elevate temperatures for reuse while offering reversible cooling capabilities, making them ideal for sustainable temperature management across industries."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Pumps & Spare Parts | OFS",
+      "metaDescription": "Driven by ongoing technological advancements, market growth depends on substantial investment in manufacturing infrastructure. A key catalyst is the...",
+      "keywords": "OFS, industrial solutions, manufacturing, fluid handling, pumps, spare, parts"
+    }
   },
   {
     "id": "rotary-equipment",
@@ -726,7 +781,12 @@
         "image": "/images/products/rotary-equipment.png",
         "description": "OFS enhances rotary equipment performance with premium seals, bearings, and drive mechanisms designed to optimize functionality and extend system longevity. Our high-quality accessories allow precise customization of rotary systems to meet specific operational requirements across industries."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Rotary Equipment | OFS",
+      "metaDescription": "Rotary equipment refers to mechanical systems that generate kinetic energy to enable movement within industrial operations. Common across the process...",
+      "keywords": "OFS, industrial solutions, manufacturing, turbomachinery, rotary, equipment"
+    }
   },
   {
     "id": "safety-tools-equipments",
@@ -775,6 +835,11 @@
         "image": "/images/products/6-6.png",
         "description": "OFS delivers rugged LED torches and lamps specifically engineered for hazardous mining environments, offering both rechargeable and non-rechargeable options. Our range includes multi-color flashlights, flickering warning torches, and durable handheld models built to withstand extreme underground conditions while ensuring worker safety."
       }
-    ]
+    ],
+    "seo": {
+      "metaTitle": "Safety Tools & Equipments | OFS",
+      "metaDescription": "Workplace injuries not only result in personal suffering but also impact overall productivity and morale. Companies that prioritize safety often...",
+      "keywords": "OFS, industrial solutions, manufacturing, safety & protection, safety, tools, equipments"
+    }
   }
 ]

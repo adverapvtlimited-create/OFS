@@ -2,28 +2,79 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const getApplicationsFilePath = () => {
-  const dir = path.join(process.cwd(), 'content');
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+// In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
+let memoryApplications = [];
+
+const getWritableFilePath = () => {
+  const localDir = path.join(process.cwd(), 'content');
+  try {
+    if (!fs.existsSync(localDir)) {
+      fs.mkdirSync(localDir, { recursive: true });
+    }
+    const testFile = path.join(localDir, '.write-test');
+    fs.writeFileSync(testFile, '');
+    fs.unlinkSync(testFile);
+    return path.join(localDir, 'applications.json');
+  } catch {
+    const tmpDir = process.env.TMPDIR || process.env.TEMP || '/tmp';
+    return path.join(tmpDir, 'applications.json');
   }
-  return path.join(dir, 'applications.json');
 };
 
 const readApplications = () => {
-  const filePath = getApplicationsFilePath();
-  if (!fs.existsSync(filePath)) return [];
+  const list = [];
+  // 1. Try bundled content/applications.json
   try {
-    const fileContent = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContent);
-  } catch (e) {
-    return [];
+    const bundledPath = path.join(process.cwd(), 'content', 'applications.json');
+    if (fs.existsSync(bundledPath)) {
+      const fileContent = fs.readFileSync(bundledPath, 'utf8');
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) list.push(...parsed);
+    }
+  } catch {
+    // Ignore read error
   }
+
+  // 2. Try /tmp/applications.json
+  try {
+    const tmpPath = path.join(process.env.TMPDIR || process.env.TEMP || '/tmp', 'applications.json');
+    if (fs.existsSync(tmpPath)) {
+      const fileContent = fs.readFileSync(tmpPath, 'utf8');
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) {
+        for (const item of parsed) {
+          if (!list.some((a) => a.id === item.id)) {
+            list.unshift(item);
+          }
+        }
+      }
+    }
+  } catch {
+    // Ignore tmp read error
+  }
+
+  // 3. Merge in-memory records
+  for (const item of memoryApplications) {
+    if (!list.some((a) => a.id === item.id)) {
+      list.unshift(item);
+    }
+  }
+
+  return list;
 };
 
 const writeApplications = (apps) => {
-  const filePath = getApplicationsFilePath();
-  fs.writeFileSync(filePath, JSON.stringify(apps, null, 2), 'utf8');
+  memoryApplications = apps;
+  try {
+    const filePath = getWritableFilePath();
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, JSON.stringify(apps, null, 2), 'utf8');
+  } catch (e) {
+    console.warn('[Storage Note] File persistence bypassed on serverless runtime:', e.message);
+  }
 };
 
 export async function POST(request) {

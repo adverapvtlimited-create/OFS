@@ -8,25 +8,45 @@
       "value": "450+ MW",
       "label": "Solar & Storage Capacity Supported",
       "numeric": 450,
-      "suffix": " MW"
+      "suffix": " MW",
+      "seo": {
+        "metaTitle": "Untitled | OFS",
+        "metaDescription": "Learn more about Untitled at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, untitled"
+      }
     },
     {
       "value": "120K+",
       "label": "Tonnes CO2 Mitigated Annually",
       "numeric": 120,
-      "suffix": "K+ Tons"
+      "suffix": "K+ Tons",
+      "seo": {
+        "metaTitle": "Untitled | OFS",
+        "metaDescription": "Learn more about Untitled at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, untitled"
+      }
     },
     {
       "value": "99.4%",
       "label": "Plant Uptime Guaranteed SLA",
       "numeric": 99.4,
-      "suffix": "%"
+      "suffix": "%",
+      "seo": {
+        "metaTitle": "Untitled | OFS",
+        "metaDescription": "Learn more about Untitled at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, untitled"
+      }
     },
     {
       "value": "",
       "label": "Utility & C&I Mega Projects",
       "numeric": 15,
-      "suffix": "+"
+      "suffix": "+",
+      "seo": {
+        "metaTitle": "Untitled | OFS",
+        "metaDescription": "Learn more about Untitled at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, untitled"
+      }
     }
   ],
   "solutions": [
@@ -41,7 +61,12 @@
         "Single-Axis Solar Tracker Integration with AI Wind Stowing",
         "Central & String Inverter Substation Skid Packages (up to 33kV/66kV)",
         "SCADA Power Plant Controller (PPC) Grid Compliance"
-      ]
+      ],
+      "seo": {
+        "metaTitle": "Utility-Scale Ground Mounted Solar | OFS",
+        "metaDescription": "Learn more about Utility-Scale Ground Mounted Solar at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, utility, scale, ground"
+      }
     },
     {
       "id": "ci-rooftop-solar",
@@ -54,7 +79,12 @@
         "Smart Net-Metering & Bi-Directional Energy Export Setup",
         "Integrated Rapid Shutdown Systems for Fire Safety (NEC 2020)",
         "30-40% Reduction in Levelized Cost of Electricity (LCOE)"
-      ]
+      ],
+      "seo": {
+        "metaTitle": "Commercial & Industrial (C&I) Rooftop Solar | OFS",
+        "metaDescription": "Learn more about Commercial & Industrial (C&I) Rooftop Solar at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, commercial, industrial, rooftop"
+      }
     },
     {
       "id": "battery-energy-storage",
@@ -67,7 +97,12 @@
         "Liquid Cooling Thermal Management & UL9540A Fire Safety",
         "Sub-Second Response for Grid Frequency Stabilization",
         "Peak Arbitrage & Seamless Diesel Generator Hybridization"
-      ]
+      ],
+      "seo": {
+        "metaTitle": "Battery Energy Storage Systems (BESS) | OFS",
+        "metaDescription": "Learn more about Battery Energy Storage Systems (BESS) at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, battery, energy, storage"
+      }
     },
     {
       "id": "floating-solar-systems",
@@ -80,7 +115,12 @@
         "Tension-Engineered Mooring & Anchoring Systems for Variable Water Levels",
         "10-15% Higher Energy Yield Due to Natural Water Evaporative Cooling",
         "Reduces Water Reservoir Evaporation by up to 70%"
-      ]
+      ],
+      "seo": {
+        "metaTitle": "Floating Solar (FPV) Systems | OFS",
+        "metaDescription": "Learn more about Floating Solar (FPV) Systems at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, floating, solar, systems"
+      }
     },
     {
       "id": "solar-om-digital-monitoring",
@@ -93,7 +133,12 @@
         "Aerial Drone Infrared Thermography for Hot-Spot Detection",
         "String-Level I-V Curve Tracing & Degradation Analytics",
         "Guaranteed 99.5% PR (Performance Ratio) Compliance"
-      ]
+      ],
+      "seo": {
+        "metaTitle": "Digital O&M & Robotic Cleaning | OFS",
+        "metaDescription": "Learn more about Digital O&M & Robotic Cleaning at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, digital, robotic, cleaning"
+      }
     }
   ],
   "projects": [
@@ -104,7 +149,12 @@
       "type": "Utility Scale",
       "specs": "150 MWp / 33kV Substation",
       "impact": "180,000 Homes Powered | 210,000 Tons CO2 Saved/Yr",
-      "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+      "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+      "seo": {
+        "metaTitle": "150 MW Utility Solar Farm EPC Supply | OFS",
+        "metaDescription": "Learn more about 150 MW Utility Solar Farm EPC Supply at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, utility, solar, farm"
+      }
     },
     {
       "id": "kerala-floating-solar",
@@ -113,7 +163,12 @@
       "type": "Floating Solar (FPV)",
       "specs": "25 MWp / HDPE Floats / Underwater Cabling",
       "impact": "Conserves 100M+ Liters Reservoir Water Yearly",
-      "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80"
+      "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80",
+      "seo": {
+        "metaTitle": "25 MW Floating Solar Array | OFS",
+        "metaDescription": "Learn more about 25 MW Floating Solar Array at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, floating, solar, array"
+      }
     },
     {
       "id": "gujarat-bess-facility",
@@ -122,7 +177,12 @@
       "type": "Energy Storage (BESS)",
       "specs": "40 MWh / LFP Liquid Cooled / SCADA Interfaced",
       "impact": "Eliminated Peak Power Blackouts for 12 Industrial Plants",
-      "image": "https://images.unsplash.com/photo-1558441719-8b449c6ff670?auto=format&fit=crop&w=800&q=80"
+      "image": "https://images.unsplash.com/photo-1558441719-8b449c6ff670?auto=format&fit=crop&w=800&q=80",
+      "seo": {
+        "metaTitle": "40 MWh Grid-Scale BESS Installation | OFS",
+        "metaDescription": "Learn more about 40 MWh Grid-Scale BESS Installation at OFS, providing advanced industrial solutions.",
+        "keywords": "OFS, industrial solutions, manufacturing, grid, scale, bess"
+      }
     }
   ]
 }
