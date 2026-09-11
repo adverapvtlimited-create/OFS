@@ -15,10 +15,6 @@ HEADERS = {
 DATA_DIR = Path(__file__).parent.parent / 'src' / 'data'
 
 def post_to_strapi(endpoint: str, payload: dict):
-    """
-    Helper function to send data to Strapi v4.
-    Strapi v4 requires the payload to be wrapped in a "data" object.
-    """
     url = f"{STRAPI_URL}/api/{endpoint}"
     data_wrapper = { "data": payload }
     
@@ -36,7 +32,6 @@ def post_to_strapi(endpoint: str, payload: dict):
         return None
 
 def format_seo(seo_data: dict):
-    """Formats the SEO object to match the shared.seo component in Strapi."""
     if not seo_data:
         return None
     return {
@@ -44,23 +39,31 @@ def format_seo(seo_data: dict):
         "metaDescription": seo_data.get('metaDescription', ''),
         "keywords": seo_data.get('keywords', ''),
         "canonicalUrl": seo_data.get('canonicalUrl', '')
-        # Note: shareImage would require a separate upload and ID linking.
     }
+
+def format_bullet_points(items: list):
+    """Formats a simple string list into Strapi elements.feature-bullet components."""
+    if not isinstance(items, list):
+        return []
+    return [{"bulletPoint": str(item)} for item in items]
 
 def seed_industries():
     print("\n--- Seeding Industries ---")
     file_path = DATA_DIR / 'industries.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         
     for item in data:
+        title = item.get('title', item.get('name', 'Unknown Industry'))
         payload = {
-            "title": item.get('title', item.get('name', 'Unknown Industry')),
+            "title": title,
             "slug": item.get('slug', ''),
+            "shortName": item.get('shortName', title),
+            "tagline": item.get('tagline', ''),
             "description": item.get('description', ''),
+            "keySolutions": format_bullet_points(item.get('keySolutions', [])),
             "seo": format_seo(item.get('seo', {}))
         }
         post_to_strapi('industries', payload)
@@ -68,17 +71,20 @@ def seed_industries():
 def seed_services():
     print("\n--- Seeding Services ---")
     file_path = DATA_DIR / 'services.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         
     for item in data:
+        title = item.get('title', item.get('name', 'Unknown Service'))
         payload = {
-            "title": item.get('title', item.get('name', 'Unknown Service')),
+            "title": title,
             "slug": item.get('slug', ''),
+            "shortTitle": item.get('shortTitle', title),
+            "tagline": item.get('tagline', ''),
             "overview": item.get('description', item.get('overview', '')),
+            "features": format_bullet_points(item.get('features', [])),
             "seo": format_seo(item.get('seo', {}))
         }
         post_to_strapi('services', payload)
@@ -86,22 +92,24 @@ def seed_services():
 def seed_products():
     print("\n--- Seeding Products ---")
     file_path = DATA_DIR / 'products.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         
     for item in data:
-        # Convert specifications array if present
         specs = item.get('specifications', [])
         formatted_specs = [{"label": k, "value": v} for spec in specs for k, v in spec.items()] if isinstance(specs, list) else []
-
+        
+        title = item.get('title', item.get('name', 'Unknown Product'))
         payload = {
-            "title": item.get('title', item.get('name', 'Unknown Product')),
+            "title": title,
             "slug": item.get('slug', ''),
+            "shortName": item.get('shortName', title),
             "shortDescription": item.get('shortDescription', item.get('description', '')),
+            "mainContent": item.get('mainContent', item.get('content', '')),
             "specifications": formatted_specs,
+            "features": format_bullet_points(item.get('features', [])),
             "seo": format_seo(item.get('seo', {}))
         }
         post_to_strapi('products', payload)
@@ -109,8 +117,7 @@ def seed_products():
 def seed_jobs():
     print("\n--- Seeding Careers / Jobs ---")
     file_path = DATA_DIR / 'jobs.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -122,7 +129,12 @@ def seed_jobs():
             "department": item.get('department', ''),
             "location": item.get('location', ''),
             "employmentType": item.get('type', 'Full-Time'),
+            "experienceRequired": item.get('experienceRequired', ''),
+            "datePosted": item.get('datePosted', '2024-01-01'), # Strapi requires Date format
             "description": item.get('description', ''),
+            "responsibilities": format_bullet_points(item.get('responsibilities', [])),
+            "requirements": format_bullet_points(item.get('requirements', [])),
+            "benefits": format_bullet_points(item.get('benefits', [])),
             "isActive": True,
             "seo": format_seo(item.get('seo', {}))
         }
@@ -131,19 +143,25 @@ def seed_jobs():
 def seed_case_studies():
     print("\n--- Seeding Case Studies ---")
     file_path = DATA_DIR / 'case-studies.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
         
     for item in data:
+        metrics = item.get('metrics', [])
+        formatted_metrics = [{"label": m.get('label', ''), "value": m.get('value', '')} for m in metrics] if isinstance(metrics, list) else []
+        
         payload = {
             "title": item.get('title', 'Unknown Case Study'),
             "slug": item.get('slug', ''),
+            "clientIndustry": item.get('clientIndustry', 'Unknown'),
+            "location": item.get('location', 'Global'),
+            "summary": item.get('summary', ''),
             "theChallenge": item.get('challenge', ''),
             "theSolution": item.get('solution', ''),
             "theOutcome": item.get('outcome', ''),
+            "metrics": formatted_metrics,
             "seo": format_seo(item.get('seo', {}))
         }
         post_to_strapi('case-studies', payload)
@@ -151,8 +169,7 @@ def seed_case_studies():
 def seed_blogs():
     print("\n--- Seeding Blog Posts ---")
     file_path = DATA_DIR / 'blog-posts.json'
-    if not file_path.exists():
-        return
+    if not file_path.exists(): return
         
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -162,6 +179,9 @@ def seed_blogs():
             "title": item.get('title', 'Unknown Post'),
             "slug": item.get('slug', ''),
             "author": item.get('author', 'OFS Team'),
+            "publishedDate": item.get('publishedDate', item.get('date', '2024-01-01')),
+            "excerpt": item.get('excerpt', ''),
+            "readTime": item.get('readTime', ''),
             "content": item.get('content', ''),
             "category": item.get('category', 'Corporate'),
             "seo": format_seo(item.get('seo', {}))
