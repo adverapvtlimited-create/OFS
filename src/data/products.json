@@ -56,6 +56,11 @@
         "description": "Oil tools are essential equipment used during drilling, completion, and well intervention activities to optimise production and maintain consistent reservoir flow. OFS supplies a range of downhole tools designed to reduce operational costs, extend well life, and improve oil recovery. These tools support operations like fishing, cementing, casing, well measurements, and reservoir fracturing, ensuring smooth and efficient well management."
       },
       {
+        "title": "Rock Tricone Drill Bit",
+        "image": "/images/products/2-3.png",
+        "description": "OFS tricone drill bits deliver superior rock-cutting performance for mining and construction applications. Our range features multiple bearing types and specialized bit options, including high-speed steel, carbide, and diamond-enhanced designs for demanding geological conditions. Supported by comprehensive maintenance solutions and drilling accessories, OFS bits ensure optimal performance throughout their operational life."
+      },
+      {
         "title": "Power Swivels",
         "image": "/images/products/power-swivels.jpg",
         "description": "Power Swivels are hydraulic motor-driven machines used to rotate drill pipes during operations such as oil and gas well drilling, water wells, offshore platform piling, and foundation construction. OFS offers a wide range of high-performance power swivel systems, known for their safety, reliability, and adaptability to various drilling needs."
@@ -151,7 +156,7 @@
       },
       {
         "title": "LED Systems",
-        "image": "/images/products/led-systems-1.png",
+        "image": "/images/products/led.webp",
         "description": "The LED lighting market has grown rapidly, driven by its superior efficiency, reliability, and lifespan over traditional lighting. At OFS, we deliver advanced LED solutions that combine high brightness, compact design, low power consumption, and long-lasting performance—making them ideal for modern industrial applications and innovation-driven environments."
       },
       {
@@ -226,11 +231,6 @@
         "title": "Clutch",
         "image": "/images/products/clutch-2.png",
         "description": "A clutch plays a vital role in regulating speed by connecting two rotating shafts, allowing for smooth engagement and adjustment between shafts of differing speeds. For machinery to operate efficiently, clutches require professional care, regular maintenance, and timely replacement.\n\nAt OFS, we offer high-quality clutches designed to enhance machine performance, ensuring reliability, durability, and optimal functionality across various industrial applications."
-      },
-      {
-        "title": "Brake Discs",
-        "image": "/images/products/brake-discs-1.png",
-        "description": "Brake discs are a critical component of any braking system, ensuring safe and efficient stopping power. Regular maintenance is essential to maintain optimal performance and safety standards.\n\nAt OFS, we provide a wide range of industrial brake discs, including options with thrusters, flexible couplings, and complete brake disc systems, tailored to meet diverse operational requirements across industries."
       }
     ],
     "seo": {
@@ -274,11 +274,6 @@
         "title": "Fans and Blowers",
         "image": "/images/products/fans-and-blowers-2.png",
         "description": "Industrial fans and blowers are vital for cooling, ventilation, drying, combustion, and pneumatic conveying across various process industries. They come in different types, including centrifugal, axial, and mixed flow, each suited to specific operational needs.\n\nAt OFS, we procure a wide range of high-performance fans and blowers, along with reliable spare parts, ensuring efficiency, durability, and optimal airflow for industrial applications."
-      },
-      {
-        "title": "Laboratory Heaters for Flasks",
-        "image": "/images/products/laboratory-heaters-for-flaska.png",
-        "description": "Laboratory heaters are essential for precise heating and temperature control in chemical and scientific applications. These include devices like mantles, Bunsen burners, hot plates, water baths, and circulators.\n\nCommon heating tools used in labs also include ovens, oil baths, salt baths, sand baths, air baths, hot-tube furnaces, and hot-air guns—each selected based on the specific requirements of the experiment or process. At OFS, we source reliable and efficient lab heating equipment tailored to diverse research and industrial needs."
       },
       {
         "title": "Devices for Air Conditioner Check",
@@ -351,7 +346,7 @@
       "Pinch & Diaphragm Valves for abrasive slurry, chemical & sterile processes",
       "Industrial Grade Flanges & Multi-port Manifolds for piping systems"
     ],
-    "description": "Industrial valves play a crucial role across all sectors of the manufacturing industry, particularly in oil and gas, chemical processing, and water management systems. At Refteck, we supply a wide range of industrial valves designed to handle various pressure levels and flow requirements. Our valves are suitable for controlling the movement of gases, liquids, and semi-solids, offering reliable solutions for diverse industrial applications.",
+    "description": "Industrial valves play a crucial role across all sectors of the manufacturing industry, particularly in oil and gas, chemical processing, and water management systems. At OFS, we supply a wide range of industrial valves designed to handle various pressure levels and flow requirements. Our valves are suitable for controlling the movement of gases, liquids, and semi-solids, offering reliable solutions for diverse industrial applications.",
     "catalogItems": [
       {
         "title": "Ball Valve",
@@ -467,6 +462,11 @@
         "description": "OFS specializes in providing high-performance sensors for diverse applications, from everyday devices like touch lamps and elevators to advanced industrial uses. Our cutting-edge sensor technology covers flow measurement, pressure, temperature, and specialized applications like MARG sensors. We deliver precision sensors for industries including aerospace, medical, robotics, and automotive—combining advanced microtechnology with competitive global pricing."
       },
       {
+        "title": "Laboratory Heaters for Flasks",
+        "image": "/images/products/laboratory-heaters-for-flaska.png",
+        "description": "Laboratory heaters are essential for precise heating and temperature control in chemical and scientific applications. These include devices like mantles, Bunsen burners, hot plates, water baths, and circulators.\n\nCommon heating tools used in labs also include ovens, oil baths, salt baths, sand baths, air baths, hot-tube furnaces, and hot-air guns—each selected based on the specific requirements of the experiment or process. At OFS, we source reliable and efficient lab heating equipment tailored to diverse research and industrial needs."
+      },
+      {
         "title": "Flow Meters",
         "image": "/images/products/instrumentationflow-meter.jpg",
         "description": "OFS delivers a comprehensive range of industrial flow meters designed for precise liquid measurement. Our advanced ultrasonic flow meters utilize clamp-on sensor technology to non-invasively measure flow rates by analyzing upstream/downstream wave propagation. Ideal for homogeneous liquids with minimal gas bubbles or solids, these high-performance instruments combine accuracy with easy installation. From process control to resource management, OFS flow meters provide reliable measurement solutions tailored to your specific industrial requirements."
@@ -544,11 +544,7 @@
         "image": "/images/products/electric-chainhost.png",
         "description": "OFS electric chain hoists deliver powerful lifting solutions for heavy equipment handling across industries. These robust machines efficiently move large loads, reducing labor costs while improving worksite productivity. Our range includes specialized mining hoists for underground operations, safely transporting personnel, equipment, and materials. OFS understands diverse industrial lifting needs and provides reliable hoisting solutions tailored to your operational requirements."
       },
-      {
-        "title": "Rock Tricone Drill Bit",
-        "image": "/images/products/2-3.png",
-        "description": "OFS tricone drill bits deliver superior rock-cutting performance for mining and construction applications. Our range features multiple bearing types and specialized bit options, including high-speed steel, carbide, and diamond-enhanced designs for demanding geological conditions. Supported by comprehensive maintenance solutions and drilling accessories, OFS bits ensure optimal performance throughout their operational life."
-      },
+      
       {
         "title": "Couplings",
         "image": "/images/products/3-3.png",
@@ -565,7 +561,7 @@
         "description": "OFS O-rings provide reliable sealing solutions for demanding industrial environments. Engineered to withstand extreme pressures, temperatures, and harsh conditions in sectors like automotive, energy, and heavy manufacturing, our O-rings effectively prevent fluid/gas leakage while blocking contaminants. These critical sealing components maintain system integrity by retaining lubricants and protecting equipment - ensuring optimal performance even in the most challenging operating conditions."
       },
       {
-        "title": "Washers by OFS",
+        "title": "Washers ",
         "image": "/images/products/6-2.png",
         "description": "OFS precision washers deliver essential fastening solutions for industrial applications, available in plain, spring, and locking variants. Our metallic and non-metallic washers reduce friction, prevent leakage, and maintain joint integrity across standard and custom specifications. From hardened steel for bolted joints to vibration-resistant designs, OFS washers ensure reliable performance in demanding environments."
       },
@@ -713,6 +709,11 @@
         "description": "OFS bilge pumps provide critical flood prevention for marine vessels by efficiently emptying bilge wells at regular intervals. Our reliable pumping systems ensure prolonged operational safety at sea, maintaining proper vessel function and engine room protection."
       },
       {
+        "title": "Wilden Valve Pumps",
+        "image": "/images/products/wilden valve.jpg",
+        "description": "OFS provides Wilden valve pumps engineered for reliable fluid control and solids handling across chemical, mining, and manufacturing applications. Featuring durable internal check-valve technology and a rugged sealless build, these air-operated pumps safely handle abrasive slurries, viscous chemicals, and hazardous liquids with zero leakage and dry-run capability."
+      },
+      {
         "title": "Heating Pumps",
         "image": "/images/products/heating-pumps.png",
         "description": "OFS heating pumps optimize industrial energy efficiency by recovering and repurposing waste heat from processes in food production, refineries, and chemical plants. These versatile systems elevate temperatures for reuse while offering reversible cooling capabilities, making them ideal for sustainable temperature management across industries."
@@ -742,7 +743,7 @@
     "description": "Rotary equipment refers to mechanical systems that generate kinetic energy to enable movement within industrial operations. Common across the process industry, this category includes devices that move solids, liquids, or gases via a combination of drivers, driven components, and transmission mechanisms.\n\nRotating equipment is integral to operations involving steam and gas turbines. In such applications, steam turbines act as primary drivers—using high-pressure steam to power equipment like forced or induced-draft fans, pumps, and air compressors. Gas turbines, on the other hand, can either drive generators directly through compressed air or use “scoop tubes” in fluid couplings to transmit energy to rotating components.\n\nDue to the high speeds and pressures involved, operating rotary equipment can pose significant risks. Therefore, strict adherence to safety procedures and regular maintenance are critical to ensure safe and efficient performance.\n\nAt OFS, we supply high-quality rotary equipment and components built to meet the rigorous demands of industrial environments—ensuring reliability, performance, and safety in every application.",
     "catalogItems": [
       {
-        "title": "Gas Turbines by OFS",
+        "title": "Gas Turbines ",
         "image": "/images/products/1-8.png",
         "description": "OFS gas turbines deliver reliable power generation by efficiently converting fuel-air mixtures into electricity through high-temperature combustion. We source premium turbines tailored to client specifications, balancing performance and cost-effectiveness for optimal plant operations."
       },
@@ -753,7 +754,7 @@
       },
       {
         "title": "Compressors",
-        "image": "/images/products/3-8.png",
+        "image": "/images/products/compressor.webp",
         "description": "OFS compressors deliver precise pressure control for fluids and gases, serving critical roles in refineries and manufacturing. We provide high-quality air compressors that meet strict air quality standards, tailored to meet specific client requirements for optimal performance."
       },
       {
@@ -777,7 +778,7 @@
         "description": "OFS delivers precision control systems and instrumentation for accurate process measurement and automation across industries. Our comprehensive range includes meters, regulators, sensors, and control panels optimized for power generation, oil/gas production, marine systems, and agricultural applications."
       },
       {
-        "title": "Ancillaries & Accessories by OFS",
+        "title": "Ancillaries & Accessories ",
         "image": "/images/products/rotary-equipment.png",
         "description": "OFS enhances rotary equipment performance with premium seals, bearings, and drive mechanisms designed to optimize functionality and extend system longevity. Our high-quality accessories allow precise customization of rotary systems to meet specific operational requirements across industries."
       }
@@ -811,7 +812,7 @@
         "description": "OFS safety harnesses provide critical fall protection for workers, crafted from durable ropes, cables, and locking hardware to create secure attachments. We carefully select harnesses based on application needs, weight limits, attachment points, and mobility requirements to ensure both safety and comfort during use."
       },
       {
-        "title": "Safety Glasses by OFS",
+        "title": "Safety Glasses ",
         "image": "/images/products/26.png",
         "description": "OFS safety glasses and goggles provide essential eye protection against particulates, chemicals, and impacts across industrial and sports applications. Our range includes specialized options for metalworking, welding, cold weather, and power tool use, designed to withstand harsh conditions while ensuring clear vision."
       },
