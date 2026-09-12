@@ -1965,127 +1965,6 @@
       }
     ]
   },
-  "supply-chain-financing": {
-    "slug": "supply-chain-financing",
-    "href": "/supply-chain-financing",
-    "title": "Supply Chain Financing",
-    "category": "solutions",
-    "categoryLabel": "Solutions",
-    "heroImage": null,
-    "tagline": "Streamline Your Supply Chain Financing with OFS",
-    "overviewTitle": "Streamline Your Supply Chain Financing with OFS",
-    "description": "OFS bridges cash flow gaps and enables extended payment terms while ensuring upfront supplier liquidity through structured supply chain financing and one-off payment management.",
-    "overviewParagraphs": [
-      "Managing international cash flow, extended buyer terms, and upfront vendor payment demands is one of the most critical challenges in global procurement.",
-      "OFS provides flexible Supply Chain Financing and One-Off Payment solutions that bridge financial gaps, protect liquidity, and strengthen strategic vendor partnerships."
-    ],
-    "blocks": [
-      {
-        "title": "Mastering MRO Complexity & Supplier Financing",
-        "variant": "light",
-        "imagePosition": "left",
-        "image": {
-          "src": "/images/live/supply-chain-finance-block0.png",
-          "alt": "Mastering MRO Complexity"
-        },
-        "intro": "How OFS redefines financial agility across your global supply chain:",
-        "noBullets": true,
-        "items": [
-          {
-            "title": "Extended Buyer Payment Terms",
-            "description": "Optimize your working capital by extending payment terms up to 90 or 120 days while keeping vendors satisfied."
-          },
-          {
-            "title": "Immediate Supplier Settlement",
-            "description": "OFS pays international and local manufacturers upfront upon dispatch, ensuring zero shipment delays."
-          },
-          {
-            "title": "Multi-Currency Management",
-            "description": "Eliminating currency conversion headaches and mitigating foreign exchange volatility across cross-border deals."
-          },
-          {
-            "title": "Unified Terms & Conditions",
-            "description": "Consolidating divergent vendor contractual terms into a single, straightforward credit framework."
-          }
-        ]
-      },
-      {
-        "title": "One-Off Payments: A Smart Solution to Complex Challenges",
-        "variant": "light",
-        "imagePosition": "right",
-        "image": {
-          "src": "/images/live/supply-chain-finance-block1.png",
-          "alt": "One-Off Payments Solution"
-        },
-        "intro": "Overcoming one-off vendor onboarding bottlenecks and emergency purchasing hurdles:",
-        "noBullets": true,
-        "items": [
-          {
-            "title": "Rapid Vendor Onboarding",
-            "description": "Procure from non-registered or spot vendors instantly through OFS without cumbersome internal vendor registration."
-          },
-          {
-            "title": "Foreign Exchange Risk Absorption",
-            "description": "OFS manages currency hedging and regulatory compliance for overseas payments on your behalf."
-          },
-          {
-            "title": "Tier-2 Pre-Financing Support",
-            "description": "Removing capital bottlenecks for specialized Tier-2 component fabricators that require advance funding."
-          },
-          {
-            "title": "Full Financial Transparency",
-            "description": "Clear, upfront fee structures with zero hidden charges and comprehensive audit documentation."
-          }
-        ]
-      },
-      {
-        "title": "Pricing and Packages",
-        "paragraphs": [
-          "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
-          "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
-          "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
-      },
-      {
-        "title": "What Can Be Expected",
-        "paragraphs": [
-          "“Precision forecasting for increased revenue.”",
-          "“Streamline orders, cut costs.”",
-          "“Automated safety stock for resilience.”",
-          "“Real-time inventory sync across sites.”",
-          "“Efficient supplier partnerships.”",
-          "“Prevent stockouts, reduce waste.”"
-        ]
-      },
-      {
-        "title": "Broad Advantages",
-        "items": [
-          {
-            "title": "Assessment & Adaptation",
-            "description": "We assess, adapt, and enhance your inventory and procurement systems for maximum efficiency."
-          },
-          {
-            "title": "Tailored Solutions",
-            "description": "Customised strategies and operating workflows designed for your unique business needs."
-          },
-          {
-            "title": "Team Empowerment",
-            "description": "Empower your cross-functional teams with comprehensive training and domain mastery."
-          },
-          {
-            "title": "Go-Live Support",
-            "description": "Smooth operational transitions with hands-on, end-to-end go-live assistance."
-          },
-          {
-            "title": "Continuous Optimization",
-            "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
-          }
-        ],
-        "buttonText": "Explore Financing Options",
-        "buttonHref": "/contact"
-      }
-    ]
-  },
   "procurement-services": {
     "slug": "procurement-services",
     "href": "/procurement-services",
@@ -2409,7 +2288,6 @@
             "title": "HVAC",
             "icon": "/images/live/1-13.png"
           },
-
           {
             "title": "Transportation",
             "icon": "/images/live/TRANSPORTATIONS.png"
