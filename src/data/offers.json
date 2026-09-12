@@ -2409,10 +2409,7 @@
             "title": "HVAC",
             "icon": "/images/live/1-13.png"
           },
-          {
-            "title": "Food & Beverage",
-            "icon": "/images/live/FOOD-BEVERAGES.png"
-          },
+
           {
             "title": "Transportation",
             "icon": "/images/live/TRANSPORTATIONS.png"
