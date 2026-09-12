@@ -37,7 +37,7 @@ const iconMap = {
 };
 
 export default function ServicesGrid() {
-  const flagshipService = servicesData[0]; // Procurement & Shipping
+  const flagshipService = servicesData[0]; // Procurement & Sourcing
   const otherServices = servicesData.slice(1);
 
   return (
