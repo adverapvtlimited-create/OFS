@@ -1651,7 +1651,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/engineering-sunset.png",
+          "src": "/images/live/plant-maint-block1.png",
           "alt": "Transforming Plant Maintenance"
         },
         "intro": "Our integrated service offerings for refinery, petrochemical, and heavy manufacturing facilities:",
@@ -1743,7 +1743,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.jpg",
+          "src": "/images/live/spare-parts-block0.png",
           "alt": "Advantages of Choosing OFS"
         },
         "intro": "Why leading operators trust OFS for uninterrupted parts availability:",
@@ -1772,7 +1772,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.png",
+          "src": "/images/live/spare-parts-block1.png",
           "alt": "Optimising Spare Parts Management"
         },
         "intro": "Structured methodologies to safeguard industrial production continuity:",
@@ -1864,7 +1864,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/strategic-sourcing-block0.png",
           "alt": "Challenges of Sourcing"
         },
         "intro": "Eliminating common inefficiencies in industrial procurement pipelines:",
@@ -1893,7 +1893,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "/images/live/strategic-sourcing-block1.png",
           "alt": "Reliable Sourcing Services"
         },
         "intro": "Our comprehensive suite of data enrichment and sourcing capabilities:",
@@ -1985,7 +1985,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/future-procurement.png",
+          "src": "/images/live/supply-chain-finance-block0.png",
           "alt": "Mastering MRO Complexity"
         },
         "intro": "How OFS redefines financial agility across your global supply chain:",
@@ -2014,7 +2014,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/supply-chain-finance-block1.png",
           "alt": "One-Off Payments Solution"
         },
         "intro": "Overcoming one-off vendor onboarding bottlenecks and emergency purchasing hurdles:",
