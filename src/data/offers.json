@@ -32,10 +32,6 @@
             "description": "A full suite of MRO products to ensure the upkeep of buildings, machinery, and equipment, reducing downtime and enhancing productivity."
           },
           {
-            "title": "Travel Services",
-            "description": "Support for corporate travel requirements, enabling employees to reach various destinations for business-related engagements efficiently."
-          },
-          {
             "title": "Professional Services",
             "description": "Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
           }
@@ -45,7 +41,6 @@
           "Commercial Warehouses: Essential infrastructure such as factories, offices, and commercial buildings that form the backbone of day-to-day operations.",
           "Utilities: Reliable access to utilities like water and electricity is crucial for powering equipment and sustaining business activities at commercial sites.",
           "MRO (Maintenance, Repair, and Operations): A full suite of MRO products to ensure the upkeep of buildings, machinery, and equipment, reducing downtime and enhancing productivity.",
-          "Travel Services: Support for corporate travel requirements, enabling employees to reach various destinations for business-related engagements efficiently.",
           "Professional Services: Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
         ]
       },
@@ -160,7 +155,6 @@
           "Commercial Warehouses: Essential infrastructure such as factories, offices, and commercial buildings that form the backbone of day-to-day operations.",
           "Utilities: Reliable access to utilities like water and electricity is crucial for powering equipment and sustaining business activities at commercial sites.",
           "MRO (Maintenance, Repair, and Operations): A full suite of MRO products to ensure the upkeep of buildings, machinery, and equipment, reducing downtime and enhancing productivity.",
-          "Travel Services: Support for corporate travel requirements, enabling employees to reach various destinations for business-related engagements efficiently.",
           "Professional Services: Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
         ]
       },
@@ -383,12 +377,12 @@
   "procurement-shipping": {
     "slug": "procurement-shipping",
     "href": "/procurement-shipping",
-    "title": "Procurement & Shipping",
+    "title": "Procurement & Sourcing",
     "category": "services",
     "categoryLabel": "Services",
     "heroImage": null,
-    "tagline": "End-to-End Sourcing and Global Shipping Solutions",
-    "overviewTitle": "Enhance Your Procurement & Shipping with OFS",
+    "tagline": "End-to-End Global Sourcing Solutions",
+    "overviewTitle": "Enhance Your Procurement & Sourcing with OFS",
     "description": "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing. Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement and logistics solutions tailored to the needs of industrial leaders.",
     "overviewParagraphs": [
       "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing.",
@@ -454,7 +448,7 @@
         ]
       },
       {
-        "title": "Why Partner with OFS for Procurement & Shipping?",
+        "title": "Why Partner with OFS for Procurement & Sourcing?",
         "variant": "light",
         "intro": "The core pillars that make OFS the premier procurement and logistics partner for industrial leaders:",
         "items": [
@@ -483,7 +477,7 @@
           "Partner with OFS to unlock efficiency, lower operational risk, and drive sustainable savings across your entire procurement lifecycle.",
           "Our dedicated specialists are ready to evaluate your spend portfolio and design a bespoke procurement and shipping strategy aligned with your growth objectives."
         ],
-        "buttonText": "Request a Procurement & Shipping Consultation",
+        "buttonText": "Request a Procurement & Sourcing Consultation",
         "buttonHref": "/contact"
       }
     ]
@@ -541,7 +535,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Engineering-EP-Support-Services.png",
+          "src": "/images/live/engineering-sunset.png",
           "alt": "High-Impact Technical Solutions"
         },
         "intro": "Why global asset owners and EPC operators rely on OFS Engineering:",
@@ -570,7 +564,7 @@
         "variant": "light",
         "paragraphs": [
           "At OFS, engineering integrity is backed by robust quality frameworks and verified technical standards.",
-          "Every engineering package, technical inspection, and material verification is conducted with complete traceability—guaranteeing that your industrial assets operate safely, reliably, and efficiently for decades."
+          "Every engineering package, technical inspection, and material verification is conducted with complete traceability—guaranteeing that your industrial assets operate safely, reliably, and efficiently for years."
         ]
       },
       {
@@ -605,7 +599,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.jpg",
+          "src": "/images/live/spare-parts-strategy-photo.png",
           "alt": "Spare Parts Strategy"
         },
         "intro": "A systematic approach to eliminate component shortages and prevent plant shutdowns:",
@@ -634,7 +628,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.png",
+          "src": "/images/live/spare-parts-support-photo.png",
           "alt": "OFS Spare Parts Support"
         },
         "intro": "End-to-end commercial and technical support for plant maintenance and operations:",
@@ -681,73 +675,73 @@
   "logistics-shipping": {
     "slug": "logistics-shipping",
     "href": "/logistics-shipping",
-    "title": "Logistics & Shipping",
+    "title": "Logistics & Shipping Coordination",
     "category": "services",
     "categoryLabel": "Services",
     "heroImage": null,
-    "tagline": "Seamless Freight, Customs Clearance & Supply Chain Optimization",
-    "overviewTitle": "Industrial Logistics and Shipping Services by OFS",
-    "description": "At OFS, we offer integrated logistics and shipping solutions designed to optimize your industrial supply chain from origin to destination. From customs clearance and freight forwarding to warehousing and multi-modal transport, we ensure smooth delivery.",
+    "tagline": "Reliable Freight, Customs & Industrial Supply Chain Support",
+    "overviewTitle": "Industrial Logistics & Shipping Services by OFS",
+    "description": "At OFS, we provide coordinated logistics and shipping support designed to strengthen industrial procurement and project supply chains from supplier to site. From international freight coordination and customs documentation to project cargo movement, warehousing, and final delivery, we help ensure critical equipment, machinery, and spare parts reach their destination safely, efficiently, and on schedule.",
     "overviewParagraphs": [
-      "At OFS, we offer integrated logistics and shipping solutions designed to optimize your industrial supply chain from origin to destination.",
-      "From international customs brokerage and ocean freight forwarding to heavy over-dimensional cargo transport and regional warehousing, we deliver end-to-end logistics with precision, speed, and safety."
+      "At OFS, we provide coordinated logistics and shipping support designed to strengthen industrial procurement and project supply chains from supplier to site.",
+      "From international freight coordination and customs documentation to project cargo movement, warehousing, and final delivery, we help ensure critical equipment, machinery, and spare parts reach their destination safely, efficiently, and on schedule."
     ],
     "blocks": [
       {
-        "title": "Comprehensive Logistics & Shipping Services",
+        "title": "Comprehensive Logistics & Shipping Support Services",
         "variant": "light",
         "imagePosition": "left",
         "image": {
           "src": "/images/live/Logistics-and-shippings.jpg",
-          "alt": "Logistics & Shipping Services"
+          "alt": "Logistics & Shipping Support Services"
         },
-        "intro": "Complete freight and multi-modal transport solutions tailored for industrial and engineering sectors:",
+        "intro": "Reliable freight and multi-modal logistics support tailored for industrial and engineering requirements:",
         "noBullets": true,
         "items": [
           {
-            "title": "Ocean & Air Freight Forwarding",
-            "description": "Full container load (FCL), less-than-container load (LCL), breakbulk, and charter air freight across global trade lanes."
+            "title": "Ocean & Air Freight Coordination",
+            "description": "Coordination of FCL, LCL, breakbulk, and air freight shipments through trusted logistics and transportation partners across global trade routes."
           },
           {
-            "title": "Customs Brokerage & Port Clearance",
-            "description": "Expert handling of import/export customs clearance, duty drawback, tariff classifications, and regulatory documentation."
+            "title": "Customs & Import/Export Coordination",
+            "description": "Support with customs documentation, tariff classifications, import/export requirements, and clearance coordination to facilitate smooth movement of industrial goods."
           },
           {
-            "title": "Project Cargo & Heavy Lift Transport",
-            "description": "Specialized multi-axle trailers, barge transport, and route surveys for oversized refinery vessels, turbines, and machinery."
+            "title": "Project Cargo & Heavy Equipment Transport",
+            "description": "Coordination of specialized transportation for oversized machinery, industrial equipment, turbines, vessels, and other heavy or over-dimensional project cargo."
           },
           {
-            "title": "Dangerous Goods (DG) Handling",
-            "description": "Certified handling and transportation of Class 1–9 dangerous goods and chemicals in compliance with IMO and IATA standards."
+            "title": "Special Cargo & Compliance Support",
+            "description": "Coordination of handling and transportation requirements for sensitive, regulated, and special-category industrial materials through qualified logistics partners."
           }
         ]
       },
       {
-        "title": "Logistics and Supply Chain Integration",
+        "title": "Logistics & Supply Chain Integration",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Logistic-Shipping.png",
+          "src": "/images/live/logistics-integration-photo.png",
           "alt": "Supply Chain Integration"
         },
-        "intro": "Connecting transportation networks with advanced inventory and warehouse management:",
+        "intro": "Connecting procurement, suppliers, transportation, warehousing, and project sites for efficient material flow:",
         "noBullets": true,
         "items": [
           {
-            "title": "End-to-End Real-Time Visibility",
-            "description": "Continuous milestone tracking and automated status updates from factory dispatch to final site gate delivery."
+            "title": "End-to-End Shipment Visibility",
+            "description": "Shipment milestone tracking and regular status coordination from supplier dispatch through customs, transportation, and final site delivery."
           },
           {
             "title": "Inventory & Buffer Management",
-            "description": "Bonded warehousing and climate-controlled storage enabling pre-staged staging of critical equipment."
+            "description": "Support for temporary storage, staging, and inventory coordination to ensure critical equipment and spare parts are available when required."
           },
           {
-            "title": "Carrier Rate Optimization",
-            "description": "Leveraging global cargo volumes to secure competitive freight rates and guaranteed vessel space allocations."
+            "title": "Freight & Logistics Cost Optimization",
+            "description": "Evaluation and coordination of suitable logistics providers, transportation modes, and freight options to improve cost efficiency without compromising delivery requirements."
           },
           {
-            "title": "Route Planning & Contingency Logistics",
-            "description": "Dynamic route optimization and alternative transport corridors to bypass geopolitical and port bottlenecks."
+            "title": "Route Planning & Contingency Support",
+            "description": "Planning alternative transportation routes and logistics solutions to address port congestion, delays, regulatory issues, and other supply-chain disruptions."
           }
         ]
       },
@@ -755,18 +749,18 @@
         "title": "Why Industrial Leaders Rely on OFS Logistics",
         "variant": "light",
         "paragraphs": [
-          "Industrial logistics demands precision planning, strict safety compliance, and deep regulatory knowledge. A single customs hold-up or damaged shipment can halt an entire project site.",
-          "OFS provides experienced on-the-ground port agents, comprehensive marine cargo insurance options, and dedicated logistics coordinators who manage every shipment with meticulous care."
+          "Industrial supply chains require careful coordination between procurement, suppliers, logistics providers, customs authorities, and project sites. Delays in transportation or clearance can directly impact project schedules and operational continuity.",
+          "OFS brings together procurement expertise, supplier coordination, logistics planning, documentation support, and project-focused execution to help customers move critical equipment and materials efficiently from source to destination."
         ]
       },
       {
-        "title": "Get a Shipping & Freight Quote Today",
+        "title": "Get Logistics & Shipping Support Today",
         "variant": "dark",
         "paragraphs": [
-          "Partner with OFS for reliable, cost-effective global freight and domestic transportation.",
-          "Contact our logistics desk today to receive custom freight rates and route recommendations for your next shipment."
+          "Partner with OFS for dependable logistics coordination supporting industrial procurement, engineering, EPC, and project requirements.",
+          "Contact our team to discuss your shipment requirements, transportation needs, customs coordination, or project logistics requirements."
         ],
-        "buttonText": "Request a Shipping Quote",
+        "buttonText": "Request Logistics Support",
         "buttonHref": "/contact"
       }
     ]
@@ -877,7 +871,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "/images/live/supply-chain-planning-photo.png",
           "alt": "Supply Chain Process"
         },
         "intro": "Core strategic pillars to match product supply with dynamic customer demand:",
@@ -906,7 +900,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/future-procurement.png",
+          "src": "/images/live/supply-chain-challenges-photo.png",
           "alt": "Supply Chain Solutions"
         },
         "intro": "How OFS actively resolves the most pressing supply chain hurdles:",
@@ -964,7 +958,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/our-warehouse-services-photo.png",
           "alt": "Our Warehouse Services"
         },
         "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
@@ -1036,7 +1030,7 @@
     "title": "Global MRO Procurement Excellence",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": "/images/live/firsts.png",
+    "heroImage": "/images/live/global-mro-hero.png",
     "tagline": "Elevate Your Operations with Global MRO Procurement Excellence",
     "description": "In today’s fast-paced business environment, efficiency isn’t optional—it’s essential. That’s where OFS comes in. We’re not just streamlining MRO (Maintenance, Repair, and Operations) procurement—we’re redefining it. Powered by a global network of trusted suppliers, cutting-edge technology, and a commitment to cost optimisation, OFS delivers smarter, faster, and more strategic procurement solutions.",
     "blocks": [
@@ -1045,7 +1039,7 @@
         "variant": "dark",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/seconds.png",
+          "src": "/images/live/global-mro-block0.png",
           "alt": "Global MRO procurement warehouse operations"
         },
         "items": [
@@ -1076,7 +1070,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/third-1.png",
+          "src": "/images/live/global-mro-block1.png",
           "alt": "MRO procurement specialist working in a warehouse"
         },
         "items": [
@@ -1107,7 +1101,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/fourth-rdjvqvgnn4knwaupw3fi7n19pvuu5qjj2fo0tokxpc.png",
+          "src": "/images/live/global-mro-block2.png",
           "alt": "OFS industrial procurement facility"
         },
         "paragraphs": [
@@ -1265,7 +1259,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/inventory-opt-block0.png",
           "alt": "Why Choose OFS for Inventory Optimisation"
         },
         "intro": "Effective inventory planning is essential for operational resilience and cost control. At OFS, we empower industrial leaders with precision forecasting and lean stocking:",
@@ -1298,7 +1292,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "/images/live/inventory-opt-block1.png",
           "alt": "Support and Implementation"
         },
         "intro": "We don't just recommend strategies; we guide you through every stage of implementation to ensure long-term success:",
@@ -1390,7 +1384,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "/images/live/mdm-block0.png",
           "alt": "How OFS MDM Operates"
         },
         "intro": "Our structured MDM methodology ensures complete data accuracy, compliance, and taxonomy standardization:",
@@ -1405,10 +1399,6 @@
             "description": "Populating missing engineering attributes, manufacturer part numbers (MPNs), material grades, and specifications."
           },
           {
-            "title": "Taxonomy & Classification",
-            "description": "Standardizing part descriptions using global taxonomy schemas such as UNSPSC, eCl@ss, and custom client dictionaries."
-          },
-          {
             "title": "Vendor Master Rationalization",
             "description": "Consolidating duplicate supplier entries, updating tax/compliance credentials, and establishing parent-child hierarchy."
           }
@@ -1419,7 +1409,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/mdm-block1.png",
           "alt": "The OFS Advantage"
         },
         "intro": "Why global industrial enterprises choose OFS for end-to-end Master Data governance:",
@@ -1511,7 +1501,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Procurement-and-shippings.jpg",
+          "src": "/images/live/mro-supply-block0.png",
           "alt": "Why OFS for Your MRO Needs"
         },
         "intro": "How OFS eliminates the operational headaches of fragmented indirect maintenance sourcing:",
@@ -1540,7 +1530,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.jpg",
+          "src": "/images/live/mro-supply-block1.png",
           "alt": "OFS MRO Supply Solution"
         },
         "intro": "Our comprehensive delivery model covers the full breadth of industrial facility requirements:",
@@ -1632,7 +1622,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Engg-e1751278356951.jpg",
+          "src": "/images/live/plant-maint-block0.png",
           "alt": "Plant Maintenance Challenges"
         },
         "intro": "Key obstacles plant managers face and how OFS systematically resolves them:",
@@ -1661,7 +1651,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Engineering-EP-Support-Services.png",
+          "src": "/images/live/plant-maint-block1.png",
           "alt": "Transforming Plant Maintenance"
         },
         "intro": "Our integrated service offerings for refinery, petrochemical, and heavy manufacturing facilities:",
@@ -1753,7 +1743,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.jpg",
+          "src": "/images/live/spare-parts-block0.png",
           "alt": "Advantages of Choosing OFS"
         },
         "intro": "Why leading operators trust OFS for uninterrupted parts availability:",
@@ -1782,7 +1772,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Spare-Parts-Procurement.png",
+          "src": "/images/live/spare-parts-block1.png",
           "alt": "Optimising Spare Parts Management"
         },
         "intro": "Structured methodologies to safeguard industrial production continuity:",
@@ -1874,7 +1864,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/strategic-sourcing-block0.png",
           "alt": "Challenges of Sourcing"
         },
         "intro": "Eliminating common inefficiencies in industrial procurement pipelines:",
@@ -1903,7 +1893,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "/images/live/strategic-sourcing-block1.png",
           "alt": "Reliable Sourcing Services"
         },
         "intro": "Our comprehensive suite of data enrichment and sourcing capabilities:",
@@ -1995,7 +1985,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/future-procurement.png",
+          "src": "/images/live/supply-chain-finance-block0.png",
           "alt": "Mastering MRO Complexity"
         },
         "intro": "How OFS redefines financial agility across your global supply chain:",
@@ -2024,7 +2014,7 @@
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "/images/live/supply-chain-finance-block1.png",
           "alt": "One-Off Payments Solution"
         },
         "intro": "Overcoming one-off vendor onboarding bottlenecks and emergency purchasing hurdles:",

@@ -96,7 +96,7 @@ export default function Hero() {
               <TextRotator
                 words={[
                   'Marine & Offshore',
-                  'Procurement & Shipping',
+                  'Procurement & Sourcing',
                   'Engineering & EPC',
                   'Integrated Facilities',
                   'Spare Parts & MRO',

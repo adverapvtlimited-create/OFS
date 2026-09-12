@@ -29,12 +29,12 @@ function formatText(text) {
   });
 }
 
-function renderParagraph(para, pIdx) {
+function renderParagraph(para, pIdx, isDark = false) {
   if (para.startsWith('“') || para.startsWith('"') || para.startsWith('”')) {
     return (
       <blockquote
         key={pIdx}
-        className="my-3 p-4 pl-5 border-l-4 border-ofs-navy-600 bg-ofs-navy-50/70 rounded-r-lg font-heading italic text-ofs-navy-900 font-semibold text-[1.05rem]"
+        className={cn("my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]", isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900")}
       >
         {formatText(para)}
       </blockquote>
@@ -48,11 +48,11 @@ function renderParagraph(para, pIdx) {
     return (
       <div
         key={pIdx}
-        className="flex items-start gap-3 p-4 mb-2.5 rounded-lg bg-ofs-navy-50/60 border border-ofs-navy-100 transition-all duration-150 hover:bg-ofs-navy-50"
+        className={cn("flex items-start gap-3 p-4 mb-2.5 rounded-lg border transition-all duration-150", isDark ? "bg-white/5 border-white/10 hover:bg-white/10" : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50")}
       >
         <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
-        <div className="text-[0.98rem] text-ofs-gray-700 leading-relaxed">
-          <strong className="text-ofs-navy-950 font-bold mr-1.5">{lead}:</strong>
+        <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
+          <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>{lead}:</strong>
           <span>{formatText(body)}</span>
         </div>
       </div>
@@ -60,7 +60,7 @@ function renderParagraph(para, pIdx) {
   }
 
   return (
-    <p key={pIdx} className="text-[1.02rem] text-ofs-gray-700 leading-relaxed mb-4">
+    <p key={pIdx} className={cn("text-[1.02rem] leading-relaxed mb-4", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
       {formatText(para)}
     </p>
   );
@@ -638,7 +638,7 @@ function renderCustomBlock(block, index) {
                 )
               ) : (
                 <div className="flex flex-col gap-1">
-                  {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx))}
+                  {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
                 </div>
               )}
             </ScrollReveal>
@@ -733,7 +733,7 @@ function renderCustomBlock(block, index) {
 
           {block.paragraphs?.length > 0 && (
             <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
-              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx))}
+              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
             </div>
           )}
 

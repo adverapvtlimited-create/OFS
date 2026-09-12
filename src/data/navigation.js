@@ -21,7 +21,7 @@ export const whatWeOffer = {
     title: 'SERVICES',
     items: [
       {
-        title: 'Procurement & Shipping',
+        title: 'Procurement & Sourcing',
         href: '/procurement-shipping',
         image: '/images/live/Excellence-tools-official.png',
       },
@@ -36,7 +36,7 @@ export const whatWeOffer = {
         image: '/images/live/Spare-Parts-Procurement.jpg',
       },
       {
-        title: 'Logistics & Shipping',
+        title: 'Logistics & Shipping Coordination',
         href: '/logistics-shipping',
         image: '/images/live/Logistics-and-shippings.jpg',
       },
