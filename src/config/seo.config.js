@@ -70,7 +70,7 @@ export const PAGE_SEO = {
   services: {
     title: 'OFS Services | Sourcing, Engineering EPC, Spare Parts MRO & Logistics',
     description:
-      'Explore OFS Group India services: strategic procurement & shipping, engineering & EPC support, spare parts MRO, and industrial logistics.',
+      'Explore OFS Group India services: strategic procurement & sourcing, engineering & EPC support, spare parts MRO, and industrial logistics.',
     path: '/services',
     keywords: [
       'OFS services',

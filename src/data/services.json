@@ -2,12 +2,12 @@
   {
     "id": "procurement-shipping",
     "slug": "procurement-shipping",
-    "title": "Procurement & Shipping",
-    "shortTitle": "Procurement & Shipping",
+    "title": "Procurement & Sourcing",
+    "shortTitle": "Procurement & Sourcing",
     "badge": "CORE SOURCING",
     "icon": "Package",
     "heroImage": "/images/live/Excellence-tools-official.png",
-    "tagline": "End-to-End Sourcing and Global Shipping Solutions",
+    "tagline": "End-to-End Global Sourcing Solutions",
     "description": "OFS delivers end-to-end sourcing and shipping solutions, ensuring timely and cost-effective delivery of industrial goods. Powered by our cloud-based SCM software and a network of 3,000+ approved brands from the US and Europe.",
     "features": [
       "Network of 3,000+ US & European Approved Brands",
@@ -72,7 +72,7 @@
       "https://ofsgroupindia.com/wp-content/uploads/2025/06/5-9.png"
     ],
     "seo": {
-      "metaTitle": "Procurement & Shipping | OFS",
+      "metaTitle": "Procurement & Sourcing | OFS",
       "metaDescription": "OFS delivers end-to-end sourcing and shipping solutions, ensuring timely and cost-effective delivery of industrial goods. Powered by our cloud-based...",
       "keywords": "OFS, industrial solutions, manufacturing, procurement, shipping"
     }
@@ -237,7 +237,7 @@
     "id": "logistics-shipping",
     "slug": "logistics-shipping",
     "title": "Industrial Logistics & Shipping",
-    "shortTitle": "Logistics & Shipping",
+    "shortTitle": "Logistics & Shipping Coordination",
     "badge": "MULTIMODAL LOGISTICS",
     "icon": "Anchor",
     "heroImage": "/images/live/Logistics-and-shippings.jpg",
