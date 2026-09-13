@@ -47,7 +47,6 @@ function textToBlocks(text) {
 function mapFeatures(featuresArray) {
   if (!featuresArray || !Array.isArray(featuresArray)) return [];
   return featuresArray.map(f => ({
-    __component: 'elements.bullet-item',
     text: f.substring(0, 255) // Max length constraint from schema
   }));
 }
@@ -110,11 +109,11 @@ async function seedServices() {
   for (const item of services) {
     const payload = {
       data: {
-        title: item.name,
+        title: item.title,
         slug: item.id,
         offeringType: "Service", // Enum: Service, Solution, Expertise, Discipline
-        shortTitle: item.shortTitle || item.name.substring(0, 60),
-        tagline: (item.tagline || item.name).substring(0, 150),
+        shortTitle: item.shortTitle || (item.title ? item.title.substring(0, 60) : ''),
+        tagline: (item.tagline || item.title || '').substring(0, 150),
         overview: textToBlocks(item.description || item.fullContentText || ""),
         features: mapFeatures(item.features)
       }
@@ -129,13 +128,13 @@ async function seedServices() {
       
       const data = await res.json();
       if (res.ok) {
-        console.log(`✅ Created Service: ${item.name}`);
+        console.log(`✅ Created Service: ${item.title}`);
       } else {
-        console.error(`❌ Failed to create Service: ${item.name}`);
+        console.error(`❌ Failed to create Service: ${item.title}`);
         console.error(JSON.stringify(data.error, null, 2));
       }
     } catch (e) {
-      console.error(`❌ Network error creating Service: ${item.name}`, e.message);
+      console.error(`❌ Network error creating Service: ${item.title}`, e.message);
     }
   }
 }
