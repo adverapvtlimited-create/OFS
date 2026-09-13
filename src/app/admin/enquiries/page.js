@@ -93,7 +93,7 @@ export default function EnquiriesAdminPage() {
       <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
         <div>
           <h1 className="font-heading text-[1.75rem] font-extrabold text-ofs-navy-950 mb-1">
-            Client RFQs &amp; Project Inquiries ({enquiries.length})
+            Client Inquiries &amp; Project Requests ({enquiries.length})
           </h1>
           <p className="text-[0.875rem] text-ofs-gray-600 m-0">
             Real-time inquiries and quotation requests submitted through the live website.
@@ -159,7 +159,7 @@ export default function EnquiriesAdminPage() {
             {searchTerm ? 'No Inquiries Found' : 'No Submissions Yet'}
           </h3>
           <p className="text-[0.875rem] m-0">
-            {searchTerm ? 'Try adjusting your search criteria or filter status.' : 'All RFQ and contact form submissions from live users will automatically appear here.'}
+            {searchTerm ? 'Try adjusting your search criteria or filter status.' : 'All contact form submissions from live users will automatically appear here.'}
           </p>
         </div>
       ) : (
@@ -167,13 +167,13 @@ export default function EnquiriesAdminPage() {
           {filteredEnquiries.map((enq) => {
             const statusBadgeClasses =
               enq.status === 'NEW' ? 'text-ofs-red-600 bg-ofs-red-50 border-ofs-red-200' :
-              enq.status === 'CONTACTED' ? 'text-ofs-green-700 bg-ofs-green-50 border-ofs-green-200' :
-              enq.status === 'IN_REVIEW' ? 'text-ofs-gold-600 bg-amber-50 border-amber-200' : 'text-ofs-gray-500 bg-ofs-gray-100 border-ofs-gray-200';
+                enq.status === 'CONTACTED' ? 'text-ofs-green-700 bg-ofs-green-50 border-ofs-green-200' :
+                  enq.status === 'IN_REVIEW' ? 'text-ofs-gold-600 bg-amber-50 border-amber-200' : 'text-ofs-gray-500 bg-ofs-gray-100 border-ofs-gray-200';
 
             return (
               <div
                 key={enq.id}
-                className="bg-white border border-ofs-gray-200 rounded-lg p-8 shadow-sm relative"
+                className="bg-white border border-ofs-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 shadow-sm relative"
               >
                 <div className="flex justify-between items-start mb-5 flex-wrap gap-3">
                   <div>
@@ -280,7 +280,7 @@ export default function EnquiriesAdminPage() {
                         <FileText size={16} />
                       </div>
                       <span className="text-xs font-mono font-bold text-ofs-navy-950">
-                        Attached PDF: {enq.pdfName || 'RFQ_Specification.pdf'}
+                        Attached PDF: {enq.pdfName || 'Specification_Document.pdf'}
                       </span>
                       {enq.pdfSize && (
                         <span className="text-xs text-ofs-gray-500 font-mono">

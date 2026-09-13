@@ -187,10 +187,6 @@ offers['master-data-management'] = {
                     "description": "Populating missing engineering attributes, manufacturer part numbers (MPNs), material grades, and specifications."
                 },
                 {
-                    "title": "Taxonomy & Classification",
-                    "description": "Standardizing part descriptions using global taxonomy schemas such as UNSPSC, eCl@ss, and custom client dictionaries."
-                },
-                {
                     "title": "Vendor Master Rationalization",
                     "description": "Consolidating duplicate supplier entries, updating tax/compliance credentials, and establishing parent-child hierarchy."
                 }

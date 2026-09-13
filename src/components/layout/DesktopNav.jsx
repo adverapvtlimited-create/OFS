@@ -305,7 +305,7 @@ export default function DesktopNav({ pathname }) {
         </div>
       </div>
 
-      
+
 
       <Link
         href="/renewables"

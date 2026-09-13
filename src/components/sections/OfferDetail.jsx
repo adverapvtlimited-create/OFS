@@ -395,10 +395,10 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
-                <div className="p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[150px]">
+                <div className="p-3.5 sm:p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[140px] sm:min-h-[150px]">
                   {item.icon && (
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-ofs-navy-800 flex items-center justify-center p-3 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:from-ofs-navy-900 group-hover:to-ofs-red-600 border border-ofs-navy-700/50">
                       <img
@@ -435,7 +435,7 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
@@ -446,7 +446,7 @@ function renderCustomBlock(block, index) {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4 text-center bg-white border-t border-ofs-gray-100">
+                  <div className="p-2.5 sm:p-4 text-center bg-white border-t border-ofs-gray-100">
                     <h3 className="font-heading text-xs sm:text-sm font-bold text-ofs-navy-950 leading-snug m-0">
                       {item.title}
                     </h3>
@@ -787,18 +787,18 @@ export default function OfferDetail({ page }) {
           <ScrollReveal direction="up" delay={0.1}>
             <div className="tag-badge badge-red mb-5">{page.categoryLabel}</div>
           </ScrollReveal>
-          <h1 className="font-heading text-[clamp(2.2rem,4.6vw,3.85rem)] font-extrabold leading-[1.1] text-white mb-5 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.9rem,4.5vw,3.85rem)] font-extrabold leading-[1.12] text-white mb-5 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {page.title}
             </TextReveal>
           </h1>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-[1.12rem] text-white/90 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-8">
               {page.tagline}
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.3}>
-            <Button href="/contact" variant="primary" size="lg" className="!w-auto">
+            <Button href="/contact" variant="primary" size="lg" className="w-full sm:!w-auto text-center justify-center">
               Request Advice <ArrowUpRight size={18} />
             </Button>
           </ScrollReveal>
