@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="40" fill="#0A1633"/>
+  <!-- Yokogawa Intersecting Diamond Rhomboids -->
+  <g transform="translate(100, 75)">
+    <!-- Top right red rhombus -->
+    <polygon points="5,-5 42,-22 25,-42 -12,-25" fill="#E60012"/>
+    <!-- Bottom left dark blue/cyan rhombus -->
+    <polygon points="-5,5 -42,22 -25,42 12,25" fill="#003399"/>
+    <polygon points="-5,5 -30,16 -18,30 8,18" fill="#0077CC"/>
+  </g>
+  <text x="100" y="146" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="21" text-anchor="middle" letter-spacing="3">YOKOGAWA</text>
+  <text x="100" y="165" fill="#00A3E0" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" text-anchor="middle" letter-spacing="2">Co-innovating tomorrow</text>
+</svg>

@@ -173,7 +173,7 @@ export default function EnquiriesAdminPage() {
             return (
               <div
                 key={enq.id}
-                className="bg-white border border-ofs-gray-200 rounded-lg p-8 shadow-sm relative"
+                className="bg-white border border-ofs-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 shadow-sm relative"
               >
                 <div className="flex justify-between items-start mb-5 flex-wrap gap-3">
                   <div>

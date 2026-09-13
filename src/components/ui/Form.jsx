@@ -1,9 +1,8 @@
 import { cn } from "@/lib/cn";
-import { AlertCircle } from "lucide-react";
 
 export function FormGroup({ children, className = "", ...props }) {
   return (
-    <div className={cn("flex flex-col gap-1.5 mb-4", className)} {...props}>
+    <div className={cn("flex flex-col gap-2 mb-4", className)} {...props}>
       {children}
     </div>
   );
@@ -41,19 +40,6 @@ export function FormControl({
       )}
       {...props}
     />
-  );
-}
-
-export function FormFieldError({ error, className = "" }) {
-  if (!error) return null;
-  const message = Array.isArray(error) ? error[0] : error;
-  if (!message) return null;
-
-  return (
-    <p className={cn("flex items-center gap-1.5 text-xs text-ofs-red-600 font-medium mt-1 animate-fadeIn", className)}>
-      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-      <span>{message}</span>
-    </p>
   );
 }
 
