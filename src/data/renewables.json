@@ -1,0 +1,149 @@
+{
+  "title": "OFS Renewables",
+  "tagline": "Building the Supply Chain for a Cleaner Energy Future",
+  "heroDescription": "OFS Renewables connects renewable-energy projects with the engineering, technology, suppliers and procurement capabilities required to move from requirement to execution.",
+  "heroBacking": "A renewable energy venture backed by OFS Group.",
+  "heroBgImage": "/images/live/wind mill.jpg",
+  "solutionsTag": "OUR SOLUTIONS",
+  "solutionsTitle": "End-to-End Renewable Energy Solutions",
+  "solutionsDesc": "We offer focused solutions across key renewable energy segments, backed by a strong network of suppliers and industry expertise.",
+  "solutions": [
+    {
+      "id": "solar-engineering",
+      "title": "Solar Engineering",
+      "icon": "Sun",
+      "image": "/images/live/solar.webp",
+      "bullets": [
+        "US permit design",
+        "Engineering support",
+        "EPC support"
+      ]
+    },
+    {
+      "id": "bess-solutions",
+      "title": "BESS Solutions",
+      "icon": "BatteryCharging",
+      "image": "/images/live/bess-product.jpg",
+      "bullets": [
+        "Battery sourcing",
+        "Integration partners",
+        "C&I applications"
+      ]
+    },
+    {
+      "id": "wind-energy",
+      "title": "Wind",
+      "icon": "Wind",
+      "image": "/images/live/Renewable-Energy.png",
+      "bullets": [
+        "Components",
+        "Supplier sourcing",
+        "Procurement support"
+      ]
+    },
+    {
+      "id": "renewable-procurement",
+      "title": "Renewable Procurement",
+      "icon": "Link",
+      "image": "/images/live/renuwable procurement.webp",
+      "bullets": [
+        "Global supplier identification",
+        "RFQ/RFP",
+        "Commercial evaluation"
+      ]
+    }
+  ],
+  "whyTag": "WHY OFS RENEWABLES",
+  "whyTitle": "Backed by Industrial Procurement Experience",
+  "whyDesc": "OFS Renewables brings together renewable-energy opportunities with the procurement, sourcing and project-management capabilities developed through the OFS Group's industrial and energy-sector experience.",
+  "whyImage": "/images/live/backend procurement.jpg",
+  "whyPills": [
+    {
+      "title": "Global Supplier Network",
+      "icon": "Globe"
+    },
+    {
+      "title": "Techno-Commercial Approach",
+      "icon": "ShieldCheck"
+    },
+    {
+      "title": "Reliable Execution Support",
+      "icon": "RotateCw"
+    },
+    {
+      "title": "Long-Term Partnerships",
+      "icon": "Handshake"
+    }
+  ],
+  "approachTag": "OUR APPROACH",
+  "approachTitle": "From Requirement to Renewable Energy",
+  "approachSubtitle": "A structured approach to help you source, engineer and execute with confidence:",
+  "approachSteps": [
+    {
+      "step": 1,
+      "title": "Requirement",
+      "desc": "Understand your needs and project goals",
+      "icon": "FileText"
+    },
+    {
+      "step": 2,
+      "title": "Engineering",
+      "desc": "Design, feasibility & technical support",
+      "icon": "Settings"
+    },
+    {
+      "step": 3,
+      "title": "Supplier Discovery",
+      "desc": "Identify and onboard trusted suppliers",
+      "icon": "Users"
+    },
+    {
+      "step": 4,
+      "title": "Commercial Evaluation",
+      "desc": "Quality, cost, delivery & compliance",
+      "icon": "Scale"
+    },
+    {
+      "step": 5,
+      "title": "Procurement",
+      "desc": "PO placement & coordination",
+      "icon": "ShoppingCart"
+    },
+    {
+      "step": 6,
+      "title": "Execution Support",
+      "desc": "Logistics, documentation & project support",
+      "icon": "Handshake"
+    }
+  ],
+  "partnerTag": "PARTNER WITH US",
+  "partnerTitle": "We're Building Our Renewable Energy Network",
+  "partnerDesc": "We are actively building partnerships with renewable-energy developers, EPC companies, manufacturers, technology providers and specialist service providers across global markets.",
+  "partnerBgImage": "/images/live/Power-Energy.png",
+  "partnerCards": [
+    {
+      "title": "For Project Developers",
+      "desc": "Tell us what you need to source or execute.",
+      "icon": "HardHat"
+    },
+    {
+      "title": "For Manufacturers",
+      "desc": "Become part of our supplier network.",
+      "icon": "Factory"
+    },
+    {
+      "title": "For EPC Companies",
+      "desc": "Access engineering and procurement support.",
+      "icon": "Users"
+    },
+    {
+      "title": "For Technology Providers",
+      "desc": "Explore opportunities to take your solutions to new markets.",
+      "icon": "Lightbulb"
+    }
+  ],
+  "ctaTag": "HAVE A RENEWABLE ENERGY REQUIREMENT?",
+  "ctaTitle": "Let's Find the Right Solution Together",
+  "ctaDesc": "Whether you need a solar design, a BESS solution, a renewable component or a reliable project supplier — we're here to help.",
+  "contactEmail": "renewables@ofsgroupindia.com"
+}

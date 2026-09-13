@@ -1,0 +1,78 @@
+{
+  "name": "Oriented Facility Solution Pvt Ltd",
+  "shortName": "OFS Group India",
+  "legalName": "Oriented Facility Solution Pvt Ltd",
+  "usEntityName": "Oriented Facility Solution LLC",
+  "tagline": "Driven by Quality, Defined by Trust",
+  "shortDesc": "ISO 9001:2015 certified procurement, EPC support, spare parts MRO, industrial logistics, and renewable energy services for marine, offshore, and industrial sectors worldwide.",
+  "headline": "Strategic Support for Marine, Offshore, Energy & Industrial Facility Operations",
+  "description": "OFS is a leading Indian multinational delivering specialized support services—including Trading, O&M, Troubleshooting, Procurement, and Engineering—to the energy, industrial, marine, offshore, and corporate sectors worldwide.",
+  "longDesc": "OFS is a leading Indian multinational enterprise renowned for delivering specialized Procurement and Technical Support Services across a wide array of industries. Combining deep technical expertise with strategic sourcing capabilities, we offer end-to-end customized solutions that are cost-efficient, operationally impactful, and backed by a network of 3,000+ internationally approved brands from the US and Europe.",
+  "logo": "/images/ofs-logo.png",
+  "logoDark": "/images/ofs-logo.png",
+  "contact": {
+    "phone": "0226961112",
+    "phoneRaw": "0226961112",
+    "email": "hello@ofsworld.com",
+    "addressIndia": {
+      "company": "Oriented Facility Solution Pvt Ltd",
+      "line1": "Dynasty Business Park, A Wing",
+      "line2": "Andheri-Kurla Road, Andheri (East)",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400059",
+      "country": "India"
+    },
+    "addressUSA": {
+      "company": "Oriented Facility Solution LLC",
+      "line1": "7901 4th St N, Suite 300",
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "pincode": "33702",
+      "country": "United States of America"
+    }
+  },
+  "stats": [
+    {
+      "label": "Approved Global Brands",
+      "value": "3,000+",
+      "numeric": 3000,
+      "suffix": "+"
+    },
+    {
+      "label": "Years of Field Experience",
+      "value": "8+",
+      "numeric": 8,
+      "suffix": "+",
+      "desc": "Demonstrated technical excellence across high-stakes operational environments"
+    },
+    {
+      "label": "On-Time Fulfillment SLA",
+      "value": "99.8%",
+      "numeric": 99.8,
+      "suffix": "%"
+    },
+    {
+      "label": "Global Operations Support",
+      "value": "24/7",
+      "numeric": 24,
+      "suffix": "/7"
+    }
+  ],
+  "socials": {
+    "facebook": "https://www.facebook.com/share/yAxGCbRKTANSc1JU/?mibextid=qi2Omg",
+    "linkedin": "https://www.linkedin.com/company/oriented-facility-solution-pvt-ltd/?viewAsMember=true",
+    "youtube": "https://youtube.com/@orientedfacilitysolution6910?si=Zo1ht0FfnG8xM1rx",
+    "twitter": "https://twitter.com/ofsgroupindia"
+  },
+  "certifications": [
+    "ISO 9001:2015 Certified Quality Management System (Cert #305026052968Q)",
+    "ISO 14001:2015 Certified Environmental Management System (Cert #305026052969E)",
+    "ISO 45001:2018 Certified Occupational Health & Safety (Cert #305026052970HS)",
+    "ISO 37001:2016 Certified Anti-Bribery Management System (Cert #UK-02-VS-03089)",
+    "IMPA Certified Member - International Marine Purchasing Association",
+    "DPIIT #StartupIndia Recognized Enterprise (Cert #DIPP253153)",
+    "ASME & API Compliant Sourcing Protocol",
+    "Traceable Mill Test Certificates (MTC / EN 10204 3.1)"
+  ]
+}
