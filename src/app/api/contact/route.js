@@ -2,6 +2,83 @@ import { NextResponse } from "next/server";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
 
+export const dynamic = "force-dynamic";
+
+// In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
+let memoryEnquiries = [];
+
+const getWritableFilePath = () => {
+  const localDir = path.join(process.cwd(), "content");
+  try {
+    if (!fs.existsSync(localDir)) {
+      fs.mkdirSync(localDir, { recursive: true });
+    }
+    const testFile = path.join(localDir, ".write-test");
+    fs.writeFileSync(testFile, "");
+    fs.unlinkSync(testFile);
+    return path.join(localDir, "enquiries.json");
+  } catch {
+    const tmpDir = process.env.TMPDIR || process.env.TEMP || "/tmp";
+    return path.join(tmpDir, "enquiries.json");
+  }
+};
+
+const readEnquiries = () => {
+  const list = [];
+  // 1. Try bundled content/enquiries.json
+  try {
+    const bundledPath = path.join(process.cwd(), "content", "enquiries.json");
+    if (fs.existsSync(bundledPath)) {
+      const fileContent = fs.readFileSync(bundledPath, "utf8");
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) list.push(...parsed);
+    }
+  } catch {
+    // Ignore read error
+  }
+
+  // 2. Try /tmp/enquiries.json
+  try {
+    const tmpPath = path.join(process.env.TMPDIR || process.env.TEMP || "/tmp", "enquiries.json");
+    if (fs.existsSync(tmpPath)) {
+      const fileContent = fs.readFileSync(tmpPath, "utf8");
+      const parsed = JSON.parse(fileContent);
+      if (Array.isArray(parsed)) {
+        for (const item of parsed) {
+          if (!list.some((e) => e.id === item.id)) {
+            list.unshift(item);
+          }
+        }
+      }
+    }
+  } catch {
+    // Ignore tmp read error
+  }
+
+  // 3. Merge in-memory records
+  for (const item of memoryEnquiries) {
+    if (!list.some((e) => e.id === item.id)) {
+      list.unshift(item);
+    }
+  }
+
+  return list;
+};
+
+const writeEnquiries = (enquiries) => {
+  memoryEnquiries = enquiries;
+  try {
+    const filePath = getWritableFilePath();
+    const dir = path.dirname(filePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(filePath, JSON.stringify(enquiries, null, 2), "utf8");
+  } catch (e) {
+    console.warn("[Storage Note] File persistence bypassed on serverless runtime:", e.message);
+  }
+};
+
 export async function POST(request) {
   try {
     let data = {};

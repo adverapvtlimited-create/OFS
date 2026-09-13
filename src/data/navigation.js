@@ -21,7 +21,7 @@ export const whatWeOffer = {
     title: 'SERVICES',
     items: [
       {
-        title: 'Procurement & Shipping',
+        title: 'Procurement & Sourcing',
         href: '/procurement-shipping',
         image: '/images/live/Excellence-tools-official.png',
       },
@@ -36,7 +36,7 @@ export const whatWeOffer = {
         image: '/images/live/Spare-Parts-Procurement.jpg',
       },
       {
-        title: 'Logistics & Shipping',
+        title: 'Logistics & Shipping Coordination',
         href: '/logistics-shipping',
         image: '/images/live/Logistics-and-shippings.jpg',
       },
@@ -68,7 +68,6 @@ export const whatWeOffer = {
       { title: 'Plant Maintenance & MRO Spare Parts Management', href: '/plant-maintenance-mro-spare-parts-management' },
       { title: 'Spare Parts Availability', href: '/spare-parts-availability' },
       { title: 'Strategic Sourcing & MRO Data Enrichment', href: '/strategic-sourcing-mro-data-enrichment' },
-      { title: 'Supply Chain Financing', href: '/supply-chain-financing' },
     ],
   },
   disciplines: {

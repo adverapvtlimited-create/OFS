@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 export default function TextRotator({
   words = [
     'Marine & Offshore',
-    'Procurement & Shipping',
+    'Procurement & Sourcing',
     'Engineering & EPC',
     'Integrated Facilities',
     'Spare Parts & MRO',

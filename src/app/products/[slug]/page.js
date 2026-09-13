@@ -216,11 +216,7 @@ export default function SingleProductPage({ params }) {
                             alt={item.title}
                             className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute top-3 right-3">
-                            <span className="tag-badge badge-red text-[11px] uppercase tracking-wider py-1 px-2.5 shadow-sm">
-                              OFS Certified
-                            </span>
-                          </div>
+                        
                         </div>
 
                         {/* Title */}
@@ -252,9 +248,7 @@ export default function SingleProductPage({ params }) {
                       </div>
 
                       <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold text-ofs-navy-700 uppercase">
-                          API / ISO Compliant
-                        </span>
+                        
                         <Link
                           href="/contact"
                           className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"

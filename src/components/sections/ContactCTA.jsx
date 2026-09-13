@@ -26,7 +26,7 @@ export default function ContactCTA() {
     email: '',
     phone: '',
     company: '',
-    service: 'Procurement & Shipping',
+    service: 'Procurement & Sourcing',
     message: '',
   });
   const [pdfFile, setPdfFile] = useState(null);
@@ -88,7 +88,7 @@ export default function ContactCTA() {
           email: '',
           phone: '',
           company: '',
-          service: 'Procurement & Shipping',
+          service: 'Procurement & Sourcing',
           message: '',
         });
         setPdfFile(null);
