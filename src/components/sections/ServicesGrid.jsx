@@ -76,7 +76,7 @@ export default function ServicesGrid() {
 
           <ScrollReveal direction="up" delay={0.3}>
             <MagneticButton strength={0.3} radius={70}>
-              <Button href="/#what-we-offer" variant="navy" size="md" data-cursor-text="ALL">
+              <Button href="/services" variant="navy" size="md" data-cursor-text="ALL">
                 All Divisions <ArrowUpRight size={15} />
               </Button>
             </MagneticButton>
