@@ -3,7 +3,7 @@
   "tagline": "Building the Supply Chain for a Cleaner Energy Future",
   "heroDescription": "OFS Renewables connects renewable-energy projects with the engineering, technology, suppliers and procurement capabilities required to move from requirement to execution.",
   "heroBacking": "A renewable energy venture backed by OFS Group.",
-  "heroBgImage": "/images/live/wind mill.jpg",
+  "heroBgImage": "/images/live/renewables-hero-panorama.jpg",
   "solutionsTag": "OUR SOLUTIONS",
   "solutionsTitle": "End-to-End Renewable Energy Solutions",
   "solutionsDesc": "We offer focused solutions across key renewable energy segments, backed by a strong network of suppliers and industry expertise.",
@@ -56,11 +56,11 @@
   "whyTag": "WHY OFS RENEWABLES",
   "whyTitle": "Backed by Industrial Procurement Experience",
   "whyDesc": "OFS Renewables brings together renewable-energy opportunities with the procurement, sourcing and project-management capabilities developed through the OFS Group's industrial and energy-sector experience.",
-  "whyImage": "/images/live/backend procurement.jpg",
+  "whyImage": "/images/live/why-renewables-landscape.jpg",
   "whyPills": [
     {
       "title": "Global Supplier Network",
-      "icon": "Globe"
+      "icon": "Leaf"
     },
     {
       "title": "Techno-Commercial Approach",
@@ -72,7 +72,7 @@
     },
     {
       "title": "Long-Term Partnerships",
-      "icon": "Handshake"
+      "icon": "Target"
     }
   ],
   "approachTag": "OUR APPROACH",
@@ -119,7 +119,7 @@
   "partnerTag": "PARTNER WITH US",
   "partnerTitle": "We're Building Our Renewable Energy Network",
   "partnerDesc": "We are actively building partnerships with renewable-energy developers, EPC companies, manufacturers, technology providers and specialist service providers across global markets.",
-  "partnerBgImage": "/images/live/Power-Energy.png",
+  "partnerBgImage": "/images/live/renewables-partner-landscape.jpg",
   "partnerCards": [
     {
       "title": "For Project Developers",
@@ -145,5 +145,6 @@
   "ctaTag": "HAVE A RENEWABLE ENERGY REQUIREMENT?",
   "ctaTitle": "Let's Find the Right Solution Together",
   "ctaDesc": "Whether you need a solar design, a BESS solution, a renewable component or a reliable project supplier — we're here to help.",
+  "ctaBgImage": "/images/live/renewables-cta-solar-landscape.jpg",
   "contactEmail": "renewables@ofsgroupindia.com"
 }

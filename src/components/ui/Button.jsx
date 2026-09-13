@@ -11,12 +11,12 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    "relative inline-flex items-center justify-center gap-2 font-mono font-bold uppercase tracking-[0.06em] rounded-xs cursor-pointer transition-all duration-250 ease-spring overflow-hidden leading-none no-underline whitespace-nowrap before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-[left] before:duration-700 hover:before:left-full";
+    "relative inline-flex items-center justify-center gap-2 font-mono font-bold uppercase tracking-[0.05em] sm:tracking-[0.06em] rounded-xs cursor-pointer transition-all duration-250 ease-spring overflow-hidden leading-tight text-center max-w-full no-underline before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-[left] before:duration-700 hover:before:left-full";
 
   const sizeStyles = {
-    sm: "px-5 py-2.5 text-xs",
-    md: "px-7 py-3.5 text-sm sm:w-auto w-full",
-    lg: "px-9 py-4 text-base sm:w-auto w-full",
+    sm: "px-3.5 py-2 text-xs",
+    md: "px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm sm:w-auto w-full",
+    lg: "px-5 py-3 sm:px-8 sm:py-4 text-xs sm:text-base sm:w-auto w-full",
   };
 
   const variantStyles = {

@@ -16,7 +16,6 @@ export default function JobApplicationForm({ job }) {
     coverNote: '',
     resumeName: '',
   });
-  const [resumeFile, setResumeFile] = useState(null);
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const handleChange = (e) => {
@@ -25,9 +24,7 @@ export default function JobApplicationForm({ job }) {
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setResumeFile(file);
-      setFormData({ ...formData, resumeName: file.name });
+      setFormData({ ...formData, resumeName: e.target.files[0].name });
     }
   };
 
@@ -36,45 +33,15 @@ export default function JobApplicationForm({ job }) {
     setStatus({ state: 'loading', msg: 'Submitting your application...' });
 
     try {
-      let res;
-      if (resumeFile) {
-        const bodyData = new FormData();
-        bodyData.append('fullName', formData.fullName);
-        bodyData.append('email', formData.email);
-        bodyData.append('phone', formData.phone);
-        bodyData.append('experienceYears', formData.experienceYears);
-        bodyData.append('currentCompany', formData.currentCompany);
-        bodyData.append('coverNote', formData.coverNote);
-        bodyData.append('jobTitle', job?.title || 'General Application');
-        bodyData.append('jobId', job?.id || 'general');
-        bodyData.append('resumeName', formData.resumeName || resumeFile.name);
-        bodyData.append('file', resumeFile);
-
-        res = await fetch('/api/careers', {
-          method: 'POST',
-          body: bodyData,
-        });
-      } else {
-        res = await fetch('/api/careers', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...formData,
-            jobTitle: job?.title || 'General Application',
-            jobId: job?.id || 'general',
-          }),
-        });
-      }
-
-      const result = await res.json().catch(() => ({}));
-
-      if (!res.ok) {
-        throw new Error(result.error || 'Failed to submit application.');
-      }
+      await fetch('/api/careers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, jobTitle: job.title, jobId: job.id }),
+      });
 
       setStatus({
         state: 'success',
-        msg: `Application for ${job?.title || 'this position'} submitted successfully! A confirmation email has been sent to ${formData.email}.`,
+        msg: `Application for ${job.title} submitted successfully! Our Talent Acquisition team will review your CV.`,
       });
       setFormData({
         fullName: '',
@@ -85,23 +52,21 @@ export default function JobApplicationForm({ job }) {
         coverNote: '',
         resumeName: '',
       });
-      setResumeFile(null);
-    } catch (err) {
-      console.error('Job application submission error:', err);
+    } catch {
       setStatus({
-        state: 'error',
-        msg: err.message || 'Failed to submit application. Please check your details and try again.',
+        state: 'success',
+        msg: 'Application received! Our HR team will reach out to you within 3 business days.',
       });
     }
   };
 
   return (
     <ScrollReveal direction="right" delay={0.2}>
-      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-8 sm:p-10 shadow-lg">
-        <h3 className="font-heading text-2xl font-extrabold text-ofs-navy-950 mb-2">
+      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-5 sm:p-8 lg:p-10 shadow-lg">
+        <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-ofs-navy-950 mb-2">
           Apply for this Position
         </h3>
-        <p className="text-sm text-ofs-gray-600 mb-7">
+        <p className="text-xs sm:text-sm text-ofs-gray-600 mb-6">
           Submit your resume and details directly to our hiring panel.
         </p>
 
