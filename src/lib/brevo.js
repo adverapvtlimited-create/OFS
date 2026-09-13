@@ -267,18 +267,28 @@ export async function sendRfqEmail({ enquiry, file = null }) {
 
     // Send confirmation auto-responder to client
     if (clientEmail && clientEmail.includes('@')) {
-      sendClientConfirmation({
-        apiKey,
-        senderEmail,
-        senderName: companyName,
-        clientEmail,
-        clientName,
-        enquiryId: id,
-        service,
-        receiverEmail,
-      }).catch((e) => {
-        console.warn('[Brevo Client Confirmation Note]:', e.message);
-      });
+      try {
+        const confirmationResult = await sendClientConfirmation({
+          apiKey,
+          senderEmail,
+          senderName: companyName,
+          clientEmail,
+          clientName,
+          enquiryId: id,
+          service,
+          receiverEmail,
+        });
+
+        console.log(
+          '[Brevo Client Confirmation]:',
+          confirmationResult
+        );
+      } catch (e) {
+        console.error(
+          '[Brevo Client Confirmation Error]:',
+          e
+        );
+      }
     }
 
     return {
@@ -333,32 +343,53 @@ async function sendClientConfirmation({
 </html>
   `;
 
-  await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'api-key': apiKey,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      sender: {
-        name: senderName,
-        email: senderEmail,
+  const response = await fetch(
+    'https://api.brevo.com/v3/smtp/email',
+    {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'api-key': apiKey,
+        'content-type': 'application/json',
       },
-      to: [
-        {
-          email: clientEmail,
-          name: clientName,
+      body: JSON.stringify({
+        sender: {
+          name: senderName,
+          email: senderEmail,
         },
-      ],
-      replyTo: {
-        email: receiverEmail,
-        name: senderName,
-      },
-      subject: `Thank you for contacting ${senderName} (${enquiryId})`,
-      htmlContent: clientHtml,
-    }),
+        to: [
+          {
+            email: clientEmail,
+            name: clientName,
+          },
+        ],
+        replyTo: {
+          email: receiverEmail,
+          name: senderName,
+        },
+        subject: `Thank you for contacting ${senderName} (${enquiryId})`,
+        htmlContent: clientHtml,
+      }),
+    }
+  );
+
+  const result = await response.json();
+
+  console.log('[Brevo Client Confirmation Response]:', {
+    status: response.status,
+    result,
   });
+
+  if (!response.ok) {
+    throw new Error(
+      result?.message || 'Failed to send client confirmation'
+    );
+  }
+
+  return {
+    success: true,
+    messageId: result.messageId,
+  };
 }
 
 /**
@@ -619,18 +650,28 @@ export async function sendCareerApplicationEmail({ application, file = null }) {
 
     // Send acknowledgment auto-responder to candidate
     if (candidateEmail && candidateEmail.includes('@')) {
-      sendCandidateAcknowledgmentEmail({
-        apiKey,
-        senderEmail,
-        senderName: companyName,
-        candidateEmail,
-        candidateName,
-        jobTitle,
-        applicationId: id,
-        receiverEmail,
-      }).catch((e) => {
-        console.warn('[Brevo Candidate Acknowledgment Note]:', e.message);
-      });
+      try {
+        const acknowledgmentResult = await sendCandidateAcknowledgmentEmail({
+          apiKey,
+          senderEmail,
+          senderName: companyName,
+          candidateEmail,
+          candidateName,
+          jobTitle,
+          applicationId: id,
+          receiverEmail,
+        });
+
+        console.log(
+          '[Brevo Candidate Acknowledgment]:',
+          acknowledgmentResult
+        );
+      } catch (e) {
+        console.error(
+          '[Brevo Candidate Acknowledgment Error]:',
+          e
+        );
+      }
     }
 
     return {
@@ -685,32 +726,53 @@ export async function sendCandidateAcknowledgmentEmail({
 </html>
   `;
 
-  await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'api-key': apiKey,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      sender: {
-        name: senderName,
-        email: senderEmail,
+  const response = await fetch(
+    'https://api.brevo.com/v3/smtp/email',
+    {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'api-key': apiKey,
+        'content-type': 'application/json',
       },
-      to: [
-        {
-          email: candidateEmail,
-          name: candidateName,
+      body: JSON.stringify({
+        sender: {
+          name: senderName,
+          email: senderEmail,
         },
-      ],
-      replyTo: {
-        email: receiverEmail,
-        name: `${senderName} Talent Desk`,
-      },
-      subject: `Application Acknowledged: ${jobTitle} at ${senderName} (${applicationId})`,
-      htmlContent: candidateHtml,
-    }),
+        to: [
+          {
+            email: candidateEmail,
+            name: candidateName,
+          },
+        ],
+        replyTo: {
+          email: receiverEmail,
+          name: `${senderName} Talent Desk`,
+        },
+        subject: `Application Acknowledged: ${jobTitle} at ${senderName} (${applicationId})`,
+        htmlContent: candidateHtml,
+      }),
+    }
+  );
+
+  const result = await response.json();
+
+  console.log('[Brevo Candidate Ack]:', {
+    status: response.status,
+    result,
   });
+
+  if (!response.ok) {
+    throw new Error(
+      result?.message || 'Failed to send candidate acknowledgement'
+    );
+  }
+
+  return {
+    success: true,
+    messageId: result.messageId,
+  };
 }
 
 export default sendRfqEmail;
