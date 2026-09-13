@@ -400,19 +400,23 @@ async function sendClientConfirmation({
  * @returns {Promise<{ success: boolean, messageId?: string, error?: string }>}
  */
 export async function sendCareerApplicationEmail({ application, file = null }) {
-  const apiKey = process.env.BREVO_API_KEY;
+  const apiKey =
+    process.env.CAREERS_BREVO_API_KEY || process.env.BREVO_API_KEY;
   const companyName =
     process.env.BREVO_SENDER_NAME ||
     process.env.EMAIL_FROM_NAME ||
     'OFS Group India';
   const senderEmail =
-    process.env.BREVO_SENDER_EMAIL || 'ganeshbirajdar286@gmail.com';
+    process.env.CAREERS_BREVO_SENDER_EMAIL ||
+    process.env.BREVO_SENDER_EMAIL ||
+    'ganeshbirajdar286@gmail.com';
   const senderName = companyName;
   const receiverEmail =
     process.env.CAREERS_RECEIVER_EMAIL || 'ganeshbirajdar286@gmail.com';
 
   if (!apiKey) {
-    const errorMsg = 'BREVO_API_KEY is not configured in .env.local or .env';
+    const errorMsg =
+      'CAREERS_BREVO_API_KEY or BREVO_API_KEY is not configured in .env.local or .env';
     console.error('[Brevo Error]:', errorMsg);
     return {
       success: false,
