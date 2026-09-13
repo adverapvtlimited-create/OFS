@@ -29,12 +29,12 @@ function formatText(text) {
   });
 }
 
-function renderParagraph(para, pIdx) {
+function renderParagraph(para, pIdx, isDark = false) {
   if (para.startsWith('“') || para.startsWith('"') || para.startsWith('”')) {
     return (
       <blockquote
         key={pIdx}
-        className="my-3 p-4 pl-5 border-l-4 border-ofs-navy-600 bg-ofs-navy-50/70 rounded-r-lg font-heading italic text-ofs-navy-900 font-semibold text-[1.05rem]"
+        className={cn("my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]", isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900")}
       >
         {formatText(para)}
       </blockquote>
@@ -48,11 +48,11 @@ function renderParagraph(para, pIdx) {
     return (
       <div
         key={pIdx}
-        className="flex items-start gap-3 p-4 mb-2.5 rounded-lg bg-ofs-navy-50/60 border border-ofs-navy-100 transition-all duration-150 hover:bg-ofs-navy-50"
+        className={cn("flex items-start gap-3 p-4 mb-2.5 rounded-lg border transition-all duration-150", isDark ? "bg-white/5 border-white/10 hover:bg-white/10" : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50")}
       >
         <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
-        <div className="text-[0.98rem] text-ofs-gray-700 leading-relaxed">
-          <strong className="text-ofs-navy-950 font-bold mr-1.5">{lead}:</strong>
+        <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
+          <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>{lead}:</strong>
           <span>{formatText(body)}</span>
         </div>
       </div>
@@ -60,7 +60,7 @@ function renderParagraph(para, pIdx) {
   }
 
   return (
-    <p key={pIdx} className="text-[1.02rem] text-ofs-gray-700 leading-relaxed mb-4">
+    <p key={pIdx} className={cn("text-[1.02rem] leading-relaxed mb-4", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
       {formatText(para)}
     </p>
   );
@@ -395,10 +395,10 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
-                <div className="p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[150px]">
+                <div className="p-3.5 sm:p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[140px] sm:min-h-[150px]">
                   {item.icon && (
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-ofs-navy-800 flex items-center justify-center p-3 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:from-ofs-navy-900 group-hover:to-ofs-red-600 border border-ofs-navy-700/50">
                       <img
@@ -435,7 +435,7 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
@@ -446,7 +446,7 @@ function renderCustomBlock(block, index) {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4 text-center bg-white border-t border-ofs-gray-100">
+                  <div className="p-2.5 sm:p-4 text-center bg-white border-t border-ofs-gray-100">
                     <h3 className="font-heading text-xs sm:text-sm font-bold text-ofs-navy-950 leading-snug m-0">
                       {item.title}
                     </h3>
@@ -638,7 +638,7 @@ function renderCustomBlock(block, index) {
                 )
               ) : (
                 <div className="flex flex-col gap-1">
-                  {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx))}
+                  {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
                 </div>
               )}
             </ScrollReveal>
@@ -733,7 +733,7 @@ function renderCustomBlock(block, index) {
 
           {block.paragraphs?.length > 0 && (
             <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
-              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx))}
+              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
             </div>
           )}
 
@@ -787,18 +787,18 @@ export default function OfferDetail({ page }) {
           <ScrollReveal direction="up" delay={0.1}>
             <div className="tag-badge badge-red mb-5">{page.categoryLabel}</div>
           </ScrollReveal>
-          <h1 className="font-heading text-[clamp(2.2rem,4.6vw,3.85rem)] font-extrabold leading-[1.1] text-white mb-5 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.9rem,4.5vw,3.85rem)] font-extrabold leading-[1.12] text-white mb-5 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {page.title}
             </TextReveal>
           </h1>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-[1.12rem] text-white/90 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-8">
               {page.tagline}
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.3}>
-            <Button href="/contact" variant="primary" size="lg" className="!w-auto">
+            <Button href="/contact" variant="primary" size="lg" className="w-full sm:!w-auto text-center justify-center">
               Request Advice <ArrowUpRight size={18} />
             </Button>
           </ScrollReveal>

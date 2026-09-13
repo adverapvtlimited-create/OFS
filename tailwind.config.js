@@ -135,8 +135,8 @@ module.exports = {
           "100%": { transform: "translateX(-50%)" },
         },
         fadeInMenu: {
-          from: { opacity: "0", transform: "translate(-40%, -10px)" },
-          to: { opacity: "1", transform: "translate(-40%, 0)" },
+          from: { opacity: "0", transform: "translateY(-8px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
         },
         slideDown: {
           from: { opacity: "0", transform: "translateY(-12px)" },

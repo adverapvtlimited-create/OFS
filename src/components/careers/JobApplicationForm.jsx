@@ -62,11 +62,11 @@ export default function JobApplicationForm({ job }) {
 
   return (
     <ScrollReveal direction="right" delay={0.2}>
-      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-8 sm:p-10 shadow-lg">
-        <h3 className="font-heading text-2xl font-extrabold text-ofs-navy-950 mb-2">
+      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-5 sm:p-8 lg:p-10 shadow-lg">
+        <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-ofs-navy-950 mb-2">
           Apply for this Position
         </h3>
-        <p className="text-sm text-ofs-gray-600 mb-7">
+        <p className="text-xs sm:text-sm text-ofs-gray-600 mb-6">
           Submit your resume and details directly to our hiring panel.
         </p>
 

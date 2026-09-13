@@ -58,14 +58,14 @@ export default function StatsCounter() {
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
       <Container className="relative z-[2]">
-        <div className="text-center max-w-[750px] mx-auto mb-16">
+        <div className="text-center max-w-[750px] mx-auto mb-10 sm:mb-16">
           <ScrollReveal direction="up">
             <div className="mb-4">
               <Badge variant="red">PROVEN PERFORMANCE METRICS</Badge>
             </div>
           </ScrollReveal>
 
-          <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-white leading-[1.15]">
+          <h2 className="text-[clamp(1.85rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-white leading-[1.15]">
             <TextReveal tag="span" duration={0.65}>
               Numbers That Define Our
             </TextReveal>
@@ -78,7 +78,7 @@ export default function StatsCounter() {
           </h2>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-lg text-white/80 mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-white/80 mx-auto leading-relaxed">
               Every statistic represents real-world mission critical uptime, transparent supply chain execution, and trusted enterprise partnerships.
             </p>
           </ScrollReveal>
@@ -91,7 +91,7 @@ export default function StatsCounter() {
                 glowColor={stat.featured ? 'rgba(245, 158, 11, 0.35)' : 'rgba(224, 42, 48, 0.22)'}
                 borderColor={stat.featured ? 'rgba(245, 158, 11, 0.55)' : 'rgba(255, 255, 255, 0.12)'}
                 data-cursor-text="METRIC"
-                className={`rounded-lg p-6 sm:p-7 flex flex-col justify-between h-full backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${stat.featured
+                className={`rounded-lg p-5 sm:p-7 flex flex-col justify-between h-full backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${stat.featured
                     ? 'bg-gradient-to-br from-amber-500/10 via-white/[0.04] to-white/[0.01] border border-amber-500/40 shadow-[0_12px_32px_rgba(245,158,11,0.12)] hover:border-amber-400 hover:shadow-[0_16px_36px_rgba(245,158,11,0.25)]'
                     : 'bg-white/[0.03] border border-white/[0.08] hover:bg-white/[0.07] hover:border-white/25 hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)]'
                   }`}

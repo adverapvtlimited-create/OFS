@@ -91,12 +91,12 @@ export default function Hero() {
           }}
         >
           <div>
-            <h1 className="text-[clamp(2.6rem,5.2vw,4.85rem)] font-heading font-extrabold leading-[1.1] tracking-[-0.03em] text-ofs-navy-950 mb-6">
+            <h1 className="text-[clamp(1.95rem,5vw,4.85rem)] font-heading font-extrabold leading-[1.12] tracking-[-0.03em] text-ofs-navy-950 mb-6">
               Strategic Support for <br />
               <TextRotator
                 words={[
                   'Marine & Offshore',
-                  'Procurement & Shipping',
+                  'Procurement & Sourcing',
                   'Engineering & EPC',
                   'Integrated Facilities',
                   'Spare Parts & MRO',
@@ -108,7 +108,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(1.1rem,1.55vw,1.35rem)] text-ofs-gray-600 max-w-[860px] leading-relaxed mb-9"
+              className="text-[clamp(1.05rem,1.55vw,1.35rem)] text-ofs-gray-600 max-w-[860px] leading-relaxed mb-8"
             >
               {siteConfig.description}
             </motion.p>
@@ -117,15 +117,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center gap-3"
+              className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3"
             >
-              <Button href="/services" variant="primary" size="lg" className="!w-auto" data-cursor-text="EXPLORE">
+              <Button href="/services" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
                 Explore Capabilities <ArrowUpRight size={18} />
               </Button>
-              <Button href="/contact" variant="outline" size="lg" className="!w-auto" data-cursor-text="RFQ">
-                Request RFQ
+              <Button href="/contact" variant="outline" size="lg" className="w-full sm:!w-auto" data-cursor-text="ENQUIRY">
+                General Enquiry
               </Button>
-              <Button href="/renewables" variant="green" size="lg" className="!w-auto" data-cursor-text="SOLAR">
+              <Button href="/renewables" variant="green" size="lg" className="w-full sm:!w-auto" data-cursor-text="SOLAR">
                 Renewables Portal <Zap size={18} />
               </Button>
             </motion.div>
@@ -133,20 +133,20 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="relative rounded-xl overflow-hidden shadow-2xl border border-ofs-navy-900/12 mb-14"
+          className="relative rounded-xl overflow-hidden shadow-2xl border border-ofs-navy-900/12 mb-10 sm:mb-14"
           style={{ y: imageY }}
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            className="h-[460px] relative bg-[url('/images/live/Banner3.jpg')] bg-center bg-cover bg-no-repeat"
+            className="h-[380px] sm:h-[420px] md:h-[460px] relative bg-[url('/images/live/Banner3.jpg')] bg-center bg-cover bg-no-repeat"
             style={{ scale: imageScale }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/25 to-[#060E24]/85" />
 
             <motion.div
-              className="absolute top-6 left-6 flex gap-3 flex-wrap z-[3]"
+              className="absolute top-4 left-4 sm:top-6 sm:left-6 flex gap-2 sm:gap-3 flex-wrap z-[3]"
               style={{ x: cardFloatLeft }}
               animate={{
                 x: smoothPos.x * -18,
@@ -154,33 +154,33 @@ export default function Hero() {
               }}
               transition={{ type: 'spring', stiffness: 120, damping: 25 }}
             >
-              <div className="bg-[#060E24]/85 backdrop-blur-md border border-white/20 rounded-full py-1.5 px-4 text-white text-xs font-mono flex items-center gap-2 font-semibold">
+              <div className="bg-[#060E24]/85 backdrop-blur-md border border-white/20 rounded-full py-1 px-3 sm:py-1.5 sm:px-4 text-white text-[0.68rem] sm:text-xs font-mono flex items-center gap-1.5 font-semibold">
                 <SonarDot color="green" />
                 OPERATIONAL DISPATCH: 24/7 ACTIVE
               </div>
 
-              <div className="bg-[#060E24]/85 backdrop-blur-md border border-white/20 rounded-full py-1.5 px-4 text-white text-xs font-mono flex items-center gap-2 font-semibold">
+              <div className="hidden xs:flex bg-[#060E24]/85 backdrop-blur-md border border-white/20 rounded-full py-1 px-3 sm:py-1.5 sm:px-4 text-white text-[0.68rem] sm:text-xs font-mono items-center gap-1.5 font-semibold">
                 <ShieldCheck size={14} className="text-ofs-gold-400" />
                 ISO 9001:2015 ASSURED
               </div>
             </motion.div>
 
-            <div className="absolute bottom-0 inset-x-0 p-6 sm:p-8 lg:p-10 flex justify-between items-end flex-wrap gap-6 z-[3]">
+            <div className="absolute bottom-0 inset-x-0 p-4 sm:p-8 lg:p-10 flex justify-between items-end flex-wrap gap-4 sm:gap-6 z-[3]">
               <div className="max-w-[600px]">
                 <div className="text-ofs-gold-400 font-mono text-xs font-bold uppercase tracking-[0.05em] mb-1.5">
                   Global Procurement &amp; SCM Cloud
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white m-0 leading-tight">
+                <h3 className="font-heading text-lg sm:text-2xl font-extrabold text-white m-0 leading-tight">
                   3,000+ Approved International Brands Across US, Europe &amp; Asia
                 </h3>
               </div>
 
               <motion.div className="flex gap-3 items-center" style={{ x: cardFloatRight }}>
-                <div className="py-3 px-5 bg-white/10 backdrop-blur-md rounded-xs border border-white/20 text-white text-right">
-                  <div className="text-[0.7rem] font-mono text-white/70">
+                <div className="py-2.5 px-4 sm:py-3 sm:px-5 bg-white/10 backdrop-blur-md rounded-xs border border-white/20 text-white text-right">
+                  <div className="text-[0.65rem] sm:text-[0.7rem] font-mono text-white/70">
                     GLOBAL SLA
                   </div>
-                  <div className="text-lg font-heading font-extrabold text-emerald-400">
+                  <div className="text-base sm:text-lg font-heading font-extrabold text-emerald-400">
                     99.8% On-Time
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="bg-ofs-navy-950 rounded-xl p-8 sm:p-10 lg:p-12 border border-white/10 shadow-xl relative overflow-hidden"
+          className="bg-ofs-navy-950 rounded-xl p-6 sm:p-10 lg:p-12 border border-white/10 shadow-xl relative overflow-hidden"
           style={{ y: statsStripY }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

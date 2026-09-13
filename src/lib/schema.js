@@ -198,7 +198,7 @@ export function buildContactPageSchema() {
     '@id': `${absoluteUrl('/contact')}#contactpage`,
     url: absoluteUrl('/contact'),
     name: 'Contact OFS Group India',
-    description: 'Contact OFS Group India for procurement RFQs, EPC support, and industrial service enquiries.',
+    description: 'Contact OFS Group India for procurement, EPC support, and industrial service enquiries.',
     mainEntity: { '@id': `${SITE_URL}/#organization` },
   };
 }

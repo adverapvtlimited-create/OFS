@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="40" fill="#E2001A"/>
+  <!-- Danfoss Circular Ribbon Flourish -->
+  <g transform="translate(100, 72)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+    <path d="M -15 15 C -20 0 0 -20 18 -10 C 25 -2 20 15 0 20 C -25 25 -30 -10 -10 -25" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="100" y="152" fill="#FFFFFF" font-family="'Brush Script MT', cursive, system-ui, sans-serif" font-weight="900" font-size="34" text-anchor="middle" font-style="italic">Danfoss</text>
+  <text x="100" y="172" fill="#FFE5E5" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="9" text-anchor="middle" letter-spacing="2">ENGINEERING TOMORROW</text>
+</svg>
