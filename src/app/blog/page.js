@@ -34,7 +34,7 @@ export default function BlogPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Technical Analysis &amp;
             </TextReveal>
@@ -47,7 +47,7 @@ export default function BlogPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed">
               Written by senior procurement specialists, NDT Level III engineers, and clean energy practitioners with deep operational experience across onshore and offshore basins.
             </p>
           </ScrollReveal>
@@ -59,20 +59,20 @@ export default function BlogPage() {
           {featuredPost && (
             <ScrollReveal direction="up" duration={0.8}>
               <div className="bg-white rounded-2xl border border-ofs-gray-200 overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-2 mb-18 group hover:border-ofs-navy-200 transition-all duration-300">
-                <div className="h-[320px] sm:h-[380px] lg:h-full relative overflow-hidden group">
+                <div className="h-[280px] sm:h-[380px] lg:h-full relative overflow-hidden group">
                   <SafeImage
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute top-5 left-5 bg-ofs-red-600 text-white font-mono text-xs font-bold py-1.5 px-3.5 rounded uppercase shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+                  <div className="absolute top-4 left-4 bg-ofs-red-600 text-white font-mono text-xs font-bold py-1 px-3 rounded uppercase shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                     Featured Insight
                   </div>
                 </div>
 
-                <div className="p-8 sm:p-11 lg:p-14 flex flex-col justify-between">
+                <div className="p-5 sm:p-8 lg:p-14 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-4 text-xs text-ofs-gray-500 font-mono mb-4">
+                    <div className="flex items-center gap-3 text-xs text-ofs-gray-500 font-mono mb-4 flex-wrap">
                       <span className="text-ofs-navy-900 font-bold">{featuredPost.category}</span>
                       <span>•</span>
                       <span>{featuredPost.date}</span>
@@ -80,23 +80,23 @@ export default function BlogPage() {
                       <span>{featuredPost.readTime}</span>
                     </div>
 
-                    <h2 className="font-heading text-[clamp(1.5rem,2.6vw,1.95rem)] font-extrabold text-ofs-navy-950 leading-snug mb-4">
+                    <h2 className="font-heading text-[clamp(1.35rem,2.6vw,1.95rem)] font-extrabold text-ofs-navy-950 leading-snug mb-3.5">
                       <Link href={`/blog/${featuredPost.slug}`} className="hover:text-ofs-red-600 transition-colors">
                         {featuredPost.title}
                       </Link>
                     </h2>
 
-                    <p className="text-[1.025rem] text-ofs-gray-600 leading-relaxed mb-8">
+                    <p className="text-sm sm:text-[1.025rem] text-ofs-gray-600 leading-relaxed mb-6 sm:mb-8">
                       {featuredPost.excerpt}
                     </p>
                   </div>
 
-                  <div className="flex justify-between items-center pt-6 border-t border-ofs-gray-200 flex-wrap gap-4">
+                  <div className="flex justify-between items-center pt-5 sm:pt-6 border-t border-ofs-gray-200 flex-wrap gap-4">
                     <div className="flex items-center gap-3">
                       <img
                         src={featuredPost.author.avatar}
                         alt={featuredPost.author.name}
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="w-10 h-10 rounded-full object-cover shrink-0"
                       />
                       <div>
                         <div className="text-[0.9rem] font-extrabold text-ofs-navy-950">
@@ -108,7 +108,7 @@ export default function BlogPage() {
                       </div>
                     </div>
 
-                    <Link href={`/blog/${featuredPost.slug}`} className="btn btn-navy inline-flex items-center gap-2">
+                    <Link href={`/blog/${featuredPost.slug}`} className="btn btn-navy inline-flex items-center justify-center gap-2 w-full sm:w-auto text-center">
                       Read Full Article <ArrowUpRight size={16} />
                     </Link>
                   </div>

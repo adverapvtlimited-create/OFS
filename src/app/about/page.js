@@ -58,7 +58,7 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="text-[clamp(2.5rem,5vw,4.25rem)] font-heading font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="text-[clamp(1.95rem,4.5vw,4.25rem)] font-heading font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Driven by Quality.
             </TextReveal>
@@ -71,14 +71,14 @@ export default function AboutPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-lg text-white/85 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed mb-8">
               {siteConfig.longDesc}
             </p>
           </ScrollReveal>
 
           {/* Executive Pillars Strip */}
           <ScrollReveal direction="up" delay={0.35}>
-            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono text-white/90">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1 text-xs font-mono text-white/90">
               <span className="py-1.5 px-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
                 🏛️ Founded on ISO 9001 Certified Governance
               </span>
@@ -232,11 +232,11 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.35}>
-            <div className="inline-flex gap-4 flex-wrap justify-center">
-              <Button href="/engineering-epc-support-services" variant="primary" size="lg">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
+              <Button href="/engineering-epc-support-services" variant="primary" size="lg" className="w-full sm:w-auto text-center justify-center">
                 Explore What We Offer <ArrowUpRight size={18} />
               </Button>
-              <Button href="/contact" variant="outline-white" size="lg">
+              <Button href="/contact" variant="outline-white" size="lg" className="w-full sm:w-auto text-center justify-center">
                 Contact Commercial Desk
               </Button>
             </div>
@@ -268,7 +268,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full flex flex-col justify-between">
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 shadow-md h-full flex flex-col justify-between">
                 <div>
                   <div className="mb-4">
                     <Badge variant="navy">USA ENTITY</Badge>
@@ -297,7 +297,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full flex flex-col justify-between">
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 shadow-md h-full flex flex-col justify-between">
                 <div>
                   <div className="mb-4">
                     <Badge variant="red">INDIA OPERATIONS HUB</Badge>

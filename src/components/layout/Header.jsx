@@ -145,6 +145,17 @@ export default function Header() {
     setCertsDropdownOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const activeCert = topBarCertifications[activeCertIndex];
   const ActiveCertIcon = activeCert.icon;
 
@@ -481,7 +492,7 @@ export default function Header() {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                  className={cn(
+                                className={cn(
                                   "text-sm py-2 px-2.5 rounded min-h-[40px] flex items-center gap-2.5 leading-snug no-underline transition-colors",
                                   isItemActive
                                     ? "text-ofs-navy-900 font-bold bg-ofs-navy-50/90 border-l-2 border-ofs-navy-800 pl-2"

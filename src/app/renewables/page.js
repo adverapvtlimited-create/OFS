@@ -31,9 +31,7 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 import TextReveal from '@/components/animations/TextReveal';
 import renewablesData from '@/data/renewables.json';
 
-/* ─────────────────────────────────────────────────────────────
-   Icon look-up
-   ───────────────────────────────────────────────────────────── */
+
 const iconMap = {
   Sun, BatteryCharging, Wind, Link: LinkIcon, Globe, Leaf,
   ShieldCheck, RotateCw, Handshake, FileText, Settings, Users,

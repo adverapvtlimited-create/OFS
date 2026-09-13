@@ -46,7 +46,7 @@ export default function BrandMarquee() {
     const [imgError, setImgError] = React.useState(false);
 
     return (
-      <div className="inline-flex items-center gap-3.5 py-2.5 px-4 min-w-[280px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
+      <div className="inline-flex items-center gap-3.5 py-2.5 px-3.5 sm:px-4 min-w-[240px] sm:min-w-[280px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-3.5 sm:mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
         <div className="w-11 h-11 rounded-md bg-white/[0.08] border border-white/15 p-1 shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:bg-white/[0.12] transition-all overflow-hidden flex items-center justify-center">
           {brand.logo && !imgError ? (
             <img
@@ -107,7 +107,7 @@ export default function BrandMarquee() {
 
           <Link
             href="/procurement-shipping"
-            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline"
+            className="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2.5 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline w-full sm:w-auto text-center"
           >
             Explore Sourcing Standards <ArrowRight size={14} />
           </Link>

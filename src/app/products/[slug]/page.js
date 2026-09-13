@@ -104,20 +104,20 @@ export default function SingleProductPage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {prod.name}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.2rem] text-white/90 max-w-[780px] leading-relaxed mb-9">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-9">
               {prod.summary}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
               Request Product Inquiry / RFQ <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>

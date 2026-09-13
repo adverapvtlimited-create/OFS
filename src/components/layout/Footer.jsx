@@ -23,8 +23,8 @@ export default function Footer() {
     <footer className="bg-ofs-navy-950 text-white border-t border-white/10 relative overflow-hidden">
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-      <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2] pt-16 pb-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 relative z-[2] pt-14 sm:pt-16 pb-12 sm:pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
           <div className="flex flex-col gap-5">
             <Link href="/" className="inline-block no-underline">
               <div className="bg-white p-2 px-3.5 rounded-xs inline-flex items-center shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
@@ -213,9 +213,9 @@ export default function Footer() {
                 <div className="mt-1">
                   <a
                     href={`mailto:${siteConfig.contact.emailUSA}`}
-                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline"
+                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline break-all"
                   >
-                    <Mail size={12} /> {siteConfig.contact.emailUSA}
+                    <Mail size={12} className="shrink-0" /> {siteConfig.contact.emailUSA}
                   </a>
                 </div>
               </div>
@@ -231,9 +231,9 @@ export default function Footer() {
                 <div className="mt-1">
                   <a
                     href={`mailto:${siteConfig.contact.emailIndia}`}
-                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline"
+                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline break-all"
                   >
-                    <Mail size={12} /> {siteConfig.contact.emailIndia}
+                    <Mail size={12} className="shrink-0" /> {siteConfig.contact.emailIndia}
                   </a>
                 </div>
               </div>
@@ -244,25 +244,25 @@ export default function Footer() {
                 href={`tel:${siteConfig.contact.phoneRaw}`}
                 className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity no-underline"
               >
-                <Phone size={14} className="text-ofs-red-500" />
+                <Phone size={14} className="text-ofs-red-500 shrink-0" />
                 {siteConfig.contact.phone}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity no-underline"
+                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity no-underline break-all"
               >
-                <Mail size={14} className="text-ofs-red-500" />
+                <Mail size={14} className="text-ofs-red-500 shrink-0" />
                 {siteConfig.contact.email}
               </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/[0.08] flex justify-between items-center flex-wrap gap-4 text-xs text-white/50">
+        <div className="pt-8 border-t border-white/[0.08] flex justify-between items-center flex-col sm:flex-row gap-4 text-xs text-white/50 text-center sm:text-left">
           <div>
             © {new Date().getFullYear()} {siteConfig.legalName} All Rights Reserved.
           </div>
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-5 sm:gap-6 items-center flex-wrap justify-center">
             <Link href="/privacy" className="hover:text-white transition-colors no-underline">
               Privacy Policy
             </Link>

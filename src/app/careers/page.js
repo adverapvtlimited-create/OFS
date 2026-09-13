@@ -63,7 +63,7 @@ export default function CareersPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Shape the Future of
             </TextReveal>
@@ -76,23 +76,23 @@ export default function CareersPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed mb-8">
               We hire visionary engineers, meticulous procurement strategists, and bold project leaders who thrive in high-precision, mission-critical industrial environments.
             </p>
           </ScrollReveal>
 
           {/* Above-the-fold Quick Actions & Telemetry */}
           <ScrollReveal direction="up" delay={0.35}>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 pt-2">
               <a
                 href="#open-positions"
-                className="btn btn-primary inline-flex items-center gap-2 shadow-[0_4px_18px_rgba(224,42,48,0.4)]"
+                className="btn btn-primary inline-flex items-center justify-center gap-2 shadow-[0_4px_18px_rgba(224,42,48,0.4)] w-full sm:w-auto text-center"
               >
                 <Briefcase size={16} /> Explore {jobsData.length} Open Positions ↓
               </a>
-              <div className="inline-flex items-center gap-3 py-2 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-mono text-white/90">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Immediate Hiring • Mumbai HQ &amp; Global Projects</span>
+              <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[0.72rem] sm:text-xs font-mono text-white/90 max-w-full">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <span className="truncate">Immediate Hiring • Mumbai HQ &amp; Global</span>
               </div>
             </div>
           </ScrollReveal>

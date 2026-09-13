@@ -286,7 +286,7 @@ export default function FieldGallery() {
               </button>
             </div>
 
-            <div className="relative w-full h-[360px] sm:h-[480px] bg-black grid place-content-center overflow-hidden">
+            <div className="relative w-full h-[260px] sm:h-[400px] md:h-[480px] max-h-[55vh] bg-black grid place-content-center overflow-hidden">
               <img
                 src={selectedPhoto.src}
                 alt={selectedPhoto.title}
@@ -294,9 +294,9 @@ export default function FieldGallery() {
               />
             </div>
 
-            <div className="p-5 sm:p-6 bg-ofs-navy-950 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="p-4 sm:p-6 bg-ofs-navy-950 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-white mb-1">
+                <h3 className="font-heading text-base sm:text-xl font-bold text-white mb-1">
                   {selectedPhoto.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-white/60 font-mono m-0">
@@ -305,7 +305,7 @@ export default function FieldGallery() {
               </div>
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="btn btn-red py-2 px-5 text-xs font-mono uppercase tracking-wider"
+                className="btn btn-primary w-full sm:w-auto py-2.5 px-5 text-xs font-mono uppercase tracking-wider text-center"
               >
                 Close Preview
               </button>

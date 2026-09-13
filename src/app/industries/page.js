@@ -63,7 +63,7 @@ export default function IndustriesPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Engineered Support for
             </TextReveal>
@@ -76,7 +76,7 @@ export default function IndustriesPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed">
               From offshore drilling rigs and refinery turnarounds to clean energy utility parks and pharmaceutical complexes, OFS delivers tailored logistics, precision sourcing, and technical supervision.
             </p>
           </ScrollReveal>
@@ -108,7 +108,7 @@ export default function IndustriesPage() {
                         </div>
 
                         {/* Content */}
-                        <div className="p-5 pb-4">
+                        <div className="p-4 sm:p-5 pb-4">
                           <h2 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug group-hover:text-ofs-red-600 transition-colors">
                             {ind.name}
                           </h2>
@@ -129,7 +129,7 @@ export default function IndustriesPage() {
                         </div>
                       </div>
 
-                      <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center transition-colors group-hover:bg-ofs-navy-50">
+                      <div className="py-3 px-4 sm:px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center transition-colors group-hover:bg-ofs-navy-50">
                         <span className="font-mono text-xs font-bold uppercase text-ofs-navy-950 flex items-center gap-1 group-hover:text-ofs-red-600 transition-colors">
                           Sector Overview <ArrowUpRight size={13} />
                         </span>

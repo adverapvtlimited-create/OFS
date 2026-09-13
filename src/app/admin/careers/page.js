@@ -170,7 +170,7 @@ export default function CareersAdminPage() {
             return (
               <div
                 key={app.id}
-                className="bg-white border border-ofs-gray-200 rounded-lg p-8 shadow-sm"
+                className="bg-white border border-ofs-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 shadow-sm"
               >
                 <div className="flex justify-between items-start mb-5 flex-wrap gap-3">
                   <div>

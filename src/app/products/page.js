@@ -66,7 +66,7 @@ export default function ProductsPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Precision Products for
             </TextReveal>
@@ -79,7 +79,7 @@ export default function ProductsPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed">
               Oriented Facility Solution (OFS) supplies certified OEM equipment, API 6D valves, drilling tubulars, turbomachinery spares, marine components, and electrical instrumentation across global industrial sectors.
             </p>
           </ScrollReveal>
@@ -90,12 +90,12 @@ export default function ProductsPage() {
       <section className="section-pad bg-ofs-gray-50">
         <Container>
           {/* Category Filter Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`font-mono text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full transition-all shrink-0 cursor-pointer border ${
+                className={`font-mono text-xs font-bold uppercase tracking-wider px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 cursor-pointer border ${
                   selectedCategory === cat
                     ? 'bg-ofs-navy-950 text-white border-ofs-navy-950 shadow-md'
                     : 'bg-white text-ofs-navy-900 border-ofs-gray-200 hover:border-ofs-navy-300 hover:bg-ofs-navy-50'
@@ -138,7 +138,7 @@ export default function ProductsPage() {
                       </div>
 
                       {/* Card Content */}
-                      <div className="p-5 pb-4">
+                      <div className="p-4 sm:p-5 pb-4">
                         <h2 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-2 leading-snug group-hover:text-ofs-red-600 transition-colors">
                           {prod.name}
                         </h2>
@@ -160,7 +160,7 @@ export default function ProductsPage() {
                     </div>
 
                     {/* Card Footer Action */}
-                    <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center group-hover:bg-ofs-navy-100/60 transition-colors">
+                    <div className="py-3 px-4 sm:px-5 border-t border-ofs-gray-200 bg-ofs-navy-50/70 flex justify-between items-center group-hover:bg-ofs-navy-100/60 transition-colors">
                       <span className="font-mono text-xs font-bold uppercase text-ofs-navy-950 flex items-center gap-1 group-hover:text-ofs-red-600 transition-colors">
                         Product Details <ArrowUpRight size={13} />
                       </span>
