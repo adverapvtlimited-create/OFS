@@ -3,6 +3,12 @@ import fs from "fs";
 import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
+import {
+  contactEnquirySchema,
+  updateEnquiryStatusSchema,
+  enquiryQuerySchema,
+  validatePdfFile,
+} from "@/lib/validations/contact";
 
 export const dynamic = "force-dynamic";
 
@@ -83,19 +89,20 @@ const writeEnquiries = (enquiries) => {
 
 export async function POST(request) {
   try {
-    let data = {};
+    let rawData = {};
     let pdfUrl = null;
     let cloudinaryUrl = null;
     let pdfName = null;
     let pdfSize = null;
     let fileDetails = null;
     let fileContentType = "application/pdf";
+    let uploadedFile = null;
 
     const contentType = request.headers.get("content-type") || "";
 
     if (contentType.includes("multipart/form-data")) {
       const formData = await request.formData();
-      data = {
+      rawData = {
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
@@ -105,94 +112,118 @@ export async function POST(request) {
         message: formData.get("message"),
         formType: formData.get("formType") || "general",
       };
-
-      const uploadedFile = formData.get("file");
-      if (
-        uploadedFile &&
-        typeof uploadedFile === "object" &&
-        uploadedFile.name &&
-        typeof uploadedFile.arrayBuffer === "function"
-      ) {
-        pdfName = uploadedFile.name;
-        pdfSize = uploadedFile.size;
-        fileContentType = uploadedFile.type || "application/pdf";
-
-        try {
-          const arrayBuffer = await uploadedFile.arrayBuffer();
-          const buffer = Buffer.from(arrayBuffer);
-
-          // 1. Upload directly to Cloudinary using in-memory Buffer (no disk write required)
-          try {
-            const cloudinaryResult = await uploadToCloudinary(
-              buffer,
-              uploadedFile.name,
-              "ofs/enquiries",
-            );
-            if (cloudinaryResult?.secure_url || cloudinaryResult?.url) {
-              cloudinaryUrl = cloudinaryResult.secure_url || cloudinaryResult.url;
-              pdfUrl = cloudinaryUrl;
-            }
-          } catch (cloudErr) {
-            console.warn("[Cloudinary Upload Warning]:", cloudErr.message);
-          }
-
-          // 2. Try saving to local disk only if directory is writable (e.g., local dev)
-          let diskFilePath = null;
-          try {
-            const uploadsDir = path.join(
-              process.cwd(),
-              "public",
-              "uploads",
-              "enquiries",
-            );
-            if (!fs.existsSync(uploadsDir)) {
-              fs.mkdirSync(uploadsDir, { recursive: true });
-            }
-            const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-            diskFilePath = path.join(uploadsDir, safeFileName);
-            fs.writeFileSync(diskFilePath, buffer);
-            if (!pdfUrl) {
-              pdfUrl = `/uploads/enquiries/${safeFileName}`;
-            }
-          } catch {
-            // Read-only filesystem in production (Vercel) - disk write safely skipped
-          }
-
-          fileDetails = {
-            buffer,
-            base64: buffer.toString("base64"),
-            filePath: diskFilePath,
-            fileName: pdfName,
-            size: pdfSize,
-            contentType: fileContentType,
-            cloudinaryUrl,
-          };
-        } catch (fileErr) {
-          console.error("[File Processing Error]:", fileErr);
-        }
-      }
+      uploadedFile = formData.get("file");
     } else {
-      data = await request.json();
+      rawData = await request.json();
     }
 
-    if (!data.name || !data.email || !data.phone) {
+    // 🔒 1. Zod Validation for Form Fields
+    const validationResult = contactEnquirySchema.safeParse(rawData);
+    if (!validationResult.success) {
+      const errors = validationResult.error.flatten().fieldErrors;
+      const firstErrorMessage =
+        Object.values(errors).flat()[0] || "Invalid form submission data.";
       return NextResponse.json(
-        { error: "Name, email, and phone are required fields." },
+        {
+          success: false,
+          error: firstErrorMessage,
+          errors,
+        },
         { status: 400 },
       );
+    }
+
+    const validatedData = validationResult.data;
+
+    // 🔒 2. Zod/File Validation for attached PDF
+    if (
+      uploadedFile &&
+      typeof uploadedFile === "object" &&
+      uploadedFile.name &&
+      typeof uploadedFile.arrayBuffer === "function"
+    ) {
+      const fileValidation = validatePdfFile(uploadedFile);
+      if (!fileValidation.valid) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: fileValidation.error,
+            errors: { file: [fileValidation.error] },
+          },
+          { status: 400 },
+        );
+      }
+
+      pdfName = uploadedFile.name;
+      pdfSize = uploadedFile.size;
+      fileContentType = uploadedFile.type || "application/pdf";
+
+      try {
+        const arrayBuffer = await uploadedFile.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+
+        // Upload to Cloudinary using in-memory Buffer
+        try {
+          const cloudinaryResult = await uploadToCloudinary(
+            buffer,
+            uploadedFile.name,
+            "ofs/enquiries",
+          );
+          if (cloudinaryResult?.secure_url || cloudinaryResult?.url) {
+            cloudinaryUrl = cloudinaryResult.secure_url || cloudinaryResult.url;
+            pdfUrl = cloudinaryUrl;
+          }
+        } catch (cloudErr) {
+          console.warn("[Cloudinary Upload Warning]:", cloudErr.message);
+        }
+
+        // Try local disk only if directory is writable
+        let diskFilePath = null;
+        try {
+          const uploadsDir = path.join(
+            process.cwd(),
+            "public",
+            "uploads",
+            "enquiries",
+          );
+          if (!fs.existsSync(uploadsDir)) {
+            fs.mkdirSync(uploadsDir, { recursive: true });
+          }
+          const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
+          diskFilePath = path.join(uploadsDir, safeFileName);
+          fs.writeFileSync(diskFilePath, buffer);
+          if (!pdfUrl) {
+            pdfUrl = `/uploads/enquiries/${safeFileName}`;
+          }
+        } catch {
+          // Read-only filesystem in production (Vercel) - disk write safely skipped
+        }
+
+        fileDetails = {
+          buffer,
+          base64: buffer.toString("base64"),
+          filePath: diskFilePath,
+          fileName: pdfName,
+          size: pdfSize,
+          contentType: fileContentType,
+          cloudinaryUrl,
+        };
+      } catch (fileErr) {
+        console.error("[File Processing Error]:", fileErr);
+      }
     }
 
     const enquiryRecord = {
       id: `ENQ-${Date.now()}`,
       timestamp: new Date().toISOString(),
-      formType: data.formType || "general",
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      company: data.company || "Not Specified",
-      service: data.service || "General Procurement",
-      urgency: data.urgency || "Standard (1-2 Days)",
-      message: data.message || "",
+      formType: validatedData.formType,
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      company: validatedData.company,
+      service: validatedData.service,
+      urgency: validatedData.urgency,
+      message: validatedData.message,
       pdfUrl: pdfUrl || cloudinaryUrl,
       cloudinaryUrl,
       pdfName,
@@ -216,7 +247,6 @@ export async function POST(request) {
     enquiries.unshift(enquiryRecord);
     writeEnquiries(enquiries);
 
-    // If sending the email failed, return an error to the frontend
     if (!emailResult.success) {
       console.error("[Contact Route] Brevo email dispatch failed:", emailResult.error);
       return NextResponse.json(
@@ -261,14 +291,16 @@ export async function GET() {
 
 export async function PATCH(request) {
   try {
-    const { id, status } = await request.json();
-    if (!id || !status) {
-      return NextResponse.json(
-        { error: "ID and status required" },
-        { status: 400 },
-      );
+    const body = await request.json().catch(() => ({}));
+    const validation = updateEnquiryStatusSchema.safeParse(body);
+
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
+      const msg = Object.values(errors).flat()[0] || "Invalid ID or status.";
+      return NextResponse.json({ error: msg, errors }, { status: 400 });
     }
 
+    const { id, status } = validation.data;
     const enquiries = readEnquiries();
     const index = enquiries.findIndex((e) => e.id === id);
     if (index === -1) {
@@ -291,12 +323,18 @@ export async function PATCH(request) {
 export async function DELETE(request) {
   try {
     const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
+    const queryValidation = enquiryQuerySchema.safeParse({
+      id: searchParams.get("id"),
+    });
 
-    if (!id) {
-      return NextResponse.json({ error: "ID required" }, { status: 400 });
+    if (!queryValidation.success) {
+      return NextResponse.json(
+        { error: "Valid Enquiry ID is required in query params." },
+        { status: 400 },
+      );
     }
 
+    const { id } = queryValidation.data;
     let enquiries = readEnquiries();
     enquiries = enquiries.filter((e) => e.id !== id);
     writeEnquiries(enquiries);
