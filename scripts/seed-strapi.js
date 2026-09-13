@@ -51,6 +51,21 @@ function mapFeatures(featuresArray) {
   }));
 }
 
+// Helper to map SEO
+function mapSeo(seoData, fallbackTitle) {
+  if (!seoData) {
+    return {
+      metaTitle: fallbackTitle.substring(0, 70),
+      metaDescription: "Description coming soon."
+    };
+  }
+  return {
+    metaTitle: (seoData.metaTitle || fallbackTitle).substring(0, 70),
+    metaDescription: (seoData.metaDescription || "Description coming soon.").substring(0, 165),
+    keywords: seoData.keywords || ""
+  };
+}
+
 async function seedProducts() {
   console.log('📦 Seeding Products...');
   const productsPath = path.join(process.cwd(), 'src', 'data', 'products.json');
@@ -70,6 +85,7 @@ async function seedProducts() {
         shortDescription: (item.description || "Description coming soon.").substring(0, 350),
         overview: textToBlocks(item.description || item.tagline || ""),
         features: mapFeatures(item.features),
+        seo: mapSeo(item.seo, item.name)
         // Note: Images cannot be seeded via simple JSON POST if they are local files.
         // They must be uploaded via FormData to Strapi's /api/upload first.
         // For now, we seed the text content. You will attach images in the Strapi UI.
@@ -115,7 +131,8 @@ async function seedServices() {
         shortTitle: item.shortTitle || (item.title ? item.title.substring(0, 60) : ''),
         tagline: (item.tagline || item.title || '').substring(0, 150),
         overview: textToBlocks(item.description || item.fullContentText || ""),
-        features: mapFeatures(item.features)
+        features: mapFeatures(item.features),
+        seo: mapSeo(item.seo, item.title)
       }
     };
 
