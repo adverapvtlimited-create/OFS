@@ -48,7 +48,7 @@ export default function AdminDashboard() {
           Operations &amp; Content Dashboard
         </h1>
         <p className="text-[0.9rem] text-ofs-gray-600 m-0">
-          Manage client project RFQs, career submissions, and published content across OFS Group India.
+          Manage client project enquiries, career submissions, and published content across OFS Group India.
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export default function AdminDashboard() {
             {enquiries.length}
           </div>
           <div className="text-xs text-ofs-green-700 mt-1">
-            Active RFQs in system
+            Active enquiries in system
           </div>
         </div>
 

@@ -99,7 +99,7 @@ export default function SingleBlogPage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white mb-6">
+          <h1 className="font-heading text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-tight text-white mb-6">
             <TextReveal tag="span" duration={0.65}>
               {post.title}
             </TextReveal>
@@ -124,7 +124,7 @@ export default function SingleBlogPage({ params }) {
       <article className="section-pad bg-white">
         <div className="container max-w-[880px]">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="rounded-xl overflow-hidden mb-12 shadow-xl">
+            <div className="rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-xl">
               <SafeImage
                 src={post.image}
                 alt={`Featured image for ${post.title}`}
@@ -134,7 +134,7 @@ export default function SingleBlogPage({ params }) {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <div className="p-7 sm:p-8 bg-ofs-navy-50/60 border-l-4 border-ofs-red-600 rounded-r-md text-[1.15rem] font-heading font-semibold text-ofs-navy-950 leading-relaxed mb-12">
+            <div className="p-5 sm:p-8 bg-ofs-navy-50/60 border-l-4 border-ofs-red-600 rounded-r-md text-base sm:text-[1.15rem] font-heading font-semibold text-ofs-navy-950 leading-relaxed mb-10 sm:mb-12">
               "{post.excerpt}"
             </div>
           </ScrollReveal>
@@ -145,7 +145,7 @@ export default function SingleBlogPage({ params }) {
 
           <p className="text-[0.9rem] text-ofs-gray-600 mb-8">
             Explore OFS{' '}
-            <Link href="/services" className="text-ofs-red-600 font-bold hover:underline">
+            <Link href="/#what-we-offer" className="text-ofs-red-600 font-bold hover:underline">
               procurement and EPC support services
             </Link>{' '}
             or{' '}

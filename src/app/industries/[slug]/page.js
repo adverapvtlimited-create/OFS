@@ -1,19 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { 
-  Flame, 
-  Ship, 
-  Sun, 
-  Hammer, 
-  Zap, 
-  FlaskConical, 
-  Mountain, 
-  Plane, 
-  Anchor, 
-  Compass, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import { notFound, redirect } from 'next/navigation';
+import {
+  Flame,
+  Ship,
+  Sun,
+  Hammer,
+  Zap,
+  FlaskConical,
+  Mountain,
+  Plane,
+  Anchor,
+  Compass,
+  ArrowUpRight,
+  CheckCircle2,
   ShieldCheck,
   Cpu
 } from 'lucide-react';
@@ -87,6 +87,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default function SingleIndustryPage({ params }) {
+  if (params.slug === 'renewable-energy') {
+    redirect('/renewables');
+  }
+
   const ind = findIndustryBySlug(params.slug);
 
   if (!ind) {
@@ -130,20 +134,20 @@ export default function SingleIndustryPage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {ind.name}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.2rem] text-white/90 max-w-[780px] leading-relaxed mb-9">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-9">
               {ind.tagline}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
               Request Industry Consultation <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
@@ -192,8 +196,8 @@ export default function SingleIndustryPage({ params }) {
             {/* Right Image */}
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative">
-                <img 
-                  src={ind.heroImage} 
+                <img
+                  src={ind.heroImage}
                   alt={`${ind.name} — OFS Group India industrial solutions`}
                   width={960}
                   height={460}
@@ -221,8 +225,8 @@ export default function SingleIndustryPage({ params }) {
                         <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                           <div>
                             <div className="h-[175px] relative overflow-hidden">
-                              <img 
-                                src={sub.heroImage} 
+                              <img
+                                src={sub.heroImage}
                                 alt={sub.name}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />

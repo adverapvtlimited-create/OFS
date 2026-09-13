@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="40" fill="#004890"/>
+  <!-- Spirax Sarco Steam Spiral Symbol -->
+  <g transform="translate(100, 70)">
+    <path d="M -30 20 C -45 -10 -15 -35 15 -35 C 30 -35 40 -20 30 -5 C 20 -20 0 -22 -15 -8 C -25 5 -15 20 -2 22 C -15 24 -25 22 -30 20 Z" fill="#00A3E0"/>
+    <path d="M 30 -20 C 45 10 15 35 -15 35 C -30 35 -40 20 -30 5 C -20 20 0 22 15 8 C 25 -5 15 -20 2 -22 C 15 -24 25 -22 30 -20 Z" fill="#FFFFFF"/>
+  </g>
+  <text x="100" y="142" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="1">spirax</text>
+  <text x="100" y="164" fill="#00A3E0" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="1">sarco</text>
+</svg>

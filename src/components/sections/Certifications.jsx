@@ -204,7 +204,7 @@ export default function Certifications() {
             );
 
             const cardBaseClasses =
-              'bg-white/[0.035] border border-white/10 rounded-sm p-5 flex flex-col backdrop-blur-md relative transition-all duration-250 hover:bg-white/[0.07] hover:border-white/[0.22] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]';
+              'bg-white/[0.035] border border-white/10 rounded-sm p-4 sm:p-5 flex flex-col backdrop-blur-md relative transition-all duration-250 hover:bg-white/[0.07] hover:border-white/[0.22] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]';
 
             if (isClickable) {
               return (

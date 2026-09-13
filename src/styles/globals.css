@@ -44,12 +44,20 @@
     overflow: hidden;
   }
 
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+  }
+
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #0F172A;
     background-color: #FFFFFF;
     line-height: 1.55;
-    overflow-x: hidden;
     position: relative;
   }
 
@@ -59,11 +67,14 @@
     line-height: 1.12;
     color: #060E24;
     letter-spacing: -0.025em;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   p {
     line-height: 1.72;
     color: #475569;
+    overflow-wrap: break-word;
   }
 
   /* Custom Scrollbar */
@@ -323,6 +334,19 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
+  .btn-red {
+    background: #E02A30;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(224, 42, 48, 0.32);
+    border: 1px solid #EC4248;
+  }
+  .btn-red:hover {
+    background: #C92026;
+    box-shadow: 0 8px 24px rgba(224, 42, 48, 0.45);
+    transform: translateY(-2px);
+    color: #FFFFFF;
+  }
+
   .btn-green {
     background: #059669;
     color: #FFFFFF;
@@ -349,10 +373,24 @@
   @media (max-width: 640px) {
     .btn {
       width: 100%;
+      padding: 0.8rem 1.25rem;
+      font-size: 0.8rem;
     }
     .btn-lg {
-      padding: 0.85rem 1.5rem;
+      padding: 0.85rem 1.4rem;
       font-size: 0.82rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .btn {
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+    .btn-lg {
+      padding: 0.8rem 1.15rem;
+      font-size: 0.78rem;
     }
   }
 
@@ -542,4 +580,13 @@
   .marquee-rtl:hover {
     animation-play-state: paused;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-rtl,
+    .marquee-rtl-slow {
+      animation: none !important;
+      overflow-x: auto;
+    }
+  }
 }
+

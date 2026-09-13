@@ -5,29 +5,29 @@ import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 const row1Brands = [
-  { name: 'Emerson', category: 'Control Systems & Instrumentation', country: 'USA' },
-  { name: 'Fisher Valves', category: 'Severe Service & ESD Valves', country: 'USA' },
-  { name: 'Flowserve', category: 'Pumps & Mechanical Seals', country: 'USA' },
-  { name: 'Cameron', category: 'Wellhead & Pressure Control', country: 'USA' },
-  { name: 'Yokogawa', category: 'DCS & Process Analyzers', country: 'Japan' },
-  { name: 'Honeywell', category: 'Process Solutions & Transmitters', country: 'USA' },
-  { name: 'Schneider Electric', category: 'Industrial Power & Switchgear', country: 'France' },
-  { name: 'ABB', category: 'High-Voltage Motors & Drives', country: 'Switzerland' },
-  { name: 'Swagelok', category: 'Fluid Systems & Tube Fittings', country: 'USA' },
-  { name: 'Parker Hannifin', category: 'Motion, Hydraulics & Filtration', country: 'USA' },
+  { name: 'Emerson', category: 'Control Systems & Instrumentation', country: 'USA', logo: '/images/brands/emerson.svg' },
+  { name: 'Fisher Valves', category: 'Severe Service & ESD Valves', country: 'USA', logo: '/images/brands/fisher.svg' },
+  { name: 'Flowserve', category: 'Pumps & Mechanical Seals', country: 'USA', logo: '/images/brands/flowserve.svg' },
+  { name: 'Cameron', category: 'Wellhead & Pressure Control', country: 'USA', logo: '/images/brands/cameron.svg' },
+  { name: 'Yokogawa', category: 'DCS & Process Analyzers', country: 'Japan', logo: '/images/brands/yokogawa.svg' },
+  { name: 'Honeywell', category: 'Process Solutions & Transmitters', country: 'USA', logo: '/images/brands/honeywell.svg' },
+  { name: 'Schneider Electric', category: 'Industrial Power & Switchgear', country: 'France', logo: '/images/brands/schneider-electric.svg' },
+  { name: 'ABB', category: 'High-Voltage Motors & Drives', country: 'Switzerland', logo: '/images/brands/abb.svg' },
+  { name: 'Swagelok', category: 'Fluid Systems & Tube Fittings', country: 'USA', logo: '/images/brands/swagelok.svg' },
+  { name: 'Parker Hannifin', category: 'Motion, Hydraulics & Filtration', country: 'USA', logo: '/images/brands/parker.svg' },
 ];
 
 const row2Brands = [
-  { name: 'Rockwell Automation', category: 'Allen-Bradley PLC & Drives', country: 'USA' },
-  { name: 'Siemens Energy', category: 'Turbomachinery & Power Transmission', country: 'Germany' },
-  { name: 'WIKA', category: 'Pressure & Temperature Gauges', country: 'Germany' },
-  { name: 'Sulzer', category: 'Centrifugal Pumps & Agitators', country: 'Switzerland' },
-  { name: 'KSB Pumps', category: 'High-Pressure Industrial Pumps', country: 'Germany' },
-  { name: 'Alfa Laval', category: 'Plate Heat Exchangers & Decanters', country: 'Sweden' },
-  { name: 'Endress+Hauser', category: 'Flow, Level & Optical Telemetry', country: 'Switzerland' },
-  { name: 'Danfoss', category: 'Variable Frequency Inverters', country: 'Denmark' },
-  { name: 'Atlas Copco', category: 'Industrial Air & Nitrogen Skids', country: 'Sweden' },
-  { name: 'Spirax Sarco', category: 'Steam Management & Trapping', country: 'UK' },
+  { name: 'Rockwell Automation', category: 'Allen-Bradley PLC & Drives', country: 'USA', logo: '/images/brands/rockwell.svg' },
+  { name: 'Siemens Energy', category: 'Turbomachinery & Power Transmission', country: 'Germany', logo: '/images/brands/siemens.svg' },
+  { name: 'WIKA', category: 'Pressure & Temperature Gauges', country: 'Germany', logo: '/images/brands/wika.svg' },
+  { name: 'Sulzer', category: 'Centrifugal Pumps & Agitators', country: 'Switzerland', logo: '/images/brands/sulzer.svg' },
+  { name: 'KSB Pumps', category: 'High-Pressure Industrial Pumps', country: 'Germany', logo: '/images/brands/ksb.svg' },
+  { name: 'Alfa Laval', category: 'Plate Heat Exchangers & Decanters', country: 'Sweden', logo: '/images/brands/alfa-laval.svg' },
+  { name: 'Endress+Hauser', category: 'Flow, Level & Optical Telemetry', country: 'Switzerland', logo: '/images/brands/endress-hauser.svg' },
+  { name: 'Danfoss', category: 'Variable Frequency Inverters', country: 'Denmark', logo: '/images/brands/danfoss.svg' },
+  { name: 'Atlas Copco', category: 'Industrial Air & Nitrogen Skids', country: 'Sweden', logo: '/images/brands/atlas-copco.svg' },
+  { name: 'Spirax Sarco', category: 'Steam Management & Trapping', country: 'UK', logo: '/images/brands/spirax-sarco.svg' },
 ];
 
 export default function BrandMarquee() {
@@ -43,10 +43,24 @@ export default function BrandMarquee() {
   }
 
   function BrandChip({ brand, countryTone = 'gold' }) {
+    const [imgError, setImgError] = React.useState(false);
+
     return (
-      <div className="inline-flex items-center gap-3.5 py-3 px-4 min-w-[260px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
-        <div className="w-10 h-10 rounded-md bg-gradient-to-br from-white/15 to-white/5 border border-white/20 text-white grid place-content-center font-heading font-black text-xs tracking-wider shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:text-ofs-gold-300 transition-colors">
-          {brandInitials(brand.name)}
+      <div className="inline-flex items-center gap-3.5 py-2.5 px-3.5 sm:px-4 min-w-[240px] sm:min-w-[280px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-3.5 sm:mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">
+        <div className="w-11 h-11 rounded-md bg-white/[0.08] border border-white/15 p-1 shrink-0 shadow-inner group-hover:border-ofs-gold-400/60 group-hover:bg-white/[0.12] transition-all overflow-hidden flex items-center justify-center">
+          {brand.logo && !imgError ? (
+            <img
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              className="w-full h-full object-contain rounded-xs transition-transform duration-300 group-hover:scale-105"
+              onError={() => setImgError(true)}
+              loading="lazy"
+            />
+          ) : (
+            <span className="font-heading font-black text-xs tracking-wider text-white group-hover:text-ofs-gold-300">
+              {brandInitials(brand.name)}
+            </span>
+          )}
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2 mb-0.5">
@@ -93,7 +107,7 @@ export default function BrandMarquee() {
 
           <Link
             href="/procurement-shipping"
-            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline"
+            className="inline-flex items-center justify-center gap-1.5 font-mono text-xs font-bold text-ofs-red-400 uppercase tracking-[0.05em] py-2.5 px-4 rounded-xs border border-ofs-red-600/30 bg-ofs-red-600/5 hover:text-white hover:bg-ofs-red-600 hover:border-ofs-red-600 transition-all duration-200 no-underline w-full sm:w-auto text-center"
           >
             Explore Sourcing Standards <ArrowRight size={14} />
           </Link>
