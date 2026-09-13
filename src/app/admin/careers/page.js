@@ -248,9 +248,20 @@ export default function CareersAdminPage() {
                     <div className="text-ofs-gray-500 text-xs font-mono uppercase mb-1">
                       Resume File
                     </div>
-                    <div className="text-ofs-navy-900 font-bold flex items-center gap-1.5">
-                      <FileText size={14} className="text-ofs-navy-700" /> {app.resumeName}
-                    </div>
+                    {app.resumeUrl || app.cloudinaryUrl ? (
+                      <a
+                        href={app.resumeUrl || app.cloudinaryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-ofs-red-600 hover:text-ofs-red-700 font-bold flex items-center gap-1.5 transition-colors underline"
+                      >
+                        <FileText size={14} className="text-ofs-red-600" /> {app.resumeName || 'View Resume'} ↗
+                      </a>
+                    ) : (
+                      <div className="text-ofs-navy-900 font-bold flex items-center gap-1.5">
+                        <FileText size={14} className="text-ofs-navy-700" /> {app.resumeName || 'N/A'}
+                      </div>
+                    )}
                   </div>
                 </div>
 
