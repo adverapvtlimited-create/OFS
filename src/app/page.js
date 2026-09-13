@@ -3,7 +3,7 @@ import Hero from '@/components/sections/Hero';
 import BrandMarquee from '@/components/sections/BrandMarquee';
 import AboutPreview from '@/components/sections/AboutPreview';
 import ServicesGrid from '@/components/sections/ServicesGrid';
-import CaseStudies from '@/components/sections/CaseStudies';
+import FieldGallery from '@/components/sections/FieldGallery';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import StatsCounter from '@/components/sections/StatsCounter';
 import Certifications from '@/components/sections/Certifications';
@@ -33,7 +33,7 @@ export default function HomePage() {
       <BrandMarquee />
       <AboutPreview />
       <ServicesGrid />
-      <CaseStudies />
+      <FieldGallery />
       <WhyChooseUs />
       <StatsCounter />
       <Certifications />

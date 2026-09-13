@@ -8,6 +8,7 @@ import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import blogPosts from '@/data/blog-posts.json';
 import SafeImage from '@/components/ui/SafeImage';
+import CaseStudies from '@/components/sections/CaseStudies';
 
 export default function BlogPage() {
   const featuredPost = blogPosts.find((p) => p.featured) || blogPosts[0];
@@ -53,7 +54,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="section-pad bg-ofs-gray-50">
+      <section className="section-pad bg-ofs-gray-50 border-b border-ofs-gray-200">
         <div className="container">
           {featuredPost && (
             <ScrollReveal direction="up" duration={0.8}>
@@ -169,6 +170,9 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      {/* Industrial Case Studies & Execution Logs */}
+      <CaseStudies />
     </>
   );
 }
