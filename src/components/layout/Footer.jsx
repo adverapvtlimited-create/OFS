@@ -210,6 +210,14 @@ export default function Footer() {
                 <strong className="text-white block">USA Global Office:</strong>
                 {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
                 {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, USA
+                <div className="mt-1">
+                  <a
+                    href={`mailto:${siteConfig.contact.emailUSA}`}
+                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline"
+                  >
+                    <Mail size={12} /> {siteConfig.contact.emailUSA}
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -220,22 +228,30 @@ export default function Footer() {
                 {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
                 {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
                 {siteConfig.contact.addressIndia.pincode}
+                <div className="mt-1">
+                  <a
+                    href={`mailto:${siteConfig.contact.emailIndia}`}
+                    className="text-ofs-gold-400 hover:text-white transition-colors font-mono text-xs inline-flex items-center gap-1.5 no-underline"
+                  >
+                    <Mail size={12} /> {siteConfig.contact.emailIndia}
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 mt-2">
+            <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-white/10">
               <a
                 href={`tel:${siteConfig.contact.phoneRaw}`}
-                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity"
+                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity no-underline"
               >
                 <Phone size={14} className="text-ofs-red-500" />
                 {siteConfig.contact.phone}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity"
+                className="flex items-center gap-2 text-[0.85rem] text-white font-mono hover:opacity-85 transition-opacity no-underline"
               >
-                <Mail size={14} className=" text-ofs-red-500" />
+                <Mail size={14} className="text-ofs-red-500" />
                 {siteConfig.contact.email}
               </a>
             </div>

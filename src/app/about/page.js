@@ -268,43 +268,61 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal direction="left" delay={0.1}>
-              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
-                <div className="mb-4">
-                  <Badge variant="navy">USA ENTITY</Badge>
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full flex flex-col justify-between">
+                <div>
+                  <div className="mb-4">
+                    <Badge variant="navy">USA ENTITY</Badge>
+                  </div>
+                  <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
+                    Oriented Facility Solution LLC
+                  </h3>
+                  <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-4">
+                    {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
+                    {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode},{' '}
+                    {siteConfig.contact.addressUSA.country}
+                  </p>
+                  <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 mb-4">
+                    Global Sourcing Coordination &amp; International AVL Desk
+                  </div>
                 </div>
-                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
-                  Oriented Facility Solution LLC
-                </h3>
-                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
-                  {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city},{' '}
-                  {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode},{' '}
-                  {siteConfig.contact.addressUSA.country}
-                </p>
-                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900">
-                  Global Sourcing Coordination &amp; International AVL Desk
+                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 pt-3 border-t border-ofs-navy-200/60">
+                  <div>
+                    <strong>Email:</strong>{' '}
+                    <a href={`mailto:${siteConfig.contact.emailUSA}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {siteConfig.contact.emailUSA}
+                    </a>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full">
-                <div className="mb-4">
-                  <Badge variant="red">INDIA OPERATIONS HUB</Badge>
+              <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-6 sm:p-7 shadow-md h-full flex flex-col justify-between">
+                <div>
+                  <div className="mb-4">
+                    <Badge variant="red">INDIA OPERATIONS HUB</Badge>
+                  </div>
+                  <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
+                    Oriented Facility Solution Pvt Ltd
+                  </h3>
+                  <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-4">
+                    {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
+                    {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
+                    {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
+                  </p>
                 </div>
-                <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
-                  Oriented Facility Solution Pvt Ltd
-                </h3>
-                <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-5">
-                  {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2},{' '}
-                  {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} –{' '}
-                  {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
-                </p>
-                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 flex flex-col gap-1.5">
+                <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 flex flex-col gap-1.5 pt-3 border-t border-ofs-navy-200/60">
                   <div>
-                    <strong>Phone:</strong> {siteConfig.contact.phone}
+                    <strong>Phone:</strong>{' '}
+                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {siteConfig.contact.phone}
+                    </a>
                   </div>
                   <div>
-                    <strong>Email:</strong> {siteConfig.contact.email}
+                    <strong>Email:</strong>{' '}
+                    <a href={`mailto:${siteConfig.contact.emailIndia}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {siteConfig.contact.emailIndia}
+                    </a>
                   </div>
                 </div>
               </div>

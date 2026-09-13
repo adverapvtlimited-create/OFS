@@ -199,11 +199,16 @@ export default function ContactPage() {
                       Oriented Facility Solution LLC
                     </h3>
                   </div>
-                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
                     {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
                   </p>
-                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono">
+                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono mb-3">
                     Global AVL Procurement &amp; International Cargo Coordination Desk
+                  </div>
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
+                    <a href={`mailto:${siteConfig.contact.emailUSA}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-navy-700 shrink-0" /> {siteConfig.contact.emailUSA}
+                    </a>
                   </div>
                 </div>
 
@@ -214,15 +219,15 @@ export default function ContactPage() {
                       Oriented Facility Solution Pvt Ltd
                     </h3>
                   </div>
-                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
                     {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2}, {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} – {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
                   </p>
-                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono">
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
                     <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
                       <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
                     </a>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
-                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.email}
+                    <a href={`mailto:${siteConfig.contact.emailIndia}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.emailIndia}
                     </a>
                   </div>
                 </div>
