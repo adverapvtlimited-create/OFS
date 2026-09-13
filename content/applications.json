@@ -1,5 +1,26 @@
 [
   {
+    "id": "APP-1789281289582",
+    "timestamp": "2026-09-13T06:34:49.582Z",
+    "jobId": "senior-procurement-manager",
+    "jobTitle": "Senior Procurement Manager - Marine & Heavy EPC",
+    "fullName": "kartiki",
+    "email": "kartikibirajdar181@gmail.com",
+    "phone": "838",
+    "experienceYears": "10",
+    "currentCompany": "N/A",
+    "resumeName": "quotation_final-1.pdf",
+    "resumeUrl": "https://res.cloudinary.com/rg-ganesh/raw/upload/v1789281291/ofs/careers/1789281287268_quotation_final-1",
+    "cloudinaryUrl": "https://res.cloudinary.com/rg-ganesh/raw/upload/v1789281291/ofs/careers/1789281287268_quotation_final-1",
+    "resumeSize": 496073,
+    "coverNote": "jcbscvua",
+    "status": "UNDER_REVIEW",
+    "ip": "::1",
+    "emailDispatched": true,
+    "emailMessageId": "<202609130634.53053191346@smtp-relay.mailin.fr>",
+    "emailError": null
+  },
+  {
     "id": "APP-1789275615024",
     "timestamp": "2026-09-13T05:00:15.024Z",
     "jobId": "solar-epc-project-engineer",

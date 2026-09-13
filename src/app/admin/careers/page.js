@@ -170,7 +170,7 @@ export default function CareersAdminPage() {
             return (
               <div
                 key={app.id}
-                className="bg-white border border-ofs-gray-200 rounded-lg p-8 shadow-sm"
+                className="bg-white border border-ofs-gray-200 rounded-lg p-4 sm:p-6 lg:p-8 shadow-sm"
               >
                 <div className="flex justify-between items-start mb-5 flex-wrap gap-3">
                   <div>
@@ -248,20 +248,9 @@ export default function CareersAdminPage() {
                     <div className="text-ofs-gray-500 text-xs font-mono uppercase mb-1">
                       Resume File
                     </div>
-                    {app.resumeUrl || app.cloudinaryUrl ? (
-                      <a
-                        href={app.resumeUrl || app.cloudinaryUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-ofs-red-600 hover:text-ofs-red-700 font-bold flex items-center gap-1.5 transition-colors underline"
-                      >
-                        <FileText size={14} className="text-ofs-red-600" /> {app.resumeName || 'View Resume'} ↗
-                      </a>
-                    ) : (
-                      <div className="text-ofs-navy-900 font-bold flex items-center gap-1.5">
-                        <FileText size={14} className="text-ofs-navy-700" /> {app.resumeName || 'N/A'}
-                      </div>
-                    )}
+                    <div className="text-ofs-navy-900 font-bold flex items-center gap-1.5">
+                      <FileText size={14} className="text-ofs-navy-700" /> {app.resumeName}
+                    </div>
                   </div>
                 </div>
 

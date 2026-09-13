@@ -134,7 +134,7 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4.25rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               Let's Discuss Your Next
             </TextReveal>
@@ -147,29 +147,29 @@ export default function ContactPage() {
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.18rem] text-white/85 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed mb-8">
               Connect directly with our corporate headquarters in Mumbai or our global liaison desk in Florida, USA.
             </p>
           </ScrollReveal>
 
           {/* Above-the-fold Direct Contact Channels */}
           <ScrollReveal direction="up" delay={0.35}>
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-1">
               <a
                 href={`tel:${siteConfig.contact.phoneRaw}`}
-                className="inline-flex items-center gap-2.5 py-2.5 px-5 rounded-md bg-white text-ofs-navy-950 font-heading font-extrabold text-sm shadow-lg hover:bg-ofs-gold-300 transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-2.5 py-2.5 px-5 rounded-md bg-white text-ofs-navy-950 font-heading font-extrabold text-sm shadow-lg hover:bg-ofs-gold-300 transition-colors no-underline text-center"
               >
-                <Phone size={15} className="text-ofs-red-600" /> {siteConfig.contact.phone}
+                <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="inline-flex items-center gap-2.5 py-2.5 px-5 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs font-semibold backdrop-blur-md transition-colors no-underline"
+                className="inline-flex items-center justify-center gap-2.5 py-2.5 px-5 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs font-semibold backdrop-blur-md transition-colors no-underline text-center"
               >
-                <Mail size={15} className="text-ofs-red-400" /> {siteConfig.contact.email}
+                <Mail size={15} className="text-ofs-red-400 shrink-0" /> {siteConfig.contact.email}
               </a>
               <a
                 href="#rfq-form"
-                className="inline-flex items-center gap-2 py-2.5 px-5 rounded-md bg-ofs-red-600 hover:bg-ofs-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(224,42,48,0.4)] transition-all no-underline"
+                className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-md bg-ofs-red-600 hover:bg-ofs-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(224,42,48,0.4)] transition-all no-underline text-center"
               >
                 Quick RFQ Form ↓
               </a>
@@ -192,37 +192,42 @@ export default function ContactPage() {
                   <span className="gradient-text-navy">Direct Contact Channels</span>
                 </h2>
 
-                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-6 shadow-sm">
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 lg:p-9 mb-6 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
                     <Globe2 size={22} className="text-ofs-navy-700 shrink-0" />
                     <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
                       Oriented Facility Solution LLC
                     </h3>
                   </div>
-                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
                     {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
                   </p>
-                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono">
+                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono mb-3">
                     Global AVL Procurement &amp; International Cargo Coordination Desk
+                  </div>
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
+                    <a href={`mailto:${siteConfig.contact.emailUSA}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-navy-700 shrink-0" /> {siteConfig.contact.emailUSA}
+                    </a>
                   </div>
                 </div>
 
-                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-9 mb-8 shadow-sm">
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 lg:p-9 mb-8 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
                     <Building size={22} className="text-ofs-red-600 shrink-0" />
                     <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
                       Oriented Facility Solution Pvt Ltd
                     </h3>
                   </div>
-                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-5">
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
                     {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2}, {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} – {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
                   </p>
-                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono">
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
                     <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
                       <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
                     </a>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
-                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.email}
+                    <a href={`mailto:${siteConfig.contact.emailIndia}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.emailIndia}
                     </a>
                   </div>
                 </div>
@@ -240,7 +245,7 @@ export default function ContactPage() {
 
             <div>
               <ScrollReveal direction="right" delay={0.2}>
-                <div id="rfq-form" className="bg-white border border-ofs-gray-200 rounded-2xl p-6 sm:p-9 lg:p-[3.25rem] shadow-xl scroll-mt-24">
+                <div id="rfq-form" className="bg-white border border-ofs-gray-200 rounded-2xl p-5 sm:p-8 lg:p-[3.25rem] shadow-xl scroll-mt-24">
                   {/* Form Type */}
                   <div className="flex gap-2 mb-8 border-b border-ofs-gray-200 pb-4">
                     <div className="font-mono text-[0.825rem] font-bold uppercase py-2.5 px-4 rounded bg-ofs-navy-900 text-white shadow-sm">

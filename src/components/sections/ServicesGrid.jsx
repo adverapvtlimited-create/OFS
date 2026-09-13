@@ -121,7 +121,7 @@ export default function ServicesGrid() {
                 </div>
 
                 {/* Content Column */}
-                <div className="sm:col-span-7 p-6 sm:p-7 flex flex-col justify-between">
+                <div className="sm:col-span-7 p-5 sm:p-7 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2.5 mb-2.5">
                       <div className="w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 shadow-sm transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white">
@@ -161,10 +161,10 @@ export default function ServicesGrid() {
                   </div>
 
                   {/* Card Action Row */}
-                  <div className="pt-3.5 border-t border-ofs-gray-200 flex justify-between items-center">
+                  <div className="pt-3.5 border-t border-ofs-gray-200 flex flex-wrap justify-between items-center gap-2">
                     <Link
                       href={serviceHref(flagshipService.slug)}
-                      className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-white bg-ofs-navy-950 hover:bg-ofs-red-600 py-2 px-4 rounded-xs transition-all duration-200 no-underline shadow-sm"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-white bg-ofs-navy-950 hover:bg-ofs-red-600 py-2 px-3.5 sm:px-4 rounded-xs transition-all duration-200 no-underline shadow-sm"
                     >
                       Explore Scope <ArrowUpRight size={14} />
                     </Link>
@@ -199,7 +199,7 @@ export default function ServicesGrid() {
                   </span>
                 </div>
 
-                <div className="p-5 pb-3">
+                <div className="p-4 sm:p-5 pb-3">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
                       <Wrench size={16} />
@@ -268,7 +268,7 @@ export default function ServicesGrid() {
                   </span>
                 </div>
 
-                <div className="p-5 pb-3">
+                <div className="p-4 sm:p-5 pb-3">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
                       <Settings size={16} />
@@ -336,7 +336,7 @@ export default function ServicesGrid() {
                   </span>
                 </div>
 
-                <div className="p-5 pb-3">
+                <div className="p-4 sm:p-5 pb-3">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
                       <Anchor size={16} />

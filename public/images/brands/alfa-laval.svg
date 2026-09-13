@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="40" fill="#E30613"/>
+  <!-- Alfa Laval Centrifugal Separator 4-blade Symbol -->
+  <g transform="translate(100, 72)">
+    <polygon points="0,-4 -28,-28 -4,-28" fill="#FFFFFF"/>
+    <polygon points="4,0 28,-28 28,-4" fill="#FFFFFF"/>
+    <polygon points="0,4 28,28 4,28" fill="#FFFFFF"/>
+    <polygon points="-4,0 -28,28 -28,4" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="5" fill="#E30613"/>
+  </g>
+  <text x="100" y="142" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="18" text-anchor="middle" letter-spacing="2">ALFA</text>
+  <text x="100" y="162" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="18" text-anchor="middle" letter-spacing="2">LAVAL</text>
+</svg>
