@@ -152,10 +152,7 @@ export default function FieldGallery() {
           </div>
 
           <ScrollReveal direction="up" delay={0.25} className="shrink-0">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-white/60 bg-white/[0.04] border border-white/10 px-3.5 py-2 rounded-md">
-              <Sparkles size={14} className="text-ofs-gold-400" />
-              <span>Hover photo to pause &bull; Click to inspect</span>
-            </div>
+           
           </ScrollReveal>
         </div>
       </Container>

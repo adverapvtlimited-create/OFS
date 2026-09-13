@@ -165,13 +165,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#case-studies"
+                <Link
+                  href="/#case-studies"
                   className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                 >
                   <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                  Execution Case Studies
-                </a>
+                  Industrial Case Studies
+                </Link>
               </li>
               <li>
                 <Link
