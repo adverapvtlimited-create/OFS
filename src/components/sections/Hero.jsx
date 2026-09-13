@@ -119,7 +119,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-wrap items-center gap-3"
             >
-              <Button href="/#what-we-offer" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
+              <Button href="/services" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
                 Explore Capabilities <ArrowUpRight size={18} />
               </Button>
               <Button href="/contact" variant="outline" size="lg" className="!w-auto" data-cursor-text="RFQ">

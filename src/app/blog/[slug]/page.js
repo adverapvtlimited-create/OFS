@@ -145,7 +145,7 @@ export default function SingleBlogPage({ params }) {
 
           <p className="text-[0.9rem] text-ofs-gray-600 mb-8">
             Explore OFS{' '}
-            <Link href="/#what-we-offer" className="text-ofs-red-600 font-bold hover:underline">
+            <Link href="/services" className="text-ofs-red-600 font-bold hover:underline">
               procurement and EPC support services
             </Link>{' '}
             or{' '}
