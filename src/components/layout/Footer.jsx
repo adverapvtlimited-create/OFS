@@ -166,15 +166,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#case-studies"
-                  className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
-                >
-                  <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                  Industrial Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/blog"
                   className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                 >
@@ -197,7 +188,7 @@ export default function Footer() {
                   className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                 >
                   <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                  Request RFQ / Consultation
+                  General Enquiry / Consultation
                 </Link>
               </li>
             </ul>

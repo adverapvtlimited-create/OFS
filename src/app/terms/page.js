@@ -29,7 +29,7 @@ export default function TermsPage() {
             Terms of Engagement
           </h1>
           <p className="text-ofs-gray-600 mb-10 leading-relaxed">
-            These terms govern use of the OFS Group India website and submission of enquiries, RFQs, and
+            These terms govern use of the OFS Group India website and submission of enquiries and
             job applications to Oriented Facility Solution Pvt Ltd.
           </p>
 
@@ -47,10 +47,10 @@ export default function TermsPage() {
 
             <section>
               <h2 className="font-heading text-[1.35rem] font-extrabold text-ofs-navy-950 mb-3">
-                Enquiries and RFQs
+                Project Enquiries
               </h2>
               <p>
-                Information submitted through contact forms, RFQ requests, or email is used to assess project
+                Information submitted through contact forms, enquiry submissions, or email is used to assess project
                 requirements and prepare commercial proposals. Response timelines depend on scope, technical
                 complexity, and resource availability.
               </p>

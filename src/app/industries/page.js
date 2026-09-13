@@ -3,18 +3,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Flame, 
-  Ship, 
-  Sun, 
-  Hammer, 
-  Zap, 
-  FlaskConical, 
-  Mountain, 
-  Plane, 
-  Anchor, 
-  Compass, 
-  ArrowUpRight, 
+import {
+  Flame,
+  Ship,
+  Sun,
+  Hammer,
+  Zap,
+  FlaskConical,
+  Mountain,
+  Plane,
+  Anchor,
+  Compass,
+  ArrowUpRight,
   CheckCircle2,
   Cpu
 } from 'lucide-react';
@@ -103,8 +103,8 @@ export default function IndustriesPage() {
                       <div>
                         {/* Hero Image with Zoom Hover */}
                         <div className="h-[175px] relative overflow-hidden">
-                          <motion.img 
-                            src={ind.heroImage} 
+                          <motion.img
+                            src={ind.heroImage}
                             alt={ind.name}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />

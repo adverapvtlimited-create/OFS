@@ -1,16 +1,15 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import {
   ShieldCheck,
   Globe2,
   Clock,
   Cpu,
   ArrowUpRight,
-  Sparkles,
   Users,
   CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -24,10 +23,9 @@ import Container from '@/components/ui/Container';
 export default function WhyChooseUs() {
   return (
     <SectionPad className="bg-ofs-navy-950 text-white relative overflow-hidden">
-      {/* Background Grid Pattern */}
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
 
-      {/* Radial Red Glow Accent */}
+
       <div className="absolute top-[20%] -right-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(224,42,48,0.18)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-[10%] -left-[10%] w-[450px] h-[450px] bg-[radial-gradient(circle,rgba(14,33,87,0.4)_0%,transparent_70%)] pointer-events-none" />
 
