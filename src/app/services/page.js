@@ -3,14 +3,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Package, 
-  Wrench, 
-  ShieldCheck, 
-  Anchor, 
-  Building2, 
-  Settings, 
-  ArrowUpRight, 
+import {
+  Package,
+  Wrench,
+  ShieldCheck,
+  Anchor,
+  Building2,
+  Settings,
+  ArrowUpRight,
   CheckCircle2,
   ChevronRight
 } from 'lucide-react';
@@ -141,8 +141,8 @@ export default function ServicesPage() {
 
                     {/* Image Visual Column */}
                     <div className={`relative min-h-[260px] sm:min-h-[380px] overflow-hidden ${isEven ? 'order-2' : 'order-2 lg:order-1'}`}>
-                      <motion.img 
-                        src={service.heroImage || service.image || '/images/live/Excellence-tools-official.png'} 
+                      <motion.img
+                        src={service.heroImage || service.image || '/images/live/Excellence-tools-official.png'}
                         alt={service.title}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.05 }}

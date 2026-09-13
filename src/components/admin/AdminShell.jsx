@@ -16,7 +16,7 @@ export default function AdminShell({ children }) {
 
   const navItems = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-    { name: 'RFQs & Enquiries', href: '/admin/enquiries', icon: MessageSquare },
+    { name: 'Client Enquiries', href: '/admin/enquiries', icon: MessageSquare },
     { name: 'Job Applications', href: '/admin/careers', icon: Briefcase },
   ];
 
