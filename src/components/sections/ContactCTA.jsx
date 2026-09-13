@@ -27,7 +27,7 @@ export default function ContactCTA() {
     email: '',
     phone: '',
     company: '',
-    service: 'Procurement & Shipping',
+    service: 'Procurement & Sourcing',
     message: '',
     formType: 'rfp',
   });
@@ -124,7 +124,7 @@ export default function ContactCTA() {
           email: '',
           phone: '',
           company: '',
-          service: 'Procurement & Shipping',
+          service: 'Procurement & Sourcing',
           message: '',
           formType: 'rfp',
         });

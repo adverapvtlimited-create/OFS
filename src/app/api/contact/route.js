@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
 import {
@@ -232,7 +230,7 @@ export async function POST(request) {
       ip: request.headers.get("x-forwarded-for") || "127.0.0.1",
     };
 
-    // 3. Dispatch Email via Brevo API using in-memory Buffer & Cloudinary URL
+    // 1. Dispatch Email via Brevo API using in-memory Buffer & Cloudinary URL
     const emailResult = await sendRfqEmail({
       enquiry: enquiryRecord,
       file: fileDetails,
@@ -252,9 +250,7 @@ export async function POST(request) {
       return NextResponse.json(
         {
           success: false,
-          error:
-            emailResult.error ||
-            "Failed to send email notification to the commercial desk.",
+          error: emailResult.error || "Failed to send email notification to the commercial desk.",
           enquiryId: enquiryRecord.id,
           cloudinaryUrl,
           emailSent: false,
@@ -263,10 +259,42 @@ export async function POST(request) {
       );
     }
 
+    // 2. [PHASE 2 - STRAPI INTEGRATION]
+    // Once the Hostinger VPS is online, we will uncomment this block to securely push
+    // the validated lead directly into the PostgreSQL database via the Strapi API.
+    /*
+    try {
+      const strapiPayload = {
+        data: {
+          formType: data.formType || "general",
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          company: data.company || "Not Specified",
+          subjectOrRole: data.service || "General Inquiry",
+          message: data.message || "",
+          status: "New"
+          // Note: File attachments require a separate upload to Strapi if not using Cloudinary links
+        }
+      };
+
+      await fetch(`${process.env.STRAPI_URL}/api/enquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.STRAPI_WRITE_TOKEN}`
+        },
+        body: JSON.stringify(strapiPayload)
+      });
+    } catch (strapiErr) {
+      console.error("[Strapi Persistence Error]:", strapiErr);
+      // We don't fail the request here, because the email was already successfully dispatched!
+    }
+    */
+
     return NextResponse.json({
       success: true,
-      message:
-        "Enquiry registered successfully and dispatched to commercial desk.",
+      message: "Enquiry registered successfully and dispatched to commercial desk.",
       enquiryId: enquiryRecord.id,
       cloudinaryUrl,
       emailSent: true,
@@ -280,6 +308,8 @@ export async function POST(request) {
   }
 }
 
+// GET route remains for now to prevent Admin Portal from crashing on frontend builds, 
+// returning an empty array until Strapi is connected.
 export async function GET() {
   try {
     const enquiries = readEnquiries();

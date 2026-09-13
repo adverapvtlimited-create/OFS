@@ -32,7 +32,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     company: '',
-    service: 'Procurement & Shipping',
+    service: 'Procurement & Sourcing',
     urgency: 'Standard (1-2 Days)',
     message: '',
     formType: 'general',
@@ -132,7 +132,7 @@ export default function ContactPage() {
           email: '',
           phone: '',
           company: '',
-          service: 'Procurement & Shipping',
+          service: 'Procurement & Sourcing',
           urgency: 'Standard (1-2 Days)',
           message: '',
           formType: 'general',
@@ -387,7 +387,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           className="form-control"
                         >
-                          <option value="Procurement & Shipping">Procurement &amp; Global Shipping</option>
+                          <option value="Procurement & Sourcing">Procurement &amp; Global Sourcing</option>
                           <option value="Engineering & EPC Support">Engineering &amp; EPC Support Services</option>
                           <option value="Quality Control & Assurance">Quality Control (QA/QC &amp; NDT)</option>
                           <option value="Spare Parts Sourcing & MRO">Spare Parts Sourcing &amp; MRO</option>
