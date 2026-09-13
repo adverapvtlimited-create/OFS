@@ -144,8 +144,8 @@ function renderCustomBlock(block, index) {
 
                 <div
                   className={cn(
-                    'space-y-4 text-[1.02rem] sm:text-[1.05rem] leading-relaxed',
-                    isDark ? 'text-gray-200' : 'text-ofs-gray-700'
+                    'space-y-4 text-[1.02rem] sm:text-[1.05rem] leading-relaxed font-medium',
+                    isDark ? 'text-white' : 'text-ofs-navy-950'
                   )}
                 >
                   {block.paragraphs?.map((p, i) => (
