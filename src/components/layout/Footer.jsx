@@ -116,7 +116,11 @@ export default function Footer() {
               {industriesData.slice(0, 5).map((ind) => (
                 <li key={ind.id}>
                   <Link
-                    href={`/industries/${ind.slug}`}
+                    href={
+                      ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+                        ? '/renewables'
+                        : `/industries/${ind.slug}`
+                    }
                     className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                   >
                     <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />

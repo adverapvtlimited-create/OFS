@@ -301,7 +301,11 @@ export default function SingleServicePage({ params }) {
               {industriesData.slice(0, 4).map((ind) => (
                 <Link
                   key={ind.id}
-                  href={`/industries/${ind.slug}`}
+                  href={
+                    ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+                      ? '/renewables'
+                      : `/industries/${ind.slug}`
+                  }
                   className="p-3 sm:p-4 bg-ofs-gray-50 border border-ofs-gray-200 rounded text-ofs-navy-950 font-bold text-xs sm:text-[0.9rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors text-center"
                 >
                   {ind.shortName}

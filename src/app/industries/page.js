@@ -91,7 +91,14 @@ export default function IndustriesPage() {
               const IconComp = iconMap[ind.icon] || Flame;
               return (
                 <ScrollReveal key={ind.id} direction="up" delay={idx * 0.08}>
-                  <Link href={`/industries/${ind.slug}`} className="block h-full group no-underline">
+                  <Link
+                    href={
+                      ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+                        ? '/renewables'
+                        : `/industries/${ind.slug}`
+                    }
+                    className="block h-full group no-underline"
+                  >
                     <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                       <div>
                         {/* Hero Image with Zoom Hover */}

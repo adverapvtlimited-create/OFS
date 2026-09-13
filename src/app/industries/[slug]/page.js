@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { 
   Flame, 
   Ship, 
@@ -87,6 +87,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default function SingleIndustryPage({ params }) {
+  if (params.slug === 'renewable-energy') {
+    redirect('/renewables');
+  }
+
   const ind = findIndustryBySlug(params.slug);
 
   if (!ind) {
