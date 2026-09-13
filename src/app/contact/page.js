@@ -268,6 +268,8 @@ export default function ContactPage() {
                           type="text"
                           name="name"
                           required
+                          minLength={2}
+                          maxLength={100}
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="e.g. Ramesh Reddy"
@@ -280,6 +282,7 @@ export default function ContactPage() {
                           type="email"
                           name="email"
                           required
+                          maxLength={120}
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="r.reddy@enterprise.com"
@@ -295,6 +298,10 @@ export default function ContactPage() {
                           type="tel"
                           name="phone"
                           required
+                          minLength={7}
+                          maxLength={25}
+                          pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
+                          title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+91 98200 00000"
@@ -306,6 +313,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           name="company"
+                          maxLength={150}
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="e.g. ONGC / Larsen &amp; Toubro"
@@ -352,6 +360,8 @@ export default function ContactPage() {
                       <textarea
                         name="message"
                         required
+                        minLength={5}
+                        maxLength={3000}
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Specify material grades, quantities, delivery destination port, or plant location..."
