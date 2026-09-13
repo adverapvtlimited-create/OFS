@@ -416,7 +416,7 @@ export default function ServicesGrid() {
                   Request Technical Quotation <ArrowUpRight size={14} />
                 </Button>
                 <div className="text-[0.72rem] font-mono text-center text-white/60">
-                  Average RFQ Turnaround: &lt; 24 Hours
+                  Average Response Turnaround: &lt; 24 Hours
                 </div>
               </div>
             </div>

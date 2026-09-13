@@ -122,8 +122,8 @@ export default function Hero() {
               <Button href="/services" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
                 Explore Capabilities <ArrowUpRight size={18} />
               </Button>
-              <Button href="/contact" variant="outline" size="lg" className="w-full sm:!w-auto" data-cursor-text="RFQ">
-                Request RFQ
+              <Button href="/contact" variant="outline" size="lg" className="w-full sm:!w-auto" data-cursor-text="ENQUIRY">
+                General Enquiry
               </Button>
               <Button href="/renewables" variant="green" size="lg" className="w-full sm:!w-auto" data-cursor-text="SOLAR">
                 Renewables Portal <Zap size={18} />

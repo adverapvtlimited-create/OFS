@@ -150,12 +150,12 @@ export const PAGE_SEO = {
   contact: {
     title: 'Contact OFS Group India | Mumbai HQ & Global Offices',
     description:
-      'Contact OFS Group India for procurement RFQs, EPC support, facility management, and renewable energy inquiries. Mumbai headquarters and USA global office. Call +91 98200 00000 or email info@ofsgroupindia.com.',
+      'Contact OFS Group India for procurement enquiries, EPC support, facility management, and renewable energy inquiries. Mumbai headquarters and USA global office. Call +91 98200 00000 or email info@ofsgroupindia.com.',
     path: '/contact',
     keywords: [
       'contact OFS Group India',
       'OFS Mumbai office',
-      'procurement RFQ India',
+      'procurement enquiry India',
       'EPC consultation contact',
     ],
     primaryKeyword: 'contact OFS Group India',
@@ -173,7 +173,7 @@ export const PAGE_SEO = {
   terms: {
     title: 'Terms of Engagement | OFS Group India',
     description:
-      'Terms of engagement for using the OFS Group India website and submitting enquiries, RFQs, and job applications to Oriented Facility Solution Pvt Ltd.',
+      'Terms of engagement for using the OFS Group India website and submitting enquiries and job applications to Oriented Facility Solution Pvt Ltd.',
     path: '/terms',
     robots: { index: true, follow: true },
   },

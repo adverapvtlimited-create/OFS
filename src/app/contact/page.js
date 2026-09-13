@@ -171,7 +171,7 @@ export default function ContactPage() {
                 href="#rfq-form"
                 className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-md bg-ofs-red-600 hover:bg-ofs-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(224,42,48,0.4)] transition-all no-underline text-center"
               >
-                Quick RFQ Form ↓
+                Quick Enquiry Form ↓
               </a>
             </div>
           </ScrollReveal>
@@ -362,7 +362,7 @@ export default function ContactPage() {
 
                     <div className="form-group">
                       <label className="form-label flex items-center justify-between">
-                        <span>Attach RFQ / Specification PDF</span>
+                        <span>Attach Document / Specification PDF</span>
                         <span className="text-[0.7rem] font-normal text-ofs-gray-500 lowercase font-sans">
                           (Optional, Max 10MB)
                         </span>
@@ -383,7 +383,7 @@ export default function ContactPage() {
                             <span className="text-ofs-red-600 hover:underline font-bold">Click to upload PDF</span> or drag &amp; drop
                           </p>
                           <p className="text-[0.725rem] text-ofs-gray-500 m-0 mt-1 font-mono">
-                            BOQ, RFQ or Technical Specification (PDF up to 10MB)
+                            BOQ, Specification or Technical Scope (PDF up to 10MB)
                           </p>
                         </label>
                       ) : (

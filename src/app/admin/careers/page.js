@@ -164,8 +164,8 @@ export default function CareersAdminPage() {
           {filteredApplications.map((app) => {
             const statusBadgeClasses =
               app.status === 'UNDER_REVIEW' ? 'text-ofs-gold-600 bg-amber-50 border-amber-200' :
-              app.status === 'SHORTLISTED' ? 'text-ofs-green-700 bg-ofs-green-50 border-ofs-green-200' :
-              app.status === 'HIRED' ? 'text-ofs-navy-900 bg-ofs-navy-50 border-ofs-navy-200' : 'text-ofs-red-600 bg-ofs-red-50 border-ofs-red-200';
+                app.status === 'SHORTLISTED' ? 'text-ofs-green-700 bg-ofs-green-50 border-ofs-green-200' :
+                  app.status === 'HIRED' ? 'text-ofs-navy-900 bg-ofs-navy-50 border-ofs-navy-200' : 'text-ofs-red-600 bg-ofs-red-50 border-ofs-red-200';
 
             return (
               <div

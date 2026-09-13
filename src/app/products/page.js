@@ -3,18 +3,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Flame, 
-  Zap, 
-  Hammer, 
-  Sun, 
-  FlaskConical, 
-  Wrench, 
-  Settings, 
-  Ship, 
-  ShieldCheck, 
-  ArrowUpRight, 
-  CheckCircle2 
+import {
+  Flame,
+  Zap,
+  Hammer,
+  Sun,
+  FlaskConical,
+  Wrench,
+  Settings,
+  Ship,
+  ShieldCheck,
+  ArrowUpRight,
+  CheckCircle2
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -95,11 +95,10 @@ export default function ProductsPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`font-mono text-xs font-bold uppercase tracking-wider px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 cursor-pointer border ${
-                  selectedCategory === cat
+                className={`font-mono text-xs font-bold uppercase tracking-wider px-3.5 sm:px-4 py-2 rounded-full transition-all shrink-0 cursor-pointer border ${selectedCategory === cat
                     ? 'bg-ofs-navy-950 text-white border-ofs-navy-950 shadow-md'
                     : 'bg-white text-ofs-navy-900 border-ofs-gray-200 hover:border-ofs-navy-300 hover:bg-ofs-navy-50'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -119,13 +118,13 @@ export default function ProductsPage() {
                     <div>
                       {/* Image Header with Zoom Hover & Floating Badge */}
                       <div className="h-[185px] relative overflow-hidden bg-ofs-navy-950">
-                        <motion.img 
-                          src={prod.heroImage} 
+                        <motion.img
+                          src={prod.heroImage}
                           alt={prod.name}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/20 via-transparent to-ofs-navy-950/60 pointer-events-none" />
-                        
+
                         {/* Top Left Icon Badge */}
                         <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">
                           <IconComp size={18} />
