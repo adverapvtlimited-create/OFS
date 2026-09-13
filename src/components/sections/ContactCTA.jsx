@@ -19,6 +19,7 @@ import SectionPad from '@/components/ui/SectionPad';
 import Container from '@/components/ui/Container';
 import siteConfig from '@/data/site-config.json';
 import { cn } from '@/lib/cn';
+import { contactEnquirySchema, validatePdfFile } from '@/lib/validations/contact';
 
 export default function ContactCTA() {
   const [formData, setFormData] = useState({
@@ -28,45 +29,80 @@ export default function ContactCTA() {
     company: '',
     service: 'Procurement & Sourcing',
     message: '',
+    formType: 'rfp',
   });
+  const [fieldErrors, setFieldErrors] = useState({});
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfError, setPdfError] = useState('');
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      setPdfError('Please upload a valid PDF document (.pdf)');
+
+    const validation = validatePdfFile(file);
+    if (!validation.valid) {
+      setPdfError(validation.error);
       setPdfFile(null);
       return;
     }
-    if (file.size > 10 * 1024 * 1024) {
-      setPdfError('PDF file size must be less than 10MB');
-      setPdfFile(null);
-      return;
-    }
+
     setPdfError('');
     setPdfFile(file);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFieldErrors({});
+    setPdfError('');
+
+    // 🔒 1. Zod client validation
+    const validation = contactEnquirySchema.safeParse(formData);
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
+      setFieldErrors(errors);
+      setStatus({
+        state: 'error',
+        msg: 'Please check the highlighted fields.',
+      });
+      return;
+    }
+
+    // 🔒 2. PDF validation
+    if (pdfFile) {
+      const fileValidation = validatePdfFile(pdfFile);
+      if (!fileValidation.valid) {
+        setPdfError(fileValidation.error);
+        return;
+      }
+    }
+
     setStatus({ state: 'loading', msg: 'Submitting your technical enquiry...' });
 
     try {
       const payload = new FormData();
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('phone', formData.phone);
-      payload.append('company', formData.company);
-      payload.append('service', formData.service);
-      payload.append('message', formData.message);
+      const validData = validation.data;
+
+      payload.append('name', validData.name);
+      payload.append('email', validData.email);
+      payload.append('phone', validData.phone);
+      payload.append('company', validData.company || '');
+      payload.append('service', validData.service || '');
+      payload.append('message', validData.message || '');
       payload.append('formType', 'rfp');
+
       if (pdfFile) {
         payload.append('file', pdfFile);
       }
@@ -76,7 +112,7 @@ export default function ContactCTA() {
         body: payload,
       });
 
-   
+      const resData = await res.json().catch(() => ({}));
 
       if (res.ok) {
         setStatus({
@@ -90,14 +126,18 @@ export default function ContactCTA() {
           company: '',
           service: 'Procurement & Sourcing',
           message: '',
+          formType: 'rfp',
         });
+        setFieldErrors({});
         setPdfFile(null);
         setPdfError('');
       } else {
-        const errData = await res.json().catch(() => ({}));
+        if (resData.errors) {
+          setFieldErrors(resData.errors);
+        }
         setStatus({
           state: 'error',
-          msg: errData.error || 'There was an issue submitting your enquiry. Please call our direct helpline.',
+          msg: resData.error || 'There was an issue submitting your enquiry. Please call our direct helpline.',
         });
       }
     } catch (err) {
@@ -158,45 +198,39 @@ export default function ContactCTA() {
               </div>
             </ScrollReveal>
 
-            <div className="flex flex-col gap-4">
-              <ScrollReveal direction="left" delay={0.4}>
-                <a
-                  href={`tel:${siteConfig.contact.phoneRaw}`}
-                  className="flex items-center gap-4 p-4 sm:px-5 bg-white/[0.04] border border-white/10 rounded-sm text-white no-underline transition-all duration-200 hover:bg-white/[0.08] hover:border-ofs-red-500 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
-                >
-                  <div className="w-10 h-10 rounded-xs bg-ofs-red-600 grid place-content-center shadow-[0_2px_10px_rgba(224,42,48,0.35)] shrink-0">
-                    <Phone size={20} />
+            <ScrollReveal direction="up" delay={0.45}>
+              <div className="flex flex-col sm:flex-row gap-6 pt-6 border-t border-white/10">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-ofs-red-600/20 border border-ofs-red-500/30 flex items-center justify-center text-ofs-red-400 shrink-0">
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <div className="text-xs text-white/65 font-mono font-semibold">
-                      DIRECT PHONE / 24/7 HELPLINE
-                    </div>
-                    <div className="font-heading text-base font-extrabold">
-                      {siteConfig.contact.phone}
-                    </div>
+                    <span className="text-xs font-mono text-white/50 uppercase block">Direct Line</span>
+                    <a
+                      href={`tel:${siteConfig?.contact?.phone || '0226961112'}`}
+                      className="text-sm sm:text-base font-bold text-white hover:text-ofs-red-400 transition-colors"
+                    >
+                      {siteConfig?.contact?.phone || '022 6961 1112'}
+                    </a>
                   </div>
-                </a>
-              </ScrollReveal>
+                </div>
 
-              <ScrollReveal direction="left" delay={0.5}>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-4 p-4 sm:px-5 bg-white/[0.04] border border-white/10 rounded-sm text-white no-underline transition-all duration-200 hover:bg-white/[0.08] hover:border-ofs-red-500 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
-                >
-                  <div className="w-10 h-10 rounded-xs bg-ofs-navy-700 grid place-content-center shadow-[0_2px_10px_rgba(12,30,78,0.35)] shrink-0">
-                    <Mail size={20} />
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-full bg-ofs-navy-800 border border-white/15 flex items-center justify-center text-white/80 shrink-0">
+                    <Mail size={18} />
                   </div>
                   <div>
-                    <div className="text-xs text-white/65 font-mono font-semibold">
-                      OFFICIAL ENQUIRY &amp; RFQ EMAIL
-                    </div>
-                    <div className="font-heading text-base font-extrabold">
-                      {siteConfig.contact.email}
-                    </div>
+                    <span className="text-xs font-mono text-white/50 uppercase block">Commercial Desk</span>
+                    <a
+                      href={`mailto:${siteConfig?.contact?.email || 'hello@ofsworld.com'}`}
+                      className="text-sm sm:text-base font-bold text-white hover:text-ofs-red-400 transition-colors"
+                    >
+                      {siteConfig?.contact?.email || 'hello@ofsworld.com'}
+                    </a>
                   </div>
-                </a>
-              </ScrollReveal>
-            </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
 
           <ScrollReveal direction="up" delay={0.2}>
@@ -208,7 +242,7 @@ export default function ContactCTA() {
                 Fill in your specifications below to receive a detailed proposal.
               </p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[0.72rem] font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.06em]">
@@ -221,8 +255,19 @@ export default function ContactCTA() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-md outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10 placeholder:text-ofs-gray-400"
+                      className={cn(
+                        "w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border rounded-md outline-none transition-all duration-150 placeholder:text-ofs-gray-400",
+                        fieldErrors.name
+                          ? "border-ofs-red-500 focus:border-ofs-red-600 focus:ring-2 focus:ring-ofs-red-500/20"
+                          : "border-ofs-gray-300 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10"
+                      )}
                     />
+                    {fieldErrors.name && (
+                      <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-0.5">
+                        <AlertCircle size={12} className="shrink-0" />
+                        <span>{fieldErrors.name[0]}</span>
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[0.72rem] font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.06em]">
@@ -235,8 +280,19 @@ export default function ContactCTA() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@company.com"
-                      className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-md outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10 placeholder:text-ofs-gray-400"
+                      className={cn(
+                        "w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border rounded-md outline-none transition-all duration-150 placeholder:text-ofs-gray-400",
+                        fieldErrors.email
+                          ? "border-ofs-red-500 focus:border-ofs-red-600 focus:ring-2 focus:ring-ofs-red-500/20"
+                          : "border-ofs-gray-300 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10"
+                      )}
                     />
+                    {fieldErrors.email && (
+                      <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-0.5">
+                        <AlertCircle size={12} className="shrink-0" />
+                        <span>{fieldErrors.email[0]}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -252,8 +308,19 @@ export default function ContactCTA() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98200 00000"
-                      className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-md outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10 placeholder:text-ofs-gray-400"
+                      className={cn(
+                        "w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border rounded-md outline-none transition-all duration-150 placeholder:text-ofs-gray-400",
+                        fieldErrors.phone
+                          ? "border-ofs-red-500 focus:border-ofs-red-600 focus:ring-2 focus:ring-ofs-red-500/20"
+                          : "border-ofs-gray-300 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10"
+                      )}
                     />
+                    {fieldErrors.phone && (
+                      <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-0.5">
+                        <AlertCircle size={12} className="shrink-0" />
+                        <span>{fieldErrors.phone[0]}</span>
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[0.72rem] font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.06em]">
@@ -267,6 +334,12 @@ export default function ContactCTA() {
                       placeholder="e.g. Larsen & Toubro"
                       className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-md outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10 placeholder:text-ofs-gray-400"
                     />
+                    {fieldErrors.company && (
+                      <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-0.5">
+                        <AlertCircle size={12} className="shrink-0" />
+                        <span>{fieldErrors.company[0]}</span>
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -296,13 +369,23 @@ export default function ContactCTA() {
                   </label>
                   <textarea
                     name="message"
-                    required
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Please describe project location, timeline, quantities, or technical specifications..."
                     rows={3}
-                    className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-md outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10 placeholder:text-ofs-gray-400 resize-y min-h-[105px]"
+                    className={cn(
+                      "w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border rounded-md outline-none transition-all duration-150 placeholder:text-ofs-gray-400 resize-y min-h-[105px]",
+                      fieldErrors.message
+                        ? "border-ofs-red-500 focus:border-ofs-red-600 focus:ring-2 focus:ring-ofs-red-500/20"
+                        : "border-ofs-gray-300 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/10"
+                    )}
                   />
+                  {fieldErrors.message && (
+                    <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-0.5">
+                      <AlertCircle size={12} className="shrink-0" />
+                      <span>{fieldErrors.message[0]}</span>
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-1.5">

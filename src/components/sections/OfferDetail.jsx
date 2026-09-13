@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
@@ -13,6 +13,70 @@ import { getRelatedOffers } from '@/lib/offers';
 import { whatWeOffer } from '@/data/navigation';
 import { buildWebPageSchema } from '@/lib/schema';
 import { cn } from '@/lib/cn';
+import { newsletterSchema } from '@/lib/validations/newsletter';
+
+function NewsletterSubscribe() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+    const validation = newsletterSchema.safeParse({ email });
+    if (!validation.success) {
+      const err = validation.error.flatten().fieldErrors.email?.[0] || 'Please enter a valid email address.';
+      setError(err);
+      return;
+    }
+    setSuccess(true);
+    setEmail('');
+  };
+
+  if (success) {
+    return (
+      <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-sm flex items-center gap-2">
+        <CheckCircle2 size={18} className="text-emerald-600 shrink-0" />
+        <span>Thank you for subscribing! You will receive our latest project updates and technical bulletins.</span>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="w-full space-y-3">
+      <label className="block text-xs font-bold tracking-wider text-ofs-gray-600 uppercase">
+        EMAIL *
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          if (error) setError('');
+        }}
+        placeholder="your.email@company.com"
+        className={cn(
+          "w-full px-4 py-3 rounded-md bg-white text-ofs-navy-950 border text-sm shadow-sm outline-none transition-all",
+          error
+            ? "border-ofs-red-500 focus:ring-2 focus:ring-ofs-red-500/20"
+            : "border-gray-300 focus:ring-2 focus:ring-ofs-navy-600"
+        )}
+      />
+      {error && (
+        <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium">
+          <AlertCircle size={12} className="shrink-0" />
+          <span>{error}</span>
+        </p>
+      )}
+      <button
+        type="submit"
+        className="w-full py-3.5 px-6 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-colors shadow-md cursor-pointer"
+      >
+        Subscribe
+      </button>
+    </form>
+  );
+}
 
 function formatText(text) {
   if (!text) return null;
@@ -179,29 +243,7 @@ function renderCustomBlock(block, index) {
         <section className="bg-white py-12 sm:py-14 border-t border-ofs-gray-100">
           <Container>
             <div className="max-w-3xl mx-auto">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert('Thank you for your interest in OFS Project Supply!');
-                }}
-                className="w-full space-y-3"
-              >
-                <label className="block text-xs font-bold tracking-wider text-ofs-gray-600 uppercase">
-                  EMAIL *
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder=""
-                  className="w-full px-4 py-3 rounded-md bg-white text-ofs-navy-950 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ofs-navy-600 text-sm shadow-sm"
-                />
-                <button
-                  type="submit"
-                  className="w-full py-3.5 px-6 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-colors shadow-md cursor-pointer"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterSubscribe />
             </div>
           </Container>
         </section>

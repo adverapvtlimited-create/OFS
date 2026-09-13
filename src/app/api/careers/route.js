@@ -3,6 +3,12 @@ import fs from 'fs';
 import path from 'path';
 import { uploadToCloudinary } from '@/lib/cloudinary';
 import { sendCareerApplicationEmail } from '@/lib/brevo';
+import {
+  careerApplicationSchema,
+  updateApplicationStatusSchema,
+  careerQuerySchema,
+  validateResumeFile,
+} from '@/lib/validations/career';
 
 export const dynamic = 'force-dynamic';
 
@@ -83,19 +89,20 @@ const writeApplications = (apps) => {
 
 export async function POST(request) {
   try {
-    let data = {};
+    let rawData = {};
     let resumeUrl = null;
     let cloudinaryUrl = null;
     let resumeName = null;
     let resumeSize = null;
     let fileDetails = null;
     let fileContentType = 'application/pdf';
+    let uploadedFile = null;
 
     const contentType = request.headers.get('content-type') || '';
 
     if (contentType.includes('multipart/form-data')) {
       const formData = await request.formData();
-      data = {
+      rawData = {
         fullName: formData.get('fullName') || formData.get('name'),
         email: formData.get('email'),
         phone: formData.get('phone'),
@@ -106,98 +113,122 @@ export async function POST(request) {
         coverNote: formData.get('coverNote') || '',
         resumeName: formData.get('resumeName') || 'Candidate_Resume.pdf',
       };
-
-      const uploadedFile = formData.get('file') || formData.get('resume');
-      if (
-        uploadedFile &&
-        typeof uploadedFile === 'object' &&
-        uploadedFile.name &&
-        typeof uploadedFile.arrayBuffer === 'function'
-      ) {
-        resumeName = uploadedFile.name;
-        resumeSize = uploadedFile.size;
-        fileContentType = uploadedFile.type || 'application/pdf';
-
-        try {
-          const arrayBuffer = await uploadedFile.arrayBuffer();
-          const buffer = Buffer.from(arrayBuffer);
-
-          // 1. Upload directly to Cloudinary using in-memory Buffer
-          try {
-            const cloudinaryResult = await uploadToCloudinary(
-              buffer,
-              uploadedFile.name,
-              'ofs/careers'
-            );
-            if (cloudinaryResult?.secure_url || cloudinaryResult?.url) {
-              cloudinaryUrl = cloudinaryResult.secure_url || cloudinaryResult.url;
-              resumeUrl = cloudinaryUrl;
-            }
-          } catch (cloudErr) {
-            console.warn('[Cloudinary Career Upload Warning]:', cloudErr.message);
-          }
-
-          // 2. Try saving to local disk only if directory is writable (e.g. local dev)
-          let diskFilePath = null;
-          try {
-            const uploadsDir = path.join(
-              process.cwd(),
-              'public',
-              'uploads',
-              'careers'
-            );
-            if (!fs.existsSync(uploadsDir)) {
-              fs.mkdirSync(uploadsDir, { recursive: true });
-            }
-            const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-            diskFilePath = path.join(uploadsDir, safeFileName);
-            fs.writeFileSync(diskFilePath, buffer);
-            if (!resumeUrl) {
-              resumeUrl = `/uploads/careers/${safeFileName}`;
-            }
-          } catch {
-            // Read-only filesystem in production - safely skipped
-          }
-
-          fileDetails = {
-            buffer,
-            base64: buffer.toString('base64'),
-            filePath: diskFilePath,
-            fileName: resumeName,
-            size: resumeSize,
-            contentType: fileContentType,
-            cloudinaryUrl,
-          };
-        } catch (fileErr) {
-          console.error('[Career File Processing Error]:', fileErr);
-        }
-      }
+      uploadedFile = formData.get('file') || formData.get('resume');
     } else {
-      data = await request.json();
+      rawData = await request.json();
     }
 
-    if (!data.fullName || !data.email || !data.phone) {
+    // 🔒 1. Zod Validation for Form Fields
+    const validationResult = careerApplicationSchema.safeParse(rawData);
+    if (!validationResult.success) {
+      const errors = validationResult.error.flatten().fieldErrors;
+      const firstErrorMessage =
+        Object.values(errors).flat()[0] || 'Invalid candidate application details.';
       return NextResponse.json(
-        { error: 'Full name, email, and phone are required fields.' },
+        {
+          success: false,
+          error: firstErrorMessage,
+          errors,
+        },
         { status: 400 }
       );
+    }
+
+    const validatedData = validationResult.data;
+
+    // 🔒 2. Resume File Validation
+    if (
+      uploadedFile &&
+      typeof uploadedFile === 'object' &&
+      uploadedFile.name &&
+      typeof uploadedFile.arrayBuffer === 'function'
+    ) {
+      const fileValidation = validateResumeFile(uploadedFile);
+      if (!fileValidation.valid) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: fileValidation.error,
+            errors: { resume: [fileValidation.error] },
+          },
+          { status: 400 }
+        );
+      }
+
+      resumeName = uploadedFile.name;
+      resumeSize = uploadedFile.size;
+      fileContentType = uploadedFile.type || 'application/pdf';
+
+      try {
+        const arrayBuffer = await uploadedFile.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+
+        // Upload to Cloudinary using in-memory Buffer
+        try {
+          const cloudinaryResult = await uploadToCloudinary(
+            buffer,
+            uploadedFile.name,
+            'ofs/careers'
+          );
+          if (cloudinaryResult?.secure_url || cloudinaryResult?.url) {
+            cloudinaryUrl = cloudinaryResult.secure_url || cloudinaryResult.url;
+            resumeUrl = cloudinaryUrl;
+          }
+        } catch (cloudErr) {
+          console.warn('[Cloudinary Career Upload Warning]:', cloudErr.message);
+        }
+
+        // Try local disk only if directory is writable
+        let diskFilePath = null;
+        try {
+          const uploadsDir = path.join(
+            process.cwd(),
+            'public',
+            'uploads',
+            'careers'
+          );
+          if (!fs.existsSync(uploadsDir)) {
+            fs.mkdirSync(uploadsDir, { recursive: true });
+          }
+          const safeFileName = `${Date.now()}-${uploadedFile.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+          diskFilePath = path.join(uploadsDir, safeFileName);
+          fs.writeFileSync(diskFilePath, buffer);
+          if (!resumeUrl) {
+            resumeUrl = `/uploads/careers/${safeFileName}`;
+          }
+        } catch {
+          // Read-only filesystem in production - safely skipped
+        }
+
+        fileDetails = {
+          buffer,
+          base64: buffer.toString('base64'),
+          filePath: diskFilePath,
+          fileName: resumeName,
+          size: resumeSize,
+          contentType: fileContentType,
+          cloudinaryUrl,
+        };
+      } catch (fileErr) {
+        console.error('[Career File Processing Error]:', fileErr);
+      }
     }
 
     const applicationRecord = {
       id: `APP-${Date.now()}`,
       timestamp: new Date().toISOString(),
-      jobId: data.jobId || 'general',
-      jobTitle: data.jobTitle || 'General Application',
-      fullName: data.fullName,
-      email: data.email,
-      phone: data.phone,
-      experienceYears: data.experienceYears || 'N/A',
-      currentCompany: data.currentCompany || 'N/A',
-      resumeName: resumeName || data.resumeName || 'resume-attached.pdf',
-      resumeUrl: resumeUrl || cloudinaryUrl || data.resumeUrl || null,
+      jobId: validatedData.jobId,
+      jobTitle: validatedData.jobTitle,
+      fullName: validatedData.fullName,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      experienceYears: validatedData.experienceYears,
+      currentCompany: validatedData.currentCompany,
+      resumeName: resumeName || validatedData.resumeName,
+      resumeUrl: resumeUrl || cloudinaryUrl || null,
       cloudinaryUrl,
       resumeSize,
-      coverNote: data.coverNote || '',
+      coverNote: validatedData.coverNote,
       status: 'UNDER_REVIEW',
       ip: request.headers.get('x-forwarded-for') || '127.0.0.1',
     };
@@ -260,13 +291,18 @@ export async function GET() {
 
 export async function PATCH(request) {
   try {
-    const { id, status } = await request.json();
-    if (!id || !status) {
-      return NextResponse.json({ error: 'ID and status required' }, { status: 400 });
+    const body = await request.json().catch(() => ({}));
+    const validation = updateApplicationStatusSchema.safeParse(body);
+
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
+      const msg = Object.values(errors).flat()[0] || 'Invalid ID or status.';
+      return NextResponse.json({ error: msg, errors }, { status: 400 });
     }
 
+    const { id, status } = validation.data;
     const applications = readApplications();
-    const index = applications.findIndex(a => a.id === id);
+    const index = applications.findIndex((a) => a.id === id);
     if (index === -1) {
       return NextResponse.json({ error: 'Application not found' }, { status: 404 });
     }
@@ -284,14 +320,17 @@ export async function PATCH(request) {
 export async function DELETE(request) {
   try {
     const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
+    const queryValidation = careerQuerySchema.safeParse({
+      id: searchParams.get('id'),
+    });
 
-    if (!id) {
-      return NextResponse.json({ error: 'ID required' }, { status: 400 });
+    if (!queryValidation.success) {
+      return NextResponse.json({ error: 'Valid Application ID is required in query params.' }, { status: 400 });
     }
 
+    const { id } = queryValidation.data;
     let applications = readApplications();
-    applications = applications.filter(a => a.id !== id);
+    applications = applications.filter((a) => a.id !== id);
     writeApplications(applications);
 
     return NextResponse.json({ success: true, message: 'Application deleted' });
