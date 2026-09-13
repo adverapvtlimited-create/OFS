@@ -4,6 +4,8 @@ import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
 
+export const dynamic = "force-dynamic";
+
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryEnquiries = [];
 

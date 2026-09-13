@@ -16,6 +16,7 @@ export default function JobApplicationForm({ job }) {
     coverNote: '',
     resumeName: '',
   });
+  const [resumeFile, setResumeFile] = useState(null);
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const handleChange = (e) => {
@@ -24,7 +25,9 @@ export default function JobApplicationForm({ job }) {
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData({ ...formData, resumeName: e.target.files[0].name });
+      const file = e.target.files[0];
+      setResumeFile(file);
+      setFormData({ ...formData, resumeName: file.name });
     }
   };
 
@@ -33,15 +36,45 @@ export default function JobApplicationForm({ job }) {
     setStatus({ state: 'loading', msg: 'Submitting your application...' });
 
     try {
-      await fetch('/api/careers', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, jobTitle: job.title, jobId: job.id }),
-      });
+      let res;
+      if (resumeFile) {
+        const bodyData = new FormData();
+        bodyData.append('fullName', formData.fullName);
+        bodyData.append('email', formData.email);
+        bodyData.append('phone', formData.phone);
+        bodyData.append('experienceYears', formData.experienceYears);
+        bodyData.append('currentCompany', formData.currentCompany);
+        bodyData.append('coverNote', formData.coverNote);
+        bodyData.append('jobTitle', job?.title || 'General Application');
+        bodyData.append('jobId', job?.id || 'general');
+        bodyData.append('resumeName', formData.resumeName || resumeFile.name);
+        bodyData.append('file', resumeFile);
+
+        res = await fetch('/api/careers', {
+          method: 'POST',
+          body: bodyData,
+        });
+      } else {
+        res = await fetch('/api/careers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            jobTitle: job?.title || 'General Application',
+            jobId: job?.id || 'general',
+          }),
+        });
+      }
+
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(result.error || 'Failed to submit application.');
+      }
 
       setStatus({
         state: 'success',
-        msg: `Application for ${job.title} submitted successfully! Our Talent Acquisition team will review your CV.`,
+        msg: `Application for ${job?.title || 'this position'} submitted successfully! A confirmation email has been sent to ${formData.email}.`,
       });
       setFormData({
         fullName: '',
@@ -52,10 +85,12 @@ export default function JobApplicationForm({ job }) {
         coverNote: '',
         resumeName: '',
       });
-    } catch {
+      setResumeFile(null);
+    } catch (err) {
+      console.error('Job application submission error:', err);
       setStatus({
-        state: 'success',
-        msg: 'Application received! Our HR team will reach out to you within 3 business days.',
+        state: 'error',
+        msg: err.message || 'Failed to submit application. Please check your details and try again.',
       });
     }
   };
