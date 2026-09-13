@@ -3,6 +3,12 @@ import fs from "fs";
 import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
+import {
+  contactEnquirySchema,
+  updateEnquiryStatusSchema,
+  enquiryQuerySchema,
+  validatePdfFile,
+} from "@/lib/validations/contact";
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryEnquiries = [];
@@ -81,7 +87,7 @@ const writeEnquiries = (enquiries) => {
 
 export async function POST(request) {
   try {
-    let data = {};
+    let rawData = {};
     let pdfUrl = null;
     let cloudinaryUrl = null;
     let pdfName = null;
@@ -93,7 +99,7 @@ export async function POST(request) {
 
     if (contentType.includes("multipart/form-data")) {
       const formData = await request.formData();
-      data = {
+      rawData = {
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
@@ -111,6 +117,15 @@ export async function POST(request) {
         uploadedFile.name &&
         typeof uploadedFile.arrayBuffer === "function"
       ) {
+        // Validate PDF before processing or uploading
+        const fileValidation = validatePdfFile(uploadedFile);
+        if (!fileValidation.valid) {
+          return NextResponse.json(
+            { error: fileValidation.error },
+            { status: 400 }
+          );
+        }
+
         pdfName = uploadedFile.name;
         pdfSize = uploadedFile.size;
         fileContentType = uploadedFile.type || "application/pdf";
@@ -170,15 +185,26 @@ export async function POST(request) {
         }
       }
     } else {
-      data = await request.json();
+      rawData = await request.json();
     }
 
-    if (!data.name || !data.email || !data.phone) {
+    // 1. Validate fields with Zod Schema
+    const validation = contactEnquirySchema.safeParse(rawData);
+    if (!validation.success) {
+      const firstErrorMessage =
+        validation.error.issues?.[0]?.message ||
+        validation.error.errors?.[0]?.message ||
+        "Please check your form inputs.";
       return NextResponse.json(
-        { error: "Name, email, and phone are required fields." },
+        {
+          error: firstErrorMessage,
+          errors: validation.error.flatten().fieldErrors,
+        },
         { status: 400 },
       );
     }
+
+    const data = validation.data;
 
     const enquiryRecord = {
       id: `ENQ-${Date.now()}`,
@@ -259,13 +285,16 @@ export async function GET() {
 
 export async function PATCH(request) {
   try {
-    const { id, status } = await request.json();
-    if (!id || !status) {
+    const rawData = await request.json();
+    const validation = updateEnquiryStatusSchema.safeParse(rawData);
+    if (!validation.success) {
       return NextResponse.json(
-        { error: "ID and status required" },
+        { error: validation.error.errors[0]?.message || "Invalid status update payload." },
         { status: 400 },
       );
     }
+
+    const { id, status } = validation.data;
 
     const enquiries = readEnquiries();
     const index = enquiries.findIndex((e) => e.id === id);
@@ -290,9 +319,10 @@ export async function DELETE(request) {
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
+    const validation = enquiryQuerySchema.safeParse({ id });
 
-    if (!id) {
-      return NextResponse.json({ error: "ID required" }, { status: 400 });
+    if (!validation.success) {
+      return NextResponse.json({ error: "Valid enquiry ID is required" }, { status: 400 });
     }
 
     let enquiries = readEnquiries();

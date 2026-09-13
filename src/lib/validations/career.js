@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{6,20}$/;
+const phoneRegex = /^[+]?[\d\s\-\(\)\.]{7,25}$/;
 
 export const careerApplicationSchema = z.object({
   fullName: z
@@ -20,7 +20,11 @@ export const careerApplicationSchema = z.object({
     .trim()
     .min(7, { message: 'Phone number must be at least 7 digits.' })
     .max(25, { message: 'Phone number cannot exceed 25 characters.' })
-    .regex(phoneRegex, { message: 'Please enter a valid phone number with country/area code.' }),
+    .regex(phoneRegex, { message: 'Please enter a valid phone number containing digits (e.g. +91 98200 00000).' })
+    .refine((val) => {
+      const digits = val.replace(/\D/g, '');
+      return digits.length >= 7 && digits.length <= 15;
+    }, { message: 'Phone number must contain between 7 and 15 digits.' }),
 
   experienceYears: z
     .string()

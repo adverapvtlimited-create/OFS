@@ -218,6 +218,8 @@ export default function ContactCTA() {
                       type="text"
                       name="name"
                       required
+                      minLength={2}
+                      maxLength={100}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
@@ -232,6 +234,7 @@ export default function ContactCTA() {
                       type="email"
                       name="email"
                       required
+                      maxLength={120}
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@company.com"
@@ -249,6 +252,10 @@ export default function ContactCTA() {
                       type="tel"
                       name="phone"
                       required
+                      minLength={7}
+                      maxLength={25}
+                      pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
+                      title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98200 00000"
@@ -262,6 +269,7 @@ export default function ContactCTA() {
                     <input
                       type="text"
                       name="company"
+                      maxLength={150}
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Larsen & Toubro"
@@ -297,6 +305,8 @@ export default function ContactCTA() {
                   <textarea
                     name="message"
                     required
+                    minLength={5}
+                    maxLength={3000}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Please describe project location, timeline, quantities, or technical specifications..."

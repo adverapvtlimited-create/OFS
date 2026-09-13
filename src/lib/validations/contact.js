@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Phone regex allowing international formats: +91 9876543210, (123) 456-7890, +1-800-555-0199, etc.
-const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{6,20}$/;
+const phoneRegex = /^[+]?[\d\s\-\(\)\.]{7,25}$/;
 
 export const contactEnquirySchema = z.object({
   name: z
@@ -19,9 +19,13 @@ export const contactEnquirySchema = z.object({
   phone: z
     .string({ required_error: 'Phone number is required' })
     .trim()
-    .min(8, { message: 'Phone number must be at least 8 digits.' })
+    .min(7, { message: 'Phone number must be at least 7 digits.' })
     .max(25, { message: 'Phone number cannot exceed 25 characters.' })
-    .regex(phoneRegex, { message: 'Please enter a valid phone number with country/area code.' }),
+    .regex(phoneRegex, { message: 'Please enter a valid phone number containing digits (e.g. +91 98200 00000).' })
+    .refine((val) => {
+      const digits = val.replace(/\D/g, '');
+      return digits.length >= 7 && digits.length <= 15;
+    }, { message: 'Phone number must contain between 7 and 15 digits.' }),
 
   company: z
     .string()
@@ -56,7 +60,9 @@ export const contactEnquirySchema = z.object({
     .transform((val) => (val && val.trim() ? val.trim() : '')),
 
   formType: z
-    .enum(['general', 'rfp', 'procurement', 'quick_quote', 'contact_cta'])
+    .string()
+    .trim()
+    .max(50)
     .optional()
     .default('general'),
 });
