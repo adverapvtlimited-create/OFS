@@ -23,7 +23,7 @@ export default function TermsPage() {
         })}
       />
 
-      <section className="section-pad bg-white pt-28">
+      <section className="section-pad bg-white pt-20 sm:pt-28">
         <div className="container max-w-[820px]">
           <h1 className="section-title mb-4">
             Terms of Engagement

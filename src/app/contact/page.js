@@ -24,7 +24,6 @@ import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import siteConfig from '@/data/site-config.json';
 import { cn } from '@/lib/cn';
-import { contactEnquirySchema, validatePdfFile } from '@/lib/validations/contact';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -34,98 +33,60 @@ export default function ContactPage() {
     company: '',
     service: 'Procurement & Sourcing',
     urgency: 'Standard (1-2 Days)',
-    message: '',
-    formType: 'general',
+    message: ''
   });
-  const [fieldErrors, setFieldErrors] = useState({});
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfError, setPdfError] = useState('');
   const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear field error on change
-    if (fieldErrors[name]) {
-      setFieldErrors((prev) => {
-        const next = { ...prev };
-        delete next[name];
-        return next;
-      });
-    }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
-    const validation = validatePdfFile(file);
-    if (!validation.valid) {
-      setPdfError(validation.error);
+    if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+      setPdfError('Please upload a valid PDF document (.pdf)');
       setPdfFile(null);
       return;
     }
-
+    if (file.size > 10 * 1024 * 1024) {
+      setPdfError('PDF file size must be less than 10MB');
+      setPdfFile(null);
+      return;
+    }
     setPdfError('');
     setPdfFile(file);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFieldErrors({});
-    setPdfError('');
-
-    // 🔒 1. Client-side Zod validation
-    const validation = contactEnquirySchema.safeParse(formData);
-    if (!validation.success) {
-      const errors = validation.error.flatten().fieldErrors;
-      setFieldErrors(errors);
-      setStatus({
-        state: 'error',
-        msg: 'Please correct the highlighted fields before submitting.',
-      });
-      return;
-    }
-
-    // 🔒 2. File validation if attached
-    if (pdfFile) {
-      const fileValidation = validatePdfFile(pdfFile);
-      if (!fileValidation.valid) {
-        setPdfError(fileValidation.error);
-        return;
-      }
-    }
-
     setStatus({ state: 'loading', msg: 'Submitting your formal enquiry...' });
 
     try {
       const payload = new FormData();
-      const validData = validation.data;
-
-      payload.append('name', validData.name);
-      payload.append('email', validData.email);
-      payload.append('phone', validData.phone);
-      payload.append('company', validData.company || '');
-      payload.append('service', validData.service || '');
-      payload.append('urgency', validData.urgency || '');
-      payload.append('message', validData.message || '');
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('company', formData.company);
+      payload.append('service', formData.service);
+      payload.append('urgency', formData.urgency);
+      payload.append('message', formData.message);
       payload.append('formType', 'general');
-
       if (pdfFile) {
         payload.append('file', pdfFile);
       }
 
       const res = await fetch('/api/contact', {
         method: 'POST',
-        body: payload,
+        body: payload
       });
-
-      const resData = await res.json().catch(() => ({}));
 
       if (res.ok) {
         setStatus({
           state: 'success',
-          msg: 'Thank you! Your enquiry and attached specifications have been routed to our commercial desk. We will respond within 4 business hours.',
+          msg: 'Thank you! Your enquiry and attached specifications have been routed to our commercial desk. We will respond within 4 business hours.'
         });
         setFormData({
           name: '',
@@ -134,25 +95,21 @@ export default function ContactPage() {
           company: '',
           service: 'Procurement & Sourcing',
           urgency: 'Standard (1-2 Days)',
-          message: '',
-          formType: 'general',
+          message: ''
         });
-        setFieldErrors({});
         setPdfFile(null);
         setPdfError('');
       } else {
-        if (resData.errors) {
-          setFieldErrors(resData.errors);
-        }
+        const errData = await res.json().catch(() => ({}));
         setStatus({
           state: 'error',
-          msg: resData.error || 'Failed to submit enquiry. Please try again.',
+          msg: errData.error || 'Failed to submit enquiry. Please try again.'
         });
       }
     } catch (err) {
       setStatus({
         state: 'error',
-        msg: err.message || 'Unable to connect to the server. Please check your connection and try again.',
+        msg: err.message || 'Unable to connect to the server. Please check your connection and try again.'
       });
     }
   };
@@ -171,127 +128,139 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          <div className="max-w-3xl">
-            <div className="tag-badge badge-red mb-4">Commercial &amp; Technical Desk</div>
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-              Direct Global Procurement &amp; Engineering Support
-            </h1>
-            <p className="text-ofs-gray-300 text-base sm:text-lg leading-relaxed">
-              Connect directly with our technical procurement specialists in Mumbai and Hyderabad for rapid quotation, material specifications, and logistics coordination.
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="tag-badge badge-red mb-5">
+              CONNECT WITH OFS GROUP INDIA
+            </div>
+          </ScrollReveal>
+
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
+            <TextReveal tag="span" duration={0.65}>
+              Let's Discuss Your Next
+            </TextReveal>
+            <br />
+            <span className="gradient-text-red">
+              <TextReveal tag="span" delay={0.2} duration={0.65}>
+                Project or General Enquiry
+              </TextReveal>
+            </span>
+          </h1>
+
+          <ScrollReveal direction="up" delay={0.25}>
+            <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed mb-8">
+              Connect directly with our corporate headquarters in Mumbai or our global liaison desk in Florida, USA.
             </p>
-          </div>
+          </ScrollReveal>
+
+          {/* Above-the-fold Direct Contact Channels */}
+          <ScrollReveal direction="up" delay={0.35}>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-1">
+              <a
+                href={`tel:${siteConfig.contact.phoneRaw}`}
+                className="inline-flex items-center justify-center gap-2.5 py-2.5 px-5 rounded-md bg-white text-ofs-navy-950 font-heading font-extrabold text-sm shadow-lg hover:bg-ofs-gold-300 transition-colors no-underline text-center"
+              >
+                <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
+              </a>
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="inline-flex items-center justify-center gap-2.5 py-2.5 px-5 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-mono text-xs font-semibold backdrop-blur-md transition-colors no-underline text-center"
+              >
+                <Mail size={15} className="text-ofs-red-400 shrink-0" /> {siteConfig.contact.email}
+              </a>
+              <a
+                href="#rfq-form"
+                className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-md bg-ofs-red-600 hover:bg-ofs-red-700 text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(224,42,48,0.4)] transition-all no-underline text-center"
+              >
+                Quick RFQ Form ↓
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Main Content: Info & Contact Form */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white relative">
+      <section className="section-pad bg-white">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Column: Office Contacts & Quick Info */}
-            <div className="lg:col-span-5 space-y-8">
-              <ScrollReveal direction="left" duration={0.6}>
-                <div>
-                  <h2 className="font-heading text-2xl font-black text-ofs-navy-950 mb-3 tracking-tight">
-                    Corporate &amp; Operational Offices
-                  </h2>
-                  <p className="text-ofs-gray-600 text-sm leading-relaxed mb-8">
-                    Reach our technical teams across India for tenders, vendor empanelment, and procurement execution.
-                  </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-[4.5rem]">
+            <div>
+              <ScrollReveal direction="left" delay={0.1}>
+                <div className="tag-badge badge-red mb-4">
+                  CORPORATE PRESENCE
+                </div>
 
-                  <div className="space-y-6">
-                    {/* Mumbai Office */}
-                    <div className="p-6 bg-ofs-navy-50/70 border border-ofs-navy-100 rounded-lg hover:border-ofs-navy-300 transition-colors">
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-ofs-red-600 uppercase mb-2">
-                        <Building size={14} /> Registered Corporate Office
-                      </div>
-                      <h3 className="font-heading text-lg font-bold text-ofs-navy-950 mb-2">
-                        Mumbai Operational Headquarters
-                      </h3>
-                      <p className="text-xs text-ofs-gray-600 mb-4 leading-relaxed">
-                        {siteConfig?.contact?.addressIndia?.line1}, {siteConfig?.contact?.addressIndia?.line2}, {siteConfig?.contact?.addressIndia?.city}, {siteConfig?.contact?.addressIndia?.state} - {siteConfig?.contact?.addressIndia?.pincode}, {siteConfig?.contact?.addressIndia?.country}
-                      </p>
-                      <div className="space-y-1.5 text-xs text-ofs-navy-900 font-mono">
-                        <div className="flex items-center gap-2">
-                          <Phone size={13} className="text-ofs-red-600" />
-                          <a href={`tel:${siteConfig?.contact?.phone || '0226961112'}`} className="hover:underline">
-                            {siteConfig?.contact?.phone || '022 6961 1112'}
-                          </a>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Mail size={13} className="text-ofs-red-600" />
-                          <a href={`mailto:${siteConfig?.contact?.email || 'hello@ofsworld.com'}`} className="hover:underline">
-                            {siteConfig?.contact?.email || 'hello@ofsworld.com'}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                <h2 className="section-title mb-6">
+                  Our Locations &amp; <br />
+                  <span className="gradient-text-navy">Direct Contact Channels</span>
+                </h2>
 
-                    {/* USA Office */}
-                    <div className="p-6 bg-ofs-navy-50/70 border border-ofs-navy-100 rounded-lg hover:border-ofs-navy-300 transition-colors">
-                      <div className="flex items-center gap-2 text-xs font-mono font-bold text-ofs-navy-700 uppercase mb-2">
-                        <Building size={14} /> Global Entity &amp; Logistics Hub
-                      </div>
-                      <h3 className="font-heading text-lg font-bold text-ofs-navy-950 mb-2">
-                        USA Operations Office
-                      </h3>
-                      <p className="text-xs text-ofs-gray-600 mb-4 leading-relaxed">
-                        {siteConfig?.contact?.addressUSA?.line1}, {siteConfig?.contact?.addressUSA?.city}, {siteConfig?.contact?.addressUSA?.state} {siteConfig?.contact?.addressUSA?.pincode}, {siteConfig?.contact?.addressUSA?.country}
-                      </p>
-                      <div className="space-y-1.5 text-xs text-ofs-navy-900 font-mono">
-                        <div className="flex items-center gap-2">
-                          <Phone size={13} className="text-ofs-navy-700" />
-                          <a href={`tel:${siteConfig?.contact?.phone || '0226961112'}`} className="hover:underline">
-                            {siteConfig?.contact?.phone || '022 6961 1112'}
-                          </a>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Mail size={13} className="text-ofs-navy-700" />
-                          <a href={`mailto:${siteConfig?.contact?.email || 'hello@ofsworld.com'}`} className="hover:underline">
-                            {siteConfig?.contact?.email || 'hello@ofsworld.com'}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 lg:p-9 mb-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Globe2 size={22} className="text-ofs-navy-700 shrink-0" />
+                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
+                      Oriented Facility Solution LLC
+                    </h3>
                   </div>
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
+                    {siteConfig.contact.addressUSA.line1}, {siteConfig.contact.addressUSA.city}, {siteConfig.contact.addressUSA.state}, {siteConfig.contact.addressUSA.pincode}, {siteConfig.contact.addressUSA.country}
+                  </p>
+                  <div className="text-[0.85rem] text-ofs-navy-950 font-mono mb-3">
+                    Global AVL Procurement &amp; International Cargo Coordination Desk
+                  </div>
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
+                    <a href={`mailto:${siteConfig.contact.emailUSA}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-navy-700 shrink-0" /> {siteConfig.contact.emailUSA}
+                    </a>
+                  </div>
+                </div>
 
-                  {/* Operational SLAs */}
-                  <div className="mt-8 p-6 bg-ofs-navy-950 text-white rounded-lg border border-white/10">
-                    <h4 className="font-heading text-base font-bold text-white mb-3 flex items-center gap-2">
-                      <ShieldCheck size={18} className="text-ofs-red-400" /> Response Guarantees
-                    </h4>
-                    <ul className="space-y-2.5 text-xs text-ofs-gray-300">
-                      <li className="flex items-start gap-2">
-                        <Clock size={14} className="text-ofs-gold-400 shrink-0 mt-0.5" />
-                        <span><strong>Standard RFQ Response:</strong> Within 4 business hours</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Clock size={14} className="text-ofs-red-400 shrink-0 mt-0.5" />
-                        <span><strong>Emergency Breakdown Support:</strong> 24/7 dedicated commercial desk</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Globe2 size={14} className="text-ofs-teal-400 shrink-0 mt-0.5" />
-                        <span><strong>International Export Logistics:</strong> FOB, CIF, DDP Incoterms supported</span>
-                      </li>
-                    </ul>
+                <div className="bg-ofs-navy-50/50 border border-ofs-navy-100 rounded-lg p-5 sm:p-7 lg:p-9 mb-8 shadow-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Building size={22} className="text-ofs-red-600 shrink-0" />
+                    <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 m-0">
+                      Oriented Facility Solution Pvt Ltd
+                    </h3>
+                  </div>
+                  <p className="text-[0.925rem] text-ofs-gray-700 leading-relaxed mb-4">
+                    {siteConfig.contact.addressIndia.line1}, {siteConfig.contact.addressIndia.line2}, {siteConfig.contact.addressIndia.city}, {siteConfig.contact.addressIndia.state} – {siteConfig.contact.addressIndia.pincode}, {siteConfig.contact.addressIndia.country}
+                  </p>
+                  <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
+                    <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Phone size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.phone}
+                    </a>
+                    <a href={`mailto:${siteConfig.contact.emailIndia}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {siteConfig.contact.emailIndia}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Response SLA Note */}
+                <div className="p-[1.35rem] rounded bg-ofs-navy-950 text-white flex items-center gap-3.5">
+                  <ShieldCheck size={26} className="text-ofs-gold-400 shrink-0" />
+                  <div className="text-[0.85rem] leading-snug">
+                    <strong className="text-white block">ISO 9001:2015 Service Standard</strong>
+                    Technical and business enquiries are reviewed and assigned within 4 business hours.
                   </div>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* Right Column: Contact & RFQ Form */}
-            <div className="lg:col-span-7">
-              <ScrollReveal direction="right" duration={0.6}>
-                <div className="bg-white border border-ofs-gray-200 rounded-xl p-7 sm:p-9 shadow-md">
-                  <div className="tag-badge badge-red mb-3">Online RFP Submission</div>
+            <div>
+              <ScrollReveal direction="right" delay={0.2}>
+                <div id="rfq-form" className="bg-white border border-ofs-gray-200 rounded-2xl p-5 sm:p-8 lg:p-[3.25rem] shadow-xl scroll-mt-24">
+                  {/* Form Type */}
+                  <div className="flex gap-2 mb-8 border-b border-ofs-gray-200 pb-4">
+                    <div className="font-mono text-[0.825rem] font-bold uppercase py-2.5 px-4 rounded bg-ofs-navy-900 text-white shadow-sm">
+                      General Enquiry
+                    </div>
+                  </div>
 
                   <h3 className="font-heading text-[1.4rem] font-extrabold text-ofs-navy-950 mb-2">
                     Send a General Business Enquiry
                   </h3>
                   <p className="text-[0.875rem] text-ofs-gray-500 mb-7">
-                    Please fill in your details below and our technical commercial team will get back to you.
+                    Please fill in your details below and our team will get back to you.
                   </p>
 
-                  <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
                         <label className="form-label">Contact Name *</label>
@@ -302,17 +271,8 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="e.g. Ramesh Reddy"
-                          className={cn(
-                            'form-control',
-                            fieldErrors.name && 'border-ofs-red-500 focus:border-ofs-red-600 focus:ring-ofs-red-500/20'
-                          )}
+                          className="form-control"
                         />
-                        {fieldErrors.name && (
-                          <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-1">
-                            <AlertCircle size={12} className="shrink-0" />
-                            <span>{fieldErrors.name[0]}</span>
-                          </p>
-                        )}
                       </div>
                       <div className="form-group">
                         <label className="form-label">Official Work Email *</label>
@@ -323,17 +283,8 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="r.reddy@enterprise.com"
-                          className={cn(
-                            'form-control',
-                            fieldErrors.email && 'border-ofs-red-500 focus:border-ofs-red-600 focus:ring-ofs-red-500/20'
-                          )}
+                          className="form-control"
                         />
-                        {fieldErrors.email && (
-                          <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-1">
-                            <AlertCircle size={12} className="shrink-0" />
-                            <span>{fieldErrors.email[0]}</span>
-                          </p>
-                        )}
                       </div>
                     </div>
 
@@ -347,17 +298,8 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+91 98200 00000"
-                          className={cn(
-                            'form-control',
-                            fieldErrors.phone && 'border-ofs-red-500 focus:border-ofs-red-600 focus:ring-ofs-red-500/20'
-                          )}
+                          className="form-control"
                         />
-                        {fieldErrors.phone && (
-                          <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-1">
-                            <AlertCircle size={12} className="shrink-0" />
-                            <span>{fieldErrors.phone[0]}</span>
-                          </p>
-                        )}
                       </div>
                       <div className="form-group">
                         <label className="form-label">Company / Client Name</label>
@@ -369,12 +311,6 @@ export default function ContactPage() {
                           placeholder="e.g. ONGC / Larsen &amp; Toubro"
                           className="form-control"
                         />
-                        {fieldErrors.company && (
-                          <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-1">
-                            <AlertCircle size={12} className="shrink-0" />
-                            <span>{fieldErrors.company[0]}</span>
-                          </p>
-                        )}
                       </div>
                     </div>
 
@@ -419,18 +355,9 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Specify material grades, quantities, delivery destination port, or plant location..."
-                        className={cn(
-                          'form-control',
-                          fieldErrors.message && 'border-ofs-red-500 focus:border-ofs-red-600 focus:ring-ofs-red-500/20'
-                        )}
+                        className="form-control"
                         rows={4}
                       />
-                      {fieldErrors.message && (
-                        <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium mt-1">
-                          <AlertCircle size={12} className="shrink-0" />
-                          <span>{fieldErrors.message[0]}</span>
-                        </p>
-                      )}
                     </div>
 
                     <div className="form-group">
@@ -502,11 +429,7 @@ export default function ContactPage() {
                           ? 'bg-ofs-green-50 text-ofs-green-700 border border-ofs-green-100'
                           : 'bg-ofs-red-50 text-ofs-red-700 border border-ofs-red-100'
                       )}>
-                        {status.state === 'success' ? (
-                          <CheckCircle2 size={18} className="shrink-0 text-ofs-green-600" />
-                        ) : (
-                          <AlertCircle size={18} className="shrink-0 text-ofs-red-600" />
-                        )}
+                        <CheckCircle2 size={18} className="shrink-0" />
                         <span>{status.msg}</span>
                       </div>
                     )}

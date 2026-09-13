@@ -35,12 +35,12 @@ export default function AboutPreview() {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute -bottom-6 -right-4 bg-ofs-navy-950 text-white p-5 sm:px-6 rounded-md border-2 border-ofs-gold-400 shadow-2xl max-w-[240px]"
+                className="absolute bottom-3 right-3 sm:-bottom-6 sm:-right-4 bg-ofs-navy-950 text-white p-3.5 sm:p-5 sm:px-6 rounded-md border-2 border-ofs-gold-400 shadow-2xl max-w-[200px] sm:max-w-[240px]"
               >
-                <div className="font-heading text-xl sm:text-2xl font-black text-ofs-gold-400 leading-tight">
+                <div className="font-heading text-lg sm:text-2xl font-black text-ofs-gold-400 leading-tight">
                   8+ Years
                 </div>
-                <div className="font-mono text-[0.72rem] uppercase tracking-[0.05em] mt-1.5 text-white/90 font-bold leading-snug">
+                <div className="font-mono text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.05em] mt-1 text-white/90 font-bold leading-snug">
                   Global Procurement &amp; Technical Support
                 </div>
               </motion.div>
@@ -118,11 +118,11 @@ export default function AboutPreview() {
             </div>
 
             <ScrollReveal direction="up" delay={0.7}>
-              <div className="flex gap-4 items-center flex-wrap">
-                <Button href="/about" variant="navy">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+                <Button href="/about" variant="navy" className="w-full sm:w-auto">
                   Read Company Profile <ArrowUpRight size={16} />
                 </Button>
-                <Button href="/contact" variant="outline">
+                <Button href="/contact" variant="outline" className="w-full sm:w-auto">
                   Contact Global Offices
                 </Button>
               </div>
