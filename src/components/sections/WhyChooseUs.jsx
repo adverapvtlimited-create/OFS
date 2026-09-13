@@ -227,21 +227,23 @@ export default function WhyChooseUs() {
         </div>
 
         <ScrollReveal direction="up" delay={0.4}>
-          <div className="bg-gradient-to-r from-ofs-navy-900 via-[#0a183d] to-ofs-navy-950 border border-ofs-red-600/40 rounded-lg p-8 sm:p-11 flex justify-between items-center flex-wrap gap-6 shadow-[0_20px_40px_rgba(6,14,36,0.4)]">
+          <div className="bg-gradient-to-r from-ofs-navy-900 via-[#0a183d] to-ofs-navy-950 border border-ofs-red-600/40 rounded-lg p-5 sm:p-8 lg:p-11 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-[0_20px_40px_rgba(6,14,36,0.4)]">
             <div>
-              <div className="font-heading text-xl sm:text-2xl font-extrabold text-white mb-1.5">
+              <div className="font-heading text-lg sm:text-2xl font-extrabold text-white mb-1.5 leading-snug">
                 Ready to streamline your procurement or industrial operations?
               </div>
-              <div className="text-sm sm:text-base text-white/85">
+              <div className="text-xs sm:text-base text-white/85">
                 Our 24/7 technical desk is standing by to evaluate your spare parts, engineering, or logistics requirements.
               </div>
             </div>
 
-            <MagneticButton strength={0.3} radius={80}>
-              <Button href="/contact" variant="primary" data-cursor-text="CONTACT">
-                Request Consultation <ArrowUpRight size={16} />
-              </Button>
-            </MagneticButton>
+            <div className="shrink-0 w-full md:w-auto">
+              <MagneticButton strength={0.3} radius={80}>
+                <Button href="/contact" variant="primary" data-cursor-text="CONTACT" className="w-full md:w-auto text-center justify-center">
+                  Request Consultation <ArrowUpRight size={16} />
+                </Button>
+              </MagneticButton>
+            </div>
           </div>
         </ScrollReveal>
       </Container>

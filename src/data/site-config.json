@@ -13,7 +13,9 @@
   "contact": {
     "phone": "0226961112",
     "phoneRaw": "0226961112",
-    "email": "hello@ofsworld.com",
+    "email": "info@ofsgroupindia.com",
+    "emailIndia": "info@ofsgroupindia.com",
+    "emailUSA": "hello@ofsworld.com",
     "addressIndia": {
       "company": "Oriented Facility Solution Pvt Ltd",
       "line1": "Dynasty Business Park, A Wing",
@@ -21,7 +23,9 @@
       "city": "Mumbai",
       "state": "Maharashtra",
       "pincode": "400059",
-      "country": "India"
+      "country": "India",
+      "email": "info@ofsgroupindia.com",
+      "phone": "0226961112"
     },
     "addressUSA": {
       "company": "Oriented Facility Solution LLC",
@@ -29,7 +33,8 @@
       "city": "St. Petersburg",
       "state": "Florida",
       "pincode": "33702",
-      "country": "United States of America"
+      "country": "United States of America",
+      "email": "hello@ofsworld.com"
     }
   },
   "stats": [

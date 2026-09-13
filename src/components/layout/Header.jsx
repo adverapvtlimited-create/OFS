@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -114,6 +114,8 @@ export default function Header() {
   const [mobileOfferCategory, setMobileOfferCategory] = useState(null);
   const [certsDropdownOpen, setCertsDropdownOpen] = useState(false);
   const [activeCertIndex, setActiveCertIndex] = useState(0);
+  const certsPopoverRef = useRef(null);
+  const certsBadgeRef = useRef(null);
   const pathname = usePathname();
   const offerActive = isWhatWeOfferPath(pathname);
   const offerMatch = findOfferMatch(pathname);
@@ -125,6 +127,34 @@ export default function Header() {
     }, 3200);
     return () => clearInterval(timer);
   }, []);
+
+  // Close certifications dropdown on outside click or Escape key
+  useEffect(() => {
+    if (!certsDropdownOpen) return;
+    const handleOutsideClick = (e) => {
+      if (
+        certsPopoverRef.current &&
+        !certsPopoverRef.current.contains(e.target) &&
+        certsBadgeRef.current &&
+        !certsBadgeRef.current.contains(e.target)
+      ) {
+        setCertsDropdownOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setCertsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick, { passive: true });
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [certsDropdownOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,6 +175,17 @@ export default function Header() {
     setCertsDropdownOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const activeCert = topBarCertifications[activeCertIndex];
   const ActiveCertIcon = activeCert.icon;
 
@@ -156,9 +197,13 @@ export default function Header() {
           {/* Left: Interactive Multi-Certification Strip */}
           <div className="flex items-center gap-3 flex-wrap relative">
             {/* Active Cycling Badge */}
-            <div
-              className="inline-flex items-center gap-2 font-mono text-xs font-bold bg-white/[0.04] py-1 px-3.5 rounded-full transition-all duration-300 cursor-pointer"
-              style={{ borderColor: activeCert.color, borderStyle: 'solid', borderWidth: '1px' }}
+            <button
+              ref={certsBadgeRef}
+              type="button"
+              aria-expanded={certsDropdownOpen}
+              aria-label="Toggle official enterprise accreditations popover"
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold bg-white/[0.04] py-1 px-3.5 rounded-full transition-all duration-300 cursor-pointer text-left border"
+              style={{ borderColor: activeCert.color }}
               onClick={() => setCertsDropdownOpen(!certsDropdownOpen)}
               title="Click to view all official certifications"
             >
@@ -171,7 +216,7 @@ export default function Header() {
                   certsDropdownOpen && 'rotate-180'
                 )}
               />
-            </div>
+            </button>
 
             {/* Quick Micro-Pills for all certifications */}
             <div className="hidden lg:flex items-center gap-1.5 flex-wrap">
@@ -197,33 +242,35 @@ export default function Header() {
             {/* All Certifications Dropdown Popover */}
             {certsDropdownOpen && (
               <div
-                className="absolute top-[calc(100%+8px)] left-0 w-[min(420px,92vw)] bg-ofs-navy-950 border border-white/15 rounded-md shadow-2xl p-5 z-[700] animate-fade-in-menu"
+                ref={certsPopoverRef}
+                className="absolute top-[calc(100%+8px)] left-0 w-[min(420px,calc(100vw-2.5rem))] max-h-[calc(100vh-100px)] overflow-y-auto bg-ofs-navy-950 border border-white/15 rounded-xl shadow-2xl p-4 sm:p-5 z-[700] animate-fade-in-menu"
                 onMouseLeave={() => setCertsDropdownOpen(false)}
               >
                 <div className="flex justify-between items-center pb-3 mb-3 border-b border-white/[0.08]">
-                  <div className="font-heading font-extrabold text-sm text-white">
+                  <div className="font-heading font-extrabold text-xs sm:text-sm text-white pr-2">
                     Official Enterprise Accreditations (6)
                   </div>
                   <button
                     onClick={() => setCertsDropdownOpen(false)}
-                    className="bg-transparent border-0 text-white/50 hover:text-white cursor-pointer"
+                    aria-label="Close certifications popover"
+                    className="bg-transparent border-0 text-white/60 hover:text-white cursor-pointer p-1 -mr-1 rounded hover:bg-white/10 transition-colors flex items-center justify-center shrink-0"
                   >
-                    <X size={14} />
+                    <X size={16} />
                   </button>
                 </div>
 
-                <div className="flex flex-col gap-2.5">
+                <div className="flex flex-col gap-2 sm:gap-2.5">
                   {topBarCertifications.map((cert) => {
                     const ItemIcon = cert.icon;
                     return (
                       <div
                         key={cert.id}
-                        className="bg-white/[0.03] rounded-xs p-2.5 sm:px-3.5 flex items-center justify-between gap-3"
+                        className="bg-white/[0.03] rounded-sm p-2.5 sm:px-3.5 flex items-center justify-between gap-2.5 sm:gap-3"
                         style={{ border: `1px solid ${cert.color}33` }}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div
-                            className="w-7 h-7 rounded-xs grid place-content-center shrink-0"
+                            className="w-7 h-7 rounded-sm grid place-content-center shrink-0"
                             style={{ background: `${cert.color}18`, color: cert.color }}
                           >
                             <ItemIcon size={15} />
@@ -243,7 +290,7 @@ export default function Header() {
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[0.7rem] font-mono font-bold no-underline inline-flex items-center gap-1 py-1 px-2.5 rounded-xs shrink-0 transition-all duration-200 hover:brightness-125"
+                            className="text-[0.7rem] font-mono font-bold no-underline inline-flex items-center gap-1 py-1 px-2.5 rounded-sm shrink-0 transition-all duration-200 hover:brightness-125"
                             style={{
                               background: `${cert.color}15`,
                               color: cert.color,
@@ -481,7 +528,7 @@ export default function Header() {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                  className={cn(
+                                className={cn(
                                   "text-sm py-2 px-2.5 rounded min-h-[40px] flex items-center gap-2.5 leading-snug no-underline transition-colors",
                                   isItemActive
                                     ? "text-ofs-navy-900 font-bold bg-ofs-navy-50/90 border-l-2 border-ofs-navy-800 pl-2"

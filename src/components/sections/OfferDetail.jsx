@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
@@ -13,70 +13,6 @@ import { getRelatedOffers } from '@/lib/offers';
 import { whatWeOffer } from '@/data/navigation';
 import { buildWebPageSchema } from '@/lib/schema';
 import { cn } from '@/lib/cn';
-import { newsletterSchema } from '@/lib/validations/newsletter';
-
-function NewsletterSubscribe() {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError('');
-    const validation = newsletterSchema.safeParse({ email });
-    if (!validation.success) {
-      const err = validation.error.flatten().fieldErrors.email?.[0] || 'Please enter a valid email address.';
-      setError(err);
-      return;
-    }
-    setSuccess(true);
-    setEmail('');
-  };
-
-  if (success) {
-    return (
-      <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-sm flex items-center gap-2">
-        <CheckCircle2 size={18} className="text-emerald-600 shrink-0" />
-        <span>Thank you for subscribing! You will receive our latest project updates and technical bulletins.</span>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} noValidate className="w-full space-y-3">
-      <label className="block text-xs font-bold tracking-wider text-ofs-gray-600 uppercase">
-        EMAIL *
-      </label>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-          if (error) setError('');
-        }}
-        placeholder="your.email@company.com"
-        className={cn(
-          "w-full px-4 py-3 rounded-md bg-white text-ofs-navy-950 border text-sm shadow-sm outline-none transition-all",
-          error
-            ? "border-ofs-red-500 focus:ring-2 focus:ring-ofs-red-500/20"
-            : "border-gray-300 focus:ring-2 focus:ring-ofs-navy-600"
-        )}
-      />
-      {error && (
-        <p className="flex items-center gap-1 text-xs text-ofs-red-600 font-medium">
-          <AlertCircle size={12} className="shrink-0" />
-          <span>{error}</span>
-        </p>
-      )}
-      <button
-        type="submit"
-        className="w-full py-3.5 px-6 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-colors shadow-md cursor-pointer"
-      >
-        Subscribe
-      </button>
-    </form>
-  );
-}
 
 function formatText(text) {
   if (!text) return null;
@@ -243,7 +179,29 @@ function renderCustomBlock(block, index) {
         <section className="bg-white py-12 sm:py-14 border-t border-ofs-gray-100">
           <Container>
             <div className="max-w-3xl mx-auto">
-              <NewsletterSubscribe />
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  alert('Thank you for your interest in OFS Project Supply!');
+                }}
+                className="w-full space-y-3"
+              >
+                <label className="block text-xs font-bold tracking-wider text-ofs-gray-600 uppercase">
+                  EMAIL *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder=""
+                  className="w-full px-4 py-3 rounded-md bg-white text-ofs-navy-950 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ofs-navy-600 text-sm shadow-sm"
+                />
+                <button
+                  type="submit"
+                  className="w-full py-3.5 px-6 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-colors shadow-md cursor-pointer"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </Container>
         </section>
@@ -437,10 +395,10 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
-                <div className="p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[150px]">
+                <div className="p-3.5 sm:p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[140px] sm:min-h-[150px]">
                   {item.icon && (
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-ofs-navy-800 flex items-center justify-center p-3 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:from-ofs-navy-900 group-hover:to-ofs-red-600 border border-ofs-navy-700/50">
                       <img
@@ -477,7 +435,7 @@ function renderCustomBlock(block, index) {
             <div className="w-16 sm:w-20 h-1 bg-ofs-navy-300 rounded-full mx-auto" />
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 max-w-6xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
@@ -488,7 +446,7 @@ function renderCustomBlock(block, index) {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-4 text-center bg-white border-t border-ofs-gray-100">
+                  <div className="p-2.5 sm:p-4 text-center bg-white border-t border-ofs-gray-100">
                     <h3 className="font-heading text-xs sm:text-sm font-bold text-ofs-navy-950 leading-snug m-0">
                       {item.title}
                     </h3>
@@ -829,18 +787,18 @@ export default function OfferDetail({ page }) {
           <ScrollReveal direction="up" delay={0.1}>
             <div className="tag-badge badge-red mb-5">{page.categoryLabel}</div>
           </ScrollReveal>
-          <h1 className="font-heading text-[clamp(2.2rem,4.6vw,3.85rem)] font-extrabold leading-[1.1] text-white mb-5 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.9rem,4.5vw,3.85rem)] font-extrabold leading-[1.12] text-white mb-5 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {page.title}
             </TextReveal>
           </h1>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-[1.12rem] text-white/90 max-w-[780px] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-8">
               {page.tagline}
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.3}>
-            <Button href="/contact" variant="primary" size="lg" className="!w-auto">
+            <Button href="/contact" variant="primary" size="lg" className="w-full sm:!w-auto text-center justify-center">
               Request Advice <ArrowUpRight size={18} />
             </Button>
           </ScrollReveal>
