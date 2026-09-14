@@ -323,12 +323,12 @@ export default function DesktopNav({ pathname }) {
         <span>RENEWABLES</span>
       </Link>
 
-      <Link href="/blog" className={linkClass(pathname.startsWith('/blog'))}>
+      {/* <Link href="/blog" className={linkClass(pathname.startsWith('/blog'))}>
         INSIGHTS
         {pathname.startsWith('/blog') && (
           <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ofs-navy-900 rounded-full" />
         )}
-      </Link>
+      </Link> */}
 
       <Link href="/careers" className={linkClass(pathname.startsWith('/careers'))}>
         CAREERS
