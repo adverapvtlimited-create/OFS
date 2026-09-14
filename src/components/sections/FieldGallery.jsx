@@ -14,7 +14,7 @@ const galleryPhotos = [
   {
     id: 1,
     src: '/ofsImages/marine.jpeg',
-    title: 'Offshore Marine & Vessel Support',
+    title: 'Offshore Mooring Operations',
     category: 'Marine & Offshore',
     tag: 'Offshore Logistics',
     location: 'Offshore Basin',
@@ -22,7 +22,7 @@ const galleryPhotos = [
   {
     id: 2,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.24%20PM.jpeg',
-    title: 'Heavy Equipment & Structural Fabrication',
+    title: 'Offshore Marine Operations',
     category: 'Heavy Engineering',
     tag: 'Fabrication Yard',
     location: 'Operations Hub',
@@ -46,7 +46,7 @@ const galleryPhotos = [
   {
     id: 5,
     src: '/ofsImages/mariness.jpeg',
-    title: 'Vessel Mobilization & Marine Cargo',
+    title: 'Vessel Mooring Operations',
     category: 'Marine Logistics',
     tag: 'Emergency Freight',
     location: 'Coastal Deepwater Port',
@@ -54,7 +54,7 @@ const galleryPhotos = [
   {
     id: 6,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.22%20PM.jpeg',
-    title: 'Precision QA/QC & Component Testing',
+    title: 'Offshore Maintenance & Field Services',
     category: 'Quality Control',
     tag: 'EN 10204 3.1 Verification',
     location: 'QA Testing Bay',
@@ -62,7 +62,7 @@ const galleryPhotos = [
   {
     id: 7,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.54%20PM.jpeg',
-    title: 'Skid Integration & Field Assembly',
+    title: 'Civil Works & Site Preparation',
     category: 'EPC Support',
     tag: 'Skid Refurbishment',
     location: 'Field Integration Site',
@@ -70,7 +70,7 @@ const galleryPhotos = [
   {
     id: 8,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.25%20PM.jpeg',
-    title: 'Supply Chain Staging & Warehousing',
+    title: 'Offshore Mooring & Rope Access Operations',
     category: 'Warehouse & SCM',
     tag: 'Inventory Staging',
     location: 'Central Depot',
@@ -78,7 +78,7 @@ const galleryPhotos = [
   {
     id: 9,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.50%20PM.jpeg',
-    title: 'Pipeline Right-of-Way & Track Logistics',
+    title: 'Pipeline Installation & Construction Support',
     category: 'Field Logistics',
     tag: 'Track Operations',
     location: 'Field Site',
@@ -86,7 +86,7 @@ const galleryPhotos = [
   {
     id: 10,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.23%20PM.jpeg',
-    title: 'Marine Pipeline & Containment Booms',
+    title: 'Marine Spill Response & Containment',
     category: 'Offshore Operations',
     tag: 'Marine Booms',
     location: 'Offshore Facility',
@@ -94,7 +94,7 @@ const galleryPhotos = [
   {
     id: 11,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.53%20PM.jpeg',
-    title: 'Industrial Instrumentation & Flow Control',
+    title: 'Pipeline Inspection & Field Survey',
     category: 'Instrumentation',
     tag: 'Control Valves',
     location: 'Process Unit',
@@ -102,7 +102,7 @@ const galleryPhotos = [
   {
     id: 12,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.26%20PM.jpeg',
-    title: 'Heavy Mechanical & Flange Assembly',
+    title: 'Mechanical Maintenance & Flange Services',
     category: 'Mechanical Engineering',
     tag: 'Pipe Fitting',
     location: 'Deck Operations',
