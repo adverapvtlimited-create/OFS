@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { 
-  Package, 
-  Wrench, 
-  ShieldCheck, 
-  Anchor, 
-  Building2, 
-  Settings, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import {
+  Package,
+  Wrench,
+  ShieldCheck,
+  Anchor,
+  Building2,
+  Settings,
+  ArrowUpRight,
+  CheckCircle2,
   HelpCircle,
   Phone,
   Mail,
@@ -113,21 +113,21 @@ export default function SingleServicePage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {service.title}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.2rem] text-white/90 max-w-[780px] leading-relaxed mb-9">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-9">
               {service.tagline}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
-              Request Quotation / RFQ <ArrowUpRight size={18} />
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
+              Request Quotation / Consultation <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
         </div>
@@ -173,8 +173,8 @@ export default function SingleServicePage({ params }) {
             {/* Featured Image Banner */}
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[480px] relative">
-                <img 
-                  src={service.heroImage} 
+                <img
+                  src={service.heroImage}
                   alt={`${service.title} — OFS Group India`}
                   width={960}
                   height={480}
@@ -231,32 +231,32 @@ export default function SingleServicePage({ params }) {
 
           {/* Step-by-Step Methodology / Process */}
           {service.process && (
-            <div className="bg-ofs-navy-950 text-white rounded-3xl p-8 sm:p-12 lg:p-[4.5rem] mb-20 relative overflow-hidden">
+            <div className="bg-ofs-navy-950 text-white rounded-3xl p-5 sm:p-10 lg:p-[4.5rem] mb-16 sm:mb-20 relative overflow-hidden">
               <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="max-w-[680px] mb-14">
+                <div className="max-w-[680px] mb-10 sm:mb-14">
                   <div className="tag-badge badge-red mb-4">
                     EXECUTION METHODOLOGY
                   </div>
                   <h2 className="section-title text-white">
                     Standard Operating Procedure
                   </h2>
-                  <p className="text-white/80 text-[1.05rem] leading-relaxed">
+                  <p className="text-white/80 text-sm sm:text-[1.05rem] leading-relaxed">
                     Our proven 5-stage workflow ensures transparent milestones, risk mitigation, and strict QA/QC sign-offs.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
                   {service.process.map((p, pIdx) => (
-                    <div key={pIdx} className="bg-white/[0.06] border border-white/10 rounded p-6">
-                      <div className="font-mono text-[1.85rem] font-black text-ofs-red-400 mb-3.5 leading-none">
+                    <div key={pIdx} className="bg-white/[0.06] border border-white/10 rounded p-4.5 sm:p-6">
+                      <div className="font-mono text-[1.65rem] sm:text-[1.85rem] font-black text-ofs-red-400 mb-2.5 sm:mb-3.5 leading-none">
                         {p.step}
                       </div>
-                      <h4 className="font-heading text-[1.1rem] font-extrabold text-white mb-2">
+                      <h4 className="font-heading text-base sm:text-[1.1rem] font-extrabold text-white mb-2">
                         {p.title}
                       </h4>
-                      <p className="text-[0.85rem] text-white/70 leading-relaxed m-0">
+                      <p className="text-xs sm:text-[0.85rem] text-white/70 leading-relaxed m-0">
                         {p.desc}
                       </p>
                     </div>
@@ -269,21 +269,21 @@ export default function SingleServicePage({ params }) {
           {/* Technical FAQs */}
           {service.faqs && (
             <div className="max-w-[820px] mx-auto mb-16">
-              <div className="text-center mb-12">
+              <div className="text-center mb-10 sm:mb-12">
                 <div className="tag-badge badge-red mb-3.5">
                   FREQUENTLY ASKED QUESTIONS
                 </div>
                 <h2 className="section-title">Technical &amp; Commercial FAQs</h2>
               </div>
 
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-4 sm:gap-5">
                 {service.faqs.map((faq, fIdx) => (
-                  <div key={fIdx} className="bg-ofs-gray-50 rounded-lg border border-ofs-gray-200 p-7">
-                    <h3 className="font-heading text-lg font-extrabold text-ofs-navy-950 flex items-center gap-2.5 mb-3.5">
-                      <HelpCircle size={20} className="text-ofs-red-600 shrink-0" />
-                      {faq.question}
+                  <div key={fIdx} className="bg-ofs-gray-50 rounded-lg border border-ofs-gray-200 p-4 sm:p-6 lg:p-7">
+                    <h3 className="font-heading text-base sm:text-lg font-extrabold text-ofs-navy-950 flex items-start sm:items-center gap-2.5 mb-2.5 sm:mb-3.5">
+                      <HelpCircle size={20} className="text-ofs-red-600 shrink-0 mt-0.5 sm:mt-0" />
+                      <span>{faq.question}</span>
                     </h3>
-                    <p className="text-[0.95rem] text-ofs-gray-600 leading-relaxed m-0 pl-7">
+                    <p className="text-xs sm:text-[0.95rem] text-ofs-gray-600 leading-relaxed m-0 pl-0 sm:pl-7">
                       {faq.answer}
                     </p>
                   </div>
@@ -297,12 +297,16 @@ export default function SingleServicePage({ params }) {
             <h2 className="section-title mb-5">
               Industries We Support
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               {industriesData.slice(0, 4).map((ind) => (
                 <Link
                   key={ind.id}
-                  href={`/industries/${ind.slug}`}
-                  className="p-4 bg-ofs-gray-50 border border-ofs-gray-200 rounded text-ofs-navy-950 font-bold text-[0.9rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors text-center"
+                  href={
+                    ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+                      ? '/renewables'
+                      : `/industries/${ind.slug}`
+                  }
+                  className="p-3 sm:p-4 bg-ofs-gray-50 border border-ofs-gray-200 rounded text-ofs-navy-950 font-bold text-xs sm:text-[0.9rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors text-center"
                 >
                   {ind.shortName}
                 </Link>

@@ -1,17 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { 
-  Wrench, 
-  Flame, 
-  Settings, 
-  Ship, 
-  Zap, 
-  Sun, 
-  Anchor, 
-  ShieldCheck, 
-  ArrowUpRight, 
-  CheckCircle2 
+import {
+  Wrench,
+  Flame,
+  Settings,
+  Ship,
+  Zap,
+  Sun,
+  Anchor,
+  ShieldCheck,
+  ArrowUpRight,
+  CheckCircle2
 } from 'lucide-react';
 import productsData from '@/data/products.json';
 import TextReveal from '@/components/animations/TextReveal';
@@ -104,21 +104,21 @@ export default function SingleProductPage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] text-white mb-6 max-w-[920px]">
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
               {prod.name}
             </TextReveal>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
-            <p className="text-[1.2rem] text-white/90 max-w-[780px] leading-relaxed mb-9">
+            <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-9">
               {prod.summary}
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center gap-2 no-underline">
-              Request Product Inquiry / RFQ <ArrowUpRight size={18} />
+            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
+              Request Product Inquiry <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
         </Container>
@@ -165,9 +165,9 @@ export default function SingleProductPage({ params }) {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="card-modern p-3 overflow-hidden shadow-2xl border border-ofs-gray-200 bg-white rounded-2xl">
                 <div className="h-[360px] sm:h-[420px] relative rounded-xl overflow-hidden">
-                  <img 
-                    src={prod.heroImage} 
-                    alt={prod.name} 
+                  <img
+                    src={prod.heroImage}
+                    alt={prod.name}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/80 via-transparent to-transparent" />
@@ -216,11 +216,7 @@ export default function SingleProductPage({ params }) {
                             alt={item.title}
                             className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute top-3 right-3">
-                            <span className="tag-badge badge-red text-[11px] uppercase tracking-wider py-1 px-2.5 shadow-sm">
-                              OFS Certified
-                            </span>
-                          </div>
+
                         </div>
 
                         {/* Title */}
@@ -252,9 +248,7 @@ export default function SingleProductPage({ params }) {
                       </div>
 
                       <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">
-                        <span className="text-xs font-mono font-bold text-ofs-navy-700 uppercase">
-                          API / ISO Compliant
-                        </span>
+
                         <Link
                           href="/contact"
                           className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"

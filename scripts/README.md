@@ -1,56 +1,83 @@
-# OFS Data Migration Scripts
+# OFS Strapi Seeder Script
 
-This folder contains Python and Node.js scripts used for data migration, auditing, and seeding.
+This directory contains the `seed-strapi.js` automation script. Its purpose is to instantly migrate all local JSON content (Products, Services) from the Next.js repository into the PostgreSQL/Strapi database.
+
+## Prerequisites
+- Node.js installed.
+- Access to the Strapi CMS repository (`ofs_cms`).
 
 ---
 
-## The Strapi Seeder (`seed_strapi.py`)
+## 💻 Scenario A: Testing Locally (For Backend Devs)
 
-The `seed_strapi.py` script is a dedicated data migration tool designed for **Phase 2** of the OFS project. 
+If you are developing the schema or want to test the data migration locally before pushing to production:
 
-### What it does
-It reads all the static JSON files currently powering the frontend (`industries.json`, `products.json`, `services.json`, etc.) from the `src/data/` directory, formats them to perfectly match the Strapi v4 Component Schema, and automatically `POST`s them to the Strapi REST API. 
+1. **Start the CMS Locally**
+   Clone the CMS repository and start it on your local machine:
+   ```bash
+   git clone https://github.com/adverapvtlimited-create/ofs_cms.git
+   cd ofs_cms
+   npm install
+   npm run develop
+   ```
+   *Strapi will start at `http://localhost:1337`.*
 
-This saves the OFS team from having to manually copy-paste hundreds of products, services, and blogs into the Strapi Admin Dashboard.
+2. **Generate an API Token**
+   - Open your browser to `http://localhost:1337/admin`.
+   - Navigate to **Settings > API Tokens > Create new API Token**.
+   - Set the Token type to **Full Access** (required for `POST` requests).
+   - Copy the generated token.
 
-### When to use this
-Do **NOT** use this script right now. 
-You will only use this script once the following have occurred:
-1. The **Hostinger VPS** has been purchased.
-2. The **Strapi Backend** has been installed, configured, and deployed to that VPS.
-
-### Prerequisites (Before Running)
-
-Before you execute this script, you must ensure the Strapi backend is fully prepared to receive the data:
-
-1. **Content Types Built:** You must log into the Strapi Admin Panel and manually create all the Content Types (e.g., `product`, `industry`, `service`) and Components (e.g., `shared.seo`, `elements.feature-bullet`) **exactly** as defined in the OFS Strapi Technical Specification.
-2. **Draft & Publish Enabled:** Ensure "Draft & Publish" is enabled on all Collection Types in Strapi.
-3. **API Token Generated:** Go to `Settings -> API Tokens` in Strapi and generate a **Full Access** token. This gives the script permission to write data.
-4. **Python Installed:** Ensure Python 3.x is installed on the machine running the script, along with the `requests` library (`pip install requests`).
-
-### How to Run the Script
-
-1. Open a terminal in the root of the OFS repository.
-2. Set your environment variables so the script knows where to send the data:
+3. **Run the Seeder**
+   Navigate to the root of the **OFS (Frontend)** repository and run the seeder with your local variables:
    
-   **On Windows (PowerShell):**
+   *Windows (PowerShell)*
    ```powershell
-   $env:STRAPI_URL="http://your-hostinger-ip:1337"
-   $env:STRAPI_API_TOKEN="your_generated_token_here"
+   $env:STRAPI_URL="http://localhost:1337"
+   $env:STRAPI_TOKEN="your_copied_token_here"
+   node scripts/seed-strapi.js
    ```
    
-   **On Mac/Linux:**
+   *Mac/Linux/Git Bash*
    ```bash
-   export STRAPI_URL="http://your-hostinger-ip:1337"
-   export STRAPI_API_TOKEN="your_generated_token_here"
+   STRAPI_URL="http://localhost:1337" STRAPI_TOKEN="your_copied_token_here" node scripts/seed-strapi.js
    ```
 
-3. Execute the script:
+---
+
+## 🌍 Scenario B: VPS Production Execution
+
+Once the Hostinger VPS is provisioned and the CMS is deployed to `api.ofsgroupindia.in`, run this to permanently populate the live PostgreSQL database.
+
+1. **Deploy CMS to VPS**
+   - The `ofs_cms` repo is pulled onto the Hostinger VPS.
+   - PM2 and Nginx are configured to run Strapi continuously behind the domain `api.ofsgroupindia.in`.
+
+2. **Generate Production API Token**
+   - Log into the live Strapi admin panel at `https://api.ofsgroupindia.in/admin`.
+   - Navigate to **Settings > API Tokens > Create new API Token**.
+   - Set the Token type to **Full Access** and copy the token.
+
+3. **Run the Seeder**
+   From your local machine (or any machine with the OFS Frontend code), target the production server:
+   
+   *Windows (PowerShell)*
+   ```powershell
+   $env:STRAPI_URL="https://api.ofsgroupindia.in"
+   $env:STRAPI_TOKEN="your_live_production_token"
+   node scripts/seed-strapi.js
+   ```
+   
+   *Mac/Linux/Git Bash*
    ```bash
-   python scripts/seed_strapi.py
+   STRAPI_URL="https://api.ofsgroupindia.in" STRAPI_TOKEN="your_live_production_token" node scripts/seed-strapi.js
    ```
 
-### What to Expect & Limitations
-- **Terminal Output:** The script will output a success `✅` or failure `❌` message for every single record. If a record fails (e.g., a `400 Bad Request`), it means your Strapi Schema does not match the script. Check the Strapi Admin panel and fix the schema field name.
-- **Images:** This script **skips all images**. Strapi requires images to be uploaded to a media bucket *before* they can be attached to a product. The OFS team will need to manually upload product images via the Strapi Admin Panel after the text data is migrated.
-- **Relationships:** Complex relationships (like linking a Product to an Industry) are skipped to prevent dependency crashes. These can easily be linked manually in the Strapi Admin Panel.
+---
+
+### What the Script Actually Does
+- **Reads Data**: It dynamically reads `src/data/products.json` and `src/data/services.json`.
+- **Transforms Data**: Next.js uses raw strings, but Strapi v4 requires strict "Blocks" for rich text. The seeder safely converts all text into the exact `[ { type: 'paragraph', children: [...] } ]` structure expected by Ganesh's Strapi schema.
+- **Uploads Data**: It executes `POST` requests directly to `/api/products` and `/api/services`.
+
+*Note: Due to network constraints, images cannot be passed natively via simple JSON POST requests. Images should be uploaded and linked manually within the Strapi Admin UI after the text data is successfully seeded.*

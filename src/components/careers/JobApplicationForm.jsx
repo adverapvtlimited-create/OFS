@@ -33,40 +33,48 @@ export default function JobApplicationForm({ job }) {
     setStatus({ state: 'loading', msg: 'Submitting your application...' });
 
     try {
-      await fetch('/api/careers', {
+      const res = await fetch('/api/careers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, jobTitle: job.title, jobId: job.id }),
       });
 
+      if (res.ok) {
+        setStatus({
+          state: 'success',
+          msg: `Application for ${job.title} submitted successfully! Our Talent Acquisition team will review your CV.`,
+        });
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          experienceYears: '',
+          currentCompany: '',
+          coverNote: '',
+          resumeName: '',
+        });
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        setStatus({
+          state: 'error',
+          msg: errData.error || 'Failed to submit application. Please verify all details and try again.',
+        });
+      }
+    } catch (err) {
       setStatus({
-        state: 'success',
-        msg: `Application for ${job.title} submitted successfully! Our Talent Acquisition team will review your CV.`,
-      });
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        experienceYears: '',
-        currentCompany: '',
-        coverNote: '',
-        resumeName: '',
-      });
-    } catch {
-      setStatus({
-        state: 'success',
-        msg: 'Application received! Our HR team will reach out to you within 3 business days.',
+        state: 'error',
+        msg: err?.message || 'Network error submitting application. Please try again later.',
       });
     }
   };
 
   return (
     <ScrollReveal direction="right" delay={0.2}>
-      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-8 sm:p-10 shadow-lg">
-        <h3 className="font-heading text-2xl font-extrabold text-ofs-navy-950 mb-2">
+      <div className="bg-ofs-navy-50 border border-ofs-navy-100 rounded-lg p-5 sm:p-8 lg:p-10 shadow-lg">
+        <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-ofs-navy-950 mb-2">
           Apply for this Position
         </h3>
-        <p className="text-sm text-ofs-gray-600 mb-7">
+        <p className="text-xs sm:text-sm text-ofs-gray-600 mb-6">
           Submit your resume and details directly to our hiring panel.
         </p>
 
@@ -80,6 +88,8 @@ export default function JobApplicationForm({ job }) {
               type="text"
               name="fullName"
               required
+              minLength={2}
+              maxLength={100}
               value={formData.fullName}
               onChange={handleChange}
               placeholder="e.g. Vikram Sharma"
@@ -96,6 +106,7 @@ export default function JobApplicationForm({ job }) {
               type="email"
               name="email"
               required
+              maxLength={120}
               value={formData.email}
               onChange={handleChange}
               placeholder="vikram@example.com"
@@ -112,6 +123,10 @@ export default function JobApplicationForm({ job }) {
               type="tel"
               name="phone"
               required
+              minLength={7}
+              maxLength={25}
+              pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
+              title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
               value={formData.phone}
               onChange={handleChange}
               placeholder="+91 98200 00000"
@@ -128,6 +143,7 @@ export default function JobApplicationForm({ job }) {
               type="text"
               name="experienceYears"
               required
+              maxLength={50}
               value={formData.experienceYears}
               onChange={handleChange}
               placeholder="e.g. 7 Years"
