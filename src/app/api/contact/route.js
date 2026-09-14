@@ -3,12 +3,6 @@ import fs from "fs";
 import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
-import {
-  contactEnquirySchema,
-  updateEnquiryStatusSchema,
-  enquiryQuerySchema,
-  validatePdfFile,
-} from "@/lib/validations/contact";
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryEnquiries = [];
@@ -87,7 +81,7 @@ const writeEnquiries = (enquiries) => {
 
 export async function POST(request) {
   try {
-    let rawData = {};
+    let data = {};
     let pdfUrl = null;
     let cloudinaryUrl = null;
     let pdfName = null;
@@ -99,7 +93,7 @@ export async function POST(request) {
 
     if (contentType.includes("multipart/form-data")) {
       const formData = await request.formData();
-      rawData = {
+      data = {
         name: formData.get("name"),
         email: formData.get("email"),
         phone: formData.get("phone"),
@@ -117,15 +111,6 @@ export async function POST(request) {
         uploadedFile.name &&
         typeof uploadedFile.arrayBuffer === "function"
       ) {
-        // Validate PDF before processing or uploading
-        const fileValidation = validatePdfFile(uploadedFile);
-        if (!fileValidation.valid) {
-          return NextResponse.json(
-            { error: fileValidation.error },
-            { status: 400 }
-          );
-        }
-
         pdfName = uploadedFile.name;
         pdfSize = uploadedFile.size;
         fileContentType = uploadedFile.type || "application/pdf";
@@ -185,26 +170,15 @@ export async function POST(request) {
         }
       }
     } else {
-      rawData = await request.json();
+      data = await request.json();
     }
 
-    // 1. Validate fields with Zod Schema
-    const validation = contactEnquirySchema.safeParse(rawData);
-    if (!validation.success) {
-      const firstErrorMessage =
-        validation.error.issues?.[0]?.message ||
-        validation.error.errors?.[0]?.message ||
-        "Please check your form inputs.";
+    if (!data.name || !data.email || !data.phone) {
       return NextResponse.json(
-        {
-          error: firstErrorMessage,
-          errors: validation.error.flatten().fieldErrors,
-        },
+        { error: "Name, email, and phone are required fields." },
         { status: 400 },
       );
     }
-
-    const data = validation.data;
 
     const enquiryRecord = {
       id: `ENQ-${Date.now()}`,
@@ -274,66 +248,3 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
-  try {
-    const enquiries = readEnquiries();
-    return NextResponse.json(enquiries);
-  } catch (error) {
-    return NextResponse.json([]);
-  }
-}
-
-export async function PATCH(request) {
-  try {
-    const rawData = await request.json();
-    const validation = updateEnquiryStatusSchema.safeParse(rawData);
-    if (!validation.success) {
-      return NextResponse.json(
-        { error: validation.error.errors[0]?.message || "Invalid status update payload." },
-        { status: 400 },
-      );
-    }
-
-    const { id, status } = validation.data;
-
-    const enquiries = readEnquiries();
-    const index = enquiries.findIndex((e) => e.id === id);
-    if (index === -1) {
-      return NextResponse.json({ error: "Enquiry not found" }, { status: 404 });
-    }
-
-    enquiries[index].status = status;
-    enquiries[index].updatedAt = new Date().toISOString();
-    writeEnquiries(enquiries);
-
-    return NextResponse.json({ success: true, enquiry: enquiries[index] });
-  } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to update enquiry status" },
-      { status: 500 },
-    );
-  }
-}
-
-export async function DELETE(request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
-    const validation = enquiryQuerySchema.safeParse({ id });
-
-    if (!validation.success) {
-      return NextResponse.json({ error: "Valid enquiry ID is required" }, { status: 400 });
-    }
-
-    let enquiries = readEnquiries();
-    enquiries = enquiries.filter((e) => e.id !== id);
-    writeEnquiries(enquiries);
-
-    return NextResponse.json({ success: true, message: "Enquiry deleted" });
-  } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to delete enquiry" },
-      { status: 500 },
-    );
-  }
-}

@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import {
-  careerApplicationSchema,
-  updateApplicationStatusSchema,
-  careerQuerySchema,
-} from '@/lib/validations/career';
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryApplications = [];
@@ -84,24 +79,14 @@ const writeApplications = (apps) => {
 
 export async function POST(request) {
   try {
-    const rawData = await request.json();
+    const data = await request.json();
 
-    const validation = careerApplicationSchema.safeParse(rawData);
-    if (!validation.success) {
-      const firstErrorMessage =
-        validation.error.issues?.[0]?.message ||
-        validation.error.errors?.[0]?.message ||
-        'Please check your application inputs.';
+    if (!data.fullName || !data.email || !data.phone) {
       return NextResponse.json(
-        {
-          error: firstErrorMessage,
-          errors: validation.error.flatten().fieldErrors,
-        },
+        { error: 'Full name, email, and phone are required.' },
         { status: 400 }
       );
     }
-
-    const data = validation.data;
 
     const applicationRecord = {
       id: `APP-${Date.now()}`,
@@ -136,60 +121,3 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
-  try {
-    const applications = readApplications();
-    return NextResponse.json(applications);
-  } catch (error) {
-    return NextResponse.json([]);
-  }
-}
-
-export async function PATCH(request) {
-  try {
-    const rawData = await request.json();
-    const validation = updateApplicationStatusSchema.safeParse(rawData);
-    if (!validation.success) {
-      return NextResponse.json(
-        { error: validation.error.errors[0]?.message || 'Invalid status update payload.' },
-        { status: 400 }
-      );
-    }
-
-    const { id, status } = validation.data;
-
-    const applications = readApplications();
-    const index = applications.findIndex(a => a.id === id);
-    if (index === -1) {
-      return NextResponse.json({ error: 'Application not found' }, { status: 404 });
-    }
-
-    applications[index].status = status;
-    applications[index].updatedAt = new Date().toISOString();
-    writeApplications(applications);
-
-    return NextResponse.json({ success: true, application: applications[index] });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to update application status' }, { status: 500 });
-  }
-}
-
-export async function DELETE(request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
-    const validation = careerQuerySchema.safeParse({ id });
-
-    if (!validation.success) {
-      return NextResponse.json({ error: 'Valid application ID is required' }, { status: 400 });
-    }
-
-    let applications = readApplications();
-    applications = applications.filter(a => a.id !== id);
-    writeApplications(applications);
-
-    return NextResponse.json({ success: true, message: 'Application deleted' });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to delete application' }, { status: 500 });
-  }
-}
