@@ -1,19 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { 
-  Flame, 
-  Ship, 
-  Sun, 
-  Hammer, 
-  Zap, 
-  FlaskConical, 
-  Mountain, 
-  Plane, 
-  Anchor, 
-  Compass, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import {
+  Flame,
+  Ship,
+  Sun,
+  Hammer,
+  Zap,
+  FlaskConical,
+  Mountain,
+  Plane,
+  Anchor,
+  Compass,
+  ArrowUpRight,
+  CheckCircle2,
   ShieldCheck,
   Cpu
 } from 'lucide-react';
@@ -196,8 +196,8 @@ export default function SingleIndustryPage({ params }) {
             {/* Right Image */}
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative">
-                <img 
-                  src={ind.heroImage} 
+                <img
+                  src={ind.heroImage}
                   alt={`${ind.name} — OFS Group India industrial solutions`}
                   width={960}
                   height={460}
@@ -225,8 +225,8 @@ export default function SingleIndustryPage({ params }) {
                         <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                           <div>
                             <div className="h-[175px] relative overflow-hidden">
-                              <img 
-                                src={sub.heroImage} 
+                              <img
+                                src={sub.heroImage}
                                 alt={sub.name}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />

@@ -39,7 +39,7 @@ export default function PrivacyPage() {
                 Information We Collect
               </h2>
               <p>
-                When you submit an enquiry, RFQ, career application, or contact form, we may collect your name,
+                When you submit an enquiry, career application, or contact form, we may collect your name,
                 email address, phone number, company details, project requirements, resume/CV files, and any
                 additional information you choose to provide.
               </p>

@@ -76,7 +76,7 @@ export default function ContactCTA() {
         body: payload,
       });
 
-   
+
 
       if (res.ok) {
         setStatus({
@@ -122,7 +122,7 @@ export default function ContactCTA() {
           <div>
             <ScrollReveal direction="up">
               <div className="mb-5">
-                <Badge variant="red">GET IN TOUCH / REQUEST RFQ</Badge>
+                <Badge variant="red">GET IN TOUCH / GENERAL ENQUIRY</Badge>
               </div>
             </ScrollReveal>
 
@@ -152,7 +152,7 @@ export default function ContactCTA() {
                     Rapid Engineering Response Guarantee
                   </strong>
                   <span className="text-xs text-white/70">
-                    All formal RFQs reviewed and assigned within 4 business hours.
+                    All enquiries reviewed and assigned within 4 business hours.
                   </span>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function ContactCTA() {
                   </div>
                   <div>
                     <div className="text-xs text-white/65 font-mono font-semibold">
-                      OFFICIAL ENQUIRY &amp; RFQ EMAIL
+                      OFFICIAL ENQUIRY EMAIL
                     </div>
                     <div className="font-heading text-base font-extrabold">
                       {siteConfig.contact.email}
@@ -202,7 +202,7 @@ export default function ContactCTA() {
           <ScrollReveal direction="up" delay={0.2}>
             <div className="bg-white rounded-2xl p-7 sm:p-9 lg:p-10 text-ofs-navy-950 shadow-2xl border border-white/20 relative">
               <h3 className="font-heading text-2xl sm:text-[1.75rem] font-extrabold text-ofs-navy-950 mb-2 leading-tight">
-                Submit a Project Enquiry / RFQ
+                Submit a Project Enquiry
               </h3>
               <p className="text-sm text-ofs-gray-600 mb-6 font-normal">
                 Fill in your specifications below to receive a detailed proposal.
@@ -218,6 +218,8 @@ export default function ContactCTA() {
                       type="text"
                       name="name"
                       required
+                      minLength={2}
+                      maxLength={100}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Sharma"
@@ -232,6 +234,7 @@ export default function ContactCTA() {
                       type="email"
                       name="email"
                       required
+                      maxLength={120}
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@company.com"
@@ -249,6 +252,10 @@ export default function ContactCTA() {
                       type="tel"
                       name="phone"
                       required
+                      minLength={7}
+                      maxLength={25}
+                      pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
+                      title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98200 00000"
@@ -262,6 +269,7 @@ export default function ContactCTA() {
                     <input
                       type="text"
                       name="company"
+                      maxLength={150}
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Larsen & Toubro"
@@ -297,6 +305,8 @@ export default function ContactCTA() {
                   <textarea
                     name="message"
                     required
+                    minLength={5}
+                    maxLength={3000}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Please describe project location, timeline, quantities, or technical specifications..."
@@ -307,7 +317,7 @@ export default function ContactCTA() {
 
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[0.72rem] font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.06em] flex items-center justify-between">
-                    <span>Attach RFQ / Specification (PDF)</span>
+                    <span>Attach Document / Specification (PDF)</span>
                     <span className="text-[0.68rem] font-normal text-ofs-gray-500 lowercase font-sans">
                       (Optional, Max 10MB)
                     </span>

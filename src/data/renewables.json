@@ -13,6 +13,7 @@
       "title": "Solar Engineering",
       "icon": "Sun",
       "image": "/images/live/solar.webp",
+      "href": "/renewables/solar",
       "bullets": [
         "US permit design",
         "Engineering support",
@@ -24,6 +25,7 @@
       "title": "BESS Solutions",
       "icon": "BatteryCharging",
       "image": "/images/live/bess-product.jpg",
+      "href": "/contact",
       "bullets": [
         "Battery sourcing",
         "Integration partners",
@@ -35,6 +37,7 @@
       "title": "Wind",
       "icon": "Wind",
       "image": "/images/live/Renewable-Energy.png",
+      "href": "/contact",
       "bullets": [
         "Components",
         "Supplier sourcing",
@@ -46,6 +49,7 @@
       "title": "Renewable Procurement",
       "icon": "Link",
       "image": "/images/live/renuwable procurement.webp",
+      "href": "/contact",
       "bullets": [
         "Global supplier identification",
         "RFQ/RFP",

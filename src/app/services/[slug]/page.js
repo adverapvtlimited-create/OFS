@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { 
-  Package, 
-  Wrench, 
-  ShieldCheck, 
-  Anchor, 
-  Building2, 
-  Settings, 
-  ArrowUpRight, 
-  CheckCircle2, 
+import {
+  Package,
+  Wrench,
+  ShieldCheck,
+  Anchor,
+  Building2,
+  Settings,
+  ArrowUpRight,
+  CheckCircle2,
   HelpCircle,
   Phone,
   Mail,
@@ -127,7 +127,7 @@ export default function SingleServicePage({ params }) {
 
           <ScrollReveal direction="up" delay={0.35}>
             <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
-              Request Quotation / RFQ <ArrowUpRight size={18} />
+              Request Quotation / Consultation <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
         </div>
@@ -173,8 +173,8 @@ export default function SingleServicePage({ params }) {
             {/* Featured Image Banner */}
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[480px] relative">
-                <img 
-                  src={service.heroImage} 
+                <img
+                  src={service.heroImage}
                   alt={`${service.title} — OFS Group India`}
                   width={960}
                   height={480}

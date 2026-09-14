@@ -14,7 +14,7 @@ const galleryPhotos = [
   {
     id: 1,
     src: '/ofsImages/marine.jpeg',
-    title: 'Offshore Marine & Vessel Support',
+    title: 'Offshore Mooring Operations',
     category: 'Marine & Offshore',
     tag: 'Offshore Logistics',
     location: 'Offshore Basin',
@@ -22,7 +22,7 @@ const galleryPhotos = [
   {
     id: 2,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.24%20PM.jpeg',
-    title: 'Heavy Equipment & Structural Fabrication',
+    title: 'Offshore Marine Operations',
     category: 'Heavy Engineering',
     tag: 'Fabrication Yard',
     location: 'Operations Hub',
@@ -30,23 +30,23 @@ const galleryPhotos = [
   {
     id: 3,
     src: '/ofsImages/site.jpeg',
-    title: 'Industrial Plant Operations & Maintenance',
-    category: 'Plant Maintenance',
-    tag: 'Site Execution',
-    location: 'Refinery Facility',
+    title: 'Civil Works & Site Preparation',
+    category: 'Civil Engineering',
+    tag: 'Groundworks',
+    location: 'Project Site',
   },
   {
     id: 4,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.49%20PM.jpeg',
-    title: 'High-Pressure Piping & Valve Alignment',
-    category: 'Piping & Mechanical',
-    tag: 'Valve Assembly',
+    title: 'Equipment Setup & Power Generation',
+    category: 'Equipment Operations',
+    tag: 'Generator Setup',
     location: 'Project Staging Area',
   },
   {
     id: 5,
     src: '/ofsImages/mariness.jpeg',
-    title: 'Vessel Mobilization & Marine Cargo',
+    title: 'Vessel Mooring Operations',
     category: 'Marine Logistics',
     tag: 'Emergency Freight',
     location: 'Coastal Deepwater Port',
@@ -54,7 +54,7 @@ const galleryPhotos = [
   {
     id: 6,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.22%20PM.jpeg',
-    title: 'Precision QA/QC & Component Testing',
+    title: 'Offshore Maintenance & Field Services',
     category: 'Quality Control',
     tag: 'EN 10204 3.1 Verification',
     location: 'QA Testing Bay',
@@ -69,32 +69,32 @@ const galleryPhotos = [
   },
   {
     id: 8,
-    src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.25%20PM.jpeg',
-    title: 'Supply Chain Staging & Warehousing',
-    category: 'Warehouse & SCM',
-    tag: 'Inventory Staging',
+    src: '/ofsImages/ChatGPT%20Image%20Sep%2014,%202026,%2009_45_07%20AM.png',
+    title: 'Offshore Supply & Logistics Operations',
+    category: 'Offshore Supply & Logistics',
+    tag: 'Offshore Logistics',
     location: 'Central Depot',
   },
   {
     id: 9,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.50%20PM.jpeg',
-    title: 'Rotary Equipment Overhaul & Calibration',
-    category: 'Mechanical MRO',
-    tag: 'Turbomachinery',
-    location: 'Plant Floor',
+    title: 'Pipeline Installation & Construction Support',
+    category: 'Field Logistics',
+    tag: 'Track Operations',
+    location: 'Field Site',
   },
   {
     id: 10,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.23%20PM.jpeg',
-    title: 'Structural Steel & Material Handling',
-    category: 'Material Handling',
-    tag: 'Rigging & Heavy Lift',
-    location: 'Industrial Yard',
+    title: 'Marine Spill Response & Containment',
+    category: 'Offshore Operations',
+    tag: 'Marine Booms',
+    location: 'Offshore Facility',
   },
   {
     id: 11,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.53%20PM.jpeg',
-    title: 'Industrial Instrumentation & Flow Control',
+    title: 'Pipeline Inspection & Field Survey',
     category: 'Instrumentation',
     tag: 'Control Valves',
     location: 'Process Unit',
@@ -102,10 +102,10 @@ const galleryPhotos = [
   {
     id: 12,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.26%20PM.jpeg',
-    title: 'Direct OEM Spares & Fast-Track Dispatch',
-    category: 'Procurement',
-    tag: 'AVL Sourcing',
-    location: 'Air/Sea Cargo Hub',
+    title: 'Mechanical Maintenance & Flange Services',
+    category: 'Mechanical Maintenance',
+    tag: 'Pipe Fitting',
+    location: 'Deck Operations',
   },
 ];
 
@@ -152,10 +152,7 @@ export default function FieldGallery() {
           </div>
 
           <ScrollReveal direction="up" delay={0.25} className="shrink-0">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-white/60 bg-white/[0.04] border border-white/10 px-3.5 py-2 rounded-md">
-              <Sparkles size={14} className="text-ofs-gold-400" />
-              <span>Hover photo to pause &bull; Click to inspect</span>
-            </div>
+           
           </ScrollReveal>
         </div>
       </Container>

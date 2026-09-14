@@ -83,6 +83,21 @@ async function seedServices() {
   }
 }
 
+// Helper to map SEO
+function mapSeo(seoData, fallbackTitle) {
+  if (!seoData) {
+    return {
+      metaTitle: fallbackTitle.substring(0, 70),
+      metaDescription: "Description coming soon."
+    };
+  }
+  return {
+    metaTitle: (seoData.metaTitle || fallbackTitle).substring(0, 70),
+    metaDescription: (seoData.metaDescription || "Description coming soon.").substring(0, 165),
+    keywords: seoData.keywords || ""
+  };
+}
+
 async function seedProducts() {
   console.log('\n📦 Seeding Products...');
   const filePath = path.join(dataDir, 'products.json');
@@ -154,19 +169,18 @@ async function seedCaseStudies() {
   const items = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   for (const item of items) {
     const payload = {
-      caseStudyId: item.id,
-      title: item.title,
-      clientIndustry: item.clientIndustry,
-      location: item.location,
-      badge: item.badge,
-      duration: item.duration,
-      heroImage: item.heroImage,
-      summary: item.summary,
-      challenge: item.challenge,
-      solution: item.solution,
-      metrics: item.metrics || [],
-      tags: item.tags || [],
-      seo: item.seo || {}
+      data: {
+        title: item.name,
+        slug: item.id,
+        shortName: item.shortTitle || item.name.substring(0, 60),
+        shortDescription: (item.description || "Description coming soon.").substring(0, 350),
+        overview: textToBlocks(item.description || item.tagline || ""),
+        features: mapFeatures(item.features),
+        seo: mapSeo(item.seo, item.name)
+        // Note: Images cannot be seeded via simple JSON POST if they are local files.
+        // They must be uploaded via FormData to Strapi's /api/upload first.
+        // For now, we seed the text content. You will attach images in the Strapi UI.
+      }
     };
     const res = await postOrPut('case-studies', payload);
     if (res.ok) console.log(`  ✅ Case Study: ${item.title.slice(0, 40)}...`);
@@ -256,15 +270,16 @@ async function seedOffers() {
   const obj = JSON.parse(fs.readFileSync(filePath, 'utf8'));
   for (const [key, item] of Object.entries(obj)) {
     const payload = {
-      slug: item.slug || key,
-      href: item.href,
-      title: item.title,
-      category: item.category,
-      categoryLabel: item.categoryLabel,
-      heroImage: item.heroImage,
-      tagline: item.tagline,
-      description: item.description,
-      blocks: item.blocks || []
+      data: {
+        title: item.title,
+        slug: item.id,
+        offeringType: "Service", // Enum: Service, Solution, Expertise, Discipline
+        shortTitle: item.shortTitle || (item.title ? item.title.substring(0, 60) : ''),
+        tagline: (item.tagline || item.title || '').substring(0, 150),
+        overview: textToBlocks(item.description || item.fullContentText || ""),
+        features: mapFeatures(item.features),
+        seo: mapSeo(item.seo, item.title)
+      }
     };
     const res = await postOrPut('offers', payload);
     if (res.ok) console.log(`  ✅ Offer: ${item.title}`);

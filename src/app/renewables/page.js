@@ -179,10 +179,12 @@ export default function RenewablesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
             {renewablesData.solutions.map((sol, idx) => {
               const IconComponent = iconMap[sol.icon] || Sun;
+              const isSolar = sol.id === 'solar-engineering' || sol.title?.toLowerCase().includes('solar');
+              const destinationHref = sol.href || (isSolar ? '/renewables/solar' : '/contact');
               return (
                 <ScrollReveal key={sol.id} direction="up" delay={idx * 0.07} className="h-full">
                   <Link
-                    href={`/contact?service=${encodeURIComponent(sol.title)}`}
+                    href={destinationHref}
                     className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden
                                hover:shadow-lg hover:shadow-slate-200/60 hover:border-emerald-200
                                active:shadow-md
@@ -233,7 +235,7 @@ export default function RenewablesPage() {
                         <span className="text-emerald-600 text-[0.75rem] sm:text-[0.8rem] font-semibold
                                          inline-flex items-center gap-1.5
                                          group-hover:gap-2.5 transition-all duration-200">
-                          Learn more
+                          {isSolar ? 'Learn more' : 'Get in touch'}
                           <ArrowRight size={14} />
                         </span>
                       </div>
