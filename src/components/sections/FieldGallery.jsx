@@ -62,7 +62,7 @@ const galleryPhotos = [
   {
     id: 7,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.54%20PM.jpeg',
-    title: 'Civil Works & Site Preparation',
+    title: 'Skid Integration & Field Assembly',
     category: 'EPC Support',
     tag: 'Skid Refurbishment',
     location: 'Field Integration Site',
@@ -70,7 +70,7 @@ const galleryPhotos = [
   {
     id: 8,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.25%20PM.jpeg',
-    title: 'Offshore Mooring & Rope Access Operations',
+    title: 'Supply Chain Staging & Warehousing',
     category: 'Warehouse & SCM',
     tag: 'Inventory Staging',
     location: 'Central Depot',
