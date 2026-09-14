@@ -69,10 +69,10 @@ const galleryPhotos = [
   },
   {
     id: 8,
-    src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.25%20PM.jpeg',
-    title: 'Supply Chain Staging & Warehousing',
-    category: 'Warehouse & SCM',
-    tag: 'Inventory Staging',
+    src: '/ofsImages/ChatGPT%20Image%20Sep%2014,%202026,%2009_45_07%20AM.png',
+    title: 'Offshore Supply & Logistics Operations',
+    category: 'Offshore Supply & Logistics',
+    tag: 'Offshore Logistics',
     location: 'Central Depot',
   },
   {
@@ -103,7 +103,7 @@ const galleryPhotos = [
     id: 12,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.26%20PM.jpeg',
     title: 'Mechanical Maintenance & Flange Services',
-    category: 'Mechanical Engineering',
+    category: 'Mechanical Maintenance',
     tag: 'Pipe Fitting',
     location: 'Deck Operations',
   },
