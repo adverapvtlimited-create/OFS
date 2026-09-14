@@ -164,6 +164,7 @@ export default function Footer() {
                   About OFS Group
                 </Link>
               </li>
+              {/* Hidden for now: Insights
               <li>
                 <Link
                   href="/blog"
@@ -173,6 +174,7 @@ export default function Footer() {
                   Industry Insights &amp; Articles
                 </Link>
               </li>
+              */}
               <li>
                 <Link
                   href="/careers"

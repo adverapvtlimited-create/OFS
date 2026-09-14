@@ -567,6 +567,7 @@ export default function Header() {
               </span>
               Renewables
             </Link>
+            {/* Hidden for now: Insights
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
@@ -574,6 +575,7 @@ export default function Header() {
             >
               Insights
             </Link>
+            */}
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
