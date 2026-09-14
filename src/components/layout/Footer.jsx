@@ -164,8 +164,16 @@ export default function Footer() {
                   About OFS Group
                 </Link>
               </li>
-              {/* Hidden for now: Insights
               <li>
+                <Link
+                  href="/#case-studies"
+                  className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
+                >
+                  <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
+                  Industrial Case Studies
+                </Link>
+              </li>
+              {/* <li>
                 <Link
                   href="/blog"
                   className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
@@ -173,8 +181,7 @@ export default function Footer() {
                   <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
                   Industry Insights &amp; Articles
                 </Link>
-              </li>
-              */}
+              </li> */}
               <li>
                 <Link
                   href="/careers"
@@ -190,7 +197,7 @@ export default function Footer() {
                   className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                 >
                   <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                  General Enquiry / Consultation
+                  Request RFQ / Consultation
                 </Link>
               </li>
             </ul>

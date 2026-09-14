@@ -309,7 +309,15 @@ export default function Header() {
                   })}
                 </div>
 
-
+                <div className="mt-3.5 pt-3 border-t border-white/[0.08] flex justify-between items-center">
+                  <Link
+                    href="/about#certifications"
+                    onClick={() => setCertsDropdownOpen(false)}
+                    className="text-xs text-ofs-gold-400 font-mono font-bold no-underline flex items-center gap-1 hover:text-ofs-gold-300"
+                  >
+                    View All Certifications ↘
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -567,15 +575,13 @@ export default function Header() {
               </span>
               Renewables
             </Link>
-            {/* Hidden for now: Insights
-            <Link
+            {/* <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-semibold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
             >
               Insights
-            </Link>
-            */}
+            </Link> */}
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
