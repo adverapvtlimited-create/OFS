@@ -514,28 +514,16 @@ export default function SolarEngineeringPage() {
                       </ul>
 
                       {/* Footer Badge */}
-                      <div className="pt-2 border-t border-slate-200/50 flex items-center gap-1.5 mt-auto">
-                        {step.isReady ? (
-                          <>
-                            <div className="w-4 h-4 rounded-full bg-[#15803d] text-white flex items-center justify-center text-[10px] font-bold">
-                              ✓
-                            </div>
-                            <span className="text-[11px] font-bold text-[#15803d]">
-                              {step.duration}
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <Calendar size={13} style={{ color: step.accentColor }} />
-                            <span
-                              className="text-[11px] font-semibold"
-                              style={{ color: step.accentColor }}
-                            >
-                              {step.duration}
-                            </span>
-                          </>
-                        )}
-                      </div>
+                      {step.isReady && (
+                        <div className="pt-2 border-t border-slate-200/50 flex items-center gap-1.5 mt-auto">
+                          <div className="w-4 h-4 rounded-full bg-[#15803d] text-white flex items-center justify-center text-[10px] font-bold">
+                            ✓
+                          </div>
+                          <span className="text-[11px] font-bold text-[#15803d]">
+                            {step.duration}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                   </div>
