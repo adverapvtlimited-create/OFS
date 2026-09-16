@@ -852,9 +852,6 @@ export default function SolarEngineeringPage() {
                   <h3 className="font-heading text-base sm:text-lg font-bold">
                     {activeModalCard.title}
                   </h3>
-                  <div className="text-[11px] font-mono text-emerald-400">
-                    {activeModalCard.pdfSheetTitle}
-                  </div>
                 </div>
               </div>
 
