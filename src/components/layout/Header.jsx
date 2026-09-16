@@ -119,6 +119,21 @@ export default function Header() {
   const pathname = usePathname();
   const offerActive = isWhatWeOfferPath(pathname);
   const offerMatch = findOfferMatch(pathname);
+  const [contactEmail, setContactEmail] = useState(siteConfig.contact.email);
+
+  // Dynamic email based on domain (ofsworld.com -> info@ofsworld.com, ofsgroupindia.com -> info@ofsgroupindia.com)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const hostname = window.location.hostname.toLowerCase();
+    const searchParams = new URLSearchParams(window.location.search);
+    const testDomain = searchParams.get('domain') || searchParams.get('test_domain');
+
+    if (hostname.includes('ofsworld.com') || testDomain?.includes('ofsworld.com')) {
+      setContactEmail(siteConfig.contact.emailUSA || 'info@ofsworld.com');
+    } else if (hostname.includes('ofsgroupindia.com') || testDomain?.includes('ofsgroupindia.com')) {
+      setContactEmail(siteConfig.contact.emailIndia || 'info@ofsgroupindia.com');
+    }
+  }, [pathname]);
 
   // Auto-cycle through certificates in top bar
   useEffect(() => {
@@ -325,11 +340,11 @@ export default function Header() {
             </a>
             <span className="text-white/25">|</span>
             <a
-              href={`mailto:${siteConfig.contact.email}`}
+              href={`mailto:${contactEmail}`}
               className="flex items-center gap-1.5 text-white hover:opacity-85 transition-opacity"
             >
               <Mail size={12} className="text-ofs-red-500" />
-              <span>{siteConfig.contact.email}</span>
+              <span>{contactEmail}</span>
             </a>
           </div>
         </div>
@@ -592,7 +607,10 @@ export default function Header() {
               Contact Us & Request Quote
             </Link>
             <div className="text-center text-xs text-ofs-gray-500 font-mono">
-              Call: {siteConfig.contact.phone} | {siteConfig.contact.email}
+              Call: {siteConfig.contact.phone} |{' '}
+              <a href={`mailto:${contactEmail}`} className="hover:underline">
+                {contactEmail}
+              </a>
             </div>
           </div>
         </div>
