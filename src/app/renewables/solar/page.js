@@ -849,7 +849,7 @@ export default function SolarEngineeringPage() {
                   {activeModalCard.id}
                 </div>
                 <div>
-                  <h3 className="font-heading text-base sm:text-lg font-bold">
+                  <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                     {activeModalCard.title}
                   </h3>
                 </div>
