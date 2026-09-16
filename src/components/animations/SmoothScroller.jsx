@@ -33,6 +33,9 @@ export default function SmoothScroller({ children }) {
     });
 
     lenisRef.current = lenis;
+    if (typeof window !== 'undefined') {
+      window.lenis = lenis;
+    }
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -67,6 +70,9 @@ export default function SmoothScroller({ children }) {
       gsap.ticker.remove(updateTicker);
       lenis.destroy();
       lenisRef.current = null;
+      if (typeof window !== 'undefined') {
+        window.lenis = null;
+      }
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
