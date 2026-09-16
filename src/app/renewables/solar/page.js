@@ -899,9 +899,7 @@ export default function SolarEngineeringPage() {
                 </div>
 
                 <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-[#0C1E4E] font-bold mb-2.5">
-                    Technical PDF Plan Set Notes
-                  </h4>
+
                   <ul className="space-y-1.5 pl-0 list-none mb-0">
                     {activeModalCard.pdfDetails.map((d, idx) => (
                       <li key={idx} className="text-xs text-slate-700 flex items-start gap-2">
