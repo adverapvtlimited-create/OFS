@@ -73,7 +73,7 @@ const roadmapSteps = [
   },
   {
     step: '03',
-    title: 'Permit Design & RMIT Design',
+    title: 'Permit Design',
     icon: PenTool,
     headerBg: 'bg-[#1d4ed8]',
     cardBg: 'bg-[#EFF6FF]',
@@ -895,17 +895,7 @@ export default function SolarEngineeringPage() {
                   </ul>
                 </div>
 
-                <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200">
 
-                  <ul className="space-y-1.5 pl-0 list-none mb-0">
-                    {activeModalCard.pdfDetails.map((d, idx) => (
-                      <li key={idx} className="text-xs text-slate-700 flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 mt-1.5" />
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
 
