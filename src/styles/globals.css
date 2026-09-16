@@ -36,12 +36,15 @@
     scroll-behavior: auto !important;
   }
 
-  .lenis.lenis-smooth [data-lenis-prevent] {
+  .lenis.lenis-smooth [data-lenis-prevent],
+  [data-lenis-prevent] {
     overscroll-behavior: contain;
   }
 
-  .lenis.lenis-stopped {
-    overflow: hidden;
+  .lenis.lenis-stopped,
+  body.lenis-stopped,
+  html.lenis-stopped {
+    overflow: hidden !important;
   }
 
   img, svg, video, canvas, audio, iframe, embed, object {

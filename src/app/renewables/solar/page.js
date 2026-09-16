@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Sun,
@@ -285,6 +285,44 @@ const permitPackageCards = [
 export default function SolarEngineeringPage() {
   const [activeModalCard, setActiveModalCard] = useState(null);
 
+  // Lock body & html scroll, pause Lenis smooth scroll, and handle escape key when modal is open
+  useEffect(() => {
+    if (activeModalCard) {
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.stop();
+      }
+
+      const originalOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalPaddingRight = document.body.style.paddingRight;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          setActiveModalCard(null);
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        if (typeof window !== 'undefined' && window.lenis) {
+          window.lenis.start();
+        }
+        document.body.style.overflow = originalOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+        document.body.style.paddingRight = originalPaddingRight;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [activeModalCard]);
+
   return (
     <div className="min-h-screen bg-white text-slate-800 selection:bg-emerald-500 selection:text-white overflow-x-hidden">
 
@@ -518,131 +556,130 @@ export default function SolarEngineeringPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 3: THE PERMIT DESIGN PACKAGE (7 CARDS + PDF DRAWINGS)
+          SECTION 3: THE PERMIT DESIGN PACKAGE (7 CARDS + PDF DRAWINGS - VERTICAL FORMAT)
           ═══════════════════════════════════════════════════════ */}
       <section className="py-6 sm:py-8 md:py-10 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Main Outer Container: Light Sky-Blue Frame matching reference design */}
+          {/* Main Outer Container: Light Sky-Blue Frame */}
           <ScrollReveal direction="up" duration={0.4}>
             <div className="bg-[#F0F7FD] border border-[#DCEBF7] rounded-3xl p-5 sm:p-7 lg:p-8 shadow-xs">
 
-              {/* Responsive Layout: Left Info Header + 7 Cards Flow */}
-              <div className="flex flex-col xl:flex-row gap-6 lg:gap-8 items-stretch">
-
-                {/* Left Column: Heading & Value Propositions */}
-                <div className="xl:w-64 2xl:w-72 shrink-0 flex flex-col justify-between py-1">
+              {/* Section Header & Value Propositions */}
+              <div className="border-b border-[#DCEBF7] pb-6 mb-6">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
                   <div>
-                    {/* Section Title with Green Accent Bar */}
-                    <div>
-                      <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-[#0C1E4E] tracking-tight leading-tight">
-                        The Permit Design Package
-                      </h2>
-                      <div className="h-[3px] w-20 bg-emerald-500 rounded-full mt-1.5" />
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed mt-3.5 mb-5">
+                    <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-extrabold text-[#0C1E4E] tracking-tight leading-tight">
+                      The Permit Design Package
+                    </h2>
+                    <div className="h-[3px] w-20 bg-emerald-500 rounded-full mt-2" />
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2.5 max-w-2xl">
                       We prepare a complete set of technical drawings, calculations and documents tailored to your jurisdiction&apos;s permit requirements.
                     </p>
-
-                    {/* 3 Value Propositions with Outlined Icons */}
-                    <div className="space-y-3.5">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-white border border-[#DCEBF7] text-[#0C1E4E] flex items-center justify-center shrink-0 shadow-2xs">
-                          <FileText size={16} className="text-[#0C1E4E]" />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700 leading-snug">
-                          Compliant with local building, electrical and fire codes
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-white border border-[#DCEBF7] text-[#0C1E4E] flex items-center justify-center shrink-0 shadow-2xs">
-                          <Settings size={16} className="text-[#0C1E4E]" />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700 leading-snug">
-                          Accurate, detailed and ready for submission
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-white border border-[#DCEBF7] text-[#0C1E4E] flex items-center justify-center shrink-0 shadow-2xs">
-                          <ShieldCheck size={16} className="text-[#0C1E4E]" />
-                        </div>
-                        <p className="text-xs font-medium text-slate-700 leading-snug">
-                          Supports faster approvals and smooth installation
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Hint for interaction */}
-                  <div className="mt-5 pt-3 border-t border-[#DCEBF7]/70 hidden xl:block">
-                    <span className="inline-flex items-center gap-1.5 text-[0.7rem] font-mono text-emerald-800 bg-emerald-50/80 border border-emerald-200/80 px-2.5 py-1 rounded-full">
-                      <Info size={12} className="text-emerald-600" />
+                  {/* Interaction Hint */}
+                  <div className="shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-full shadow-2xs">
+                      <Info size={13} className="text-emerald-600" />
                       Click any card to inspect CAD drawing
                     </span>
                   </div>
                 </div>
 
-                {/* Right Area: The 7 Cards Grid */}
-                <div className="flex-1 min-w-0">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
-                    {permitPackageCards.map((card) => (
-                      <div
-                        key={card.id}
-                        onClick={() => setActiveModalCard(card)}
-                        className="bg-white border border-[#DCEBF7] hover:border-emerald-400 hover:shadow-md rounded-xl p-3 flex flex-col h-full transition-all duration-200 cursor-pointer group relative"
-                      >
-                        {/* Card Header: Number Badge + Title */}
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-5 h-5 rounded-full bg-[#0C1E4E] text-white flex items-center justify-center text-[10px] font-extrabold shrink-0">
-                            {card.id}
-                          </div>
-                          <h3 className="font-heading text-xs font-bold text-[#0C1E4E] leading-tight line-clamp-2">
-                            {card.title}
-                          </h3>
-                        </div>
+                {/* 3 Value Propositions Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                  <div className="flex items-center gap-3 bg-white border border-[#DCEBF7] rounded-xl p-3 shadow-2xs">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0C1E4E] flex items-center justify-center shrink-0 border border-emerald-100">
+                      <FileText size={16} className="text-emerald-700" />
+                    </div>
+                    <p className="text-xs font-medium text-slate-700 leading-snug mb-0">
+                      Compliant with local building, electrical &amp; fire codes
+                    </p>
+                  </div>
 
-                        {/* Technical Diagram Container (Directly from PDF) */}
-                        <div className="w-full h-24 sm:h-28 bg-slate-50 border border-slate-200/80 rounded-lg overflow-hidden flex items-center justify-center relative p-1 mb-2 group-hover:bg-slate-100 transition-colors">
-                          <img
-                            src={card.image}
-                            alt={`${card.title} engineering drawing from permit set`}
-                            className="w-full h-full object-contain filter contrast-105"
-                            loading="lazy"
-                          />
-                          {/* Hover overlay with zoom hint */}
-                          <div className="absolute inset-0 bg-[#0C1E4E]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
-                            <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-white bg-[#0C1E4E] px-2 py-0.5 rounded-md shadow-xs">
-                              <Maximize2 size={10} /> Expand
-                            </span>
-                          </div>
-                        </div>
+                  <div className="flex items-center gap-3 bg-white border border-[#DCEBF7] rounded-xl p-3 shadow-2xs">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0C1E4E] flex items-center justify-center shrink-0 border border-emerald-100">
+                      <Settings size={16} className="text-emerald-700" />
+                    </div>
+                    <p className="text-xs font-medium text-slate-700 leading-snug mb-0">
+                      Accurate, detailed and ready for submission
+                    </p>
+                  </div>
 
-                        {/* Bullets matching reference graphic */}
-                        <ul className="space-y-1 pl-0 list-none mb-0 flex-1">
-                          {card.bullets.map((bullet, bIdx) => (
-                            <li key={bIdx} className="text-[10.5px] text-slate-600 flex items-start gap-1.5 leading-tight">
-                              <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0 mt-1.5" />
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {/* Sheet tag */}
-                        <div className="mt-2 pt-1.5 border-t border-slate-100 flex items-center justify-between text-[10px] font-mono text-slate-400 group-hover:text-emerald-700">
-                          <span>{card.sheetCode}</span>
-                          <span className="font-semibold text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                            View ↗
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex items-center gap-3 bg-white border border-[#DCEBF7] rounded-xl p-3 shadow-2xs">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0C1E4E] flex items-center justify-center shrink-0 border border-emerald-100">
+                      <ShieldCheck size={16} className="text-emerald-700" />
+                    </div>
+                    <p className="text-xs font-medium text-slate-700 leading-snug mb-0">
+                      Supports faster approvals &amp; smooth installation
+                    </p>
                   </div>
                 </div>
+              </div>
 
+              {/* 7 Cards Arranged Vertically (1 to 7 Stack) */}
+              <div className="space-y-3.5">
+                {permitPackageCards.map((card) => (
+                  <div
+                    key={card.id}
+                    onClick={() => setActiveModalCard(card)}
+                    className="bg-white border border-[#DCEBF7] hover:border-emerald-500 hover:shadow-md rounded-2xl p-4 sm:p-5 transition-all duration-200 cursor-pointer group flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6"
+                  >
+                    {/* Left: Number + Title + Sheet Code */}
+                    <div className="flex items-center gap-3.5 md:w-64 lg:w-72 shrink-0">
+                      <div className="w-9 h-9 rounded-xl bg-[#0C1E4E] group-hover:bg-emerald-600 text-white flex items-center justify-center text-xs font-extrabold shrink-0 transition-colors shadow-2xs">
+                        0{card.id}
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-heading text-sm sm:text-base font-bold text-[#0C1E4E] group-hover:text-emerald-700 transition-colors leading-tight">
+                          {card.title}
+                        </h3>
+                        <span className="text-[11px] font-mono text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60 inline-block mt-1">
+                          {card.sheetCode}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Middle-Left: Drawing Thumbnail Preview with Zoom Overlay */}
+                    <div className="w-full sm:w-48 md:w-44 h-24 bg-slate-50 border border-slate-200/80 rounded-xl overflow-hidden flex items-center justify-center relative p-1.5 shrink-0 group-hover:bg-slate-100 transition-colors">
+                      <img
+                        src={card.image}
+                        alt={`${card.title} engineering drawing from permit set`}
+                        className="w-full h-full object-contain filter contrast-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-[#0C1E4E]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-white bg-[#0C1E4E] px-2.5 py-1 rounded-md shadow-xs">
+                          <Maximize2 size={11} /> Expand
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Middle-Right: Scope Bullets */}
+                    <div className="flex-1 min-w-0">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 pl-0 list-none mb-0">
+                        {card.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="text-xs text-slate-600 flex items-start gap-1.5 leading-snug">
+                            <CheckCircle2 size={13} className="text-emerald-600 shrink-0 mt-0.5" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Right: Inspect Button CTA */}
+                    <div className="shrink-0 flex items-center justify-end">
+                      <button
+                        type="button"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-600 group-hover:text-white border border-emerald-200/80 group-hover:border-emerald-600 px-3.5 py-2 rounded-xl transition-all shadow-2xs"
+                      >
+                        <span>Inspect CAD</span>
+                        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
 
             </div>
@@ -806,15 +843,19 @@ export default function SolarEngineeringPage() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-fade-in-menu"
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-fade-in-menu overscroll-contain"
           onClick={() => setActiveModalCard(null)}
+          onWheel={(e) => e.stopPropagation()}
         >
           <div
+            data-lenis-prevent="true"
             className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border border-slate-200"
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-[#0C1E4E] text-white">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-[#0C1E4E] text-white shrink-0">
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">
                   {activeModalCard.id}
@@ -839,18 +880,22 @@ export default function SolarEngineeringPage() {
             </div>
 
             {/* Modal Body */}
-            <div className="overflow-y-auto p-6 space-y-6">
+            <div
+              data-lenis-prevent="true"
+              className="overflow-y-auto p-6 space-y-6 overscroll-contain flex-1"
+              onWheel={(e) => e.stopPropagation()}
+            >
               {/* High-Res Drawing Image */}
               <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden p-2">
                 <img
                   src={activeModalCard.image}
                   alt={activeModalCard.title}
-                  className="w-full h-auto max-h-[480px] object-contain mx-auto"
+                  className="w-full h-auto max-h-[480px] object-contain mx-auto select-none"
                 />
               </div>
 
-              {/* Technical Specifications Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Technical Specifications - Vertical Stack */}
+              <div className="flex flex-col gap-4">
                 <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200">
                   <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-700 font-bold mb-2.5">
                     Scope of Deliverable
@@ -882,7 +927,7 @@ export default function SolarEngineeringPage() {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
               <span className="text-xs font-mono text-slate-500">
                 Compliant with CBC 2022 &bull; CEC 2022 &bull; NEC 690 &bull; NEC 705
               </span>
