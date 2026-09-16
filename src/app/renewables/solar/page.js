@@ -514,28 +514,16 @@ export default function SolarEngineeringPage() {
                       </ul>
 
                       {/* Footer Badge */}
-                      <div className="pt-2 border-t border-slate-200/50 flex items-center gap-1.5 mt-auto">
-                        {step.isReady ? (
-                          <>
-                            <div className="w-4 h-4 rounded-full bg-[#15803d] text-white flex items-center justify-center text-[10px] font-bold">
-                              ✓
-                            </div>
-                            <span className="text-[11px] font-bold text-[#15803d]">
-                              {step.duration}
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <Calendar size={13} style={{ color: step.accentColor }} />
-                            <span
-                              className="text-[11px] font-semibold"
-                              style={{ color: step.accentColor }}
-                            >
-                              {step.duration}
-                            </span>
-                          </>
-                        )}
-                      </div>
+                      {step.isReady && (
+                        <div className="pt-2 border-t border-slate-200/50 flex items-center gap-1.5 mt-auto">
+                          <div className="w-4 h-4 rounded-full bg-[#15803d] text-white flex items-center justify-center text-[10px] font-bold">
+                            ✓
+                          </div>
+                          <span className="text-[11px] font-bold text-[#15803d]">
+                            {step.duration}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                   </div>
@@ -861,12 +849,9 @@ export default function SolarEngineeringPage() {
                   {activeModalCard.id}
                 </div>
                 <div>
-                  <h3 className="font-heading text-base sm:text-lg font-bold">
+                  <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                     {activeModalCard.title}
                   </h3>
-                  <div className="text-[11px] font-mono text-emerald-400">
-                    {activeModalCard.pdfSheetTitle}
-                  </div>
                 </div>
               </div>
 
@@ -911,9 +896,7 @@ export default function SolarEngineeringPage() {
                 </div>
 
                 <div className="bg-[#F8FAFC] p-4 rounded-xl border border-slate-200">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-[#0C1E4E] font-bold mb-2.5">
-                    Technical PDF Plan Set Notes
-                  </h4>
+
                   <ul className="space-y-1.5 pl-0 list-none mb-0">
                     {activeModalCard.pdfDetails.map((d, idx) => (
                       <li key={idx} className="text-xs text-slate-700 flex items-start gap-2">
@@ -927,10 +910,7 @@ export default function SolarEngineeringPage() {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
-              <span className="text-xs font-mono text-slate-500">
-                Compliant with CBC 2022 &bull; CEC 2022 &bull; NEC 690 &bull; NEC 705
-              </span>
+            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-end shrink-0">
               <button
                 onClick={() => setActiveModalCard(null)}
                 className="px-4 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold transition-colors"
