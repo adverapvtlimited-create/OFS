@@ -915,10 +915,7 @@ export default function SolarEngineeringPage() {
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between shrink-0">
-              <span className="text-xs font-mono text-slate-500">
-                Compliant with CBC 2022 &bull; CEC 2022 &bull; NEC 690 &bull; NEC 705
-              </span>
+            <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-end shrink-0">
               <button
                 onClick={() => setActiveModalCard(null)}
                 className="px-4 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold transition-colors"
