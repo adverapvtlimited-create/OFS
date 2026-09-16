@@ -73,7 +73,7 @@ const roadmapSteps = [
   },
   {
     step: '03',
-    title: 'Permit Design & RMIT Design',
+    title: 'Permit Design',
     icon: PenTool,
     headerBg: 'bg-[#1d4ed8]',
     cardBg: 'bg-[#EFF6FF]',
