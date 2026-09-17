@@ -29,7 +29,10 @@ export const metadata = {
     telephone: false,
   },
   verification: {
-    google: '6fo7oPOILUbH5krDSVg-5jP9-Z3Rk2HUTTYY4FzHehc',
+    google: [
+      'U64H3rpbGxLXl_gL6oEZMCrQtZkEqhASBdcotv0IcN8',
+      '6fo7oPOILUbH5krDSVg-5jP9-Z3Rk2HUTTYY4FzHehc',
+    ],
   },
 };
 
@@ -37,6 +40,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-IN" suppressHydrationWarning>
       <head>
+        <meta
+          name="google-site-verification"
+          content="U64H3rpbGxLXl_gL6oEZMCrQtZkEqhASBdcotv0IcN8"
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
       </head>
