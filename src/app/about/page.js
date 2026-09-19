@@ -255,12 +255,12 @@ export default function AboutPage() {
             </ScrollReveal>
             <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
-                USA Global Office &amp;
+                Delivering Excellence
               </TextReveal>
               <br />
               <span className="gradient-text-navy">
                 <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  India Operations Hub
+                  Across the Globe
                 </TextReveal>
               </span>
             </h2>
