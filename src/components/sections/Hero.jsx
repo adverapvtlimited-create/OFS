@@ -73,7 +73,7 @@ export default function Hero() {
             OFS GROUP INDIA
           </Badge>
           <Pill icon={<Sparkles size={14} className="text-ofs-gold-600" />}>
-            3,000+ US &amp; European Approved Brands
+            3,000+ Approved Brands
           </Pill>
           <Pill icon={<ShieldCheck size={14} className="text-ofs-navy-900" />}>
             ISO 9001:2015 Certified

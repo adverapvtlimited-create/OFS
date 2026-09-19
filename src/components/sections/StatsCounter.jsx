@@ -13,7 +13,7 @@ const statsData = [
   {
     numeric: 3000,
     suffix: '+',
-    label: 'US & European Approved Brands',
+    label: 'Approved Brands',
     desc: 'Direct OEM access to pre-vetted international manufacturers with full EN 10204 3.1 MTC certification.',
     featured: true,
   },
