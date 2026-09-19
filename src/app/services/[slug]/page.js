@@ -18,8 +18,7 @@ import {
   Ship,
   Sun
 } from 'lucide-react';
-import servicesData from '@/data/services.json';
-import industriesData from '@/data/industries.json';
+import { getServices, getServiceBySlug, getIndustries } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
@@ -28,25 +27,26 @@ import { buildPageMetadata } from '@/lib/seo';
 import { buildServiceSchema, buildFAQSchema, buildWebPageSchema } from '@/lib/schema';
 
 const iconMap = {
-  Package: Package,
-  Wrench: Wrench,
-  ShieldCheck: ShieldCheck,
-  Anchor: Anchor,
-  Building2: Building2,
-  Settings: Settings,
-  Flame: Flame,
-  Ship: Ship,
-  Sun: Sun
+  Package,
+  Wrench,
+  ShieldCheck,
+  Anchor,
+  Building2,
+  Settings,
+  Flame,
+  Ship,
+  Sun
 };
 
 export async function generateStaticParams() {
-  return servicesData.map((service) => ({
+  const services = await getServices();
+  return services.map((service) => ({
     slug: service.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const service = servicesData.find((s) => s.slug === params.slug);
+  const service = await getServiceBySlug(params.slug);
   if (!service) {
     return buildPageMetadata({
       title: 'Service Not Found | OFS Group India',
@@ -60,13 +60,16 @@ export async function generateMetadata({ params }) {
     title: `${service.title} | OFS Group India`,
     description: service.description,
     path: `/services/${service.slug}`,
-    keywords: [service.title, service.shortTitle, 'OFS Group India', service.badge],
+    keywords: [service.title, service.shortTitle || service.title, 'OFS Group India', service.badge],
     ogImage: service.heroImage,
   });
 }
 
-export default function SingleServicePage({ params }) {
-  const service = servicesData.find((s) => s.slug === params.slug);
+export default async function SingleServicePage({ params }) {
+  const [service, industries] = await Promise.all([
+    getServiceBySlug(params.slug),
+    getIndustries(),
+  ]);
 
   if (!service) {
     notFound();
@@ -77,7 +80,7 @@ export default function SingleServicePage({ params }) {
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: service.shortTitle, href: `/services/${service.slug}` },
+    { name: service.shortTitle || service.title, href: `/services/${service.slug}` },
   ];
 
   const schemas = [
@@ -160,7 +163,7 @@ export default function SingleServicePage({ params }) {
 
                 {/* Core Features Checklist */}
                 <div className="flex flex-col gap-3.5">
-                  {service.features.map((feat, idx) => (
+                  {(service.features || []).map((feat, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-4 bg-ofs-navy-50/60 rounded-md border border-ofs-navy-100">
                       <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
                       <span className="text-[0.95rem] font-bold text-ofs-navy-950">{feat}</span>
@@ -174,7 +177,7 @@ export default function SingleServicePage({ params }) {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[480px] relative">
                 <img
-                  src={service.heroImage}
+                  src={service.heroImage || '/images/live/Excellence-tools-official.png'}
                   alt={`${service.title} — OFS Group India`}
                   width={960}
                   height={480}
@@ -188,7 +191,7 @@ export default function SingleServicePage({ params }) {
           </div>
 
           {/* Capabilities Grid */}
-          {service.capabilities && (
+          {service.capabilities && service.capabilities.length > 0 && (
             <div className="mb-20">
               <div className="text-center max-w-[720px] mx-auto mb-14">
                 <ScrollReveal direction="up">
@@ -203,7 +206,7 @@ export default function SingleServicePage({ params }) {
                   <br />
                   <span className="gradient-text-navy">
                     <TextReveal tag="span" delay={0.2} duration={0.65}>
-                      {service.shortTitle}
+                      {service.shortTitle || service.title}
                     </TextReveal>
                   </span>
                 </h2>
@@ -230,7 +233,7 @@ export default function SingleServicePage({ params }) {
           )}
 
           {/* Step-by-Step Methodology / Process */}
-          {service.process && (
+          {service.process && service.process.length > 0 && (
             <div className="bg-ofs-navy-950 text-white rounded-3xl p-5 sm:p-10 lg:p-[4.5rem] mb-16 sm:mb-20 relative overflow-hidden">
               <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
 
@@ -267,7 +270,7 @@ export default function SingleServicePage({ params }) {
           )}
 
           {/* Technical FAQs */}
-          {service.faqs && (
+          {service.faqs && service.faqs.length > 0 && (
             <div className="max-w-[820px] mx-auto mb-16">
               <div className="text-center mb-10 sm:mb-12">
                 <div className="tag-badge badge-red mb-3.5">
@@ -298,9 +301,9 @@ export default function SingleServicePage({ params }) {
               Industries We Support
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-              {industriesData.slice(0, 4).map((ind) => (
+              {industries.slice(0, 4).map((ind) => (
                 <Link
-                  key={ind.id}
+                  key={ind.id || ind.slug}
                   href={
                     ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
                       ? '/renewables'
@@ -308,7 +311,7 @@ export default function SingleServicePage({ params }) {
                   }
                   className="p-3 sm:p-4 bg-ofs-gray-50 border border-ofs-gray-200 rounded text-ofs-navy-950 font-bold text-xs sm:text-[0.9rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors text-center"
                 >
-                  {ind.shortName}
+                  {ind.shortName || ind.name}
                 </Link>
               ))}
             </div>

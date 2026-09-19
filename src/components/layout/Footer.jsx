@@ -29,7 +29,7 @@ export default function Footer() {
             <Link href="/" className="inline-block no-underline">
               <div className="bg-white p-2 px-3.5 rounded-xs inline-flex items-center shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
                 <img
-                  src="/images/ofs-logo.png"
+                  src={siteConfig.logo || '/images/ofs-logo.png'}
                   alt="OFS - Driven by Quality, Defined by Trust"
                   className="h-10 w-auto object-contain"
                 />

@@ -1,11 +1,32 @@
 import offersData from '@/data/offers.json';
 import { whatWeOffer, whatWeOfferColumns, findOfferMatch } from '@/data/navigation';
+import { getOfferBySlug as getOfferBySlugFromStrapi, getAllOfferSlugs as getAllOfferSlugsFromStrapi } from '@/lib/strapi';
 
-export function getOfferBySlug(slug) {
+export async function getOfferBySlug(slug) {
+  try {
+    const strapiOffer = await getOfferBySlugFromStrapi(slug);
+    if (strapiOffer) return strapiOffer;
+  } catch {
+    // Fallback to local
+  }
   return offersData[slug] || null;
 }
 
-export function getAllOfferSlugs() {
+export function getOfferBySlugSync(slug) {
+  return offersData[slug] || null;
+}
+
+export async function getAllOfferSlugs() {
+  try {
+    const slugs = await getAllOfferSlugsFromStrapi();
+    if (slugs && slugs.length > 0) return slugs;
+  } catch {
+    // Fallback to local
+  }
+  return Object.keys(offersData);
+}
+
+export function getAllOfferSlugsSync() {
   return Object.keys(offersData);
 }
 

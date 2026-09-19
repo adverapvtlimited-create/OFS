@@ -15,9 +15,12 @@ import Pill from '@/components/ui/Pill';
 import Button from '@/components/ui/Button';
 import SonarDot from '@/components/ui/SonarDot';
 import { useMouseParallax } from '@/hooks/useMouseParallax';
-import siteConfig from '@/data/site-config.json';
+import localSiteConfig from '@/data/site-config.json';
+import { getStrapiMedia } from '@/lib/strapi';
 
-export default function Hero() {
+export default function Hero({ siteConfig: passedConfig }) {
+  const siteConfig = passedConfig || localSiteConfig;
+  const heroImageUrl = getStrapiMedia(siteConfig.heroImage) || '/images/live/Banner3.jpg';
   const containerRef = useRef(null);
   const { smoothPos } = useMouseParallax({ damping: 0.06 });
 
@@ -140,8 +143,8 @@ export default function Hero() {
           transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            className="h-[380px] sm:h-[420px] md:h-[460px] relative bg-[url('/images/live/Banner3.jpg')] bg-center bg-cover bg-no-repeat"
-            style={{ scale: imageScale }}
+            className="h-[380px] sm:h-[420px] md:h-[460px] relative bg-center bg-cover bg-no-repeat"
+            style={{ scale: imageScale, backgroundImage: `url('${heroImageUrl}')` }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/25 to-[#060E24]/85" />
 

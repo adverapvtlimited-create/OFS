@@ -8,14 +8,19 @@ import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import StatsCounter from '@/components/sections/StatsCounter';
 import Certifications from '@/components/sections/Certifications';
 import JsonLd from '@/components/SEO/JsonLd';
-import { buildHomeFAQSchema, buildWebPageSchema } from '@/lib/schema';
+import { buildFAQSchema, buildWebPageSchema } from '@/lib/schema';
 import { PAGE_SEO } from '@/config/seo.config';
-import faqs from '@/data/faqs.json';
+import { getFaqs, getSiteConfig } from '@/lib/strapi';
 import { ChevronDown } from 'lucide-react';
 
 const homeSeo = PAGE_SEO.home;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [faqs, siteConfig] = await Promise.all([
+    getFaqs(),
+    getSiteConfig(),
+  ]);
+
   return (
     <>
       <JsonLd
@@ -25,11 +30,11 @@ export default function HomePage() {
             description: homeSeo.description,
             path: homeSeo.path,
           }),
-          buildHomeFAQSchema(),
+          buildFAQSchema(faqs),
         ]}
       />
 
-      <Hero />
+      <Hero siteConfig={siteConfig} />
       <BrandMarquee />
       <AboutPreview />
       <ServicesGrid />

@@ -1,14 +1,24 @@
-import servicesData from '@/data/services.json';
-import industriesData from '@/data/industries.json';
-import productsData from '@/data/products.json';
-import blogPosts from '@/data/blog-posts.json';
-import jobsData from '@/data/jobs.json';
+import {
+  getServices,
+  getIndustries,
+  getProducts,
+  getBlogPosts,
+  getJobs,
+} from '@/lib/strapi';
 import { SITE_URL } from '@/config/seo.config';
 import { parseDisplayDate } from '@/lib/seo';
 import { getAllOfferHrefs } from '@/data/navigation';
 
-export default function sitemap() {
+export default async function sitemap() {
   const now = new Date().toISOString();
+
+  const [services, industries, products, blogPosts, jobs] = await Promise.all([
+    getServices(),
+    getIndustries(),
+    getProducts(),
+    getBlogPosts(),
+    getJobs(),
+  ]);
 
   const staticRoutes = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' },
@@ -19,7 +29,6 @@ export default function sitemap() {
     { path: '/renewables', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog', priority: 0.75, changeFrequency: 'weekly' },
     { path: '/careers', priority: 0.75, changeFrequency: 'weekly' },
-    { path: '/products', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
@@ -30,21 +39,21 @@ export default function sitemap() {
     priority,
   }));
 
-  const serviceRoutes = servicesData.map((s) => ({
+  const serviceRoutes = services.map((s) => ({
     url: `${SITE_URL}/services/${s.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.9,
   }));
 
-  const industryRoutes = industriesData.map((i) => ({
+  const industryRoutes = industries.map((i) => ({
     url: `${SITE_URL}/industries/${i.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
-  const productRoutes = productsData.map((p) => ({
+  const productRoutes = products.map((p) => ({
     url: `${SITE_URL}/products/${p.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
@@ -58,7 +67,7 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  const careerRoutes = jobsData.map((j) => ({
+  const careerRoutes = jobs.map((j) => ({
     url: `${SITE_URL}/careers/${j.slug}`,
     lastModified: parseDisplayDate(j.postedDate) || now,
     changeFrequency: 'weekly',
@@ -72,5 +81,13 @@ export default function sitemap() {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...offerRoutes, ...productRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...offerRoutes,
+    ...productRoutes,
+    ...industryRoutes,
+    ...blogRoutes,
+    ...careerRoutes,
+  ];
 }

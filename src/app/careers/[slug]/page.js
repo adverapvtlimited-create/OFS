@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MapPin, Briefcase, Clock, CheckCircle2, ShieldCheck, ArrowLeft } from 'lucide-react';
-import jobsData from '@/data/jobs.json';
+import { getJobs, getJobBySlug } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import JobApplicationForm from '@/components/careers/JobApplicationForm';
@@ -12,13 +12,14 @@ import { buildPageMetadata } from '@/lib/seo';
 import { buildJobPostingSchema, buildWebPageSchema } from '@/lib/schema';
 
 export async function generateStaticParams() {
-  return jobsData.map((job) => ({
+  const jobs = await getJobs();
+  return jobs.map((job) => ({
     slug: job.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const job = jobsData.find((j) => j.slug === params.slug);
+  const job = await getJobBySlug(params.slug);
   if (!job) {
     return buildPageMetadata({
       title: 'Job Not Found | OFS Group India Careers',
@@ -36,8 +37,8 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default function SingleJobPage({ params }) {
-  const job = jobsData.find((j) => j.slug === params.slug);
+export default async function SingleJobPage({ params }) {
+  const job = await getJobBySlug(params.slug);
 
   if (!job) {
     notFound();
@@ -129,7 +130,7 @@ export default function SingleJobPage({ params }) {
                     Key Responsibilities
                   </h3>
                   <ul className="flex flex-col gap-3 p-0 list-none">
-                    {job.responsibilities.map((resp, idx) => (
+                    {(job.responsibilities || []).map((resp, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
                         <CheckCircle2 size={16} className="text-ofs-red-600 shrink-0 mt-1" aria-hidden="true" />
                         <span>{resp}</span>
@@ -143,7 +144,7 @@ export default function SingleJobPage({ params }) {
                     Required Qualifications &amp; Experience
                   </h3>
                   <ul className="flex flex-col gap-3 p-0 list-none">
-                    {job.requirements.map((req, idx) => (
+                    {(job.requirements || []).map((req, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
                         <CheckCircle2 size={16} className="text-ofs-navy-900 shrink-0 mt-1" aria-hidden="true" />
                         <span>{req}</span>
@@ -157,7 +158,7 @@ export default function SingleJobPage({ params }) {
                     What We Offer
                   </h3>
                   <ul className="flex flex-col gap-3 p-0 list-none">
-                    {job.benefits.map((ben, idx) => (
+                    {(job.benefits || []).map((ben, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-[0.925rem] text-ofs-gray-800">
                         <ShieldCheck size={16} className="text-ofs-green-600 shrink-0 mt-1" aria-hidden="true" />
                         <span>{ben}</span>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Clock, Calendar, ArrowUpRight, ArrowLeft, Share2, Tag, CheckCircle2 } from 'lucide-react';
-import blogPosts from '@/data/blog-posts.json';
+import { ArrowLeft } from 'lucide-react';
+import { getBlogPosts, getBlogPostBySlug } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Breadcrumbs from '@/components/SEO/Breadcrumbs';
@@ -13,13 +13,14 @@ import { buildArticleSchema, buildWebPageSchema } from '@/lib/schema';
 import SafeImage from '@/components/ui/SafeImage';
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = await getBlogPostBySlug(params.slug);
   if (!post) {
     return buildPageMetadata({
       title: 'Article Not Found | OFS Group India',
@@ -40,25 +41,28 @@ export async function generateMetadata({ params }) {
     ogType: 'article',
     publishedTime: published,
     modifiedTime: published,
-    authors: [post.author.name],
+    authors: [post.author?.name || 'OFS Engineering Team'],
     section: post.category,
     tags: post.tags,
   });
 }
 
-export default function SingleBlogPage({ params }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function SingleBlogPage({ params }) {
+  const post = await getBlogPostBySlug(params.slug);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 2);
+  const allPosts = await getBlogPosts();
+  const relatedPosts = allPosts
+    .filter((p) => p.id !== post.id && p.slug !== post.slug)
+    .slice(0, 2);
 
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
     { name: 'Insights', href: '/blog' },
-    { name: post.category, href: `/blog/${post.slug}` },
+    { name: post.category || 'Article', href: `/blog/${post.slug}` },
   ];
 
   return (
@@ -108,13 +112,13 @@ export default function SingleBlogPage({ params }) {
           <ScrollReveal direction="up" delay={0.25}>
             <div className="flex items-center gap-3.5">
               <img
-                src={post.author.avatar}
-                alt={post.author.name}
+                src={post.author?.avatar || '/images/author-default.png'}
+                alt={post.author?.name || 'Author'}
                 className="w-10 h-10 rounded-full object-cover border-2 border-ofs-gold-400"
               />
               <div>
-                <div className="text-[0.95rem] font-bold text-white">{post.author.name}</div>
-                <div className="text-xs text-white/70">{post.author.role}</div>
+                <div className="text-[0.95rem] font-bold text-white">{post.author?.name || 'OFS Team'}</div>
+                <div className="text-xs text-white/70">{post.author?.role || 'Engineering Specialist'}</div>
               </div>
             </div>
           </ScrollReveal>
@@ -135,7 +139,7 @@ export default function SingleBlogPage({ params }) {
 
           <ScrollReveal direction="up" delay={0.2}>
             <div className="p-5 sm:p-8 bg-ofs-navy-50/60 border-l-4 border-ofs-red-600 rounded-r-md text-base sm:text-[1.15rem] font-heading font-semibold text-ofs-navy-950 leading-relaxed mb-10 sm:mb-12">
-              "{post.excerpt}"
+              &quot;{post.excerpt}&quot;
             </div>
           </ScrollReveal>
 
@@ -159,7 +163,7 @@ export default function SingleBlogPage({ params }) {
             <span className="text-[0.85rem] font-mono font-bold text-ofs-navy-950">
               Tags:
             </span>
-            {post.tags.map((tag, tIdx) => (
+            {(post.tags || []).map((tag, tIdx) => (
               <span
                 key={tIdx}
                 className="text-xs font-mono bg-ofs-gray-100 text-ofs-gray-700 py-1 px-3 rounded-full"
@@ -177,7 +181,7 @@ export default function SingleBlogPage({ params }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {relatedPosts.map((rel) => (
                 <Link
-                  key={rel.id}
+                  key={rel.id || rel.slug}
                   href={`/blog/${rel.slug}`}
                   className="bg-ofs-gray-50 border border-ofs-gray-200 rounded-lg p-6 block hover:border-ofs-red-300 hover:bg-white transition-all duration-200 shadow-sm"
                 >

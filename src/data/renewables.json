@@ -12,8 +12,7 @@
       "id": "solar-engineering",
       "title": "Solar Engineering",
       "icon": "Sun",
-      "image": "/images/live/solar.webp",
-      "href": "/renewables/solar",
+      "image": null,
       "bullets": [
         "US permit design",
         "Engineering support",
@@ -24,8 +23,7 @@
       "id": "bess-solutions",
       "title": "BESS Solutions",
       "icon": "BatteryCharging",
-      "image": "/images/live/bess-product.jpg",
-      "href": "/contact",
+      "image": null,
       "bullets": [
         "Battery sourcing",
         "Integration partners",
@@ -36,8 +34,7 @@
       "id": "wind-energy",
       "title": "Wind",
       "icon": "Wind",
-      "image": "/images/live/Renewable-Energy.png",
-      "href": "/contact",
+      "image": null,
       "bullets": [
         "Components",
         "Supplier sourcing",
@@ -48,8 +45,7 @@
       "id": "renewable-procurement",
       "title": "Renewable Procurement",
       "icon": "Link",
-      "image": "/images/live/renuwable procurement.webp",
-      "href": "/contact",
+      "image": null,
       "bullets": [
         "Global supplier identification",
         "RFQ/RFP",
@@ -63,20 +59,24 @@
   "whyImage": "/images/live/why-renewables-landscape.jpg",
   "whyPills": [
     {
+      "id": 9,
       "title": "Global Supplier Network",
-      "icon": "Leaf"
+      "icon": "Globe"
     },
     {
+      "id": 10,
       "title": "Techno-Commercial Approach",
       "icon": "ShieldCheck"
     },
     {
+      "id": 11,
       "title": "Reliable Execution Support",
       "icon": "RotateCw"
     },
     {
+      "id": 12,
       "title": "Long-Term Partnerships",
-      "icon": "Target"
+      "icon": "Handshake"
     }
   ],
   "approachTag": "OUR APPROACH",
@@ -84,36 +84,42 @@
   "approachSubtitle": "A structured approach to help you source, engineer and execute with confidence:",
   "approachSteps": [
     {
+      "id": 13,
       "step": 1,
       "title": "Requirement",
       "desc": "Understand your needs and project goals",
       "icon": "FileText"
     },
     {
+      "id": 14,
       "step": 2,
       "title": "Engineering",
       "desc": "Design, feasibility & technical support",
       "icon": "Settings"
     },
     {
+      "id": 15,
       "step": 3,
       "title": "Supplier Discovery",
       "desc": "Identify and onboard trusted suppliers",
       "icon": "Users"
     },
     {
+      "id": 16,
       "step": 4,
       "title": "Commercial Evaluation",
       "desc": "Quality, cost, delivery & compliance",
       "icon": "Scale"
     },
     {
+      "id": 17,
       "step": 5,
       "title": "Procurement",
       "desc": "PO placement & coordination",
       "icon": "ShoppingCart"
     },
     {
+      "id": 18,
       "step": 6,
       "title": "Execution Support",
       "desc": "Logistics, documentation & project support",
@@ -126,21 +132,25 @@
   "partnerBgImage": "/images/live/renewables-partner-landscape.jpg",
   "partnerCards": [
     {
+      "id": 9,
       "title": "For Project Developers",
       "desc": "Tell us what you need to source or execute.",
       "icon": "HardHat"
     },
     {
+      "id": 10,
       "title": "For Manufacturers",
       "desc": "Become part of our supplier network.",
       "icon": "Factory"
     },
     {
+      "id": 11,
       "title": "For EPC Companies",
       "desc": "Access engineering and procurement support.",
       "icon": "Users"
     },
     {
+      "id": 12,
       "title": "For Technology Providers",
       "desc": "Explore opportunities to take your solutions to new markets.",
       "icon": "Lightbulb"
@@ -150,5 +160,10 @@
   "ctaTitle": "Let's Find the Right Solution Together",
   "ctaDesc": "Whether you need a solar design, a BESS solution, a renewable component or a reliable project supplier — we're here to help.",
   "ctaBgImage": "/images/live/renewables-cta-solar-landscape.jpg",
-  "contactEmail": "renewables@ofsgroupindia.com"
+  "contactEmail": "renewables@ofsgroupindia.com",
+  "id": 1,
+  "documentId": "fnlatkjv3kbyblpjoti694bg",
+  "createdAt": "2026-09-13T10:12:28.280Z",
+  "updatedAt": "2026-09-13T10:15:11.302Z",
+  "publishedAt": "2026-09-13T10:15:11.167Z"
 }
