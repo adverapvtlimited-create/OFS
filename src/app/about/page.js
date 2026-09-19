@@ -156,19 +156,6 @@ export default function AboutPage() {
             </ScrollReveal>
           </div>
 
-          {/* Global Presence Section */}
-          <div className="mb-16">
-            <ScrollReveal direction="up" delay={0.25}>
-              <div className="bg-white border border-ofs-gray-200 rounded-xl overflow-hidden shadow-sm p-1 sm:p-2">
-                <img 
-                  src="/images/about/global-presence.png" 
-                  alt="Global Presence & Service Network" 
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-
           {/* Core Values Section */}
           <div className="text-center max-w-[720px] mx-auto mb-12">
             <ScrollReveal direction="up">
@@ -277,6 +264,18 @@ export default function AboutPage() {
                 </TextReveal>
               </span>
             </h2>
+          </div>
+
+          <div className="mb-12">
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="bg-white border border-ofs-gray-200 rounded-xl overflow-hidden shadow-sm p-1 sm:p-2">
+                <img 
+                  src="/images/about/global-presence.png" 
+                  alt="Global Presence & Service Network" 
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
