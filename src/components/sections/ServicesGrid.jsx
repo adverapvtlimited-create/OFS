@@ -115,7 +115,7 @@ export default function ServicesGrid() {
                       AVL Partner Network
                     </div>
                     <div className="text-sm font-heading font-extrabold text-white">
-                      3,000+ US &amp; EU Approved Brands
+                      3,000+ Approved Brands
                     </div>
                   </div>
                 </div>
