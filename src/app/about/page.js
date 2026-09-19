@@ -255,15 +255,27 @@ export default function AboutPage() {
             </ScrollReveal>
             <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
-                USA Global Office &amp;
+                Delivering Excellence
               </TextReveal>
               <br />
               <span className="gradient-text-navy">
                 <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  India Operations Hub
+                  Across the Globe
                 </TextReveal>
               </span>
             </h2>
+          </div>
+
+          <div className="mb-12">
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="bg-white border border-ofs-gray-200 rounded-xl overflow-hidden shadow-sm p-1 sm:p-2">
+                <img 
+                  src="/images/about/global-presence.png" 
+                  alt="Global Presence & Service Network" 
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">

@@ -78,7 +78,7 @@ const galleryPhotos = [
   {
     id: 9,
     src: '/ofsImages/WhatsApp%20Image%202026-08-21%20at%209.07.50%20PM.jpeg',
-    title: 'Pipeline Installation & Construction Support',
+    title: 'Pipeline Installation',
     category: 'Field Logistics',
     tag: 'Track Operations',
     location: 'Field Site',
