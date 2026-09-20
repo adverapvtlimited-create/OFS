@@ -880,5 +880,62 @@
       "canonicalURL": null,
       "metaRobots": null
     }
+  },
+  {
+    "id": "mud-pumps",
+    "slug": "mud-pumps",
+    "name": "High-Performance Mud Pumps & Spare Parts",
+    "shortName": "Mud Pumps",
+    "category": "Upstream & Drilling",
+    "icon": "Settings",
+    "heroImage": "/images/products/mud-pumps.webp",
+    "summary": "Reliable mud pumps and replacement parts designed to deliver consistent pressure and flow for demanding drilling operations.",
+    "keyPoints": [
+      "High-pressure triplex and duplex mud pump solutions",
+      "OEM-quality spare parts for critical drilling equipment",
+      "Reliable performance with reduced maintenance and downtime"
+    ],
+    "description": "Mud pumps are a critical component of modern drilling systems, responsible for circulating drilling fluid through the drill string and back to the surface. Reliable mud pump performance is essential for maintaining wellbore stability, removing drilled cuttings, cooling drilling equipment, and supporting efficient drilling operations.\n\nAt OFS, we specialise in sourcing and supplying high-performance mud pumps and replacement components from trusted manufacturers. Our solutions are designed to support demanding onshore and offshore drilling applications while maintaining consistent pressure, flow, and operational reliability.\n\nWe support a wide range of drilling applications and pump configurations, helping customers select the right equipment and components for their specific requirements.\n\nOur MRO support includes critical replacement parts and technical assistance to help reduce unplanned downtime, extend equipment life, and maintain efficient drilling operations.",
+    "catalogItems": [
+      {
+        "title": "Triplex Mud Pumps",
+        "image": "/images/products/mud-pumps.webp",
+        "description": "High-pressure triplex mud pumps designed for demanding drilling applications. OFS supplies reliable pumps and replacement components to support continuous drilling operations."
+      },
+      {
+        "title": "Mud Piping & Standpipe Assemblies",
+        "image": "/images/products/electrical-conduit-fittings-1.png",
+        "description": "High-pressure mud discharge lines, standpipe manifolds, and vibrator hoses certified to API 16C and API 5L specifications."
+      },
+      {
+        "title": "Fluid End Modules & Liners",
+        "image": "/images/products/bearing.png",
+        "description": "Forged alloy steel mono-block fluid end modules and premium chrome-carbide bi-metal liners built for maximum abrasion and corrosion resistance."
+      },
+      {
+        "title": "Pistons, Rods & Packing",
+        "image": "/images/products/bearings-hydraulic-hoses-gaskets-reciprocating-engines-diesel-engines.png",
+        "description": "High-temperature bonded urethane and rubber pistons, hardened pony rods, and multi-lip fluid end packing assemblies."
+      },
+      {
+        "title": "Valves & Valve Seats",
+        "image": "/images/products/check-valve-1.png",
+        "description": "Full-open and 4-wing guided forged valve assemblies and seats heat-treated to ensure tight sealing and extended service life."
+      },
+      {
+        "title": "Pulsation Dampeners",
+        "image": "/images/products/diaphragm-pumps.png",
+        "description": "Forged spherical pulsation dampeners and nitrogen-charged bladders that absorb discharge pressure surges and protect downstream piping."
+      }
+    ],
+    "seo": {
+      "id": 341,
+      "metaTitle": "High-Performance Mud Pumps & Spare Parts | OFS",
+      "metaDescription": "Reliable mud pumps and replacement parts designed to deliver consistent pressure and flow for demanding drilling operations.",
+      "keywords": "OFS, industrial solutions, manufacturing, upstream & drilling, mud pumps, mud pipe, triplex pumps",
+      "canonicalURL": null,
+      "metaRobots": null
+    }
   }
 ]
+

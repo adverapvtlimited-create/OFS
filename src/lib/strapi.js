@@ -1,7 +1,7 @@
 /**
  * OFS Strapi CMS Client & Unified Data Fetch Layer
  * Connects Next.js frontend to Strapi v5 Headless CMS with:
- * - 60-second Incremental Static Regeneration (ISR)
+ * - 30-second Incremental Static Regeneration (ISR)
  * - Automatic graceful fallback to local src/data/*.json
  * - Deep Media URL normalization (supports Strapi 5/4 media objects, arrays, and public /images/ paths)
  */
@@ -81,7 +81,7 @@ export function getStrapiMedia(media) {
 /**
  * Low-level Strapi fetch helper with timeout and fallback support.
  */
-export async function fetchStrapi(endpoint, { params = {}, revalidate = 60, fallbackData = null } = {}) {
+export async function fetchStrapi(endpoint, { params = {}, revalidate = 30, fallbackData = null } = {}) {
   try {
     const url = new URL(`${STRAPI_URL}/api/${endpoint}`);
 
@@ -180,9 +180,33 @@ export async function getServices() {
 
 export async function getServiceBySlug(slug) {
   const services = await getServices();
-  const match = services.find((s) => s.slug === slug || s.serviceId === slug || s.id === slug);
+  const normalized = slug ? slug.toLowerCase().trim() : '';
+  const match = services.find((s) => {
+    if (!s) return false;
+    const sSlug = (s.slug || '').toLowerCase();
+    const sId = (s.serviceId || s.id || '').toLowerCase();
+    return (
+      sSlug === normalized ||
+      sId === normalized ||
+      (normalized === 'engineering-epc-support-services' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
+      (normalized === 'engineering-epc-support' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
+      (normalized === 'warehouse-2' && (sSlug === 'warehouse' || sId === 'warehouse'))
+    );
+  });
   if (match) return match;
-  return localServices.find((s) => s.slug === slug || s.id === slug) || null;
+  return (
+    localServices.find((s) => {
+      const sSlug = (s.slug || '').toLowerCase();
+      const sId = (s.id || '').toLowerCase();
+      return (
+        sSlug === normalized ||
+        sId === normalized ||
+        (normalized === 'engineering-epc-support-services' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
+        (normalized === 'engineering-epc-support' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
+        (normalized === 'warehouse-2' && (sSlug === 'warehouse' || sId === 'warehouse'))
+      );
+    }) || null
+  );
 }
 
 /* ==========================================================================
@@ -415,44 +439,153 @@ export async function getFaqs() {
    10. OFFERS (Collection Type: /api/offers)
    ========================================================================== */
 export async function getOffers() {
-  const data = await fetchStrapi(
-    'offers?populate[0]=heroImage&populate[1]=blocks.image.src&populate[2]=blocks.items&pagination[pageSize]=100',
-    {
-      fallbackData: null,
-    }
-  );
-
-  if (!Array.isArray(data) || data.length === 0) {
-    return localOffers;
-  }
+  const [data, services] = await Promise.all([
+    fetchStrapi(
+      'offers?populate[0]=heroImage&populate[1]=blocks.image.src&populate[2]=blocks.items&pagination[pageSize]=100',
+      {
+        revalidate: 30,
+        fallbackData: null,
+      }
+    ),
+    getServices(),
+  ]);
 
   const map = {};
-  data.forEach((item) => {
-    map[item.slug] = {
-      ...item,
-      heroImage: getStrapiMedia(item.heroImage) || item.heroImage,
-      blocks: (item.blocks || []).map((b) => ({
-        ...b,
-        image: b.image
-          ? {
-              ...b.image,
-              src:
-                getStrapiMedia(b.image.src || b.image) ||
-                (typeof b.image === 'string' ? b.image : b.image?.src),
-            }
-          : null,
-      })),
-    };
+
+  // 1. Initialize with localOffers fallback
+  Object.keys(localOffers).forEach((slug) => {
+    map[slug] = { ...localOffers[slug] };
   });
+
+  // 2. Overlay Strapi Offers
+  if (Array.isArray(data) && data.length > 0) {
+    data.forEach((item) => {
+      const existing = map[item.slug] || {};
+      map[item.slug] = {
+        ...existing,
+        ...item,
+        heroImage: getStrapiMedia(item.heroImage) || item.heroImage || existing.heroImage || null,
+        blocks: (item.blocks && item.blocks.length > 0)
+          ? item.blocks.map((b, bIdx) => ({
+              ...(existing.blocks?.[bIdx] || {}),
+              ...b,
+              image: b.image
+                ? {
+                    ...b.image,
+                    src:
+                      getStrapiMedia(b.image.src || b.image) ||
+                      (typeof b.image === 'string' ? b.image : b.image?.src),
+                  }
+                : existing.blocks?.[bIdx]?.image || null,
+            }))
+          : existing.blocks || [],
+      };
+    });
+  }
+
+  // 3. Seamlessly sync with Strapi Services for all service-related offerings
+  if (Array.isArray(services) && services.length > 0) {
+    services.forEach((srv) => {
+      const srvSlug = srv.slug;
+      const srvId = srv.id || srv.serviceId;
+
+      const targetSlugs = [
+        srvSlug,
+        srvId,
+        srvSlug === 'engineering-epc-support' ? 'engineering-epc-support-services' : null,
+        srvSlug === 'engineering-epc' ? 'engineering-epc-support-services' : null,
+        srvSlug === 'warehouse' ? 'warehouse-2' : null,
+      ].filter(Boolean);
+
+      targetSlugs.forEach((slug) => {
+        if (!map[slug]) {
+          map[slug] = {
+            slug,
+            title: srv.title,
+            category: 'services',
+            categoryLabel: 'Services',
+            tagline: srv.tagline,
+            description: srv.description,
+            heroImage: srv.heroImage || null,
+            features: (srv.features || []).map((f) => ({ title: f, description: '' })),
+            blocks: [],
+            gallery: (srv.scrapedImages || []).map((img) => ({ src: img, alt: srv.title })),
+          };
+        } else {
+          // Prioritize uploaded Strapi service image if present
+          if (srv.heroImage) {
+            map[slug].heroImage = srv.heroImage;
+          }
+          if (srv.tagline) {
+            map[slug].tagline = srv.tagline;
+          }
+          if (srv.title && !map[slug].title) {
+            map[slug].title = srv.title;
+          }
+          if (srv.description && !map[slug].description) {
+            map[slug].description = srv.description;
+          }
+          if (srv.scrapedImages && srv.scrapedImages.length > 0) {
+            // Assign scraped images to blocks that lack a valid image src
+            if (map[slug].blocks && map[slug].blocks.length > 0) {
+              let imgIdx = 0;
+              map[slug].blocks = map[slug].blocks.map((block) => {
+                const currentSrc = block.image?.src || (typeof block.image === 'string' ? block.image : null);
+                if (!currentSrc && srv.scrapedImages[imgIdx]) {
+                  const assignedSrc = srv.scrapedImages[imgIdx];
+                  imgIdx++;
+                  return {
+                    ...block,
+                    image: { src: assignedSrc, alt: block.title },
+                  };
+                }
+                if (!currentSrc) {
+                  return {
+                    ...block,
+                    image: null,
+                  };
+                }
+                return block;
+              });
+            }
+            // Only set gallery if multiple images exist
+            if (srv.scrapedImages.length > 1) {
+              map[slug].gallery = srv.scrapedImages.map((img) => ({ src: img, alt: srv.title }));
+            } else {
+              map[slug].gallery = [];
+            }
+          }
+        }
+      });
+    });
+  }
+
   return map;
 }
 
 export async function getOfferBySlug(slug) {
   const offers = await getOffers();
-  if (offers && offers[slug]) {
-    return offers[slug];
+  const normalized = slug ? slug.toLowerCase().trim() : '';
+
+  if (offers && offers[normalized]) {
+    return offers[normalized];
   }
-  return localOffers[slug] || null;
+
+  // Handle aliases like engineering-epc-support <-> engineering-epc-support-services
+  if (normalized === 'engineering-epc-support-services' && offers['engineering-epc-support']) {
+    return offers['engineering-epc-support'];
+  }
+  if (normalized === 'engineering-epc-support' && offers['engineering-epc-support-services']) {
+    return offers['engineering-epc-support-services'];
+  }
+  if (normalized === 'warehouse-2' && offers['warehouse']) {
+    return offers['warehouse'];
+  }
+  if (normalized === 'warehouse' && offers['warehouse-2']) {
+    return offers['warehouse-2'];
+  }
+
+  return localOffers[normalized] || null;
 }
 
 export async function getAllOfferSlugs() {

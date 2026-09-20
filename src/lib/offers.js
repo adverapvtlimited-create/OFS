@@ -41,9 +41,15 @@ export function getRelatedOffers(page, limit = 4) {
 
 export const legacyServiceHrefs = {
   'procurement-shipping': '/procurement-shipping',
+  'engineering-epc': '/engineering-epc-support-services',
   'engineering-epc-support': '/engineering-epc-support-services',
+  'engineering-epc-support-services': '/engineering-epc-support-services',
   'spare-parts-procurement': '/spare-parts-procurement',
   'logistics-shipping': '/logistics-shipping',
+  'quality-control': '/quality-control',
+  'supply-chain-management': '/supply-chain-management',
+  'warehouse': '/warehouse',
+  'warehouse-2': '/warehouse',
 };
 
 export function serviceHref(slug) {

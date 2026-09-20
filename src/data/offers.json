@@ -14,10 +14,7 @@
         "title": "Facilities Offered by OFS",
         "variant": "dark",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Facilities Offered by OFS"
-        },
+        "image": null,
         "intro": "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
         "items": [
           {
@@ -49,10 +46,7 @@
         "title": "The Advantages of Indirect Procurement",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "The Advantages of Indirect Procurement"
-        },
+        "image": null,
         "intro": "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
         "items": [
           {
@@ -100,10 +94,7 @@
         "title": "Key Practices for Effective Indirect Procurement",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Key Practices for Effective Indirect Procurement"
-        },
+        "image": null,
         "intro": "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
         "items": [
           {
@@ -140,10 +131,7 @@
         "title": "OFS: Your Gateway to the Future of Indirect Procurement",
         "variant": "subtle",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "OFS: Your Gateway to the Future of Indirect Procurement"
-        },
+        "image": null,
         "intro": "",
         "items": [],
         "paragraphs": [
@@ -169,10 +157,7 @@
         "title": "When to Choose Outsourced Procurement?",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "When to choose outsourced procurement"
-        },
+        "image": null,
         "intro": "Outsourced procurement can be a strategic solution in various scenarios. It is especially beneficial when:",
         "items": [
           {
@@ -198,10 +183,7 @@
         "title": "Different Types of Procurement Outsourcing",
         "variant": "dark",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Types of procurement outsourcing"
-        },
+        "image": null,
         "intro": "Procurement outsourcing can be categorized into two main types, each serving distinct business needs:",
         "items": [
           {
@@ -219,10 +201,7 @@
         "title": "Benefits of Outsourcing Procurement",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Benefits of outsourcing procurement"
-        },
+        "image": null,
         "intro": "Outsourcing procurement offers a range of strategic and operational advantages for businesses looking to streamline processes and boost efficiency:",
         "items": [
           {
@@ -278,10 +257,7 @@
         "title": "OFS's Sourcing & Procurement Expertise",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Procurement Expertise"
-        },
+        "image": null,
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value to industrial enterprises:",
         "items": [
           {
@@ -307,10 +283,7 @@
         "title": "Structured Global Shipping & Logistics Integration",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Global Shipping and Logistics"
-        },
+        "image": null,
         "intro": "Seamlessly moving mission-critical equipment from global factories directly to your plant site:",
         "items": [
           {
@@ -387,10 +360,7 @@
         "title": "End-to-End Engineering Capabilities",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Engineering Support"
-        },
+        "image": null,
         "intro": "Our multidisciplinary engineering teams deliver high-impact technical solutions across demanding industrial sectors:",
         "items": [
           {
@@ -420,10 +390,7 @@
         "title": "Your Trusted Partner in High-Impact Technical Solutions",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "High-Impact Technical Solutions"
-        },
+        "image": null,
         "intro": "Why global asset owners and EPC operators rely on OFS Engineering:",
         "items": [
           {
@@ -486,10 +453,7 @@
         "title": "Our Spare Parts Procurement Strategy",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Spare Parts Strategy"
-        },
+        "image": null,
         "intro": "A systematic approach to eliminate component shortages and prevent plant shutdowns:",
         "items": [
           {
@@ -515,10 +479,7 @@
         "title": "How OFS Supports You in Spare Parts Procurement",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "OFS Spare Parts Support"
-        },
+        "image": null,
         "intro": "End-to-end commercial and technical support for plant maintenance and operations:",
         "items": [
           {
@@ -581,10 +542,7 @@
         "title": "Comprehensive Logistics & Shipping Support Services",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Logistics & Shipping Support Services"
-        },
+        "image": null,
         "intro": "Reliable freight and multi-modal logistics support tailored for industrial and engineering requirements:",
         "items": [
           {
@@ -610,10 +568,7 @@
         "title": "Logistics & Supply Chain Integration",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Supply Chain Integration"
-        },
+        "image": null,
         "intro": "Connecting procurement, suppliers, transportation, warehousing, and project sites for efficient material flow:",
         "items": [
           {
@@ -676,10 +631,7 @@
         "title": "Our Quality Assurance Framework",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Quality Assurance Framework"
-        },
+        "image": null,
         "intro": "How OFS guarantees zero-defect deliveries across every project:",
         "items": [
           {
@@ -705,10 +657,7 @@
         "title": "Testing Capabilities & Global Standards",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Testing Capabilities"
-        },
+        "image": null,
         "intro": "Comprehensive laboratory and on-site testing capabilities:",
         "items": [
           {
@@ -760,10 +709,7 @@
         "title": "Supply Chain Process, Planning & Strategies",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Supply Chain Process"
-        },
+        "image": null,
         "intro": "Core strategic pillars to match product supply with dynamic customer demand:",
         "items": [
           {
@@ -789,10 +735,7 @@
         "title": "Overcoming Supply Chain Challenges & Solutions",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Supply Chain Solutions"
-        },
+        "image": null,
         "intro": "How OFS actively resolves the most pressing supply chain hurdles:",
         "items": [
           {
@@ -845,10 +788,7 @@
         "title": "Our Warehouse Services",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Our Warehouse Services"
-        },
+        "image": null,
         "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
         "items": [
           {
@@ -874,10 +814,7 @@
         "title": "Why Choose OFS for Warehouse Solutions?",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Why Choose OFS Warehouse"
-        },
+        "image": null,
         "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
         "items": [
           {
@@ -929,10 +866,7 @@
         "title": "Why Choose OFS for Global MRO Procurement?",
         "variant": "dark",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Global MRO procurement warehouse operations"
-        },
+        "image": null,
         "intro": "",
         "items": [
           {
@@ -962,10 +896,7 @@
         "title": "Our Approach to Global MRO Procurement",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "MRO procurement specialist working in a warehouse"
-        },
+        "image": null,
         "intro": "",
         "items": [
           {
@@ -995,10 +926,7 @@
         "title": "Discover the OFS Advantage",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "OFS industrial procurement facility"
-        },
+        "image": null,
         "intro": "",
         "items": [],
         "paragraphs": [
@@ -1156,10 +1084,7 @@
         "title": "Why Choose OFS for Inventory Optimisation?",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Why Choose OFS for Inventory Optimisation"
-        },
+        "image": null,
         "intro": "Effective inventory planning is essential for operational resilience and cost control. At OFS, we empower industrial leaders with precision forecasting and lean stocking:",
         "items": [
           {
@@ -1189,10 +1114,7 @@
         "title": "Support and Implementation",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Support and Implementation"
-        },
+        "image": null,
         "intro": "We don't just recommend strategies; we guide you through every stage of implementation to ensure long-term success:",
         "items": [
           {
@@ -1290,10 +1212,7 @@
         "title": "How OFS MDM Operates",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "How OFS MDM Operates"
-        },
+        "image": null,
         "intro": "Our structured MDM methodology ensures complete data accuracy, compliance, and taxonomy standardization:",
         "items": [
           {
@@ -1315,10 +1234,7 @@
         "title": "The OFS Advantage: How We Bring MDM to Life",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "The OFS Advantage"
-        },
+        "image": null,
         "intro": "Why global industrial enterprises choose OFS for end-to-end Master Data governance:",
         "items": [
           {
@@ -1416,10 +1332,7 @@
         "title": "Why OFS for Your MRO Needs?",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Why OFS for Your MRO Needs"
-        },
+        "image": null,
         "intro": "How OFS eliminates the operational headaches of fragmented indirect maintenance sourcing:",
         "items": [
           {
@@ -1445,10 +1358,7 @@
         "title": "OFS's MRO Supply Solution: What You Get",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "OFS MRO Supply Solution"
-        },
+        "image": null,
         "intro": "Our comprehensive delivery model covers the full breadth of industrial facility requirements:",
         "items": [
           {
@@ -1546,10 +1456,7 @@
         "title": "Recognising the Value & Overcoming Challenges",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Plant Maintenance Challenges"
-        },
+        "image": null,
         "intro": "Key obstacles plant managers face and how OFS systematically resolves them:",
         "items": [
           {
@@ -1575,10 +1482,7 @@
         "title": "How OFS Transforms Plant Maintenance",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Transforming Plant Maintenance"
-        },
+        "image": null,
         "intro": "Our integrated service offerings for refinery, petrochemical, and heavy manufacturing facilities:",
         "items": [
           {
@@ -1676,10 +1580,7 @@
         "title": "Advantages of Choosing OFS",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Advantages of Choosing OFS"
-        },
+        "image": null,
         "intro": "Why leading operators trust OFS for uninterrupted parts availability:",
         "items": [
           {
@@ -1705,10 +1606,7 @@
         "title": "Optimising Spare Parts Management & Resilience",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Optimising Spare Parts Management"
-        },
+        "image": null,
         "intro": "Structured methodologies to safeguard industrial production continuity:",
         "items": [
           {
@@ -1806,10 +1704,7 @@
         "title": "Overcoming the Challenges of Sourcing Perfection",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Challenges of Sourcing"
-        },
+        "image": null,
         "intro": "Eliminating common inefficiencies in industrial procurement pipelines:",
         "items": [
           {
@@ -1835,10 +1730,7 @@
         "title": "Finding Reliable Sources & Specialized Services",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Reliable Sourcing Services"
-        },
+        "image": null,
         "intro": "Our comprehensive suite of data enrichment and sourcing capabilities:",
         "items": [
           {
@@ -1936,10 +1828,7 @@
         "title": "OFS's Core Procurement Expertise",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "OFS Core Expertise"
-        },
+        "image": null,
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value:",
         "items": [
           {
@@ -1965,10 +1854,7 @@
         "title": "Why Partner with OFS?",
         "variant": "light",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Why Partner with OFS"
-        },
+        "image": null,
         "intro": "The pillars that make OFS the premier procurement partner for industrial leaders:",
         "items": [
           {
@@ -2019,10 +1905,7 @@
         "title": "Our Approach: Embedding Excellence at Every Stage",
         "variant": "light",
         "imagePosition": "left",
-        "image": {
-          "src": null,
-          "alt": "Our Approach: Embedding Excellence at Every Stage"
-        },
+        "image": null,
         "intro": "**At OFS, we deliver a comprehensive approach to project supply management**, focusing on precision, performance, and reliability. Our goal is to ensure your projects are completed on time, within budget, and to the highest quality standards.",
         "items": [
           {
@@ -2059,10 +1942,7 @@
         "title": "Join the OFS Project Supply Revolution",
         "variant": "dark",
         "imagePosition": "right",
-        "image": {
-          "src": null,
-          "alt": "Join the OFS Project Supply Revolution"
-        },
+        "image": null,
         "intro": "",
         "items": [],
         "paragraphs": [

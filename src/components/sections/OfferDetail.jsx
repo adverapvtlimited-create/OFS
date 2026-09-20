@@ -80,21 +80,25 @@ function renderSection(section) {
 }
 
 function renderGallery(gallery, title) {
-  if (!gallery?.length) return null;
+  if (!gallery || gallery.length < 2) return null;
 
   return (
-    <div className="mb-16 max-w-[1100px]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="mt-16 pt-12 border-t border-ofs-gray-200">
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="tag-badge badge-red mb-3">GALLERY &amp; FACILITIES</div>
+        <h3 className="section-title text-xl sm:text-2xl">Operational Visuals</h3>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {gallery.map((image, index) => (
           <div
             key={`${image.src}-${index}`}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg"
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg group"
           >
             <img
               src={image.src}
               alt={image.alt || `${title} service image ${index + 1}`}
               className={cn(
-                'h-full w-full',
+                'h-full w-full transition-transform duration-500 group-hover:scale-105',
                 image.fit === 'contain' ? 'object-contain p-5 sm:p-7' : 'object-cover'
               )}
             />
@@ -507,7 +511,7 @@ function renderCustomBlock(block, index) {
   }
 
   // 9. Split block with image (Facilities, Advantages, Key Practices, Our Approach)
-  if (block.image) {
+  if (block.image && block.image.src) {
     const isDark = block.variant === 'dark';
     const isImageLeft = block.imagePosition === 'left';
 
@@ -815,13 +819,15 @@ export default function OfferDetail({ page }) {
                 <div className="grid grid-cols-1 gap-10 lg:gap-16 items-center lg:grid-cols-2">
                   <ScrollReveal direction="left">
                     <div className="tag-badge badge-red mb-4">OVERVIEW</div>
-                    {overviewTitle && <h2 className="section-title mb-5">{overviewTitle}</h2>}
+                    <h2 className="section-title mb-5">
+                      {page.overviewTitle || 'Strategic Scope & Core Capabilities'}
+                    </h2>
                     <p className="text-[1.05rem] text-ofs-gray-700 leading-relaxed">
                       {page.description}
                     </p>
                   </ScrollReveal>
                   <ScrollReveal direction="right">
-                    <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] relative">
+                    <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] lg:h-[420px] relative">
                       <img
                         src={page.heroImage}
                         alt={`${page.title} — OFS Group India`}
