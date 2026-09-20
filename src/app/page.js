@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from '@/components/sections/Hero';
 import BrandMarquee from '@/components/sections/BrandMarquee';
 import AboutPreview from '@/components/sections/AboutPreview';

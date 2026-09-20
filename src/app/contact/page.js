@@ -1,24 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
   Phone,
   Mail,
-  MapPin,
-  Clock,
   ShieldCheck,
   Send,
   CheckCircle2,
   AlertCircle,
   Globe2,
-  MessageSquare,
   Building,
   UploadCloud,
   FileText,
-  X,
-  Paperclip
+  X
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';

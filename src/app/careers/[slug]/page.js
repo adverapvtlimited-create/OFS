@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MapPin, Briefcase, Clock, CheckCircle2, ShieldCheck, ArrowLeft } from 'lucide-react';
