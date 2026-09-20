@@ -16,10 +16,13 @@ import localRenewables from '@/data/renewables.json';
 import localFaqs from '@/data/faqs.json';
 import localOffers from '@/data/offers.json';
 
-export const STRAPI_URL =
-  process.env.STRAPI_API_URL ||
+export const STRAPI_URL = (
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  'http://localhost:1337';
+  process.env.STRAPI_API_URL ||
+  process.env.STRAPI_URL ||
+  process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+  'http://localhost:1337'
+).replace(/\/+$/, '');
 
 export const STRAPI_API_TOKEN =
   process.env.STRAPI_API_TOKEN ||

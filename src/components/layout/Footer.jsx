@@ -14,6 +14,7 @@ import {
   Sun,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
+import { getStrapiMedia } from '@/lib/strapi';
 import { whatWeOffer } from '@/data/navigation';
 import industriesData from '@/data/industries.json';
 
@@ -32,7 +33,7 @@ export default function Footer({ initialIndustries = [] }) {
             <Link href="/" className="inline-block no-underline">
               <div className="bg-white p-2 px-3.5 rounded-xs inline-flex items-center shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
                 <img
-                  src={siteConfig.logo || '/images/ofs-logo.png'}
+                  src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
                   alt="OFS - Driven by Quality, Defined by Trust"
                   className="h-10 w-auto object-contain"
                 />

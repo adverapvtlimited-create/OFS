@@ -18,6 +18,7 @@ import {
   Anchor,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
+import { getStrapiMedia } from '@/lib/strapi';
 import MagneticButton from '@/components/animations/MagneticButton';
 import DesktopNav from '@/components/layout/DesktopNav';
 import { cn } from '@/lib/cn';
@@ -430,7 +431,7 @@ export default function Header({ initialIndustries = [], initialProducts = [] })
         <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 flex items-center justify-between py-3.5">
           <Link href="/" className="flex items-center gap-3.5 no-underline shrink-0">
             <img
-              src={siteConfig.logo || '/images/ofs-logo.png'}
+              src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
               alt="OFS - Driven by Quality, Defined by Trust"
               className="h-12 w-auto object-contain"
             />

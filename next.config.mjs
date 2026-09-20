@@ -1,8 +1,25 @@
+const rawStrapiUrl =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  process.env.STRAPI_API_URL ||
+  process.env.STRAPI_URL ||
+  'http://localhost:1337';
+
+let strapiHost = 'localhost';
+let strapiPort = '1337';
+let strapiProtocol = 'http';
+
+try {
+  const parsed = new URL(rawStrapiUrl);
+  strapiHost = parsed.hostname;
+  strapiPort = parsed.port;
+  strapiProtocol = parsed.protocol.replace(':', '');
+} catch {}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'ofsgroupindia.com'],
+    domains: ['images.unsplash.com', 'ofsgroupindia.com', strapiHost],
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,6 +37,16 @@ const nextConfig = {
         port: '1337',
         pathname: '/uploads/**',
       },
+      ...(strapiHost !== 'localhost' && strapiHost !== '127.0.0.1'
+        ? [
+            {
+              protocol: strapiProtocol,
+              hostname: strapiHost,
+              ...(strapiPort ? { port: strapiPort } : {}),
+              pathname: '/uploads/**',
+            },
+          ]
+        : []),
     ],
   },
   async redirects() {
