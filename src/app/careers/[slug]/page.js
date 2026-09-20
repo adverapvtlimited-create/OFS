@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MapPin, Briefcase, Clock, CheckCircle2, ShieldCheck, ArrowLeft } from 'lucide-react';
@@ -10,6 +9,9 @@ import Breadcrumbs from '@/components/SEO/Breadcrumbs';
 import JsonLd from '@/components/SEO/JsonLd';
 import { buildPageMetadata } from '@/lib/seo';
 import { buildJobPostingSchema, buildWebPageSchema } from '@/lib/schema';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const jobs = await getJobs();

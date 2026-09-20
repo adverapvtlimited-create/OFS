@@ -3,6 +3,9 @@ import OfferDetail from '@/components/sections/OfferDetail';
 import { getAllOfferSlugs, getOfferBySlug } from '@/lib/offers';
 import { buildPageMetadata } from '@/lib/seo';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const slugs = await getAllOfferSlugs();
   return slugs.map((slug) => ({ slug }));

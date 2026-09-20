@@ -7,7 +7,6 @@
  */
 
 import localSiteConfig from '@/data/site-config.json';
-import localServices from '@/data/services.json';
 import localProducts from '@/data/products.json';
 import localIndustries from '@/data/industries.json';
 import localCaseStudies from '@/data/case-studies.json';
@@ -151,62 +150,17 @@ export async function getSiteConfig() {
 }
 
 /* ==========================================================================
-   2. SERVICES (Collection Type: /api/services)
+   2. SERVICES (Unified with What We Offer / Category: 'services')
    ========================================================================== */
 export async function getServices() {
-  const data = await fetchStrapi(
-    'services?populate[0]=heroImage&populate[1]=scrapedImages&populate[2]=capabilities&populate[3]=process&populate[4]=faqs&populate[5]=seo&pagination[pageSize]=100',
-    {
-      fallbackData: localServices,
-    }
+  const offers = await getOffers();
+  return Object.values(offers).filter(
+    (item) => item.category === 'services' || (item.categoryLabel || '').toLowerCase() === 'services'
   );
-
-  if (!Array.isArray(data) || data.length === 0) {
-    return localServices;
-  }
-
-  return data.map((item) => ({
-    ...item,
-    id: item.serviceId || item.id || item.slug,
-    shortTitle: item.shortTitle || item.title,
-    heroImage: getStrapiMedia(item.heroImage) || item.heroImage || '/images/live/Excellence-tools-official.png',
-    scrapedImages: (item.scrapedImages || []).map((img) => getStrapiMedia(img) || img),
-    features: item.features || [],
-    capabilities: item.capabilities || [],
-    process: item.process || [],
-    faqs: item.faqs || [],
-  }));
 }
 
 export async function getServiceBySlug(slug) {
-  const services = await getServices();
-  const normalized = slug ? slug.toLowerCase().trim() : '';
-  const match = services.find((s) => {
-    if (!s) return false;
-    const sSlug = (s.slug || '').toLowerCase();
-    const sId = (s.serviceId || s.id || '').toLowerCase();
-    return (
-      sSlug === normalized ||
-      sId === normalized ||
-      (normalized === 'engineering-epc-support-services' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
-      (normalized === 'engineering-epc-support' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
-      (normalized === 'warehouse-2' && (sSlug === 'warehouse' || sId === 'warehouse'))
-    );
-  });
-  if (match) return match;
-  return (
-    localServices.find((s) => {
-      const sSlug = (s.slug || '').toLowerCase();
-      const sId = (s.id || '').toLowerCase();
-      return (
-        sSlug === normalized ||
-        sId === normalized ||
-        (normalized === 'engineering-epc-support-services' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
-        (normalized === 'engineering-epc-support' && (sSlug.includes('engineering-epc') || sId.includes('engineering-epc'))) ||
-        (normalized === 'warehouse-2' && (sSlug === 'warehouse' || sId === 'warehouse'))
-      );
-    }) || null
-  );
+  return getOfferBySlug(slug);
 }
 
 /* ==========================================================================
@@ -470,16 +424,13 @@ export async function getFaqs() {
    10. OFFERS (Collection Type: /api/offers)
    ========================================================================== */
 export async function getOffers() {
-  const [data, services] = await Promise.all([
-    fetchStrapi(
-      'offers?populate[0]=heroImage&populate[1]=blocks.image.src&populate[2]=blocks.items&pagination[pageSize]=100',
-      {
-        revalidate: 30,
-        fallbackData: null,
-      }
-    ),
-    getServices(),
-  ]);
+  const data = await fetchStrapi(
+    'offers?populate[0]=heroImage&populate[1]=blocks.image.src&populate[2]=blocks.items&pagination[pageSize]=100',
+    {
+      revalidate: 30,
+      fallbackData: null,
+    }
+  );
 
   const map = {};
 
@@ -495,99 +446,46 @@ export async function getOffers() {
       map[item.slug] = {
         ...existing,
         ...item,
-        heroImage: getStrapiMedia(item.heroImage) || item.heroImage || existing.heroImage || null,
+        heroImage:
+          getStrapiMedia(item.heroImage) ||
+          item.heroImageUrl ||
+          item.heroImage ||
+          existing.heroImage ||
+          null,
+        overviewTitle: item.overviewTitle || existing.overviewTitle || null,
+        overviewParagraphs: item.overviewParagraphs || existing.overviewParagraphs || null,
+        features: item.features || existing.features || null,
+        sections: item.sections || existing.sections || null,
+        gallery: item.gallery || existing.gallery || null,
         blocks: (item.blocks && item.blocks.length > 0)
-          ? item.blocks.map((b, bIdx) => ({
-              ...(existing.blocks?.[bIdx] || {}),
-              ...b,
-              image: b.image
-                ? {
-                    ...b.image,
-                    src:
-                      getStrapiMedia(b.image.src || b.image) ||
-                      (typeof b.image === 'string' ? b.image : b.image?.src),
-                  }
-                : existing.blocks?.[bIdx]?.image || null,
-            }))
+          ? item.blocks.map((b, bIdx) => {
+              const prevB = existing.blocks?.[bIdx] || {};
+              const resolvedImg =
+                b.imageUrl ||
+                getStrapiMedia(b.image?.src || b.image) ||
+                (typeof b.image === 'string' ? b.image : b.image?.src) ||
+                prevB.image?.src ||
+                (typeof prevB.image === 'string' ? prevB.image : null);
+
+              return {
+                ...prevB,
+                ...b,
+                image: resolvedImg
+                  ? {
+                      src: resolvedImg,
+                      alt: b.imageAlt || b.image?.alt || prevB.image?.alt || b.title || '',
+                    }
+                  : null,
+                items: (b.items && b.items.length > 0)
+                  ? b.items.map((i, iIdx) => ({
+                      ...(prevB.items?.[iIdx] || {}),
+                      ...(typeof i === 'object' ? i : { title: i, description: '' }),
+                    }))
+                  : prevB.items || [],
+              };
+            })
           : existing.blocks || [],
       };
-    });
-  }
-
-  // 3. Seamlessly sync with Strapi Services for all service-related offerings
-  if (Array.isArray(services) && services.length > 0) {
-    services.forEach((srv) => {
-      const srvSlug = srv.slug;
-      const srvId = srv.id || srv.serviceId;
-
-      const targetSlugs = [
-        srvSlug,
-        srvId,
-        srvSlug === 'engineering-epc-support' ? 'engineering-epc-support-services' : null,
-        srvSlug === 'engineering-epc' ? 'engineering-epc-support-services' : null,
-        srvSlug === 'warehouse' ? 'warehouse-2' : null,
-      ].filter(Boolean);
-
-      targetSlugs.forEach((slug) => {
-        if (!map[slug]) {
-          map[slug] = {
-            slug,
-            title: srv.title,
-            category: 'services',
-            categoryLabel: 'Services',
-            tagline: srv.tagline,
-            description: srv.description,
-            heroImage: srv.heroImage || null,
-            features: (srv.features || []).map((f) => ({ title: f, description: '' })),
-            blocks: [],
-            gallery: (srv.scrapedImages || []).map((img) => ({ src: img, alt: srv.title })),
-          };
-        } else {
-          // Prioritize uploaded Strapi service image if present
-          if (srv.heroImage) {
-            map[slug].heroImage = srv.heroImage;
-          }
-          if (srv.tagline) {
-            map[slug].tagline = srv.tagline;
-          }
-          if (srv.title && !map[slug].title) {
-            map[slug].title = srv.title;
-          }
-          if (srv.description && !map[slug].description) {
-            map[slug].description = srv.description;
-          }
-          if (srv.scrapedImages && srv.scrapedImages.length > 0) {
-            // Assign scraped images to blocks that lack a valid image src
-            if (map[slug].blocks && map[slug].blocks.length > 0) {
-              let imgIdx = 0;
-              map[slug].blocks = map[slug].blocks.map((block) => {
-                const currentSrc = block.image?.src || (typeof block.image === 'string' ? block.image : null);
-                if (!currentSrc && srv.scrapedImages[imgIdx]) {
-                  const assignedSrc = srv.scrapedImages[imgIdx];
-                  imgIdx++;
-                  return {
-                    ...block,
-                    image: { src: assignedSrc, alt: block.title },
-                  };
-                }
-                if (!currentSrc) {
-                  return {
-                    ...block,
-                    image: null,
-                  };
-                }
-                return block;
-              });
-            }
-            // Only set gallery if multiple images exist
-            if (srv.scrapedImages.length > 1) {
-              map[slug].gallery = srv.scrapedImages.map((img) => ({ src: img, alt: srv.title }));
-            } else {
-              map[slug].gallery = [];
-            }
-          }
-        }
-      });
     });
   }
 

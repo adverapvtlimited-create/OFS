@@ -24,10 +24,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/services/procurement-shipping', destination: '/procurement-shipping', permanent: true },
+      { source: '/services', destination: '/#what-we-offer', permanent: true },
+      { source: '/service', destination: '/#what-we-offer', permanent: true },
+      { source: '/services/engineering-epc', destination: '/engineering-epc-support-services', permanent: true },
       { source: '/services/engineering-epc-support', destination: '/engineering-epc-support-services', permanent: true },
-      { source: '/services/spare-parts-procurement', destination: '/spare-parts-procurement', permanent: true },
-      { source: '/services/logistics-shipping', destination: '/logistics-shipping', permanent: true },
+      { source: '/services/warehouse-2', destination: '/warehouse', permanent: true },
+      { source: '/services/:slug', destination: '/:slug', permanent: true },
     ];
   },
 };

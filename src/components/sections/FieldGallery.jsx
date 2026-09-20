@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { Camera, Eye, X, ChevronRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Camera, Eye, X } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Badge from '@/components/ui/Badge';

@@ -1,18 +1,14 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import {
   Package,
   Wrench,
-  ShieldCheck,
   Anchor,
-  Building2,
   Settings,
   ArrowUpRight,
   CheckCircle2,
   Sparkles,
-  PhoneCall,
   Clock,
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
@@ -24,33 +20,86 @@ import Badge from '@/components/ui/Badge';
 import SectionPad from '@/components/ui/SectionPad';
 import Container from '@/components/ui/Container';
 import SonarDot from '@/components/ui/SonarDot';
-import servicesData from '@/data/services.json';
-import { serviceHref } from '@/lib/offers';
+import offersData from '@/data/offers.json';
+import { whatWeOffer } from '@/data/navigation';
 
-const iconMap = {
-  Package: Package,
-  Wrench: Wrench,
-  ShieldCheck: ShieldCheck,
-  Anchor: Anchor,
-  Building2: Building2,
-  Settings: Settings,
+const divisionMeta = {
+  'procurement-shipping': {
+    badge: 'CORE SOURCING',
+    icon: Package,
+    number: '01',
+    features: [
+      'Network of 3,000+ Approved Brands',
+      'Strategic Sourcing & Competitive Tender Bidding',
+      'Cloud-based SCM Tracking & Inspections',
+    ],
+  },
+  'engineering-epc-support-services': {
+    badge: 'TECHNICAL CONSULTING',
+    icon: Wrench,
+    number: '02',
+    features: [
+      'Detailed Engineering Design & Constructability Reviews',
+      'EPC Procurement Assistance & Technical Sourcing',
+    ],
+  },
+  'spare-parts-procurement': {
+    badge: 'MRO PROCUREMENT',
+    icon: Settings,
+    number: '03',
+    features: [
+      'Genuine OEM & High-Grade Replacement Sourcing',
+      'Critical Component Interchangeability Studies',
+    ],
+  },
+  'logistics-shipping': {
+    badge: 'MULTIMODAL LOGISTICS',
+    icon: Anchor,
+    number: '04',
+    features: [
+      'Global Multimodal Freight Forwarding (Air, Ocean, Road)',
+      'Complete Customs Clearance & Export Compliance',
+    ],
+  },
 };
 
 export default function ServicesGrid() {
-  const flagshipService = servicesData[0]; // Procurement & Sourcing
-  const otherServices = servicesData.slice(1);
+  const divisions = whatWeOffer.services.items.slice(0, 4).map((item) => {
+    const slug = item.href.replace(/^\//, '');
+    const offer = offersData[slug] || {};
+    const meta = divisionMeta[slug] || {};
+    const blockFeatures = offer.blocks?.[0]?.items?.map((i) => i.title) || [];
+
+    return {
+      slug,
+      href: item.href,
+      title: offer.title || item.title,
+      description: offer.description || '',
+      image: item.image || offer.heroImage || '/images/live/Excellence-tools-official.png',
+      badge: meta.badge || 'SERVICES',
+      Icon: meta.icon || Package,
+      number: meta.number || '01',
+      features: meta.features || (blockFeatures.length > 0 ? blockFeatures.slice(0, 3) : [
+        'Strategic Industry Solutions',
+        'Certified Technical Support',
+      ]),
+    };
+  });
+
+  const flagshipService = divisions[0];
+  const otherServices = divisions.slice(1);
 
   return (
-    <SectionPad className="bg-gradient-to-b from-ofs-gray-50/80 via-white to-ofs-gray-50/40 relative overflow-hidden">
+    <SectionPad id="what-we-offer" className="bg-gradient-to-b from-ofs-gray-50/80 via-white to-ofs-gray-50/40 relative overflow-hidden scroll-mt-20">
       <Container>
         {/* Section Header */}
         <div className="flex justify-between items-end flex-wrap gap-6 mb-12">
           <div className="max-w-[760px]">
             <ScrollReveal direction="up">
               <div className="flex items-center gap-2.5 mb-3">
-                <Badge variant="red">CORE CAPABILITIES</Badge>
+                <Badge variant="red">WHAT WE OFFER</Badge>
                 <span className="font-mono text-xs text-ofs-navy-900 font-bold uppercase tracking-wider">
-                  {servicesData.length} Strategic Divisions
+                  {divisions.length} Strategic Divisions
                 </span>
               </div>
             </ScrollReveal>
@@ -83,9 +132,8 @@ export default function ServicesGrid() {
           </ScrollReveal>
         </div>
 
-        {/* Bento Grid: Featured Flagship (2 cols) + Other Services + Technical Desk */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* 1. Flagship Featured Sourcing Card (Spans 2 Columns on Desktop) */}
+
           <ScrollReveal direction="up" delay={0.08} className="lg:col-span-2">
             <GlowCard
               glowColor="rgba(224, 42, 48, 0.22)"
@@ -132,7 +180,7 @@ export default function ServicesGrid() {
                           DIVISION 01
                         </div>
                         <h3 className="font-heading text-xl sm:text-[1.35rem] font-extrabold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                          <Link href={serviceHref(flagshipService.slug)} className="text-inherit no-underline">
+                          <Link href={flagshipService.href} className="text-inherit no-underline">
                             {flagshipService.title}
                           </Link>
                         </h3>
@@ -163,7 +211,7 @@ export default function ServicesGrid() {
                   {/* Card Action Row */}
                   <div className="pt-3.5 border-t border-ofs-gray-200 flex flex-wrap justify-between items-center gap-2">
                     <Link
-                      href={serviceHref(flagshipService.slug)}
+                      href={flagshipService.href}
                       className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-white bg-ofs-navy-950 hover:bg-ofs-red-600 py-2 px-3.5 sm:px-4 rounded-xs transition-all duration-200 no-underline shadow-sm"
                     >
                       Explore Scope <ArrowUpRight size={14} />
@@ -178,85 +226,213 @@ export default function ServicesGrid() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* Dynamic Render for Other Services */}
-          {otherServices.map((service, sIdx) => {
-            const IconComp = iconMap[service.icon] || Package;
-            const divisionNumber = String(sIdx + 2).padStart(2, '0');
-            return (
-              <ScrollReveal key={service.id || service.slug} direction="up" delay={0.12 + sIdx * 0.06}>
-                <GlowCard
-                  glowColor="rgba(12, 30, 78, 0.15)"
-                  borderColor="rgba(12, 30, 78, 0.25)"
-                  className="p-0 overflow-hidden flex flex-col justify-between h-full bg-white border border-ofs-gray-200 rounded-lg shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1 group"
-                  data-cursor-text="VIEW"
+          {/* 2. Engineering & EPC Support Services Card */}
+          <ScrollReveal direction="up" delay={0.16}>
+            <GlowCard
+              glowColor="rgba(12, 30, 78, 0.15)"
+              borderColor="rgba(12, 30, 78, 0.25)"
+              className="p-0 overflow-hidden flex flex-col justify-between h-full bg-white border border-ofs-gray-200 rounded-lg shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1 group"
+              data-cursor-text="VIEW"
+            >
+              <div>
+                <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
+                  <img
+                    src={otherServices[0].heroImage || otherServices[0].image || '/images/live/Engg-e1751278356951.jpg'}
+                    alt={otherServices[0].title}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                    {otherServices[0].badge}
+                  </span>
+                </div>
+
+                <div className="p-4 sm:p-5 pb-3">
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
+                      <Wrench size={16} />
+                    </div>
+                    <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
+                      <Link href={otherServices[0].href} className="text-inherit no-underline">
+                        {otherServices[0].title}
+                      </Link>
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-ofs-gray-600 leading-relaxed mb-3.5 line-clamp-3">
+                    {otherServices[0].description}
+                  </p>
+
+                  <div className="flex flex-col gap-1.5 pt-3 border-t border-ofs-gray-100">
+                    {otherServices[0].features.slice(0, 2).map((feat, fIndex) => (
+                      <div
+                        key={fIndex}
+                        className="flex items-start gap-1.5 text-[0.76rem] text-ofs-gray-700 leading-snug"
+                      >
+                        <CheckCircle2
+                          size={13}
+                          className="text-ofs-red-600 shrink-0 mt-0.5"
+                        />
+                        <span className="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
+                <Link
+                  href={otherServices[0].href}
+                  className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
-                  <div>
-                    <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                      <img
-                        src={service.heroImage || service.image || '/images/live/Excellence-tools-official.png'}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
-                      {service.badge && (
-                        <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
-                          {service.badge}
-                        </span>
-                      )}
+                  Explore Scope <ArrowUpRight size={13} />
+                </Link>
+
+                <span className="font-mono text-xs font-bold text-ofs-gray-400">
+                  02
+                </span>
+              </div>
+            </GlowCard>
+          </ScrollReveal>
+
+          {/* 3. Spare Parts Procurement & MRO Card */}
+          <ScrollReveal direction="up" delay={0.22}>
+            <GlowCard
+              glowColor="rgba(12, 30, 78, 0.15)"
+              borderColor="rgba(12, 30, 78, 0.25)"
+              className="p-0 overflow-hidden flex flex-col justify-between h-full bg-white border border-ofs-gray-200 rounded-lg shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1 group"
+              data-cursor-text="VIEW"
+            >
+              <div>
+                <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
+                  <img
+                    src={otherServices[1].heroImage || otherServices[1].image || '/images/live/Spare-Parts-Procurement.jpg'}
+                    alt={otherServices[1].title}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                    {otherServices[1].badge}
+                  </span>
+                </div>
+
+                <div className="p-4 sm:p-5 pb-3">
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
+                      <Settings size={16} />
                     </div>
-
-                    <div className="p-4 sm:p-5 pb-3">
-                      <div className="flex items-center gap-2.5 mb-2.5">
-                        <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
-                          <IconComp size={16} />
-                        </div>
-                        <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                          <Link href={serviceHref(service.slug)} className="text-inherit no-underline">
-                            {service.shortTitle || service.title}
-                          </Link>
-                        </h3>
-                      </div>
-
-                      <p className="text-xs text-ofs-gray-600 leading-relaxed mb-3.5 line-clamp-3">
-                        {service.description}
-                      </p>
-
-                      <div className="flex flex-col gap-1.5 pt-3 border-t border-ofs-gray-100">
-                        {(service.features || []).slice(0, 2).map((feat, fIndex) => (
-                          <div
-                            key={fIndex}
-                            className="flex items-start gap-1.5 text-[0.76rem] text-ofs-gray-700 leading-snug"
-                          >
-                            <CheckCircle2
-                              size={13}
-                              className="text-ofs-red-600 shrink-0 mt-0.5"
-                            />
-                            <span className="line-clamp-1">{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
+                      <Link href={otherServices[1].href} className="text-inherit no-underline">
+                        {otherServices[1].title}
+                      </Link>
+                    </h3>
                   </div>
 
-                  <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
-                    <Link
-                      href={serviceHref(service.slug)}
-                      className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
-                    >
-                      Explore Scope <ArrowUpRight size={13} />
-                    </Link>
+                  <p className="text-xs text-ofs-gray-600 leading-relaxed mb-3.5 line-clamp-3">
+                    {otherServices[1].description}
+                  </p>
 
-                    <span className="font-mono text-xs font-bold text-ofs-gray-400">
-                      {divisionNumber}
-                    </span>
+                  <div className="flex flex-col gap-1.5 pt-3 border-t border-ofs-gray-100">
+                    {otherServices[1].features.slice(0, 2).map((feat, fIndex) => (
+                      <div
+                        key={fIndex}
+                        className="flex items-start gap-1.5 text-[0.76rem] text-ofs-gray-700 leading-snug"
+                      >
+                        <CheckCircle2
+                          size={13}
+                          className="text-ofs-red-600 shrink-0 mt-0.5"
+                        />
+                        <span className="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
                   </div>
-                </GlowCard>
-              </ScrollReveal>
-            );
-          })}
+                </div>
+              </div>
 
-          {/* 24/7 Technical Desk Quick Card */}
-          <ScrollReveal direction="up" delay={0.48}>
+              <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
+                <Link
+                  href={otherServices[1].href}
+                  className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
+                >
+                  Explore Scope <ArrowUpRight size={13} />
+                </Link>
+
+                <span className="font-mono text-xs font-bold text-ofs-gray-400">
+                  03
+                </span>
+              </div>
+            </GlowCard>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.28}>
+            <GlowCard
+              glowColor="rgba(12, 30, 78, 0.15)"
+              borderColor="rgba(12, 30, 78, 0.25)"
+              className="p-0 overflow-hidden flex flex-col justify-between h-full bg-white border border-ofs-gray-200 rounded-lg shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1 group"
+              data-cursor-text="VIEW"
+            >
+              <div>
+                <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
+                  <img
+                    src={otherServices[2].heroImage || otherServices[2].image || '/images/live/Logistics-and-shippings.jpg'}
+                    alt={otherServices[2].title}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                    {otherServices[2].badge}
+                  </span>
+                </div>
+
+                <div className="p-4 sm:p-5 pb-3">
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-8 h-8 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shrink-0 transition-colors duration-200 group-hover:bg-ofs-red-600 group-hover:text-white shadow-xs">
+                      <Anchor size={16} />
+                    </div>
+                    <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
+                      <Link href={otherServices[2].href} className="text-inherit no-underline">
+                        {otherServices[2].title}
+                      </Link>
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-ofs-gray-600 leading-relaxed mb-3.5 line-clamp-3">
+                    {otherServices[2].description}
+                  </p>
+
+                  <div className="flex flex-col gap-1.5 pt-3 border-t border-ofs-gray-100">
+                    {otherServices[2].features.slice(0, 2).map((feat, fIndex) => (
+                      <div
+                        key={fIndex}
+                        className="flex items-start gap-1.5 text-[0.76rem] text-ofs-gray-700 leading-snug"
+                      >
+                        <CheckCircle2
+                          size={13}
+                          className="text-ofs-red-600 shrink-0 mt-0.5"
+                        />
+                        <span className="line-clamp-1">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
+                <Link
+                  href={otherServices[2].href}
+                  className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
+                >
+                  Explore Scope <ArrowUpRight size={13} />
+                </Link>
+
+                <span className="font-mono text-xs font-bold text-ofs-gray-400">
+                  04
+                </span>
+              </div>
+            </GlowCard>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.34}>
             <div className="bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-[#0A183E] text-white rounded-lg p-6 border border-ofs-red-500/40 shadow-xl flex flex-col justify-between h-full relative overflow-hidden group">
               <div className="bg-grid-pattern-dark absolute inset-0 opacity-30 pointer-events-none" />
 

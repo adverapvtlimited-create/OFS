@@ -1,16 +1,18 @@
-import React from 'react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
-import { getBlogPosts, getBlogPostBySlug } from '@/lib/strapi';
-import TextReveal from '@/components/animations/TextReveal';
-import ScrollReveal from '@/components/animations/ScrollReveal';
-import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import JsonLd from '@/components/SEO/JsonLd';
-import { renderBlogContent } from '@/lib/markdown';
-import { buildPageMetadata, parseDisplayDate } from '@/lib/seo';
-import { buildArticleSchema, buildWebPageSchema } from '@/lib/schema';
-import SafeImage from '@/components/ui/SafeImage';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { getBlogPosts, getBlogPostBySlug } from "@/lib/strapi";
+import TextReveal from "@/components/animations/TextReveal";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
+import JsonLd from "@/components/SEO/JsonLd";
+import { renderBlogContent } from "@/lib/markdown";
+import { buildPageMetadata, parseDisplayDate } from "@/lib/seo";
+import { buildArticleSchema, buildWebPageSchema } from "@/lib/schema";
+import SafeImage from "@/components/ui/SafeImage";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -23,9 +25,9 @@ export async function generateMetadata({ params }) {
   const post = await getBlogPostBySlug(params.slug);
   if (!post) {
     return buildPageMetadata({
-      title: 'Article Not Found | OFS Group India',
-      description: 'The requested OFS insight article could not be found.',
-      path: '/blog',
+      title: "Article Not Found | OFS Group India",
+      description: "The requested OFS insight article could not be found.",
+      path: "/blog",
       noindex: true,
     });
   }
@@ -36,12 +38,12 @@ export async function generateMetadata({ params }) {
     title: `${post.title} | OFS Group Insights`,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    keywords: [...(post.tags || []), post.category, 'OFS Group India'],
+    keywords: [...(post.tags || []), post.category, "OFS Group India"],
     ogImage: post.image,
-    ogType: 'article',
+    ogType: "article",
     publishedTime: published,
     modifiedTime: published,
-    authors: [post.author?.name || 'OFS Engineering Team'],
+    authors: [post.author?.name || "OFS Engineering Team"],
     section: post.category,
     tags: post.tags,
   });
@@ -60,9 +62,9 @@ export default async function SingleBlogPage({ params }) {
     .slice(0, 2);
 
   const breadcrumbItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Insights', href: '/blog' },
-    { name: post.category || 'Article', href: `/blog/${post.slug}` },
+    { name: "Home", href: "/" },
+    { name: "Insights", href: "/blog" },
+    { name: post.category || "Article", href: `/blog/${post.slug}` },
   ];
 
   return (
@@ -94,9 +96,7 @@ export default async function SingleBlogPage({ params }) {
 
           <ScrollReveal direction="up" delay={0.1}>
             <div className="flex gap-3 items-center mb-4 flex-wrap">
-              <span className="tag-badge badge-red">
-                {post.category}
-              </span>
+              <span className="tag-badge badge-red">{post.category}</span>
               <span className="text-xs text-white/60 font-mono">
                 {post.date} • {post.readTime}
               </span>
@@ -112,13 +112,17 @@ export default async function SingleBlogPage({ params }) {
           <ScrollReveal direction="up" delay={0.25}>
             <div className="flex items-center gap-3.5">
               <img
-                src={post.author?.avatar || '/images/author-default.png'}
-                alt={post.author?.name || 'Author'}
+                src={post.author?.avatar || "/images/author-default.png"}
+                alt={post.author?.name || "Author"}
                 className="w-10 h-10 rounded-full object-cover border-2 border-ofs-gold-400"
               />
               <div>
-                <div className="text-[0.95rem] font-bold text-white">{post.author?.name || 'OFS Team'}</div>
-                <div className="text-xs text-white/70">{post.author?.role || 'Engineering Specialist'}</div>
+                <div className="text-[0.95rem] font-bold text-white">
+                  {post.author?.name || "OFS Team"}
+                </div>
+                <div className="text-xs text-white/70">
+                  {post.author?.role || "Engineering Specialist"}
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -148,14 +152,20 @@ export default async function SingleBlogPage({ params }) {
           </div>
 
           <p className="text-[0.9rem] text-ofs-gray-600 mb-8">
-            Explore OFS{' '}
-            <Link href="/#what-we-offer" className="text-ofs-red-600 font-bold hover:underline">
+            Explore OFS{" "}
+            <Link
+              href="/#what-we-offer"
+              className="text-ofs-red-600 font-bold hover:underline"
+            >
               procurement and EPC support services
-            </Link>{' '}
-            or{' '}
-            <Link href="/contact" className="text-ofs-red-600 font-bold hover:underline">
+            </Link>{" "}
+            or{" "}
+            <Link
+              href="/contact"
+              className="text-ofs-red-600 font-bold hover:underline"
+            >
               contact our team
-            </Link>{' '}
+            </Link>{" "}
             for project-specific assistance.
           </p>
 

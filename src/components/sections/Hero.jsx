@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -122,7 +122,7 @@ export default function Hero({ siteConfig: passedConfig }) {
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3"
             >
-              <Button href="/services" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
+              <Button href="/#what-we-offer" variant="primary" size="lg" className="w-full sm:!w-auto" data-cursor-text="EXPLORE">
                 Explore Capabilities <ArrowUpRight size={18} />
               </Button>
               <Button href="/contact" variant="outline" size="lg" className="w-full sm:!w-auto" data-cursor-text="ENQUIRY">

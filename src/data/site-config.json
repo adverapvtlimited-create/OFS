@@ -4,31 +4,17 @@
   "legalName": "Oriented Facility Solution Pvt Ltd",
   "usEntityName": "Oriented Facility Solution LLC",
   "tagline": "Driven by Quality, Defined by Trust",
-  "shortDesc": "ISO 9001:2015 certified procurement, EPC support, spare parts MRO, industrial logistics, and renewable energy services for marine, offshore, and industrial sectors worldwide. ",
   "headline": "Strategic Support for Marine, Offshore, Energy & Industrial Facility Operations",
   "description": "OFS is a leading Indian multinational delivering specialized support services—including Trading, O&M, Troubleshooting, Procurement, and Engineering—to the energy, industrial, marine, offshore, and corporate sectors worldwide.",
   "longDesc": "OFS is a leading Indian multinational enterprise renowned for delivering specialized Procurement and Technical Support Services across a wide array of industries. Combining deep technical expertise with strategic sourcing capabilities, we offer end-to-end customized solutions that are cost-efficient, operationally impactful, and backed by a network of 3,000+ internationally approved brands from the US and Europe.",
   "logo": "/images/ofs-logo.png",
-  "logoDark": "/images/ofs-logo.png",
   "contact": {
-    "id": 6,
+    "id": 8,
     "phone": "0226961112",
     "phoneRaw": "0226961112",
     "email": "hello@ofsworld.com",
-    "emailUSA": "info@ofsworld.com",
-    "emailIndia": "info@ofsgroupindia.com",
-    "addressUSA": {
-      "id": 12,
-      "company": "Oriented Facility Solution LLC",
-      "line1": "7901 4th St N, Suite 300",
-      "line2": null,
-      "city": "St. Petersburg",
-      "state": "Florida",
-      "pincode": "33702",
-      "country": "United States of America"
-    },
     "addressIndia": {
-      "id": 11,
+      "id": 15,
       "company": "Oriented Facility Solution Pvt Ltd",
       "line1": "Dynasty Business Park, A Wing",
       "line2": "Andheri-Kurla Road, Andheri (East)",
@@ -36,11 +22,21 @@
       "state": "Maharashtra",
       "pincode": "400059",
       "country": "India"
+    },
+    "addressUSA": {
+      "id": 16,
+      "company": "Oriented Facility Solution LLC",
+      "line1": "7901 4th St N, Suite 300",
+      "line2": null,
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "pincode": "33702",
+      "country": "United States of America"
     }
   },
   "stats": [
     {
-      "id": 21,
+      "id": 29,
       "label": "Approved Global Brands",
       "value": "3,000+",
       "numeric": 3000,
@@ -48,7 +44,7 @@
       "desc": null
     },
     {
-      "id": 22,
+      "id": 30,
       "label": "Years of Field Experience",
       "value": "8+",
       "numeric": 8,
@@ -56,7 +52,7 @@
       "desc": "Demonstrated technical excellence across high-stakes operational environments"
     },
     {
-      "id": 23,
+      "id": 31,
       "label": "On-Time Fulfillment SLA",
       "value": "99.8%",
       "numeric": 99.8,
@@ -64,7 +60,7 @@
       "desc": null
     },
     {
-      "id": 24,
+      "id": 32,
       "label": "Global Operations Support",
       "value": "24/7",
       "numeric": 24,
@@ -73,7 +69,7 @@
     }
   ],
   "socials": {
-    "id": 6,
+    "id": 8,
     "facebook": "https://www.facebook.com/share/yAxGCbRKTANSc1JU/?mibextid=qi2Omg",
     "linkedin": "https://www.linkedin.com/company/oriented-facility-solution-pvt-ltd/?viewAsMember=true",
     "youtube": "https://youtube.com/@orientedfacilitysolution6910?si=Zo1ht0FfnG8xM1rx",
@@ -95,5 +91,7 @@
   "createdAt": "2026-09-13T10:10:48.195Z",
   "updatedAt": "2026-09-13T13:36:57.961Z",
   "publishedAt": "2026-09-13T13:36:57.765Z",
-  "heroImage": "/images/live/Banner3.jpg"
+  "heroImage": "/images/live/Banner3.jpg",
+  "shortDesc": "ISO 9001:2015 certified procurement, EPC support, spare parts MRO, industrial logistics, and renewable energy services for marine, offshore, and industrial sectors worldwide. ",
+  "logoDark": null
 }

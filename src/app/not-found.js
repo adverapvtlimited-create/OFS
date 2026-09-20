@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Home, Compass } from 'lucide-react';
 import Button from '@/components/ui/Button';
 

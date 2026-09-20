@@ -1,12 +1,17 @@
-import { getJobs } from '@/lib/strapi';
-import CareersView from '@/components/careers/CareersView';
-import { buildPageMetadata } from '@/lib/seo';
+import { getJobs } from "@/lib/strapi";
+import CareersView from "@/components/careers/CareersView";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function generateMetadata() {
   return buildPageMetadata({
-    title: 'Careers at OFS Group India | Engineering & Supply Chain Opportunities',
-    description: 'Join OFS Group India. Explore career opportunities in oil & gas procurement, marine engineering, metallurgy, quality control, and industrial operations.',
-    path: '/careers',
+    title:
+      "Careers at OFS Group India | Engineering & Supply Chain Opportunities",
+    description:
+      "Join OFS Group India. Explore career opportunities in oil & gas procurement, marine engineering, metallurgy, quality control, and industrial operations.",
+    path: "/careers",
   });
 }
 

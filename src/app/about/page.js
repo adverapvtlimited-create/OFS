@@ -326,10 +326,10 @@ export default function AboutPage() {
                   <div>
                     <strong>Email:</strong>{" "}
                     <a
-                      href={`mailto:${siteConfig.contact.emailUSA || 'info@ofsworld.com'}`}
+                      href={`mailto:${siteConfig.contact.emailUSA || "info@ofsworld.com"}`}
                       className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors"
                     >
-                      {siteConfig.contact.emailUSA || 'info@ofsworld.com'}
+                      {siteConfig.contact.emailUSA || "info@ofsworld.com"}
                     </a>
                   </div>
                 </div>
@@ -367,10 +367,11 @@ export default function AboutPage() {
                   <div>
                     <strong>Email:</strong>{" "}
                     <a
-                      href={`mailto:${siteConfig.contact.emailIndia || 'info@ofsgroupindia.com'}`}
+                      href={`mailto:${siteConfig.contact.emailIndia || "info@ofsgroupindia.com"}`}
                       className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors"
                     >
-                      {siteConfig.contact.emailIndia || 'info@ofsgroupindia.com'}
+                      {siteConfig.contact.emailIndia ||
+                        "info@ofsgroupindia.com"}
                     </a>
                   </div>
                 </div>

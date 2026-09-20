@@ -68,10 +68,10 @@ export const PAGE_SEO = {
     geoIntent: 'Mumbai, India; USA liaison office',
   },
   services: {
-    title: 'OFS Services | Sourcing, Engineering EPC, Spare Parts MRO & Logistics',
+    title: 'What We Offer | Sourcing, Engineering EPC, Spare Parts MRO & Logistics',
     description:
       'Explore OFS Group India services: strategic procurement & sourcing, engineering & EPC support, spare parts MRO, and industrial logistics.',
-    path: '/services',
+    path: '/#what-we-offer',
     keywords: [
       'OFS services',
       'industrial procurement services India',
