@@ -224,17 +224,48 @@ export async function getProducts() {
     return localProducts;
   }
 
-  return data.map((item) => ({
-    ...item,
-    id: item.productId || item.id || item.slug,
-    shortName: item.shortName || item.name,
-    heroImage: getStrapiMedia(item.heroImage) || item.heroImage || '/images/products/draw-works.jpg',
-    keyPoints: item.keyPoints || [],
-    catalogItems: (item.catalogItems || []).map((ci) => ({
-      ...ci,
-      image: getStrapiMedia(ci.image) || ci.image || '/images/products/draw-works.jpg',
-    })),
-  }));
+  return data.map((item) => {
+    const localMatch =
+      localProducts.find(
+        (p) => p.slug === item.slug || p.id === item.productId || p.id === item.slug
+      ) || {};
+
+    const strapiCatalogItems = Array.isArray(item.catalogItems) ? item.catalogItems : [];
+    const localCatalogItems = Array.isArray(localMatch.catalogItems) ? localMatch.catalogItems : [];
+
+    return {
+      ...item,
+      id: item.productId || item.id || item.slug,
+      shortName: item.shortName || item.name,
+      heroImage:
+        getStrapiMedia(item.heroImage) ||
+        (typeof item.heroImage === 'string' && item.heroImage.startsWith('/') ? item.heroImage : null) ||
+        localMatch.heroImage ||
+        '/images/products/mud-pumps.webp',
+      keyPoints: item.keyPoints || localMatch.keyPoints || [],
+      catalogItems: (strapiCatalogItems.length > 0 ? strapiCatalogItems : localCatalogItems).map(
+        (ci, idx) => {
+          const localCi =
+            localCatalogItems[idx] ||
+            localCatalogItems.find((c) => c.title === ci.title) ||
+            {};
+          const strapiImg =
+            getStrapiMedia(ci.image) ||
+            (typeof ci.image === 'string' && ci.image.startsWith('/') && !ci.image.includes('draw-works.jpg') ? ci.image : null);
+
+          return {
+            ...ci,
+            image:
+              strapiImg ||
+              localCi.image ||
+              localMatch.heroImage ||
+              '/images/products/mud-pumps.webp',
+            description: ci.description || localCi.description || '',
+          };
+        }
+      ),
+    };
+  });
 }
 
 export async function getProductBySlug(slug) {

@@ -175,25 +175,55 @@ async function syncProducts() {
   );
   if (!Array.isArray(data) || data.length === 0) return;
 
-  const synced = data.map((item) => ({
-    id: item.productId || item.id || item.slug,
-    slug: item.slug,
-    name: item.name,
-    shortName: item.shortName || item.name,
-    category: item.category,
-    icon: item.icon,
-    heroImage:
-      resolveMediaUrl(item.heroImage) || "/images/products/draw-works.jpg",
-    summary: item.summary,
-    keyPoints: item.keyPoints || [],
-    description: item.description,
-    catalogItems: (item.catalogItems || []).map((ci) => ({
-      title: ci.title,
-      image: resolveMediaUrl(ci.image) || "/images/products/draw-works.jpg",
-      description: ci.description,
-    })),
-    seo: item.seo || {},
-  }));
+  const existingProducts = readJson("products.json") || [];
+
+  const synced = data.map((item) => {
+    const existingMatch =
+      existingProducts.find(
+        (p) => p.slug === item.slug || p.id === item.productId || p.id === item.slug
+      ) || {};
+
+    const strapiCatalogItems = Array.isArray(item.catalogItems) ? item.catalogItems : [];
+    const existingCatalogItems = Array.isArray(existingMatch.catalogItems)
+      ? existingMatch.catalogItems
+      : [];
+
+    return {
+      id: item.productId || item.id || item.slug,
+      slug: item.slug,
+      name: item.name,
+      shortName: item.shortName || item.name,
+      category: item.category || existingMatch.category || "",
+      icon: item.icon || existingMatch.icon || "Settings",
+      heroImage:
+        resolveMediaUrl(item.heroImage) ||
+        existingMatch.heroImage ||
+        "/images/products/mud-pumps.webp",
+      summary: item.summary || existingMatch.summary || "",
+      keyPoints: item.keyPoints || existingMatch.keyPoints || [],
+      description: item.description || existingMatch.description || "",
+      catalogItems: (strapiCatalogItems.length > 0
+        ? strapiCatalogItems
+        : existingCatalogItems
+      ).map((ci, idx) => {
+        const existingCi =
+          existingCatalogItems[idx] ||
+          existingCatalogItems.find((c) => c.title === ci.title) ||
+          {};
+        const resolvedImg = resolveMediaUrl(ci.image);
+        return {
+          title: ci.title || existingCi.title || "",
+          image:
+            resolvedImg ||
+            existingCi.image ||
+            existingMatch.heroImage ||
+            "/images/products/mud-pumps.webp",
+          description: ci.description || existingCi.description || "",
+        };
+      }),
+      seo: item.seo || existingMatch.seo || {},
+    };
+  });
 
   writeJson("products.json", synced);
 }
