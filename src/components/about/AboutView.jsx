@@ -287,8 +287,8 @@ export default function AboutView({ siteConfig }) {
                 <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 pt-3 border-t border-ofs-navy-200/60">
                   <div>
                     <strong>Email:</strong>{' '}
-                    <a href={`mailto:${contact.emailUSA}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
-                      {contact.emailUSA}
+                    <a href={`mailto:${contact.emailUSA || 'info@ofsworld.com'}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {contact.emailUSA || 'info@ofsworld.com'}
                     </a>
                   </div>
                 </div>
@@ -319,8 +319,8 @@ export default function AboutView({ siteConfig }) {
                   </div>
                   <div>
                     <strong>Email:</strong>{' '}
-                    <a href={`mailto:${contact.emailIndia}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
-                      {contact.emailIndia}
+                    <a href={`mailto:${contact.emailIndia || 'info@ofsgroupindia.com'}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {contact.emailIndia || 'info@ofsgroupindia.com'}
                     </a>
                   </div>
                 </div>

@@ -204,8 +204,8 @@ export default function ContactView({ siteConfig = defaultSiteConfig }) {
                     Global AVL Procurement &amp; International Cargo Coordination Desk
                   </div>
                   <div className="flex flex-col gap-2 text-sm text-ofs-navy-950 font-mono pt-3 border-t border-ofs-navy-100">
-                    <a href={`mailto:${cfg.contact?.emailUSA}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
-                      <Mail size={15} className="text-ofs-navy-700 shrink-0" /> {cfg.contact?.emailUSA}
+                    <a href={`mailto:${cfg.contact?.emailUSA || 'info@ofsworld.com'}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-navy-700 shrink-0" /> {cfg.contact?.emailUSA || 'info@ofsworld.com'}
                     </a>
                   </div>
                 </div>
@@ -224,8 +224,8 @@ export default function ContactView({ siteConfig = defaultSiteConfig }) {
                     <a href={`tel:${cfg.contact?.phoneRaw}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
                       <Phone size={15} className="text-ofs-red-600 shrink-0" /> {cfg.contact?.phone}
                     </a>
-                    <a href={`mailto:${cfg.contact?.emailIndia}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
-                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {cfg.contact?.emailIndia}
+                    <a href={`mailto:${cfg.contact?.emailIndia || 'info@ofsgroupindia.com'}`} className="inline-flex items-center gap-2 hover:text-ofs-red-600 transition-colors">
+                      <Mail size={15} className="text-ofs-red-600 shrink-0" /> {cfg.contact?.emailIndia || 'info@ofsgroupindia.com'}
                     </a>
                   </div>
                 </div>
