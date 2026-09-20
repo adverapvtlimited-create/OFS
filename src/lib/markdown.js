@@ -1,9 +1,4 @@
-import React from 'react';
 
-/**
- * Lightweight markdown-like renderer for blog post content stored in JSON.
- * Supports ### headings, **bold**, numbered lists, and bullet lists.
- */
 export function renderBlogContent(content) {
   if (!content) return null;
 

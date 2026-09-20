@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { Fragment } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
@@ -113,7 +113,7 @@ function renderCustomBlock(block, index) {
   if (block.hasSubscribeForm) {
     const isDark = block.variant === 'dark';
     return (
-      <React.Fragment key={block.title || `block-${index}`}>
+      <Fragment key={block.title || `block-${index}`}>
         <section
           className={cn(
             'py-16 sm:py-20 lg:py-24 relative overflow-hidden',
@@ -205,7 +205,7 @@ function renderCustomBlock(block, index) {
             </div>
           </Container>
         </section>
-      </React.Fragment>
+      </Fragment>
     );
   }
 

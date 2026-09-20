@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowUpRight, CheckCircle2, Sparkles } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';

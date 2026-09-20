@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Sun,
@@ -10,20 +10,14 @@ import {
   CheckCircle2,
   ShieldCheck,
   FileText,
-  Wrench,
   MessageSquare,
   MapPin,
   PenTool,
   Send,
   Award,
-  HardHat,
-  Calendar,
   Settings,
-  Layers,
-  Building2,
   Maximize2,
   X,
-  ChevronRight,
   ChevronsRight,
   Clock,
   Leaf,

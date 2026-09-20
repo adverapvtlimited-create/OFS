@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Counter from '@/components/animations/Counter';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';

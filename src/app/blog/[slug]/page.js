@@ -1,7 +1,6 @@
-import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Clock, Calendar, ArrowUpRight, ArrowLeft, Share2, Tag, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import blogPosts from '@/data/blog-posts.json';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';

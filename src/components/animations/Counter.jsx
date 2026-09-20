@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Counter({ end, duration = 2000, suffix = '', prefix = '', decimals = 0 }) {
   const [count, setCount] = useState(0);

@@ -1,18 +1,14 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import {
   Package,
   Wrench,
-  ShieldCheck,
   Anchor,
-  Building2,
   Settings,
   ArrowUpRight,
   CheckCircle2,
   Sparkles,
-  PhoneCall,
   Clock,
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
@@ -24,33 +20,86 @@ import Badge from '@/components/ui/Badge';
 import SectionPad from '@/components/ui/SectionPad';
 import Container from '@/components/ui/Container';
 import SonarDot from '@/components/ui/SonarDot';
-import servicesData from '@/data/services.json';
-import { serviceHref } from '@/lib/offers';
+import offersData from '@/data/offers.json';
+import { whatWeOffer } from '@/data/navigation';
 
-const iconMap = {
-  Package: Package,
-  Wrench: Wrench,
-  ShieldCheck: ShieldCheck,
-  Anchor: Anchor,
-  Building2: Building2,
-  Settings: Settings,
+const divisionMeta = {
+  'procurement-shipping': {
+    badge: 'CORE SOURCING',
+    icon: Package,
+    number: '01',
+    features: [
+      'Network of 3,000+ Approved Brands',
+      'Strategic Sourcing & Competitive Tender Bidding',
+      'Cloud-based SCM Tracking & Inspections',
+    ],
+  },
+  'engineering-epc-support-services': {
+    badge: 'TECHNICAL CONSULTING',
+    icon: Wrench,
+    number: '02',
+    features: [
+      'Detailed Engineering Design & Constructability Reviews',
+      'EPC Procurement Assistance & Technical Sourcing',
+    ],
+  },
+  'spare-parts-procurement': {
+    badge: 'MRO PROCUREMENT',
+    icon: Settings,
+    number: '03',
+    features: [
+      'Genuine OEM & High-Grade Replacement Sourcing',
+      'Critical Component Interchangeability Studies',
+    ],
+  },
+  'logistics-shipping': {
+    badge: 'MULTIMODAL LOGISTICS',
+    icon: Anchor,
+    number: '04',
+    features: [
+      'Global Multimodal Freight Forwarding (Air, Ocean, Road)',
+      'Complete Customs Clearance & Export Compliance',
+    ],
+  },
 };
 
 export default function ServicesGrid() {
-  const flagshipService = servicesData[0]; // Procurement & Sourcing
-  const otherServices = servicesData.slice(1);
+  const divisions = whatWeOffer.services.items.slice(0, 4).map((item) => {
+    const slug = item.href.replace(/^\//, '');
+    const offer = offersData[slug] || {};
+    const meta = divisionMeta[slug] || {};
+    const blockFeatures = offer.blocks?.[0]?.items?.map((i) => i.title) || [];
+
+    return {
+      slug,
+      href: item.href,
+      title: offer.title || item.title,
+      description: offer.description || '',
+      image: item.image || offer.heroImage || '/images/live/Excellence-tools-official.png',
+      badge: meta.badge || 'SERVICES',
+      Icon: meta.icon || Package,
+      number: meta.number || '01',
+      features: meta.features || (blockFeatures.length > 0 ? blockFeatures.slice(0, 3) : [
+        'Strategic Industry Solutions',
+        'Certified Technical Support',
+      ]),
+    };
+  });
+
+  const flagshipService = divisions[0];
+  const otherServices = divisions.slice(1);
 
   return (
-    <SectionPad className="bg-gradient-to-b from-ofs-gray-50/80 via-white to-ofs-gray-50/40 relative overflow-hidden">
+    <SectionPad id="what-we-offer" className="bg-gradient-to-b from-ofs-gray-50/80 via-white to-ofs-gray-50/40 relative overflow-hidden scroll-mt-20">
       <Container>
         {/* Section Header */}
         <div className="flex justify-between items-end flex-wrap gap-6 mb-12">
           <div className="max-w-[760px]">
             <ScrollReveal direction="up">
               <div className="flex items-center gap-2.5 mb-3">
-                <Badge variant="red">CORE CAPABILITIES</Badge>
+                <Badge variant="red">WHAT WE OFFER</Badge>
                 <span className="font-mono text-xs text-ofs-navy-900 font-bold uppercase tracking-wider">
-                  {servicesData.length} Strategic Divisions
+                  {divisions.length} Strategic Divisions
                 </span>
               </div>
             </ScrollReveal>
@@ -83,9 +132,8 @@ export default function ServicesGrid() {
           </ScrollReveal>
         </div>
 
-        {/* Bento Grid: Featured Flagship (2 cols) + Division 2 (1 col) + Row 2 (3 cols) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* 1. Flagship Featured Sourcing Card (Spans 2 Columns on Desktop) */}
+
           <ScrollReveal direction="up" delay={0.08} className="lg:col-span-2">
             <GlowCard
               glowColor="rgba(224, 42, 48, 0.22)"
@@ -132,7 +180,7 @@ export default function ServicesGrid() {
                           DIVISION 01
                         </div>
                         <h3 className="font-heading text-xl sm:text-[1.35rem] font-extrabold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                          <Link href={serviceHref(flagshipService.slug)} className="text-inherit no-underline">
+                          <Link href={flagshipService.href} className="text-inherit no-underline">
                             {flagshipService.title}
                           </Link>
                         </h3>
@@ -163,7 +211,7 @@ export default function ServicesGrid() {
                   {/* Card Action Row */}
                   <div className="pt-3.5 border-t border-ofs-gray-200 flex flex-wrap justify-between items-center gap-2">
                     <Link
-                      href={serviceHref(flagshipService.slug)}
+                      href={flagshipService.href}
                       className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-white bg-ofs-navy-950 hover:bg-ofs-red-600 py-2 px-3.5 sm:px-4 rounded-xs transition-all duration-200 no-underline shadow-sm"
                     >
                       Explore Scope <ArrowUpRight size={14} />
@@ -205,7 +253,7 @@ export default function ServicesGrid() {
                       <Wrench size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={serviceHref(otherServices[0].slug)} className="text-inherit no-underline">
+                      <Link href={otherServices[0].href} className="text-inherit no-underline">
                         {otherServices[0].title}
                       </Link>
                     </h3>
@@ -234,7 +282,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={serviceHref(otherServices[0].slug)}
+                  href={otherServices[0].href}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
@@ -274,7 +322,7 @@ export default function ServicesGrid() {
                       <Settings size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={serviceHref(otherServices[1].slug)} className="text-inherit no-underline">
+                      <Link href={otherServices[1].href} className="text-inherit no-underline">
                         {otherServices[1].title}
                       </Link>
                     </h3>
@@ -303,7 +351,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={serviceHref(otherServices[1].slug)}
+                  href={otherServices[1].href}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
@@ -342,7 +390,7 @@ export default function ServicesGrid() {
                       <Anchor size={16} />
                     </div>
                     <h3 className="font-heading text-[1.05rem] font-bold text-ofs-navy-950 m-0 leading-tight group-hover:text-ofs-red-600 transition-colors">
-                      <Link href={serviceHref(otherServices[2].slug)} className="text-inherit no-underline">
+                      <Link href={otherServices[2].href} className="text-inherit no-underline">
                         {otherServices[2].title}
                       </Link>
                     </h3>
@@ -371,7 +419,7 @@ export default function ServicesGrid() {
 
               <div className="py-3 px-5 border-t border-ofs-gray-200 bg-ofs-gray-50 flex justify-between items-center">
                 <Link
-                  href={serviceHref(otherServices[2].slug)}
+                  href={otherServices[2].href}
                   className="font-mono text-xs font-bold uppercase text-ofs-red-600 flex items-center gap-1 hover:text-ofs-red-700 group-hover:translate-x-0.5 transition-all duration-150 no-underline"
                 >
                   Explore Scope <ArrowUpRight size={13} />
