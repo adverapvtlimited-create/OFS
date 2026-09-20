@@ -591,7 +591,7 @@ export default function Header() {
             <Link
               href="/careers"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-semibold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
+              className="font-heading text-lg font-bold text-ofs-navy-950 border-b border-ofs-gray-200 py-3 no-underline"
             >
               Careers
             </Link>
