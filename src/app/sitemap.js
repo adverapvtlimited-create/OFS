@@ -1,4 +1,3 @@
-import servicesData from '@/data/services.json';
 import industriesData from '@/data/industries.json';
 import productsData from '@/data/products.json';
 import blogPosts from '@/data/blog-posts.json';
@@ -13,13 +12,11 @@ export default function sitemap() {
   const staticRoutes = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' },
     { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/products', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/renewables', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/blog', priority: 0.75, changeFrequency: 'weekly' },
     { path: '/careers', priority: 0.75, changeFrequency: 'weekly' },
-    { path: '/products', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
@@ -30,12 +27,6 @@ export default function sitemap() {
     priority,
   }));
 
-  const serviceRoutes = servicesData.map((s) => ({
-    url: `${SITE_URL}/services/${s.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.9,
-  }));
 
   const industryRoutes = industriesData.map((i) => ({
     url: `${SITE_URL}/industries/${i.slug}`,
@@ -72,5 +63,5 @@ export default function sitemap() {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...offerRoutes, ...productRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
+  return [...staticRoutes, ...offerRoutes, ...productRoutes, ...industryRoutes, ...blogRoutes, ...careerRoutes];
 }

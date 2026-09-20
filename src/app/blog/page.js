@@ -1,9 +1,7 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Clock, Calendar, ArrowUpRight, Search, Tag, User } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import blogPosts from '@/data/blog-posts.json';

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 
 export default function TextReveal({
@@ -64,7 +64,7 @@ export default function TextReveal({
       viewport={{ once, amount: 0.05, margin: '0px' }}
     >
       {words.map((word, idx) => (
-        <React.Fragment key={idx}>
+        <Fragment key={idx}>
           <motion.span
             style={{
               display: 'inline-block',
@@ -77,7 +77,7 @@ export default function TextReveal({
             {word}
           </motion.span>
           {idx < words.length - 1 && ' '}
-        </React.Fragment>
+        </Fragment>
       ))}
     </motion.span>
   );

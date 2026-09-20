@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -20,7 +20,6 @@ import {
 import siteConfig from '@/data/site-config.json';
 import MagneticButton from '@/components/animations/MagneticButton';
 import DesktopNav from '@/components/layout/DesktopNav';
-import SonarDot from '../ui/SonarDot';
 import { cn } from '@/lib/cn';
 import {
   aboutNav,

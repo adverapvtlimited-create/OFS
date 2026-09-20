@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -22,7 +21,6 @@ import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Badge from '@/components/ui/Badge';
 import Container from '@/components/ui/Container';
-import SectionPad from '@/components/ui/SectionPad';
 import industriesData from '@/data/industries.json';
 
 const iconMap = {

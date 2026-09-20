@@ -253,11 +253,7 @@
             "title": "Indirect Procurement",
             "description": "Focuses on acquiring goods and services that support day-to-day business operations but are not directly involved in the production of finished goods. These include internal services such as IT support, HR, marketing, maintenance, and logistics."
           }
-        ],
-        "cta": {
-          "label": "Contact Us",
-          "href": "/contact"
-        }
+        ]
       },
       {
         "title": "Benefits of Outsourcing Procurement",
@@ -299,11 +295,7 @@
           "Outsourcing procurement is a powerful strategy to relieve your business from the complexities of procurement management—while boosting efficiency and sharpening strategic focus. By delegating essential tasks to seasoned professionals, you free up valuable time and resources to concentrate on your core business priorities.",
           "Whether it's securing the best pricing, mitigating fraud risks, or building a more agile and responsive procurement function, outsourcing paves the way for measurable performance improvements and cost savings.",
           "Embark on a journey toward smarter procurement. Connect with the OFS team for a complimentary consultation and discover how our expertise can help streamline your procurement processes, protect your resources, and accelerate your business success."
-        ],
-        "cta": {
-          "label": "Request Consultation",
-          "href": "/contact"
-        }
+        ]
       }
     ],
     "sections": [
@@ -2165,7 +2157,6 @@
         "type": "card-grid",
         "title": "Our Offering",
         "subtitle": "Why choose us as your outsourcing manufacturing partner.",
-        "columns": 3,
         "items": [
           {
             "title": "End-to-End Management",
@@ -2214,7 +2205,6 @@
       {
         "type": "image-cards",
         "title": "Why OEMs choose us",
-        "columns": 3,
         "items": [
           {
             "title": "Skilled Workforce",

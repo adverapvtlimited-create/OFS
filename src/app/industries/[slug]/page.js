@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import {
@@ -14,11 +13,10 @@ import {
   Compass,
   ArrowUpRight,
   CheckCircle2,
-  ShieldCheck,
   Cpu
 } from 'lucide-react';
 import industriesData from '@/data/industries.json';
-import servicesData from '@/data/services.json';
+import { whatWeOffer } from '@/data/navigation';
 import { serviceHref } from '@/lib/offers';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -96,8 +94,6 @@ export default function SingleIndustryPage({ params }) {
   if (!ind) {
     notFound();
   }
-
-  const IconComp = iconMap[ind.icon] || Flame;
 
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
@@ -281,13 +277,13 @@ export default function SingleIndustryPage({ params }) {
                   <span className="text-ofs-navy-950 font-bold text-[1.05rem]">{svc.title}</span>
                   <span className="text-ofs-gray-600 text-[0.85rem] font-normal leading-snug">{svc.description}</span>
                 </Link>
-              )) : servicesData.slice(0, 3).map((svc) => (
+              )) : whatWeOffer.services.items.slice(0, 3).map((svc) => (
                 <Link
-                  key={svc.id}
-                  href={serviceHref(svc.slug)}
+                  key={svc.href}
+                  href={svc.href}
                   className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
                 >
-                  {svc.shortTitle}
+                  {svc.title}
                 </Link>
               ))}
             </div>

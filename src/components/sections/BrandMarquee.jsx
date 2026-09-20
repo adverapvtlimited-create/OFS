@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
@@ -43,7 +43,7 @@ export default function BrandMarquee() {
   }
 
   function BrandChip({ brand, countryTone = 'gold' }) {
-    const [imgError, setImgError] = React.useState(false);
+    const [imgError, setImgError] = useState(false);
 
     return (
       <div className="inline-flex items-center gap-3.5 py-2.5 px-3.5 sm:px-4 min-w-[240px] sm:min-w-[280px] bg-white/[0.035] border border-white/10 rounded-md backdrop-blur-md mr-3.5 sm:mr-4 shrink-0 transition-all duration-300 cursor-default hover:bg-white/[0.08] hover:border-ofs-red-500/60 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.4)] group">

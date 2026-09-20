@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CheckCircle2, Send, Upload } from 'lucide-react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import Button from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 
 export default function JobApplicationForm({ job }) {
