@@ -1035,95 +1035,6 @@
       }
     ]
   },
-  "warehouse": {
-    "id": "warehouse",
-    "slug": "warehouse",
-    "href": "/warehouse",
-    "title": "Warehouse",
-    "category": "services",
-    "categoryLabel": "Services",
-    "heroImage": "/images/live/Procurement-and-shippings.jpg",
-    "tagline": "State-of-the-Art Industrial Warehousing, Storage & Value-Added Services",
-    "description": "Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency. Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
-    "blocks": [
-      {
-        "title": "Our Warehouse Services",
-        "variant": "light",
-        "imagePosition": "left",
-        "image": null,
-        "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
-        "items": [
-          {
-            "title": "Storage & Warehousing",
-            "description": "Our flexible facilities support a variety of storage options—including rack, bulk, temperature-controlled, and specialized storage—designed to handle goods of all sizes."
-          },
-          {
-            "title": "Real-Time Inventory Tracking",
-            "description": "With our advanced tracking systems, you gain 24/7 visibility into your stock movements, enabling smarter decision-making and supply chain efficiency."
-          },
-          {
-            "title": "Order Fulfilment",
-            "description": "We ensure accurate and timely order processing, reducing lead times and consistently meeting delivery commitments—enhancing your customer satisfaction."
-          },
-          {
-            "title": "Value-Added Services",
-            "description": "In addition to standard storage, we offer labelling, repackaging, quality checks, kitting, and preservation coating—adding efficiency and value to your operations."
-          }
-        ],
-        "paragraphs": [],
-        "noBullets": false,
-        "hasSubscribeForm": false
-      },
-      {
-        "title": "Why Choose OFS for Warehouse Solutions?",
-        "variant": "light",
-        "imagePosition": "right",
-        "image": null,
-        "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
-        "items": [
-          {
-            "title": "Process Industry Domain Expertise",
-            "description": "Deep experience handling raw materials, hazardous supplies, valves, piping, electrical components, and heavy engineering goods."
-          },
-          {
-            "title": "Advanced Secure Infrastructure",
-            "description": "Featuring climate control, 24/7 CCTV surveillance, fire suppression, overhead gantry cranes, and heavy-duty racking systems."
-          },
-          {
-            "title": "Efficient Inventory Control",
-            "description": "Real-time barcoding and RFID tracking to prevent stockouts, overstocking, and material obsolescence."
-          },
-          {
-            "title": "Customised Logistics Integration",
-            "description": "Seamless integration with multi-modal transport networks for rapid in-country and international dispatch."
-          }
-        ],
-        "paragraphs": [],
-        "noBullets": false,
-        "hasSubscribeForm": false
-      },
-      {
-        "title": "Experience Outstanding Customer Service and Collaboration",
-        "variant": "dark",
-        "imagePosition": "right",
-        "image": null,
-        "intro": "",
-        "items": [],
-        "paragraphs": [
-          "Dedicated Support: Our experienced team provides continuous assistance to keep your warehouse operations running smoothly—whether it's technical help, solution upgrades, or day-to-day queries.",
-          "Continuous Improvement: We foster a culture of innovation and refinement. As your partner, we actively monitor performance and identify opportunities to improve efficiency and reduce costs.",
-          "Transparency & Communication: We believe in open, honest communication. You'll always be informed with relevant updates, KPIs, and performance insights—so you clearly see the value we deliver."
-        ],
-        "noBullets": false,
-        "hasSubscribeForm": false
-      }
-    ]
-  },
   "global-mro-procurement-excellence": {
     "id": "global-mro-procurement-excellence",
     "slug": "global-mro-procurement-excellence",
@@ -2613,6 +2524,95 @@
           }
         ],
         "paragraphs": [],
+        "noBullets": false,
+        "hasSubscribeForm": false
+      }
+    ]
+  },
+  "warehouse": {
+    "id": "warehouse",
+    "slug": "warehouse",
+    "href": "/warehouse",
+    "title": "Warehouse",
+    "category": "services",
+    "categoryLabel": "Services",
+    "heroImage": "/images/live/Procurement-and-shippings.jpg",
+    "tagline": "State-of-the-Art Industrial Warehousing, Storage & Value-Added Services",
+    "description": "Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency. Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level.",
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
+    "blocks": [
+      {
+        "title": "Our Warehouse Services",
+        "variant": "light",
+        "imagePosition": "left",
+        "image": null,
+        "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
+        "items": [
+          {
+            "title": "Storage & Warehousing",
+            "description": "Our flexible facilities support a variety of storage options—including rack, bulk, temperature-controlled, and specialized storage—designed to handle goods of all sizes."
+          },
+          {
+            "title": "Real-Time Inventory Tracking",
+            "description": "With our advanced tracking systems, you gain 24/7 visibility into your stock movements, enabling smarter decision-making and supply chain efficiency."
+          },
+          {
+            "title": "Order Fulfilment",
+            "description": "We ensure accurate and timely order processing, reducing lead times and consistently meeting delivery commitments—enhancing your customer satisfaction."
+          },
+          {
+            "title": "Value-Added Services",
+            "description": "In addition to standard storage, we offer labelling, repackaging, quality checks, kitting, and preservation coating—adding efficiency and value to your operations."
+          }
+        ],
+        "paragraphs": [],
+        "noBullets": false,
+        "hasSubscribeForm": false
+      },
+      {
+        "title": "Why Choose OFS for Warehouse Solutions?",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
+        "items": [
+          {
+            "title": "Process Industry Domain Expertise",
+            "description": "Deep experience handling raw materials, hazardous supplies, valves, piping, electrical components, and heavy engineering goods."
+          },
+          {
+            "title": "Advanced Secure Infrastructure",
+            "description": "Featuring climate control, 24/7 CCTV surveillance, fire suppression, overhead gantry cranes, and heavy-duty racking systems."
+          },
+          {
+            "title": "Efficient Inventory Control",
+            "description": "Real-time barcoding and RFID tracking to prevent stockouts, overstocking, and material obsolescence."
+          },
+          {
+            "title": "Customised Logistics Integration",
+            "description": "Seamless integration with multi-modal transport networks for rapid in-country and international dispatch."
+          }
+        ],
+        "paragraphs": [],
+        "noBullets": false,
+        "hasSubscribeForm": false
+      },
+      {
+        "title": "Experience Outstanding Customer Service and Collaboration",
+        "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
+        "paragraphs": [
+          "Dedicated Support: Our experienced team provides continuous assistance to keep your warehouse operations running smoothly—whether it's technical help, solution upgrades, or day-to-day queries.",
+          "Continuous Improvement: We foster a culture of innovation and refinement. As your partner, we actively monitor performance and identify opportunities to improve efficiency and reduce costs.",
+          "Transparency & Communication: We believe in open, honest communication. You'll always be informed with relevant updates, KPIs, and performance insights—so you clearly see the value we deliver."
+        ],
         "noBullets": false,
         "hasSubscribeForm": false
       }

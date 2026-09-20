@@ -234,7 +234,7 @@ export async function getProductBySlug(slug) {
    ========================================================================== */
 export async function getIndustries() {
   const data = await fetchStrapi(
-    'industries?populate[0]=heroImage&populate[1]=subIndustries.heroImage&populate[2]=seo&pagination[pageSize]=100',
+    'industries?populate[0]=heroImage&populate[1]=subIndustries.heroImage&populate[2]=seo&populate[3]=relatedService&pagination[pageSize]=100',
     {
       fallbackData: localIndustries,
     }
@@ -244,20 +244,53 @@ export async function getIndustries() {
     return localIndustries;
   }
 
-  return data.map((item) => ({
-    ...item,
-    id: item.industryId || item.id || item.slug,
-    shortName: item.shortName || item.name,
-    heroImage: getStrapiMedia(item.heroImage) || item.heroImage || '/images/live/oil-gas-new.jpg',
-    keySolutions: item.keySolutions || [],
-    subIndustries: (item.subIndustries || []).map((sub) => ({
-      ...sub,
-      id: sub.subId || sub.id || sub.slug,
-      shortName: sub.shortName || sub.name,
-      heroImage: getStrapiMedia(sub.heroImage) || sub.heroImage || '/images/live/Excellence-tools-official.png',
-      keySolutions: sub.keySolutions || [],
-    })),
-  }));
+  return data.map((item) => {
+    const localMatch =
+      localIndustries.find(
+        (i) => i.slug === item.slug || i.id === item.industryId || i.id === item.slug
+      ) || {};
+
+    const strapiSubIndustries = Array.isArray(item.subIndustries) ? item.subIndustries : null;
+    const localSubIndustries = Array.isArray(localMatch.subIndustries) ? localMatch.subIndustries : [];
+    const targetSubIndustries = strapiSubIndustries !== null ? strapiSubIndustries : localSubIndustries;
+
+    return {
+      ...localMatch,
+      ...item,
+      id: item.industryId || item.id || item.slug,
+      shortName: item.shortName || item.name,
+      heroImage:
+        getStrapiMedia(item.heroImage) ||
+        (typeof item.heroImage === 'string' && item.heroImage.startsWith('/') ? item.heroImage : null) ||
+        localMatch.heroImage ||
+        '/images/live/oil-gas-new.jpg',
+      relatedService: item.relatedService !== undefined ? item.relatedService : (localMatch.relatedService || null),
+      keySolutions: item.keySolutions !== undefined ? item.keySolutions : (localMatch.keySolutions || []),
+      subIndustries: targetSubIndustries.map(
+        (sub, idx) => {
+          const localSub =
+            localSubIndustries.find((s) => s.slug === sub.slug || s.id === sub.subId) ||
+            localSubIndustries[idx] ||
+            {};
+          return {
+            ...localSub,
+            ...sub,
+            id: sub.subId || sub.id || sub.slug || localSub.id,
+            shortName: sub.shortName || sub.name || localSub.shortName,
+            heroImage:
+              getStrapiMedia(sub.heroImage) ||
+              (typeof sub.heroImage === 'string' && sub.heroImage.startsWith('/') ? sub.heroImage : null) ||
+              localSub.heroImage ||
+              '/images/live/Excellence-tools-official.png',
+            keySolutions: sub.keySolutions || localSub.keySolutions || [],
+          };
+        }
+      ),
+      ...(item.customServices || localMatch.customServices
+        ? { customServices: item.customServices || localMatch.customServices }
+        : {}),
+    };
+  });
 }
 
 export async function getIndustryBySlug(slug) {

@@ -99,6 +99,18 @@ function writeJson(filename, data) {
   console.log(`  ✅ Written -> src/data/${filename}`);
 }
 
+function readJson(filename) {
+  const targetPath = path.join(dataDir, filename);
+  if (fs.existsSync(targetPath)) {
+    try {
+      return JSON.parse(fs.readFileSync(targetPath, "utf8"));
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 async function syncSiteConfig() {
   console.log("📌 Syncing Site Config...");
   const data = await fetchFromStrapi(
@@ -231,39 +243,77 @@ async function syncProducts() {
 async function syncIndustries() {
   console.log("📌 Syncing Industries...");
   const data = await fetchFromStrapi(
-    "industries?populate[0]=heroImage&populate[1]=subIndustries.heroImage&populate[2]=seo&pagination[pageSize]=100",
+    "industries?populate[0]=heroImage&populate[1]=subIndustries.heroImage&populate[2]=seo&populate[3]=relatedService&pagination[pageSize]=100",
   );
   if (!Array.isArray(data) || data.length === 0) return;
 
-  const synced = data.map((item) => ({
-    id: item.industryId || item.id || item.slug,
-    slug: item.slug,
-    name: item.name,
-    shortName: item.shortName || item.name,
-    icon: item.icon,
-    heroImage:
-      resolveMediaUrl(item.heroImage) || "/images/live/oil-gas-new.jpg",
-    relatedService: item.relatedService || null,
-    tagline: item.tagline,
-    summary: item.summary,
-    keySolutions: item.keySolutions || [],
-    subIndustries: (item.subIndustries || []).map((sub) => ({
-      id: sub.subId || sub.id || sub.slug,
-      slug: sub.slug,
-      name: sub.name,
-      shortName: sub.shortName || sub.name,
-      icon: sub.icon,
+  const existingIndustries = readJson("industries.json") || [];
+
+  const synced = data.map((item) => {
+    const existingMatch =
+      existingIndustries.find(
+        (i) => i.slug === item.slug || i.id === item.industryId || i.id === item.slug
+      ) || {};
+
+    const strapiSubIndustries = Array.isArray(item.subIndustries) ? item.subIndustries : null;
+    const existingSubIndustries = Array.isArray(existingMatch.subIndustries)
+      ? existingMatch.subIndustries
+      : [];
+
+    const targetSubIndustries = strapiSubIndustries !== null ? strapiSubIndustries : existingSubIndustries;
+
+    return {
+      id: item.industryId || item.id || item.slug,
+      slug: item.slug,
+      name: item.name,
+      shortName: item.shortName || item.name,
+      icon: item.icon || existingMatch.icon || "Flame",
       heroImage:
-        resolveMediaUrl(sub.heroImage) ||
-        "/images/live/Excellence-tools-official.png",
-      tagline: sub.tagline,
-      summary: sub.summary,
-      keySolutions: sub.keySolutions || [],
-      fullContentText: sub.fullContentText || "",
-    })),
-    fullContentText: item.fullContentText || "",
-    seo: item.seo || {},
-  }));
+        resolveMediaUrl(item.heroImage) ||
+        (typeof item.heroImage === "string" && item.heroImage.startsWith("/") ? item.heroImage : null) ||
+        existingMatch.heroImage ||
+        "/images/live/oil-gas-new.jpg",
+      relatedService: item.relatedService !== undefined ? item.relatedService : (existingMatch.relatedService || null),
+      tagline: item.tagline || existingMatch.tagline || "",
+      summary: item.summary || existingMatch.summary || "",
+      keySolutions: item.keySolutions !== undefined ? item.keySolutions : (existingMatch.keySolutions || []),
+      subIndustries: targetSubIndustries.map((sub, idx) => {
+        const existingSub =
+          existingSubIndustries.find((s) => s.slug === sub.slug || s.id === sub.subId) ||
+          existingSubIndustries[idx] ||
+          {};
+        return {
+          id: sub.subId || sub.id || sub.slug || existingSub.id,
+          slug: sub.slug || existingSub.slug,
+          name: sub.name || existingSub.name,
+          shortName: sub.shortName || sub.name || existingSub.shortName,
+          icon: sub.icon || existingSub.icon || "Flame",
+          heroImage:
+            resolveMediaUrl(sub.heroImage) ||
+            (typeof sub.heroImage === "string" && sub.heroImage.startsWith("/") ? sub.heroImage : null) ||
+            existingSub.heroImage ||
+            "/images/live/Excellence-tools-official.png",
+          tagline: sub.tagline || existingSub.tagline || "",
+          summary: sub.summary || existingSub.summary || "",
+          keySolutions: sub.keySolutions || existingSub.keySolutions || [],
+          fullContentText: sub.fullContentText || existingSub.fullContentText || "",
+        };
+      }),
+      fullContentText: item.fullContentText !== undefined ? item.fullContentText : (existingMatch.fullContentText || ""),
+      ...(item.customServices || existingMatch.customServices
+        ? { customServices: item.customServices || existingMatch.customServices }
+        : {}),
+      seo: item.seo
+        ? {
+            metaTitle: item.seo.metaTitle || item.name,
+            metaDescription: item.seo.metaDescription || item.summary,
+            keywords: item.seo.keywords || "",
+            canonicalURL: item.seo.canonicalURL || null,
+            metaRobots: item.seo.metaRobots || null,
+          }
+        : existingMatch.seo || null,
+    };
+  });
 
   writeJson("industries.json", synced);
 }
