@@ -48,9 +48,14 @@ function renderParagraph(para, pIdx, isDark = false) {
     return (
       <div
         key={pIdx}
-        className={cn("flex items-start gap-3 p-4 mb-2.5 rounded-lg border transition-all duration-150", isDark ? "bg-white/5 border-white/10 hover:bg-white/10" : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50")}
+        className={cn(
+          "flex items-start gap-3.5 p-4 sm:p-4.5 mb-3 rounded-2xl border transition-all duration-200",
+          isDark
+            ? "bg-white/5 border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+            : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 shadow-xs"
+        )}
       >
-        <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
+        <CheckCircle2 size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
         <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
           <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>{lead}:</strong>
           <span>{formatText(body)}</span>
@@ -320,16 +325,13 @@ function renderCustomBlock(block, index) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.08}>
-                <div className="p-6 rounded-2xl border border-ofs-navy-100 bg-white shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-                  <CheckCircle2 size={22} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm sm:text-[0.95rem] text-ofs-gray-700 leading-relaxed m-0">
-                      {item.description}
-                    </p>
-                  </div>
+                <div className="p-6 rounded-2xl border border-ofs-navy-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-[0.95rem] text-ofs-gray-700 leading-relaxed m-0">
+                    {item.description}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -837,47 +839,43 @@ function renderCustomBlock(block, index) {
             </p>
           )}
 
-          {block.items?.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left my-8">
-              {block.items.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={cn(
-                    'p-4 rounded-lg border flex items-start gap-3 transition-all',
-                    isDark
-                      ? 'bg-white/5 border-white/10 text-gray-200'
-                      : 'bg-ofs-navy-50/60 border-ofs-navy-100 text-ofs-gray-700'
-                  )}
-                >
-                  <CheckCircle2
-                    size={18}
-                    className="text-ofs-red-600 shrink-0 mt-0.5"
-                  />
-                  <div>
-                    {item.title && (
-                      <strong
-                        className={cn(
-                          'block font-bold text-sm mb-0.5',
-                          isDark ? 'text-white' : 'text-ofs-navy-950'
-                        )}
-                      >
-                        {item.title}
-                      </strong>
-                    )}
-                    <span className="text-sm leading-relaxed">
-                      {formatText(item.description || (typeof item === 'string' ? item : ''))}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {block.paragraphs?.length > 0 && (
+          {((block.paragraphs?.length || 0) > (block.items?.length || 0) && block.paragraphs?.length > 0) ? (
             <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
               {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
             </div>
-          )}
+          ) : block.items?.length > 0 ? (
+            <div className="flex flex-col gap-3 my-6 max-w-4xl mx-auto text-left">
+              {block.items.map((item, idx) => {
+                const title = item.title || '';
+                const desc = item.description || (typeof item === 'string' ? item : '');
+                return (
+                  <div
+                    key={idx}
+                    className={cn(
+                      "flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl border transition-all duration-200",
+                      isDark
+                        ? "bg-white/5 border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+                        : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 shadow-xs"
+                    )}
+                  >
+                    <CheckCircle2 size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
+                    <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
+                      {title && (
+                        <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>
+                          {title}:
+                        </strong>
+                      )}
+                      <span>{formatText(desc)}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : block.paragraphs?.length > 0 ? (
+            <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
+              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
+            </div>
+          ) : null}
 
           {block.buttonText && (
             <div className="mt-8">
@@ -1092,17 +1090,14 @@ export default function OfferDetail({ page }) {
                   {page.features.map((feat) => (
                     <div
                       key={feat.title}
-                      className="flex items-start gap-3 p-5 bg-ofs-navy-50/70 rounded-md border border-ofs-navy-100"
+                      className="p-5 bg-ofs-navy-50/70 rounded-md border border-ofs-navy-100"
                     >
-                      <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-heading text-base font-bold text-ofs-navy-950 mb-1">
-                          {feat.title}
-                        </h3>
-                        <p className="text-sm text-ofs-gray-600 leading-relaxed m-0">
-                          {feat.description}
-                        </p>
-                      </div>
+                      <h3 className="font-heading text-base font-bold text-ofs-navy-950 mb-1">
+                        {feat.title}
+                      </h3>
+                      <p className="text-sm text-ofs-gray-600 leading-relaxed m-0">
+                        {feat.description}
+                      </p>
                     </div>
                   ))}
                 </div>

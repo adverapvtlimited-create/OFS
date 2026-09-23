@@ -554,71 +554,104 @@ export async function getOffers() {
       const cleanCategory = (item.category || existing.category || "").trim().toLowerCase();
       const cleanCategoryLabel = (item.categoryLabel || existing.categoryLabel || "").trim();
 
+      const resolvedHero =
+        getStrapiMedia(item.heroImage) ||
+        getStrapiMedia(item.heroImageUrl) ||
+        (typeof item.heroImage === 'string' ? item.heroImage : null) ||
+        (item.heroImage === null ? null : existing.heroImage) ||
+        null;
+
       map[item.slug] = {
         ...existing,
         ...item,
         category: cleanCategory,
         categoryLabel: cleanCategoryLabel,
-        heroImage:
-          getStrapiMedia(item.heroImage) ||
-          item.heroImageUrl ||
-          (item.heroImage === null ? null : existing.heroImage) ||
-          null,
+        heroImage: resolvedHero,
         overviewTitle: item.overviewTitle || existing.overviewTitle || null,
         overviewParagraphs:
           item.overviewParagraphs || existing.overviewParagraphs || null,
         features: item.features || existing.features || null,
         sections: item.sections || existing.sections || null,
-        gallery: item.gallery || existing.gallery || null,
-        blocks:
-          item.blocks && item.blocks.length > 0
-            ? item.blocks.map((b, bIdx) => {
-                const prevB = existing.blocks?.[bIdx] || {};
-                const resolvedImg =
-                  getStrapiMedia(b.image) ||
-                  b.imageUrl ||
-                  getStrapiMedia(b.image?.src || b.image?.data) ||
-                  (typeof b.image === "string" ? b.image : b.image?.src) ||
-                  prevB.image?.src ||
-                  (typeof prevB.image === "string" ? prevB.image : null);
+        gallery: (Array.isArray(item.gallery) && item.gallery.length > 0)
+          ? item.gallery.map((g) => ({
+              src: getStrapiMedia(g) || (typeof g === 'string' ? g : g.src || g.url),
+              alt: g.alt || g.name || item.title || '',
+            }))
+          : existing.gallery || null,
+        blocks: (item.blocks && item.blocks.length > 0)
+          ? item.blocks
+              .filter((b) => !b.title?.toLowerCase().includes('benefits of ofs supply chain'))
+              .map((b, bIdx) => {
+              const prevB =
+                existing.blocks?.find(
+                  (eb) =>
+                    (b.title && eb.title && eb.title.trim().toLowerCase() === b.title.trim().toLowerCase()) ||
+                    (b.type && eb.type && eb.type === b.type)
+                ) || existing.blocks?.[bIdx] || {};
 
-                let items =
-                  b.items && b.items.length > 0
-                    ? b.items.map((i, iIdx) => ({
-                        ...(prevB.items?.[iIdx] || {}),
-                        ...(typeof i === "object"
-                          ? i
-                          : { title: i, description: "" }),
-                      }))
-                    : prevB.items || [];
+              // Prioritize Strapi Media Upload (b.image.src / b.image) first
+              const strapiMediaAsset = getStrapiMedia(b.image?.src || b.image);
+              const rawImg =
+                strapiMediaAsset ||
+                (typeof b.image === 'string' ? b.image : null) ||
+                b.imageUrl ||
+                prevB.image?.src ||
+                null;
 
-                let paragraphs =
-                  b.paragraphs && b.paragraphs.length > 0
-                    ? b.paragraphs
-                    : prevB.paragraphs || [];
+              const resolvedImg = getStrapiMedia(rawImg);
 
-                return {
-                  ...prevB,
-                  ...b,
-                  imagePosition: b.imagePosition || prevB.imagePosition || "bottom",
-                  buttonText: b.buttonText || prevB.buttonText || null,
-                  buttonHref: b.buttonHref || prevB.buttonHref || null,
-                  image: resolvedImg
-                    ? {
-                        src: resolvedImg,
-                        alt:
-                          b.imageAlt ||
-                          b.image?.alt ||
-                          prevB.image?.alt ||
-                          b.title ||
-                          "",
+              return {
+                ...prevB,
+                ...b,
+                imagePosition: b.imagePosition || prevB.imagePosition || "bottom",
+                buttonText: b.buttonText || prevB.buttonText || null,
+                buttonHref: b.buttonHref || prevB.buttonHref || null,
+                image: resolvedImg
+                  ? {
+                      src: resolvedImg,
+                      alt: b.imageAlt || b.image?.alt || prevB.image?.alt || b.title || '',
+                    }
+                  : null,
+                items: (b.items && b.items.length > 0)
+                  ? b.items.map((i, iIdx) => {
+                      const prevI =
+                        prevB.items?.find(
+                          (pi) => pi.title && i.title && pi.title.trim().toLowerCase() === i.title.trim().toLowerCase()
+                        ) ||
+                        prevB.items?.[iIdx] ||
+                        {};
+                      if (typeof i === 'object') {
+                        return {
+                          ...prevI,
+                          ...i,
+                          image: getStrapiMedia(i.image) || i.image || prevI.image || null,
+                          icon: getStrapiMedia(i.icon) || i.icon || prevI.icon || null,
+                        };
                       }
-                    : null,
-                  items,
-                  paragraphs,
-                };
-              })
-            : existing.blocks || [],
+                      return { title: i, description: '' };
+                    })
+                  : prevB.items || [],
+                paragraphs: (Array.isArray(b.paragraphs) && b.paragraphs.length > 0)
+                  ? b.paragraphs
+                  : prevB.paragraphs || [],
+                stats: (b.stats && b.stats.length > 0)
+                  ? b.stats.map((s, sIdx) => {
+                      const prevS =
+                        prevB.stats?.find(
+                          (ps) => ps.label && s.label && ps.label.trim().toLowerCase() === s.label.trim().toLowerCase()
+                        ) ||
+                        prevB.stats?.[sIdx] ||
+                        {};
+                      return {
+                        ...prevS,
+                        ...s,
+                        image: getStrapiMedia(s.image) || getStrapiMedia(s.imageUrl) || s.image || prevS.image || null,
+                      };
+                    })
+                  : prevB.stats || [],
+              };
+            })
+          : existing.blocks || [],
       };
     });
   }
