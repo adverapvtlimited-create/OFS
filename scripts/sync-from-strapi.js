@@ -192,10 +192,13 @@ async function syncProducts() {
   const synced = data.map((item) => {
     const existingMatch =
       existingProducts.find(
-        (p) => p.slug === item.slug || p.id === item.productId || p.id === item.slug
+        (p) =>
+          p.slug === item.slug || p.id === item.productId || p.id === item.slug,
       ) || {};
 
-    const strapiCatalogItems = Array.isArray(item.catalogItems) ? item.catalogItems : [];
+    const strapiCatalogItems = Array.isArray(item.catalogItems)
+      ? item.catalogItems
+      : [];
     const existingCatalogItems = Array.isArray(existingMatch.catalogItems)
       ? existingMatch.catalogItems
       : [];
@@ -252,15 +255,23 @@ async function syncIndustries() {
   const synced = data.map((item) => {
     const existingMatch =
       existingIndustries.find(
-        (i) => i.slug === item.slug || i.id === item.industryId || i.id === item.slug
+        (i) =>
+          i.slug === item.slug ||
+          i.id === item.industryId ||
+          i.id === item.slug,
       ) || {};
 
-    const strapiSubIndustries = Array.isArray(item.subIndustries) ? item.subIndustries : null;
+    const strapiSubIndustries = Array.isArray(item.subIndustries)
+      ? item.subIndustries
+      : null;
     const existingSubIndustries = Array.isArray(existingMatch.subIndustries)
       ? existingMatch.subIndustries
       : [];
 
-    const targetSubIndustries = strapiSubIndustries !== null ? strapiSubIndustries : existingSubIndustries;
+    const targetSubIndustries =
+      strapiSubIndustries !== null
+        ? strapiSubIndustries
+        : existingSubIndustries;
 
     return {
       id: item.industryId || item.id || item.slug,
@@ -270,16 +281,26 @@ async function syncIndustries() {
       icon: item.icon || existingMatch.icon || "Flame",
       heroImage:
         resolveMediaUrl(item.heroImage) ||
-        (typeof item.heroImage === "string" && item.heroImage.startsWith("/") ? item.heroImage : null) ||
+        (typeof item.heroImage === "string" && item.heroImage.startsWith("/")
+          ? item.heroImage
+          : null) ||
         existingMatch.heroImage ||
         "/images/live/oil-gas-new.jpg",
-      relatedService: item.relatedService !== undefined ? item.relatedService : (existingMatch.relatedService || null),
+      relatedService:
+        item.relatedService !== undefined
+          ? item.relatedService
+          : existingMatch.relatedService || null,
       tagline: item.tagline || existingMatch.tagline || "",
       summary: item.summary || existingMatch.summary || "",
-      keySolutions: item.keySolutions !== undefined ? item.keySolutions : (existingMatch.keySolutions || []),
+      keySolutions:
+        item.keySolutions !== undefined
+          ? item.keySolutions
+          : existingMatch.keySolutions || [],
       subIndustries: targetSubIndustries.map((sub, idx) => {
         const existingSub =
-          existingSubIndustries.find((s) => s.slug === sub.slug || s.id === sub.subId) ||
+          existingSubIndustries.find(
+            (s) => s.slug === sub.slug || s.id === sub.subId,
+          ) ||
           existingSubIndustries[idx] ||
           {};
         return {
@@ -290,18 +311,26 @@ async function syncIndustries() {
           icon: sub.icon || existingSub.icon || "Flame",
           heroImage:
             resolveMediaUrl(sub.heroImage) ||
-            (typeof sub.heroImage === "string" && sub.heroImage.startsWith("/") ? sub.heroImage : null) ||
+            (typeof sub.heroImage === "string" && sub.heroImage.startsWith("/")
+              ? sub.heroImage
+              : null) ||
             existingSub.heroImage ||
             "/images/live/Excellence-tools-official.png",
           tagline: sub.tagline || existingSub.tagline || "",
           summary: sub.summary || existingSub.summary || "",
           keySolutions: sub.keySolutions || existingSub.keySolutions || [],
-          fullContentText: sub.fullContentText || existingSub.fullContentText || "",
+          fullContentText:
+            sub.fullContentText || existingSub.fullContentText || "",
         };
       }),
-      fullContentText: item.fullContentText !== undefined ? item.fullContentText : (existingMatch.fullContentText || ""),
+      fullContentText:
+        item.fullContentText !== undefined
+          ? item.fullContentText
+          : existingMatch.fullContentText || "",
       ...(item.customServices || existingMatch.customServices
-        ? { customServices: item.customServices || existingMatch.customServices }
+        ? {
+            customServices: item.customServices || existingMatch.customServices,
+          }
         : {}),
       seo: item.seo
         ? {

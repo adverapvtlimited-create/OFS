@@ -6,10 +6,10 @@
     "title": "Indirect Procurement",
     "category": "expertise",
     "categoryLabel": "Expertise",
-    "heroImage": "/images/live/facilities-offered.png",
+    "heroImage": null,
     "tagline": "Harness the Power of Indirect Procurement",
     "description": "In today’s dynamic business landscape, optimising procurement strategies is vital to maintaining a competitive edge and driving growth. Indirect procurement plays a key role in enhancing operations, reducing costs, and boosting overall efficiency. It involves acquiring goods and services that are not directly involved in the production of a company’s core offerings. Often referred to as “indirect spend” or “MRO” (maintenance, repair, and operations), these purchases are essential to supporting daily business functions. At OFS, we recognise the strategic importance of indirect procurement and help businesses streamline their supply chain for maximum value.",
-    "overviewTitle": null,
+    "overviewTitle": "Strategic Scope & Core Capabilities",
     "overviewParagraphs": null,
     "features": null,
     "sections": null,
@@ -18,8 +18,11 @@
       {
         "title": "Facilities Offered by OFS",
         "variant": "dark",
-        "imagePosition": "right",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/facilities-offered.png",
+          "alt": "Facilities Offered by OFS"
+        },
         "intro": "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
         "items": [
           {
@@ -52,8 +55,11 @@
       {
         "title": "The Advantages of Indirect Procurement",
         "variant": "light",
-        "imagePosition": "left",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/advantages-procurement.png",
+          "alt": "The Advantages of Indirect Procurement"
+        },
         "intro": "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
         "items": [
           {
@@ -91,7 +97,7 @@
       {
         "title": "OFS's Expertise",
         "variant": "light",
-        "imagePosition": "right",
+        "imagePosition": null,
         "image": null,
         "intro": "",
         "items": [],
@@ -104,8 +110,11 @@
       {
         "title": "Key Practices for Effective Indirect Procurement",
         "variant": "light",
-        "imagePosition": "right",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/key-practices.png",
+          "alt": "Key Practices for Effective Indirect Procurement"
+        },
         "intro": "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
         "items": [
           {
@@ -142,9 +151,12 @@
       },
       {
         "title": "OFS: Your Gateway to the Future of Indirect Procurement",
-        "variant": "subtle",
-        "imagePosition": "left",
-        "image": null,
+        "variant": "light",
+        "imagePosition": "top",
+        "image": {
+          "src": "/images/live/future-procurement.png",
+          "alt": "OFS: Your Gateway to the Future of Indirect Procurement"
+        },
         "intro": "",
         "items": [],
         "paragraphs": [
@@ -152,6 +164,8 @@
           "Experience the OFS advantage and unlock untapped potential within your organization. Ready to take your procurement strategy to the next level? Connect with us today and embark on a transformative journey that will reshape how you manage indirect procurement.",
           "Together, we’ll explore new opportunities, drive unparalleled efficiency, and elevate your business to new heights of success."
         ],
+        "buttonText": "Contact Us",
+        "buttonHref": "/contact",
         "noBullets": false,
         "hasSubscribeForm": false
       }
