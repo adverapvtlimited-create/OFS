@@ -6,14 +6,9 @@
     "title": "Indirect Procurement",
     "category": "expertise",
     "categoryLabel": "Expertise",
-    "heroImage": null,
     "tagline": "Harness the Power of Indirect Procurement",
     "description": "In today’s dynamic business landscape, optimising procurement strategies is vital to maintaining a competitive edge and driving growth. Indirect procurement plays a key role in enhancing operations, reducing costs, and boosting overall efficiency. It involves acquiring goods and services that are not directly involved in the production of a company’s core offerings. Often referred to as “indirect spend” or “MRO” (maintenance, repair, and operations), these purchases are essential to supporting daily business functions. At OFS, we recognise the strategic importance of indirect procurement and help businesses streamline their supply chain for maximum value.",
     "overviewTitle": "Strategic Scope & Core Capabilities",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Facilities Offered by OFS",
@@ -178,20 +173,43 @@
     "title": "Outsource Procurement",
     "category": "expertise",
     "categoryLabel": "Expertise",
-    "heroImage": null,
     "tagline": "Focus on Strategic Spending",
     "description": "Outsourced Procurement involves engaging a third-party organization to manage and deliver procurement services on your behalf. By choosing this approach, businesses gain immediate access to skilled procurement professionals with deep industry knowledge and expertise.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
+    "overviewTitle": "Focus on Strategic Spending",
+    "overviewParagraphs": [
+      "Outsourced Procurement involves engaging a third-party organization to manage and deliver procurement services on your behalf. By choosing this approach, businesses gain immediate access to skilled procurement professionals with deep industry knowledge and expertise."
+    ],
+    "features": [
+      {
+        "title": "Save 5-15% on direct and indirect spend",
+        "description": "Focus on cost reduction and maximizing ROI on every procurement category across your business."
+      },
+      {
+        "title": "2-3x Faster Sourcing Cycle Times",
+        "description": "Accelerate vendor discovery, negotiation, and onboarding through established global supplier networks."
+      },
+      {
+        "title": "80+ Pre-vetted Sourcing Specialists",
+        "description": "Instant access to specialized procurement talent without adding fixed overhead or internal headcount."
+      },
+      {
+        "title": "Deep Market Knowledge & Global Logistics",
+        "description": "Leverage cross-border trade expertise, customs compliance, and international freight coordination."
+      },
+      {
+        "title": "100% Quality & Compliance Audited",
+        "description": "Strict quality control workflows, mill test certification, and complete regulatory compliance tracking."
+      }
+    ],
     "blocks": [
       {
         "title": "When to Choose Outsourced Procurement?",
         "variant": "light",
-        "imagePosition": "right",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/one.png",
+          "alt": "When to Choose Outsourced Procurement?"
+        },
         "intro": "Outsourced procurement can be a strategic solution in various scenarios. It is especially beneficial when:",
         "items": [
           {
@@ -218,8 +236,11 @@
       {
         "title": "Different Types of Procurement Outsourcing",
         "variant": "dark",
-        "imagePosition": "left",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/seconds.png",
+          "alt": "Different Types of Procurement Outsourcing"
+        },
         "intro": "Procurement outsourcing can be categorized into two main types, each serving distinct business needs:",
         "items": [
           {
@@ -238,8 +259,11 @@
       {
         "title": "Benefits of Outsourcing Procurement",
         "variant": "light",
-        "imagePosition": "right",
-        "image": null,
+        "imagePosition": "bottom",
+        "image": {
+          "src": "/images/live/third-1.png",
+          "alt": "Benefits of Outsourcing Procurement"
+        },
         "intro": "Outsourcing procurement offers a range of strategic and operational advantages for businesses looking to streamline processes and boost efficiency:",
         "items": [
           {
@@ -279,6 +303,8 @@
           "Whether it's securing the best pricing, mitigating fraud risks, or building a more agile and responsive procurement function, outsourcing paves the way for measurable performance improvements and cost savings.",
           "Embark on a journey toward smarter procurement. Connect with the OFS team for a complimentary consultation and discover how our expertise can help streamline your procurement processes, protect your resources, and accelerate your business success."
         ],
+        "buttonText": null,
+        "buttonHref": null,
         "noBullets": false,
         "hasSubscribeForm": false
       }
@@ -291,14 +317,9 @@
     "title": "Procurement & Sourcing",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "End-to-End Global Sourcing, Heavy Equipment & Precision MRO Procurement",
     "description": "Welcome to OFS, your trusted partner in supply chain optimisation, strategic sourcing, and operational procurement outsourcing. Backed by years of heavy industrial domain experience and an established global network of 3,000+ approved manufacturers, we deliver end-to-end procurement, inspection, and logistics solutions tailored to energy, marine, and EPC operators.",
     "overviewTitle": "Strategic Procurement & Heavy Sourcing Execution",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "OFS's Sourcing & Procurement Expertise",
@@ -409,14 +430,9 @@
     "title": "Engineering & EPC",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "End-to-End Engineering Support — Onsite & Offshore",
     "description": "At OFS, we deliver robust engineering support, EPC oversight, technical manpower, and precision project execution across heavy industrial, marine, and energy assets globally.",
     "overviewTitle": "Engineering Oversight & Turnkey EPC Support",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "End-to-End Engineering Capabilities",
@@ -529,14 +545,9 @@
     "title": "Spare Parts Procurement",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "Proactive Sourcing to Eliminate Unplanned Plant Downtime",
     "description": "In industrial and engineering sectors, the seamless availability of spare parts is critical to maintaining continuous operations and avoiding costly downtime. At OFS, we specialize in end-to-end spare parts procurement, obsolete component cross-referencing, and emergency expediting.",
     "overviewTitle": "Industrial Spare Parts Procurement & Buffer Management",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Our Spare Parts Procurement Strategy",
@@ -645,14 +656,9 @@
     "title": "Logistics & Shipping Coordination",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "Reliable Freight, Customs & Industrial Supply Chain Support",
     "description": "At OFS, we provide coordinated logistics and shipping support designed to strengthen industrial procurement and project supply chains from supplier to site. From international freight coordination and customs documentation to project cargo movement, warehousing, and final delivery, we help ensure critical equipment, machinery, and spare parts reach their destination safely, efficiently, and on schedule.",
     "overviewTitle": "Global Freight, Customs Clearance & Project Cargo Movement",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Comprehensive Logistics & Shipping Support Services",
@@ -761,14 +767,9 @@
     "title": "Quality Control",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "Ensuring Excellence, Precision & Rigorous Quality Assurance",
     "description": "At OFS, quality is embedded at every stage of the procurement and manufacturing lifecycle. We implement rigorous Quality Management Systems (QMS), comprehensive testing, and non-destructive examination (NDT) to ensure zero defect tolerance.",
     "overviewTitle": "Rigorous Quality Assurance & Zero-Defect Inspection Protocols",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Our Quality Assurance Framework",
@@ -879,14 +880,9 @@
     "title": "Supply Chain Management",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "End-to-End Supply Chain Optimization, Resilience & Transparency",
     "description": "In today's complex industrial landscape, supply chain resilience is essential for operational continuity. OFS delivers integrated supply chain management solutions—from supplier diversification and strategic sourcing to inventory buffer management and predictive risk mitigation.",
     "overviewTitle": "End-to-End Supply Chain Optimization & Resilient Execution",
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Supply Chain Process, Planning & Strategies",
@@ -944,7 +940,6 @@
         "noBullets": false,
         "hasSubscribeForm": false
       },
-
       {
         "title": "Transform Your Industrial Supply Chain",
         "variant": "dark",
@@ -970,14 +965,8 @@
     "title": "Global MRO Procurement Excellence",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Elevate Your Operations with Global MRO Procurement Excellence",
     "description": "In today’s fast-paced business environment, efficiency isn’t optional—it’s essential. That’s where OFS comes in. We’re not just streamlining MRO (Maintenance, Repair, and Operations) procurement—we’re redefining it. Powered by a global network of trusted suppliers, cutting-edge technology, and a commitment to cost optimisation, OFS delivers smarter, faster, and more strategic procurement solutions.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Why Choose OFS for Global MRO Procurement?",
@@ -1203,14 +1192,8 @@
     "title": "Inventory Planning & Optimisation",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Inventory Planning & Optimisation Solutions by OFS",
     "description": "Welcome to OFS, where we specialize in customized Inventory Planning & Optimisation Solutions designed to elevate your business's supply chain performance. Our comprehensive approach blends cutting-edge technology, industry expertise, and tailored strategies to ensure your inventory levels are always aligned with demand.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Why Choose OFS for Inventory Optimisation?",
@@ -1346,14 +1329,8 @@
     "title": "Master Data Management",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Elevate Your Business's Data with Ease",
     "description": "Unlock actionable insights, eliminate duplication, and achieve complete procurement governance with OFS Master Data Management (MDM) solutions tailored for complex industrial operations.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "How OFS MDM Operates",
@@ -1481,14 +1458,8 @@
     "title": "MRO Supply",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Your One-Stop Solution for Maximising Efficiency and Minimising Downtime",
     "description": "At OFS, we supply industrial facilities with mission-critical maintenance, repair, and operating supplies with guaranteed authenticity, rapid lead times, and transparent pricing.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Why OFS for Your MRO Needs?",
@@ -1620,14 +1591,8 @@
     "title": "Plant Maintenance & MRO Spare Parts Management",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Enhancing Plant Maintenance and MRO Spare Parts Management with OFS",
     "description": "OFS integrates proactive plant maintenance planning with structured spare parts management to maximize asset lifespan, avoid emergency shutdowns, and stabilize operating budgets.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Recognising the Value & Overcoming Challenges",
@@ -1759,14 +1724,8 @@
     "title": "Spare Parts Availability",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Elevating Industrial Efficiency Through Spare Parts Availability",
     "description": "Ensure your production never stops. OFS establishes proactive inventory buffers, OEM vendor agreements, and rapid-dispatch logistics so critical spare parts are always available when you need them.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Advantages of Choosing OFS",
@@ -1898,14 +1857,8 @@
     "title": "Strategic Sourcing & MRO Data Enrichment",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": null,
     "tagline": "Strategic Sourcing & MRO Data Enrichment Solutions",
     "description": "Transform unstandardized parts catalogs into clean, enriched, UNSPSC-classified master data combined with strategic supplier negotiations to drive measurable savings.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Overcoming the Challenges of Sourcing Perfection",
@@ -2037,14 +1990,8 @@
     "title": "Procurement Services",
     "category": "disciplines",
     "categoryLabel": "Disciplines",
-    "heroImage": null,
     "tagline": "Enhance Your Procurement Services with OFS",
     "description": "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing. Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement solutions.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "OFS's Core Procurement Expertise",
@@ -2125,14 +2072,8 @@
     "title": "Project Supply",
     "category": "disciplines",
     "categoryLabel": "Disciplines",
-    "heroImage": null,
     "tagline": "Your Strategic Partner for All Industrial Procurement Needs",
     "description": "Successful project execution hinges on timely access to the right materials, efficient resource planning, and expert coordination. At OFS, we are committed to being your trusted partner in achieving operational and project excellence. Through our comprehensive Project Supply Solutions, we empower you to streamline procurement and logistics from concept to completion. In the complex landscape of project management and industrial supply chains, OFS delivers end-to-end support tailored to ensure your success—on time and within budget.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Our Approach: Embedding Excellence at Every Stage",
@@ -2195,14 +2136,8 @@
     "title": "Outsource Manufacturing",
     "category": "manufacturing",
     "categoryLabel": "Manufacturing",
-    "heroImage": null,
     "tagline": "Streamline your production with OFS Managed Manufacturing Services",
     "description": "At OFS, we provide end-to-end outsourced manufacturing services from India, allowing you to simplify production without compromising on quality or timelines. From concept and design to final delivery, we ensure your products are built to precise specifications — efficiently and reliably.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Look no further! We take complete ownership of your manufacturing from concept to design to delivery!",
@@ -2436,14 +2371,8 @@
     "title": "Warehouse",
     "category": "services",
     "categoryLabel": "Services",
-    "heroImage": null,
     "tagline": "State-of-the-Art Industrial Warehousing, Storage & Value-Added Services",
     "description": "Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency. Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level.",
-    "overviewTitle": null,
-    "overviewParagraphs": null,
-    "features": null,
-    "sections": null,
-    "gallery": null,
     "blocks": [
       {
         "title": "Our Warehouse Services",

@@ -34,7 +34,10 @@ function renderParagraph(para, pIdx, isDark = false) {
     return (
       <blockquote
         key={pIdx}
-        className={cn("my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]", isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900")}
+        className={cn(
+          "my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]",
+          isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900"
+        )}
       >
         {formatText(para)}
       </blockquote>
@@ -164,22 +167,24 @@ function renderCustomBlock(block, index) {
               </ScrollReveal>
 
               {/* Right: Image */}
-              <ScrollReveal direction="right" className="lg:col-span-5 w-full">
-                <div
-                  className={cn(
-                    'rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
-                    isDark
-                      ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
-                      : 'border border-ofs-gray-200 bg-ofs-gray-100'
-                  )}
-                >
-                  <img
-                    src={block.image.src}
-                    alt={block.image.alt || block.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-              </ScrollReveal>
+              {block.image && (
+                <ScrollReveal direction="right" className="lg:col-span-5 w-full">
+                  <div
+                    className={cn(
+                      'rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
+                      isDark
+                        ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
+                        : 'border border-ofs-gray-200 bg-ofs-gray-100'
+                    )}
+                  >
+                    <img
+                      src={block.image.src || block.image}
+                      alt={block.image.alt || block.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+                </ScrollReveal>
+              )}
             </div>
           </Container>
         </section>
@@ -557,10 +562,12 @@ function renderCustomBlock(block, index) {
     );
   }
 
-  // 9. Blocks with Image (Facilities, Advantages, Key Practices - Full Width Vertical Stack)
-  if (block.image && block.image.src) {
+  // 9. Blocks with Image (Facilities, Advantages, Key Practices - Full Width Vertical Stack or Split)
+  if (block.image && (block.image.src || typeof block.image === 'string')) {
     const isDark = block.variant === 'dark';
     const isSplit = block.imagePosition === 'left' || block.imagePosition === 'right';
+    const imgSrc = block.image.src || block.image;
+    const imgAlt = block.image.alt || block.title;
 
     // If split 2-column layout is explicitly requested
     if (isSplit && block.imagePosition !== 'bottom') {
@@ -615,8 +622,8 @@ function renderCustomBlock(block, index) {
                   )}
                 >
                   <img
-                    src={block.image.src}
-                    alt={block.image.alt || block.title}
+                    src={imgSrc}
+                    alt={imgAlt}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
@@ -679,7 +686,7 @@ function renderCustomBlock(block, index) {
       );
     }
 
-    // Default Vertical Stacked Layout (Text + Red Bullet Items on Top, Large Rounded Image Below)
+    // Default Vertical Stacked Layout (Centered Heading, Text + Red Bullet Items, Large Rounded Image Below)
     return (
       <section
         key={block.title || `block-${index}`}
@@ -780,8 +787,8 @@ function renderCustomBlock(block, index) {
                 )}
               >
                 <img
-                  src={block.image.src}
-                  alt={block.image.alt || block.title}
+                  src={imgSrc}
+                  alt={imgAlt}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
@@ -792,7 +799,7 @@ function renderCustomBlock(block, index) {
     );
   }
 
-  // 10. Centered text / grid section (e.g. OFS's Expertise)
+  // 10. Centered text / grid section (e.g. OFS's Expertise / Allow the Experts)
   const isDark = block.variant === 'dark';
   return (
     <section
@@ -948,7 +955,7 @@ export default function OfferDetail({ page }) {
         </Container>
       </section>
 
-      {/* When page has custom blocks (e.g. indirect-procurement, project-supply, outsource-manufacturing) */}
+      {/* When page has custom blocks (e.g. indirect-procurement, project-supply, outsource-manufacturing, outsource-procurement) */}
       {blocks.length > 0 ? (
         <>
           {/* Overview Section */}
@@ -997,27 +1004,25 @@ export default function OfferDetail({ page }) {
                   >
                     Request Advice
                   </Link>
-                </ScrollReveal>
-              )}
 
-              {/* 4 Feature Cards (e.g. What is it?, What can be manufactured?, etc.) if present */}
-              {page.features?.length > 0 && (
-                <div className="mt-14 max-w-5xl mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {page.features.map((feat, fIdx) => (
-                      <ScrollReveal key={fIdx} direction="up" delay={fIdx * 0.06}>
-                        <div className="p-6 rounded-2xl bg-ofs-navy-50/60 border border-ofs-navy-100 hover:bg-ofs-navy-50 hover:border-ofs-navy-300 transition-all h-full shadow-sm">
-                          <h3 className="font-heading text-lg font-bold text-ofs-navy-950 mb-2">
-                            {feat.title}
-                          </h3>
-                          <p className="text-sm text-ofs-gray-700 leading-relaxed m-0">
-                            {feat.description}
-                          </p>
-                        </div>
-                      </ScrollReveal>
-                    ))}
-                  </div>
-                </div>
+                  {/* 5 Feature Pill Cards (e.g. Save 5-15% on direct and indirect spend, etc.) */}
+                  {page.features?.length > 0 && (
+                    <div className="mt-12 flex flex-col gap-3.5 text-left max-w-4xl mx-auto">
+                      {page.features.map((feat, fIdx) => (
+                        <ScrollReveal key={fIdx} direction="up" delay={fIdx * 0.05}>
+                          <div className="p-5 sm:p-5.5 rounded-2xl bg-ofs-navy-50/60 border border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 transition-all shadow-xs">
+                            <h3 className="font-heading text-base sm:text-[1.05rem] font-bold text-ofs-navy-950 mb-1.5">
+                              {feat.title}
+                            </h3>
+                            <p className="text-sm sm:text-[0.95rem] text-ofs-gray-600 leading-relaxed m-0">
+                              {feat.description}
+                            </p>
+                          </div>
+                        </ScrollReveal>
+                      ))}
+                    </div>
+                  )}
+                </ScrollReveal>
               )}
 
               {renderGallery(page.gallery, page.title)}
@@ -1054,8 +1059,9 @@ export default function OfferDetail({ page }) {
         <section className="section-pad bg-white">
           <Container>
             <div
-              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${page.heroImage ? 'lg:grid-cols-2' : ''
-                }`}
+              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${
+                page.heroImage ? 'lg:grid-cols-2' : ''
+              }`}
             >
               <ScrollReveal direction="left">
                 <div className="tag-badge badge-red mb-4">OVERVIEW</div>
