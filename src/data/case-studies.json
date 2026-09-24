@@ -12,19 +12,19 @@
     "solution": "OFS 24/7 procurement desk scanned authorized European stockists within 4 hours, secured factory-tested valves matching exact face-to-face dimensions, coordinated third-party EN 10204 3.1 inspection in Germany, and arranged priority air-charter freight directly to Mumbai customs hub.",
     "metrics": [
       {
-        "id": 97,
+        "id": 4,
         "label": "Delivery Timeline",
         "value": "72 Hrs",
         "subtext": null
       },
       {
-        "id": 98,
+        "id": 5,
         "label": "Downtime Averted",
         "value": "$2.4M+",
         "subtext": null
       },
       {
-        "id": 99,
+        "id": 6,
         "label": "Compliance",
         "value": "100%",
         "subtext": null
@@ -38,12 +38,12 @@
       "NACE MR0175"
     ],
     "seo": {
-      "id": 463,
+      "id": 46,
       "metaTitle": "Fast-Track Emergency Class 2500 Valve Sourcing for...",
       "metaDescription": "Learn more about Fast-Track Emergency Class 2500 Valve Sourcing for Deepwater Asset at OFS, providing advanced industrial solutions.",
       "keywords": "OFS, industrial solutions, manufacturing, fast, track, emergency",
-      "canonicalURL": null,
-      "metaRobots": null
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -59,19 +59,19 @@
     "solution": "OFS established a dedicated regional consolidation hub in Jodhpur. Components were batch-inspected, barcoded, and dispatched in phased just-in-time convoys aligned with mechanical piling progress, eliminating on-site storage degradation.",
     "metrics": [
       {
-        "id": 103,
+        "id": 10,
         "label": "Logistics Cost Saved",
         "value": "18.5%",
         "subtext": null
       },
       {
-        "id": 104,
+        "id": 11,
         "label": "FAT Pass Rate",
         "value": "100%",
         "subtext": null
       },
       {
-        "id": 105,
+        "id": 12,
         "label": "Schedule Adherence",
         "value": "On Time",
         "subtext": null
@@ -85,12 +85,12 @@
       "JIT Delivery"
     ],
     "seo": {
-      "id": 465,
+      "id": 48,
       "metaTitle": "50 MW Utility-Scale Solar Park Balance-of-Plant...",
       "metaDescription": "Learn more about 50 MW Utility-Scale Solar Park Balance-of-Plant Component Staging at OFS, providing advanced industrial solutions.",
       "keywords": "OFS, industrial solutions, manufacturing, utility, scale, solar",
-      "canonicalURL": null,
-      "metaRobots": null
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -106,19 +106,19 @@
     "solution": "OFS embedded a dedicated technical procurement squad on-site with a pre-positioned mobile buffer warehouse stocked with high-demand spares, supported by a 2-hour expedited replenishment corridor from our Mumbai logistics hub.",
     "metrics": [
       {
-        "id": 109,
+        "id": 16,
         "label": "Fulfillment SLA",
         "value": "99.8%",
         "subtext": null
       },
       {
-        "id": 110,
+        "id": 17,
         "label": "Safety Record",
         "value": "0 Incident",
         "subtext": null
       },
       {
-        "id": 111,
+        "id": 18,
         "label": "Turnaround Speed",
         "value": "-18 Hrs",
         "subtext": null
@@ -132,12 +132,12 @@
       "ASME B16.20"
     ],
     "seo": {
-      "id": 467,
+      "id": 50,
       "metaTitle": "Turnaround MRO Supply Chain & High-Pressure Valve Overhaul",
       "metaDescription": "Learn more about Turnaround MRO Supply Chain & High-Pressure Valve Overhaul at OFS, providing advanced industrial solutions.",
       "keywords": "OFS, industrial solutions, manufacturing, turnaround, supply, chain",
-      "canonicalURL": null,
-      "metaRobots": null
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -153,19 +153,19 @@
     "solution": "OFS coordinated with certified forging mills for expedited fabrication, engaged DNV surveyors for witness testing within 18 hours, and simultaneously chartered an offshore support vessel with craneage, clearing all port health and customs formalities seamlessly.",
     "metrics": [
       {
-        "id": 115,
+        "id": 22,
         "label": "Vessel Mobilization",
         "value": "48 Hrs",
         "subtext": null
       },
       {
-        "id": 116,
+        "id": 23,
         "label": "Traceability",
         "value": "100%",
         "subtext": null
       },
       {
-        "id": 117,
+        "id": 24,
         "label": "Asset Protection",
         "value": "$5M+",
         "subtext": null
@@ -179,12 +179,12 @@
       "Emergency Port Agency"
     ],
     "seo": {
-      "id": 469,
+      "id": 52,
       "metaTitle": "Subsea Pipeline Emergency Spares & Specialized Vessel...",
       "metaDescription": "Learn more about Subsea Pipeline Emergency Spares & Specialized Vessel Logistics at OFS, providing advanced industrial solutions.",
       "keywords": "OFS, industrial solutions, manufacturing, subsea, pipeline, emergency",
-      "canonicalURL": null,
-      "metaRobots": null
+      "metaRobots": null,
+      "canonicalURL": null
     }
   }
 ]

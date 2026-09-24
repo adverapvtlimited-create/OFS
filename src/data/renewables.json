@@ -59,24 +59,24 @@
   "whyImage": "/images/live/why-renewables-landscape.jpg",
   "whyPills": [
     {
-      "id": 9,
+      "id": 1,
       "title": "Global Supplier Network",
-      "icon": "Globe"
+      "icon": "Leaf"
     },
     {
-      "id": 10,
+      "id": 2,
       "title": "Techno-Commercial Approach",
       "icon": "ShieldCheck"
     },
     {
-      "id": 11,
+      "id": 3,
       "title": "Reliable Execution Support",
       "icon": "RotateCw"
     },
     {
-      "id": 12,
+      "id": 4,
       "title": "Long-Term Partnerships",
-      "icon": "Handshake"
+      "icon": "Target"
     }
   ],
   "approachTag": "OUR APPROACH",
@@ -84,42 +84,42 @@
   "approachSubtitle": "A structured approach to help you source, engineer and execute with confidence:",
   "approachSteps": [
     {
-      "id": 13,
+      "id": 1,
       "step": 1,
       "title": "Requirement",
       "desc": "Understand your needs and project goals",
       "icon": "FileText"
     },
     {
-      "id": 14,
+      "id": 2,
       "step": 2,
       "title": "Engineering",
       "desc": "Design, feasibility & technical support",
       "icon": "Settings"
     },
     {
-      "id": 15,
+      "id": 3,
       "step": 3,
       "title": "Supplier Discovery",
       "desc": "Identify and onboard trusted suppliers",
       "icon": "Users"
     },
     {
-      "id": 16,
+      "id": 4,
       "step": 4,
       "title": "Commercial Evaluation",
       "desc": "Quality, cost, delivery & compliance",
       "icon": "Scale"
     },
     {
-      "id": 17,
+      "id": 5,
       "step": 5,
       "title": "Procurement",
       "desc": "PO placement & coordination",
       "icon": "ShoppingCart"
     },
     {
-      "id": 18,
+      "id": 6,
       "step": 6,
       "title": "Execution Support",
       "desc": "Logistics, documentation & project support",
@@ -132,25 +132,25 @@
   "partnerBgImage": "/images/live/renewables-partner-landscape.jpg",
   "partnerCards": [
     {
-      "id": 9,
+      "id": 1,
       "title": "For Project Developers",
       "desc": "Tell us what you need to source or execute.",
       "icon": "HardHat"
     },
     {
-      "id": 10,
+      "id": 2,
       "title": "For Manufacturers",
       "desc": "Become part of our supplier network.",
       "icon": "Factory"
     },
     {
-      "id": 11,
+      "id": 3,
       "title": "For EPC Companies",
       "desc": "Access engineering and procurement support.",
       "icon": "Users"
     },
     {
-      "id": 12,
+      "id": 4,
       "title": "For Technology Providers",
       "desc": "Explore opportunities to take your solutions to new markets.",
       "icon": "Lightbulb"
@@ -159,5 +159,10 @@
   "ctaTag": "HAVE A RENEWABLE ENERGY REQUIREMENT?",
   "ctaTitle": "Let's Find the Right Solution Together",
   "ctaDesc": "Whether you need a solar design, a BESS solution, a renewable component or a reliable project supplier — we're here to help.",
-  "contactEmail": "renewables@ofsgroupindia.com"
+  "contactEmail": "renewables@ofsgroupindia.com",
+  "id": 1,
+  "documentId": "nijrcgygfdcc7vjx8tyf9zeq",
+  "createdAt": "2026-09-22T17:24:32.164Z",
+  "updatedAt": "2026-09-22T17:24:32.164Z",
+  "publishedAt": "2026-09-22T17:24:32.129Z"
 }

@@ -51,15 +51,22 @@ export function getStrapiMedia(media) {
     url = media;
   } else if (typeof media === "object") {
     // Strapi 5 format: { id, url: '/uploads/...', formats: { ... } }
+    // Component media: { src: { url: '...' } } or { src: '/images/...' }
     // Strapi 4 format: { data: { attributes: { url: '...' } } } or { data: { url: '...' } }
     url =
       media.url ||
+      media.src?.url ||
+      (typeof media.src === "string" ? media.src : null) ||
       media.data?.attributes?.url ||
       media.data?.url ||
       media.formats?.large?.url ||
       media.formats?.medium?.url ||
       media.formats?.small?.url ||
       media.formats?.thumbnail?.url ||
+      media.src?.formats?.large?.url ||
+      media.src?.formats?.medium?.url ||
+      media.src?.formats?.small?.url ||
+      media.src?.formats?.thumbnail?.url ||
       null;
   }
 
@@ -533,7 +540,7 @@ export async function getFaqs() {
    ========================================================================== */
 export async function getOffers() {
   const data = await fetchStrapi(
-    "offers?populate=*&pagination[pageSize]=100",
+    "offers?populate[heroImage]=true&populate[blocks][populate][image][populate]=*&populate[blocks][populate][items]=true&pagination[pageSize]=100",
     {
       revalidate: 30,
       fallbackData: null,

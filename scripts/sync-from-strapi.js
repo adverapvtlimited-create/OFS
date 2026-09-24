@@ -18,11 +18,43 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Automatically load OFS/.env or OFS/.env.local if present
+function loadEnv() {
+  const envFiles = [
+    path.resolve(__dirname, "../.env.local"),
+    path.resolve(__dirname, "../.env"),
+  ];
+  for (const f of envFiles) {
+    if (fs.existsSync(f)) {
+      const content = fs.readFileSync(f, "utf8");
+      content.split("\n").forEach((line) => {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith("#")) return;
+        const eqIdx = trimmed.indexOf("=");
+        if (eqIdx !== -1) {
+          const key = trimmed.slice(0, eqIdx).trim();
+          let val = trimmed.slice(eqIdx + 1).trim();
+          if (
+            (val.startsWith('"') && val.endsWith('"')) ||
+            (val.startsWith("'") && val.endsWith("'"))
+          ) {
+            val = val.slice(1, -1);
+          }
+          if (!process.env[key]) {
+            process.env[key] = val;
+          }
+        }
+      });
+    }
+  }
+}
+loadEnv();
+
 const STRAPI_URL = (
   process.env.STRAPI_API_URL ||
   process.env.STRAPI_URL ||
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "http://localhost:1337"
+  "https://cms.ofsgroupindia.in"
 ).replace(/\/+$/, "");
 
 const STRAPI_API_TOKEN =
@@ -46,12 +78,18 @@ function resolveMediaUrl(media) {
   } else if (typeof media === "object") {
     url =
       media.url ||
+      media.src?.url ||
+      (typeof media.src === "string" ? media.src : null) ||
       media.data?.attributes?.url ||
       media.data?.url ||
       media.formats?.large?.url ||
       media.formats?.medium?.url ||
       media.formats?.small?.url ||
       media.formats?.thumbnail?.url ||
+      media.src?.formats?.large?.url ||
+      media.src?.formats?.medium?.url ||
+      media.src?.formats?.small?.url ||
+      media.src?.formats?.thumbnail?.url ||
       null;
   }
 
@@ -481,40 +519,192 @@ async function syncFaqs() {
 async function syncOffers() {
   console.log("📌 Syncing Offers...");
   const data = await fetchFromStrapi(
-    "offers?populate[0]=heroImage&populate[1]=blocks.image.src&populate[2]=blocks.items&pagination[pageSize]=100",
+    "offers?populate[heroImage]=true&populate[blocks][populate][image][populate]=*&populate[blocks][populate][items]=true&pagination[pageSize]=100",
   );
-  if (!Array.isArray(data) || data.length === 0) return;
+  if (!Array.isArray(data) || data.length === 0) {
+    console.warn("  ⚠️ No offers returned from Strapi");
+    return;
+  }
 
-  const syncedMap = {};
+  const existingOffers = readJson("offers.json") || {};
+  const syncedMap = { ...existingOffers };
+
   data.forEach((item) => {
     const slug = item.slug;
+    if (!slug) return;
+
+    const existingMatch = existingOffers[slug] || {};
+
+    // Resolve Hero Image
+    const resolvedHeroImage =
+      resolveMediaUrl(item.heroImage) ||
+      resolveMediaUrl(item.heroImageUrl) ||
+      (typeof item.heroImage === "string" ? item.heroImage : null) ||
+      existingMatch.heroImage ||
+      null;
+
+    // Resolve Blocks
+    const strapiBlocks = Array.isArray(item.blocks) ? item.blocks : [];
+    const existingBlocks = Array.isArray(existingMatch.blocks)
+      ? existingMatch.blocks
+      : [];
+
+    const blocks = (strapiBlocks.length > 0 ? strapiBlocks : existingBlocks).map(
+      (b, bIdx) => {
+        const existingB =
+          existingBlocks.find(
+            (eb) =>
+              (b.title &&
+                eb.title &&
+                eb.title.trim().toLowerCase() ===
+                  b.title.trim().toLowerCase()) ||
+              (b.type && eb.type && eb.type === b.type),
+          ) ||
+          existingBlocks[bIdx] ||
+          {};
+
+        // Resolve Block Image
+        const strapiImgUrl =
+          resolveMediaUrl(b.image?.src) ||
+          resolveMediaUrl(b.image) ||
+          resolveMediaUrl(b.imageUrl) ||
+          null;
+
+        const existingImgUrl =
+          typeof existingB.image === "string"
+            ? existingB.image
+            : existingB.image?.src || null;
+
+        const finalImgSrc = strapiImgUrl || existingImgUrl || null;
+        const finalImgAlt =
+          b.imageAlt ||
+          b.image?.alt ||
+          existingB.image?.alt ||
+          b.title ||
+          "";
+
+        // Resolve Items
+        const strapiItems = Array.isArray(b.items) ? b.items : [];
+        const existingItems = Array.isArray(existingB.items)
+          ? existingB.items
+          : [];
+
+        const items = (
+          strapiItems.length > 0 ? strapiItems : existingItems
+        ).map((i, iIdx) => {
+          const existingI =
+            existingItems.find(
+              (pi) =>
+                pi.title &&
+                i.title &&
+                pi.title.trim().toLowerCase() === i.title.trim().toLowerCase(),
+            ) ||
+            existingItems[iIdx] ||
+            {};
+
+          if (typeof i === "object" && i !== null) {
+            return {
+              title: i.title || existingI.title || "",
+              description: i.description || existingI.description || "",
+              ...(i.image || existingI.image
+                ? { image: resolveMediaUrl(i.image) || existingI.image }
+                : {}),
+              ...(i.icon || existingI.icon
+                ? { icon: resolveMediaUrl(i.icon) || existingI.icon }
+                : {}),
+            };
+          }
+          return {
+            title: typeof i === "string" ? i : existingI.title || "",
+            description: existingI.description || "",
+          };
+        });
+
+        return {
+          title: b.title || existingB.title || "",
+          variant: b.variant || existingB.variant || "light",
+          imagePosition: b.imagePosition || existingB.imagePosition || "right",
+          image: finalImgSrc
+            ? {
+                src: finalImgSrc,
+                alt: finalImgAlt,
+              }
+            : null,
+          intro: b.intro !== undefined ? b.intro : existingB.intro || "",
+          items: items,
+          paragraphs:
+            Array.isArray(b.paragraphs) && b.paragraphs.length > 0
+              ? b.paragraphs
+              : existingB.paragraphs || [],
+          ...(b.type || existingB.type
+            ? { type: b.type || existingB.type }
+            : {}),
+          ...(b.eyebrow || existingB.eyebrow
+            ? { eyebrow: b.eyebrow || existingB.eyebrow }
+            : {}),
+          ...(b.subtitle || existingB.subtitle
+            ? { subtitle: b.subtitle || existingB.subtitle }
+            : {}),
+          ...(b.buttonText || existingB.buttonText
+            ? { buttonText: b.buttonText || existingB.buttonText }
+            : {}),
+          ...(b.buttonHref || existingB.buttonHref
+            ? { buttonHref: b.buttonHref || existingB.buttonHref }
+            : {}),
+          ...(b.noBullets !== undefined
+            ? { noBullets: b.noBullets }
+            : existingB.noBullets !== undefined
+            ? { noBullets: existingB.noBullets }
+            : {}),
+          ...(b.hasSubscribeForm !== undefined
+            ? { hasSubscribeForm: b.hasSubscribeForm }
+            : existingB.hasSubscribeForm !== undefined
+            ? { hasSubscribeForm: existingB.hasSubscribeForm }
+            : {}),
+          ...(b.stats || existingB.stats
+            ? { stats: b.stats || existingB.stats }
+            : {}),
+        };
+      },
+    );
+
     syncedMap[slug] = {
       id: slug,
-      slug,
-      href: item.href || `/offers/${slug}`,
-      title: item.title,
-      category: item.category,
-      categoryLabel: item.categoryLabel,
-      heroImage: resolveMediaUrl(item.heroImage),
-      tagline: item.tagline,
-      description: item.description,
-      blocks: (item.blocks || []).map((b) => ({
-        title: b.title || "",
-        variant: b.variant || "light",
-        imagePosition: b.imagePosition || "right",
-        image: b.image
-          ? {
-              src: resolveMediaUrl(b.image.src || b.image),
-              alt: b.image.alt || "",
-            }
-          : null,
-        intro: b.intro || "",
-        items: (b.items || []).map((i) => ({
-          title: i.title || "",
-          description: i.description || "",
-        })),
-        paragraphs: b.paragraphs || [],
-      })),
+      slug: slug,
+      href: item.href || existingMatch.href || `/${slug}`,
+      title: item.title || existingMatch.title || "",
+      category: item.category || existingMatch.category || "services",
+      categoryLabel:
+        item.categoryLabel || existingMatch.categoryLabel || "Services",
+      heroImage: resolvedHeroImage,
+      tagline: item.tagline || existingMatch.tagline || "",
+      description: item.description || existingMatch.description || "",
+      overviewTitle:
+        item.overviewTitle !== undefined
+          ? item.overviewTitle
+          : existingMatch.overviewTitle || null,
+      overviewParagraphs:
+        item.overviewParagraphs !== undefined
+          ? item.overviewParagraphs
+          : existingMatch.overviewParagraphs || null,
+      features:
+        item.features !== undefined
+          ? item.features
+          : existingMatch.features || null,
+      sections:
+        item.sections !== undefined
+          ? item.sections
+          : existingMatch.sections || null,
+      gallery:
+        Array.isArray(item.gallery) && item.gallery.length > 0
+          ? item.gallery.map((g) => ({
+              src:
+                resolveMediaUrl(g) ||
+                (typeof g === "string" ? g : g.src || g.url),
+              alt: g.alt || g.name || item.title || "",
+            }))
+          : existingMatch.gallery || null,
+      blocks: blocks,
     };
   });
 
