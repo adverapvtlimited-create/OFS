@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { getBlogPosts, getBlogPostBySlug } from "@/lib/strapi";
@@ -104,16 +105,16 @@ export default async function SingleBlogPage({ params }) {
           </ScrollReveal>
 
           <h1 className="font-heading text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-tight text-white mb-6">
-            <TextReveal tag="span" duration={0.65}>
-              {post.title}
-            </TextReveal>
+            {post.title}
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
             <div className="flex items-center gap-3.5">
-              <img
+              <Image
                 src={post.author?.avatar || "/images/author-default.png"}
                 alt={post.author?.name || "Author"}
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full object-cover border-2 border-ofs-gold-400"
               />
               <div>
@@ -132,11 +133,12 @@ export default async function SingleBlogPage({ params }) {
       <article className="section-pad bg-white">
         <div className="container max-w-[880px]">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-xl">
+            <div className="rounded-xl overflow-hidden mb-8 sm:mb-12 shadow-xl relative h-[280px] sm:h-[400px] md:h-[480px]">
               <SafeImage
                 src={post.image}
                 alt={`Featured image for ${post.title}`}
-                className="w-full max-h-[480px] object-cover"
+                className="object-cover"
+                priority
               />
             </div>
           </ScrollReveal>

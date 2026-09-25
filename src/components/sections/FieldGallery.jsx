@@ -167,30 +167,32 @@ export default function FieldGallery() {
               className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-ofs-navy-900 border border-white/15 cursor-pointer transition-all duration-300 hover:border-ofs-red-500 hover:shadow-[0_20px_40px_rgba(224,42,48,0.3)] hover:-translate-y-1.5 shrink-0"
             >
               {/* Image */}
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                fill
+                quality={75}
+                sizes="(max-width: 640px) 310px, 370px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
 
               {/* Gradient Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 z-[1]" />
 
               {/* Top Category Badge */}
-              <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+              <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-[2]">
                 <span className="font-mono text-[0.68rem] font-bold uppercase py-1 px-2.5 rounded-full bg-ofs-navy-950/90 text-ofs-gold-400 border border-amber-500/30 backdrop-blur-md shadow-md">
                   {photo.category}
                 </span>
               </div>
 
               {/* Quick View Hover Icon */}
-              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
+              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg z-[2]">
                 <Eye size={15} />
               </div>
 
               {/* Bottom Metadata */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300">
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300 z-[2]">
                 <div className="font-mono text-[0.7rem] text-white/60 mb-1 flex items-center gap-2">
                   <span>{photo.tag}</span>
                   <span>&bull;</span>
@@ -215,30 +217,32 @@ export default function FieldGallery() {
               className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-ofs-navy-900 border border-white/15 cursor-pointer transition-all duration-300 hover:border-emerald-400 hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] hover:-translate-y-1.5 shrink-0"
             >
               {/* Image */}
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                fill
+                quality={75}
+                sizes="(max-width: 640px) 310px, 370px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
 
               {/* Gradient Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 z-[1]" />
 
               {/* Top Category Badge */}
-              <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+              <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-[2]">
                 <span className="font-mono text-[0.68rem] font-bold uppercase py-1 px-2.5 rounded-full bg-ofs-navy-950/90 text-emerald-400 border border-emerald-500/30 backdrop-blur-md shadow-md">
                   {photo.category}
                 </span>
               </div>
 
               {/* Quick View Hover Icon */}
-              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
+              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg z-[2]">
                 <Eye size={15} />
               </div>
 
               {/* Bottom Metadata */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300">
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300 z-[2]">
                 <div className="font-mono text-[0.7rem] text-white/60 mb-1 flex items-center gap-2">
                   <span>{photo.tag}</span>
                   <span>&bull;</span>
@@ -284,10 +288,13 @@ export default function FieldGallery() {
             </div>
 
             <div className="relative w-full h-[260px] sm:h-[400px] md:h-[480px] max-h-[55vh] bg-black grid place-content-center overflow-hidden">
-              <img
+              <Image
                 src={selectedPhoto.src}
                 alt={selectedPhoto.title}
-                className="w-full h-full object-contain"
+                fill
+                quality={85}
+                sizes="100vw"
+                className="object-contain"
               />
             </div>
 

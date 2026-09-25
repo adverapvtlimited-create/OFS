@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -143,10 +144,19 @@ export default function Hero({ siteConfig: passedConfig }) {
           transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            className="h-[380px] sm:h-[420px] md:h-[460px] relative bg-center bg-cover bg-no-repeat"
-            style={{ scale: imageScale, backgroundImage: `url('${heroImageUrl}')` }}
+            className="h-[380px] sm:h-[420px] md:h-[460px] relative overflow-hidden bg-ofs-navy-950"
+            style={{ scale: imageScale }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/25 to-[#060E24]/85" />
+            <Image
+              src={heroImageUrl}
+              alt="OFS Strategic Support for Marine & Offshore Operations"
+              fill
+              priority
+              quality={82}
+              sizes="(max-width: 640px) 100vw, (max-width: 1200px) 95vw, 1280px"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/25 to-[#060E24]/85 z-[1]" />
 
             <motion.div
               className="absolute top-4 left-4 sm:top-6 sm:left-6 flex gap-2 sm:gap-3 flex-wrap z-[3]"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
@@ -185,12 +186,15 @@ export default function CaseStudies({ caseStudies = caseStudiesData }) {
 
               <div className="bg-black/25 lg:border-l border-white/[0.08] flex flex-col justify-between">
                 <div className="h-[180px] sm:h-[200px] relative overflow-hidden">
-                  <img
+                  <Image
                     src={activeStudy.heroImage}
                     alt={activeStudy.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    quality={80}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/20 to-[#060E24]/80" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/20 to-[#060E24]/80 pointer-events-none" />
                   <div className="absolute bottom-4 left-6 flex items-center gap-2 text-xs font-mono text-white bg-[#060E24]/85 py-1.5 px-3 rounded-xs border border-white/15 backdrop-blur-md">
                     <FileCheck2 size={14} className="text-ofs-gold-400" />
                     <span>Field Verified Log Ref: #{activeStudy.id}</span>

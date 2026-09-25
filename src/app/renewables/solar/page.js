@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Sun,
   ArrowRight,
@@ -355,14 +356,17 @@ export default function SolarEngineeringPage() {
 
                     {/* Background: Solar Rooftop Engineer Installation (Zero Artifacts, Pure CSS Seamless Blend) */}
               <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
-                <img
+                <Image
                   src="/images/live/solar-hero-engineer.png"
                   alt="Solar Technical Permitting & Engineering"
+                  width={640}
+                  height={200}
                   className="absolute right-0 top-0 bottom-0 h-full w-[70%] sm:w-[60%] md:w-[54%] lg:w-[50%] object-cover object-[center_35%] opacity-40 sm:opacity-100 transition-opacity duration-300"
                   style={{
                     maskImage: 'linear-gradient(to right, transparent 0%, transparent 12%, black 60%, black 100%)',
                     WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 12%, black 60%, black 100%)',
                   }}
+                  quality={80}
                 />
               </div>
 
@@ -625,11 +629,13 @@ export default function SolarEngineeringPage() {
 
                     {/* Middle-Left: Drawing Thumbnail Preview with Zoom Overlay */}
                     <div className="w-full sm:w-48 md:w-44 h-24 bg-slate-50 border border-slate-200/80 rounded-xl overflow-hidden flex items-center justify-center relative p-1.5 shrink-0 group-hover:bg-slate-100 transition-colors">
-                      <img
+                      <Image
                         src={card.image}
                         alt={`${card.title} engineering drawing from permit set`}
+                        width={192}
+                        height={96}
                         className="w-full h-full object-contain filter contrast-105"
-                        loading="lazy"
+                        quality={75}
                       />
                       <div className="absolute inset-0 bg-[#0C1E4E]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
                         <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-white bg-[#0C1E4E] px-2.5 py-1 rounded-md shadow-xs">
@@ -681,14 +687,17 @@ export default function SolarEngineeringPage() {
 
               {/* Right Side Subtle Solar Panel Atmosphere (100% Clean, Zero Baked-In Text) */}
               <div className="absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none overflow-hidden select-none opacity-20">
-                <img
+                <Image
                   src="/images/live/renewables-hero-panorama.jpg"
                   alt=""
-                  className="w-full h-full object-cover object-center"
+                  fill
+                  sizes="45vw"
+                  className="object-cover object-center"
                   style={{
                     maskImage: 'linear-gradient(to right, transparent 0%, transparent 10%, black 80%)',
                     WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 10%, black 80%)',
                   }}
+                  quality={75}
                 />
               </div>
 
@@ -866,10 +875,13 @@ export default function SolarEngineeringPage() {
             >
               {/* High-Res Drawing Image */}
               <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden p-2">
-                <img
+                <Image
                   src={activeModalCard.image}
                   alt={activeModalCard.title}
+                  width={800}
+                  height={480}
                   className="w-full h-auto max-h-[480px] object-contain mx-auto select-none"
+                  quality={85}
                 />
               </div>
 

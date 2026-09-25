@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Wrench,
@@ -108,9 +109,7 @@ export default async function SingleProductPage({ params }) {
           </ScrollReveal>
 
           <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              {prod.name}
-            </TextReveal>
+            {prod.name}
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
@@ -168,12 +167,15 @@ export default async function SingleProductPage({ params }) {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="card-modern p-3 overflow-hidden shadow-2xl border border-ofs-gray-200 bg-white rounded-2xl">
                 <div className="h-[360px] sm:h-[420px] relative rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src={prod.heroImage || '/images/live/Excellence-tools-official.png'}
                     alt={prod.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    quality={80}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/80 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="w-10 h-10 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center mb-3 shadow-lg border border-white/10">
                       <IconComp size={22} />
@@ -212,10 +214,13 @@ export default async function SingleProductPage({ params }) {
                       <div>
                         {/* Image Container */}
                         <div className="h-56 sm:h-64 w-full rounded-xl overflow-hidden bg-gradient-to-br from-ofs-gray-50 to-ofs-navy-50/50 p-4 border border-ofs-gray-100 flex items-center justify-center relative mb-6 group-hover:scale-[1.01] transition-transform">
-                          <img
+                          <Image
                             src={item.image || '/images/live/Excellence-tools-official.png'}
                             alt={item.title}
+                            width={320}
+                            height={220}
                             className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                            quality={80}
                           />
                         </div>
 

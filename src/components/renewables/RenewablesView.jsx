@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Sun,
   BatteryCharging,
@@ -28,7 +29,6 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import TextReveal from '@/components/animations/TextReveal';
 import defaultRenewablesData from '@/data/renewables.json';
 
 const iconMap = {
@@ -66,15 +66,18 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
         aria-label="Hero"
       >
         {/* BG Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
-          style={{ backgroundImage: `url('${data.heroBgImage || defaultRenewablesData.heroBgImage}')` }}
-          role="img"
-          aria-label="Renewable energy landscape"
+        <Image
+          src={data.heroBgImage || defaultRenewablesData.heroBgImage}
+          alt="Renewable energy landscape"
+          fill
+          priority
+          quality={80}
+          sizes="100vw"
+          className="object-cover object-center"
         />
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/65 to-[#0a1628]/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/65 to-[#0a1628]/20 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/70 via-transparent to-transparent z-[1]" />
 
         <div
           className="container relative z-10 max-w-7xl mx-auto
@@ -84,23 +87,17 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
         >
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Eyebrow */}
-            <ScrollReveal direction="up" duration={0.5}>
-              <div className="inline-flex items-center gap-2.5 mb-4 sm:mb-5">
-                <span className="w-6 sm:w-8 h-[2px] bg-emerald-400 rounded-full" />
-                <span className="text-emerald-400 font-mono text-[0.65rem] sm:text-xs font-semibold uppercase tracking-[0.18em]">
-                  {data.title}
-                </span>
-              </div>
-            </ScrollReveal>
+            <div className="inline-flex items-center gap-2.5 mb-4 sm:mb-5">
+              <span className="w-6 sm:w-8 h-[2px] bg-emerald-400 rounded-full" />
+              <span className="text-emerald-400 font-mono text-[0.65rem] sm:text-xs font-semibold uppercase tracking-[0.18em]">
+                {data.title}
+              </span>
+            </div>
 
             {/* Headline */}
-            <ScrollReveal direction="up" delay={0.1} duration={0.6}>
-              <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.12] sm:leading-[1.08] mb-4 sm:mb-6 tracking-[-0.025em]">
-                <TextReveal tag="span" delay={0.15} duration={0.5}>
-                  {data.tagline}
-                </TextReveal>
-              </h1>
-            </ScrollReveal>
+            <h1 className="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.12] sm:leading-[1.08] mb-4 sm:mb-6 tracking-[-0.025em]">
+              {data.tagline}
+            </h1>
 
             {/* Description */}
             <ScrollReveal direction="up" delay={0.22} duration={0.6}>
@@ -202,13 +199,15 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
                   >
                     {/* Image */}
                     <div className="h-44 sm:h-48 lg:h-52 overflow-hidden relative bg-slate-100">
-                      <img
+                      <Image
                         src={sol.image}
                         alt={sol.title}
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        quality={80}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
                     </div>
 
                     {/* Content */}
@@ -269,12 +268,14 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
             {/* Left – Image with decorative accents */}
             <ScrollReveal direction="right" duration={0.7}>
               <div className="relative">
-                <div className="rounded-2xl overflow-hidden shadow-lg sm:shadow-xl">
-                  <img
+                <div className="rounded-2xl overflow-hidden shadow-lg sm:shadow-xl relative h-[260px] sm:h-[340px] md:h-[380px] lg:h-[420px]">
+                  <Image
                     src={data.whyImage || defaultRenewablesData.whyImage}
                     alt="Renewable energy infrastructure showing solar panels and wind turbines"
-                    className="w-full h-[260px] sm:h-[340px] md:h-[380px] lg:h-[420px] object-cover"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    quality={80}
                   />
                 </div>
                 <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-28 sm:h-28 bg-emerald-50 rounded-2xl -z-10 border border-emerald-100 hidden md:block" />
@@ -506,13 +507,15 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
             <div className="lg:col-span-5">
               <ScrollReveal direction="left" duration={0.7}>
                 <div className="relative rounded-2xl overflow-hidden h-full min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]">
-                  <img
+                  <Image
                     src={data.partnerBgImage || defaultRenewablesData.partnerBgImage}
                     alt="Green hills and renewable energy landscape"
-                    className="w-full h-full object-cover absolute inset-0"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                    quality={80}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e4e]/90 via-[#0c1e4e]/35 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e4e]/90 via-[#0c1e4e]/35 to-transparent pointer-events-none" />
 
                   {/* Floating CTA */}
                   <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 lg:p-8">
