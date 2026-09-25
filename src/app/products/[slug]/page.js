@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SafeImage from '@/components/ui/SafeImage';
 import { notFound } from 'next/navigation';
 import {
   Wrench,
@@ -108,9 +109,7 @@ export default async function SingleProductPage({ params }) {
           </ScrollReveal>
 
           <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              {prod.name}
-            </TextReveal>
+            {prod.name}
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
@@ -168,12 +167,15 @@ export default async function SingleProductPage({ params }) {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="card-modern p-3 overflow-hidden shadow-2xl border border-ofs-gray-200 bg-white rounded-2xl">
                 <div className="h-[360px] sm:h-[420px] relative rounded-xl overflow-hidden">
-                  <img
+                  <SafeImage
                     src={prod.heroImage || '/images/live/Excellence-tools-official.png'}
                     alt={prod.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    quality={80}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/80 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="w-10 h-10 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center mb-3 shadow-lg border border-white/10">
                       <IconComp size={22} />
@@ -205,27 +207,49 @@ export default async function SingleProductPage({ params }) {
                 </div>
               </ScrollReveal>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {prod.catalogItems.map((item, index) => (
                   <ScrollReveal key={index} direction="up" delay={0.05 * (index % 4)}>
-                    <div className="bg-white rounded-2xl border border-ofs-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full hover:border-ofs-navy-200">
+                    <div className="bg-white rounded-2xl border border-ofs-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full hover:border-ofs-navy-200">
                       <div>
-                        {/* Image Container */}
-                        <div className="h-56 sm:h-64 w-full rounded-xl overflow-hidden bg-gradient-to-br from-ofs-gray-50 to-ofs-navy-50/50 p-4 border border-ofs-gray-100 flex items-center justify-center relative mb-6 group-hover:scale-[1.01] transition-transform">
-                          <img
-                            src={item.image || '/images/live/Excellence-tools-official.png'}
-                            alt={item.title}
-                            className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
-                          />
+                        {/* Studio Image Frame with Ambient Color Match */}
+                        <div className="h-[210px] sm:h-[230px] w-full rounded-xl overflow-hidden relative mb-5 bg-gradient-to-b from-slate-50 via-slate-100/60 to-slate-200/50 border border-slate-200/90 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-center p-3">
+                          {/* Ambient blurred backdrop matching the image's own colors */}
+                          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+                            <SafeImage
+                              src={item.image || '/images/live/Excellence-tools-official.png'}
+                              alt=""
+                              fill
+                              sizes="300px"
+                              className="object-cover blur-2xl scale-125"
+                              showSpinner={false}
+                            />
+                          </div>
+
+                          {/* Subtle top studio light highlight */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/50 pointer-events-none" />
+
+                          {/* Crisp uncropped foreground product photo */}
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <SafeImage
+                              src={item.image || '/images/live/Excellence-tools-official.png'}
+                              alt={item.title}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                              containerClassName="bg-transparent"
+                              className="object-contain p-2 drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+                              quality={90}
+                            />
+                          </div>
                         </div>
 
                         {/* Title */}
-                        <h3 className="font-heading text-xl font-bold text-ofs-navy-950 mb-3 group-hover:text-ofs-red-600 transition-colors flex items-center justify-between">
+                        <h3 className="font-heading text-lg sm:text-xl font-bold text-ofs-navy-950 mb-2.5 group-hover:text-ofs-red-600 transition-colors flex items-center justify-between">
                           <span>{item.title}</span>
                         </h3>
 
                         {/* Description */}
-                        <div className="text-ofs-gray-700 text-sm leading-relaxed space-y-2 mb-4 whitespace-pre-line">
+                        <div className="text-ofs-gray-700 text-xs sm:text-sm leading-relaxed space-y-2 mb-4 whitespace-pre-line">
                           {item.description}
                         </div>
 

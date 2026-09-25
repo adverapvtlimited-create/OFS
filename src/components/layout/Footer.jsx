@@ -35,6 +35,10 @@ export default function Footer({ initialIndustries = [] }) {
                 <img
                   src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
                   alt="OFS - Driven by Quality, Defined by Trust"
+                  width={150}
+                  height={40}
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-auto object-contain"
                 />
               </div>

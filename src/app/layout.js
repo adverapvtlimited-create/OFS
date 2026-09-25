@@ -1,16 +1,39 @@
 import '@/styles/globals.css';
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import SmoothScroller from '@/components/animations/SmoothScroller';
-import CustomCursor from '@/components/animations/CustomCursor';
 import PageTransition from '@/components/animations/PageTransition';
 import NextTopLoader from 'nextjs-toploader';
 import JsonLd from '@/components/SEO/JsonLd';
+import SmoothScroller from '@/components/animations/SmoothScroller';
+import CustomCursor from '@/components/animations/CustomCursor';
+import ImageLoaderProvider from '@/components/providers/ImageLoaderProvider';
 import siteConfig from '@/data/site-config.json';
+
 import { DEFAULT_KEYWORDS, PAGE_SEO } from '@/config/seo.config';
 import { buildPageMetadata } from '@/lib/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '@/lib/schema';
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+  weight: ['500', '600', '700', '800'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  weight: ['400', '500', '600', '700'],
+});
 
 const homeSeo = PAGE_SEO.home;
 
@@ -39,7 +62,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html
+      lang="en-IN"
+      suppressHydrationWarning
+      className={`${inter.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <meta
           name="google-site-verification"
@@ -48,7 +75,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <JsonLd data={[buildOrganizationSchema(), buildWebSiteSchema()]} />
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="font-sans">
         <NextTopLoader
           color="var(--ofs-red-600)"
           height={3}
@@ -57,13 +84,15 @@ export default function RootLayout({ children }) {
           shadow="0 0 10px rgba(224, 42, 48, 0.5), 0 0 5px rgba(224, 42, 48, 0.3)"
         />
         <CustomCursor />
-        <SmoothScroller>
-          <Header />
-          <main id="main-content">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </SmoothScroller>
+        <ImageLoaderProvider defaultTheme="navy" shimmerEnabled={true} blurTransition={true}>
+          <SmoothScroller>
+            <Header />
+            <main id="main-content">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </SmoothScroller>
+        </ImageLoaderProvider>
       </body>
     </html>
   );

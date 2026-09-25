@@ -1,5 +1,6 @@
 'use client';
 
+import SafeImage from '@/components/ui/SafeImage';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowUpRight, CheckCircle2, Sparkles } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
@@ -18,14 +19,16 @@ export default function AboutPreview() {
           <ScrollReveal direction="right" duration={0.85}>
             <div className="relative">
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200">
-                <motion.img
+                <SafeImage
                   src="/images/live/Abourt-Our-Company.jpg"
                   alt="Oriented Facility Solution Pvt Ltd - About Our Company"
-                  className="w-full h-[460px] object-cover"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  width={600}
+                  height={460}
+                  quality={80}
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="w-full h-[460px] object-cover transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/45" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/45 pointer-events-none" />
               </div>
 
               <motion.div

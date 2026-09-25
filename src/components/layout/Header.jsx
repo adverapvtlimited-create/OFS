@@ -136,19 +136,19 @@ export default function Header({ initialIndustries = [], initialProducts = [] })
     }
   }, [initialProducts]);
 
-  // Client-side fetch to ensure navigation items are always up-to-date with CMS
+  // Fetch updated navigation if not provided initially
   useEffect(() => {
     let isMounted = true;
     async function fetchNavigationData() {
       try {
-        const res = await fetch('/api/navigation', { cache: 'no-store' });
+        const res = await fetch('/api/navigation');
         if (res.ok) {
           const data = await res.json();
           if (isMounted) {
-            if (Array.isArray(data.industries)) {
+            if (Array.isArray(data.industries) && data.industries.length > 0) {
               setIndustries(data.industries);
             }
-            if (Array.isArray(data.products)) {
+            if (Array.isArray(data.products) && data.products.length > 0) {
               setProducts(data.products);
             }
           }
@@ -157,18 +157,15 @@ export default function Header({ initialIndustries = [], initialProducts = [] })
         // Silently fallback to initial props or static data
       }
     }
-    fetchNavigationData();
 
-    const handleFocus = () => {
+    if (!industries.length || !products.length) {
       fetchNavigationData();
-    };
+    }
 
-    window.addEventListener('focus', handleFocus);
     return () => {
       isMounted = false;
-      window.removeEventListener('focus', handleFocus);
     };
-  }, [pathname]);
+  }, []);
 
   // Dynamic industries & products navigation items
   const dynamicIndustriesNav =
@@ -433,6 +430,8 @@ export default function Header({ initialIndustries = [], initialProducts = [] })
             <img
               src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
               alt="OFS - Driven by Quality, Defined by Trust"
+              width={180}
+              height={48}
               className="h-12 w-auto object-contain"
             />
           </Link>
@@ -616,6 +615,10 @@ export default function Header({ initialIndustries = [], initialProducts = [] })
                                     src={item.image}
                                     alt=""
                                     aria-hidden="true"
+                                    width={48}
+                                    height={36}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="h-9 w-12 shrink-0 rounded object-cover border border-ofs-gray-200"
                                   />
                                 )}

@@ -18,8 +18,14 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  compress: true,
+  poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'gsap', 'lenis'],
+  },
   images: {
-    domains: ['images.unsplash.com', 'ofsgroupindia.com', strapiHost],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     remotePatterns: [
       {
         protocol: 'https',
@@ -48,6 +54,19 @@ const nextConfig = {
           ]
         : []),
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: '/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

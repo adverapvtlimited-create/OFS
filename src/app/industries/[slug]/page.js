@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SafeImage from "@/components/ui/SafeImage";
 import { notFound, redirect } from "next/navigation";
 import {
   Flame,
@@ -127,9 +128,7 @@ export default async function SingleIndustryPage({ params }) {
           </ScrollReveal>
 
           <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              {ind.name}
-            </TextReveal>
+            {ind.name}
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
@@ -199,20 +198,20 @@ export default async function SingleIndustryPage({ params }) {
 
             {/* Right Image */}
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative">
-                <img
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative bg-ofs-navy-950">
+                <SafeImage
                   src={
                     ind.heroImage ||
                     "/images/live/Excellence-tools-official.png"
                   }
                   alt={`${ind.name} — OFS Group India industrial solutions`}
-                  width={960}
-                  height={460}
-                  loading="eager"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                  quality={82}
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/50 via-ofs-navy-950/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/50 via-ofs-navy-950/10 to-transparent pointer-events-none" />
               </div>
             </ScrollReveal>
           </div>
@@ -238,14 +237,17 @@ export default async function SingleIndustryPage({ params }) {
                       >
                         <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                           <div>
-                            <div className="h-[175px] relative overflow-hidden">
-                              <img
+                            <div className="h-[175px] relative overflow-hidden bg-ofs-navy-950">
+                              <SafeImage
                                 src={
                                   sub.heroImage ||
                                   "/images/live/Excellence-tools-official.png"
                                 }
                                 alt={sub.name}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                quality={80}
+                                className="object-cover"
                               />
                               <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none" />
                               <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">

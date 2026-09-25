@@ -2,6 +2,8 @@
 
 import { Fragment } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -102,13 +104,16 @@ function renderGallery(gallery, title) {
             key={`${image.src}-${index}`}
             className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg group"
           >
-            <img
+            <SafeImage
               src={image.src}
               alt={image.alt || `${title} service image ${index + 1}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className={cn(
-                'h-full w-full transition-transform duration-500 group-hover:scale-105',
+                'transition-transform duration-500 group-hover:scale-105',
                 image.fit === 'contain' ? 'object-contain p-5 sm:p-7' : 'object-cover'
               )}
+              quality={80}
             />
           </div>
         ))}
@@ -177,10 +182,13 @@ function renderCustomBlock(block, index) {
                         : 'border border-ofs-gray-200 bg-ofs-gray-100'
                     )}
                   >
-                    <img
+                    <SafeImage
                       src={block.image.src || block.image}
                       alt={block.image.alt || block.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      quality={80}
                     />
                   </div>
                 </ScrollReveal>
@@ -248,12 +256,15 @@ function renderCustomBlock(block, index) {
                 <ScrollReveal key={sIdx} direction={sIdx === 0 ? 'left' : 'right'}>
                   <div className="group rounded-2xl overflow-hidden border border-white/15 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10 shadow-2xl">
                     <div className="aspect-[16/10] overflow-hidden relative">
-                      <img
+                      <SafeImage
                         src={st.image}
                         alt={st.label}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        quality={80}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/90 via-ofs-navy-950/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/90 via-ofs-navy-950/20 to-transparent pointer-events-none" />
                     </div>
                     <div className="p-6 sm:p-7 text-center">
                       <h3 className="font-heading text-lg sm:text-xl font-bold text-white leading-snug">
@@ -367,10 +378,13 @@ function renderCustomBlock(block, index) {
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   {item.image && (
                     <div className="aspect-[16/10] overflow-hidden bg-ofs-gray-100 relative">
-                      <img
+                      <SafeImage
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        quality={80}
                       />
                     </div>
                   )}
@@ -412,9 +426,11 @@ function renderCustomBlock(block, index) {
                 <div className="p-3.5 sm:p-5 rounded-2xl border border-ofs-navy-100 bg-white text-center flex flex-col items-center justify-center gap-2.5 sm:gap-3.5 shadow-sm hover:shadow-lg hover:border-ofs-navy-300 transition-all duration-300 group min-h-[140px] sm:min-h-[150px]">
                   {item.icon && (
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-ofs-navy-950 via-ofs-navy-900 to-ofs-navy-800 flex items-center justify-center p-3 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:from-ofs-navy-900 group-hover:to-ofs-red-600 border border-ofs-navy-700/50">
-                      <img
+                      <Image
                         src={item.icon}
                         alt={item.title}
+                        width={40}
+                        height={40}
                         className="w-full h-full object-contain filter brightness-110 drop-shadow-sm"
                       />
                     </div>
@@ -451,10 +467,13 @@ function renderCustomBlock(block, index) {
               <ScrollReveal key={idx} direction="up" delay={(idx % 4) * 0.05}>
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
                   <div className="aspect-[4/3] overflow-hidden bg-ofs-gray-100 relative">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      quality={80}
                     />
                   </div>
                   <div className="p-2.5 sm:p-4 text-center bg-white border-t border-ofs-gray-100">
@@ -503,10 +522,13 @@ function renderCustomBlock(block, index) {
                       : 'border border-ofs-gray-200 bg-ofs-gray-100'
                   )}
                 >
-                  <img
+                  <SafeImage
                     src={imgSrc}
                     alt={imgAlt}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 80vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    quality={80}
                   />
                 </div>
               </ScrollReveal>
@@ -621,10 +643,13 @@ function renderCustomBlock(block, index) {
                       : 'border border-ofs-gray-200 bg-ofs-gray-100'
                   )}
                 >
-                  <img
+                  <SafeImage
                     src={imgSrc}
                     alt={imgAlt}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    quality={80}
                   />
                 </div>
               </ScrollReveal>
@@ -786,10 +811,13 @@ function renderCustomBlock(block, index) {
                     : 'border border-ofs-gray-200 bg-ofs-gray-100 shadow-xl'
                 )}
               >
-                <img
+                <SafeImage
                   src={imgSrc}
                   alt={imgAlt}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 80vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  quality={80}
                 />
               </div>
             </ScrollReveal>
@@ -938,9 +966,7 @@ export default function OfferDetail({ page }) {
             <div className="tag-badge badge-red mb-5">OVERVIEW</div>
           </ScrollReveal>
           <h1 className="font-heading text-[clamp(1.9rem,4.5vw,3.85rem)] font-extrabold leading-[1.12] text-white mb-5 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              {page.title}
-            </TextReveal>
+            {page.title}
           </h1>
           <ScrollReveal direction="up" delay={0.2}>
             <p className="text-sm sm:text-base text-white/90 max-w-[780px] leading-relaxed mb-8">
@@ -974,12 +1000,15 @@ export default function OfferDetail({ page }) {
                   </ScrollReveal>
                   <ScrollReveal direction="right">
                     <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] lg:h-[420px] relative">
-                      <img
+                      <SafeImage
                         src={page.heroImage}
                         alt={`${page.title} — OFS Group India`}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                        quality={80}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/40 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/40 via-transparent to-transparent pointer-events-none" />
                     </div>
                   </ScrollReveal>
                 </div>
@@ -1073,12 +1102,15 @@ export default function OfferDetail({ page }) {
               {page.heroImage && (
                 <ScrollReveal direction="right">
                   <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] relative">
-                    <img
+                    <SafeImage
                       src={page.heroImage}
                       alt={`${page.title} — OFS Group India`}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      quality={80}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/40 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/40 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </ScrollReveal>
               )}

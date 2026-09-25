@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { Camera, Eye, X } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -111,6 +111,12 @@ const galleryPhotos = [
 
 export default function FieldGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
+
+  const handleOpenPhoto = (photo) => {
+    setSelectedPhoto(photo);
+    setModalImageLoaded(false);
+  };
 
   return (
     <SectionPad
@@ -163,34 +169,36 @@ export default function FieldGallery() {
           {[...galleryPhotos.slice(0, 6), ...galleryPhotos.slice(0, 6), ...galleryPhotos.slice(0, 6)].map((photo, index) => (
             <div
               key={`row1-${photo.id}-${index}`}
-              onClick={() => setSelectedPhoto(photo)}
-              className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-ofs-navy-900 border border-white/15 cursor-pointer transition-all duration-300 hover:border-ofs-red-500 hover:shadow-[0_20px_40px_rgba(224,42,48,0.3)] hover:-translate-y-1.5 shrink-0"
+              onClick={() => handleOpenPhoto(photo)}
+              className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-slate-900/90 border border-white/15 cursor-pointer transition-all duration-300 hover:border-ofs-red-500 hover:shadow-[0_20px_40px_rgba(224,42,48,0.3)] hover:-translate-y-1.5 shrink-0"
             >
               {/* Image */}
-              <img
+              <SafeImage
                 src={photo.src}
                 alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                fill
+                quality={75}
+                sizes="(max-width: 640px) 310px, 370px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
 
               {/* Gradient Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 z-[1]" />
 
               {/* Top Category Badge */}
-              <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+              <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-[2]">
                 <span className="font-mono text-[0.68rem] font-bold uppercase py-1 px-2.5 rounded-full bg-ofs-navy-950/90 text-ofs-gold-400 border border-amber-500/30 backdrop-blur-md shadow-md">
                   {photo.category}
                 </span>
               </div>
 
               {/* Quick View Hover Icon */}
-              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
+              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg z-[2]">
                 <Eye size={15} />
               </div>
 
               {/* Bottom Metadata */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300">
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300 z-[2]">
                 <div className="font-mono text-[0.7rem] text-white/60 mb-1 flex items-center gap-2">
                   <span>{photo.tag}</span>
                   <span>&bull;</span>
@@ -211,34 +219,36 @@ export default function FieldGallery() {
           {[...galleryPhotos.slice(6), ...galleryPhotos.slice(6), ...galleryPhotos.slice(6)].map((photo, index) => (
             <div
               key={`row2-${photo.id}-${index}`}
-              onClick={() => setSelectedPhoto(photo)}
-              className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-ofs-navy-900 border border-white/15 cursor-pointer transition-all duration-300 hover:border-emerald-400 hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] hover:-translate-y-1.5 shrink-0"
+              onClick={() => handleOpenPhoto(photo)}
+              className="group relative w-[310px] sm:w-[370px] h-[220px] sm:h-[250px] rounded-2xl overflow-hidden bg-slate-900/90 border border-white/15 cursor-pointer transition-all duration-300 hover:border-emerald-400 hover:shadow-[0_20px_40px_rgba(16,185,129,0.25)] hover:-translate-y-1.5 shrink-0"
             >
               {/* Image */}
-              <img
+              <SafeImage
                 src={photo.src}
                 alt={photo.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                fill
+                quality={75}
+                sizes="(max-width: 640px) 310px, 370px"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
               />
 
               {/* Gradient Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950 via-ofs-navy-950/40 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300 z-[1]" />
 
               {/* Top Category Badge */}
-              <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+              <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-[2]">
                 <span className="font-mono text-[0.68rem] font-bold uppercase py-1 px-2.5 rounded-full bg-ofs-navy-950/90 text-emerald-400 border border-emerald-500/30 backdrop-blur-md shadow-md">
                   {photo.category}
                 </span>
               </div>
 
               {/* Quick View Hover Icon */}
-              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
+              <div className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white grid place-content-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 shadow-lg z-[2]">
                 <Eye size={15} />
               </div>
 
               {/* Bottom Metadata */}
-              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300">
+              <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 transform transition-transform duration-300 z-[2]">
                 <div className="font-mono text-[0.7rem] text-white/60 mb-1 flex items-center gap-2">
                   <span>{photo.tag}</span>
                   <span>&bull;</span>
@@ -262,10 +272,10 @@ export default function FieldGallery() {
           onClick={() => setSelectedPhoto(null)}
         >
           <div
-            className="relative bg-ofs-navy-900 border border-white/20 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+            className="relative bg-slate-900/95 border border-white/20 rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 px-6 border-b border-white/10 bg-ofs-navy-950">
+            <div className="flex items-center justify-between p-4 px-6 border-b border-white/10 bg-slate-950">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs font-bold uppercase py-1 px-2.5 rounded-full bg-ofs-red-600/20 text-ofs-red-400 border border-ofs-red-500/30">
                   {selectedPhoto.category}
@@ -283,15 +293,42 @@ export default function FieldGallery() {
               </button>
             </div>
 
-            <div className="relative w-full h-[260px] sm:h-[400px] md:h-[480px] max-h-[55vh] bg-black grid place-content-center overflow-hidden">
-              <img
+            <div className="relative w-full h-[320px] sm:h-[450px] md:h-[540px] max-h-[65vh] bg-slate-950 flex items-center justify-center overflow-hidden">
+              {/* High-Tech Animated Loading Spinner */}
+              {!modalImageLoaded && (
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-950/85 backdrop-blur-sm pointer-events-none transition-opacity duration-300">
+                  <div className="relative flex items-center justify-center mb-3">
+                    {/* Ambient Pulsing Glow Ring */}
+                    <div className="absolute w-16 h-16 rounded-full bg-ofs-red-500/25 blur-lg loader-glow-pulse" />
+                    {/* Dual High-Tech Rotating Arcs */}
+                    <div className="w-12 h-12 rounded-full border-2 border-white/10 border-t-ofs-red-500 border-r-rose-400 loader-orbit" />
+                    <div className="absolute w-6 h-6 rounded-full border border-ofs-red-400/30 border-b-white/60 animate-spin [animation-duration:1.4s]" />
+                    {/* Center Micro Pulse Dot */}
+                    <div className="w-2.5 h-2.5 rounded-full bg-ofs-red-500 shadow-[0_0_12px_rgba(224,42,48,0.9)] animate-pulse" />
+                  </div>
+                  <span className="font-mono text-xs font-semibold text-white/70 uppercase tracking-widest animate-pulse">
+                    Loading Field Record...
+                  </span>
+                </div>
+              )}
+
+              <SafeImage
+                key={selectedPhoto.src}
                 src={selectedPhoto.src}
                 alt={selectedPhoto.title}
-                className="w-full h-full object-contain"
+                fill
+                priority
+                quality={92}
+                sizes="(max-width: 1024px) 100vw, 900px"
+                onLoad={() => setModalImageLoaded(true)}
+                className={cn(
+                  "object-contain transition-all duration-700 ease-out",
+                  modalImageLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-[1.02] blur-sm"
+                )}
               />
             </div>
 
-            <div className="p-4 sm:p-6 bg-ofs-navy-950 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="p-4 sm:p-6 bg-slate-950 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-t border-white/10">
               <div>
                 <h3 className="font-heading text-base sm:text-xl font-bold text-white mb-1">
                   {selectedPhoto.title}
