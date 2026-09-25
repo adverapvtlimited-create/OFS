@@ -3,6 +3,7 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -103,7 +104,7 @@ function renderGallery(gallery, title) {
             key={`${image.src}-${index}`}
             className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg group"
           >
-            <Image
+            <SafeImage
               src={image.src}
               alt={image.alt || `${title} service image ${index + 1}`}
               fill
@@ -181,7 +182,7 @@ function renderCustomBlock(block, index) {
                         : 'border border-ofs-gray-200 bg-ofs-gray-100'
                     )}
                   >
-                    <Image
+                    <SafeImage
                       src={block.image.src || block.image}
                       alt={block.image.alt || block.title}
                       fill
@@ -255,7 +256,7 @@ function renderCustomBlock(block, index) {
                 <ScrollReveal key={sIdx} direction={sIdx === 0 ? 'left' : 'right'}>
                   <div className="group rounded-2xl overflow-hidden border border-white/15 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10 shadow-2xl">
                     <div className="aspect-[16/10] overflow-hidden relative">
-                      <Image
+                      <SafeImage
                         src={st.image}
                         alt={st.label}
                         fill
@@ -377,7 +378,7 @@ function renderCustomBlock(block, index) {
                 <div className="group rounded-2xl overflow-hidden border border-ofs-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                   {item.image && (
                     <div className="aspect-[16/10] overflow-hidden bg-ofs-gray-100 relative">
-                      <Image
+                      <SafeImage
                         src={item.image}
                         alt={item.title}
                         fill
@@ -521,7 +522,7 @@ function renderCustomBlock(block, index) {
                       : 'border border-ofs-gray-200 bg-ofs-gray-100'
                   )}
                 >
-                  <Image
+                  <SafeImage
                     src={imgSrc}
                     alt={imgAlt}
                     fill
@@ -642,7 +643,7 @@ function renderCustomBlock(block, index) {
                       : 'border border-ofs-gray-200 bg-ofs-gray-100'
                   )}
                 >
-                  <Image
+                  <SafeImage
                     src={imgSrc}
                     alt={imgAlt}
                     fill
@@ -810,7 +811,7 @@ function renderCustomBlock(block, index) {
                     : 'border border-ofs-gray-200 bg-ofs-gray-100 shadow-xl'
                 )}
               >
-                <Image
+                <SafeImage
                   src={imgSrc}
                   alt={imgAlt}
                   fill
@@ -999,7 +1000,7 @@ export default function OfferDetail({ page }) {
                   </ScrollReveal>
                   <ScrollReveal direction="right">
                     <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] lg:h-[420px] relative">
-                      <Image
+                      <SafeImage
                         src={page.heroImage}
                         alt={`${page.title} — OFS Group India`}
                         fill
@@ -1101,7 +1102,7 @@ export default function OfferDetail({ page }) {
               {page.heroImage && (
                 <ScrollReveal direction="right">
                   <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] relative">
-                    <Image
+                    <SafeImage
                       src={page.heroImage}
                       alt={`${page.title} — OFS Group India`}
                       fill

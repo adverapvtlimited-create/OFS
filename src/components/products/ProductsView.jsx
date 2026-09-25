@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import SafeImage from '@/components/ui/SafeImage';
 import {
   Flame,
   Zap,
@@ -115,12 +116,15 @@ export default function ProductsView({ products = [] }) {
                     className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 hover:-translate-y-1 bg-white rounded-xl group no-underline"
                   >
                     <div>
-                      {/* Image Header with Zoom Hover & Floating Badge */}
-                      <div className="h-[185px] relative overflow-hidden bg-ofs-navy-950">
-                        <motion.img
+                      {/* Image Header with Floating Badge */}
+                      <div className="h-[175px] relative overflow-hidden bg-ofs-navy-950">
+                        <SafeImage
                           src={prod.heroImage || '/images/live/Excellence-tools-official.png'}
                           alt={prod.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                          className="object-cover"
+                          quality={82}
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/20 via-transparent to-ofs-navy-950/60 pointer-events-none" />
 

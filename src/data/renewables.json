@@ -12,7 +12,7 @@
       "id": "solar-engineering",
       "title": "Solar Engineering",
       "icon": "Sun",
-      "image": null,
+      "image": "/images/live/solar-hero-engineer.png",
       "bullets": [
         "US permit design",
         "Engineering support",
@@ -23,7 +23,7 @@
       "id": "bess-solutions",
       "title": "BESS Solutions",
       "icon": "BatteryCharging",
-      "image": null,
+      "image": "/images/live/bess-product.jpg",
       "bullets": [
         "Battery sourcing",
         "Integration partners",
@@ -34,7 +34,7 @@
       "id": "wind-energy",
       "title": "Wind",
       "icon": "Wind",
-      "image": null,
+      "image": "/images/live/wind mill.jpg",
       "bullets": [
         "Components",
         "Supplier sourcing",
@@ -45,7 +45,7 @@
       "id": "renewable-procurement",
       "title": "Renewable Procurement",
       "icon": "Link",
-      "image": null,
+      "image": "/images/live/future-procurement.png",
       "bullets": [
         "Global supplier identification",
         "RFQ/RFP",

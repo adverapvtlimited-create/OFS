@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -144,10 +144,10 @@ export default function Hero({ siteConfig: passedConfig }) {
           transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
-            className="h-[380px] sm:h-[420px] md:h-[460px] relative overflow-hidden bg-ofs-navy-950"
+            className="h-[380px] sm:h-[420px] md:h-[460px] relative overflow-hidden bg-slate-950/80"
             style={{ scale: imageScale }}
           >
-            <Image
+            <SafeImage
               src={heroImageUrl}
               alt="OFS Strategic Support for Marine & Offshore Operations"
               fill

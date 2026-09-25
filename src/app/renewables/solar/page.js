@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '@/lib/cn';
 import {
   Sun,
   ArrowRight,
@@ -279,6 +280,12 @@ const permitPackageCards = [
 
 export default function SolarEngineeringPage() {
   const [activeModalCard, setActiveModalCard] = useState(null);
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
+
+  const handleOpenModal = (card) => {
+    setModalImageLoaded(false);
+    setActiveModalCard(card);
+  };
 
   // Lock body & html scroll, pause Lenis smooth scroll, and handle escape key when modal is open
   useEffect(() => {
@@ -609,7 +616,7 @@ export default function SolarEngineeringPage() {
                 {permitPackageCards.map((card) => (
                   <div
                     key={card.id}
-                    onClick={() => setActiveModalCard(card)}
+                    onClick={() => handleOpenModal(card)}
                     className="bg-white border border-[#DCEBF7] hover:border-emerald-500 hover:shadow-md rounded-2xl p-4 sm:p-5 transition-all duration-200 cursor-pointer group flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6"
                   >
                     {/* Left: Number + Title + Sheet Code */}
@@ -873,15 +880,66 @@ export default function SolarEngineeringPage() {
               className="overflow-y-auto p-6 space-y-6 overscroll-contain flex-1"
               onWheel={(e) => e.stopPropagation()}
             >
-              {/* High-Res Drawing Image */}
-              <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden p-2">
+              {/* High-Res Drawing Image with Loading Screen */}
+              <div className="relative bg-[#0a1532] border border-slate-700/60 rounded-xl overflow-hidden min-h-[300px] sm:min-h-[440px] flex items-center justify-center p-2.5 sm:p-4 shadow-inner">
+                {/* Blueprint / CAD Coordinate Grid */}
+                <div
+                  className="absolute inset-0 opacity-20 pointer-events-none"
+                  style={{
+                    backgroundImage: `radial-gradient(circle, rgba(16, 185, 129, 0.4) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)`,
+                    backgroundSize: '24px 24px, 48px 48px, 48px 48px',
+                  }}
+                />
+
+                {/* Animated Loading Screen / State */}
+                {!modalImageLoaded && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 bg-slate-950/85 backdrop-blur-xs transition-opacity duration-300 select-none">
+                    {/* Glowing CAD Radar Spinner */}
+                    <div className="relative flex items-center justify-center mb-4">
+                      {/* Ambient Pulse Glow */}
+                      <div className="absolute w-20 h-20 rounded-full bg-emerald-500/20 blur-xl animate-pulse" />
+                      {/* Outer Orbiting Ring */}
+                      <div className="w-14 h-14 rounded-full border-2 border-white/10 border-t-emerald-400 border-r-emerald-500 animate-spin [animation-duration:1.1s]" />
+                      {/* Inner Orbiting Ring */}
+                      <div className="absolute w-8 h-8 rounded-full border border-emerald-500/30 border-b-white/80 animate-spin [animation-duration:0.8s] [animation-direction:reverse]" />
+                      {/* Center Core Dot */}
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)] animate-pulse" />
+                    </div>
+
+                    {/* Technical details badge & info */}
+                    <div className="text-center space-y-1.5">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[11px] font-mono font-medium text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>SHEET {activeModalCard.sheetCode}</span>
+                      </div>
+                      <p className="font-heading text-xs sm:text-sm font-semibold text-slate-100 tracking-wide">
+                        Loading CAD Engineering Plan...
+                      </p>
+                      <p className="font-mono text-[10px] text-slate-400">
+                        {activeModalCard.title} &bull; High Resolution Schematic
+                      </p>
+                    </div>
+
+                    {/* Progress Bar Shimmer */}
+                    <div className="w-44 h-1 bg-slate-800 rounded-full mt-4 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400 to-transparent w-full image-shimmer-sweep" />
+                    </div>
+                  </div>
+                )}
+
                 <Image
+                  key={activeModalCard.image}
                   src={activeModalCard.image}
                   alt={activeModalCard.title}
                   width={800}
                   height={480}
-                  className="w-full h-auto max-h-[480px] object-contain mx-auto select-none"
-                  quality={85}
+                  priority
+                  onLoad={() => setModalImageLoaded(true)}
+                  className={cn(
+                    "w-full h-auto max-h-[480px] object-contain mx-auto select-none transition-all duration-500 ease-out relative z-[2] bg-white rounded-lg p-1.5",
+                    modalImageLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-[0.98] blur-xs"
+                  )}
+                  quality={90}
                 />
               </div>
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import {
   Flame,
   Ship,
@@ -87,15 +87,15 @@ export default function IndustriesView({ industries = [] }) {
                   >
                     <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                       <div>
-                        {/* Hero Image with Zoom Hover */}
+                        {/* Hero Image */}
                         <div className="h-[175px] relative overflow-hidden bg-ofs-navy-950">
-                          <Image
+                          <SafeImage
                             src={ind.heroImage || '/images/live/Excellence-tools-official.png'}
                             alt={ind.name}
                             fill
                             quality={80}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none z-[1]" />
                           <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10 z-[2]">

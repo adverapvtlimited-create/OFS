@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
@@ -186,7 +186,7 @@ export default function CaseStudies({ caseStudies = caseStudiesData }) {
 
               <div className="bg-black/25 lg:border-l border-white/[0.08] flex flex-col justify-between">
                 <div className="h-[180px] sm:h-[200px] relative overflow-hidden">
-                  <Image
+                  <SafeImage
                     src={activeStudy.heroImage}
                     alt={activeStudy.title}
                     fill

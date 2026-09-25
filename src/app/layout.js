@@ -1,23 +1,18 @@
 import '@/styles/globals.css';
-import dynamic from 'next/dynamic';
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PageTransition from '@/components/animations/PageTransition';
 import NextTopLoader from 'nextjs-toploader';
 import JsonLd from '@/components/SEO/JsonLd';
+import SmoothScroller from '@/components/animations/SmoothScroller';
+import CustomCursor from '@/components/animations/CustomCursor';
+import ImageLoaderProvider from '@/components/providers/ImageLoaderProvider';
 import siteConfig from '@/data/site-config.json';
+
 import { DEFAULT_KEYWORDS, PAGE_SEO } from '@/config/seo.config';
 import { buildPageMetadata } from '@/lib/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '@/lib/schema';
-
-const SmoothScroller = dynamic(() => import('@/components/animations/SmoothScroller'), {
-  ssr: true,
-});
-
-const CustomCursor = dynamic(() => import('@/components/animations/CustomCursor'), {
-  ssr: false,
-});
 
 const inter = Inter({
   subsets: ['latin'],
@@ -89,13 +84,15 @@ export default function RootLayout({ children }) {
           shadow="0 0 10px rgba(224, 42, 48, 0.5), 0 0 5px rgba(224, 42, 48, 0.3)"
         />
         <CustomCursor />
-        <SmoothScroller>
-          <Header />
-          <main id="main-content">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </SmoothScroller>
+        <ImageLoaderProvider defaultTheme="navy" shimmerEnabled={true} blurTransition={true}>
+          <SmoothScroller>
+            <Header />
+            <main id="main-content">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </SmoothScroller>
+        </ImageLoaderProvider>
       </body>
     </html>
   );

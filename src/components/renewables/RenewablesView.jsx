@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import {
   Sun,
   BatteryCharging,
@@ -52,6 +52,13 @@ const iconMap = {
   Target,
 };
 
+const defaultSolutionImages = {
+  'solar-engineering': '/images/live/solar-hero-engineer.png',
+  'bess-solutions': '/images/live/bess-product.jpg',
+  'wind-energy': '/images/live/wind mill.jpg',
+  'renewable-procurement': '/images/live/future-procurement.png',
+};
+
 export default function RenewablesView({ renewablesData = defaultRenewablesData }) {
   const data = renewablesData || defaultRenewablesData;
 
@@ -62,22 +69,25 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
           ═══════════════════════════════════════════════════════════ */}
       <section
         className="relative flex items-end overflow-hidden bg-[#0a1628]
-                   min-h-[480px] sm:min-h-[560px] md:min-h-[640px] lg:min-h-[700px]"
+                   min-h-[480px] sm:min-h-[560px] md:min-h-[640px] lg:min-h-[700px] w-full"
         aria-label="Hero"
       >
         {/* BG Image */}
-        <Image
+        <SafeImage
           src={data.heroBgImage || defaultRenewablesData.heroBgImage}
           alt="Renewable energy landscape"
           fill
           priority
-          quality={80}
+          quality={85}
           sizes="100vw"
+          containerClassName="absolute inset-0 w-full h-full"
+          showSpinner={false}
           className="object-cover object-center"
         />
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/65 to-[#0a1628]/20 z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/70 via-transparent to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-[#0a1628]/15 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/80 via-[#0a1628]/35 to-transparent z-[1]" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none z-[1]" />
 
         <div
           className="container relative z-10 max-w-7xl mx-auto
@@ -186,6 +196,7 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
               const IconComponent = iconMap[sol.icon] || Sun;
               const isSolar = sol.id === 'solar-engineering' || sol.title?.toLowerCase().includes('solar');
               const destinationHref = sol.href || (isSolar ? '/renewables/solar' : '/contact');
+              const solImg = sol.image || defaultSolutionImages[sol.id] || '/images/live/why-renewables-landscape.jpg';
               return (
                 <ScrollReveal key={sol.id || idx} direction="up" delay={idx * 0.07} className="h-full">
                   <Link
@@ -199,9 +210,9 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
                   >
                     {/* Image */}
                     <div className="h-44 sm:h-48 lg:h-52 overflow-hidden relative bg-slate-100">
-                      <Image
-                        src={sol.image}
-                        alt={sol.title}
+                      <SafeImage
+                        src={solImg}
+                        alt={sol.title || 'Renewable solution'}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
@@ -269,11 +280,12 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
             <ScrollReveal direction="right" duration={0.7}>
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-lg sm:shadow-xl relative h-[260px] sm:h-[340px] md:h-[380px] lg:h-[420px]">
-                  <Image
+                  <SafeImage
                     src={data.whyImage || defaultRenewablesData.whyImage}
                     alt="Renewable energy infrastructure showing solar panels and wind turbines"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    shimmerTheme="emerald"
                     className="object-cover"
                     quality={80}
                   />
@@ -504,14 +516,15 @@ export default function RenewablesView({ renewablesData = defaultRenewablesData 
             </div>
 
             {/* Right – scenic image with CTA overlay */}
-            <div className="lg:col-span-5">
-              <ScrollReveal direction="left" duration={0.7}>
-                <div className="relative rounded-2xl overflow-hidden h-full min-h-[260px] sm:min-h-[320px] lg:min-h-[380px]">
-                  <Image
+            <div className="lg:col-span-5 flex flex-col">
+              <ScrollReveal direction="left" duration={0.7} className="h-full">
+                <div className="relative rounded-2xl overflow-hidden w-full h-[320px] sm:h-[380px] lg:h-full min-h-[320px]">
+                  <SafeImage
                     src={data.partnerBgImage || defaultRenewablesData.partnerBgImage}
                     alt="Green hills and renewable energy landscape"
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
+                    containerClassName="absolute inset-0 w-full h-full"
                     className="object-cover"
                     quality={80}
                   />

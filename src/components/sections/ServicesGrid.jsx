@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import {
   Package,
   Wrench,
@@ -145,7 +145,7 @@ export default function ServicesGrid() {
               <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
                 {/* Visual Image Column */}
                 <div className="sm:col-span-5 relative min-h-[200px] sm:min-h-[280px] overflow-hidden bg-ofs-navy-950">
-                  <Image
+                  <SafeImage
                     src={flagshipService.heroImage || flagshipService.image || '/images/live/Excellence-tools-official.png'}
                     alt={flagshipService.title}
                     fill
@@ -240,7 +240,7 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <Image
+                  <SafeImage
                     src={otherServices[0].heroImage || otherServices[0].image || '/images/live/Engg-e1751278356951.jpg'}
                     alt={otherServices[0].title}
                     fill
@@ -312,7 +312,7 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <Image
+                  <SafeImage
                     src={otherServices[1].heroImage || otherServices[1].image || '/images/live/Spare-Parts-Procurement.jpg'}
                     alt={otherServices[1].title}
                     fill
@@ -383,7 +383,7 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <Image
+                  <SafeImage
                     src={otherServices[2].heroImage || otherServices[2].image || '/images/live/Logistics-and-shippings.jpg'}
                     alt={otherServices[2].title}
                     fill

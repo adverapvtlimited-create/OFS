@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowUpRight, CheckCircle2, Sparkles } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
@@ -19,7 +19,7 @@ export default function AboutPreview() {
           <ScrollReveal direction="right" duration={0.85}>
             <div className="relative">
               <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200">
-                <Image
+                <SafeImage
                   src="/images/live/Abourt-Our-Company.jpg"
                   alt="Oriented Facility Solution Pvt Ltd - About Our Company"
                   width={600}

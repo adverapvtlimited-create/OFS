@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import SafeImage from "@/components/ui/SafeImage";
 import { notFound, redirect } from "next/navigation";
 import {
   Flame,
@@ -198,8 +198,8 @@ export default async function SingleIndustryPage({ params }) {
 
             {/* Right Image */}
             <ScrollReveal direction="right" delay={0.2}>
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative">
-                <Image
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative bg-ofs-navy-950">
+                <SafeImage
                   src={
                     ind.heroImage ||
                     "/images/live/Excellence-tools-official.png"
@@ -237,8 +237,8 @@ export default async function SingleIndustryPage({ params }) {
                       >
                         <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                           <div>
-                            <div className="h-[175px] relative overflow-hidden">
-                              <Image
+                            <div className="h-[175px] relative overflow-hidden bg-ofs-navy-950">
+                              <SafeImage
                                 src={
                                   sub.heroImage ||
                                   "/images/live/Excellence-tools-official.png"
@@ -247,7 +247,7 @@ export default async function SingleIndustryPage({ params }) {
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={80}
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                className="object-cover"
                               />
                               <div className="absolute inset-0 bg-gradient-to-b from-ofs-navy-950/15 to-ofs-navy-950/50 pointer-events-none" />
                               <div className="absolute top-3 left-3 w-9 h-9 rounded-xs bg-ofs-navy-950 text-ofs-red-400 grid place-content-center shadow-[0_4px_12px_rgba(12,30,78,0.3)] border border-white/10">

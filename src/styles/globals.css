@@ -582,12 +582,62 @@
     animation-play-state: paused;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-rtl,
-    .marquee-rtl-slow {
-      animation: none !important;
-      overflow-x: auto;
+  /* Image Loader Shimmer Effect */
+  @keyframes imageShimmerWave {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+    50%, 100% {
+      transform: translateX(200%) skewX(-15deg);
     }
   }
+
+  @keyframes loaderOrbit {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loaderGlowPulse {
+    0%, 100% {
+      transform: scale(0.92);
+      opacity: 0.35;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.85;
+    }
+  }
+
+  .image-shimmer-sweep {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.18) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: imageShimmerWave 1.6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .loader-orbit {
+    animation: loaderOrbit 0.9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+
+  .loader-glow-pulse {
+    animation: loaderGlowPulse 1.8s ease-in-out infinite;
+  }
+
+  .img-smooth-load {
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+  }
 }
+
+
 
