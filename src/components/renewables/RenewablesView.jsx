@@ -60,7 +60,26 @@ const defaultSolutionImages = {
 };
 
 export default function RenewablesView({ renewablesData = defaultRenewablesData }) {
-  const data = renewablesData || defaultRenewablesData;
+  const data = {
+    ...defaultRenewablesData,
+    ...(renewablesData || {}),
+    solutions:
+      renewablesData?.solutions && renewablesData.solutions.length > 0
+        ? renewablesData.solutions
+        : defaultRenewablesData.solutions || [],
+    whyPills:
+      renewablesData?.whyPills && renewablesData.whyPills.length > 0
+        ? renewablesData.whyPills
+        : defaultRenewablesData.whyPills || [],
+    approachSteps:
+      renewablesData?.approachSteps && renewablesData.approachSteps.length > 0
+        ? renewablesData.approachSteps
+        : defaultRenewablesData.approachSteps || [],
+    partnerCards:
+      renewablesData?.partnerCards && renewablesData.partnerCards.length > 0
+        ? renewablesData.partnerCards
+        : defaultRenewablesData.partnerCards || [],
+  };
 
   return (
     <div className="min-h-screen bg-white text-slate-800 selection:bg-emerald-500 selection:text-white overflow-x-hidden">
