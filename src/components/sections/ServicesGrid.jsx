@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import SafeImage from '@/components/ui/SafeImage';
 import {
   Package,
   Wrench,
@@ -144,21 +145,24 @@ export default function ServicesGrid() {
               <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
                 {/* Visual Image Column */}
                 <div className="sm:col-span-5 relative min-h-[200px] sm:min-h-[280px] overflow-hidden bg-ofs-navy-950">
-                  <img
+                  <SafeImage
                     src={flagshipService.heroImage || flagshipService.image || '/images/live/Excellence-tools-official.png'}
                     alt={flagshipService.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-spring group-hover:scale-108"
+                    fill
+                    quality={80}
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-cover transition-transform duration-700 ease-spring group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-ofs-navy-950/85 via-ofs-navy-950/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-ofs-navy-950/85 via-ofs-navy-950/30 to-transparent z-[1]" />
 
                   {/* Top Left Flagship Badge */}
-                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 py-1 px-3 rounded-full bg-ofs-red-600 text-white font-mono text-[0.68rem] font-bold shadow-lg">
+                  <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 py-1 px-3 rounded-full bg-ofs-red-600 text-white font-mono text-[0.68rem] font-bold shadow-lg z-[2]">
                     <Sparkles size={12} />
                     <span>FLAGSHIP DIVISION</span>
                   </div>
 
                   {/* Bottom Stats Overlay */}
-                  <div className="absolute bottom-3.5 left-3.5 right-3.5 p-2.5 rounded-sm bg-ofs-navy-950/85 backdrop-blur-md border border-white/15 text-white">
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 p-2.5 rounded-sm bg-ofs-navy-950/85 backdrop-blur-md border border-white/15 text-white z-[2]">
                     <div className="text-[0.68rem] font-mono text-ofs-gold-400 font-bold uppercase tracking-wider">
                       AVL Partner Network
                     </div>
@@ -236,13 +240,16 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <img
+                  <SafeImage
                     src={otherServices[0].heroImage || otherServices[0].image || '/images/live/Engg-e1751278356951.jpg'}
                     alt={otherServices[0].title}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                    fill
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
-                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent z-[1]" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide z-[2]">
                     {otherServices[0].badge}
                   </span>
                 </div>
@@ -305,13 +312,16 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <img
+                  <SafeImage
                     src={otherServices[1].heroImage || otherServices[1].image || '/images/live/Spare-Parts-Procurement.jpg'}
                     alt={otherServices[1].title}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                    fill
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
-                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent z-[1]" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide z-[2]">
                     {otherServices[1].badge}
                   </span>
                 </div>
@@ -373,13 +383,16 @@ export default function ServicesGrid() {
             >
               <div>
                 <div className="h-[145px] relative overflow-hidden bg-ofs-navy-950">
-                  <img
+                  <SafeImage
                     src={otherServices[2].heroImage || otherServices[2].image || '/images/live/Logistics-and-shippings.jpg'}
                     alt={otherServices[2].title}
-                    className="w-full h-full object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
+                    fill
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-500 ease-spring group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent" />
-                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ofs-navy-950/75 via-ofs-navy-950/20 to-transparent z-[1]" />
+                  <span className="absolute bottom-2.5 left-3 font-mono text-[0.65rem] font-bold text-white bg-ofs-navy-950/90 py-0.5 px-2.5 rounded-full backdrop-blur-sm border border-white/20 uppercase tracking-wide z-[2]">
                     {otherServices[2].badge}
                   </span>
                 </div>

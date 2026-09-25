@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
@@ -37,15 +38,9 @@ export default function BlogView({ posts = defaultBlogPosts, caseStudies = [] })
           </ScrollReveal>
 
           <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4.25rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              Technical Analysis &amp;
-            </TextReveal>
+            Technical Analysis &amp;
             <br />
-            <span className="gradient-text-red">
-              <TextReveal tag="span" delay={0.2} duration={0.65}>
-                Strategic Industry Insights
-              </TextReveal>
-            </span>
+            <span className="gradient-text-red">Strategic Industry Insights</span>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
@@ -95,9 +90,11 @@ export default function BlogView({ posts = defaultBlogPosts, caseStudies = [] })
 
                   <div className="flex justify-between items-center pt-5 sm:pt-6 border-t border-ofs-gray-200 flex-wrap gap-4">
                     <div className="flex items-center gap-3">
-                      <img
+                      <Image
                         src={featuredPost.author?.avatar || '/images/author-default.png'}
                         alt={featuredPost.author?.name || 'Author'}
+                        width={40}
+                        height={40}
                         className="w-10 h-10 rounded-full object-cover shrink-0"
                       />
                       <div>

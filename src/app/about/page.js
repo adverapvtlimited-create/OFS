@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Target, Eye, ArrowUpRight } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
@@ -58,15 +59,9 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <h1 className="text-[clamp(1.95rem,4.5vw,4.25rem)] font-heading font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            <TextReveal tag="span" duration={0.65}>
-              Driven by Quality.
-            </TextReveal>
+            Driven by Quality.
             <br />
-            <span className="gradient-text-red">
-              <TextReveal tag="span" delay={0.2} duration={0.65}>
-                Defined by Trust.
-              </TextReveal>
-            </span>
+            <span className="gradient-text-red">Defined by Trust.</span>
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
@@ -190,15 +185,16 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 0.12}>
                 <div className="p-0 overflow-hidden h-full bg-white border border-ofs-gray-200 rounded-md shadow-sm transition-all duration-250 hover:border-ofs-navy-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className="h-[150px] relative overflow-hidden">
-                    <motion.img
+                  <div className="h-[150px] relative overflow-hidden group">
+                    <Image
                       src={v.image}
                       alt={v.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.06 }}
-                      transition={{ duration: 0.6 }}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      quality={80}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/60" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#060E24]/10 to-[#060E24]/60 pointer-events-none" />
                     <div className="absolute bottom-3.5 left-5 text-white font-heading text-lg font-extrabold">
                       {v.title}
                     </div>
@@ -292,10 +288,13 @@ export default function AboutPage() {
           <div className="mb-12">
             <ScrollReveal direction="up" delay={0.1}>
               <div className="bg-white border border-ofs-gray-200 rounded-xl overflow-hidden shadow-sm p-1 sm:p-2">
-                <img
+                <Image
                   src="/images/about/global-presence.png"
                   alt="Global Presence & Service Network"
+                  width={1100}
+                  height={550}
                   className="w-full h-auto rounded-lg"
+                  quality={80}
                 />
               </div>
             </ScrollReveal>

@@ -72,6 +72,48 @@ export function getStrapiMedia(media) {
 
   if (!url || typeof url !== "string") return null;
 
+  // Check if this is a known Strapi asset with local high-res mirror in public/images/live/
+  const cleanUrl = url.toLowerCase();
+  const knownLocalAssets = [
+    ['facilities_offered', '/images/live/facilities-offered.png'],
+    ['spare_parts_support_photo', '/images/live/spare-parts-support-photo.png'],
+    ['spare_parts_strategy_photo', '/images/live/spare-parts-strategy-photo.png'],
+    ['supply_chain_planning_photo', '/images/live/supply-chain-planning-photo.png'],
+    ['supply_chain_challenges_photo', '/images/live/supply-chain-challenges-photo.png'],
+    ['logistics_integration_photo', '/images/live/logistics-integration-photo.png'],
+    ['our_warehouse_services_photo', '/images/live/our-warehouse-services-photo.png'],
+    ['project_supply_revolution', '/images/live/project-supply-revolution.png'],
+    ['project_supply_approach', '/images/live/project-supply-approach.png'],
+    ['global_mro_hero', '/images/live/global-mro-hero.png'],
+    ['global_mro_block0', '/images/live/global-mro-block0.png'],
+    ['global_mro_block1', '/images/live/global-mro-block1.png'],
+    ['global_mro_block2', '/images/live/global-mro-block2.png'],
+    ['inventory_opt_block0', '/images/live/inventory-opt-block0.png'],
+    ['inventory_opt_block1', '/images/live/inventory-opt-block1.png'],
+    ['mdm_block0', '/images/live/mdm-block0.png'],
+    ['mdm_block1', '/images/live/mdm-block1.png'],
+    ['mro_supply_block0', '/images/live/mro-supply-block0.png'],
+    ['mro_supply_block1', '/images/live/mro-supply-block1.png'],
+    ['plant_maint_block0', '/images/live/plant-maint-block0.png'],
+    ['plant_maint_block1', '/images/live/plant-maint-block1.png'],
+    ['spare_parts_block0', '/images/live/spare-parts-block0.png'],
+    ['spare_parts_block1', '/images/live/spare-parts-block1.png'],
+    ['strategic_sourcing_block0', '/images/live/strategic-sourcing-block0.png'],
+    ['strategic_sourcing_block1', '/images/live/strategic-sourcing-block1.png'],
+    ['supply_chain_finance_block0', '/images/live/supply-chain-finance-block0.png'],
+    ['supply_chain_finance_block1', '/images/live/supply-chain-finance-block1.png'],
+    ['permit_design_package_overview', '/images/live/permit-design-package-overview.png'],
+    ['permit_design_roadmap', '/images/live/permit-design-roadmap.png'],
+    ['proposal_to_permit_banner', '/images/live/proposal-to-permit-banner.png'],
+    ['key_practices', '/images/live/key-practices.png'],
+  ];
+
+  for (const [key, localPath] of knownLocalAssets) {
+    if (cleanUrl.includes(key)) {
+      return localPath;
+    }
+  }
+
   // Absolute URLs (Cloudinary, S3, external HTTPS, or data URIs)
   if (
     url.startsWith("http://") ||

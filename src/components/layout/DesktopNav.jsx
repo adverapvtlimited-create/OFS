@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import {
@@ -302,10 +303,12 @@ export default function DesktopNav({ pathname, industries = [], products = [] })
                                 )}
                               >
                                 {column.id === 'services' && item.image && (
-                                  <img
+                                  <Image
                                     src={item.image}
                                     alt=""
                                     aria-hidden="true"
+                                    width={48}
+                                    height={40}
                                     className="h-10 w-12 shrink-0 rounded object-cover border border-ofs-gray-200"
                                   />
                                 )}

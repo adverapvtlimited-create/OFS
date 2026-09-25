@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,7 +55,7 @@
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #0F172A;
     background-color: #FFFFFF;
     line-height: 1.55;
@@ -65,7 +63,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-heading), 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 800;
     line-height: 1.12;
     color: #060E24;
@@ -584,12 +582,62 @@
     animation-play-state: paused;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-rtl,
-    .marquee-rtl-slow {
-      animation: none !important;
-      overflow-x: auto;
+  /* Image Loader Shimmer Effect */
+  @keyframes imageShimmerWave {
+    0% {
+      transform: translateX(-100%) skewX(-15deg);
+    }
+    50%, 100% {
+      transform: translateX(200%) skewX(-15deg);
     }
   }
+
+  @keyframes loaderOrbit {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loaderGlowPulse {
+    0%, 100% {
+      transform: scale(0.92);
+      opacity: 0.35;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.85;
+    }
+  }
+
+  .image-shimmer-sweep {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.18) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: imageShimmerWave 1.6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .loader-orbit {
+    animation: loaderOrbit 0.9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+
+  .loader-glow-pulse {
+    animation: loaderGlowPulse 1.8s ease-in-out infinite;
+  }
+
+  .img-smooth-load {
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, filter, transform;
+  }
 }
+
+
 
