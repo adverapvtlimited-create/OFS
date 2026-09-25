@@ -3,12 +3,16 @@ import OfferDetail from '@/components/sections/OfferDetail';
 import { getAllOfferSlugs, getOfferBySlug } from '@/lib/offers';
 import { buildPageMetadata } from '@/lib/seo';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function generateStaticParams() {
-  return getAllOfferSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllOfferSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const page = getOfferBySlug(params.slug);
+  const page = await getOfferBySlug(params.slug);
   if (!page) {
     return buildPageMetadata({
       title: 'Page Not Found | OFS Group India',
@@ -27,8 +31,8 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default function OfferSlugPage({ params }) {
-  const page = getOfferBySlug(params.slug);
+export default async function OfferSlugPage({ params }) {
+  const page = await getOfferBySlug(params.slug);
   if (!page) notFound();
   return <OfferDetail page={page} />;
 }

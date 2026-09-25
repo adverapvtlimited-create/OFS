@@ -9,40 +9,42 @@
   "longDesc": "OFS is a leading Indian multinational enterprise renowned for delivering specialized Procurement and Technical Support Services across a wide array of industries. Combining deep technical expertise with strategic sourcing capabilities, we offer end-to-end customized solutions that are cost-efficient, operationally impactful, and backed by a network of 3,000+ internationally approved brands from the US and Europe.",
   "logo": "/images/ofs-logo.png",
   "contact": {
+    "id": 1,
     "phone": "0226961112",
     "phoneRaw": "0226961112",
     "email": "info@ofsgroupindia.com",
-    "emailIndia": "info@ofsgroupindia.com",
-    "emailUSA": "info@ofsworld.com",
+    "addressUSA": {
+      "id": 2,
+      "company": "Oriented Facility Solution LLC",
+      "line1": "7901 4th St N, Suite 300",
+      "line2": null,
+      "city": "St. Petersburg",
+      "state": "Florida",
+      "pincode": "33702",
+      "country": "United States of America"
+    },
     "addressIndia": {
+      "id": 1,
       "company": "Oriented Facility Solution Pvt Ltd",
       "line1": "Dynasty Business Park, A Wing",
       "line2": "Andheri-Kurla Road, Andheri (East)",
       "city": "Mumbai",
       "state": "Maharashtra",
       "pincode": "400059",
-      "country": "India",
-      "email": "info@ofsgroupindia.com",
-      "phone": "0226961112"
-    },
-    "addressUSA": {
-      "company": "Oriented Facility Solution LLC",
-      "line1": "7901 4th St N, Suite 300",
-      "city": "St. Petersburg",
-      "state": "Florida",
-      "pincode": "33702",
-      "country": "United States of America",
-      "email": "info@ofsworld.com"
+      "country": "India"
     }
   },
   "stats": [
     {
+      "id": 1,
       "label": "Approved Global Brands",
       "value": "3,000+",
       "numeric": 3000,
-      "suffix": "+"
+      "suffix": "+",
+      "desc": null
     },
     {
+      "id": 2,
       "label": "Years of Field Experience",
       "value": "8+",
       "numeric": 8,
@@ -50,23 +52,29 @@
       "desc": "Demonstrated technical excellence across high-stakes operational environments"
     },
     {
+      "id": 3,
       "label": "On-Time Fulfillment SLA",
       "value": "99.8%",
       "numeric": 99.8,
-      "suffix": "%"
+      "suffix": "%",
+      "desc": null
     },
     {
+      "id": 4,
       "label": "Global Operations Support",
       "value": "24/7",
       "numeric": 24,
-      "suffix": "/7"
+      "suffix": "/7",
+      "desc": null
     }
   ],
   "socials": {
+    "id": 1,
     "facebook": "https://www.facebook.com/share/yAxGCbRKTANSc1JU/?mibextid=qi2Omg",
     "linkedin": "https://www.linkedin.com/company/oriented-facility-solution-pvt-ltd/?viewAsMember=true",
     "youtube": "https://youtube.com/@orientedfacilitysolution6910?si=Zo1ht0FfnG8xM1rx",
-    "twitter": "https://twitter.com/ofsgroupindia"
+    "twitter": "https://twitter.com/ofsgroupindia",
+    "instagram": null
   },
   "certifications": [
     "ISO 9001:2015 Certified Quality Management System (Cert #305026052968Q)",
@@ -77,5 +85,13 @@
     "DPIIT #StartupIndia Recognized Enterprise (Cert #DIPP253153)",
     "ASME & API Compliant Sourcing Protocol",
     "Traceable Mill Test Certificates (MTC / EN 10204 3.1)"
-  ]
+  ],
+  "id": 1,
+  "documentId": "h4775k1vhogyxz64j81hnoz4",
+  "createdAt": "2026-09-22T17:24:29.556Z",
+  "updatedAt": "2026-09-22T17:24:29.556Z",
+  "publishedAt": "2026-09-22T17:24:29.517Z",
+  "heroImage": "/images/live/Banner3.jpg",
+  "shortDesc": null,
+  "logoDark": null
 }

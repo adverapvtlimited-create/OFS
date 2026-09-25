@@ -18,6 +18,7 @@ import {
   Anchor,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
+import { getStrapiMedia } from '@/lib/strapi';
 import MagneticButton from '@/components/animations/MagneticButton';
 import DesktopNav from '@/components/layout/DesktopNav';
 import { cn } from '@/lib/cn';
@@ -106,7 +107,9 @@ const topBarCertifications = [
   },
 ];
 
-export default function Header() {
+export default function Header({ initialIndustries = [], initialProducts = [] }) {
+  const [industries, setIndustries] = useState(initialIndustries);
+  const [products, setProducts] = useState(initialProducts);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState(null);
@@ -119,6 +122,73 @@ export default function Header() {
   const offerActive = isWhatWeOfferPath(pathname);
   const offerMatch = findOfferMatch(pathname);
   const [contactEmail, setContactEmail] = useState(siteConfig.contact.email);
+
+  // Sync initial props into state when they change
+  useEffect(() => {
+    if (initialIndustries && initialIndustries.length > 0) {
+      setIndustries(initialIndustries);
+    }
+  }, [initialIndustries]);
+
+  useEffect(() => {
+    if (initialProducts && initialProducts.length > 0) {
+      setProducts(initialProducts);
+    }
+  }, [initialProducts]);
+
+  // Client-side fetch to ensure navigation items are always up-to-date with CMS
+  useEffect(() => {
+    let isMounted = true;
+    async function fetchNavigationData() {
+      try {
+        const res = await fetch('/api/navigation', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (isMounted) {
+            if (Array.isArray(data.industries)) {
+              setIndustries(data.industries);
+            }
+            if (Array.isArray(data.products)) {
+              setProducts(data.products);
+            }
+          }
+        }
+      } catch (err) {
+        // Silently fallback to initial props or static data
+      }
+    }
+    fetchNavigationData();
+
+    const handleFocus = () => {
+      fetchNavigationData();
+    };
+
+    window.addEventListener('focus', handleFocus);
+    return () => {
+      isMounted = false;
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, [pathname]);
+
+  // Dynamic industries & products navigation items
+  const dynamicIndustriesNav =
+    Array.isArray(industries) && industries.length > 0
+      ? industries.map((ind) => ({
+          title: ind.shortName || ind.name,
+          href:
+            ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+              ? '/renewables'
+              : `/industries/${ind.slug}`,
+        }))
+      : industriesNav;
+
+  const dynamicProductsNav =
+    Array.isArray(products) && products.length > 0
+      ? products.map((p) => ({
+          title: p.shortName || p.name || p.title,
+          href: `/products/${p.slug}`,
+        }))
+      : productsNav;
 
   // Dynamic email based on domain (ofsworld.com -> info@ofsworld.com, ofsgroupindia.com -> info@ofsgroupindia.com)
   useEffect(() => {
@@ -361,14 +431,14 @@ export default function Header() {
         <div className="w-full max-w-container mx-auto px-5 sm:px-8 lg:px-11 flex items-center justify-between py-3.5">
           <Link href="/" className="flex items-center gap-3.5 no-underline shrink-0">
             <img
-              src="/images/ofs-logo.png"
+              src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
               alt="OFS - Driven by Quality, Defined by Trust"
               className="h-12 w-auto object-contain"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <DesktopNav pathname={pathname} />
+          <DesktopNav pathname={pathname} industries={industries} products={products} />
 
           {/* Right Action Buttons */}
           <div className="flex items-center gap-3.5 shrink-0">
@@ -447,7 +517,7 @@ export default function Header() {
                 <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-ofs-navy-950 py-1.5 no-underline">
                   All Industries
                 </Link>
-                {industriesNav.map((item) => (
+                {dynamicIndustriesNav.map((item) => (
                   <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm text-ofs-gray-700 py-1.5 no-underline">
                     {item.title}
                   </Link>
@@ -469,7 +539,7 @@ export default function Header() {
                 <Link href="/products" onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-ofs-navy-950 py-1.5 no-underline">
                   All Products
                 </Link>
-                {productsNav.map((item) => (
+                {dynamicProductsNav.map((item) => (
                   <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm text-ofs-gray-700 py-1.5 no-underline">
                     {item.title}
                   </Link>

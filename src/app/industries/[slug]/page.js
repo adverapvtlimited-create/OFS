@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { notFound, redirect } from 'next/navigation';
+import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 import {
   Flame,
   Ship,
@@ -13,47 +13,40 @@ import {
   Compass,
   ArrowUpRight,
   CheckCircle2,
-  Cpu
-} from 'lucide-react';
-import industriesData from '@/data/industries.json';
-import { whatWeOffer } from '@/data/navigation';
-import { serviceHref } from '@/lib/offers';
-import TextReveal from '@/components/animations/TextReveal';
-import ScrollReveal from '@/components/animations/ScrollReveal';
-import Container from '@/components/ui/Container';
-import Breadcrumbs from '@/components/SEO/Breadcrumbs';
-import JsonLd from '@/components/SEO/JsonLd';
-import { buildPageMetadata } from '@/lib/seo';
-import { buildWebPageSchema } from '@/lib/schema';
+  Cpu,
+} from "lucide-react";
+import { getIndustries, getIndustryBySlug } from "@/lib/strapi";
+import { whatWeOffer } from "@/data/navigation";
+import { serviceHref } from "@/lib/offers";
+import TextReveal from "@/components/animations/TextReveal";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import Container from "@/components/ui/Container";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
+import JsonLd from "@/components/SEO/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildWebPageSchema } from "@/lib/schema";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const iconMap = {
-  Flame: Flame,
-  Ship: Ship,
-  Sun: Sun,
-  Hammer: Hammer,
-  Zap: Zap,
-  FlaskConical: FlaskConical,
-  Mountain: Mountain,
-  Plane: Plane,
-  Anchor: Anchor,
-  Compass: Compass,
-  Cpu: Cpu
-};
-
-const findIndustryBySlug = (slug) => {
-  for (const ind of industriesData) {
-    if (ind.slug === slug) return ind;
-    if (ind.subIndustries) {
-      const sub = ind.subIndustries.find((s) => s.slug === slug);
-      if (sub) return sub;
-    }
-  }
-  return null;
+  Flame,
+  Ship,
+  Sun,
+  Hammer,
+  Zap,
+  FlaskConical,
+  Mountain,
+  Plane,
+  Anchor,
+  Compass,
+  Cpu,
 };
 
 export async function generateStaticParams() {
+  const industries = await getIndustries();
   const params = [];
-  industriesData.forEach((ind) => {
+  industries.forEach((ind) => {
     params.push({ slug: ind.slug });
     if (ind.subIndustries) {
       ind.subIndustries.forEach((sub) => {
@@ -65,40 +58,45 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const ind = findIndustryBySlug(params.slug);
+  const ind = await getIndustryBySlug(params.slug);
   if (!ind) {
     return buildPageMetadata({
-      title: 'Industry Not Found | OFS Group India',
-      description: 'The requested OFS industry page could not be found.',
-      path: '/industries',
+      title: "Industry Not Found | OFS Group India",
+      description: "The requested OFS industry page could not be found.",
+      path: "/industries",
       noindex: true,
     });
   }
 
   return buildPageMetadata({
     title: `${ind.name} Solutions | OFS Group India`,
-    description: ind.summary.replace(/\n/g, ' '),
+    description: (ind.summary || "").replace(/\n/g, " "),
     path: `/industries/${ind.slug}`,
-    keywords: [ind.name, ind.shortName, 'OFS Group India', 'industrial procurement'],
+    keywords: [
+      ind.name,
+      ind.shortName || ind.name,
+      "OFS Group India",
+      "industrial procurement",
+    ],
     ogImage: ind.heroImage,
   });
 }
 
-export default function SingleIndustryPage({ params }) {
-  if (params.slug === 'renewable-energy') {
-    redirect('/renewables');
+export default async function SingleIndustryPage({ params }) {
+  if (params.slug === "renewable-energy") {
+    redirect("/renewables");
   }
 
-  const ind = findIndustryBySlug(params.slug);
+  const ind = await getIndustryBySlug(params.slug);
 
   if (!ind) {
     notFound();
   }
 
   const breadcrumbItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Industries', href: '/industries' },
-    { name: ind.shortName, href: `/industries/${ind.slug}` },
+    { name: "Home", href: "/" },
+    { name: "Industries", href: "/industries" },
+    { name: ind.shortName || ind.name, href: `/industries/${ind.slug}` },
   ];
 
   return (
@@ -106,7 +104,7 @@ export default function SingleIndustryPage({ params }) {
       <JsonLd
         data={buildWebPageSchema({
           title: `${ind.name} Solutions | OFS Group India`,
-          description: ind.summary.replace(/\n/g, ' '),
+          description: (ind.summary || "").replace(/\n/g, " "),
           path: `/industries/${ind.slug}`,
         })}
       />
@@ -121,9 +119,7 @@ export default function SingleIndustryPage({ params }) {
 
           <ScrollReveal direction="up" delay={0.1}>
             <div className="flex items-center gap-3 mb-5 flex-wrap">
-              <div className="tag-badge badge-red">
-                SECTOR FOCUS
-              </div>
+              <div className="tag-badge badge-red">SECTOR FOCUS</div>
               <div className="tag-pill pill-dark">
                 ISO 9001:2015 Assured Supply Chain
               </div>
@@ -143,7 +139,10 @@ export default function SingleIndustryPage({ params }) {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.35}>
-            <Link href="/contact" className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center">
+            <Link
+              href="/contact"
+              className="btn btn-primary btn-lg inline-flex items-center justify-center gap-2 no-underline w-full sm:w-auto text-center"
+            >
               Request Industry Consultation <ArrowUpRight size={18} />
             </Link>
           </ScrollReveal>
@@ -157,9 +156,7 @@ export default function SingleIndustryPage({ params }) {
             {/* Left Scope */}
             <ScrollReveal direction="left" delay={0.1}>
               <div>
-                <div className="tag-badge badge-red mb-4">
-                  DOMAIN OVERVIEW
-                </div>
+                <div className="tag-badge badge-red mb-4">DOMAIN OVERVIEW</div>
                 <h2 className="section-title">
                   <TextReveal tag="span" duration={0.65}>
                     Targeted Engineering &amp;
@@ -171,18 +168,29 @@ export default function SingleIndustryPage({ params }) {
                     </TextReveal>
                   </span>
                 </h2>
-                {ind.summary.split('\n').map((paragraph, i) => (
-                  <p key={i} className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-4 last:mb-8">
+                {(ind.summary || "").split("\n").map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className="text-[1.05rem] text-ofs-gray-700 leading-relaxed mb-4 last:mb-8"
+                  >
                     {paragraph}
                   </p>
                 ))}
 
                 {/* Key Solutions List */}
                 <div className="flex flex-col gap-3.5">
-                  {ind.keySolutions.map((sol, sIdx) => (
-                    <div key={sIdx} className="flex items-center gap-3 p-4 bg-ofs-navy-50/60 rounded-md border border-ofs-navy-100">
-                      <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0" />
-                      <span className="text-[0.95rem] font-bold text-ofs-navy-950">{sol}</span>
+                  {(ind.keySolutions || []).map((sol, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="flex items-center gap-3 p-4 bg-ofs-navy-50/60 rounded-md border border-ofs-navy-100"
+                    >
+                      <CheckCircle2
+                        size={18}
+                        className="text-ofs-red-600 shrink-0"
+                      />
+                      <span className="text-[0.95rem] font-bold text-ofs-navy-950">
+                        {sol}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -193,7 +201,10 @@ export default function SingleIndustryPage({ params }) {
             <ScrollReveal direction="right" delay={0.2}>
               <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-ofs-gray-200 h-[320px] sm:h-[420px] lg:h-[460px] relative">
                 <img
-                  src={ind.heroImage}
+                  src={
+                    ind.heroImage ||
+                    "/images/live/Excellence-tools-official.png"
+                  }
                   alt={`${ind.name} — OFS Group India industrial solutions`}
                   width={960}
                   height={460}
@@ -210,19 +221,29 @@ export default function SingleIndustryPage({ params }) {
           {ind.subIndustries && ind.subIndustries.length > 0 && (
             <div className="mt-16 mb-20">
               <h2 className="section-title mb-8">
-                Specialized Areas in {ind.shortName}
+                Specialized Areas in {ind.shortName || ind.name}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {ind.subIndustries.map((sub, idx) => {
                   const SubIconComp = iconMap[sub.icon] || Flame;
                   return (
-                    <ScrollReveal key={sub.id} direction="up" delay={idx * 0.1}>
-                      <Link href={`/industries/${sub.slug}`} className="block h-full group no-underline">
+                    <ScrollReveal
+                      key={sub.id || sub.slug}
+                      direction="up"
+                      delay={idx * 0.1}
+                    >
+                      <Link
+                        href={`/industries/${sub.slug}`}
+                        className="block h-full group no-underline"
+                      >
                         <div className="card-modern p-0 overflow-hidden flex flex-col justify-between shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-ofs-gray-200 hover:border-ofs-navy-300 group-hover:-translate-y-1 bg-white rounded-xl">
                           <div>
                             <div className="h-[175px] relative overflow-hidden">
                               <img
-                                src={sub.heroImage}
+                                src={
+                                  sub.heroImage ||
+                                  "/images/live/Excellence-tools-official.png"
+                                }
                                 alt={sub.name}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
@@ -236,15 +257,28 @@ export default function SingleIndustryPage({ params }) {
                                 {sub.name}
                               </h2>
                               <p className="text-xs sm:text-[0.875rem] text-ofs-gray-600 leading-relaxed mb-4">
-                                {sub.summary.replace(/\n/g, ' ').slice(0, 140)}...
+                                {(sub.summary || "")
+                                  .replace(/\n/g, " ")
+                                  .slice(0, 140)}
+                                ...
                               </p>
                               <div className="flex flex-col gap-1.5 mb-3">
-                                {sub.keySolutions?.slice(0, 3).map((sol, sIndex) => (
-                                  <div key={sIndex} className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-700">
-                                    <CheckCircle2 size={13} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                                    <span className="leading-snug">{sol}</span>
-                                  </div>
-                                ))}
+                                {(sub.keySolutions || [])
+                                  .slice(0, 3)
+                                  .map((sol, sIndex) => (
+                                    <div
+                                      key={sIndex}
+                                      className="flex items-start gap-1.5 text-[0.78rem] text-ofs-gray-700"
+                                    >
+                                      <CheckCircle2
+                                        size={13}
+                                        className="text-ofs-red-600 shrink-0 mt-0.5"
+                                      />
+                                      <span className="leading-snug">
+                                        {sol}
+                                      </span>
+                                    </div>
+                                  ))}
                               </div>
                             </div>
                           </div>
@@ -265,31 +299,40 @@ export default function SingleIndustryPage({ params }) {
           {/* Related OFS services for internal linking */}
           <div className="mt-16">
             <h2 className="section-title mb-6">
-              OFS Services for {ind.shortName}
+              OFS Services for {ind.shortName || ind.name}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {ind.customServices ? ind.customServices.map((svc, idx) => (
-                <Link
-                  key={idx}
-                  href={serviceHref(svc.slug)}
-                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex flex-col gap-2"
-                >
-                  <span className="text-ofs-navy-950 font-bold text-[1.05rem]">{svc.title}</span>
-                  <span className="text-ofs-gray-600 text-[0.85rem] font-normal leading-snug">{svc.description}</span>
-                </Link>
-              )) : whatWeOffer.services.items.slice(0, 3).map((svc) => (
-                <Link
-                  key={svc.href}
-                  href={svc.href}
-                  className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
-                >
-                  {svc.title}
-                </Link>
-              ))}
+              {ind.customServices
+                ? ind.customServices.map((svc, idx) => (
+                    <Link
+                      key={idx}
+                      href={serviceHref(svc.slug)}
+                      className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex flex-col gap-2"
+                    >
+                      <span className="text-ofs-navy-950 font-bold text-[1.05rem]">
+                        {svc.title}
+                      </span>
+                      <span className="text-ofs-gray-600 text-[0.85rem] font-normal leading-snug">
+                        {svc.description}
+                      </span>
+                    </Link>
+                  ))
+                : whatWeOffer.services.items.slice(0, 3).map((svc) => (
+                    <Link
+                      key={svc.href}
+                      href={svc.href}
+                      className="p-5 bg-ofs-navy-50/60 border border-ofs-navy-100 rounded text-ofs-navy-950 font-bold text-[0.95rem] hover:border-ofs-red-300 hover:bg-ofs-red-50/30 transition-colors flex items-center"
+                    >
+                      {svc.title}
+                    </Link>
+                  ))}
             </div>
             <p className="mt-5 text-[0.95rem] text-ofs-gray-600">
-              Need sector-specific procurement or EPC support?{' '}
-              <Link href="/contact" className="text-ofs-red-600 font-bold hover:underline">
+              Need sector-specific procurement or EPC support?{" "}
+              <Link
+                href="/contact"
+                className="text-ofs-red-600 font-bold hover:underline"
+              >
                 Contact OFS Group India for a consultation
               </Link>
               .

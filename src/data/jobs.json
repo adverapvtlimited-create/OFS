@@ -1,34 +1,5 @@
 [
   {
-    "id": "senior-procurement-manager",
-    "slug": "senior-procurement-manager",
-    "title": "Senior Procurement Manager - Marine & Heavy EPC",
-    "department": "Supply Chain & Procurement",
-    "location": "Mumbai, Maharashtra (Headquarters)",
-    "type": "Full-Time",
-    "experience": "8-12 Years",
-    "postedDate": "August 05, 2026",
-    "description": "We are seeking a seasoned Senior Procurement Manager to lead our strategic global vendor sourcing and contractual negotiations for mega EPC and marine offshore projects.",
-    "responsibilities": [
-      "Develop and execute strategic sourcing plans for API-grade piping, valves, marine equipment, and structural packages.",
-      "Lead commercial and contractual negotiations with international Tier-1 OEMs across Europe, Middle East, and Asia.",
-      "Collaborate with project directors to establish milestone-based procurement schedules and risk registers.",
-      "Manage port logistics, bonded warehouse operations, and customs clearance procedures."
-    ],
-    "requirements": [
-      "Bachelor's degree in Mechanical/Marine Engineering or Supply Chain Management; MBA is a plus.",
-      "8+ years of hands-on experience in EPC, Oil & Gas, or Marine offshore procurement.",
-      "Proven network of global supplier relationships and familiarity with INCOTERMS 2020.",
-      "Strong command of ERP systems (SAP/Oracle) and contract law."
-    ],
-    "benefits": [
-      "Competitive executive salary with performance-linked annual bonus",
-      "Comprehensive medical insurance for family and dependents",
-      "Professional development and international conference sponsorship",
-      "Executive wellness allowance and gratuity coverage"
-    ]
-  },
-  {
     "id": "qa-qc-lead-ndt-level-iii",
     "slug": "qa-qc-lead-ndt-level-iii",
     "title": "Lead QA/QC & Inspection Engineer (NDT Level III)",
@@ -84,6 +55,35 @@
       "Dedicated site accommodation and travel per diem",
       "Group health and medical insurance",
       "Fast-track leadership growth path in our expanding Renewables division"
+    ]
+  },
+  {
+    "id": "senior-procurement-manager",
+    "slug": "senior-procurement-manager",
+    "title": "Senior Procurement Manager - Marine & Heavy EPC",
+    "department": "Supply Chain & Procurement",
+    "location": "Mumbai, Maharashtra (Headquarters)",
+    "type": "Full-Time",
+    "experience": "8-12 Years",
+    "postedDate": "August 05, 2026",
+    "description": "We are seeking a seasoned Senior Procurement Manager to lead our strategic global vendor sourcing and contractual negotiations for mega EPC and marine offshore projects.",
+    "responsibilities": [
+      "Develop and execute strategic sourcing plans for API-grade piping, valves, marine equipment, and structural packages.",
+      "Lead commercial and contractual negotiations with international Tier-1 OEMs across Europe, Middle East, and Asia.",
+      "Collaborate with project directors to establish milestone-based procurement schedules and risk registers.",
+      "Manage port logistics, bonded warehouse operations, and customs clearance procedures."
+    ],
+    "requirements": [
+      "Bachelor's degree in Mechanical/Marine Engineering or Supply Chain Management; MBA is a plus.",
+      "8+ years of hands-on experience in EPC, Oil & Gas, or Marine offshore procurement.",
+      "Proven network of global supplier relationships and familiarity with INCOTERMS 2020.",
+      "Strong command of ERP systems (SAP/Oracle) and contract law."
+    ],
+    "benefits": [
+      "Competitive executive salary with performance-linked annual bonus",
+      "Comprehensive medical insurance for family and dependents",
+      "Professional development and international conference sponsorship",
+      "Executive wellness allowance and gratuity coverage"
     ]
   },
   {

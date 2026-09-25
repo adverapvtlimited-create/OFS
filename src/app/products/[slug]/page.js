@@ -12,7 +12,7 @@ import {
   ArrowUpRight,
   CheckCircle2
 } from 'lucide-react';
-import productsData from '@/data/products.json';
+import { getProducts, getProductBySlug } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Container from '@/components/ui/Container';
@@ -21,25 +21,29 @@ import JsonLd from '@/components/SEO/JsonLd';
 import { buildPageMetadata } from '@/lib/seo';
 import { buildWebPageSchema } from '@/lib/schema';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const iconMap = {
-  Wrench: Wrench,
-  Flame: Flame,
-  Settings: Settings,
-  Ship: Ship,
-  Zap: Zap,
-  Sun: Sun,
-  Anchor: Anchor,
-  ShieldCheck: ShieldCheck,
+  Wrench,
+  Flame,
+  Settings,
+  Ship,
+  Zap,
+  Sun,
+  Anchor,
+  ShieldCheck,
 };
 
 export async function generateStaticParams() {
-  return productsData.map((prod) => ({
+  const products = await getProducts();
+  return products.map((prod) => ({
     slug: prod.slug,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const prod = productsData.find((p) => p.slug === params.slug);
+  const prod = await getProductBySlug(params.slug);
   if (!prod) {
     return buildPageMetadata({
       title: 'Product Not Found | OFS Group India',
@@ -58,8 +62,8 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default function SingleProductPage({ params }) {
-  const prod = productsData.find((p) => p.slug === params.slug);
+export default async function SingleProductPage({ params }) {
+  const prod = await getProductBySlug(params.slug);
 
   if (!prod) {
     notFound();
@@ -70,7 +74,7 @@ export default function SingleProductPage({ params }) {
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
-    { name: prod.shortName, href: `/products/${prod.slug}` },
+    { name: prod.shortName || prod.name, href: `/products/${prod.slug}` },
   ];
 
   return (
@@ -150,7 +154,7 @@ export default function SingleProductPage({ params }) {
                 </p>
 
                 <div className="flex flex-col gap-3">
-                  {prod.keyPoints.map((pt, i) => (
+                  {(prod.keyPoints || []).map((pt, i) => (
                     <div key={i} className="flex items-start gap-3 bg-ofs-navy-50/80 p-3.5 rounded-xl border border-ofs-navy-100">
                       <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
                       <span className="text-sm font-semibold text-ofs-navy-950">{pt}</span>
@@ -165,7 +169,7 @@ export default function SingleProductPage({ params }) {
               <div className="card-modern p-3 overflow-hidden shadow-2xl border border-ofs-gray-200 bg-white rounded-2xl">
                 <div className="h-[360px] sm:h-[420px] relative rounded-xl overflow-hidden">
                   <img
-                    src={prod.heroImage}
+                    src={prod.heroImage || '/images/live/Excellence-tools-official.png'}
                     alt={prod.name}
                     className="w-full h-full object-cover"
                   />
@@ -185,8 +189,6 @@ export default function SingleProductPage({ params }) {
               </div>
             </ScrollReveal>
           </div>
-
-
 
           {/* Detailed Product Catalog Items */}
           {prod.catalogItems && prod.catalogItems.length > 0 && (
@@ -211,11 +213,10 @@ export default function SingleProductPage({ params }) {
                         {/* Image Container */}
                         <div className="h-56 sm:h-64 w-full rounded-xl overflow-hidden bg-gradient-to-br from-ofs-gray-50 to-ofs-navy-50/50 p-4 border border-ofs-gray-100 flex items-center justify-center relative mb-6 group-hover:scale-[1.01] transition-transform">
                           <img
-                            src={item.image}
+                            src={item.image || '/images/live/Excellence-tools-official.png'}
                             alt={item.title}
                             className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
                           />
-
                         </div>
 
                         {/* Title */}
@@ -247,7 +248,6 @@ export default function SingleProductPage({ params }) {
                       </div>
 
                       <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">
-
                         <Link
                           href="/contact"
                           className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"
@@ -261,8 +261,6 @@ export default function SingleProductPage({ params }) {
               </div>
             </div>
           )}
-
-
         </Container>
       </section>
     </>

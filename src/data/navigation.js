@@ -110,7 +110,7 @@ export const aboutNav = [
 ];
 
 export const industriesNav = industriesData.map((ind) => ({
-  title: ind.shortName,
+  title: ind.shortName || ind.name,
   href:
     ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
       ? '/renewables'

@@ -193,7 +193,7 @@ export default function ServicesGrid() {
 
                     {/* Key Capability Highlights */}
                     <div className="grid grid-cols-1 gap-2 pt-3 border-t border-ofs-gray-200 mb-5">
-                      {flagshipService.features.slice(0, 3).map((feat, fIndex) => (
+                      {(flagshipService.features || []).slice(0, 3).map((feat, fIndex) => (
                         <div
                           key={fIndex}
                           className="flex items-center gap-2 text-xs text-ofs-gray-800 font-medium"
@@ -226,8 +226,8 @@ export default function ServicesGrid() {
             </GlowCard>
           </ScrollReveal>
 
-          {/* 2. Engineering & EPC Support Card */}
-          <ScrollReveal direction="up" delay={0.16} className="lg:col-span-1">
+          {/* 2. Engineering & EPC Support Services Card */}
+          <ScrollReveal direction="up" delay={0.16}>
             <GlowCard
               glowColor="rgba(12, 30, 78, 0.15)"
               borderColor="rgba(12, 30, 78, 0.25)"

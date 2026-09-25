@@ -1,5 +1,6 @@
 {
   "indirect-procurement": {
+    "id": "indirect-procurement",
     "slug": "indirect-procurement",
     "href": "/indirect-procurement",
     "title": "Indirect Procurement",
@@ -8,13 +9,18 @@
     "heroImage": null,
     "tagline": "Harness the Power of Indirect Procurement",
     "description": "In today’s dynamic business landscape, optimising procurement strategies is vital to maintaining a competitive edge and driving growth. Indirect procurement plays a key role in enhancing operations, reducing costs, and boosting overall efficiency. It involves acquiring goods and services that are not directly involved in the production of a company’s core offerings. Often referred to as “indirect spend” or “MRO” (maintenance, repair, and operations), these purchases are essential to supporting daily business functions. At OFS, we recognise the strategic importance of indirect procurement and help businesses streamline their supply chain for maximum value.",
+    "overviewTitle": "Strategic Scope & Core Capabilities",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Facilities Offered by OFS",
         "variant": "dark",
-        "imagePosition": "right",
+        "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/facilities_offered_b2dc7503ee.png",
           "alt": "Facilities Offered by OFS"
         },
         "intro": "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
@@ -36,20 +42,15 @@
             "description": "Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
           }
         ],
-        "paragraphs": [
-          "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
-          "Commercial Warehouses: Essential infrastructure such as factories, offices, and commercial buildings that form the backbone of day-to-day operations.",
-          "Utilities: Reliable access to utilities like water and electricity is crucial for powering equipment and sustaining business activities at commercial sites.",
-          "MRO (Maintenance, Repair, and Operations): A full suite of MRO products to ensure the upkeep of buildings, machinery, and equipment, reducing downtime and enhancing productivity.",
-          "Professional Services: Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
-        ]
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "The Advantages of Indirect Procurement",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/advantages-procurement.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/advantages_procurement_40d7b2ea6f.png",
           "alt": "The Advantages of Indirect Procurement"
         },
         "intro": "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
@@ -75,27 +76,27 @@
             "description": "A well-structured indirect procurement strategy helps mitigate risks related to supply chain disruptions, market volatility, and regulatory compliance - contributing to the overall resilience and continuity of business operations."
           }
         ],
-        "paragraphs": [
-          "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
-          "Cost Reductions: Indirect procurement presents significant opportunities for savings. By leveraging economies of scale and negotiating favorable supplier contracts, businesses can substantially reduce expenses across a wide array of goods and services.",
-          "Improved Efficiency: Streamlined procurement processes help minimize administrative workload and enhance overall operational efficiency. This enables teams to shift their focus from routine tasks to more strategic, value-driven initiatives.",
-          "Enhanced Visibility and Control: Robust indirect procurement practices provide greater insight into company-wide spending patterns. Advanced data analytics and reporting capabilities support smarter decision-making and help identify areas for continuous improvement.",
-          "Stronger Vendor Relationships: Effective indirect procurement fosters strong, collaborative relationships with suppliers. Building long-term partnerships ensures reliable service delivery, better pricing, and improved supplier performance.",
-          "Risk Mitigation: A well-structured indirect procurement strategy helps mitigate risks related to supply chain disruptions, market volatility, and regulatory compliance - contributing to the overall resilience and continuity of business operations."
-        ]
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "OFS's Expertise",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, our procurement consultants bring a deep understanding of sourcing best practices combined with extensive experience in vendor management. We work closely with your team to analyze existing sourcing processes, identify areas for cost reduction, and uncover opportunities for measurable improvement. Through a strategic approach to indirect procurement, we help you streamline operations, enhance value, and drive sustainable business growth."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "Key Practices for Effective Indirect Procurement",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/key_practices_d409688ca1.png",
           "alt": "Key Practices for Effective Indirect Procurement"
         },
         "intro": "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
@@ -121,83 +122,32 @@
             "description": "Use advanced analytics to gain insights into purchasing behavior, supplier performance, and market dynamics. A data-driven approach supports smarter, more informed procurement decisions."
           }
         ],
-        "paragraphs": [
-          "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
-          "Strategic Sourcing: Analyze spending patterns to identify opportunities for supplier consolidation and bulk negotiation. This not only reduces costs but also streamlines procurement processes and enhances supplier relationships.",
-          "Supplier Diversity: Embrace a diverse supplier base to foster innovation, promote inclusivity, and access a broader range of goods and services that meet evolving business needs.",
-          "Automation & Technology: Leverage procurement software and automation tools to increase process efficiency, reduce manual errors, and enhance overall procurement accuracy and speed.",
-          "Cross-Functional Collaboration: Indirect procurement often spans multiple departments. Foster collaboration among finance, HR, IT, and other relevant teams to ensure procurement strategies align with wider business objectives.",
-          "Data-Driven Decision Making: Use advanced analytics to gain insights into purchasing behavior, supplier performance, and market dynamics. A data-driven approach supports smarter, more informed procurement decisions."
-        ]
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "OFS: Your Gateway to the Future of Indirect Procurement",
         "variant": "subtle",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/future-procurement.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/future_procurement_69b26ff8c6.png",
           "alt": "OFS: Your Gateway to the Future of Indirect Procurement"
         },
+        "intro": "",
+        "items": [],
+        "paragraphs": [
+          "At OFS, we are redefining the way businesses approach indirect procurement. With a strong commitment to quality, innovation, and personalized service, we position ourselves as your trusted partner in achieving procurement excellence.",
+          "Experience the OFS advantage and unlock untapped potential within your organization. Ready to take your procurement strategy to the next level? Connect with us today and embark on a transformative journey that will reshape how you manage indirect procurement.",
+          "Together, we’ll explore new opportunities, drive unparalleled efficiency, and elevate your business to new heights of success."
+        ],
         "buttonText": "Contact Us",
         "buttonHref": "/contact",
-        "paragraphs": [
-          "At OFS, we are redefining the way businesses approach indirect procurement. With a strong commitment to quality, innovation, and personalized service, we position ourselves as your trusted partner in achieving procurement excellence.",
-          "Experience the OFS advantage and unlock untapped potential within your organization. Ready to take your procurement strategy to the next level? Connect with us today and embark on a transformative journey that will reshape how you manage indirect procurement.",
-          "Together, we’ll explore new opportunities, drive unparalleled efficiency, and elevate your business to new heights of success."
-        ]
+        "noBullets": false
       }
-    ],
-    "sections": [
-      {
-        "title": "Facilities Offered by OFS",
-        "paragraphs": [
-          "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
-          "Commercial Warehouses: Essential infrastructure such as factories, offices, and commercial buildings that form the backbone of day-to-day operations.",
-          "Utilities: Reliable access to utilities like water and electricity is crucial for powering equipment and sustaining business activities at commercial sites.",
-          "MRO (Maintenance, Repair, and Operations): A full suite of MRO products to ensure the upkeep of buildings, machinery, and equipment, reducing downtime and enhancing productivity.",
-          "Professional Services: Access to vital business support services, including legal, accounting, and consulting expertise, to help organizations operate with compliance, accuracy, and strategic insight."
-        ]
-      },
-      {
-        "title": "The Advantages of Indirect Procurement",
-        "paragraphs": [
-          "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
-          "Cost Reductions: Indirect procurement presents significant opportunities for savings. By leveraging economies of scale and negotiating favorable supplier contracts, businesses can substantially reduce expenses across a wide array of goods and services.",
-          "Improved Efficiency: Streamlined procurement processes help minimize administrative workload and enhance overall operational efficiency. This enables teams to shift their focus from routine tasks to more strategic, value-driven initiatives.",
-          "Enhanced Visibility and Control: Robust indirect procurement practices provide greater insight into company-wide spending patterns. Advanced data analytics and reporting capabilities support smarter decision-making and help identify areas for continuous improvement.",
-          "Stronger Vendor Relationships: Effective indirect procurement fosters strong, collaborative relationships with suppliers. Building long-term partnerships ensures reliable service delivery, better pricing, and improved supplier performance.",
-          "Risk Mitigation: A well-structured indirect procurement strategy helps mitigate risks related to supply chain disruptions, market volatility, and regulatory compliance - contributing to the overall resilience and continuity of business operations."
-        ]
-      },
-      {
-        "title": "OFS's Expertise",
-        "paragraphs": [
-          "At OFS, our procurement consultants bring a deep understanding of sourcing best practices combined with extensive experience in vendor management. We work closely with your team to analyze existing sourcing processes, identify areas for cost reduction, and uncover opportunities for measurable improvement. Through a strategic approach to indirect procurement, we help you streamline operations, enhance value, and drive sustainable business growth."
-        ]
-      },
-      {
-        "title": "Key Practices for Effective Indirect Procurement",
-        "paragraphs": [
-          "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
-          "Strategic Sourcing: Analyze spending patterns to identify opportunities for supplier consolidation and bulk negotiation. This not only reduces costs but also streamlines procurement processes and enhances supplier relationships.",
-          "Supplier Diversity: Embrace a diverse supplier base to foster innovation, promote inclusivity, and access a broader range of goods and services that meet evolving business needs.",
-          "Automation & Technology: Leverage procurement software and automation tools to increase process efficiency, reduce manual errors, and enhance overall procurement accuracy and speed.",
-          "Cross-Functional Collaboration: Indirect procurement often spans multiple departments. Foster collaboration among finance, HR, IT, and other relevant teams to ensure procurement strategies align with wider business objectives.",
-          "Data-Driven Decision Making: Use advanced analytics to gain insights into purchasing behavior, supplier performance, and market dynamics. A data-driven approach supports smarter, more informed procurement decisions."
-        ]
-      },
-      {
-        "title": "OFS: Your Gateway to the Future of Indirect Procurement",
-        "paragraphs": [
-          "At OFS, we are redefining the way businesses approach indirect procurement. With a strong commitment to quality, innovation, and personalized service, we position ourselves as your trusted partner in achieving procurement excellence.",
-          "Experience the OFS advantage and unlock untapped potential within your organization. Ready to take your procurement strategy to the next level? Connect with us today and embark on a transformative journey that will reshape how you manage indirect procurement.",
-          "Together, we’ll explore new opportunities, drive unparalleled efficiency, and elevate your business to new heights of success."
-        ]
-      }
-    ],
-    "features": []
+    ]
   },
   "outsource-procurement": {
+    "id": "outsource-procurement",
     "slug": "outsource-procurement",
     "href": "/outsource-procurement",
     "title": "Outsource Procurement",
@@ -206,14 +156,40 @@
     "heroImage": null,
     "tagline": "Focus on Strategic Spending",
     "description": "Outsourced Procurement involves engaging a third-party organization to manage and deliver procurement services on your behalf. By choosing this approach, businesses gain immediate access to skilled procurement professionals with deep industry knowledge and expertise.",
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": [
+      {
+        "title": "Up to 80% Workload Reduction",
+        "description": "Dramatically cut supplier administrative overhead, invoice processing volumes, and operational cycles."
+      },
+      {
+        "title": "Immediate Domain Expertise",
+        "description": "Gain direct access to certified category managers, seasoned negotiators, and global sourcing specialists."
+      },
+      {
+        "title": "Direct & Indirect Sourcing",
+        "description": "Tailored outsourcing coverage spanning high-volume production raw materials as well as non-core indirect spend."
+      },
+      {
+        "title": "Rapid Market Agility",
+        "description": "Adapt effortlessly to shifting supply conditions, volatile prices, and dynamic project timelines."
+      },
+      {
+        "title": "Strategic Focus & Cost Control",
+        "description": "Enable internal leadership to focus on core growth while OFS secures favorable pricing and contract terms."
+      }
+    ],
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "When to Choose Outsourced Procurement?",
         "variant": "light",
-        "imagePosition": "right",
+        "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/1-11.png",
-          "alt": "When to choose outsourced procurement"
+          "src": "/images/live/one.png",
+          "alt": "When to Choose Outsourced Procurement?"
         },
         "intro": "Outsourced procurement can be a strategic solution in various scenarios. It is especially beneficial when:",
         "items": [
@@ -233,15 +209,17 @@
             "title": "Rapid Procurement Development is a Priority",
             "description": "When businesses aim to build procurement capabilities quickly to realize immediate savings, outsourcing can serve as a launchpad—providing a foundation that can be gradually transitioned to an internal function over time."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Different Types of Procurement Outsourcing",
         "variant": "dark",
-        "imagePosition": "left",
+        "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/2-11.png",
-          "alt": "Types of procurement outsourcing"
+          "src": "/images/live/seconds.png",
+          "alt": "Different Types of Procurement Outsourcing"
         },
         "intro": "Procurement outsourcing can be categorized into two main types, each serving distinct business needs:",
         "items": [
@@ -253,15 +231,17 @@
             "title": "Indirect Procurement",
             "description": "Focuses on acquiring goods and services that support day-to-day business operations but are not directly involved in the production of finished goods. These include internal services such as IT support, HR, marketing, maintenance, and logistics."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Benefits of Outsourcing Procurement",
         "variant": "light",
-        "imagePosition": "right",
+        "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/3-11.png",
-          "alt": "Benefits of outsourcing procurement"
+          "src": "/images/live/third-1.png",
+          "alt": "Benefits of Outsourcing Procurement"
         },
         "intro": "Outsourcing procurement offers a range of strategic and operational advantages for businesses looking to streamline processes and boost efficiency:",
         "items": [
@@ -285,112 +265,51 @@
             "title": "Improved Focus and Operational Efficiency",
             "description": "Delegating specific procurement tasks—like supplier identification or contract management—enables internal teams to reassess their roles and focus on key sourcing initiatives. This leads to greater efficiency and a more strategically aligned procurement function."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
-        "type": "cta",
         "title": "Allow the Experts to Handle the Procurement",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Outsourcing procurement is a powerful strategy to relieve your business from the complexities of procurement management—while boosting efficiency and sharpening strategic focus. By delegating essential tasks to seasoned professionals, you free up valuable time and resources to concentrate on your core business priorities.",
           "Whether it's securing the best pricing, mitigating fraud risks, or building a more agile and responsive procurement function, outsourcing paves the way for measurable performance improvements and cost savings.",
           "Embark on a journey toward smarter procurement. Connect with the OFS team for a complimentary consultation and discover how our expertise can help streamline your procurement processes, protect your resources, and accelerate your business success."
-        ]
-      }
-    ],
-    "sections": [
-      {
-        "title": "Strategic Procurement Optimization",
-        "paragraphs": [
-          "Outsourcing eliminates the need to build and train an internal team from scratch—saving valuable time and resources. It also ensures that procurement activities are managed efficiently and strategically, allowing internal teams to focus on core business functions while benefiting from best-in-class procurement practices."
-        ]
-      },
-      {
-        "title": "When to Choose Outsourced Procurement?",
-        "paragraphs": [
-          "Outsourced procurement can be a strategic solution in various scenarios. It is especially beneficial when:",
-          "Internal Capabilities Are Limited : When an organization lacks in-house procurement expertise but needs quick access to procurement benefits such as cost savings, supplier management, and contract oversight.",
-          "Selective Outsourcing is Needed : When internal procurement teams exist but support is required for specific categories—particularly indirect materials and services—outsourcing provides targeted expertise without overextending internal resources.",
-          "Procurement is Non-Core : When procurement is not viewed as a core or strategic function, outsourcing allows companies to focus on their primary business objectives while entrusting procurement to specialized providers.",
-          "Rapid Procurement Development is a Priority : When businesses aim to build procurement capabilities quickly to realize immediate savings, outsourcing can serve as a launchpad—providing a foundation that can be gradually transitioned to an internal function over time."
-        ]
-      },
-      {
-        "title": "Different Types of Procurement Outsourcing",
-        "paragraphs": [
-          "Procurement outsourcing can be categorized into two main types, each serving distinct business needs:",
-          "Direct Procurement : Sourcing of raw materials, components, and goods directly tied to a company’s core production processes. These purchases are often made in bulk and focus on securing the best combination of cost, quality, and reliability from a pool of trusted suppliers. Example: A manufacturing firm may outsource its direct procurement to a specialized provider capable of sourcing essential raw materials efficiently and cost-effectively to ensure continuous production.",
-          "Indirect Procurement : Focuses on acquiring goods and services that support day-to-day business operations but are not directly involved in the production of finished goods. These include internal services such as IT support, HR, marketing, maintenance, and logistics. Example: A company might outsource the procurement of office supplies, facility management, or IT services to streamline operations and reduce overhead costs."
-        ]
-      },
-      {
-        "title": "Benefits of Outsourcing Procurement",
-        "paragraphs": [
-          "Outsourcing procurement offers a range of strategic and operational advantages for businesses looking to streamline processes and boost efficiency:",
-          "Reduced Supplier and Invoice Workload : Outsourcing can dramatically reduce the time and effort required to manage suppliers and process invoices—potentially cutting this workload by up to 80%. This allows businesses to focus internal resources where they matter most.",
-          "More Time for Strategic Purchasing : By shifting routine procurement tasks to external specialists, businesses can dedicate more time and attention to high-value, strategic purchases. This is particularly beneficial for organizations that need to prioritize core operations or make swift, informed procurement decisions.",
-          "Access to Procurement Expertise : Outsourced providers bring deep knowledge in areas such as strategic sourcing, contract negotiation, and supplier relationship management. This gives companies access to high-level capabilities that might be lacking internally—without the need to build a full in-house team.",
-          "Agile Procurement Function : Outsourcing supports the development of a flexible, responsive procurement function that can quickly adapt to shifting market conditions. This agility is especially valuable in fast-changing industries where speed and adaptability are essential.",
-          "Improved Focus and Operational Efficiency : Delegating specific procurement tasks—like supplier identification or contract management—enables internal teams to reassess their roles and focus on key sourcing initiatives. This leads to greater efficiency and a more strategically aligned procurement function."
-        ]
-      },
-      {
-        "title": "Allow the Experts to Handle the Procurement",
-        "paragraphs": [
-          "Outsourcing procurement is a powerful strategy to relieve your business from the complexities of procurement management—while boosting efficiency and sharpening strategic focus. By delegating essential tasks to seasoned professionals, you free up valuable time and resources to concentrate on your core business priorities.",
-          "Whether it's securing the best pricing, mitigating fraud risks, or building a more agile and responsive procurement function, outsourcing paves the way for measurable performance improvements and cost savings.",
-          "Embark on a journey toward smarter procurement. Connect with the OFS team for a complimentary consultation and discover how our expertise can help streamline your procurement processes, protect your resources, and accelerate your business success."
-        ]
-      }
-    ],
-    "features": [
-      {
-        "title": "Up to 80% Workload Reduction",
-        "description": "Dramatically cut supplier administrative overhead, invoice processing volumes, and operational cycles."
-      },
-      {
-        "title": "Immediate Domain Expertise",
-        "description": "Gain direct access to certified category managers, seasoned negotiators, and global sourcing specialists."
-      },
-      {
-        "title": "Direct & Indirect Sourcing",
-        "description": "Tailored outsourcing coverage spanning high-volume production raw materials as well as non-core indirect spend."
-      },
-      {
-        "title": "Rapid Market Agility",
-        "description": "Adapt effortlessly to shifting supply conditions, volatile prices, and dynamic project timelines."
-      },
-      {
-        "title": "Strategic Focus & Cost Control",
-        "description": "Enable internal leadership to focus on core growth while OFS secures favorable pricing and contract terms."
+        ],
+        "noBullets": false
       }
     ]
   },
   "procurement-shipping": {
+    "id": "procurement-shipping",
     "slug": "procurement-shipping",
     "href": "/procurement-shipping",
     "title": "Procurement & Sourcing",
     "category": "services",
     "categoryLabel": "Services",
     "heroImage": null,
-    "tagline": "End-to-End Global Sourcing Solutions",
+    "tagline": "End-to-End Global Sourcing, Heavy Equipment & Precision MRO Procurement",
+    "description": "Welcome to OFS, your trusted partner in supply chain optimisation, strategic sourcing, and operational procurement outsourcing. Backed by years of heavy industrial domain experience and an established global network of 3,000+ approved manufacturers, we deliver end-to-end procurement, inspection, and logistics solutions tailored to energy, marine, and EPC operators.",
     "overviewTitle": "Enhance Your Procurement & Sourcing with OFS",
-    "description": "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing. Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement and logistics solutions tailored to the needs of industrial leaders.",
-    "overviewParagraphs": [
-      "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing.",
-      "Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement and logistics solutions tailored to the needs of industrial leaders. Our dedicated team works as an extension of your procurement department, closely collaborating with you to identify improvement opportunities, cut total costs, and enhance operational resilience."
-    ],
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "OFS's Sourcing & Procurement Expertise",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Procurement-and-shippings.jpg",
+          "src": "https://cms.ofsgroupindia.in/uploads/Procurement_and_shippings_37974b7689.jpg",
           "alt": "Procurement Expertise"
         },
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value to industrial enterprises:",
-        "noBullets": true,
         "items": [
           {
             "title": "Tail Spend Management",
@@ -408,18 +327,19 @@
             "title": "Decrease Total Cost of Ownership (TCO)",
             "description": "Looking beyond purchase price to optimize maintenance lifecycles, logistics freight, and inventory holding costs."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Structured Global Shipping & Logistics Integration",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/Excellence-tools-official.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/Excellence_tools_official_ca69d404e9.png",
           "alt": "Global Shipping and Logistics"
         },
         "intro": "Seamlessly moving mission-critical equipment from global factories directly to your plant site:",
-        "noBullets": true,
         "items": [
           {
             "title": "Global Supplier Sourcing Network",
@@ -437,11 +357,15 @@
             "title": "Real-Time Milestone Tracking",
             "description": "24/7 visibility into cargo location and status updates from factory pickup to final on-site crating."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Why Partner with OFS for Procurement & Sourcing?",
         "variant": "light",
+        "imagePosition": "right",
+        "image": null,
         "intro": "The core pillars that make OFS the premier procurement and logistics partner for industrial leaders:",
         "items": [
           {
@@ -460,21 +384,29 @@
             "title": "Ethics-Driven Partnership",
             "description": "A core commitment to transparency, open costing, anti-bribery governance (ISO 37001), and mutual success."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Leverage the Procurement Expertise of OFS Today",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Partner with OFS to unlock efficiency, lower operational risk, and drive sustainable savings across your entire procurement lifecycle.",
           "Our dedicated specialists are ready to evaluate your spend portfolio and design a bespoke procurement and shipping strategy aligned with your growth objectives."
         ],
         "buttonText": "Request a Procurement & Sourcing Consultation",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "engineering-epc-support-services": {
+    "id": "engineering-epc-support-services",
     "slug": "engineering-epc-support-services",
     "href": "/engineering-epc-support-services",
     "title": "Engineering & EPC",
@@ -482,23 +414,22 @@
     "categoryLabel": "Services",
     "heroImage": null,
     "tagline": "End-to-End Engineering Support — Onsite & Offshore",
-    "overviewTitle": "End-to-End Engineering Support — Onsite & Offshore",
     "description": "At OFS, we deliver robust engineering support, EPC oversight, technical manpower, and precision project execution across heavy industrial, marine, and energy assets globally.",
-    "overviewParagraphs": [
-      "In complex infrastructure and industrial projects, flawless engineering execution and dependable technical oversight are critical to preventing cost overruns and delays.",
-      "At OFS, we provide comprehensive engineering and EPC support services across the full project lifecycle—from detailed design review and procurement expediting to on-site certified technical manpower deployment and commissioning."
-    ],
+    "overviewTitle": "End-to-End Engineering Support — Onsite & Offshore",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "End-to-End Engineering Capabilities",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Engg-e1751278356951.jpg",
+          "src": "https://cms.ofsgroupindia.in/uploads/Engg_e1751278356951_4cbafa9b6e.jpg",
           "alt": "Engineering Support"
         },
         "intro": "Our multidisciplinary engineering teams deliver high-impact technical solutions across demanding industrial sectors:",
-        "noBullets": true,
         "items": [
           {
             "title": "Project Engineering & Technical Oversight",
@@ -520,18 +451,21 @@
             "title": "Pre-Commissioning & Handover Support",
             "description": "Structured testing, punch-list clearance, hydrostatic verification, and handover documentation packs."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "buttonText": "null",
+        "buttonHref": "null",
+        "noBullets": true
       },
       {
         "title": "Your Trusted Partner in High-Impact Technical Solutions",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/engineering-sunset.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/engineering_sunset_5321d1b3c9.png",
           "alt": "High-Impact Technical Solutions"
         },
         "intro": "Why global asset owners and EPC operators rely on OFS Engineering:",
-        "noBullets": true,
         "items": [
           {
             "title": "Multi-Discipline Engineering Excellence",
@@ -549,29 +483,42 @@
             "title": "Rapid Mobilisation Capabilities",
             "description": "Ability to deploy experienced engineering personnel and equipment to remote operating sites worldwide on short notice."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Global Brand Assurance & Engineering Governance",
         "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, engineering integrity is backed by robust quality frameworks and verified technical standards.",
           "Every engineering package, technical inspection, and material verification is conducted with complete traceability—guaranteeing that your industrial assets operate safely, reliably, and efficiently for years."
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Connect with OFS Engineering Today",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Partner with OFS to execute your high-impact engineering projects with precision, safety, and compliance.",
           "Our senior engineering consultants are ready to discuss your project requirements and design tailored technical solutions."
         ],
         "buttonText": "Discuss Your Engineering Project",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "spare-parts-procurement": {
+    "id": "spare-parts-procurement",
     "slug": "spare-parts-procurement",
     "href": "/spare-parts-procurement",
     "title": "Spare Parts Procurement",
@@ -579,23 +526,22 @@
     "categoryLabel": "Services",
     "heroImage": null,
     "tagline": "Proactive Sourcing to Eliminate Unplanned Plant Downtime",
+    "description": "In industrial and engineering sectors, the seamless availability of spare parts is critical to maintaining continuous operations and avoiding costly downtime. At OFS, we specialize in end-to-end spare parts procurement, obsolete component cross-referencing, and emergency expediting.",
     "overviewTitle": "Spare Parts Procurement and International Logistics",
-    "description": "In industrial and engineering sectors, the seamless availability of spare parts is critical to maintaining continuous operations and avoiding costly downtime. At OFS, we specialize in end-to-end spare parts procurement and international logistics.",
-    "overviewParagraphs": [
-      "In industrial and engineering sectors, the seamless availability of spare parts is critical to maintaining continuous operations and avoiding costly downtime.",
-      "At OFS, we specialize in end-to-end spare parts procurement and international logistics. Backed by direct OEM partnerships, engineering cross-referencing capabilities, and rapid global expediting, we ensure your plant never stops."
-    ],
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Our Spare Parts Procurement Strategy",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/spare-parts-strategy-photo.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_strategy_photo_0fd56f7120.png",
           "alt": "Spare Parts Strategy"
         },
         "intro": "A systematic approach to eliminate component shortages and prevent plant shutdowns:",
-        "noBullets": true,
         "items": [
           {
             "title": "Genuine OEM & Equivalent Sourcing",
@@ -613,18 +559,19 @@
             "title": "Rapid Emergency Expediting",
             "description": "Fast-track hot-shot air freight and dedicated customs clearance protocols for emergency breakdown situations."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "How OFS Supports You in Spare Parts Procurement",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/spare-parts-support-photo.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_support_photo_d20f956dbb.png",
           "alt": "OFS Spare Parts Support"
         },
         "intro": "End-to-end commercial and technical support for plant maintenance and operations:",
-        "noBullets": true,
         "items": [
           {
             "title": "Single-Point Procurement Channel",
@@ -642,29 +589,41 @@
             "title": "Dedicated Technical Account Management",
             "description": "Experienced commercial engineers who understand parts manuals, exploded diagrams, and plant equipment nomenclature."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Spare Parts Availability That Drives Productivity",
         "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
-          "Unplanned downtime can cost industrial facilities tens of thousands of dollars per hour. Having a reliable, proactive spare parts supply partner is your greatest insurance against production losses.",
-          "OFS provides guaranteed response times, complete pricing transparency, and robust warranty backing on every industrial spare part supplied."
-        ]
+          "Unplanned downtime can cost industrial facilities tens of thousands of dollars per hour. OFS provides guaranteed response times, complete pricing transparency, and robust warranty backing on every industrial spare part supplied."
+        ],
+        "noBullets": true
       },
       {
         "title": "Request Spares Support Today",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Let OFS take the stress out of your industrial spare parts procurement.",
           "Send us your parts list or equipment model numbers today to receive a comprehensive, competitive proposal with guaranteed delivery timelines."
         ],
         "buttonText": "Submit Parts Inquiry",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "logistics-shipping": {
+    "id": "logistics-shipping",
     "slug": "logistics-shipping",
     "href": "/logistics-shipping",
     "title": "Logistics & Shipping Coordination",
@@ -672,23 +631,22 @@
     "categoryLabel": "Services",
     "heroImage": null,
     "tagline": "Reliable Freight, Customs & Industrial Supply Chain Support",
-    "overviewTitle": "Industrial Logistics & Shipping Services by OFS",
     "description": "At OFS, we provide coordinated logistics and shipping support designed to strengthen industrial procurement and project supply chains from supplier to site. From international freight coordination and customs documentation to project cargo movement, warehousing, and final delivery, we help ensure critical equipment, machinery, and spare parts reach their destination safely, efficiently, and on schedule.",
-    "overviewParagraphs": [
-      "At OFS, we provide coordinated logistics and shipping support designed to strengthen industrial procurement and project supply chains from supplier to site.",
-      "From international freight coordination and customs documentation to project cargo movement, warehousing, and final delivery, we help ensure critical equipment, machinery, and spare parts reach their destination safely, efficiently, and on schedule."
-    ],
+    "overviewTitle": "Industrial Logistics & Shipping Services by OFS",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Comprehensive Logistics & Shipping Support Services",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/Logistics-and-shippings.jpg",
+          "src": "https://cms.ofsgroupindia.in/uploads/Logistics_and_shippings_f1417e19a5.jpg",
           "alt": "Logistics & Shipping Support Services"
         },
         "intro": "Reliable freight and multi-modal logistics support tailored for industrial and engineering requirements:",
-        "noBullets": true,
         "items": [
           {
             "title": "Ocean & Air Freight Coordination",
@@ -706,18 +664,19 @@
             "title": "Special Cargo & Compliance Support",
             "description": "Coordination of handling and transportation requirements for sensitive, regulated, and special-category industrial materials through qualified logistics partners."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Logistics & Supply Chain Integration",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/logistics-integration-photo.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/logistics_integration_photo_f386a68ed9.png",
           "alt": "Supply Chain Integration"
         },
         "intro": "Connecting procurement, suppliers, transportation, warehousing, and project sites for efficient material flow:",
-        "noBullets": true,
         "items": [
           {
             "title": "End-to-End Shipment Visibility",
@@ -735,21 +694,29 @@
             "title": "Route Planning & Contingency Support",
             "description": "Planning alternative transportation routes and logistics solutions to address port congestion, delays, regulatory issues, and other supply-chain disruptions."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Get Logistics & Shipping Support Today",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Partner with OFS for dependable logistics coordination supporting industrial procurement, engineering, EPC, and project requirements.",
           "Contact our team to discuss your shipment requirements, transportation needs, customs coordination, or project logistics requirements."
         ],
         "buttonText": "Request Logistics Support",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "quality-control": {
+    "id": "quality-control",
     "slug": "quality-control",
     "href": "/quality-control",
     "title": "Quality Control",
@@ -757,23 +724,22 @@
     "categoryLabel": "Services",
     "heroImage": null,
     "tagline": "Ensuring Excellence, Precision & Rigorous Quality Assurance",
-    "overviewTitle": "Quality Control & Assurance by OFS",
     "description": "At OFS, quality is embedded at every stage of the procurement and manufacturing lifecycle. We implement rigorous Quality Management Systems (QMS), comprehensive testing, and non-destructive examination (NDT) to ensure zero defect tolerance.",
-    "overviewParagraphs": [
-      "In heavy industrial, energy, and marine engineering, product quality is non-negotiable. Material failures or out-of-tolerance components cause catastrophic delays and safety hazards.",
-      "At OFS, we enforce a comprehensive Quality Control framework spanning raw material chemical verification, precision dimensional metrology, certified non-destructive testing (NDT), and complete EN 10204 3.1/3.2 traceability."
-    ],
+    "overviewTitle": "Quality Control & Assurance by OFS",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Our Quality Assurance Framework",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/facilities-offered.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/facilities_offered_778d28909d.png",
           "alt": "Quality Assurance Framework"
         },
         "intro": "How OFS guarantees zero-defect deliveries across every project:",
-        "noBullets": true,
         "items": [
           {
             "title": "Inspection and Testing Protocols",
@@ -791,18 +757,19 @@
             "title": "Third-Party Inspection (TPI) Coordination",
             "description": "Seamless coordination with premier international inspection agencies (BV, DNV, Lloyd's Register, TUV, SGS) for client witness testing."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Testing Capabilities & Global Standards",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/key-practices.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/key_practices_60e12f3320.png",
           "alt": "Testing Capabilities"
         },
         "intro": "Comprehensive laboratory and on-site testing capabilities:",
-        "noBullets": true,
         "items": [
           {
             "title": "Non-Destructive Testing (NDT)",
@@ -820,22 +787,30 @@
             "title": "Complete Documentation Packs",
             "description": "Furnishing Mill Test Certificates (MTC), Inspection Release Notes (IRN), Coating Reports, and Certificates of Conformity (CoC) with every shipment."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Why Partner with OFS for Quality Control?",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Zero-Defect Commitment: Delivering parts and assemblies that meet or exceed project specifications every single time.",
           "Complete Traceability: Full documentation pack according to EN 10204 3.1 / 3.2, Inspection Release Notes (IRN), and Certificate of Conformity (CoC).",
           "Global Compliance: Ensuring vendor compliance across international jurisdictions, marine classifications, and hazardous location standards."
         ],
         "buttonText": "Schedule a Quality Consultation",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "supply-chain-management": {
+    "id": "supply-chain-management",
     "slug": "supply-chain-management",
     "href": "/supply-chain-management",
     "title": "Supply Chain Management",
@@ -843,23 +818,22 @@
     "categoryLabel": "Services",
     "heroImage": null,
     "tagline": "End-to-End Supply Chain Optimization, Resilience & Transparency",
-    "overviewTitle": "Comprehensive Supply Chain Management Solutions by OFS",
     "description": "In today's complex industrial landscape, supply chain resilience is essential for operational continuity. OFS delivers integrated supply chain management solutions—from supplier diversification and strategic sourcing to inventory buffer management and predictive risk mitigation.",
-    "overviewParagraphs": [
-      "In today's complex industrial landscape, supply chain resilience is essential for operational continuity.",
-      "OFS delivers integrated supply chain management solutions—from supplier diversification and strategic sourcing to inventory buffer management, freight forwarding, and predictive risk mitigation."
-    ],
+    "overviewTitle": "Comprehensive Supply Chain Management Solutions by OFS",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Supply Chain Process, Planning & Strategies",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/supply-chain-planning-photo.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/supply_chain_planning_photo_08df1e40de.png",
           "alt": "Supply Chain Process"
         },
         "intro": "Core strategic pillars to match product supply with dynamic customer demand:",
-        "noBullets": true,
         "items": [
           {
             "title": "Reduce Inventory Expenses",
@@ -877,18 +851,19 @@
             "title": "Dynamic Pricing & Demand Planning",
             "description": "Deploying forecasting software to anticipate market fluctuations and secure optimal volume pricing."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Overcoming Supply Chain Challenges & Solutions",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/supply-chain-challenges-photo.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/supply_chain_challenges_photo_e6a0599fa3.png",
           "alt": "Supply Chain Solutions"
         },
         "intro": "How OFS actively resolves the most pressing supply chain hurdles:",
-        "noBullets": true,
         "items": [
           {
             "title": "Price Variations & Costing",
@@ -906,11 +881,17 @@
             "title": "Transparent Operational Visibility",
             "description": "Real-time shipment milestone reporting providing actionable insights to keep all stakeholders aligned."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Benefits of OFS Supply Chain Management Services",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "PROVIDE A UNIQUE CLIENT EXPERIENCE: Adopt clever automation to resolve disturbances and increase dependability.",
           "INCREASE YOUR AGILITY AND VISIBILITY: Create robust and long-lasting supply chains that improve transparency, productivity, and minimise IT complexity and costs.",
@@ -918,114 +899,33 @@
           "UTILISE DATA AND AUTOMATION TO IMPROVE COST AND SERVICE EFFICIENCY: Use the competitive benefits of data-driven decision-making to transform corporate operations."
         ],
         "buttonText": "Optimize Your Supply Chain Today",
-        "buttonHref": "/contact"
-      }
-    ]
-  },
-  "warehouse": {
-    "slug": "warehouse",
-    "href": "/warehouse",
-    "title": "Warehouse",
-    "category": "services",
-    "categoryLabel": "Services",
-    "heroImage": null,
-    "tagline": "State-of-the-Art Industrial Warehousing, Storage & Value-Added Services",
-    "overviewTitle": "Welcome to OFS Warehouse Solutions",
-    "description": "Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency. Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level.",
-    "overviewParagraphs": [
-      "Welcome to OFS Warehouse Solutions. Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency.",
-      "Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level—from raw material staging to finished goods distribution."
-    ],
-    "blocks": [
-      {
-        "title": "Our Warehouse Services",
-        "variant": "light",
-        "imagePosition": "left",
-        "image": {
-          "src": "/images/live/our-warehouse-services-photo.png",
-          "alt": "Our Warehouse Services"
-        },
-        "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
-        "noBullets": true,
-        "items": [
-          {
-            "title": "Storage & Warehousing",
-            "description": "Our flexible facilities support a variety of storage options—including rack, bulk, temperature-controlled, and specialized storage—designed to handle goods of all sizes."
-          },
-          {
-            "title": "Real-Time Inventory Tracking",
-            "description": "With our advanced tracking systems, you gain 24/7 visibility into your stock movements, enabling smarter decision-making and supply chain efficiency."
-          },
-          {
-            "title": "Order Fulfilment",
-            "description": "We ensure accurate and timely order processing, reducing lead times and consistently meeting delivery commitments—enhancing your customer satisfaction."
-          },
-          {
-            "title": "Value-Added Services",
-            "description": "In addition to standard storage, we offer labelling, repackaging, quality checks, kitting, and preservation coating—adding efficiency and value to your operations."
-          }
-        ]
-      },
-      {
-        "title": "Why Choose OFS for Warehouse Solutions?",
-        "variant": "light",
-        "imagePosition": "right",
-        "image": {
-          "src": "/images/live/Procurement-and-shippings.jpg",
-          "alt": "Why Choose OFS Warehouse"
-        },
-        "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
-        "noBullets": true,
-        "items": [
-          {
-            "title": "Process Industry Domain Expertise",
-            "description": "Deep experience handling raw materials, hazardous supplies, valves, piping, electrical components, and heavy engineering goods."
-          },
-          {
-            "title": "Advanced Secure Infrastructure",
-            "description": "Featuring climate control, 24/7 CCTV surveillance, fire suppression, overhead gantry cranes, and heavy-duty racking systems."
-          },
-          {
-            "title": "Efficient Inventory Control",
-            "description": "Real-time barcoding and RFID tracking to prevent stockouts, overstocking, and material obsolescence."
-          },
-          {
-            "title": "Customised Logistics Integration",
-            "description": "Seamless integration with multi-modal transport networks for rapid in-country and international dispatch."
-          }
-        ]
-      },
-      {
-        "title": "Experience Outstanding Customer Service and Collaboration",
-        "variant": "dark",
-        "paragraphs": [
-          "Dedicated Support: Our experienced team provides continuous assistance to keep your warehouse operations running smoothly—whether it's technical help, solution upgrades, or day-to-day queries.",
-          "Continuous Improvement: We foster a culture of innovation and refinement. As your partner, we actively monitor performance and identify opportunities to improve efficiency and reduce costs.",
-          "Transparency & Communication: We believe in open, honest communication. You'll always be informed with relevant updates, KPIs, and performance insights—so you clearly see the value we deliver."
-        ],
-        "buttonText": "Inquire About Warehouse Space",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "global-mro-procurement-excellence": {
+    "id": "global-mro-procurement-excellence",
     "slug": "global-mro-procurement-excellence",
     "href": "/global-mro-procurement-excellence",
     "title": "Global MRO Procurement Excellence",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": "/images/live/global-mro-hero.png",
+    "heroImage": "https://cms.ofsgroupindia.in/uploads/global_mro_hero_d3fdbd92c3.png",
     "tagline": "Elevate Your Operations with Global MRO Procurement Excellence",
     "description": "In today’s fast-paced business environment, efficiency isn’t optional—it’s essential. That’s where OFS comes in. We’re not just streamlining MRO (Maintenance, Repair, and Operations) procurement—we’re redefining it. Powered by a global network of trusted suppliers, cutting-edge technology, and a commitment to cost optimisation, OFS delivers smarter, faster, and more strategic procurement solutions.",
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Why Choose OFS for Global MRO Procurement?",
         "variant": "dark",
         "imagePosition": "right",
-        "image": {
-          "src": "/images/live/global-mro-block0.png",
-          "alt": "Global MRO procurement warehouse operations"
-        },
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Global Reach & Product Variety",
@@ -1047,16 +947,20 @@
             "title": "Data-Driven Insights",
             "description": "Enhance your MRO strategy with actionable analytics that support accurate demand forecasting, smarter inventory control, and informed decision-making."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false,
+        "hasSubscribeForm": false
       },
       {
         "title": "Our Approach to Global MRO Procurement",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/global-mro-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/global_mro_block1_052578799a.png",
           "alt": "MRO procurement specialist working in a warehouse"
         },
+        "intro": "",
         "items": [
           {
             "title": "Tailored Procurement Solutions",
@@ -1078,37 +982,34 @@
             "title": "Commitment to Continuous Improvement",
             "description": "We proactively identify opportunities for optimisation, adapting to market trends and evolving client needs to drive long-term success."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false,
+        "hasSubscribeForm": false
       },
       {
         "title": "Discover the OFS Advantage",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/global-mro-block2.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/global_mro_block2_f8dcdca296.png",
           "alt": "OFS industrial procurement facility"
         },
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Join the ranks of successful business leaders who have leveraged One-Off Payments and other specialised services from OFS. Connect with us today to explore how we can help reduce your financial risks and elevate your procurement capabilities.",
           "With OFS as your MRO procurement outsourcing partner, you can confidently navigate the complexities of global procurement—while staying focused on your core business objectives.",
           "Let us help transform your supply chain financing strategy. Contact OFS today and take the first step toward a more efficient, secure, and prosperous future for your business."
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "What can be expected",
         "variant": "dark",
-        "paragraphs": [
-          "Global supplier network: Access diverse products through our global supplier network.",
-          "Tailored strategies: Optimise costs with tailored strategies and quality control.",
-          "Easy procurement: Efficient procurement made easy with our user-friendly platform.",
-          "Automated processes: Automate processes for streamlined and productive procurement.",
-          "Data-driven strategy: Empower your strategy with data-driven insights.",
-          "Demand forecasting: Forecast demand, plan strategically, and manage inventory effectively.",
-          "Worldwide products: Our global network brings a world of products to your doorstep.",
-          "Cost-effective sourcing: Cost-effective procurement strategies customised for your success.",
-          "Automation solutions: Simplify your procurement process with our automation solutions.",
-          "Informed decisions: Data-driven insights for informed and efficient decision-making."
-        ],
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Global supplier network",
@@ -1150,25 +1051,16 @@
             "title": "Informed decisions",
             "description": "Data-driven insights for informed and efficient decision-making."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Broad Advantages",
         "variant": "light",
-        "paragraphs": [
-          "Lower purchase costs: Boost profitability with lower purchase costs and overhead.",
-          "Operational efficiency: Efficiency gains lead to uninterrupted operations.",
-          "Reliable quality: Ensure high-quality supplies and trustworthiness.",
-          "Risk management: Proactively manage risks for business continuity.",
-          "Increased profits: Increase profits through lower costs.",
-          "Continuous operations: Effortless procedures for continuous operations.",
-          "Sustained performance: Reliable supplies for sustained performance.",
-          "Business continuity: Control risks for uninterrupted business.",
-          "Higher profits: Lower costs, higher profits.",
-          "Seamless operations: Efficiency for seamless operations.",
-          "Trustworthy performance: Reliable supplies, trustworthy performance.",
-          "Proactive risk control: Proactive risk management for business continuity."
-        ],
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Lower purchase costs",
@@ -1218,12 +1110,14 @@
             "title": "Proactive risk control",
             "description": "Proactive risk management for business continuity."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       }
-    ],
-    "features": []
+    ]
   },
   "inventory-planning-optimisation": {
+    "id": "inventory-planning-optimisation",
     "slug": "inventory-planning-optimisation",
     "href": "/inventory-planning-optimisation",
     "title": "Inventory Planning & Optimisation",
@@ -1231,23 +1125,22 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Inventory Planning & Optimisation Solutions by OFS",
-    "overviewTitle": "Inventory Planning & Optimisation Solutions by OFS",
     "description": "Welcome to OFS, where we specialize in customized Inventory Planning & Optimisation Solutions designed to elevate your business's supply chain performance. Our comprehensive approach blends cutting-edge technology, industry expertise, and tailored strategies to ensure your inventory levels are always aligned with demand.",
-    "overviewParagraphs": [
-      "Welcome to OFS, where we specialize in customized Inventory Planning & Optimisation Solutions designed to elevate your business's supply chain performance.",
-      "Our comprehensive approach blends cutting-edge technology, industry expertise, and tailored strategies to ensure your inventory levels are always aligned with demand—reducing holding costs while eliminating stockout risks."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Why Choose OFS for Inventory Optimisation?",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/inventory-opt-block0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/inventory_opt_block0_79b6c4d515.png",
           "alt": "Why Choose OFS for Inventory Optimisation"
         },
         "intro": "Effective inventory planning is essential for operational resilience and cost control. At OFS, we empower industrial leaders with precision forecasting and lean stocking:",
-        "noBullets": true,
         "items": [
           {
             "title": "Tailored Strategy Development",
@@ -1269,18 +1162,19 @@
             "title": "Obsolescence & Risk Prevention",
             "description": "Automated safety stock adjustments and dynamic reorder points that prevent dead stock accumulation."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Support and Implementation",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/inventory-opt-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/inventory_opt_block1_26c639ec75.png",
           "alt": "Support and Implementation"
         },
         "intro": "We don't just recommend strategies; we guide you through every stage of implementation to ensure long-term success:",
-        "noBullets": true,
         "items": [
           {
             "title": "Comprehensive Workflow Assessment",
@@ -1298,18 +1192,32 @@
             "title": "Periodic Optimization Reviews",
             "description": "Regular quarterly check-ins and parameter calibrations to capture ongoing cost savings."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false,
+        "hasSubscribeForm": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1317,10 +1225,16 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": false,
+        "hasSubscribeForm": false
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1343,12 +1257,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Request Inventory Audit",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "master-data-management": {
+    "id": "master-data-management",
     "slug": "master-data-management",
     "href": "/master-data-management",
     "title": "Master Data Management",
@@ -1356,23 +1273,22 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Elevate Your Business's Data with Ease",
-    "overviewTitle": "Master Data Management (MDM) by OFS",
     "description": "Unlock actionable insights, eliminate duplication, and achieve complete procurement governance with OFS Master Data Management (MDM) solutions tailored for complex industrial operations.",
-    "overviewParagraphs": [
-      "Master Data Management (MDM) is the discipline of creating a single, authoritative source of truth for all critical business data—including parts catalogs, vendor masters, asset hierarchies, and spend classifications.",
-      "At OFS, we transform cluttered, inconsistent legacy databases into standardized, high-integrity master data assets that drive procurement automation, prevent duplicate purchases, and enhance ERP reliability."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "How OFS MDM Operates",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/mdm-block0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/mdm_block0_51caed005f.png",
           "alt": "How OFS MDM Operates"
         },
         "intro": "Our structured MDM methodology ensures complete data accuracy, compliance, and taxonomy standardization:",
-        "noBullets": true,
         "items": [
           {
             "title": "Data Cleansing & Deduplication",
@@ -1386,18 +1302,19 @@
             "title": "Vendor Master Rationalization",
             "description": "Consolidating duplicate supplier entries, updating tax/compliance credentials, and establishing parent-child hierarchy."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "The OFS Advantage: How We Bring MDM to Life",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/mdm-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/mdm_block1_09eb8cce5b.png",
           "alt": "The OFS Advantage"
         },
         "intro": "Why global industrial enterprises choose OFS for end-to-end Master Data governance:",
-        "noBullets": true,
         "items": [
           {
             "title": "Deep Industrial Domain Expertise",
@@ -1415,18 +1332,31 @@
             "title": "Measurable Cost Savings",
             "description": "Direct savings achieved by discovering hidden inventory across sites and leveraging volume aggregation."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1434,10 +1364,15 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1460,12 +1395,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Start Your MDM Consultation",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "mro-supply": {
+    "id": "mro-supply",
     "slug": "mro-supply",
     "href": "/mro-supply",
     "title": "MRO Supply",
@@ -1473,23 +1411,22 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Your One-Stop Solution for Maximising Efficiency and Minimising Downtime",
-    "overviewTitle": "Your One-Stop Solution for Maximising Efficiency and Minimising Downtime",
     "description": "At OFS, we supply industrial facilities with mission-critical maintenance, repair, and operating supplies with guaranteed authenticity, rapid lead times, and transparent pricing.",
-    "overviewParagraphs": [
-      "In fast-paced industrial environments, unplanned equipment failure directly threatens productivity and profitability. Sourcing dependable MRO supplies shouldn't be a constant struggle.",
-      "At OFS, we provide a unified MRO supply ecosystem that consolidates thousands of indirect suppliers into a single, high-performing procurement channel."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Why OFS for Your MRO Needs?",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/mro-supply-block0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/mro_supply_block0_87520a0f45.png",
           "alt": "Why OFS for Your MRO Needs"
         },
         "intro": "How OFS eliminates the operational headaches of fragmented indirect maintenance sourcing:",
-        "noBullets": true,
         "items": [
           {
             "title": "Single-Source Procurement",
@@ -1507,18 +1444,19 @@
             "title": "Volume-Based Cost Reductions",
             "description": "Leveraging global group purchasing volume to secure tier-1 commercial rates on standard MRO items."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "OFS's MRO Supply Solution: What You Get",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/mro-supply-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/mro_supply_block1_cde84f1178.png",
           "alt": "OFS MRO Supply Solution"
         },
         "intro": "Our comprehensive delivery model covers the full breadth of industrial facility requirements:",
-        "noBullets": true,
         "items": [
           {
             "title": "Consolidated Monthly Invoicing",
@@ -1536,18 +1474,31 @@
             "title": "Pan-India & Global Distribution",
             "description": "Multi-modal logistics ensuring reliable delivery to remote refinery sites, offshore rigs, and manufacturing hubs."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1555,10 +1506,15 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1581,12 +1537,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Consolidate Your MRO Supplies",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "plant-maintenance-mro-spare-parts-management": {
+    "id": "plant-maintenance-mro-spare-parts-management",
     "slug": "plant-maintenance-mro-spare-parts-management",
     "href": "/plant-maintenance-mro-spare-parts-management",
     "title": "Plant Maintenance & MRO Spare Parts Management",
@@ -1594,23 +1553,22 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Enhancing Plant Maintenance and MRO Spare Parts Management with OFS",
-    "overviewTitle": "Enhancing Plant Maintenance and MRO Spare Parts Management with OFS",
     "description": "OFS integrates proactive plant maintenance planning with structured spare parts management to maximize asset lifespan, avoid emergency shutdowns, and stabilize operating budgets.",
-    "overviewParagraphs": [
-      "Industrial plants operate under demanding conditions where component wear is inevitable. Maintaining equipment reliability while controlling spare parts holding costs requires a balanced, systematic strategy.",
-      "At OFS, we help facility managers and maintenance directors align spare parts staging with preventive maintenance schedules—guaranteeing that the right part is in the right place before a maintenance shutdown begins."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Recognising the Value & Overcoming Challenges",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/plant-maint-block0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/plant_maint_block0_8cdbb0b6e1.png",
           "alt": "Plant Maintenance Challenges"
         },
         "intro": "Key obstacles plant managers face and how OFS systematically resolves them:",
-        "noBullets": true,
         "items": [
           {
             "title": "Criticality Matrix Analysis",
@@ -1628,18 +1586,19 @@
             "title": "Storeroom Organization & Audits",
             "description": "Eliminating duplicate part numbers, physical bin mismatches, and deteriorated inventory in onsite stores."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "How OFS Transforms Plant Maintenance",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/plant-maint-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/plant_maint_block1_8855119ba7.png",
           "alt": "Transforming Plant Maintenance"
         },
         "intro": "Our integrated service offerings for refinery, petrochemical, and heavy manufacturing facilities:",
-        "noBullets": true,
         "items": [
           {
             "title": "Shutdown & Turnaround Sourcing",
@@ -1657,18 +1616,31 @@
             "title": "Total Cost of Maintenance Reduction",
             "description": "Optimizing mean time between failures (MTBF) and lowering overall asset lifecycle maintenance expenses."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1676,10 +1648,15 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1702,12 +1679,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Schedule a Maintenance Review",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "spare-parts-availability": {
+    "id": "spare-parts-availability",
     "slug": "spare-parts-availability",
     "href": "/spare-parts-availability",
     "title": "Spare Parts Availability",
@@ -1715,27 +1695,26 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Elevating Industrial Efficiency Through Spare Parts Availability",
-    "overviewTitle": "Elevating Industrial Efficiency Through Spare Parts Availability",
     "description": "Ensure your production never stops. OFS establishes proactive inventory buffers, OEM vendor agreements, and rapid-dispatch logistics so critical spare parts are always available when you need them.",
-    "overviewParagraphs": [
-      "In mission-critical industries, waiting weeks for a replacement valve, bearing, or seal can result in catastrophic production losses. Availability is the true benchmark of supply chain performance.",
-      "OFS designs robust spare parts availability models backed by global sourcing hubs, manufacturer partnerships, and predictive lead-time algorithms."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Advantages of Choosing OFS",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/spare-parts-block0.png",
-          "alt": "Advantages of Choosing OFS"
+          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_block0_cfc80d3751.png",
+          "alt": "spare-parts-block"
         },
         "intro": "Why leading operators trust OFS for uninterrupted parts availability:",
-        "noBullets": true,
         "items": [
           {
             "title": "Guaranteed Sourcing Speed",
-            "description": "Rapid turnaround on urgent enquiries with pre-established vendor pipelines across North America, Europe, and Asia."
+            "description": "Rapid turnaround on urgent RFQs with pre-established vendor pipelines across North America, Europe, and Asia."
           },
           {
             "title": "Verified Global Vendor Network",
@@ -1749,18 +1728,19 @@
             "title": "Strategic Inventory Buffers",
             "description": "Dedicated buffer stock held in bonded and regional warehouses for rapid same-day or next-day dispatch."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Optimising Spare Parts Management & Resilience",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/spare-parts-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_block1_e9cef98b92.png",
           "alt": "Optimising Spare Parts Management"
         },
         "intro": "Structured methodologies to safeguard industrial production continuity:",
-        "noBullets": true,
         "items": [
           {
             "title": "Critical Spares Identification",
@@ -1778,18 +1758,31 @@
             "title": "Shared-Risk Collaborative Model",
             "description": "Working as an invested partner to ensure your plant runs continuously with transparent communication."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1797,10 +1790,15 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1823,12 +1821,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Ensure Spares Availability",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "strategic-sourcing-mro-data-enrichment": {
+    "id": "strategic-sourcing-mro-data-enrichment",
     "slug": "strategic-sourcing-mro-data-enrichment",
     "href": "/strategic-sourcing-mro-data-enrichment",
     "title": "Strategic Sourcing & MRO Data Enrichment",
@@ -1836,23 +1837,22 @@
     "categoryLabel": "Solutions",
     "heroImage": null,
     "tagline": "Strategic Sourcing & MRO Data Enrichment Solutions",
-    "overviewTitle": "Strategic Sourcing & MRO Data Enrichment Solutions",
     "description": "Transform unstandardized parts catalogs into clean, enriched, UNSPSC-classified master data combined with strategic supplier negotiations to drive measurable savings.",
-    "overviewParagraphs": [
-      "Incomplete part descriptions, missing manufacturer specifications, and fragmented supplier bases prevent procurement teams from negotiating effective volume contracts.",
-      "OFS delivers an integrated solution combining technical data cleansing with aggressive strategic sourcing—unlocking transparency and driving double-digit procurement savings."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Overcoming the Challenges of Sourcing Perfection",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/strategic-sourcing-block0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/strategic_sourcing_block0_6ef4f497df.png",
           "alt": "Challenges of Sourcing"
         },
         "intro": "Eliminating common inefficiencies in industrial procurement pipelines:",
-        "noBullets": true,
         "items": [
           {
             "title": "Supplier Base Fragmentation",
@@ -1870,18 +1870,19 @@
             "title": "Direct Sourcing Channels",
             "description": "Bypassing unnecessary intermediaries to buy directly from primary manufacturers and master distributors."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Finding Reliable Sources & Specialized Services",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/strategic-sourcing-block1.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/strategic_sourcing_block1_49fcee5140.png",
           "alt": "Reliable Sourcing Services"
         },
         "intro": "Our comprehensive suite of data enrichment and sourcing capabilities:",
-        "noBullets": true,
         "items": [
           {
             "title": "Catalog Standardization & UNSPSC Coding",
@@ -1899,18 +1900,31 @@
             "title": "Contract Renegotiation & SLA Setup",
             "description": "Drafting enforceable Service Level Agreements with clear delivery, warranty, and pricing terms."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Pricing and Packages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "At OFS, we understand that businesses—large and small—prioritise cost-effective solutions. That’s why our pricing models are flexible, designed to align with your specific operational and budgetary needs.",
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
-        ]
+        ],
+        "noBullets": false
       },
       {
         "title": "What Can Be Expected",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "“Precision forecasting for increased revenue.”",
           "“Streamline orders, cut costs.”",
@@ -1918,10 +1932,15 @@
           "“Real-time inventory sync across sites.”",
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
-        ]
+        ],
+        "noBullets": true
       },
       {
         "title": "Broad Advantages",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Assessment & Adaptation",
@@ -1944,12 +1963,15 @@
             "description": "Periodic check-ins, KPI monitoring, and ongoing system performance refinement."
           }
         ],
+        "paragraphs": [],
         "buttonText": "Start Sourcing Optimization",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "procurement-services": {
+    "id": "procurement-services",
     "slug": "procurement-services",
     "href": "/procurement-services",
     "title": "Procurement Services",
@@ -1957,23 +1979,22 @@
     "categoryLabel": "Disciplines",
     "heroImage": null,
     "tagline": "Enhance Your Procurement Services with OFS",
-    "overviewTitle": "Enhance Your Procurement Services with OFS",
     "description": "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing. Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement solutions.",
-    "overviewParagraphs": [
-      "Welcome to OFS, your trusted partner in supply chain optimisation and operational procurement outsourcing.",
-      "Backed by years of industry experience and an established global network, we specialise in delivering end-to-end procurement and logistics solutions tailored to the needs of industrial leaders. Our dedicated team works as an extension of your procurement department, closely collaborating with you to identify improvement opportunities, cut total costs, and enhance operational resilience."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "OFS's Core Procurement Expertise",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/one.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/one_5d99ad8c39.png",
           "alt": "OFS Core Expertise"
         },
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value:",
-        "noBullets": true,
         "items": [
           {
             "title": "Tail Spend Management",
@@ -1991,18 +2012,19 @@
             "title": "Decrease Total Cost of Ownership (TCO)",
             "description": "Looking beyond purchase price to optimize maintenance lifecycles, logistics freight, and inventory holding costs."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": false
       },
       {
         "title": "Why Partner with OFS?",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/two-rdjvqwegm3tilwnmboyyo1yd9xikpofjirqc5k2bi0.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/two_rdjvqwegm3tilwnmboyyo1yd9xikpofjirqc5k2bi0_56bc9dcde3.png",
           "alt": "Why Partner with OFS"
         },
         "intro": "The pillars that make OFS the premier procurement partner for industrial leaders:",
-        "noBullets": true,
         "items": [
           {
             "title": "Comprehensive Tailored Services",
@@ -2020,21 +2042,29 @@
             "title": "Ethics-Driven Partnership",
             "description": "A core commitment to transparency, open costing, anti-bribery governance (ISO 37001), and mutual success."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "noBullets": true
       },
       {
         "title": "Leverage the Procurement Expertise of OFS Today",
         "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Partner with OFS to unlock efficiency, lower operational risk, and drive sustainable savings across your entire procurement lifecycle.",
           "Our dedicated specialists are ready to evaluate your spend portfolio and design a bespoke procurement strategy aligned with your growth objectives."
         ],
         "buttonText": "Speak with Our Procurement Team",
-        "buttonHref": "/contact"
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   },
   "project-supply": {
+    "id": "project-supply",
     "slug": "project-supply",
     "href": "/project-supply",
     "title": "Project Supply",
@@ -2042,19 +2072,19 @@
     "categoryLabel": "Disciplines",
     "heroImage": null,
     "tagline": "Your Strategic Partner for All Industrial Procurement Needs",
-    "overviewTitle": "Your Strategic Partner for All Industrial Procurement Needs",
     "description": "Successful project execution hinges on timely access to the right materials, efficient resource planning, and expert coordination. At OFS, we are committed to being your trusted partner in achieving operational and project excellence. Through our comprehensive Project Supply Solutions, we empower you to streamline procurement and logistics from concept to completion. In the complex landscape of project management and industrial supply chains, OFS delivers end-to-end support tailored to ensure your success—on time and within budget.",
-    "overviewParagraphs": [
-      "Successful project execution hinges on timely access to the right materials, efficient resource planning, and expert coordination. At **OFS**, we are committed to being your trusted partner in achieving operational and project excellence.",
-      "Through our comprehensive **Project Supply Solutions**, we empower you to streamline procurement and logistics from concept to completion. In the complex landscape of project management and industrial supply chains, **OFS** delivers end-to-end support tailored to ensure your success—on time and within budget."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
         "title": "Our Approach: Embedding Excellence at Every Stage",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "/images/live/project-supply-approach.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/project_supply_approach_dff85fbf6d.png",
           "alt": "Our Approach: Embedding Excellence at Every Stage"
         },
         "intro": "**At OFS, we deliver a comprehensive approach to project supply management**, focusing on precision, performance, and reliability. Our goal is to ensure your projects are completed on time, within budget, and to the highest quality standards.",
@@ -2080,14 +2110,7 @@
             "description": "We believe in responsible project execution. OFS integrates sustainable and ethical sourcing across the supply chain—protecting the environment and enhancing your project’s reputation."
           }
         ],
-        "paragraphs": [
-          "At OFS, we deliver a comprehensive approach to project supply management, focusing on precision, performance, and reliability. Our goal is to ensure your projects are completed on time, within budget, and to the highest quality standards.",
-          "Tailored Solutions for Complex Projects: Each project comes with unique challenges. That’s why we avoid a one-size-fits-all model. Our experts take time to understand your project’s scope, industry needs, and constraints. From sourcing specialised materials to managing logistics and risks, we align our solutions with your goals.",
-          "Seamless Collaboration and Communication: Project delays often result from poor communication. At OFS, we prioritise clarity and transparency, working closely with your team to keep all stakeholders aligned. This eliminates bottlenecks, fosters accountability, and builds trust.",
-          "Optimised Supply Chain Efficiency: Our experts enhance procurement efficiency—from supplier selection to inventory and delivery. By cutting waste, shortening lead times, and improving resource use, we help reduce costs and drive project success.",
-          "Proactive Risk Management: Every project has uncertainties. OFS equips you with proactive risk strategies and contingency plans that ensure continuity—even during unexpected challenges.",
-          "Sustainability and Ethical Practices: We believe in responsible project execution. OFS integrates sustainable and ethical sourcing across the supply chain—protecting the environment and enhancing your project’s reputation."
-        ],
+        "paragraphs": [],
         "noBullets": true
       },
       {
@@ -2095,17 +2118,20 @@
         "variant": "dark",
         "imagePosition": "right",
         "image": {
-          "src": "/images/live/project-supply-revolution.png",
+          "src": "https://cms.ofsgroupindia.in/uploads/project_supply_revolution_af596a9d76.png",
           "alt": "Join the OFS Project Supply Revolution"
         },
-        "hasSubscribeForm": true,
+        "intro": "",
+        "items": [],
         "paragraphs": [
           "Embark on a transformative journey in project supply management with **OFS** as your trusted partner. Our team of experts is equipped to ensure the flawless execution your projects demand. With a client-focused approach, a strong commitment to sustainable practices, and a forward-thinking mindset driven by technological innovation, **OFS** is your gateway to turning vision into reality. Let us help you achieve excellence—every step of the way."
-        ]
+        ],
+        "noBullets": false
       }
     ]
   },
   "outsource-manufacturing": {
+    "id": "outsource-manufacturing",
     "slug": "outsource-manufacturing",
     "href": "/outsource-manufacturing",
     "title": "Outsource Manufacturing",
@@ -2113,12 +2139,9 @@
     "categoryLabel": "Manufacturing",
     "heroImage": null,
     "tagline": "Streamline your production with OFS Managed Manufacturing Services",
-    "overviewTitle": "Streamline your production with OFS Managed Manufacturing Services",
     "description": "At OFS, we provide end-to-end outsourced manufacturing services from India, allowing you to simplify production without compromising on quality or timelines. From concept and design to final delivery, we ensure your products are built to precise specifications — efficiently and reliably.",
-    "overviewParagraphs": [
-      "At **OFS**, we provide end-to-end outsourced manufacturing services from India, allowing you to simplify production without compromising on quality or timelines.",
-      "From concept and design to final delivery, we ensure your products are built to precise specifications — efficiently and reliably."
-    ],
+    "overviewTitle": null,
+    "overviewParagraphs": null,
     "features": [
       {
         "title": "What is it?",
@@ -2137,11 +2160,20 @@
         "description": "Our services are ideal for OEMs looking to outsource manufacturing and expand their production footprint. Partnering with us in India gives you access to a highly skilled workforce and cost-efficient manufacturing solutions."
       }
     ],
+    "sections": null,
+    "gallery": null,
     "blocks": [
       {
+        "title": "Look no further! We take complete ownership of your manufacturing from concept to design to delivery!",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
+        "paragraphs": [],
         "type": "oem-banner",
         "eyebrow": "Are you an OEM?",
-        "title": "Look no further! We take complete ownership of your manufacturing from concept to design to delivery!",
+        "noBullets": false,
         "stats": [
           {
             "image": "/images/live/Service-experience-in-the-industry.jpg",
@@ -2154,9 +2186,11 @@
         ]
       },
       {
-        "type": "card-grid",
         "title": "Our Offering",
-        "subtitle": "Why choose us as your outsourcing manufacturing partner.",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "End-to-End Management",
@@ -2182,11 +2216,18 @@
             "title": "IP Protection",
             "description": "Our decentralized supply model, combined with centralized oversight, protects your intellectual property at every stage."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "type": "card-grid",
+        "subtitle": "Why choose us as your outsourcing manufacturing partner.",
+        "noBullets": false
       },
       {
-        "type": "hub-section",
         "title": "India: The Next Manufacturing Hub",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Global Industry Leaders in India",
@@ -2200,11 +2241,17 @@
             "title": "Skilled Talent Pool",
             "description": "With the world’s youngest population, India adds approximately 1.5 million engineers to its workforce annually, fueling industrial growth and innovation."
           }
-        ]
+        ],
+        "paragraphs": [],
+        "type": "hub-section",
+        "noBullets": false
       },
       {
-        "type": "image-cards",
         "title": "Why OEMs choose us",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Skilled Workforce",
@@ -2236,135 +2283,273 @@
             "description": "Our eco-friendly practices boost your brand’s sustainability and environmental responsibility.",
             "image": "/images/live/Sustainability-commitment.jpg"
           }
-        ]
+        ],
+        "paragraphs": [],
+        "type": "image-cards",
+        "noBullets": false
       },
       {
-        "type": "icon-grid",
         "title": "Industries",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Oil, Gas & Petroleum",
+            "description": "",
             "icon": "/images/live/OIL-GAS-PETROLIUM.png"
           },
           {
             "title": "Automobile",
+            "description": "",
             "icon": "/images/live/AUTOMOBILE.png"
           },
           {
             "title": "Petroleum Refining",
+            "description": "",
             "icon": "/images/live/PETROLIUM-REFINING.png"
           },
           {
             "title": "General Manufacturing",
+            "description": "",
             "icon": "/images/live/GENERAL-MA-NUFACTURING.png"
           },
           {
             "title": "Construction",
+            "description": "",
             "icon": "/images/live/CONSTRUCTION.png"
           },
           {
             "title": "HVAC",
+            "description": "",
             "icon": "/images/live/1-13.png"
           },
           {
             "title": "Transportation",
+            "description": "",
             "icon": "/images/live/TRANSPORTATIONS.png"
           },
           {
             "title": "Electrical & Electronics",
+            "description": "",
             "icon": "/images/live/ELECTRICAL-AND-ELECTRONICS.png"
           },
           {
             "title": "Marine",
+            "description": "",
             "icon": "/images/live/MARINE-1.png"
           },
           {
             "title": "Mining & Minerals",
+            "description": "",
             "icon": "/images/live/MINING-AND-MINERALS.png"
           },
           {
             "title": "Composites",
+            "description": "",
             "icon": "/images/live/COMPOSITES.png"
           },
           {
             "title": "Heavy Engineering",
+            "description": "",
             "icon": "/images/live/HEAVY-ENGINEERING-1.png"
           },
           {
             "title": "Cement",
+            "description": "",
             "icon": "/images/live/CEMENT-1.png"
           },
           {
             "title": "Material Handling Equipment",
+            "description": "",
             "icon": "/images/live/MATERIAL-HANDELING.png"
           },
           {
             "title": "Power & Energy",
+            "description": "",
             "icon": "/images/live/POWER-AND-ENERGY.png"
           }
-        ]
+        ],
+        "paragraphs": [],
+        "type": "icon-grid",
+        "noBullets": false
       },
       {
-        "type": "photo-grid",
         "title": "Manufacturing Capabilities",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
         "items": [
           {
             "title": "Machining",
+            "description": "",
             "image": "/images/live/MACHINING.jpg"
           },
           {
             "title": "Fabrication",
+            "description": "",
             "image": "/images/live/FABRICATION.jpg"
           },
           {
             "title": "Assembly & Integration",
+            "description": "",
             "image": "/images/live/ASSEMBLY-AND-INTEGRATION.jpg"
           },
           {
             "title": "Surface Treatment & Coating",
+            "description": "",
             "image": "/images/live/SURFACE-TREATMENT-COATING.jpg"
           },
           {
             "title": "Casting & Forging",
+            "description": "",
             "image": "/images/live/CASTING-FARGING.jpg"
           },
           {
             "title": "Plastic & Composite",
+            "description": "",
             "image": "/images/live/PLASTIC-AND-COMPOSITE.jpg"
           },
           {
             "title": "HVAC & Energy Equipment",
+            "description": "",
             "image": "/images/live/HVAC-EQUIPMENT.jpg"
           },
           {
             "title": "Precision Manufacturing",
+            "description": "",
             "image": "/images/live/PRECISION-MANUFACTURING.jpg"
           },
           {
             "title": "Heavy Equipment Manufacturing",
+            "description": "",
             "image": "/images/live/havey-Equipment-Manufacturing.jpg"
           },
           {
             "title": "Tooling & Prototyping",
+            "description": "",
             "image": "/images/live/toolling-and-prototyping.jpg"
           },
           {
             "title": "Automation & Robotics",
+            "description": "",
             "image": "/images/live/automation-and-robotic.jpg"
           },
           {
             "title": "Electronics Manufacturing",
+            "description": "",
             "image": "/images/live/electronic-manufactraing.jpg"
           },
           {
             "title": "Welding & Joining",
+            "description": "",
             "image": "/images/live/Welding-Joining.jpg"
           },
           {
             "title": "Sheet Metal",
+            "description": "",
             "image": "/images/live/Sheet-Metal.jpg"
           }
-        ]
+        ],
+        "paragraphs": [],
+        "type": "photo-grid",
+        "noBullets": false
+      }
+    ]
+  },
+  "warehouse": {
+    "id": "warehouse",
+    "slug": "warehouse",
+    "href": "/warehouse",
+    "title": "Warehouse",
+    "category": "services",
+    "categoryLabel": "Services",
+    "heroImage": null,
+    "tagline": "State-of-the-Art Industrial Warehousing, Storage & Value-Added Services",
+    "description": "Explore OFS's Warehouse Management System—offering real-time visibility to streamline your operations, boost productivity, and maximize efficiency. Our innovative, dependable solutions are built to elevate your business and simplify warehouse management at every level.",
+    "overviewTitle": "Welcome to OFS Warehouse Solutions",
+    "overviewParagraphs": null,
+    "features": null,
+    "sections": null,
+    "gallery": null,
+    "blocks": [
+      {
+        "title": "Our Warehouse Services",
+        "variant": "light",
+        "imagePosition": "left",
+        "image": {
+          "src": "https://cms.ofsgroupindia.in/uploads/our_warehouse_services_photo_e59c46c5d3.png",
+          "alt": "Our Warehouse Services"
+        },
+        "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
+        "items": [
+          {
+            "title": "Storage & Warehousing",
+            "description": "Our flexible facilities support a variety of storage options—including rack, bulk, temperature-controlled, and specialized storage—designed to handle goods of all sizes."
+          },
+          {
+            "title": "Real-Time Inventory Tracking",
+            "description": "With our advanced tracking systems, you gain 24/7 visibility into your stock movements, enabling smarter decision-making and supply chain efficiency."
+          },
+          {
+            "title": "Order Fulfilment",
+            "description": "We ensure accurate and timely order processing, reducing lead times and consistently meeting delivery commitments—enhancing your customer satisfaction."
+          },
+          {
+            "title": "Value-Added Services",
+            "description": "In addition to standard storage, we offer labelling, repackaging, quality checks, kitting, and preservation coating—adding efficiency and value to your operations."
+          }
+        ],
+        "paragraphs": [],
+        "noBullets": true
+      },
+      {
+        "title": "Why Choose OFS for Warehouse Solutions?",
+        "variant": "light",
+        "imagePosition": "right",
+        "image": {
+          "src": "https://cms.ofsgroupindia.in/uploads/Procurement_and_shippings_8841953cde.jpg",
+          "alt": "Why Choose OFS Warehouse"
+        },
+        "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
+        "items": [
+          {
+            "title": "Process Industry Domain Expertise",
+            "description": "Deep experience handling raw materials, hazardous supplies, valves, piping, electrical components, and heavy engineering goods."
+          },
+          {
+            "title": "Advanced Secure Infrastructure",
+            "description": "Featuring climate control, 24/7 CCTV surveillance, fire suppression, overhead gantry cranes, and heavy-duty racking systems."
+          },
+          {
+            "title": "Efficient Inventory Control",
+            "description": "Real-time barcoding and RFID tracking to prevent stockouts, overstocking, and material obsolescence."
+          },
+          {
+            "title": "Customised Logistics Integration",
+            "description": "Seamless integration with multi-modal transport networks for rapid in-country and international dispatch."
+          }
+        ],
+        "paragraphs": [],
+        "noBullets": true
+      },
+      {
+        "title": "Experience Outstanding Customer Service and Collaboration",
+        "variant": "dark",
+        "imagePosition": "right",
+        "image": null,
+        "intro": "",
+        "items": [],
+        "paragraphs": [
+          "Dedicated Support: Our experienced team provides continuous assistance to keep your warehouse operations running smoothly—whether it's technical help, solution upgrades, or day-to-day queries.",
+          "Continuous Improvement: We foster a culture of innovation and refinement. As your partner, we actively monitor performance and identify opportunities to improve efficiency and reduce costs.",
+          "Transparency & Communication: We believe in open, honest communication. You'll always be informed with relevant updates, KPIs, and performance insights—so you clearly see the value we deliver."
+        ],
+        "buttonText": "Inquire About Warehouse Space",
+        "buttonHref": "/contact",
+        "noBullets": false
       }
     ]
   }
