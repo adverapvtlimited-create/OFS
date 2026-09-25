@@ -8,6 +8,7 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 import Badge from '@/components/ui/Badge';
 import Container from '@/components/ui/Container';
 import SectionPad from '@/components/ui/SectionPad';
+import { cn } from '@/lib/cn';
 
 // Randomized / non-sequential list of real project & field operation photos from public/ofsImages
 const galleryPhotos = [
