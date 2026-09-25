@@ -84,14 +84,15 @@ export function buildBreadcrumbSchema(items) {
 }
 
 export function buildServiceSchema(service) {
+  const servicePath = service.href || `/${service.slug}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `${absoluteUrl(`/services/${service.slug}`)}#service`,
+    '@id': `${absoluteUrl(servicePath)}#service`,
     name: service.title,
     description: service.description,
     provider: { '@id': `${SITE_URL}/#organization` },
-    url: absoluteUrl(`/services/${service.slug}`),
+    url: absoluteUrl(servicePath),
     areaServed: ['IN', 'US', 'AE', 'SA', 'SG'],
     serviceType: service.title,
     image: absoluteImageUrl(service.heroImage),

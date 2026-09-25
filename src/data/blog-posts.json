@@ -9,12 +9,12 @@
     "author": {
       "name": "Arun K. Sharma",
       "role": "Head of Global Procurement",
-      "avatar": "/images/ofs-logo.png"
+      "avatar": "/images/author-default.png"
     },
     "date": "August 12, 2026",
     "readTime": "6 min read",
     "featured": true,
-    "image": "/images/live/Procurement-and-shippings.jpg",
+    "image": "/images/live/oil-gas-new.jpg",
     "tags": [
       "Procurement",
       "EPC",
@@ -23,9 +23,12 @@
       "Offshore"
     ],
     "seo": {
+      "id": 54,
       "metaTitle": "Navigating Global Supply Chain Volatility in Mega EPC &...",
       "metaDescription": "Supply chain volatility remains the single largest risk factor for offshore and industrial EPC contractors today. From raw material price swings in...",
-      "keywords": "OFS, industrial solutions, manufacturing, procurement & supply chain, navigating, global, supply"
+      "keywords": "OFS, industrial solutions, manufacturing, procurement & supply chain, navigating, global, supply",
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -38,12 +41,12 @@
     "author": {
       "name": "Rajesh N. Varma",
       "role": "Lead Quality Assurance & NDT Level III",
-      "avatar": "/images/ofs-logo.png"
+      "avatar": "/images/author-default.png"
     },
     "date": "July 28, 2026",
     "readTime": "5 min read",
     "featured": false,
-    "image": "/images/live/Mooring-Systems.jpg",
+    "image": "/images/live/oil-gas-new.jpg",
     "tags": [
       "QA/QC",
       "NDT",
@@ -52,9 +55,12 @@
       "Pipelines"
     ],
     "seo": {
+      "id": 56,
       "metaTitle": "Advanced Ultrasonic Phased Array (PAUT) for Offshore &...",
       "metaDescription": "Ensuring the structural integrity of offshore riser pipes, subsea tiebacks, and high-pressure manifold welds requires inspection methodologies that...",
-      "keywords": "OFS, industrial solutions, manufacturing, quality control & qa, advanced, ultrasonic, phased"
+      "keywords": "OFS, industrial solutions, manufacturing, quality control & qa, advanced, ultrasonic, phased",
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -67,12 +73,12 @@
     "author": {
       "name": "Dr. Priya Nair",
       "role": "Director - Clean Energy Solutions",
-      "avatar": "/images/ofs-logo.png"
+      "avatar": "/images/author-default.png"
     },
     "date": "July 14, 2026",
     "readTime": "7 min read",
     "featured": true,
-    "image": "/images/live/Power-Energy.png",
+    "image": "/images/live/oil-gas-new.jpg",
     "tags": [
       "Renewables",
       "Solar",
@@ -81,9 +87,12 @@
       "Industrial"
     ],
     "seo": {
+      "id": 58,
       "metaTitle": "Decarbonizing Heavy Industrial Facilities with Rooftop...",
       "metaDescription": "Heavy manufacturing facilities and continuous-process chemical plants face a twin challenge: rising peak grid power tariffs and stringent ESG mandates...",
-      "keywords": "OFS, industrial solutions, manufacturing, renewable energy, decarbonizing, heavy, industrial"
+      "keywords": "OFS, industrial solutions, manufacturing, renewable energy, decarbonizing, heavy, industrial",
+      "metaRobots": null,
+      "canonicalURL": null
     }
   },
   {
@@ -96,12 +105,12 @@
     "author": {
       "name": "Vikram Desai",
       "role": "Chief Mechanical Integrity Consultant",
-      "avatar": "/images/ofs-logo.png"
+      "avatar": "/images/author-default.png"
     },
     "date": "June 30, 2026",
     "readTime": "4 min read",
     "featured": false,
-    "image": "/images/live/Petroleum-Refining.png",
+    "image": "/images/live/oil-gas-new.jpg",
     "tags": [
       "Maintenance",
       "Predictive AMC",
@@ -110,9 +119,12 @@
       "Machinery"
     ],
     "seo": {
+      "id": 60,
       "metaTitle": "From Preventive to Predictive: Maximizing Uptime on...",
       "metaDescription": "Time-based preventive maintenance routines are no longer sufficient for mission-critical rotating machinery such as multi-stage boiler feed pumps,...",
-      "keywords": "OFS, industrial solutions, manufacturing, maintenance & amc, from, preventive, predictive"
+      "keywords": "OFS, industrial solutions, manufacturing, maintenance & amc, from, preventive, predictive",
+      "metaRobots": null,
+      "canonicalURL": null
     }
   }
 ]

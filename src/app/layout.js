@@ -11,6 +11,7 @@ import { DEFAULT_KEYWORDS, PAGE_SEO } from '@/config/seo.config';
 import { buildPageMetadata } from '@/lib/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '@/lib/schema';
 
+
 const homeSeo = PAGE_SEO.home;
 
 export const metadata = {

@@ -14,10 +14,15 @@ import {
   Sun,
 } from 'lucide-react';
 import siteConfig from '@/data/site-config.json';
+import { getStrapiMedia } from '@/lib/strapi';
 import { whatWeOffer } from '@/data/navigation';
 import industriesData from '@/data/industries.json';
 
-export default function Footer() {
+export default function Footer({ initialIndustries = [] }) {
+  const industriesList =
+    Array.isArray(initialIndustries) && initialIndustries.length > 0
+      ? initialIndustries
+      : industriesData;
   return (
     <footer className="bg-ofs-navy-950 text-white border-t border-white/10 relative overflow-hidden">
       <div className="bg-grid-pattern-dark absolute inset-0 opacity-50 pointer-events-none" />
@@ -28,7 +33,7 @@ export default function Footer() {
             <Link href="/" className="inline-block no-underline">
               <div className="bg-white p-2 px-3.5 rounded-xs inline-flex items-center shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
                 <img
-                  src="/images/ofs-logo.png"
+                  src={getStrapiMedia(siteConfig.logo) || '/images/ofs-logo.png'}
                   alt="OFS - Driven by Quality, Defined by Trust"
                   className="h-10 w-auto object-contain"
                 />
@@ -112,8 +117,8 @@ export default function Footer() {
               Industries Served
             </div>
             <ul className="flex flex-col gap-3 mb-8">
-              {industriesData.slice(0, 5).map((ind) => (
-                <li key={ind.id}>
+              {industriesList.slice(0, 5).map((ind) => (
+                <li key={ind.id || ind.slug}>
                   <Link
                     href={
                       ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
@@ -123,7 +128,7 @@ export default function Footer() {
                     className="text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-flex items-center gap-1.5 text-sm no-underline"
                   >
                     <ChevronRight size={13} className="text-ofs-red-500 shrink-0" />
-                    {ind.shortName}
+                    {ind.shortName || ind.name}
                   </Link>
                 </li>
               ))}

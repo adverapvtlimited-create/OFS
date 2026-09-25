@@ -1,36 +1,39 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Target, Eye, ArrowUpRight } from "lucide-react";
-import TextReveal from "@/components/animations/TextReveal";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
-import SectionPad from "@/components/ui/SectionPad";
-import Container from "@/components/ui/Container";
-import siteConfig from "@/data/site-config.json";
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Target, Eye, ArrowUpRight } from 'lucide-react';
+import TextReveal from '@/components/animations/TextReveal';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import Badge from '@/components/ui/Badge';
+import Button from '@/components/ui/Button';
+import SectionPad from '@/components/ui/SectionPad';
+import Container from '@/components/ui/Container';
 
 const values = [
   {
-    image: "/images/live/Integrity.jpg",
-    title: "Integrity",
-    desc: "We uphold the highest ethical standards in every aspect of our business. Integrity means being transparent, and honest, in our interactions, ensuring trust and long-lasting relationships with our clients, partners, and employees.",
+    image: '/images/live/Integrity.jpg',
+    title: 'Integrity',
+    desc: 'We uphold the highest ethical standards in every aspect of our business. Integrity means being transparent, and honest, in our interactions, ensuring trust and long-lasting relationships with our clients, partners, and employees.',
   },
   {
-    image: "/images/live/Excellence-1.jpg",
-    title: "Excellence",
-    desc: "We are committed to delivering the highest quality in every project we undertake. Our pursuit of excellence drives us to continuously improve, innovate, and exceed expectations, ensuring superior service and value for our clients.",
+    image: '/images/live/Excellence-1.jpg',
+    title: 'Excellence',
+    desc: 'We are committed to delivering the highest quality in every project we undertake. Our pursuit of excellence drives us to continuously improve, innovate, and exceed expectations, ensuring superior service and value for our clients.',
   },
   {
-    image: "/images/live/Collaboration-1.jpg",
-    title: "Collaboration",
-    desc: "We believe in the power of teamwork—both within our company and with our clients and partners. By fostering a collaborative environment, we combine diverse skills, ideas, and perspectives to drive the best possible outcomes for all stakeholders.",
+    image: '/images/live/Collaboration-1.jpg',
+    title: 'Collaboration',
+    desc: 'We believe in the power of teamwork—both within our company and with our clients and partners. By fostering a collaborative environment, we combine diverse skills, ideas, and perspectives to drive the best possible outcomes for all stakeholders.',
   },
 ];
 
-export default function AboutPage() {
+export default function AboutView({ siteConfig }) {
+  const contact = siteConfig?.contact || {};
+  const addressUSA = contact.addressUSA || {};
+  const addressIndia = contact.addressIndia || {};
+
   return (
     <>
       {/* Hero Header */}
@@ -40,10 +43,7 @@ export default function AboutPage() {
         <Container className="relative z-[2]">
           <ScrollReveal direction="down" duration={0.5}>
             <div className="flex items-center gap-2 font-mono text-xs text-white/60 mb-6 uppercase">
-              <Link
-                href="/"
-                className="text-white/70 hover:text-white no-underline"
-              >
+              <Link href="/" className="text-white/70 hover:text-white no-underline">
                 Home
               </Link>
               <span>/</span>
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
           <ScrollReveal direction="up" delay={0.25}>
             <p className="text-sm sm:text-base text-white/85 max-w-[780px] leading-relaxed mb-8">
-              {siteConfig.longDesc}
+              {siteConfig?.longDesc}
             </p>
           </ScrollReveal>
 
@@ -119,13 +119,7 @@ export default function AboutPage() {
 
                 <div className="p-5 sm:p-6">
                   <p className="text-sm sm:text-[0.925rem] text-ofs-gray-700 leading-relaxed m-0">
-                    To provide world-class, customized solutions in Marine &amp;
-                    Offshore Services, Strategic Sourcing &amp; Engineering
-                    Procurement, Maintenance, and Industrial Logistics. We aim
-                    to empower clients globally by integrating cutting-edge
-                    technology, efficient systems, and expert manpower — while
-                    ensuring top-tier operational reliability and safety that
-                    elevate performance.
+                    To provide world-class, customized solutions in Marine &amp; Offshore Services, Strategic Sourcing &amp; Engineering Procurement, Maintenance, and Industrial Logistics. We aim to empower clients globally by integrating cutting-edge technology, efficient systems, and expert manpower — while ensuring top-tier operational reliability and safety that elevate performance.
                   </p>
                 </div>
               </div>
@@ -154,12 +148,7 @@ export default function AboutPage() {
 
                 <div className="p-5 sm:p-6">
                   <p className="text-sm sm:text-[0.925rem] text-ofs-gray-700 leading-relaxed m-0">
-                    To be a globally recognized leader in delivering end-to-end
-                    engineering, procurement, facility, and project support
-                    solutions — driven by innovation, reliability, and a strong
-                    commitment to customer satisfaction and operational
-                    excellence across India, the Middle East, North America, and
-                    premier international energy hubs.
+                    To be a globally recognized leader in delivering end-to-end engineering, procurement, facility, and project support solutions — driven by innovation, reliability, and a strong commitment to customer satisfaction and operational excellence across India, the Middle East, North America, and premier international energy hubs.
                   </p>
                 </div>
               </div>
@@ -238,28 +227,15 @@ export default function AboutPage() {
           </h2>
           <ScrollReveal direction="up" delay={0.25}>
             <p className="text-lg text-white/85 leading-relaxed mb-10">
-              With a network of over 3,000+ internationally approved brands from
-              the US and Europe, OFS ensures exceptional quality, reliability,
-              and compliance with global industry standards in every solution we
-              deliver.
+              With a network of over 3,000+ internationally approved brands from the US and Europe, OFS ensures exceptional quality, reliability, and compliance with global industry standards in every solution we deliver.
             </p>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.35}>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
-              <Button
-                href="/engineering-epc-support-services"
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto text-center justify-center"
-              >
+              <Button href="/engineering-epc-support-services" variant="primary" size="lg" className="w-full sm:w-auto text-center justify-center">
                 Explore What We Offer <ArrowUpRight size={18} />
               </Button>
-              <Button
-                href="/contact"
-                variant="outline-white"
-                size="lg"
-                className="w-full sm:w-auto text-center justify-center"
-              >
+              <Button href="/contact" variant="outline-white" size="lg" className="w-full sm:w-auto text-center justify-center">
                 Contact Commercial Desk
               </Button>
             </div>
@@ -278,27 +254,15 @@ export default function AboutPage() {
             </ScrollReveal>
             <h2 className="text-[clamp(2rem,3.8vw,3rem)] font-heading font-extrabold tracking-[-0.03em] mt-4 mb-4 text-ofs-navy-950 leading-[1.15]">
               <TextReveal tag="span" duration={0.65}>
-                Delivering Excellence
+                USA Global Office &amp;
               </TextReveal>
               <br />
               <span className="gradient-text-navy">
                 <TextReveal tag="span" delay={0.2} duration={0.65}>
-                  Across the Globe
+                  India Operations Hub
                 </TextReveal>
               </span>
             </h2>
-          </div>
-
-          <div className="mb-12">
-            <ScrollReveal direction="up" delay={0.1}>
-              <div className="bg-white border border-ofs-gray-200 rounded-xl overflow-hidden shadow-sm p-1 sm:p-2">
-                <img
-                  src="/images/about/global-presence.png"
-                  alt="Global Presence & Service Network"
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
-            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -309,14 +273,12 @@ export default function AboutPage() {
                     <Badge variant="navy">USA ENTITY</Badge>
                   </div>
                   <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
-                    Oriented Facility Solution LLC
+                    {siteConfig?.usEntityName || 'Oriented Facility Solution LLC'}
                   </h3>
                   <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-4">
-                    {siteConfig.contact.addressUSA.line1},{" "}
-                    {siteConfig.contact.addressUSA.city},{" "}
-                    {siteConfig.contact.addressUSA.state},{" "}
-                    {siteConfig.contact.addressUSA.pincode},{" "}
-                    {siteConfig.contact.addressUSA.country}
+                    {addressUSA.line1}, {addressUSA.city},{' '}
+                    {addressUSA.state}, {addressUSA.pincode},{' '}
+                    {addressUSA.country}
                   </p>
                   <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 mb-4">
                     Global Sourcing Coordination &amp; International AVL Desk
@@ -324,12 +286,9 @@ export default function AboutPage() {
                 </div>
                 <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 pt-3 border-t border-ofs-navy-200/60">
                   <div>
-                    <strong>Email:</strong>{" "}
-                    <a
-                      href={`mailto:${siteConfig.contact.emailUSA || "info@ofsworld.com"}`}
-                      className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors"
-                    >
-                      {siteConfig.contact.emailUSA || "info@ofsworld.com"}
+                    <strong>Email:</strong>{' '}
+                    <a href={`mailto:${contact.emailUSA || 'info@ofsworld.com'}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {contact.emailUSA || 'info@ofsworld.com'}
                     </a>
                   </div>
                 </div>
@@ -343,35 +302,25 @@ export default function AboutPage() {
                     <Badge variant="red">INDIA OPERATIONS HUB</Badge>
                   </div>
                   <h3 className="font-heading text-xl font-extrabold text-ofs-navy-950 mb-2.5">
-                    Oriented Facility Solution Pvt Ltd
+                    {siteConfig?.legalName || 'Oriented Facility Solution Pvt Ltd'}
                   </h3>
                   <p className="text-xs sm:text-sm text-ofs-gray-600 leading-relaxed mb-4">
-                    {siteConfig.contact.addressIndia.line1},{" "}
-                    {siteConfig.contact.addressIndia.line2},{" "}
-                    {siteConfig.contact.addressIndia.city},{" "}
-                    {siteConfig.contact.addressIndia.state} –{" "}
-                    {siteConfig.contact.addressIndia.pincode},{" "}
-                    {siteConfig.contact.addressIndia.country}
+                    {addressIndia.line1}, {addressIndia.line2},{' '}
+                    {addressIndia.city}, {addressIndia.state} –{' '}
+                    {addressIndia.pincode}, {addressIndia.country}
                   </p>
                 </div>
                 <div className="font-mono text-xs sm:text-sm text-ofs-navy-900 flex flex-col gap-1.5 pt-3 border-t border-ofs-navy-200/60">
                   <div>
-                    <strong>Phone:</strong>{" "}
-                    <a
-                      href={`tel:${siteConfig.contact.phoneRaw}`}
-                      className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors"
-                    >
-                      {siteConfig.contact.phone}
+                    <strong>Phone:</strong>{' '}
+                    <a href={`tel:${contact.phoneRaw}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {contact.phone}
                     </a>
                   </div>
                   <div>
-                    <strong>Email:</strong>{" "}
-                    <a
-                      href={`mailto:${siteConfig.contact.emailIndia || "info@ofsgroupindia.com"}`}
-                      className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors"
-                    >
-                      {siteConfig.contact.emailIndia ||
-                        "info@ofsgroupindia.com"}
+                    <strong>Email:</strong>{' '}
+                    <a href={`mailto:${contact.emailIndia || 'info@ofsgroupindia.com'}`} className="text-ofs-navy-900 hover:text-ofs-red-600 transition-colors">
+                      {contact.emailIndia || 'info@ofsgroupindia.com'}
                     </a>
                   </div>
                 </div>

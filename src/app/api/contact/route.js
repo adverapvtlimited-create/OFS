@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
+import { createEnquiryInStrapi } from "@/lib/strapi";
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryEnquiries = [];
@@ -213,6 +214,11 @@ export async function POST(request) {
     const enquiries = readEnquiries();
     enquiries.unshift(enquiryRecord);
     writeEnquiries(enquiries);
+
+    // 5. Forward submission to Strapi CMS asynchronously
+    createEnquiryInStrapi(enquiryRecord).catch((err) =>
+      console.warn("[Contact Route] Strapi sync error:", err.message)
+    );
 
     // If sending the email failed, return an error to the frontend
     if (!emailResult.success) {

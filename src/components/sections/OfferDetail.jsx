@@ -34,7 +34,10 @@ function renderParagraph(para, pIdx, isDark = false) {
     return (
       <blockquote
         key={pIdx}
-        className={cn("my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]", isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900")}
+        className={cn(
+          "my-3 p-4 pl-5 border-l-4 rounded-r-lg font-heading italic font-semibold text-[1.05rem]",
+          isDark ? "border-ofs-red-500 bg-white/5 text-white" : "border-ofs-navy-600 bg-ofs-navy-50/70 text-ofs-navy-900"
+        )}
       >
         {formatText(para)}
       </blockquote>
@@ -48,9 +51,14 @@ function renderParagraph(para, pIdx, isDark = false) {
     return (
       <div
         key={pIdx}
-        className={cn("flex items-start gap-3 p-4 mb-2.5 rounded-lg border transition-all duration-150", isDark ? "bg-white/5 border-white/10 hover:bg-white/10" : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50")}
+        className={cn(
+          "flex items-start gap-3.5 p-4 sm:p-4.5 mb-3 rounded-2xl border transition-all duration-200",
+          isDark
+            ? "bg-white/5 border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+            : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 shadow-xs"
+        )}
       >
-        <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
+        <CheckCircle2 size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
         <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
           <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>{lead}:</strong>
           <span>{formatText(body)}</span>
@@ -80,21 +88,25 @@ function renderSection(section) {
 }
 
 function renderGallery(gallery, title) {
-  if (!gallery?.length) return null;
+  if (!gallery || gallery.length < 2) return null;
 
   return (
-    <div className="mb-16 max-w-[1100px]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="mt-16 pt-12 border-t border-ofs-gray-200">
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="tag-badge badge-red mb-3">GALLERY &amp; FACILITIES</div>
+        <h3 className="section-title text-xl sm:text-2xl">Operational Visuals</h3>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {gallery.map((image, index) => (
           <div
             key={`${image.src}-${index}`}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg"
+            className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ofs-gray-200 bg-ofs-gray-50 shadow-lg group"
           >
             <img
               src={image.src}
               alt={image.alt || `${title} service image ${index + 1}`}
               className={cn(
-                'h-full w-full',
+                'h-full w-full transition-transform duration-500 group-hover:scale-105',
                 image.fit === 'contain' ? 'object-contain p-5 sm:p-7' : 'object-cover'
               )}
             />
@@ -155,22 +167,24 @@ function renderCustomBlock(block, index) {
               </ScrollReveal>
 
               {/* Right: Image */}
-              <ScrollReveal direction="right" className="lg:col-span-5 w-full">
-                <div
-                  className={cn(
-                    'rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
-                    isDark
-                      ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
-                      : 'border border-ofs-gray-200 bg-ofs-gray-100'
-                  )}
-                >
-                  <img
-                    src={block.image.src}
-                    alt={block.image.alt || block.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-              </ScrollReveal>
+              {block.image && (
+                <ScrollReveal direction="right" className="lg:col-span-5 w-full">
+                  <div
+                    className={cn(
+                      'rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
+                      isDark
+                        ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
+                        : 'border border-ofs-gray-200 bg-ofs-gray-100'
+                    )}
+                  >
+                    <img
+                      src={block.image.src || block.image}
+                      alt={block.image.alt || block.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+                </ScrollReveal>
+              )}
             </div>
           </Container>
         </section>
@@ -316,16 +330,13 @@ function renderCustomBlock(block, index) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
             {block.items?.map((item, idx) => (
               <ScrollReveal key={idx} direction="up" delay={idx * 0.08}>
-                <div className="p-6 rounded-2xl border border-ofs-navy-100 bg-white shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-                  <CheckCircle2 size={22} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-1.5">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm sm:text-[0.95rem] text-ofs-gray-700 leading-relaxed m-0">
-                      {item.description}
-                    </p>
-                  </div>
+                <div className="p-6 rounded-2xl border border-ofs-navy-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-heading text-base sm:text-lg font-bold text-ofs-navy-950 mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-[0.95rem] text-ofs-gray-700 leading-relaxed m-0">
+                    {item.description}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -460,42 +471,87 @@ function renderCustomBlock(block, index) {
     );
   }
 
-  // 8. Gateway to the Future (Image Left, Heading & Text & Button Right)
-  if (block.title && block.title.includes('Gateway to the Future')) {
+  // 8. Gateway to the Future / Top Image Layout (Image on Top, Heading & Text & Button Below)
+  if (block.title?.includes('Gateway to the Future') || block.imagePosition === 'top') {
+    const isDark = block.variant === 'dark';
+    const imgSrc = block.image?.src || block.image || '/images/live/future-procurement.png';
+    const imgAlt = block.image?.alt || block.title;
+
     return (
       <section
         key={block.title || `block-${index}`}
-        className="py-16 sm:py-20 lg:py-24 bg-ofs-navy-50/50 border-t border-ofs-navy-100/80"
+        className={cn(
+          'py-16 sm:py-20 lg:py-24 relative overflow-hidden border-t',
+          isDark
+            ? 'bg-ofs-navy-950 text-white border-white/10'
+            : 'bg-white text-ofs-navy-950 border-ofs-gray-100'
+        )}
       >
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left: Image */}
-            <ScrollReveal direction="left" className="lg:col-span-5 w-full">
-              <div className="rounded-2xl overflow-hidden shadow-xl border border-ofs-gray-200 relative aspect-[4/3] sm:aspect-[16/11] bg-ofs-gray-100">
-                <img
-                  src={block.image?.src || '/images/live/future-procurement.png'}
-                  alt={block.image?.alt || block.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-            </ScrollReveal>
+        {isDark && (
+          <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
+        )}
+        <Container className="relative z-10">
+          <div className="max-w-4xl lg:max-w-5xl mx-auto">
+            {/* Top Image Card */}
+            {imgSrc && (
+              <ScrollReveal direction="up" className="mb-10 sm:mb-12">
+                <div
+                  className={cn(
+                    'rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl relative aspect-[16/10] sm:aspect-[16/9] w-full',
+                    isDark
+                      ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
+                      : 'border border-ofs-gray-200 bg-ofs-gray-100'
+                  )}
+                >
+                  <img
+                    src={imgSrc}
+                    alt={imgAlt}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </ScrollReveal>
+            )}
 
-            {/* Right: Title, Underline, Paragraphs, Button */}
-            <ScrollReveal direction="right" className="lg:col-span-7 flex flex-col items-start">
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-ofs-navy-950 mb-3 tracking-tight">
-                {block.title}
-              </h2>
-              <div className="w-16 h-1 bg-ofs-navy-300 rounded-full mb-6" />
+            {/* Content Below Image */}
+            <ScrollReveal direction="up" className="flex flex-col items-start text-left">
+              {block.title && (
+                <h2
+                  className={cn(
+                    'font-heading text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold mb-5 tracking-tight',
+                    isDark ? 'text-white' : 'text-ofs-navy-950'
+                  )}
+                >
+                  {block.title}
+                </h2>
+              )}
 
-              <div className="space-y-4 text-ofs-gray-700 text-[1.02rem] sm:text-[1.05rem] leading-relaxed mb-8">
-                {block.paragraphs?.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+              {block.intro && (
+                <p
+                  className={cn(
+                    'text-[1.02rem] sm:text-[1.06rem] leading-relaxed mb-4',
+                    isDark ? 'text-white/90' : 'text-ofs-gray-700'
+                  )}
+                >
+                  {formatText(block.intro)}
+                </p>
+              )}
+
+              {block.paragraphs?.length > 0 && (
+                <div
+                  className={cn(
+                    'space-y-4 text-[1.02rem] sm:text-[1.06rem] leading-relaxed mb-8',
+                    isDark ? 'text-gray-200' : 'text-ofs-gray-700'
+                  )}
+                >
+                  {block.paragraphs.map((p, i) => (
+                    <p key={i}>{formatText(p)}</p>
+                  ))}
+                </div>
+              )}
 
               <Link
                 href={block.buttonHref || '/contact'}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-ofs-navy-950 text-white font-semibold text-sm hover:bg-ofs-navy-900 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
               >
                 {block.buttonText || 'Contact Us'} <ArrowUpRight size={17} />
               </Link>
@@ -506,107 +562,90 @@ function renderCustomBlock(block, index) {
     );
   }
 
-  // 9. Split block with image (Facilities, Advantages, Key Practices, Our Approach)
-  if (block.image) {
+  // 9. Blocks with Image (Facilities, Advantages, Key Practices - Full Width Vertical Stack or Split)
+  if (block.image && (block.image.src || typeof block.image === 'string')) {
     const isDark = block.variant === 'dark';
-    const isImageLeft = block.imagePosition === 'left';
+    const isSplit = block.imagePosition === 'left' || block.imagePosition === 'right';
+    const imgSrc = block.image.src || block.image;
+    const imgAlt = block.image.alt || block.title;
 
-    return (
-      <section
-        key={block.title || `block-${index}`}
-        className={cn(
-          'py-16 sm:py-20 lg:py-24 relative overflow-hidden',
-          isDark ? 'bg-ofs-navy-950 text-white' : 'bg-white text-ofs-navy-950'
-        )}
-      >
-        {isDark && (
-          <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
-        )}
-        <Container className="relative z-10">
-          {/* Centered Heading with Accent Underline */}
-          <ScrollReveal direction="up">
-            <div className="text-center mb-10 sm:mb-14">
-              <h2
-                className={cn(
-                  'font-heading text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold tracking-tight mb-3',
-                  isDark ? 'text-white' : 'text-ofs-navy-950'
-                )}
-              >
-                {block.title}
-              </h2>
-              <div
-                className={cn(
-                  'w-16 sm:w-20 h-1 rounded-full mx-auto',
-                  isDark ? 'bg-ofs-navy-400' : 'bg-ofs-navy-300'
-                )}
-              />
-            </div>
-          </ScrollReveal>
-
-          {/* Two-column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-            {/* Image Column */}
-            <ScrollReveal
-              direction={isImageLeft ? 'left' : 'right'}
-              className={cn('w-full', isImageLeft ? 'order-2 lg:order-1' : 'order-2')}
-            >
-              <div
-                className={cn(
-                  'rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
-                  isDark
-                    ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
-                    : 'border border-ofs-gray-200 bg-ofs-gray-100'
-                )}
-              >
-                <img
-                  src={block.image.src}
-                  alt={block.image.alt || block.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+    // If split 2-column layout is explicitly requested
+    if (isSplit && block.imagePosition !== 'bottom') {
+      const isImageLeft = block.imagePosition === 'left';
+      return (
+        <section
+          key={block.title || `block-${index}`}
+          className={cn(
+            'py-16 sm:py-20 lg:py-24 relative overflow-hidden border-t',
+            isDark
+              ? 'bg-ofs-navy-950 text-white border-white/10'
+              : 'bg-white text-ofs-navy-950 border-ofs-gray-100'
+          )}
+        >
+          {isDark && (
+            <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
+          )}
+          <Container className="relative z-10">
+            {/* Centered Heading with Accent Underline */}
+            <ScrollReveal direction="up">
+              <div className="text-center mb-10 sm:mb-14">
+                <h2
+                  className={cn(
+                    'font-heading text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold tracking-tight mb-3',
+                    isDark ? 'text-white' : 'text-ofs-navy-950'
+                  )}
+                >
+                  {block.title}
+                </h2>
+                <div
+                  className={cn(
+                    'w-16 sm:w-20 h-1 rounded-full mx-auto',
+                    isDark ? 'bg-ofs-navy-400' : 'bg-ofs-navy-300'
+                  )}
                 />
               </div>
             </ScrollReveal>
 
-            {/* Text Column */}
-            <ScrollReveal
-              direction={isImageLeft ? 'right' : 'left'}
-              className={cn('flex flex-col', isImageLeft ? 'order-1 lg:order-2' : 'order-1')}
-            >
-              {block.intro && (
-                <p
+            {/* Two-column layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+              {/* Image Column */}
+              <ScrollReveal
+                direction={isImageLeft ? 'left' : 'right'}
+                className={cn('w-full', isImageLeft ? 'order-2 lg:order-1' : 'order-2')}
+              >
+                <div
                   className={cn(
-                    'text-[1.02rem] sm:text-[1.05rem] leading-relaxed mb-6 font-normal',
-                    isDark ? 'text-white/90' : 'text-ofs-gray-700'
+                    'rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative aspect-[4/3] sm:aspect-[16/11]',
+                    isDark
+                      ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
+                      : 'border border-ofs-gray-200 bg-ofs-gray-100'
                   )}
                 >
-                  {formatText(block.intro)}
-                </p>
-              )}
+                  <img
+                    src={imgSrc}
+                    alt={imgAlt}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              </ScrollReveal>
 
-              {block.items?.length > 0 ? (
-                block.noBullets ? (
-                  <div className="space-y-4">
-                    {block.items.map((item, idx) => (
-                      <div key={idx} className="space-y-1">
-                        <h3
-                          className={cn(
-                            'font-heading font-bold text-[1.02rem]',
-                            isDark ? 'text-white' : 'text-ofs-navy-950'
-                          )}
-                        >
-                          {item.title}
-                        </h3>
-                        <p
-                          className={cn(
-                            'text-[0.98rem] leading-relaxed',
-                            isDark ? 'text-gray-200' : 'text-ofs-gray-700'
-                          )}
-                        >
-                          {formatText(item.description)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
+              {/* Text Column */}
+              <ScrollReveal
+                direction={isImageLeft ? 'right' : 'left'}
+                className={cn('flex flex-col', isImageLeft ? 'order-1 lg:order-2' : 'order-1')}
+              >
+                {block.intro && (
+                  <p
+                    className={cn(
+                      'text-[1.02rem] sm:text-[1.05rem] leading-relaxed mb-6 font-normal',
+                      isDark ? 'text-white/90' : 'text-ofs-gray-700'
+                    )}
+                  >
+                    {formatText(block.intro)}
+                  </p>
+                )}
+
+                {block.items?.length > 0 ? (
                   <ul className="space-y-4">
                     {block.items.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-3">
@@ -618,7 +657,7 @@ function renderCustomBlock(block, index) {
                         />
                         <div
                           className={cn(
-                            'text-[0.98rem] leading-relaxed',
+                            'text-[0.98rem] sm:text-[1.02rem] leading-relaxed',
                             isDark ? 'text-gray-200' : 'text-ofs-gray-700'
                           )}
                         >
@@ -635,12 +674,124 @@ function renderCustomBlock(block, index) {
                       </li>
                     ))}
                   </ul>
-                )
-              ) : (
-                <div className="flex flex-col gap-1">
-                  {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
+                ) : (
+                  <div className="flex flex-col gap-1">
+                    {block.paragraphs?.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
+                  </div>
+                )}
+              </ScrollReveal>
+            </div>
+          </Container>
+        </section>
+      );
+    }
+
+    // Default Vertical Stacked Layout (Centered Heading, Text + Red Bullet Items, Large Rounded Image Below)
+    return (
+      <section
+        key={block.title || `block-${index}`}
+        className={cn(
+          'py-16 sm:py-20 lg:py-24 relative overflow-hidden border-t',
+          isDark
+            ? 'bg-ofs-navy-950 text-white border-white/10'
+            : 'bg-white text-ofs-navy-950 border-ofs-gray-100'
+        )}
+      >
+        {isDark && (
+          <div className="bg-grid-pattern-dark absolute inset-0 opacity-40 pointer-events-none" />
+        )}
+        <Container className="relative z-10">
+          <div className="max-w-4xl lg:max-w-5xl mx-auto">
+            {/* Centered Heading with Accent Underline */}
+            <ScrollReveal direction="up">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2
+                  className={cn(
+                    'font-heading text-2xl sm:text-3xl lg:text-[2.2rem] font-extrabold tracking-tight mb-3',
+                    isDark ? 'text-white' : 'text-ofs-navy-950'
+                  )}
+                >
+                  {block.title}
+                </h2>
+                <div
+                  className={cn(
+                    'w-16 sm:w-20 h-1 rounded-full mx-auto',
+                    isDark ? 'bg-ofs-navy-400' : 'bg-ofs-navy-300'
+                  )}
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Intro text */}
+            {block.intro && (
+              <ScrollReveal direction="up">
+                <p
+                  className={cn(
+                    'text-[1.02rem] sm:text-[1.06rem] leading-relaxed mb-6 font-normal',
+                    isDark ? 'text-white/90' : 'text-ofs-gray-700'
+                  )}
+                >
+                  {formatText(block.intro)}
+                </p>
+              </ScrollReveal>
+            )}
+
+            {/* List of items with red bullet dots */}
+            {block.items?.length > 0 ? (
+              <ScrollReveal direction="up" className="mb-10 sm:mb-12">
+                <ul className="space-y-4 sm:space-y-5">
+                  {block.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span
+                        className={cn(
+                          'w-2 h-2 rounded-full mt-2.5 shrink-0',
+                          isDark ? 'bg-ofs-red-500' : 'bg-ofs-red-600'
+                        )}
+                      />
+                      <div
+                        className={cn(
+                          'text-[0.98rem] sm:text-[1.02rem] leading-relaxed',
+                          isDark ? 'text-gray-200' : 'text-ofs-gray-700'
+                        )}
+                      >
+                        <strong
+                          className={cn(
+                            'font-bold mr-1.5',
+                            isDark ? 'text-white' : 'text-ofs-navy-950'
+                          )}
+                        >
+                          {item.title}:
+                        </strong>
+                        <span>{formatText(item.description)}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollReveal>
+            ) : block.paragraphs?.length > 0 ? (
+              <ScrollReveal direction="up" className="mb-10 sm:mb-12">
+                <div className="space-y-4 text-[1.02rem] sm:text-[1.06rem] leading-relaxed">
+                  {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
                 </div>
-              )}
+              </ScrollReveal>
+            ) : null}
+
+            {/* Large Centered Image Card Below List */}
+            <ScrollReveal direction="up">
+              <div
+                className={cn(
+                  'rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl relative aspect-[16/10] sm:aspect-[16/9] w-full',
+                  isDark
+                    ? 'border border-white/10 ring-1 ring-white/5 bg-ofs-navy-900'
+                    : 'border border-ofs-gray-200 bg-ofs-gray-100 shadow-xl'
+                )}
+              >
+                <img
+                  src={imgSrc}
+                  alt={imgAlt}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
             </ScrollReveal>
           </div>
         </Container>
@@ -648,7 +799,7 @@ function renderCustomBlock(block, index) {
     );
   }
 
-  // 10. Centered text / grid section (e.g. OFS's Expertise, Pricing and Packages, What can be expected, Broad Advantages)
+  // 10. Centered text / grid section (e.g. OFS's Expertise / Allow the Experts)
   const isDark = block.variant === 'dark';
   return (
     <section
@@ -695,47 +846,43 @@ function renderCustomBlock(block, index) {
             </p>
           )}
 
-          {block.items?.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left my-8">
-              {block.items.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={cn(
-                    'p-4 rounded-lg border flex items-start gap-3 transition-all',
-                    isDark
-                      ? 'bg-white/5 border-white/10 text-gray-200'
-                      : 'bg-ofs-navy-50/60 border-ofs-navy-100 text-ofs-gray-700'
-                  )}
-                >
-                  <CheckCircle2
-                    size={18}
-                    className="text-ofs-red-600 shrink-0 mt-0.5"
-                  />
-                  <div>
-                    {item.title && (
-                      <strong
-                        className={cn(
-                          'block font-bold text-sm mb-0.5',
-                          isDark ? 'text-white' : 'text-ofs-navy-950'
-                        )}
-                      >
-                        {item.title}
-                      </strong>
-                    )}
-                    <span className="text-sm leading-relaxed">
-                      {formatText(item.description || (typeof item === 'string' ? item : ''))}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {block.paragraphs?.length > 0 && (
+          {((block.paragraphs?.length || 0) > (block.items?.length || 0) && block.paragraphs?.length > 0) ? (
             <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
               {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
             </div>
-          )}
+          ) : block.items?.length > 0 ? (
+            <div className="flex flex-col gap-3 my-6 max-w-4xl mx-auto text-left">
+              {block.items.map((item, idx) => {
+                const title = item.title || '';
+                const desc = item.description || (typeof item === 'string' ? item : '');
+                return (
+                  <div
+                    key={idx}
+                    className={cn(
+                      "flex items-start gap-3.5 p-4 sm:p-4.5 rounded-2xl border transition-all duration-200",
+                      isDark
+                        ? "bg-white/5 border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+                        : "bg-ofs-navy-50/60 border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 shadow-xs"
+                    )}
+                  >
+                    <CheckCircle2 size={18} className="text-ofs-red-500 shrink-0 mt-0.5" />
+                    <div className={cn("text-[0.98rem] leading-relaxed", isDark ? "text-gray-200" : "text-ofs-gray-700")}>
+                      {title && (
+                        <strong className={cn("font-bold mr-1.5", isDark ? "text-white" : "text-ofs-navy-950")}>
+                          {title}:
+                        </strong>
+                      )}
+                      <span>{formatText(desc)}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : block.paragraphs?.length > 0 ? (
+            <div className="space-y-4 text-left sm:text-center text-[1.02rem] sm:text-[1.08rem] leading-relaxed">
+              {block.paragraphs.map((para, pIdx) => renderParagraph(para, pIdx, isDark))}
+            </div>
+          ) : null}
 
           {block.buttonText && (
             <div className="mt-8">
@@ -778,14 +925,17 @@ export default function OfferDetail({ page }) {
             <Breadcrumbs
               items={[
                 { name: 'Home', href: '/' },
-                { name: page.categoryLabel, href: whatWeOffer[page.category].items[0].href },
+                {
+                  name: page.categoryLabel || 'Expertise',
+                  href: (whatWeOffer[(page.category || '').trim().toLowerCase()] || whatWeOffer[page.category] || { items: [{ href: '/' }] }).items[0].href,
+                },
                 { name: page.title, href: page.href },
               ]}
               variant="dark"
             />
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="tag-badge badge-red mb-5">{page.categoryLabel}</div>
+            <div className="tag-badge badge-red mb-5">OVERVIEW</div>
           </ScrollReveal>
           <h1 className="font-heading text-[clamp(1.9rem,4.5vw,3.85rem)] font-extrabold leading-[1.12] text-white mb-5 max-w-[920px]">
             <TextReveal tag="span" duration={0.65}>
@@ -805,7 +955,7 @@ export default function OfferDetail({ page }) {
         </Container>
       </section>
 
-      {/* When page has custom blocks (e.g. indirect-procurement, project-supply, outsource-manufacturing) */}
+      {/* When page has custom blocks (e.g. indirect-procurement, project-supply, outsource-manufacturing, outsource-procurement) */}
       {blocks.length > 0 ? (
         <>
           {/* Overview Section */}
@@ -815,13 +965,15 @@ export default function OfferDetail({ page }) {
                 <div className="grid grid-cols-1 gap-10 lg:gap-16 items-center lg:grid-cols-2">
                   <ScrollReveal direction="left">
                     <div className="tag-badge badge-red mb-4">OVERVIEW</div>
-                    {overviewTitle && <h2 className="section-title mb-5">{overviewTitle}</h2>}
+                    <h2 className="section-title mb-5">
+                      {page.overviewTitle || 'Strategic Scope & Core Capabilities'}
+                    </h2>
                     <p className="text-[1.05rem] text-ofs-gray-700 leading-relaxed">
                       {page.description}
                     </p>
                   </ScrollReveal>
                   <ScrollReveal direction="right">
-                    <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] relative">
+                    <div className="rounded-2xl overflow-hidden shadow-2xl border border-ofs-gray-200 h-[280px] sm:h-[380px] lg:h-[420px] relative">
                       <img
                         src={page.heroImage}
                         alt={`${page.title} — OFS Group India`}
@@ -852,27 +1004,25 @@ export default function OfferDetail({ page }) {
                   >
                     Request Advice
                   </Link>
-                </ScrollReveal>
-              )}
 
-              {/* 4 Feature Cards (e.g. What is it?, What can be manufactured?, etc.) if present */}
-              {page.features?.length > 0 && (
-                <div className="mt-14 max-w-5xl mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {page.features.map((feat, fIdx) => (
-                      <ScrollReveal key={fIdx} direction="up" delay={fIdx * 0.06}>
-                        <div className="p-6 rounded-2xl bg-ofs-navy-50/60 border border-ofs-navy-100 hover:bg-ofs-navy-50 hover:border-ofs-navy-300 transition-all h-full shadow-sm">
-                          <h3 className="font-heading text-lg font-bold text-ofs-navy-950 mb-2">
-                            {feat.title}
-                          </h3>
-                          <p className="text-sm text-ofs-gray-700 leading-relaxed m-0">
-                            {feat.description}
-                          </p>
-                        </div>
-                      </ScrollReveal>
-                    ))}
-                  </div>
-                </div>
+                  {/* 5 Feature Pill Cards (e.g. Save 5-15% on direct and indirect spend, etc.) */}
+                  {page.features?.length > 0 && (
+                    <div className="mt-12 flex flex-col gap-3.5 text-left max-w-4xl mx-auto">
+                      {page.features.map((feat, fIdx) => (
+                        <ScrollReveal key={fIdx} direction="up" delay={fIdx * 0.05}>
+                          <div className="p-5 sm:p-5.5 rounded-2xl bg-ofs-navy-50/60 border border-ofs-navy-100 hover:bg-ofs-navy-50/90 hover:border-ofs-navy-200 transition-all shadow-xs">
+                            <h3 className="font-heading text-base sm:text-[1.05rem] font-bold text-ofs-navy-950 mb-1.5">
+                              {feat.title}
+                            </h3>
+                            <p className="text-sm sm:text-[0.95rem] text-ofs-gray-600 leading-relaxed m-0">
+                              {feat.description}
+                            </p>
+                          </div>
+                        </ScrollReveal>
+                      ))}
+                    </div>
+                  )}
+                </ScrollReveal>
               )}
 
               {renderGallery(page.gallery, page.title)}
@@ -909,8 +1059,9 @@ export default function OfferDetail({ page }) {
         <section className="section-pad bg-white">
           <Container>
             <div
-              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${page.heroImage ? 'lg:grid-cols-2' : ''
-                }`}
+              className={`grid grid-cols-1 gap-10 lg:gap-16 mb-16 items-center ${
+                page.heroImage ? 'lg:grid-cols-2' : ''
+              }`}
             >
               <ScrollReveal direction="left">
                 <div className="tag-badge badge-red mb-4">OVERVIEW</div>
@@ -945,17 +1096,14 @@ export default function OfferDetail({ page }) {
                   {page.features.map((feat) => (
                     <div
                       key={feat.title}
-                      className="flex items-start gap-3 p-5 bg-ofs-navy-50/70 rounded-md border border-ofs-navy-100"
+                      className="p-5 bg-ofs-navy-50/70 rounded-md border border-ofs-navy-100"
                     >
-                      <CheckCircle2 size={18} className="text-ofs-red-600 shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-heading text-base font-bold text-ofs-navy-950 mb-1">
-                          {feat.title}
-                        </h3>
-                        <p className="text-sm text-ofs-gray-600 leading-relaxed m-0">
-                          {feat.description}
-                        </p>
-                      </div>
+                      <h3 className="font-heading text-base font-bold text-ofs-navy-950 mb-1">
+                        {feat.title}
+                      </h3>
+                      <p className="text-sm text-ofs-gray-600 leading-relaxed m-0">
+                        {feat.description}
+                      </p>
                     </div>
                   ))}
                 </div>

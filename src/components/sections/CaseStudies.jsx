@@ -19,9 +19,10 @@ import Container from '@/components/ui/Container';
 import caseStudiesData from '@/data/case-studies.json';
 import { cn } from '@/lib/cn';
 
-export default function CaseStudies() {
+export default function CaseStudies({ caseStudies = caseStudiesData }) {
+  const list = caseStudies && caseStudies.length > 0 ? caseStudies : caseStudiesData;
   const [activeTab, setActiveTab] = useState(0);
-  const activeStudy = caseStudiesData[activeTab] || caseStudiesData[0];
+  const activeStudy = list[activeTab] || list[0];
 
   return (
     <SectionPad
@@ -57,7 +58,7 @@ export default function CaseStudies() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-          {caseStudiesData.map((cs, idx) => {
+          {list.map((cs, idx) => {
             const isActive = activeTab === idx;
             return (
               <button

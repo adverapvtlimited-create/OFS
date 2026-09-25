@@ -77,7 +77,7 @@ function SimpleMenu({ items, pathname, onNavigate, columns = 1 }) {
   );
 }
 
-export default function DesktopNav({ pathname }) {
+export default function DesktopNav({ pathname, industries = [], products = [] }) {
   const [openMenu, setOpenMenu] = useState(null);
   const wrapRef = useRef(null);
   const closeTimer = useRef(null);
@@ -87,6 +87,25 @@ export default function DesktopNav({ pathname }) {
   const productsId = useId();
   const offerMatch = findOfferMatch(pathname);
   const offerActive = isWhatWeOfferPath(pathname);
+
+  const dynamicIndustriesNav =
+    Array.isArray(industries) && industries.length > 0
+      ? industries.map((ind) => ({
+          title: ind.shortName || ind.name,
+          href:
+            ind.id === 'renewable-energy' || ind.slug === 'renewable-energy'
+              ? '/renewables'
+              : `/industries/${ind.slug}`,
+        }))
+      : industriesNav;
+
+  const dynamicProductsNav =
+    Array.isArray(products) && products.length > 0
+      ? products.map((p) => ({
+          title: p.shortName || p.name || p.title,
+          href: `/products/${p.slug}`,
+        }))
+      : productsNav;
 
   const clearClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -180,7 +199,7 @@ export default function DesktopNav({ pathname }) {
           )}
         >
           <SimpleMenu
-            items={[{ title: 'All Industries', href: '/industries' }, ...industriesNav]}
+            items={[{ title: 'All Industries', href: '/industries' }, ...dynamicIndustriesNav]}
             pathname={pathname}
             onNavigate={() => setOpenMenu(null)}
             columns={2}
@@ -209,7 +228,7 @@ export default function DesktopNav({ pathname }) {
           )}
         >
           <SimpleMenu
-            items={[{ title: 'All Products', href: '/products' }, ...productsNav]}
+            items={[{ title: 'All Products', href: '/products' }, ...dynamicProductsNav]}
             pathname={pathname}
             onNavigate={() => setOpenMenu(null)}
             columns={2}
