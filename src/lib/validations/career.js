@@ -1,6 +1,7 @@
 import { z } from 'zod';
+import { validatePhoneNumber } from '../countries.js';
 
-const phoneRegex = /^[+]?[\d\s\-\(\)\.]{7,25}$/;
+const internationalPhoneRegex = /^[+]?[\d\s\-\(\)\.]{6,25}$/;
 
 export const careerApplicationSchema = z.object({
   fullName: z
@@ -18,13 +19,13 @@ export const careerApplicationSchema = z.object({
   phone: z
     .string({ required_error: 'Phone number is required' })
     .trim()
-    .min(7, { message: 'Phone number must be at least 7 digits.' })
-    .max(25, { message: 'Phone number cannot exceed 25 characters.' })
-    .regex(phoneRegex, { message: 'Please enter a valid phone number containing digits (e.g. +91 98200 00000).' })
+    .min(6, { message: 'Phone number must contain at least 6 digits.' })
+    .max(30, { message: 'Phone number cannot exceed 30 characters.' })
+    .regex(internationalPhoneRegex, { message: 'Please enter a valid international phone number (e.g. +971 50 123 4567, +1 202 555 0123, +91 98200 00000).' })
     .refine((val) => {
-      const digits = val.replace(/\D/g, '');
-      return digits.length >= 7 && digits.length <= 15;
-    }, { message: 'Phone number must contain between 7 and 15 digits.' }),
+      const res = validatePhoneNumber(val);
+      return res.isValid;
+    }, { message: 'Please enter a valid worldwide phone number for the selected country.' }),
 
   experienceYears: z
     .string()

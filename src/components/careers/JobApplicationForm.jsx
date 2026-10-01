@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { CheckCircle2, Send, Upload } from 'lucide-react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import InternationalPhoneInput from '@/components/ui/InternationalPhoneInput';
 import { cn } from '@/lib/cn';
 
 export default function JobApplicationForm({ job }) {
@@ -114,22 +115,13 @@ export default function JobApplicationForm({ job }) {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-mono font-bold uppercase text-ofs-navy-950 tracking-[0.05em]" htmlFor="phone">
-              Phone Number *
-            </label>
-            <input
-              id="phone"
-              type="tel"
+            <InternationalPhoneInput
+              label="Phone Number"
+              id="career-phone"
               name="phone"
               required
-              minLength={7}
-              maxLength={25}
-              pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
-              title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
               value={formData.phone}
-              onChange={handleChange}
-              placeholder="+91 98200 00000"
-              className="w-full px-4 py-3 text-sm text-ofs-gray-900 bg-white border border-ofs-gray-300 rounded-sm outline-none transition-all duration-150 focus:border-ofs-navy-900 focus:ring-2 focus:ring-ofs-navy-900/15"
+              onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
             />
           </div>
 

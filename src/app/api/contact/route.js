@@ -4,6 +4,7 @@ import path from "path";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import { sendRfqEmail } from "@/lib/brevo";
 import { createEnquiryInStrapi } from "@/lib/strapi";
+import { validatePhoneNumber } from "@/lib/countries";
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryEnquiries = [];
@@ -176,10 +177,24 @@ export async function POST(request) {
 
     if (!data.name || !data.email || !data.phone) {
       return NextResponse.json(
-        { error: "Name, email, and phone are required fields." },
+        { error: "Name, email, and phone number are required fields." },
         { status: 400 },
       );
     }
+
+    const phoneValidation = validatePhoneNumber(data.phone);
+    if (!phoneValidation.isValid) {
+      return NextResponse.json(
+        {
+          error:
+            phoneValidation.error ||
+            "Please provide a valid international phone number with country code.",
+        },
+        { status: 400 },
+      );
+    }
+
+    const cleanPhone = phoneValidation.e164 || data.phone;
 
     const enquiryRecord = {
       id: `ENQ-${Date.now()}`,
@@ -187,7 +202,7 @@ export async function POST(request) {
       formType: data.formType || "general",
       name: data.name,
       email: data.email,
-      phone: data.phone,
+      phone: cleanPhone,
       company: data.company || "Not Specified",
       service: data.service || "General Procurement",
       urgency: data.urgency || "Standard (1-2 Days)",

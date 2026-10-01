@@ -186,7 +186,7 @@ export async function sendRfqEmail({ enquiry, file = null }) {
                 ${message ? message.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '<em>No additional scope text provided.</em>'}
               </div>
 
-              <!-- Document Attachment & Cloudinary Section -->
+              <!-- Document Attachment Section -->
               <h3 style="margin: 0 0 10px 0; color: #071330; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
                 📎 Attached Documents &amp; Specifications
               </h3>
@@ -194,30 +194,23 @@ export async function sendRfqEmail({ enquiry, file = null }) {
               ${
                 file
                   ? `
-                <div style="background-color: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
                       <td style="vertical-align: middle;">
-                        <p style="margin: 0; font-weight: 700; font-size: 14px; color: #1e3a8a;">
-                          📄 ${file.fileName || 'Attached Document'}
+                        <span style="display: inline-block; background-color: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
+                          ✓ File Attached
+                        </span>
+                        <p style="margin: 0; font-weight: 700; font-size: 14px; color: #0f172a;">
+                          📄 ${file.fileName}
                         </p>
                         ${file.size ? `<p style="margin: 4px 0 0 0; font-size: 12px; color: #64748b;">Size: ${(file.size / (1024 * 1024)).toFixed(2)} MB</p>` : ''}
                       </td>
-                      ${
-                        file.cloudinaryUrl
-                          ? `
-                      <td align="right" style="vertical-align: middle;">
-                        <a href="${file.cloudinaryUrl}" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600;">
-                          View on Cloudinary ↗
-                        </a>
-                      </td>`
-                          : ''
-                      }
                     </tr>
                   </table>
-                  <p style="margin: 8px 0 0 0; font-size: 11px; color: #64748b;">
-                    * The document is attached to this email message.
-                  </p>
+                  <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cbd5e1; font-size: 12px; color: #334155; line-height: 1.5;">
+                    📎 <strong>Document Location:</strong> This file is attached directly to this email message. You can view, open, or download it in the <strong>document / attachments section below</strong>.
+                  </div>
                 </div>
               `
                   : `

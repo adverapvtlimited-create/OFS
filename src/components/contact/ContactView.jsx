@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import InternationalPhoneInput from '@/components/ui/InternationalPhoneInput';
 import defaultSiteConfig from '@/data/site-config.json';
 import { cn } from '@/lib/cn';
 
@@ -290,19 +291,13 @@ export default function ContactView({ siteConfig = defaultSiteConfig }) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="form-group">
-                        <label className="form-label">Phone / WhatsApp *</label>
-                        <input
-                          type="tel"
+                        <InternationalPhoneInput
+                          label="Phone / WhatsApp"
                           name="phone"
+                          id="contact-phone"
                           required
-                          minLength={7}
-                          maxLength={25}
-                          pattern="^[+]?[0-9\s\-\(\)\.]{7,25}$"
-                          title="Please enter a valid phone number containing digits (e.g. +91 98200 00000)"
                           value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+91 98200 00000"
-                          className="form-control"
+                          onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                         />
                       </div>
                       <div className="form-group">

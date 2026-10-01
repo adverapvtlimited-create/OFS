@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { validatePhoneNumber } from '@/lib/countries';
 
 // In-memory cache for serverless environments (e.g. Vercel) where root filesystem is read-only
 let memoryApplications = [];
@@ -83,10 +84,20 @@ export async function POST(request) {
 
     if (!data.fullName || !data.email || !data.phone) {
       return NextResponse.json(
-        { error: 'Full name, email, and phone are required.' },
+        { error: 'Full name, email, and phone number are required.' },
         { status: 400 }
       );
     }
+
+    const phoneValidation = validatePhoneNumber(data.phone);
+    if (!phoneValidation.isValid) {
+      return NextResponse.json(
+        { error: phoneValidation.error || 'Please provide a valid international phone number with country code.' },
+        { status: 400 }
+      );
+    }
+
+    const cleanPhone = phoneValidation.e164 || data.phone;
 
     const applicationRecord = {
       id: `APP-${Date.now()}`,
@@ -95,7 +106,7 @@ export async function POST(request) {
       jobTitle: data.jobTitle || 'General Application',
       fullName: data.fullName,
       email: data.email,
-      phone: data.phone,
+      phone: cleanPhone,
       experienceYears: data.experienceYears || 'N/A',
       currentCompany: data.currentCompany || 'N/A',
       resumeName: data.resumeName || 'resume-attached.pdf',

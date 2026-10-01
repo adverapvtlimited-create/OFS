@@ -36,7 +36,26 @@
 
   .lenis.lenis-smooth [data-lenis-prevent],
   [data-lenis-prevent] {
-    overscroll-behavior: contain;
+    overscroll-behavior: contain !important;
+  }
+
+  [data-lenis-prevent]::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  [data-lenis-prevent]::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+
+  [data-lenis-prevent]::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 4px;
+  }
+
+  [data-lenis-prevent]::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
   }
 
   .lenis.lenis-stopped,
