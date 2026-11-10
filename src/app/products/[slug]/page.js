@@ -269,6 +269,47 @@ export default async function SingleProductPage({ params }) {
                             </ul>
                           </div>
                         )}
+
+                        {/* Nested Sub-Product Catalog Items if any (e.g. Pup-Joints variants) */}
+                        {((item.product?.catalog_items && item.product.catalog_items.length > 0) ||
+                          (item.products?.catalog_items && item.products.catalog_items.length > 0)) && (
+                          <div className="bg-slate-50/90 p-3.5 rounded-xl border border-slate-200/80 mb-4">
+                            <div className="font-semibold text-xs text-ofs-navy-950 mb-2.5 uppercase tracking-wide flex items-center justify-between">
+                              <span>Available Sub-Types &amp; Configurations:</span>
+                              <span className="text-[11px] font-mono text-ofs-gray-500 font-normal">
+                                {(item.product?.catalog_items || item.products?.catalog_items).length} items
+                              </span>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {(item.product?.catalog_items || item.products?.catalog_items).map((subItem, sIdx) => (
+                                <div key={sIdx} className="bg-white p-2.5 rounded-lg border border-slate-200/70 shadow-xs flex items-center gap-2.5">
+                                  {subItem.image && (
+                                    <div className="w-10 h-10 rounded-md overflow-hidden relative shrink-0 bg-slate-100 border border-slate-200">
+                                      <SafeImage
+                                        src={subItem.image}
+                                        alt={subItem.title}
+                                        fill
+                                        sizes="40px"
+                                        className="object-contain p-0.5"
+                                        showSpinner={false}
+                                      />
+                                    </div>
+                                  )}
+                                  <div className="min-w-0 flex-1">
+                                    <div className="font-medium text-xs text-ofs-navy-900 truncate" title={subItem.title}>
+                                      {subItem.title}
+                                    </div>
+                                    {subItem.description && (
+                                      <div className="text-[11px] text-ofs-gray-500 line-clamp-1" title={subItem.description}>
+                                        {subItem.description}
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
 
                       <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">

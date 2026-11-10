@@ -234,7 +234,7 @@ export async function getServiceBySlug(slug) {
    ========================================================================== */
 export async function getProducts() {
   const data = await fetchStrapi(
-    "products?populate[0]=heroImage&populate[1]=catalogItems.image&populate[2]=seo&pagination[pageSize]=100",
+    "products?populate[heroImage]=true&populate[seo]=true&populate[catalogItems][populate][image]=true&populate[catalogItems][populate][product][populate][heroImage]=true&populate[catalogItems][populate][product][populate][image]=true&populate[catalogItems][populate][product][populate][catalog_items][populate][image]=true&populate[catalogItems][populate][product][populate][seo]=true&pagination[pageSize]=100",
     {
       fallbackData: localProducts,
     },
@@ -286,14 +286,46 @@ export async function getProducts() {
             ? ci.image
             : null);
 
+        const rawSubProduct = ci.product || ci.products;
+        const localSubProduct = localCi.product || localCi.products;
+        const resolvedSubProduct = rawSubProduct
+          ? {
+              ...rawSubProduct,
+              image:
+                getStrapiMedia(rawSubProduct.image) ||
+                getStrapiMedia(rawSubProduct.heroImage) ||
+                rawSubProduct.image ||
+                null,
+              heroImage:
+                getStrapiMedia(rawSubProduct.heroImage) ||
+                getStrapiMedia(rawSubProduct.image) ||
+                null,
+              catalog_items: Array.isArray(rawSubProduct.catalog_items)
+                ? rawSubProduct.catalog_items.map((sub) => ({
+                    ...sub,
+                    title: sub.title || "",
+                    description: sub.description || "",
+                    image: getStrapiMedia(sub.image) || sub.image || null,
+                  }))
+                : (Array.isArray(localSubProduct?.catalog_items)
+                    ? localSubProduct.catalog_items
+                    : []),
+            }
+          : localSubProduct || null;
+
         return {
+          ...localCi,
           ...ci,
+          title: ci.title || ci.name || localCi.title || "",
+          name: ci.name || ci.title || localCi.name || "",
           image:
             strapiImg ||
             localCi.image ||
             localMatch.heroImage ||
             "/images/products/mud-pumps.webp",
           description: ci.description || localCi.description || "",
+          product: resolvedSubProduct,
+          products: resolvedSubProduct,
         };
       }),
     };
