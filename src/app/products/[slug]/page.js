@@ -13,7 +13,7 @@ import {
   ArrowUpRight,
   CheckCircle2
 } from 'lucide-react';
-import { getProducts, getProductBySlug } from '@/lib/strapi';
+import { getProducts, getProductBySlug, slugify } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Container from '@/components/ui/Container';
@@ -38,9 +38,25 @@ const iconMap = {
 
 export async function generateStaticParams() {
   const products = await getProducts();
-  return products.map((prod) => ({
-    slug: prod.slug,
-  }));
+  const slugs = [];
+  products.forEach((prod) => {
+    if (prod.slug) slugs.push({ slug: prod.slug });
+    if (Array.isArray(prod.catalogItems)) {
+      prod.catalogItems.forEach((ci) => {
+        const sub = ci.product || ci.products;
+        if (sub) {
+          const subSlug =
+            sub.slug ||
+            (sub.name ? slugify(sub.name) : null) ||
+            (ci.title ? slugify(ci.title) : null);
+          if (subSlug && !slugs.some((s) => s.slug === subSlug)) {
+            slugs.push({ slug: subSlug });
+          }
+        }
+      });
+    }
+  });
+  return slugs;
 }
 
 export async function generateMetadata({ params }) {
@@ -75,6 +91,14 @@ export default async function SingleProductPage({ params }) {
   const breadcrumbItems = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
+    ...(prod.parentProduct
+      ? [
+          {
+            name: prod.parentProduct.shortName || prod.parentProduct.name,
+            href: `/products/${prod.parentProduct.slug}`,
+          },
+        ]
+      : []),
     { name: prod.shortName || prod.name, href: `/products/${prod.slug}` },
   ];
 
@@ -208,121 +232,145 @@ export default async function SingleProductPage({ params }) {
               </ScrollReveal>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                {prod.catalogItems.map((item, index) => (
-                  <ScrollReveal key={index} direction="up" delay={0.05 * (index % 4)}>
-                    <div className="bg-white rounded-2xl border border-ofs-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full hover:border-ofs-navy-200">
-                      <div>
-                        {/* Studio Image Frame with Ambient Color Match */}
-                        <div className="h-[210px] sm:h-[230px] w-full rounded-xl overflow-hidden relative mb-5 bg-gradient-to-b from-slate-50 via-slate-100/60 to-slate-200/50 border border-slate-200/90 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-center p-3">
-                          {/* Ambient blurred backdrop matching the image's own colors */}
-                          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
-                            <SafeImage
-                              src={item.image || '/images/live/Excellence-tools-official.png'}
-                              alt=""
-                              fill
-                              sizes="300px"
-                              className="object-cover blur-2xl scale-125"
-                              showSpinner={false}
-                            />
-                          </div>
+                {prod.catalogItems.map((item, index) => {
+                  const subProduct = item.product || item.products;
+                  const subSlug = subProduct
+                    ? (subProduct.slug || (subProduct.name ? slugify(subProduct.name) : null) || (item.title ? slugify(item.title) : null))
+                    : null;
+                  const subHref = subSlug ? `/products/${subSlug}` : null;
 
-                          {/* Subtle top studio light highlight */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/50 pointer-events-none" />
-
-                          {/* Crisp uncropped foreground product photo */}
-                          <div className="relative w-full h-full flex items-center justify-center">
-                            <SafeImage
-                              src={item.image || '/images/live/Excellence-tools-official.png'}
-                              alt={item.title}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                              containerClassName="bg-transparent"
-                              className="object-contain p-2 drop-shadow-md transition-transform duration-300 group-hover:scale-105"
-                              quality={90}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="font-heading text-lg sm:text-xl font-bold text-ofs-navy-950 mb-2.5 group-hover:text-ofs-red-600 transition-colors flex items-center justify-between">
-                          <span>{item.title}</span>
-                        </h3>
-
-                        {/* Description */}
-                        <div className="text-ofs-gray-700 text-xs sm:text-sm leading-relaxed space-y-2 mb-4 whitespace-pre-line">
-                          {item.description}
-                        </div>
-
-                        {/* Bullets if any */}
-                        {item.bullets && item.bullets.length > 0 && (
-                          <div className="bg-ofs-navy-50/60 p-3.5 rounded-xl border border-ofs-navy-100/80 mb-4">
-                            <div className="font-semibold text-xs text-ofs-navy-900 mb-2 uppercase tracking-wide">
-                              Common Applications &amp; Features:
-                            </div>
-                            <ul className="space-y-1.5">
-                              {item.bullets.map((bullet, bIdx) => (
-                                <li key={bIdx} className="flex items-center gap-2 text-xs text-ofs-gray-700 font-medium">
-                                  <CheckCircle2 size={14} className="text-ofs-red-600 shrink-0" />
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {/* Nested Sub-Product Catalog Items if any (e.g. Pup-Joints variants) */}
-                        {((item.product?.catalog_items && item.product.catalog_items.length > 0) ||
-                          (item.products?.catalog_items && item.products.catalog_items.length > 0)) && (
-                          <div className="bg-slate-50/90 p-3.5 rounded-xl border border-slate-200/80 mb-4">
-                            <div className="font-semibold text-xs text-ofs-navy-950 mb-2.5 uppercase tracking-wide flex items-center justify-between">
-                              <span>Available Sub-Types &amp; Configurations:</span>
-                              <span className="text-[11px] font-mono text-ofs-gray-500 font-normal">
-                                {(item.product?.catalog_items || item.products?.catalog_items).length} items
-                              </span>
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {(item.product?.catalog_items || item.products?.catalog_items).map((subItem, sIdx) => (
-                                <div key={sIdx} className="bg-white p-2.5 rounded-lg border border-slate-200/70 shadow-xs flex items-center gap-2.5">
-                                  {subItem.image && (
-                                    <div className="w-10 h-10 rounded-md overflow-hidden relative shrink-0 bg-slate-100 border border-slate-200">
-                                      <SafeImage
-                                        src={subItem.image}
-                                        alt={subItem.title}
-                                        fill
-                                        sizes="40px"
-                                        className="object-contain p-0.5"
-                                        showSpinner={false}
-                                      />
-                                    </div>
-                                  )}
-                                  <div className="min-w-0 flex-1">
-                                    <div className="font-medium text-xs text-ofs-navy-900 truncate" title={subItem.title}>
-                                      {subItem.title}
-                                    </div>
-                                    {subItem.description && (
-                                      <div className="text-[11px] text-ofs-gray-500 line-clamp-1" title={subItem.description}>
-                                        {subItem.description}
-                                      </div>
-                                    )}
-                                  </div>
+                  return (
+                    <ScrollReveal key={index} direction="up" delay={0.05 * (index % 4)}>
+                      <div className="bg-white rounded-2xl border border-ofs-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group h-full hover:border-ofs-navy-300 relative">
+                        <div>
+                          {/* Studio Image Frame with Ambient Color Match */}
+                          {subHref ? (
+                            <Link href={subHref} className="block cursor-pointer" title={`View ${item.title} specifications`}>
+                              <div className="h-[210px] sm:h-[230px] w-full rounded-xl overflow-hidden relative mb-5 bg-gradient-to-b from-slate-50 via-slate-100/60 to-slate-200/50 border border-slate-200/90 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-center p-3 group/img">
+                                <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+                                  <SafeImage
+                                    src={item.image || '/images/live/Excellence-tools-official.png'}
+                                    alt=""
+                                    fill
+                                    sizes="300px"
+                                    className="object-cover blur-2xl scale-125"
+                                    showSpinner={false}
+                                  />
                                 </div>
-                              ))}
+                                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/50 pointer-events-none" />
+                                <div className="relative w-full h-full flex items-center justify-center">
+                                  <SafeImage
+                                    src={item.image || '/images/live/Excellence-tools-official.png'}
+                                    alt={item.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                                    containerClassName="bg-transparent"
+                                    className="object-contain p-2 drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+                                    quality={90}
+                                  />
+                                </div>
+                                <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-[11px] font-semibold text-ofs-navy-950 border border-slate-200/90 shadow-sm flex items-center gap-1 opacity-0 group-hover/img:opacity-100 transition-opacity">
+                                  <span>View Details</span>
+                                  <ArrowUpRight size={12} className="text-ofs-red-600" />
+                                </div>
+                              </div>
+                            </Link>
+                          ) : (
+                            <div className="h-[210px] sm:h-[230px] w-full rounded-xl overflow-hidden relative mb-5 bg-gradient-to-b from-slate-50 via-slate-100/60 to-slate-200/50 border border-slate-200/90 shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)] flex items-center justify-center p-3">
+                              <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+                                <SafeImage
+                                  src={item.image || '/images/live/Excellence-tools-official.png'}
+                                  alt=""
+                                  fill
+                                  sizes="300px"
+                                  className="object-cover blur-2xl scale-125"
+                                  showSpinner={false}
+                                />
+                              </div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/50 pointer-events-none" />
+                              <div className="relative w-full h-full flex items-center justify-center">
+                                <SafeImage
+                                  src={item.image || '/images/live/Excellence-tools-official.png'}
+                                  alt={item.title}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                                  containerClassName="bg-transparent"
+                                  className="object-contain p-2 drop-shadow-md transition-transform duration-300 group-hover:scale-105"
+                                  quality={90}
+                                />
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </div>
+                          )}
 
-                      <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between">
-                        <Link
-                          href="/contact"
-                          className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"
-                        >
-                          Request Spec Sheet <ArrowUpRight size={14} />
-                        </Link>
+                          {/* Title */}
+                          <h3 className="font-heading text-lg sm:text-xl font-bold text-ofs-navy-950 mb-2.5 group-hover:text-ofs-red-600 transition-colors flex items-center justify-between">
+                            {subHref ? (
+                              <Link
+                                href={subHref}
+                                className="hover:text-ofs-red-600 transition-colors no-underline text-ofs-navy-950 flex items-center gap-1.5 flex-1"
+                                title={`View all specifications for ${item.title}`}
+                              >
+                                <span>{item.title}</span>
+                                <ArrowUpRight size={18} className="text-ofs-red-600 shrink-0 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                              </Link>
+                            ) : (
+                              <span>{item.title}</span>
+                            )}
+                          </h3>
+
+                          {/* Description */}
+                          <div className="text-ofs-gray-700 text-xs sm:text-sm leading-relaxed space-y-2 mb-4 whitespace-pre-line">
+                            {item.description}
+                          </div>
+
+                          {/* Bullets if any */}
+                          {item.bullets && item.bullets.length > 0 && (
+                            <div className="bg-ofs-navy-50/60 p-3.5 rounded-xl border border-ofs-navy-100/80 mb-4">
+                              <div className="font-semibold text-xs text-ofs-navy-900 mb-2 uppercase tracking-wide">
+                                Common Applications &amp; Features:
+                              </div>
+                              <ul className="space-y-1.5">
+                                {item.bullets.map((bullet, bIdx) => (
+                                  <li key={bIdx} className="flex items-center gap-2 text-xs text-ofs-gray-700 font-medium">
+                                    <CheckCircle2 size={14} className="text-ofs-red-600 shrink-0" />
+                                    <span>{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="pt-4 border-t border-ofs-gray-100 mt-2 flex items-center justify-between gap-3 flex-wrap">
+                          {subHref ? (
+                            <>
+                              <Link
+                                href={subHref}
+                                className="btn btn-primary btn-sm inline-flex items-center gap-1.5 text-xs font-semibold no-underline"
+                              >
+                                <span>Explore {item.title}</span>
+                                <ArrowUpRight size={14} />
+                              </Link>
+                              <Link
+                                href={`/contact?subject=${encodeURIComponent(`Spec Sheet Request: ${item.title}`)}`}
+                                className="text-xs font-semibold text-ofs-gray-600 hover:text-ofs-red-600 inline-flex items-center gap-1 transition-colors no-underline"
+                              >
+                                Request Spec Sheet <ArrowUpRight size={12} />
+                              </Link>
+                            </>
+                          ) : (
+                            <Link
+                              href="/contact"
+                              className="text-xs font-semibold text-ofs-red-600 hover:text-ofs-navy-900 inline-flex items-center gap-1 transition-colors no-underline"
+                            >
+                              Request Spec Sheet <ArrowUpRight size={14} />
+                            </Link>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
+                    </ScrollReveal>
+                  );
+                })}
               </div>
             </div>
           )}

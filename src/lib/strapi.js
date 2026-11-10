@@ -234,7 +234,7 @@ export async function getServiceBySlug(slug) {
    ========================================================================== */
 export async function getProducts() {
   const data = await fetchStrapi(
-    "products?populate[heroImage]=true&populate[seo]=true&populate[catalogItems][populate][image]=true&populate[catalogItems][populate][product][populate][heroImage]=true&populate[catalogItems][populate][product][populate][image]=true&populate[catalogItems][populate][product][populate][catalog_items][populate][image]=true&populate[catalogItems][populate][product][populate][seo]=true&pagination[pageSize]=100",
+    "products?populate[heroImage]=true&populate[seo]=true&populate[catalogItems][populate][image]=true&populate[catalogItems][populate][product][populate][heroImage]=true&populate[catalogItems][populate][product][populate][catalog_items][populate][image]=true&populate[catalogItems][populate][product][populate][seo]=true&pagination[pageSize]=100",
     {
       fallbackData: localProducts,
     },
@@ -332,13 +332,166 @@ export async function getProducts() {
   });
 }
 
+export function slugify(text) {
+  if (!text) return "";
+  return String(text)
+    .toLowerCase()
+    .trim()
+    .replace(/[\s_]+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-");
+}
+
 export async function getProductBySlug(slug) {
+  if (!slug) return null;
+  const target = slugify(slug);
   const products = await getProducts();
-  const match = products.find(
-    (p) => p.slug === slug || p.productId === slug || p.id === slug,
+
+  // 1. First, search top-level products
+  const directMatch = products.find(
+    (p) =>
+      slugify(p.slug) === target ||
+      slugify(p.productId) === target ||
+      slugify(p.id) === target ||
+      slugify(p.name) === target,
   );
-  if (match) return match;
-  return localProducts.find((p) => p.slug === slug || p.id === slug) || null;
+  if (directMatch) return directMatch;
+
+  // 2. Second, search nested sub-products inside catalogItems
+  for (const parent of products) {
+    if (Array.isArray(parent.catalogItems)) {
+      for (const ci of parent.catalogItems) {
+        const subProd = ci.product || ci.products;
+        if (!subProd) continue;
+
+        const subSlug =
+          slugify(subProd.slug) ||
+          slugify(subProd.productid) ||
+          slugify(subProd.productId) ||
+          slugify(subProd.name) ||
+          slugify(ci.title);
+
+        if (
+          subSlug === target ||
+          slugify(subProd.title) === target ||
+          slugify(ci.title) === target ||
+          slugify(subProd.name) === target
+        ) {
+          const resolvedSlug = subProd.slug || slugify(subProd.name || ci.title || target);
+          const subCatalogItems = Array.isArray(subProd.catalog_items)
+            ? subProd.catalog_items.map((subCi) => ({
+                title: subCi.title || "",
+                description: subCi.description || "",
+                image:
+                  getStrapiMedia(subCi.image) ||
+                  subCi.image ||
+                  ci.image ||
+                  parent.heroImage ||
+                  "/images/products/mud-pumps.webp",
+                bullets: Array.isArray(subCi.bullets) ? subCi.bullets : [],
+              }))
+            : [];
+
+          return {
+            id: subProd.productid || subProd.id || resolvedSlug,
+            slug: resolvedSlug,
+            name: subProd.name || subProd.title || ci.title,
+            shortName: subProd.shortName || subProd.name || ci.title,
+            category: subProd.category || parent.category || "Certified Equipment",
+            icon: subProd.icon || parent.icon || "Wrench",
+            heroImage:
+              getStrapiMedia(subProd.heroImage) ||
+              getStrapiMedia(subProd.image) ||
+              ci.image ||
+              parent.heroImage ||
+              "/images/products/mud-pumps.webp",
+            summary: subProd.summary || ci.description || parent.summary || "",
+            description: subProd.description || ci.description || parent.description || "",
+            keyPoints:
+              Array.isArray(subProd.keyPoints) && subProd.keyPoints.length > 0
+                ? subProd.keyPoints
+                : Array.isArray(parent.keyPoints)
+                ? parent.keyPoints
+                : [],
+            catalogItems: subCatalogItems,
+            seo: subProd.seo
+              ? {
+                  metaTitle:
+                    subProd.seo.metaTitle ||
+                    `${subProd.name || ci.title} | OFS Equipment & Procurement`,
+                  metaDescription:
+                    subProd.seo.metaDescription || subProd.summary || ci.description,
+                  keywords:
+                    subProd.seo.keywords ||
+                    `${subProd.name || ci.title}, ${parent.name}, industrial equipment`,
+                }
+              : {
+                  metaTitle: `${subProd.name || ci.title} | OFS Equipment & Procurement`,
+                  metaDescription: subProd.summary || ci.description,
+                  keywords: `${subProd.name || ci.title}, industrial equipment, OFS Group India`,
+                },
+            parentProduct: {
+              name: parent.name,
+              shortName: parent.shortName || parent.name,
+              slug: parent.slug,
+            },
+          };
+        }
+      }
+    }
+  }
+
+  // 3. Fallback search in local static JSON
+  if (Array.isArray(localProducts)) {
+    const localDirect = localProducts.find(
+      (p) =>
+        slugify(p.slug) === target ||
+        slugify(p.productId) === target ||
+        slugify(p.id) === target,
+    );
+    if (localDirect) return localDirect;
+
+    for (const parent of localProducts) {
+      if (Array.isArray(parent.catalogItems)) {
+        for (const ci of parent.catalogItems) {
+          const subProd = ci.product || ci.products;
+          if (!subProd) continue;
+          const subSlug =
+            slugify(subProd.slug) ||
+            slugify(subProd.productid) ||
+            slugify(subProd.name) ||
+            slugify(ci.title);
+
+          if (subSlug === target || slugify(ci.title) === target) {
+            return {
+              id: subProd.productid || subSlug,
+              slug: subProd.slug || subSlug,
+              name: subProd.name || ci.title,
+              shortName: subProd.shortName || ci.title,
+              category: subProd.category || parent.category || "Certified Equipment",
+              icon: subProd.icon || parent.icon || "Wrench",
+              heroImage: subProd.heroImage || subProd.image || ci.image || parent.heroImage,
+              summary: subProd.summary || ci.description,
+              description: subProd.description || ci.description,
+              keyPoints: subProd.keyPoints || parent.keyPoints || [],
+              catalogItems: (subProd.catalog_items || []).map((subCi) => ({
+                title: subCi.title,
+                description: subCi.description,
+                image: subCi.image || ci.image,
+              })),
+              parentProduct: {
+                name: parent.name,
+                shortName: parent.shortName || parent.name,
+                slug: parent.slug,
+              },
+            };
+          }
+        }
+      }
+    }
+  }
+
+  return null;
 }
 
 /* ==========================================================================
