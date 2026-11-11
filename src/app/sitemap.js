@@ -3,6 +3,7 @@ import {
   getProducts,
   getBlogPosts,
   getJobs,
+  slugify,
 } from "@/lib/strapi";
 import { SITE_URL } from "@/config/seo.config";
 import { parseDisplayDate } from "@/lib/seo";
@@ -24,6 +25,8 @@ export default async function sitemap() {
     { path: "/industries", priority: 0.8, changeFrequency: "weekly" },
     { path: "/products", priority: 0.9, changeFrequency: "weekly" },
     { path: "/renewables", priority: 0.85, changeFrequency: "weekly" },
+    { path: "/renewables/solar", priority: 0.85, changeFrequency: "weekly" },
+    { path: "/renewables/solar-engineering", priority: 0.85, changeFrequency: "weekly" },
     { path: "/blog", priority: 0.75, changeFrequency: "weekly" },
     { path: "/careers", priority: 0.75, changeFrequency: "weekly" },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
@@ -43,15 +46,44 @@ export default async function sitemap() {
     priority: 0.9,
   }));
 
-  const industryRoutes = industries.map((i) => ({
-    url: `${SITE_URL}/industries/${i.slug}`,
+  const industrySlugs = new Set();
+  industries.forEach((ind) => {
+    if (ind.slug && ind.slug !== "renewable-energy") {
+      industrySlugs.add(ind.slug);
+    }
+    if (Array.isArray(ind.subIndustries)) {
+      ind.subIndustries.forEach((sub) => {
+        if (sub.slug) industrySlugs.add(sub.slug);
+      });
+    }
+  });
+
+  const industryRoutes = Array.from(industrySlugs).map((slug) => ({
+    url: `${SITE_URL}/industries/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  const productRoutes = products.map((p) => ({
-    url: `${SITE_URL}/products/${p.slug}`,
+  const productSlugs = new Set();
+  products.forEach((p) => {
+    if (p.slug) productSlugs.add(p.slug);
+    if (Array.isArray(p.catalogItems)) {
+      p.catalogItems.forEach((ci) => {
+        const sub = ci.product || ci.products;
+        if (sub) {
+          const subSlug =
+            sub.slug ||
+            (sub.name ? slugify(sub.name) : null) ||
+            (ci.title ? slugify(ci.title) : null);
+          if (subSlug) productSlugs.add(subSlug);
+        }
+      });
+    }
+  });
+
+  const productRoutes = Array.from(productSlugs).map((slug) => ({
+    url: `${SITE_URL}/products/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.85,

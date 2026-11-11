@@ -342,6 +342,20 @@ export function slugify(text) {
     .replace(/--+/g, "-");
 }
 
+export function formatTitleCase(str) {
+  if (!str || typeof str !== "string") return "";
+  const cleaned = str.includes("-") && !str.includes(" ") ? str.replace(/-/g, " ") : str;
+  return cleaned
+    .split(" ")
+    .map((w) => {
+      if (!w) return "";
+      // Keep acronyms intact if they are 2+ uppercase letters (e.g. API, OEM, MRO, ISO, VFD, HVAC, ESP, LED)
+      if (/^[A-Z0-9]{2,}$/.test(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
+    .join(" ");
+}
+
 export async function getProductBySlug(slug) {
   if (!slug) return null;
   const target = slugify(slug);
@@ -378,6 +392,10 @@ export async function getProductBySlug(slug) {
           slugify(subProd.name) === target
         ) {
           const resolvedSlug = subProd.slug || slugify(subProd.name || ci.title || target);
+          const rawName = subProd.name || subProd.title || ci.title || resolvedSlug;
+          const formattedName = formatTitleCase(rawName);
+          const rawShortName = subProd.shortName || subProd.name || ci.title || resolvedSlug;
+          const formattedShortName = formatTitleCase(rawShortName);
           const subCatalogItems = Array.isArray(subProd.catalog_items)
             ? subProd.catalog_items.map((subCi) => ({
                 title: subCi.title || "",
@@ -395,8 +413,8 @@ export async function getProductBySlug(slug) {
           return {
             id: subProd.productid || subProd.id || resolvedSlug,
             slug: resolvedSlug,
-            name: subProd.name || subProd.title || ci.title,
-            shortName: subProd.shortName || subProd.name || ci.title,
+            name: formattedName,
+            shortName: formattedShortName,
             category: subProd.category || parent.category || "Certified Equipment",
             icon: subProd.icon || parent.icon || "Wrench",
             heroImage:
@@ -418,17 +436,17 @@ export async function getProductBySlug(slug) {
               ? {
                   metaTitle:
                     subProd.seo.metaTitle ||
-                    `${subProd.name || ci.title} | OFS Equipment & Procurement`,
+                    `${formattedName} | OFS Equipment & Procurement`,
                   metaDescription:
                     subProd.seo.metaDescription || subProd.summary || ci.description,
                   keywords:
                     subProd.seo.keywords ||
-                    `${subProd.name || ci.title}, ${parent.name}, industrial equipment`,
+                    `${formattedName}, ${parent.name}, industrial equipment`,
                 }
               : {
-                  metaTitle: `${subProd.name || ci.title} | OFS Equipment & Procurement`,
+                  metaTitle: `${formattedName} | OFS Equipment & Procurement`,
                   metaDescription: subProd.summary || ci.description,
-                  keywords: `${subProd.name || ci.title}, industrial equipment, OFS Group India`,
+                  keywords: `${formattedName}, industrial equipment, OFS Group India`,
                 },
             parentProduct: {
               name: parent.name,
@@ -463,11 +481,15 @@ export async function getProductBySlug(slug) {
             slugify(ci.title);
 
           if (subSlug === target || slugify(ci.title) === target) {
+            const rawSubName = subProd.name || ci.title || subSlug;
+            const formattedSubName = formatTitleCase(rawSubName);
+            const rawSubShortName = subProd.shortName || ci.title || subSlug;
+            const formattedSubShortName = formatTitleCase(rawSubShortName);
             return {
               id: subProd.productid || subSlug,
               slug: subProd.slug || subSlug,
-              name: subProd.name || ci.title,
-              shortName: subProd.shortName || ci.title,
+              name: formattedSubName,
+              shortName: formattedSubShortName,
               category: subProd.category || parent.category || "Certified Equipment",
               icon: subProd.icon || parent.icon || "Wrench",
               heroImage: subProd.heroImage || subProd.image || ci.image || parent.heroImage,

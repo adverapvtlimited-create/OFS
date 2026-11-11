@@ -13,7 +13,7 @@ import {
   ArrowUpRight,
   CheckCircle2
 } from 'lucide-react';
-import { getProducts, getProductBySlug, slugify } from '@/lib/strapi';
+import { getProducts, getProductBySlug, slugify, formatTitleCase } from '@/lib/strapi';
 import TextReveal from '@/components/animations/TextReveal';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Container from '@/components/ui/Container';
@@ -71,10 +71,10 @@ export async function generateMetadata({ params }) {
   }
 
   return buildPageMetadata({
-    title: `${prod.name} | OFS Equipment & Procurement`,
+    title: `${formatTitleCase(prod.name)} | OFS Equipment & Procurement`,
     description: prod.summary,
     path: `/products/${prod.slug}`,
-    keywords: [prod.name, prod.category, 'OFS Group India', 'industrial product sourcing'],
+    keywords: [formatTitleCase(prod.name), prod.category, 'OFS Group India', 'industrial product sourcing'],
     ogImage: prod.heroImage,
   });
 }
@@ -94,19 +94,19 @@ export default async function SingleProductPage({ params }) {
     ...(prod.parentProduct
       ? [
           {
-            name: prod.parentProduct.shortName || prod.parentProduct.name,
+            name: formatTitleCase(prod.parentProduct.shortName || prod.parentProduct.name),
             href: `/products/${prod.parentProduct.slug}`,
           },
         ]
       : []),
-    { name: prod.shortName || prod.name, href: `/products/${prod.slug}` },
+    { name: formatTitleCase(prod.shortName || prod.name), href: `/products/${prod.slug}` },
   ];
 
   return (
     <>
       <JsonLd
         data={buildWebPageSchema({
-          title: `${prod.name} | OFS Group India`,
+          title: `${formatTitleCase(prod.name)} | OFS Group India`,
           description: prod.summary,
           path: `/products/${prod.slug}`,
         })}
@@ -132,8 +132,8 @@ export default async function SingleProductPage({ params }) {
             </div>
           </ScrollReveal>
 
-          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px]">
-            {prod.name}
+          <h1 className="font-heading text-[clamp(1.95rem,4.5vw,4rem)] font-extrabold leading-[1.12] text-white mb-6 max-w-[920px] capitalize">
+            {formatTitleCase(prod.name)}
           </h1>
 
           <ScrollReveal direction="up" delay={0.25}>
