@@ -20,7 +20,7 @@
         "variant": "dark",
         "imagePosition": "bottom",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/facilities_offered_b2dc7503ee.png",
+          "src": "https://cms.ofsworld.com/uploads/facilities_offered_e0687c0e07.png",
           "alt": "Facilities Offered by OFS"
         },
         "intro": "At OFS, we provide a comprehensive range of facilities that support the smooth and efficient operation of businesses across industries:",
@@ -43,14 +43,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "The Advantages of Indirect Procurement",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/advantages_procurement_40d7b2ea6f.png",
+          "src": "https://cms.ofsworld.com/uploads/advantages_procurement_67f57d3d81.png",
           "alt": "The Advantages of Indirect Procurement"
         },
         "intro": "Indirect procurement offers a range of strategic benefits that can drive operational excellence and cost efficiency across an organization:",
@@ -77,7 +78,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "OFS's Expertise",
@@ -89,14 +91,15 @@
         "paragraphs": [
           "At OFS, our procurement consultants bring a deep understanding of sourcing best practices combined with extensive experience in vendor management. We work closely with your team to analyze existing sourcing processes, identify areas for cost reduction, and uncover opportunities for measurable improvement. Through a strategic approach to indirect procurement, we help you streamline operations, enhance value, and drive sustainable business growth."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Key Practices for Effective Indirect Procurement",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/key_practices_d409688ca1.png",
+          "src": "https://cms.ofsworld.com/uploads/key_practices_4e06f34e22.png",
           "alt": "Key Practices for Effective Indirect Procurement"
         },
         "intro": "Implementing the right practices is essential to maximize the value of indirect procurement. Here are some key strategies to consider:",
@@ -123,14 +126,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "OFS: Your Gateway to the Future of Indirect Procurement",
         "variant": "subtle",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/future_procurement_69b26ff8c6.png",
+          "src": "https://cms.ofsworld.com/uploads/future_procurement_9518cee842.png",
           "alt": "OFS: Your Gateway to the Future of Indirect Procurement"
         },
         "intro": "",
@@ -142,7 +146,8 @@
         ],
         "buttonText": "Contact Us",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -188,7 +193,7 @@
         "variant": "light",
         "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/one.png",
+          "src": "https://cms.ofsworld.com/uploads/one_a42200a56a.png",
           "alt": "When to Choose Outsourced Procurement?"
         },
         "intro": "Outsourced procurement can be a strategic solution in various scenarios. It is especially beneficial when:",
@@ -211,14 +216,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Different Types of Procurement Outsourcing",
         "variant": "dark",
         "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/seconds.png",
+          "src": "https://cms.ofsworld.com/uploads/seconds_9d621ec130.png",
           "alt": "Different Types of Procurement Outsourcing"
         },
         "intro": "Procurement outsourcing can be categorized into two main types, each serving distinct business needs:",
@@ -233,14 +239,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Benefits of Outsourcing Procurement",
         "variant": "light",
         "imagePosition": "bottom",
         "image": {
-          "src": "/images/live/third-1.png",
+          "src": "https://cms.ofsworld.com/uploads/third_1_202d93d5d4.png",
           "alt": "Benefits of Outsourcing Procurement"
         },
         "intro": "Outsourcing procurement offers a range of strategic and operational advantages for businesses looking to streamline processes and boost efficiency:",
@@ -267,7 +274,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Allow the Experts to Handle the Procurement",
@@ -281,7 +289,8 @@
           "Whether it's securing the best pricing, mitigating fraud risks, or building a more agile and responsive procurement function, outsourcing paves the way for measurable performance improvements and cost savings.",
           "Embark on a journey toward smarter procurement. Connect with the OFS team for a complimentary consultation and discover how our expertise can help streamline your procurement processes, protect your resources, and accelerate your business success."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -306,7 +315,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/Procurement_and_shippings_37974b7689.jpg",
+          "src": "https://cms.ofsworld.com/uploads/Procurement_and_shippings_2b3b97c6ac.jpg",
           "alt": "Procurement Expertise"
         },
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value to industrial enterprises:",
@@ -329,14 +338,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Structured Global Shipping & Logistics Integration",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/Excellence_tools_official_ca69d404e9.png",
+          "src": "https://cms.ofsworld.com/uploads/Excellence_tools_official_12ad028b3d.png",
           "alt": "Global Shipping and Logistics"
         },
         "intro": "Seamlessly moving mission-critical equipment from global factories directly to your plant site:",
@@ -359,7 +369,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Why Partner with OFS for Procurement & Sourcing?",
@@ -386,7 +397,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Leverage the Procurement Expertise of OFS Today",
@@ -401,7 +413,8 @@
         ],
         "buttonText": "Request a Procurement & Sourcing Consultation",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -426,7 +439,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/Engg_e1751278356951_4cbafa9b6e.jpg",
+          "src": "https://cms.ofsworld.com/uploads/Engg_e1751278356951_6ab5fdfb78.jpg",
           "alt": "Engineering Support"
         },
         "intro": "Our multidisciplinary engineering teams deliver high-impact technical solutions across demanding industrial sectors:",
@@ -455,14 +468,15 @@
         "paragraphs": [],
         "buttonText": "null",
         "buttonHref": "null",
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Your Trusted Partner in High-Impact Technical Solutions",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/engineering_sunset_5321d1b3c9.png",
+          "src": "https://cms.ofsworld.com/uploads/engineering_sunset_83defb252c.png",
           "alt": "High-Impact Technical Solutions"
         },
         "intro": "Why global asset owners and EPC operators rely on OFS Engineering:",
@@ -485,7 +499,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Global Brand Assurance & Engineering Governance",
@@ -498,7 +513,8 @@
           "At OFS, engineering integrity is backed by robust quality frameworks and verified technical standards.",
           "Every engineering package, technical inspection, and material verification is conducted with complete traceability—guaranteeing that your industrial assets operate safely, reliably, and efficiently for years."
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Connect with OFS Engineering Today",
@@ -513,7 +529,8 @@
         ],
         "buttonText": "Discuss Your Engineering Project",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -561,7 +578,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "How OFS Supports You in Spare Parts Procurement",
@@ -591,7 +609,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Spare Parts Availability That Drives Productivity",
@@ -603,7 +622,8 @@
         "paragraphs": [
           "Unplanned downtime can cost industrial facilities tens of thousands of dollars per hour. OFS provides guaranteed response times, complete pricing transparency, and robust warranty backing on every industrial spare part supplied."
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Request Spares Support Today",
@@ -618,7 +638,8 @@
         ],
         "buttonText": "Submit Parts Inquiry",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -643,7 +664,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/Logistics_and_shippings_f1417e19a5.jpg",
+          "src": "https://cms.ofsworld.com/uploads/Logistics_and_shippings_d1af56f04f.jpg",
           "alt": "Logistics & Shipping Support Services"
         },
         "intro": "Reliable freight and multi-modal logistics support tailored for industrial and engineering requirements:",
@@ -666,14 +687,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Logistics & Supply Chain Integration",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/logistics_integration_photo_f386a68ed9.png",
+          "src": "https://cms.ofsworld.com/uploads/logistics_integration_photo_dacd8d2f4f.png",
           "alt": "Supply Chain Integration"
         },
         "intro": "Connecting procurement, suppliers, transportation, warehousing, and project sites for efficient material flow:",
@@ -696,7 +718,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Get Logistics & Shipping Support Today",
@@ -711,7 +734,8 @@
         ],
         "buttonText": "Request Logistics Support",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -736,7 +760,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/facilities_offered_778d28909d.png",
+          "src": "https://cms.ofsworld.com/uploads/facilities_offered_e0687c0e07.png",
           "alt": "Quality Assurance Framework"
         },
         "intro": "How OFS guarantees zero-defect deliveries across every project:",
@@ -759,7 +783,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Testing Capabilities & Global Standards",
@@ -789,7 +814,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Why Partner with OFS for Quality Control?",
@@ -805,7 +831,8 @@
         ],
         "buttonText": "Schedule a Quality Consultation",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -830,7 +857,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/supply_chain_planning_photo_08df1e40de.png",
+          "src": "https://cms.ofsworld.com/uploads/supply_chain_planning_photo_94c8b9c862.png",
           "alt": "Supply Chain Process"
         },
         "intro": "Core strategic pillars to match product supply with dynamic customer demand:",
@@ -853,14 +880,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Overcoming Supply Chain Challenges & Solutions",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/supply_chain_challenges_photo_e6a0599fa3.png",
+          "src": "https://cms.ofsworld.com/uploads/supply_chain_challenges_photo_3662ceefbc.png",
           "alt": "Supply Chain Solutions"
         },
         "intro": "How OFS actively resolves the most pressing supply chain hurdles:",
@@ -883,7 +911,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Benefits of OFS Supply Chain Management Services",
@@ -900,7 +929,8 @@
         ],
         "buttonText": "Optimize Your Supply Chain Today",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -911,7 +941,7 @@
     "title": "Global MRO Procurement Excellence",
     "category": "solutions",
     "categoryLabel": "Solutions",
-    "heroImage": "https://cms.ofsgroupindia.in/uploads/global_mro_hero_d3fdbd92c3.png",
+    "heroImage": "https://cms.ofsworld.com/uploads/global_mro_hero_ba02afcbe1.png",
     "tagline": "Elevate Your Operations with Global MRO Procurement Excellence",
     "description": "In today’s fast-paced business environment, efficiency isn’t optional—it’s essential. That’s where OFS comes in. We’re not just streamlining MRO (Maintenance, Repair, and Operations) procurement—we’re redefining it. Powered by a global network of trusted suppliers, cutting-edge technology, and a commitment to cost optimisation, OFS delivers smarter, faster, and more strategic procurement solutions.",
     "overviewTitle": null,
@@ -950,14 +980,14 @@
         ],
         "paragraphs": [],
         "noBullets": false,
-        "hasSubscribeForm": false
+        "hasSubscribeForm": null
       },
       {
         "title": "Our Approach to Global MRO Procurement",
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/global_mro_block1_052578799a.png",
+          "src": "https://cms.ofsworld.com/uploads/global_mro_block1_20d59b3e36.png",
           "alt": "MRO procurement specialist working in a warehouse"
         },
         "intro": "",
@@ -985,14 +1015,14 @@
         ],
         "paragraphs": [],
         "noBullets": false,
-        "hasSubscribeForm": false
+        "hasSubscribeForm": null
       },
       {
         "title": "Discover the OFS Advantage",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/global_mro_block2_f8dcdca296.png",
+          "src": "https://cms.ofsworld.com/uploads/global_mro_block2_93d4959800.png",
           "alt": "OFS industrial procurement facility"
         },
         "intro": "",
@@ -1002,7 +1032,8 @@
           "With OFS as your MRO procurement outsourcing partner, you can confidently navigate the complexities of global procurement—while staying focused on your core business objectives.",
           "Let us help transform your supply chain financing strategy. Contact OFS today and take the first step toward a more efficient, secure, and prosperous future for your business."
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "What can be expected",
@@ -1053,7 +1084,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1112,7 +1144,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1137,7 +1170,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/inventory_opt_block0_79b6c4d515.png",
+          "src": "https://cms.ofsworld.com/uploads/inventory_opt_block0_859d4b8a9c.png",
           "alt": "Why Choose OFS for Inventory Optimisation"
         },
         "intro": "Effective inventory planning is essential for operational resilience and cost control. At OFS, we empower industrial leaders with precision forecasting and lean stocking:",
@@ -1164,14 +1197,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Support and Implementation",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/inventory_opt_block1_26c639ec75.png",
+          "src": "https://cms.ofsworld.com/uploads/inventory_opt_block1_4a40f1ac26.png",
           "alt": "Support and Implementation"
         },
         "intro": "We don't just recommend strategies; we guide you through every stage of implementation to ensure long-term success:",
@@ -1194,7 +1228,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1209,7 +1244,7 @@
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
         "noBullets": false,
-        "hasSubscribeForm": false
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1227,7 +1262,7 @@
           "“Prevent stockouts, reduce waste.”"
         ],
         "noBullets": false,
-        "hasSubscribeForm": false
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1260,7 +1295,8 @@
         "paragraphs": [],
         "buttonText": "Request Inventory Audit",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1285,7 +1321,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/mdm_block0_51caed005f.png",
+          "src": "https://cms.ofsworld.com/uploads/mdm_block0_476bf74708.png",
           "alt": "How OFS MDM Operates"
         },
         "intro": "Our structured MDM methodology ensures complete data accuracy, compliance, and taxonomy standardization:",
@@ -1304,14 +1340,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "The OFS Advantage: How We Bring MDM to Life",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/mdm_block1_09eb8cce5b.png",
+          "src": "https://cms.ofsworld.com/uploads/mdm_block1_0a851b74ae.png",
           "alt": "The OFS Advantage"
         },
         "intro": "Why global industrial enterprises choose OFS for end-to-end Master Data governance:",
@@ -1334,7 +1371,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1348,7 +1386,8 @@
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1365,7 +1404,8 @@
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1398,7 +1438,8 @@
         "paragraphs": [],
         "buttonText": "Start Your MDM Consultation",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1423,7 +1464,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/mro_supply_block0_87520a0f45.png",
+          "src": "https://cms.ofsworld.com/uploads/mro_supply_block0_d082da18a4.png",
           "alt": "Why OFS for Your MRO Needs"
         },
         "intro": "How OFS eliminates the operational headaches of fragmented indirect maintenance sourcing:",
@@ -1446,14 +1487,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "OFS's MRO Supply Solution: What You Get",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/mro_supply_block1_cde84f1178.png",
+          "src": "https://cms.ofsworld.com/uploads/mro_supply_block1_a285aa49de.png",
           "alt": "OFS MRO Supply Solution"
         },
         "intro": "Our comprehensive delivery model covers the full breadth of industrial facility requirements:",
@@ -1476,7 +1518,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1490,7 +1533,8 @@
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1507,7 +1551,8 @@
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1540,7 +1585,8 @@
         "paragraphs": [],
         "buttonText": "Consolidate Your MRO Supplies",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1565,7 +1611,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/plant_maint_block0_8cdbb0b6e1.png",
+          "src": "https://cms.ofsworld.com/uploads/plant_maint_block0_7b49d8a814.png",
           "alt": "Plant Maintenance Challenges"
         },
         "intro": "Key obstacles plant managers face and how OFS systematically resolves them:",
@@ -1588,14 +1634,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "How OFS Transforms Plant Maintenance",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/plant_maint_block1_8855119ba7.png",
+          "src": "https://cms.ofsworld.com/uploads/plant_maint_block1_38c3b2a26a.png",
           "alt": "Transforming Plant Maintenance"
         },
         "intro": "Our integrated service offerings for refinery, petrochemical, and heavy manufacturing facilities:",
@@ -1618,7 +1665,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1632,7 +1680,8 @@
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1649,7 +1698,8 @@
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1682,7 +1732,8 @@
         "paragraphs": [],
         "buttonText": "Schedule a Maintenance Review",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1707,7 +1758,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_block0_cfc80d3751.png",
+          "src": "https://cms.ofsworld.com/uploads/spare_parts_block0_c85c31ee25.png",
           "alt": "spare-parts-block"
         },
         "intro": "Why leading operators trust OFS for uninterrupted parts availability:",
@@ -1730,14 +1781,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Optimising Spare Parts Management & Resilience",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/spare_parts_block1_e9cef98b92.png",
+          "src": "https://cms.ofsworld.com/uploads/spare_parts_block1_2ec0d2654f.png",
           "alt": "Optimising Spare Parts Management"
         },
         "intro": "Structured methodologies to safeguard industrial production continuity:",
@@ -1760,7 +1812,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1774,7 +1827,8 @@
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1791,7 +1845,8 @@
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1824,7 +1879,8 @@
         "paragraphs": [],
         "buttonText": "Ensure Spares Availability",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1849,7 +1905,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/strategic_sourcing_block0_6ef4f497df.png",
+          "src": "https://cms.ofsworld.com/uploads/strategic_sourcing_block0_71c1259f59.png",
           "alt": "Challenges of Sourcing"
         },
         "intro": "Eliminating common inefficiencies in industrial procurement pipelines:",
@@ -1872,14 +1928,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Finding Reliable Sources & Specialized Services",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/strategic_sourcing_block1_49fcee5140.png",
+          "src": "https://cms.ofsworld.com/uploads/strategic_sourcing_block1_40c7309145.png",
           "alt": "Reliable Sourcing Services"
         },
         "intro": "Our comprehensive suite of data enrichment and sourcing capabilities:",
@@ -1902,7 +1959,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Pricing and Packages",
@@ -1916,7 +1974,8 @@
           "Whether you're a small enterprise or a global organisation, we offer a range of packages to suit your scale and requirements. Our pricing is fully transparent, with no hidden fees—just straightforward, value-driven plans.",
           "Each package is structured to deliver maximum return on investment, helping you optimise your procurement strategy without compromising on quality or efficiency."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "What Can Be Expected",
@@ -1933,7 +1992,8 @@
           "“Efficient supplier partnerships.”",
           "“Prevent stockouts, reduce waste.”"
         ],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Broad Advantages",
@@ -1966,7 +2026,8 @@
         "paragraphs": [],
         "buttonText": "Start Sourcing Optimization",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -1991,7 +2052,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/one_5d99ad8c39.png",
+          "src": "https://cms.ofsworld.com/uploads/one_a42200a56a.png",
           "alt": "OFS Core Expertise"
         },
         "intro": "Four core disciplines where OFS delivers measurable, bottom-line value:",
@@ -2014,14 +2075,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Why Partner with OFS?",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/two_rdjvqwegm3tilwnmboyyo1yd9xikpofjirqc5k2bi0_56bc9dcde3.png",
+          "src": "https://cms.ofsworld.com/uploads/two_rdjvqwegm3tilwnmboyyo1yd9xikpofjirqc5k2bi0_b42a935d3c.png",
           "alt": "Why Partner with OFS"
         },
         "intro": "The pillars that make OFS the premier procurement partner for industrial leaders:",
@@ -2044,7 +2106,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Leverage the Procurement Expertise of OFS Today",
@@ -2059,7 +2122,8 @@
         ],
         "buttonText": "Speak with Our Procurement Team",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -2084,7 +2148,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/project_supply_approach_dff85fbf6d.png",
+          "src": "https://cms.ofsworld.com/uploads/project_supply_approach_32ca725ec1.png",
           "alt": "Our Approach: Embedding Excellence at Every Stage"
         },
         "intro": "**At OFS, we deliver a comprehensive approach to project supply management**, focusing on precision, performance, and reliability. Our goal is to ensure your projects are completed on time, within budget, and to the highest quality standards.",
@@ -2111,14 +2175,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Join the OFS Project Supply Revolution",
         "variant": "dark",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/project_supply_revolution_af596a9d76.png",
+          "src": "https://cms.ofsworld.com/uploads/project_supply_revolution_2e950e52b0.png",
           "alt": "Join the OFS Project Supply Revolution"
         },
         "intro": "",
@@ -2126,7 +2191,8 @@
         "paragraphs": [
           "Embark on a transformative journey in project supply management with **OFS** as your trusted partner. Our team of experts is equipped to ensure the flawless execution your projects demand. With a client-focused approach, a strong commitment to sustainable practices, and a forward-thinking mindset driven by technological innovation, **OFS** is your gateway to turning vision into reality. Let us help you achieve excellence—every step of the way."
         ],
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -2167,13 +2233,17 @@
         "title": "Look no further! We take complete ownership of your manufacturing from concept to design to delivery!",
         "variant": "light",
         "imagePosition": "right",
-        "image": null,
+        "image": {
+          "src": "https://cms.ofsworld.com/uploads/Service_experience_in_the_industry_69f8925b86.jpg",
+          "alt": "Years of service experience in the industry"
+        },
         "intro": "",
         "items": [],
         "paragraphs": [],
         "type": "oem-banner",
         "eyebrow": "Are you an OEM?",
         "noBullets": false,
+        "hasSubscribeForm": null,
         "stats": [
           {
             "image": "/images/live/Service-experience-in-the-industry.jpg",
@@ -2220,7 +2290,8 @@
         "paragraphs": [],
         "type": "card-grid",
         "subtitle": "Why choose us as your outsourcing manufacturing partner.",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "India: The Next Manufacturing Hub",
@@ -2244,7 +2315,8 @@
         ],
         "paragraphs": [],
         "type": "hub-section",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Why OEMs choose us",
@@ -2286,7 +2358,8 @@
         ],
         "paragraphs": [],
         "type": "image-cards",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Industries",
@@ -2373,7 +2446,8 @@
         ],
         "paragraphs": [],
         "type": "icon-grid",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       },
       {
         "title": "Manufacturing Capabilities",
@@ -2455,7 +2529,8 @@
         ],
         "paragraphs": [],
         "type": "photo-grid",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   },
@@ -2480,7 +2555,7 @@
         "variant": "light",
         "imagePosition": "left",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/our_warehouse_services_photo_e59c46c5d3.png",
+          "src": "https://cms.ofsworld.com/uploads/our_warehouse_services_photo_80a8279a76.png",
           "alt": "Our Warehouse Services"
         },
         "intro": "At OFS, we offer comprehensive warehouse solutions tailored to meet the diverse needs of modern industrial supply chains:",
@@ -2503,14 +2578,15 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Why Choose OFS for Warehouse Solutions?",
         "variant": "light",
         "imagePosition": "right",
         "image": {
-          "src": "https://cms.ofsgroupindia.in/uploads/Procurement_and_shippings_8841953cde.jpg",
+          "src": "https://cms.ofsworld.com/uploads/Procurement_and_shippings_2b3b97c6ac.jpg",
           "alt": "Why Choose OFS Warehouse"
         },
         "intro": "Engineered specifically for the demands of the process, energy, and manufacturing sectors:",
@@ -2533,7 +2609,8 @@
           }
         ],
         "paragraphs": [],
-        "noBullets": true
+        "noBullets": true,
+        "hasSubscribeForm": null
       },
       {
         "title": "Experience Outstanding Customer Service and Collaboration",
@@ -2549,7 +2626,8 @@
         ],
         "buttonText": "Inquire About Warehouse Space",
         "buttonHref": "/contact",
-        "noBullets": false
+        "noBullets": false,
+        "hasSubscribeForm": null
       }
     ]
   }

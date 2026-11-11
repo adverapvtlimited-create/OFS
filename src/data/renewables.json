@@ -12,7 +12,7 @@
       "id": "solar-engineering",
       "title": "Solar Engineering",
       "icon": "Sun",
-      "image": "/images/live/solar-hero-engineer.png",
+      "image": null,
       "bullets": [
         "US permit design",
         "Engineering support",
@@ -23,7 +23,7 @@
       "id": "bess-solutions",
       "title": "BESS Solutions",
       "icon": "BatteryCharging",
-      "image": "/images/live/bess-product.jpg",
+      "image": null,
       "bullets": [
         "Battery sourcing",
         "Integration partners",
@@ -34,7 +34,7 @@
       "id": "wind-energy",
       "title": "Wind",
       "icon": "Wind",
-      "image": "/images/live/wind mill.jpg",
+      "image": null,
       "bullets": [
         "Components",
         "Supplier sourcing",
@@ -45,7 +45,7 @@
       "id": "renewable-procurement",
       "title": "Renewable Procurement",
       "icon": "Link",
-      "image": "/images/live/future-procurement.png",
+      "image": null,
       "bullets": [
         "Global supplier identification",
         "RFQ/RFP",
@@ -161,8 +161,8 @@
   "ctaDesc": "Whether you need a solar design, a BESS solution, a renewable component or a reliable project supplier — we're here to help.",
   "contactEmail": "renewables@ofsgroupindia.com",
   "id": 1,
-  "documentId": "nijrcgygfdcc7vjx8tyf9zeq",
-  "createdAt": "2026-09-22T17:24:32.164Z",
-  "updatedAt": "2026-09-22T17:24:32.164Z",
-  "publishedAt": "2026-09-22T17:24:32.129Z"
+  "documentId": "v86h1hilhoki5cr18885pfc7",
+  "createdAt": "2026-09-27T06:58:12.808Z",
+  "updatedAt": "2026-09-27T06:58:12.808Z",
+  "publishedAt": "2026-09-27T06:58:12.754Z"
 }

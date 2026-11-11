@@ -2,7 +2,7 @@ const rawStrapiUrl =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
   process.env.STRAPI_API_URL ||
   process.env.STRAPI_URL ||
-  'http://localhost:1337';
+  'https://cms.ofsworld.com';
 
 let strapiHost = 'localhost';
 let strapiPort = '1337';
