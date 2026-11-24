@@ -27,7 +27,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.5.5",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.33",
     "tailwindcss": "^3.4.19"
-  }
+  },
+ "overrides": {
+  "postcss": "^8.5.33",
+  "postcss-selector-parser": "^6.1.5",
+  "source-map-js": "^1.2.2"
+}
 }

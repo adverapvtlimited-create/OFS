@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const job = await getJobBySlug(params.slug);
+  const { slug } = await params;
+  const job = await getJobBySlug(slug);
   if (!job) {
     return buildPageMetadata({
       title: 'Job Not Found | OFS Group India Careers',
@@ -40,7 +41,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SingleJobPage({ params }) {
-  const job = await getJobBySlug(params.slug);
+  const { slug } = await params;
+  const job = await getJobBySlug(slug);
 
   if (!job) {
     notFound();

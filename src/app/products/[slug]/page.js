@@ -60,7 +60,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const prod = await getProductBySlug(params.slug);
+  const { slug } = await params;
+  const prod = await getProductBySlug(slug);
   if (!prod) {
     return buildPageMetadata({
       title: 'Product Not Found | OFS Group India',
@@ -80,7 +81,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SingleProductPage({ params }) {
-  const prod = await getProductBySlug(params.slug);
+  const { slug } = await params;
+  const prod = await getProductBySlug(slug);
 
   if (!prod) {
     notFound();

@@ -23,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
   if (!post) {
     return buildPageMetadata({
       title: "Article Not Found | OFS Group India",
@@ -51,7 +52,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SingleBlogPage({ params }) {
-  const post = await getBlogPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();

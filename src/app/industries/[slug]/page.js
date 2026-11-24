@@ -59,7 +59,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const ind = await getIndustryBySlug(params.slug);
+  const { slug } = await params;
+  const ind = await getIndustryBySlug(slug);
   if (!ind) {
     return buildPageMetadata({
       title: "Industry Not Found | OFS Group India",
@@ -84,11 +85,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SingleIndustryPage({ params }) {
-  if (params.slug === "renewable-energy") {
+  const { slug } = await params;
+  if (slug === "renewable-energy") {
     redirect("/renewables");
   }
 
-  const ind = await getIndustryBySlug(params.slug);
+  const ind = await getIndustryBySlug(slug);
 
   if (!ind) {
     notFound();

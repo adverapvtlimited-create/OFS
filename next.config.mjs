@@ -24,6 +24,7 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion', 'gsap', 'lenis'],
   },
   images: {
+    qualities: [75, 80, 82, 85, 90, 92],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     remotePatterns: [

@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const page = await getOfferBySlug(params.slug);
+  const { slug } = await params;
+  const page = await getOfferBySlug(slug);
   if (!page) {
     return buildPageMetadata({
       title: 'Page Not Found | OFS Group India',
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function OfferSlugPage({ params }) {
-  const page = await getOfferBySlug(params.slug);
+  const { slug } = await params;
+  const page = await getOfferBySlug(slug);
   if (!page) notFound();
   return <OfferDetail page={page} />;
 }
